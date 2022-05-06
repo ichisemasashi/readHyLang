@@ -1,189 +1,15 @@
-::: {#js-flash-prototype .flash}
-::: flash__progress-bar
-:::
 
-::: container--large
-::: flash__message
-:::
 
-::: flash__close-icon
-![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBoZWlnaHQ9IjI1cHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Ym94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjI1cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGQ9Ik00MzcuNSwzODYuNkwzMDYuOSwyNTZsMTMwLjYtMTMwLjZjMTQuMS0xNC4xLDE0LjEtMzYuOCwwLTUwLjljLTE0LjEtMTQuMS0zNi44LTE0LjEtNTAuOSwwTDI1NiwyMDUuMUwxMjUuNCw3NC41ICBjLTE0LjEtMTQuMS0zNi44LTE0LjEtNTAuOSwwYy0xNC4xLDE0LjEtMTQuMSwzNi44LDAsNTAuOUwyMDUuMSwyNTZMNzQuNSwzODYuNmMtMTQuMSwxNC4xLTE0LjEsMzYuOCwwLDUwLjkgIGMxNC4xLDE0LjEsMzYuOCwxNC4xLDUwLjksMEwyNTYsMzA2LjlsMTMwLjYsMTMwLjZjMTQuMSwxNC4xLDM2LjgsMTQuMSw1MC45LDBDNDUxLjUsNDIzLjQsNDUxLjUsNDAwLjYsNDM3LjUsMzg2LjZ6Ij48L3BhdGg+PC9zdmc+){#Layer_1}
-:::
-:::
-:::
-
-::: {#react-header-root}
-:::
-
-::: {#scroll-wrapper .scroll-wrapper}
-::: {.main .ruby-main}
-::: {.fa .fa-list-ol}
-:::
-
-::: {#read-online .container--large lang="en"}
-::: read-online-slidable
-::: read-upsell
-[![A Lisp Programmer Living in Python-Land: The Hy Programming
-Language](https://d2sofvawe08yqg.cloudfront.net/hy-lisp-python/s_shelf?1620616523)](/hy-lisp-python)
-
-::: upsell-text
-::: book-title
 A Lisp Programmer Living in Python-Land: The Hy Programming Language
-:::
 
-::: book-author
+
+
 Mark Watson
-:::
-:::
-:::
 
-[Buy on Leanpub](/hy-lisp-python){.btn--solid}
 
-------------------------------------------------------------------------
-:::
 
-::: {.section .read}
-::: {#leanpub-toc}
-## Table of Contents
 
--   [Preface](#leanpub-auto-preface)
-    -   [Setting Up Your Development
-        Environment](#leanpub-auto-setting-up-your-development-environment)
-    -   [What is Lisp Programming
-        Style?](#leanpub-auto-what-is-lisp-programming-style)
-    -   [Hy is Python, But With a Lisp
-        Syntax](#leanpub-auto-hy-is-python-but-with-a-lisp-syntax)
-    -   [How This Book Reflects My Views on Artificial Intelligence and
-        the Future of Society and
-        Technology](#leanpub-auto-how-this-book-reflects-my-views-on-artificial-intelligence-and-the-future-of-society-and-technology)
-    -   [About the Book Cover](#leanpub-auto-about-the-book-cover)
-    -   [A Request from the
-        Author](#leanpub-auto-a-request-from-the-author)
-    -   [Acknowledgements](#leanpub-auto-acknowledgements)
--   [Introduction to the Hy
-    Language](#leanpub-auto-introduction-to-the-hy-language)
-    -   [We Will Often Use the Contributed **let** Macro in Book Example
-        Code](#leanpub-auto-we-will-often-use-the-contributed-let-macro-in-book-example-code)
-    -   [Using Python Libraries](#leanpub-auto-using-python-libraries)
-    -   [Global vs. Local
-        Variables](#leanpub-auto-global-vs-local-variables)
-    -   [Using Python Code in Hy
-        Programs](#leanpub-auto-using-python-code-in-hy-programs)
-    -   [Using Hy Libraries in Python
-        Programs](#leanpub-auto-using-hy-libraries-in-python-programs)
-    -   [Replacing the Python slice (cut) Notation with the Hy
-        Functional
-        Form](#leanpub-auto-replacing-the-python-slice-cut-notation-with-the-hy-functional-form)
-    -   [Iterating Through a List With Index of Each
-        Element](#leanpub-auto-iterating-through-a-list-with-index-of-each-element)
-    -   [Formatted Output](#leanpub-auto-formatted-output)
-    -   [Importing Libraries from Different Directories on Your
-        Laptop](#leanpub-auto-importing-libraries-from-different-directories-on-your-laptop)
-    -   [Using Closures](#leanpub-auto-using-closures)
-    -   [Hy Looks Like Clojure: How Similar Are
-        They?](#leanpub-auto-hy-looks-like-clojure-how-similar-are-they)
-    -   [Plotting Data Using the Numpy and the Matplotlib
-        Libraries](#leanpub-auto-plotting-data-using-the-numpy-and-the-matplotlib-libraries)
-    -   [Bonus Points: Configuration for macOS and ITerm2 for Generating
-        Plots Inline in a Hy REPL and
-        Shell](#leanpub-auto-bonus-points-configuration-for-macos-and-iterm2-for-generating-plots-inline-in-a-hy-repl-and-shell)
--   [Why Lisp?](#leanpub-auto-why-lisp)
-    -   [I Hated the Waterfall Method in the 1970s but Learned to Love a
-        Bottom-Up Programming
-        Style](#leanpub-auto-i-hated-the-waterfall-method-in-the-1970s-but-learned-to-love-a-bottom-up-programming-style)
-    -   [First Introduction to
-        Lisp](#leanpub-auto-first-introduction-to-lisp)
-    -   [Commercial Product Development and Deployment Using
-        Lisp](#leanpub-auto-commercial-product-development-and-deployment-using-lisp)
-    -   [Hy Macros Let You Extend the Hy Language in Your
-        Programs](#leanpub-auto-hy-macros-let-you-extend-the-hy-language-in-your-programs)
-    -   [Performing Bottom Up Development Inside a REPL is a Lifestyle
-        Choice](#leanpub-auto-performing-bottom-up-development-inside-a-repl-is-a-lifestyle-choice)
--   [Writing Web Applications](#leanpub-auto-writing-web-applications)
-    -   [Getting Started With Flask: Using Python Decorators in
-        Hy](#leanpub-auto-getting-started-with-flask-using-python-decorators-in-hy)
-    -   [Using Jinja2 Templates To Generate
-        HTML](#leanpub-auto-using-jinja2-templates-to-generate-html)
-    -   [Handling HTTP Sessions and
-        Cookies](#leanpub-auto-handling-http-sessions-and-cookies)
-    -   [Deploying Hy Language Flask Apps to Google Cloud Platform
-        AppEngine](#leanpub-auto-deploying-hy-language-flask-apps-to-google-cloud-platform-appengine)
-    -   [Deploying Hy Language Flask Apps to the Heroku
-        Platform](#leanpub-auto-deploying-hy-language-flask-apps-to-the-heroku-platform)
-    -   [Wrap-up](#leanpub-auto-wrap-up)
--   [Responsible Web Scraping](#leanpub-auto-responsible-web-scraping)
-    -   [Using the Python BeautifulSoup Library in the Hy
-        Language](#leanpub-auto-using-the-python-beautifulsoup-library-in-the-hy-language)
-    -   [Getting HTML Links from the DemocracyNow.org News Web
-        Site](#leanpub-auto-getting-html-links-from-the-democracynoworg-news-web-site)
-    -   [Getting Summaries of Front Page from the NPR.org News Web
-        Site](#leanpub-auto-getting-summaries-of-front-page-from-the-nprorg-news-web-site)
--   [Using the Microsoft Bing Search
-    APIs](#leanpub-auto-using-the-microsoft-bing-search-apis)
-    -   [Getting an Access Key for Microsoft Bing Search
-        APIs](#leanpub-auto-getting-an-access-key-for-microsoft-bing-search-apis)
-    -   [Example Search Script](#leanpub-auto-example-search-script)
-    -   [Wrap-up](#leanpub-auto-wrap-up-1)
--   [Deep Learning](#leanpub-auto-deep-learning)
-    -   [Simple Multi-layer Perceptron Neural
-        Networks](#leanpub-auto-simple-multi-layer-perceptron-neural-networks)
-    -   [Deep Learning](#leanpub-auto-deep-learning-1)
-    -   [Using Keras and TensorFlow to Model The Wisconsin Cancer Data
-        Set](#leanpub-auto-using-keras-and-tensorflow-to-model-the-wisconsin-cancer-data-set)
-    -   [Using a LSTM Recurrent Neural Network to Generate English Text
-        Similar to the Philosopher Nietzsche's
-        writing](#leanpub-auto-using-a-lstm-recurrent-neural-network-to-generate-english-text-similar-to-the--philosopher-nietzsches-writing)
--   [Natural Language
-    Processing](#leanpub-auto-natural-language-processing)
-    -   [Exploring the spaCy
-        Library](#leanpub-auto-exploring-the-spacy-library)
-    -   [Implementing a HyNLP Wrapper for the Python spaCy
-        Library](#leanpub-auto-implementing-a-hynlp-wrapper-for-the-python-spacy-library)
-    -   [Coreference (Anaphora
-        Resolution)](#leanpub-auto-coreference-anaphora-resolution)
-    -   [Wrap-up](#leanpub-auto-wrap-up-2)
--   [Datastores](#leanpub-auto-datastores)
-    -   [Sqlite](#leanpub-auto-sqlite)
-    -   [PostgreSQL](#leanpub-auto-postgresql)
-    -   [RDF Data Using the "rdflib" Library](#rdflibintro)
-    -   [Wrap-up](#leanpub-auto-wrap-up-3)
--   [Linked Data and the Semantic
-    Web](#leanpub-auto-linked-data-and-the-semantic-web)
-    -   [Understanding the Resource Description Framework
-        (RDF)](#leanpub-auto-understanding-the-resource-description-framework-rdf)
-    -   [Resource Namespaces Provided in
-        rdflib](#leanpub-auto-resource-namespaces-provided-in-rdflib)
-    -   [Understanding the SPARQL Query
-        Language](#leanpub-auto-understanding-the-sparql-query-language)
-    -   [Wrapping the Python **rdflib**
-        Library](#leanpub-auto-wrapping-the-python-rdflib-library)
--   [Knowledge Graph Creator](#leanpub-auto-knowledge-graph-creator)
-    -   [Recommended Industrial Use of Knowledge
-        Graphs](#leanpub-auto-recommended-industrial-use-of-knowledge-graphs)
-    -   [Design of KGCreator
-        Application](#leanpub-auto-design-of-kgcreator-application)
-    -   [Problems with using Literal Values in
-        RDF](#leanpub-auto-problems-with-using-literal-values-in-rdf)
-    -   [Revisiting This Example Using URIs Instead of Literal
-        Values](#leanpub-auto-revisiting-this-example-using-uris-instead-of-literal-values)
-    -   [Wrap-up](#leanpub-auto-wrap-up-4)
--   [Knowledge Graph Navigator](#kgn)
-    -   [Review of NLP Utilities Used in
-        Application](#leanpub-auto-review-of-nlp-utilities-used-in-application)
-    -   [Developing Low-Level Caching SPARQL
-        Utilities](#leanpub-auto-developing-low-level-caching-sparql-utilities)
-    -   [Utilities to Colorize SPARQL and Generated
-        Output](#leanpub-auto-utilities-to-colorize-sparql-and-generated-output)
-    -   [Text Utilities for Queries and
-        Results](#leanpub-auto-text-utilities-for-queries-and-results)
-    -   [Finishing the Main Function for
-        KGN](#leanpub-auto-finishing-the-main-function-for-kgn)
-    -   [Wrap-up](#leanpub-auto-wrap-up-5)
--   [Book Wrap-up](#leanpub-auto-book-wrap-up)
-:::
-
-::: {#leanpub-main .kramdown}
-## [](#leanpub-auto-preface){.anchor-link}Preface {#leanpub-auto-preface}
+## Preface
 
 While this is a book on the Hy Lisp language, we have a wider theme
 here. In an age where artificial intelligence (AI) is a driver of the
@@ -230,7 +56,7 @@ examples). Regardless of the simplicity or complexity of the examples I
 hope that you find the code interesting, useful in your projects, and
 fun to experiment with.
 
-### [](#leanpub-auto-setting-up-your-development-environment){.anchor-link}Setting Up Your Development Environment {#leanpub-auto-setting-up-your-development-environment}
+### Setting Up Your Development Environment
 
 This is a hands-on book! I expect you, dear reader, to follow along with
 the examples as you read this book. I assume that you know some Python
@@ -243,18 +69,18 @@ as you have a few packages installed.
 
 You can install the current stable version of **Hy** using:
 
-::: highlight
+
     1     pip install git+https://github.com/hylang/hy.git
-:::
+
 
 Depending on which examples you run and experiment with you will also
 need to install some of the following libraries:
 
-::: highlight
+
     1     pip install beautifulsoup4 Flask Jinja2 Keras psycopg2
     2     pip install rdflib rdflib-sqlite spacy tensorflow
     3     pip install PyInquirer
-:::
+
 
 The Hy language is under active development and it is not unusual for
 libraries and frameworks created more than a few months before the
@@ -265,7 +91,7 @@ releases. Here we stick with a few popular Python libraries like Keras,
 TensorFlow, and spaCy and otherwise we will work with mostly pure Hy
 language code in the examples.
 
-### [](#leanpub-auto-what-is-lisp-programming-style){.anchor-link}What is Lisp Programming Style? {#leanpub-auto-what-is-lisp-programming-style}
+### What is Lisp Programming Style?
 
 I will give some examples here and also show exploratory Hy language
 REPL examples later in the book. How often do you search the web for
@@ -290,14 +116,14 @@ design is that we change our minds as to what makes the most sense to
 solve a problem as we experiment with code. I try to avoid up front time
 spent on work that I will have to re-work or even toss out.
 
-### [](#leanpub-auto-hy-is-python-but-with-a-lisp-syntax){.anchor-link}Hy is Python, But With a Lisp Syntax {#leanpub-auto-hy-is-python-but-with-a-lisp-syntax}
+### Hy is Python, But With a Lisp Syntax
 
 When I need a library for a Hy project I search for Python libraries and
 either write a thin Hy language "wrapper" around the Python library or
 just call the Python APIs directly from Hy code. You will see many
 examples of both approaches in this book.
 
-### [](#leanpub-auto-how-this-book-reflects-my-views-on-artificial-intelligence-and-the-future-of-society-and-technology){.anchor-link}How This Book Reflects My Views on Artificial Intelligence and the Future of Society and Technology {#leanpub-auto-how-this-book-reflects-my-views-on-artificial-intelligence-and-the-future-of-society-and-technology}
+### How This Book Reflects My Views on Artificial Intelligence and the Future of Society and Technology
 
 Since starting work on AI in 1982 I have seen the field progress from a
 niche technology where even international conferences had small
@@ -324,14 +150,14 @@ knowledge representation.
 
 I hope you find that Hy meets your needs as it does my own.
 
-### [](#leanpub-auto-about-the-book-cover){.anchor-link}About the Book Cover {#leanpub-auto-about-the-book-cover}
+### About the Book Cover
 
 The official Hy Language logo is an octopus:
 
-::: {.figure-wrapper .center}
+
 ![The Hy Language logo Cuddles by Karen
-Rustad](/site_images1/hy-lisp-python/hylisplogo.jpg){style="width: 100%"}
-:::
+Rustad](/site_images1/hy-lisp-python/hylisplogo.jpg)
+
 
 Usually I use photographs that I take myself for covers of my LeanPub
 books. Although I have SCUBA dived since I was 13 years old, sadly I
@@ -340,7 +166,7 @@ public domain picture I liked (that is the cover of this book) on
 Wikimedia. **Cover Credit**: Thanks to Wikimedia user Pseudopanax for
 placing the cover image in the public domain.
 
-### [](#leanpub-auto-a-request-from-the-author){.anchor-link}A Request from the Author {#leanpub-auto-a-request-from-the-author}
+### A Request from the Author
 
 I spent time writing this book to help you, dear reader. I release this
 book under the Creative Commons "share and share alike, no
@@ -359,7 +185,7 @@ future updates to this book:
 I enjoy writing and your support helps me write new editions and updates
 for my books and to develop new book projects. Thank you!
 
-### [](#leanpub-auto-acknowledgements){.anchor-link}Acknowledgements {#leanpub-auto-acknowledgements}
+### Acknowledgements
 
 I thank my wife Carol for editing this manuscript, finding typos, and
 suggesting improvements.
@@ -369,7 +195,7 @@ suggestions. I would like to thank Carlos Ungil for catching a typo and
 reporting it. I would like to thank Jud Taylor for finding several typo
 errors.
 
-## [](#leanpub-auto-introduction-to-the-hy-language){.anchor-link}Introduction to the Hy Language {#leanpub-auto-introduction-to-the-hy-language}
+## Introduction to the Hy Language
 
 The [Hy programming language](http://docs.hylang.org/en/stable/) is a
 Lisp language that inter-operates smoothly with Python. We start with a
@@ -382,11 +208,11 @@ Python ecosystem and general tools like **pip**.
 
 Please start by installing Hy in your current Python environment:
 
-::: highlight
-    pip install git+https://github.com/hylang/hy.git
-:::
 
-### [](#leanpub-auto-we-will-often-use-the-contributed-let-macro-in-book-example-code){.anchor-link}We Will Often Use the Contributed **let** Macro in Book Example Code {#leanpub-auto-we-will-often-use-the-contributed-let-macro-in-book-example-code}
+    pip install git+https://github.com/hylang/hy.git
+
+
+### We Will Often Use the Contributed **let** Macro in Book Example Code
 
 In Scheme, Clojure, and Common Lisp languages the **let** special form
 is used to define blocks of code with local variables and functions. I
@@ -395,11 +221,11 @@ for a built-in special form in most examples in this book, but I might
 not include the **require** in short code listings. Always assume that
 the following lines start each example:
 
-::: highlight
+
     1 #!/usr/bin/env hy
     2 
     3 (require [hy.contrib.walk [let]])
-:::
+
 
 Line 1 is similar to how we make Python scripts into runnable programs.
 Here we run **hy** instead of **python**. Line 3 imports the **let**
@@ -407,7 +233,7 @@ macro. We will occasionally use **let** for code blocks with local
 variable and function definitions and also for using closures (I will
 cover closures at the end of this chapter):
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (require [hy.contrib.walk [let]])
@@ -419,22 +245,22 @@ cover closures at the end of this chapter):
      9     (setv x 44)
     10     (print x))
     11   (print x))
-:::
+
 
 The output is:
 
-::: highlight
+
     1
     33
     44
     1
-:::
+
 
 Notice that setting a new value for **x** in the inner **let**
 expression does not change the value bound to the variable **x** in the
 outer **let** expression.
 
-### [](#leanpub-auto-using-python-libraries){.anchor-link}Using Python Libraries {#leanpub-auto-using-python-libraries}
+### Using Python Libraries
 
 Using Python libraries like TensorFlow, Keras, BeautifulSoup, etc. are
 the reason I use the Hy language. Importing Python code and libraries
@@ -447,14 +273,14 @@ BeautifulSoup library. We will look at some Python code snippets and the
 corresponding Hy language versions of these snippets. Let's first look
 at a Python example that we will then convert to Hy:
 
-::: highlight
+
     1 from bs4 import BeautifulSoup
     2 
     3 raw_data = '<html><body><a href="http://markwatson.com">Mark</a></body></html>'
     4 soup = BeautifulSoup(raw_data)
     5 a_tags = soup.find_all("a")
     6 print("a tags:", a_tags)
-:::
+
 
 In the following listing notice how we import other code and libraries
 in Hy. The special form **setv** is used to define variables in a local
@@ -462,7 +288,7 @@ context. Since the **setv** statements in lines 3, 5, and 6 are used at
 the top level, they are global in the Python/Hy module named after the
 root name of the source file.
 
-::: highlight
+
      1 $ hy
      2 hy 0.18.0 using CPython(default) 3.7.4 on Darwin
      3 => (import [bs4 [BeautifulSoup]])
@@ -483,7 +309,7 @@ root name of the source file.
     18 mul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', '\
     19 __weakref__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop'\
     20 , 'remove', 'reverse', 'sort', 'source']
-:::
+
 
 Notice in lines 3 and 6 that we can have "-" characters inside of
 variable and function names (**raw-data** and **find-all** in this case)
@@ -491,14 +317,14 @@ in the Hy language where we might use "\_" underscore characters in
 Python. Like Python, we can use **type** get get the type of a value and
 **dir** to see what symbols are available for a object.
 
-### [](#leanpub-auto-global-vs-local-variables){.anchor-link}Global vs. Local Variables {#leanpub-auto-global-vs-local-variables}
+### Global vs. Local Variables
 
 Although I don't generally recommend it, sometimes it is convenient to
 export local variables defined with **setv** or in a **let** macro
 expansion to be global variables in the context of the current module
 (that is defined by the current source file). As an example:
 
-::: highlight
+
      1 Marks-MacBook:deeplearning $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (defn foo []
@@ -510,47 +336,47 @@ expansion to be global variables in the context of the current module
      9 => x
     10 1
     11 => 
-:::
+
 
 Before executing function **foo** the global variable **x** is undefined
 (unless you coincidentally already defined somewhere else). When
 function **foo** is called, a global variable **x** is defined and then
 it equal to the value 1.
 
-### [](#leanpub-auto-using-python-code-in-hy-programs){.anchor-link}Using Python Code in Hy Programs {#leanpub-auto-using-python-code-in-hy-programs}
+### Using Python Code in Hy Programs
 
 If there is a Python source file, named for example, *test.py* in the
 same directory as a Hy language file:
 
-::: highlight
+
     1 def factorial (n):
     2   if n < 2:
     3     return 1
     4   return n * factorial(n - 1)
-:::
+
 
 This code will be in a module named **test** because that is the root
 source code file name. We might import the Python code using the
 following in Python:
 
-::: highlight
+
     1 import test
     2 
     3 print(test.factorial(5))
-:::
+
 
 and we can use the following in Hy to import the Python module **test**
 (defined in *test.py*):
 
-::: highlight
+
     1 (import test)
     2 
     3 (print (test.factorial 5))
-:::
+
 
 Running this interactively in Hy:
 
-::: highlight
+
     1 $ hy
     2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
     3 => (import test)
@@ -558,17 +384,17 @@ Running this interactively in Hy:
     5 <module 'test' from '/Users/markw/GITHUB/hy-lisp-python/test.py'>
     6 => (print (test.factorial 5))
     7 120
-:::
+
 
 If we only wanted to import **BeautifulSoup** from the Python
 BeautifulSoup library **bs4** we can specify this in the **import**
 form:
 
-::: highlight
-    1 (import [bs4 [BeautifulSoup]])
-:::
 
-### [](#leanpub-auto-using-hy-libraries-in-python-programs){.anchor-link}Using Hy Libraries in Python Programs {#leanpub-auto-using-hy-libraries-in-python-programs}
+    1 (import [bs4 [BeautifulSoup]])
+
+
+### Using Hy Libraries in Python Programs
 
 There is nothing special about importing and using Hy library code or
 your own Hy scripts in Python programs. The directory
@@ -581,7 +407,7 @@ function defined in Hy:
 
 **get_web_page.hy:**
 
-::: highlight
+
      1 (import argparse os)
      2 (import [urllib.request [Request urlopen]])
      3 
@@ -594,7 +420,7 @@ function defined in Hy:
     10 
     11 (defn main_hy []
     12   (print (get-raw-data-from-web "http://markwatson.com")))
-:::
+
 
 We define two functions here. Notice the optional argument **anAgent**
 defined in lines 4-5 where we provide a default value in case the
@@ -607,23 +433,23 @@ Hy is the same as Python once it is compiled to an abstract syntax tree
 
 **hy-lisp-python/use_in_python:**
 
-::: highlight
+
     1 import hy
     2 from get_web_page import main_hy
     3 
     4 main_hy()
-:::
+
 
 What I want you to understand and develop a feeling for is that Hy and
 Python are really the same but with a different syntax and that both
 languages can easily be used side by side.
 
-### [](#leanpub-auto-replacing-the-python-slice-cut-notation-with-the-hy-functional-form){.anchor-link}Replacing the Python slice (cut) Notation with the Hy Functional Form {#leanpub-auto-replacing-the-python-slice-cut-notation-with-the-hy-functional-form}
+### Replacing the Python slice (cut) Notation with the Hy Functional Form
 
 In Python we use a special notation for extracting sub-sequences from
 lists or strings:
 
-::: highlight
+
     $ python
     Python 3.7.3 (default, Mar 27 2019, 16:54:48) 
     >>> s = '0123456789'
@@ -634,11 +460,11 @@ lists or strings:
     >>> s[-4:-1]
     '678'
     >>> 
-:::
+
 
 In Hy this would be:
 
-::: highlight
+
     $ hy
     hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
     => (setv s "0123456789")
@@ -649,12 +475,12 @@ In Hy this would be:
     => (cut s -4 -1)
     '678'
     => 
-:::
+
 
 It also works to use **cut** with **setv** to destructively change a
 list; for example:
 
-::: highlight
+
     => (setv x [0 1 2 3 4 5 6 7 8])
     => x
     [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -663,14 +489,14 @@ list; for example:
     => (setv (cut x 2 4) [22 33])
     => x
     [0, 1, 22, 33, 4, 5, 6, 7, 8]
-:::
 
-### [](#leanpub-auto-iterating-through-a-list-with-index-of-each-element){.anchor-link}Iterating Through a List With Index of Each Element {#leanpub-auto-iterating-through-a-list-with-index-of-each-element}
+
+### Iterating Through a List With Index of Each Element
 
 We will use **lfor** as a form of Python list comprehension; for
 example:
 
-::: highlight
+
      1 => (setv sentence "The ball rolled")
      2 => (lfor i (enumerate sentence) i)
      3 [(0, 'T'), (1, 'h'), (2, 'e'), (3, ' '), (4, 'b'), (5, 'a'), (6, 'l'), (7, 'l'), (8,\
@@ -697,7 +523,7 @@ example:
     24 13 e
     25 14 d
     26 => 
-:::
+
 
 On line 2, the expression **(enumerate sentence)** generates one
 character at a time from a string. **enumerate** operating on a list
@@ -710,7 +536,7 @@ two values. The values in each tuple are copied into binding variables
 in the list **\[a b\]**. We could have used the following code instead
 but it is more verbose:
 
-::: highlight
+
     => (for [x vv]
         (setv a (first x))
         (setv b (second x))
@@ -724,9 +550,9 @@ but it is more verbose:
     13 e
     14 d
     => 
-:::
 
-### [](#leanpub-auto-formatted-output){.anchor-link}Formatted Output {#leanpub-auto-formatted-output}
+
+### Formatted Output
 
 I suggest using the Python **format** method when you need to format
 output. In the following repl listing, you can see a few formatting
@@ -738,7 +564,7 @@ expressed as (in line 9 the object "cat" is expressed as just the first
 two characters and the value 3.14159 is expressed as just three numbers,
 the period not counting).
 
-::: highlight
+
     $ hy
     hy 0.18.0 using CPython(default) 3.7.4 on Darwin
     => (.format "first: {} second: {}" "cat" 3.14159)
@@ -750,12 +576,12 @@ the period not counting).
     => (.format "first: {:.2} second: {:.3}" "cat" 3.14159)
     'first: ca second: 3.14'
     => 
-:::
+
 
 Notice the calling **.format** here returns a string value rather than
 writing to an output stream.
 
-### [](#leanpub-auto-importing-libraries-from-different-directories-on-your-laptop){.anchor-link}Importing Libraries from Different Directories on Your Laptop {#leanpub-auto-importing-libraries-from-different-directories-on-your-laptop}
+### Importing Libraries from Different Directories on Your Laptop
 
 I usually write applications by first implementing simpler low-level
 utility libraries that are often not in the same directory path as the
@@ -764,7 +590,7 @@ accessing the library **nlp_lib.hy** in the directory
 **hy-lisp-python/nlp** from the directory
 **hy-lisp-python/webscraping**:
 
-::: highlight
+
      1 Marks-MacBook:hy-lisp-python $ pwd
      2 /Users/markw/GITHUB/hy-lisp-python
      3 Marks-MacBook:hy-lisp-python $ cd webscraping 
@@ -782,7 +608,7 @@ accessing the library **nlp_lib.hy** in the directory
     15 {'corefs': 'President George Bush went to Mexico and President George Bush had a ver\
     16 y good meal',  ...  }}}
     17 => 
-:::
+
 
 Here I did not install the library **nlp_lib.hy** using Python
 setuptools (which I don't cover in this book, you can [read the
@@ -794,13 +620,13 @@ On line 6 I am inserting the library directory into the Python system
 load path so the import statement on line 8 can find the **nlp-lib**
 library and on line 13 can find the **coref-nlp-lib** library.
 
-### [](#leanpub-auto-using-closures){.anchor-link}Using Closures {#leanpub-auto-using-closures}
+### Using Closures
 
 Function definitions can capture values defined outside of a function
 and even change the captured value as seen in this example (file
 **closure_example.hy** in the directory **hy-lisp-python/misc**):
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (require [hy.contrib.walk [let]])
@@ -813,15 +639,15 @@ and even change the captured value as seen in this example (file
     10 (print (increment))
     11 (print (increment))
     12 (print (increment))
-:::
+
 
 That produces:
 
-::: highlight
+
     2
     3
     4
-:::
+
 
 Using closures is often a good alternative to object oriented
 programming for maintaining private state that only one or a few
@@ -834,7 +660,7 @@ effectively hides the variables defined in the **let** statement from
 code outside of the let statement but the functions are accessible from
 outside the **let** statement.
 
-### [](#leanpub-auto-hy-looks-like-clojure-how-similar-are-they){.anchor-link}Hy Looks Like Clojure: How Similar Are They? {#leanpub-auto-hy-looks-like-clojure-how-similar-are-they}
+### Hy Looks Like Clojure: How Similar Are They?
 
 [Clojure](https://clojure.org/) is a dynamic general purpose Lisp
 language for the JVM. One of the great Clojure features is support of
@@ -860,7 +686,7 @@ in 2015 interviews Hy developers Paul Tagliamonte, Tuukka Turto, and
 Morten Linderud. You can see the [current Hy contributer list on
 github](https://github.com/hylang/hy/graphs/contributors).
 
-### [](#leanpub-auto-plotting-data-using-the-numpy-and-the-matplotlib-libraries){.anchor-link}Plotting Data Using the Numpy and the Matplotlib Libraries {#leanpub-auto-plotting-data-using-the-numpy-and-the-matplotlib-libraries}
+### Plotting Data Using the Numpy and the Matplotlib Libraries
 
 Data visualization is a common task when working with numeric data. In a
 later chapter on Deep Learning we will use two functions, the **relu**
@@ -873,7 +699,7 @@ pass either a single floating point number or a Numpy array as an
 argument. When we pass a Numpy array, then the function **sigmoid** is
 applied to each element of the Numpy array:
 
-::: highlight
+
      1 $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import [numpy :as np])
@@ -890,13 +716,13 @@ applied to each element of the Numpy array:
     14 => (sigmoid (np.array [-5 -2 0 2 5]))
     15 array([0.00669285, 0.11920292, 0.5, 0.88079708, 0.99330715])
     16 => 
-:::
+
 
 The git repository directory **hy-lisp-python/matplotlib** contains two
 similar scripts for plotting the **sigmoid** and **relu** functions.
 Here is the script to plot the **sigmoid** function:
 
-::: highlight
+
      1 (import [numpy :as np])
      2 (import [matplotlib.pyplot :as plt])
      3 
@@ -910,17 +736,17 @@ Here is the script to plot the **sigmoid** function:
     11 (plt.xlabel "X")
     12 (plt.grid)
     13 (plt.show)
-:::
+
 
 The generated plot looks like this on macOS (Matplotlib is portable and
 also works on Windows and Linux):
 
-::: {.figure-wrapper .center}
-![Sigmoid
-Function](/site_images1/hy-lisp-python/sigmoid.png){style="width: 100%"}
-:::
 
-### [](#leanpub-auto-bonus-points-configuration-for-macos-and-iterm2-for-generating-plots-inline-in-a-hy-repl-and-shell){.anchor-link}Bonus Points: Configuration for macOS and ITerm2 for Generating Plots Inline in a Hy REPL and Shell {#leanpub-auto-bonus-points-configuration-for-macos-and-iterm2-for-generating-plots-inline-in-a-hy-repl-and-shell}
+![Sigmoid
+Function](/site_images1/hy-lisp-python/sigmoid.png)
+
+
+### Bonus Points: Configuration for macOS and ITerm2 for Generating Plots Inline in a Hy REPL and Shell
 
 On the macOS ITerm2 terminal app and on most Linux terminal apps, it is
 possible to get inline matplotlib plots in a shell (bash, zsh, etc.), in
@@ -928,38 +754,38 @@ Emacs, etc. This will take some setup work but it is well worth it
 especially if you work on remote servers via SSH or tmux. Here is the
 setup for macOS:
 
-::: highlight
+
     1   pip3 install itermplot
-:::
+
 
 The add the following to your .profile, .bash_profile, or .zshrc
 (depending on your shell setup):
 
-::: highlight
+
     1   export MPLBACKEND="module://itermplot"
-:::
+
 
 Here we run an example from the last section in a zsh shell (bash, etc.
 also should work):
 
-::: {.figure-wrapper .center}
+
 ![Inline matplotlib use in zsh shell in an ITerm on
-macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib.png){style="width: 100%"}
-:::
+macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib.png)
+
 
 The best part of generating inline plots is during interactive
 REPL-based coding sessions:
 
-::: {.figure-wrapper .center}
+
 ![Inline matplotlib use in a Hy REPL on
-macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib2.png){style="width: 100%"}
-:::
+macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib2.png)
+
 
 If you use a Mac laptop to SSH into a remote Linux server you need to
 install **itermplot** and set the environment variable **MPLBACKEND** on
 the remote server.
 
-## [](#leanpub-auto-why-lisp){.anchor-link}Why Lisp? {#leanpub-auto-why-lisp}
+## Why Lisp?
 
 Now that we have learned the basics of the Hy Lisp language in the last
 chapter, I would like to move our conversation to a broader question of
@@ -968,7 +794,7 @@ of why I turned to Lisp languages in the late 1970s for almost all of my
 creative and research oriented development and later transitioned to
 also using Lisp languages in production.
 
-### [](#leanpub-auto-i-hated-the-waterfall-method-in-the-1970s-but-learned-to-love-a-bottom-up-programming-style){.anchor-link}I Hated the Waterfall Method in the 1970s but Learned to Love a Bottom-Up Programming Style {#leanpub-auto-i-hated-the-waterfall-method-in-the-1970s-but-learned-to-love-a-bottom-up-programming-style}
+### I Hated the Waterfall Method in the 1970s but Learned to Love a Bottom-Up Programming Style
 
 I graduated UCSB in the mid 1970s with a degree in Physics and took a
 job as a scientific programmer in the 100% employee owned company SAIC.
@@ -1000,7 +826,7 @@ adopting a bottom-up style that involves first writing low level
 libraries and utilities and then layering complete programs on top of
 well tested low level code.
 
-### [](#leanpub-auto-first-introduction-to-lisp){.anchor-link}First Introduction to Lisp {#leanpub-auto-first-introduction-to-lisp}
+### First Introduction to Lisp
 
 In the late 1970s I discovered a Lisp implementation on my company's
 DECsystem-10 timesharing computer. I had heard of Lisp in reading
@@ -1014,7 +840,7 @@ learn Lisp on our DECsystem-10.
 Lisp is the perfect language to support the type of bottom-up iterative
 programming style that I like.
 
-### [](#leanpub-auto-commercial-product-development-and-deployment-using-lisp){.anchor-link}Commercial Product Development and Deployment Using Lisp {#leanpub-auto-commercial-product-development-and-deployment-using-lisp}
+### Commercial Product Development and Deployment Using Lisp
 
 My company, SAIC, identified AI as an important technology in the early
 1980s. Two friends at work (Bob Beyster who founded SAIC and Joe Walkush
@@ -1034,7 +860,7 @@ Even though I proceeded to use C++ for much of my development, as well
 as writing C++ books for McGraw-Hill and J. Riley publishers, Lisp
 remained my "thinking and research" language.
 
-### [](#leanpub-auto-hy-macros-let-you-extend-the-hy-language-in-your-programs){.anchor-link}Hy Macros Let You Extend the Hy Language in Your Programs {#leanpub-auto-hy-macros-let-you-extend-the-hy-language-in-your-programs}
+### Hy Macros Let You Extend the Hy Language in Your Programs
 
 In my work I seldom use macros since I mostly write application type
 programs. Macros are useful for extending the syntax allowed for
@@ -1046,14 +872,14 @@ evaluating them. In the following example I want to write a macro
 undefined symbols. For example, if the variable **x** is undefined, then
 trying to evaluate **(print x 1)** will throw an error like:
 
-::: highlight
+
     1     NameError: name 'x' is not defined
-:::
+
 
 The following listing shows my experiments in a Hy REPL to write the
 macro **all-to-string**:
 
-::: highlight
+
      1 $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (list (map str ["a" 4]))
@@ -1078,7 +904,7 @@ macro **all-to-string**:
     22 => (all-to-string the boy "ran" to get 1 "new" helmet)
     23 'the boy ran to get 1 new helmet'
     24 => 
-:::
+
 
 My first try in line 7 did not work, the macro just returning a function
 that echos the arguments but throws an error (line 50) when one of the
@@ -1086,7 +912,7 @@ arguments is a symbol with no definition. The second try on line 16
 works as intended because we are mapping the function **str** (which
 coerces any argument into a string) over the argument list.
 
-### [](#leanpub-auto-performing-bottom-up-development-inside-a-repl-is-a-lifestyle-choice){.anchor-link}Performing Bottom Up Development Inside a REPL is a Lifestyle Choice {#leanpub-auto-performing-bottom-up-development-inside-a-repl-is-a-lifestyle-choice}
+### Performing Bottom Up Development Inside a REPL is a Lifestyle Choice
 
 It is my personal choice to prefer a bottom up style of coding,
 effectively extending the Hy (or other Lisp) language to look like
@@ -1110,7 +936,7 @@ mistakes early, often a misunderstanding of the type or values of
 intermediate calculations. This style of coding works for me and I hope
 you like it also.
 
-## [](#leanpub-auto-writing-web-applications){.anchor-link}Writing Web Applications {#leanpub-auto-writing-web-applications}
+## Writing Web Applications
 
 Python has good libraries and frameworks for building web applications
 and here we will use the **Flask** library and framework "under the
@@ -1135,20 +961,20 @@ apps in the simplest way possible. We will close this chapter by
 discussing how to use the Heroku and Google Cloud Platform AppEngine
 platforms.
 
-### [](#leanpub-auto-getting-started-with-flask-using-python-decorators-in-hy){.anchor-link}Getting Started With Flask: Using Python Decorators in Hy {#leanpub-auto-getting-started-with-flask-using-python-decorators-in-hy}
+### Getting Started With Flask: Using Python Decorators in Hy
 
 You will need to install Flask using:
 
-::: highlight
+
     pip install flask
-:::
+
 
 We will use the Hy macro **with-decorator** to replace Python code with
 annotations. Here the decorator **\@app.route** is used to map a URI
 pattern with a Python callback function. In the following case we define
 the behavior when the index page of a web app is accessed:
 
-::: highlight
+
     1 from flask import Flask
     2 
     3 @app.route('/')
@@ -1156,14 +982,14 @@ the behavior when the index page of a web app is accessed:
     5      return "Hello World !")
     6 
     7 app.run()
-:::
+
 
 I first used Flask with the Hy language after seeing a post of code from
 HN user "volent", seen in the file **flask_test.hy** in the directory
 **hy-lisp-python/webapp** that is functionally equivalent to the above
 Python code snippet:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 ;; snippet by HN user volent:
@@ -1175,7 +1001,7 @@ Python code snippet:
      9   (defn index []
     10     "Hello World !"))
     11 (app.run)
-:::
+
 
 The Hy macro **with-decorator** macro is used to use Python style
 decorators in Hy applications.
@@ -1184,7 +1010,7 @@ I liked this example and after experimenting with the code, I then
 started using Hy and Flask. Please try running this example to make sure
 you are setup properly with Flask:
 
-::: highlight
+
     (base) Marks-MacBook:webapp $ ./flask_test.hy 
      * Serving Flask app "Flask test" (lazy loading)
      * Environment: production
@@ -1192,16 +1018,16 @@ you are setup properly with Flask:
        Use a production WSGI server instead.
      * Debug mode: off
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-:::
+
 
 Open <http://127.0.0.1:5000/> in your web browser:
 
-::: {.figure-wrapper .center}
-![Hello world Flask web
-app](/site_images1/hy-lisp-python/flask1.jpg){style="width: 100%"}
-:::
 
-### [](#leanpub-auto-using-jinja2-templates-to-generate-html){.anchor-link}Using Jinja2 Templates To Generate HTML {#leanpub-auto-using-jinja2-templates-to-generate-html}
+![Hello world Flask web
+app](/site_images1/hy-lisp-python/flask1.jpg)
+
+
+### Using Jinja2 Templates To Generate HTML
 
 [Jinja2](https://pypi.org/project/Jinja2/) is a templating system that
 allows HTML markup to be supplemented with Python variable references
@@ -1214,7 +1040,7 @@ By default Jinja2 templates are stored in a subdirectory named
 **templates**. The template for this example can be found in the file
 **hy-lisp-python/webapp/templates/template1.j2** that is shown here:
 
-::: highlight
+
      1 <html>
      2   <head>
      3     <title>Testing Jinja2 and Flask with the Hy language</title>
@@ -1232,7 +1058,7 @@ By default Jinja2 templates are stored in a subdirectory named
     15     </form>
     16   </body>
     17 </html>
-:::
+
 
 Note that in line 6 we are using a Python **if** expression to check if
 the variable **name** is defined in the current app execution context.
@@ -1240,16 +1066,16 @@ the variable **name** is defined in the current app execution context.
 In the context of a running Flask app, the following will render the
 above template with the variable **name** defined as **None**:
 
-::: highlight
+
     1 (render_template "template1.j2")
-:::
+
 
 We can set values as named parameters for variables used in the
 template, for example:
 
-::: highlight
+
     1 (render_template "template1.j2" :name "Mark")
-:::
+
 
 I am assuming that you understand the basics or HTML and also GET and
 POST operations in HTTP requests.
@@ -1258,7 +1084,7 @@ The following Flask web app defines behavior for rendering the template
 without the variable **name** set and also a HTML POST handler to pass
 the name entered on the HTML form back to the POST response handler:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [flask [Flask render_template request]])
@@ -1276,7 +1102,7 @@ the name entered on the HTML form back to the POST response handler:
     15     (render_template "template1.j2" :name name)))
     16 
     17 (app.run)
-:::
+
 
 Please note that there is nothing special about the names inside the
 **with-decorator** code blocks: the functions **index** and **response**
@@ -1286,46 +1112,46 @@ functions do.
 
 Open <http://127.0.0.1:5000/> in your web browser:
 
-::: {.figure-wrapper .center}
-![Flask web app using a Jinja2
-Template](/site_images1/hy-lisp-python/flask2.jpg){style="width: 100%"}
-:::
 
-::: {.figure-wrapper .center}
+![Flask web app using a Jinja2
+Template](/site_images1/hy-lisp-python/flask2.jpg)
+
+
+
 ![Flask web app using a Jinja2 Template after entering my name and
 submitting the HTML input
-form](/site_images1/hy-lisp-python/flask3.jpg){style="width: 100%"}
-:::
+form](/site_images1/hy-lisp-python/flask3.jpg)
 
-### [](#leanpub-auto-handling-http-sessions-and-cookies){.anchor-link}Handling HTTP Sessions and Cookies {#leanpub-auto-handling-http-sessions-and-cookies}
+
+### Handling HTTP Sessions and Cookies
 
 There is a special variable **session** that Flask maintains for each
 client of a Flask web app. Different people using a web app will have
 independent sessions. In a web app, we can set a session value by
 treating the session for a given user as a dictionary:
 
-::: highlight
+
     => (setv (get session "name") "Mark")
     => session
     {'name': 'Mark'}
-:::
+
 
 Inside a Jinja2 template you can use a simple Python expression to place
 a session variable's value into the HTML generated from a template:
 
-::: highlight
+
     {{ session['name'] }}
-:::
+
 
 In a web app you can access the session using:
 
-::: highlight
+
     (get session "name")
-:::
+
 
 In order to set the value of a named cookie, we can:
 
-::: highlight
+
     1 (import [flask [Flask render_template request make_response]])
     2 
     3 (with-decorator (app.route "/response" :methods ["POST"])
@@ -1334,20 +1160,20 @@ In order to set the value of a named cookie, we can:
     6     (setv resp (make_reponse (render_template "template1.j2" :name name)))
     7     (resp.set_cookie "name" name)
     8     resp))
-:::
+
 
 Values of named cookies can be retrieved using:
 
-::: highlight
+
     (request.cookies.get "name")
-:::
+
 
 inside of a **with-decorator** form. The value for **request** is
 defined in the execution context by Flask when handling HTTP requests.
 Here is a complete example of handling cookies in the file
 *cookie_test.hy*:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [flask [Flask render_template request make-response]])
@@ -1370,13 +1196,13 @@ Here is a complete example of handling cookies in the file
     20     a-response))
     21 
     22 (app.run)
-:::
+
 
 I suggest that you not only try running this example as-is but also try
 changing the template, and generally experiment with the code. Making
 even simple code changes helps to understand the code better.
 
-### [](#leanpub-auto-deploying-hy-language-flask-apps-to-google-cloud-platform-appengine){.anchor-link}Deploying Hy Language Flask Apps to Google Cloud Platform AppEngine {#leanpub-auto-deploying-hy-language-flask-apps-to-google-cloud-platform-appengine}
+### Deploying Hy Language Flask Apps to Google Cloud Platform AppEngine
 
 The example for this section is in a [separate github
 repository](https://github.com/mark-watson/hy-lisp-gcp-starter-project)
@@ -1390,7 +1216,7 @@ code.
 
 Here is the Python stub main program:
 
-::: highlight
+
     1 import hy
     2 import flask_test
     3 from flask_test import app
@@ -1399,13 +1225,13 @@ Here is the Python stub main program:
     6     # Used when running locally only. When deploying to Google App
     7     # Engine, a webserver process such as Gunicorn will serve the app.
     8     app.run(host='localhost', port=9090, debug=True)
-:::
+
 
 The Hy app is slightly different than we saw in the last section. On
 line 6 we specify the location of static assets and we do not call the
 **run()** method on the **app** object.
 
-::: highlight
+
      1 (import [flask [Flask render_template request]])
      2 (import os)
      3 
@@ -1421,7 +1247,7 @@ line 6 we specify the location of static assets and we do not call the
     13   (defn response []
     14     (setv name (request.form.get "name"))
     15     (render_template "template1.j2" :name name)))
-:::
+
 
 I assume that you have some experience with GCP and have the following:
 
@@ -1433,36 +1259,36 @@ I assume that you have some experience with GCP and have the following:
 After cloning or otherwise copying this project, you use the command
 line tools to deploy and test your Flask app:
 
-::: highlight
+
     gcloud auth login
     gcloud config set project hy-gcp-test
     gcloud app deploy
     gcloud app browse
-:::
+
 
 If you have problems, look at your logs:
 
-::: highlight
+
     gcloud app logs tail -s default
-:::
+
 
 You can edit changes locally and test locally using:
 
-::: highlight
+
     python main.py
-:::
+
 
 Any changes can be tested by deploying again:
 
-::: highlight
+
     gcloud app deploy
-:::
+
 
 Please note that everytime you deploy, a new instance is created. You
 will want to use the GCP AppEngine console to remove old instances, and
 remove all instances when you are done.
 
-#### [](#leanpub-auto-going-forward){.anchor-link}Going forward {#leanpub-auto-going-forward}
+#### Going forward
 
 You can make a copy of this example, create a github repo, and follow
 the above directions as a first step to creating Hy language application
@@ -1474,7 +1300,7 @@ including:
 -   Big Data.
 -   Machine Learning.
 
-### [](#leanpub-auto-deploying-hy-language-flask-apps-to-the-heroku-platform){.anchor-link}Deploying Hy Language Flask Apps to the Heroku Platform {#leanpub-auto-deploying-hy-language-flask-apps-to-the-heroku-platform}
+### Deploying Hy Language Flask Apps to the Heroku Platform
 
 The example for this section is in a [separate github
 repository](https://github.com/mark-watson/hy-lisp-heroku-starter-project)
@@ -1484,19 +1310,19 @@ to deploy to the Heroku platform.
 We use a Python stub program **wsgi.python** to make our Flask app work
 with the WSGI interface that Heroku uses:
 
-::: highlight
+
     import hy
     import flask_test
     from flask_test import app
-:::
+
 
 The Heroku platform will call the **run()** method on the imported
 **app** object because of the settings in the Heroku **Proc** file for
 this project:
 
-::: highlight
+
     web: gunicorn 'wsgi:app' --log-file -
-:::
+
 
 Here we are stating to the Heroku platform that we want the
 production-friendly **gunicorn** server to call the **run()** method on
@@ -1506,7 +1332,7 @@ module name is the prefix name of the Python WSGI handler file).
 The Hy Flask app has a few changes from earlier examples. All changes
 are in line 3:
 
-::: highlight
+
      1 (import [flask [Flask render_template request]])
      2 
      3 (setv app (Flask "Flask test" :static_folder "./static" :static_url_path "/"))
@@ -1520,7 +1346,7 @@ are in line 3:
     11     (setv name (request.form.get "name"))
     12     (print name)
     13     (render_template "template1.j2" :name name)))
-:::
+
 
 You need to install the Heroku command line tools:
 
@@ -1528,26 +1354,26 @@ You need to install the Heroku command line tools:
 
 After checking out this repo, do the following from this directory:
 
-::: highlight
+
     heroku login
     heroku create
     git push heroku master
-:::
+
 
 If you have your Heroku account setup these commands will deploy this
 example.
 
 You can look at the Heroku log files for your application using:
 
-::: highlight
+
     heroku logs --tail
-:::
+
 
 You can open this Hello World app in your default web browser using:
 
-::: highlight
+
     heroku open
-:::
+
 
 By default, your Hello World app will run on the free Heroku mode. You
 should still remove it when you are done:
@@ -1558,23 +1384,23 @@ should still remove it when you are done:
 -   scroll to the bottom of the page and use the option to delete the
     app
 
-#### [](#leanpub-auto-going-forward-1){.anchor-link}Going forward {#leanpub-auto-going-forward-1}
+#### Going forward
 
 You can make a copy of this example, create a github repo, and follow
 the above directions.
 
 To test your Heroku setup locally or for development, you can use:
 
-::: highlight
+
     heroku local
-:::
+
 
 The Heroku platform has a wide variety of supported services, including
 many third party services like [data
 services](https://www.heroku.com/managed-data-services) and [Heroku and
 third party addons](https://elements.heroku.com/addons).
 
-### [](#leanpub-auto-wrap-up){.anchor-link}Wrap-up {#leanpub-auto-wrap-up}
+### Wrap-up
 
 I like to be able to implement simple things simply, without a lot of
 ceremony. Once you work through these examples I hope you feel that you
@@ -1594,7 +1420,7 @@ for Python and Hy I use Python's **setuptools** library to generate
 libraries that are installed globally on my laptop for easy reuse. It is
 worth some effort to organize your work for future reuse.
 
-## [](#leanpub-auto-responsible-web-scraping){.anchor-link}Responsible Web Scraping {#leanpub-auto-responsible-web-scraping}
+## Responsible Web Scraping
 
 I put the word "Responsible" in the chapter title to remind you that
 just because it is easy (as we will soon see) to pull data from web
@@ -1612,7 +1438,7 @@ common applications include writing AI news collection and summarization
 assistants, trying to predict stock prices based on comments in social
 media which is what we did at Webmind Corporation in 2000 and 2001, etc.
 
-### [](#leanpub-auto-using-the-python-beautifulsoup-library-in-the-hy-language){.anchor-link}Using the Python BeautifulSoup Library in the Hy Language {#leanpub-auto-using-the-python-beautifulsoup-library-in-the-hy-language}
+### Using the Python BeautifulSoup Library in the Hy Language
 
 There are many good libraries for parsing HTML text and extracting both
 structure (headings, what is in bold font, etc.) and embedded raw text.
@@ -1626,7 +1452,7 @@ Chrome browser (iOS, Android, Windows, Linux, or macOS). The function
 **get-raw-data** gets the entire contents of a web site as a single
 string value.
 
-::: highlight
+
     1 (import [urllib.request [Request urlopen]])
     2 
     3 (defn get-raw-data-from-web [aUri
@@ -1635,11 +1461,11 @@ string value.
     6   (setv httpResponse (urlopen req))
     7   (setv data (.read httpResponse))
     8   data)
-:::
+
 
 Let's test this function in a REPL:
 
-::: highlight
+
      1 $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import [get-page-data [get-raw-data-from-web]])
@@ -1653,7 +1479,7 @@ Let's test this function in a REPL:
     11  Semantic Web </title>],
     12 'a': [<a class="brand" href="#">KnowledgeBooks.com  </a>,  ...
     13 => 
-:::
+
 
 This REPL session shows the the function **get-raw-data-from-web**
 defined in the previous listing returns a web page as a string. In line
@@ -1663,9 +1489,9 @@ shows how to parse and process the string contents of a web pages. Note:
 you will need to install the **lxml** library for this example (using
 pip or pip3 depending on your Python configuration):
 
-::: highlight
+
     1 pip install lxml
-:::
+
 
 The following listing of file **get_page_data.hy** uses the Beautiful
 Soup library to parse the string data for HTML text from a web site. The
@@ -1673,7 +1499,7 @@ function **get-page-html-elements** returns names and associated data
 with each element in HTML represented as a string (the extra code on
 lines 20-24 is just debug example code):
 
-::: highlight
+
      1 (import [get_web_page [get-raw-data-from-web]])
      2 
      3 (import [bs4 [BeautifulSoup]])
@@ -1698,7 +1524,7 @@ lines 20-24 is just debug example code):
     22 (print (get elements "a"))
     23 
     24 (for [ta (get elements "a")] (print (get-element-data ta)))
-:::
+
 
 The function **get-element-data** defined in lines 5-9 accepts as an
 argument an HTML element object (as defined in the Beautiful soup
@@ -1712,7 +1538,7 @@ element types, as needed.
 
 Here is the output (with many lines removed for brevity):
 
-::: highlight
+
      1 {'text': 'Mark Watson artificial intelligence consultant and author',
      2  'name': 'a', 'class': ['navbar-brand'], 'href': '#'}
      3 {'text': 'Home page', 'name': 'a', 'class': None, 'href': '/'}
@@ -1724,9 +1550,9 @@ Here is the output (with many lines removed for brevity):
      9 watson'}
     10 {'text': 'WikiData', 'name': 'a', 'class': None, 'href': 'https://www.wikidata.org/w\
     11 iki/Q18670263'}
-:::
 
-### [](#leanpub-auto-getting-html-links-from-the-democracynoworg-news-web-site){.anchor-link}Getting HTML Links from the DemocracyNow.org News Web Site {#leanpub-auto-getting-html-links-from-the-democracynoworg-news-web-site}
+
+### Getting HTML Links from the DemocracyNow.org News Web Site
 
 I financially support and rely on both NPR.org and DemocracyNow.org news
 as my main sources of news so I will use their news sites for examples
@@ -1738,9 +1564,9 @@ of the site changes in time.
 Before working through this example and/or the example in the next
 section use the file **Makefile** to fetch data:
 
-::: highlight
+
     make data
-:::
+
 
 This should copy the home pages for both web sites to the files:
 
@@ -1749,7 +1575,7 @@ This should copy the home pages for both web sites to the files:
 
 The following listing shows **democracynow_front_page.hy**
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [get-web-page [get-web-page-from-disk]])
@@ -1768,7 +1594,7 @@ The following listing shows **democracynow_front_page.hy**
     16 (if (= __name__ "__main__")
     17   (for [[uri text] (get-democracy-now-links)]
     18     (print uri ":" text)))
-:::
+
 
 This simply prints our URIs and text (separated with the string ":") for
 each link on the home page. On line 13 we discard any anchor elements
@@ -1780,7 +1606,7 @@ Python to allow a library file to also be run as a command line tool.
 
 A few lines of output from today's front page is:
 
-::: highlight
+
     /2020/1/7/the_great_hack_cambridge_analytica : Meet Brittany Kaiser, Cambridge Analy\
     tica Whistleblower Releasing Troves of New Files from Data Firm
     /2019/11/8/remembering_orangeburg_massacre_1968_south_carolina : Remembering the 196\
@@ -1793,11 +1619,11 @@ A few lines of output from today's front page is:
     ers Facing Eviction After Two Months Occupying Vacant House
     /2020/1/14/luis_garden_acosta_martin_espada : “Morir Soñando”: Martín Espada Reads P\
     oem About Luis Garden Acosta, Young Lord & Community Activist
-:::
+
 
 The URIs are relative to the root URI https://www.democracynow.org/.
 
-### [](#leanpub-auto-getting-summaries-of-front-page-from-the-nprorg-news-web-site){.anchor-link}Getting Summaries of Front Page from the NPR.org News Web Site {#leanpub-auto-getting-summaries-of-front-page-from-the-nprorg-news-web-site}
+### Getting Summaries of Front Page from the NPR.org News Web Site
 
 This example is similar to the example in the last section except that
 text from home page links is formatted to provide a daily news summary.
@@ -1806,7 +1632,7 @@ site home pages have been copied to local files.
 
 The following listing shows **npr_front_page_summary.hy**
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [get-web-page [get-web-page-from-disk]])
@@ -1832,13 +1658,13 @@ The following listing shows **npr_front_page_summary.hy**
     23 
     24 (if (= __name__ "__main__")
     25   (print (create-npr-summary)))
-:::
+
 
 In lines 12-15 we are filtering out (or removing) all anchor HTML
 elements that do not contain text. The following shows a few lines of
 the generated output for data collected today:
 
-::: highlight
+
     January 16, 2020  Birds change the shape of their wings far more than
     planes. The complexities of bird flight have posed a major design challenge
     for scientists trying to translate the way birds fly into robots.
@@ -1862,12 +1688,12 @@ the generated output for data collected today:
     eted, costing short sellers billions.
 
     TSA Says It Seized A Record Number Of Firearms At U.S. Airports Last Year
-:::
+
 
 The examples seen here are simple but should be sufficient to get you
 started gathering text data from the web.
 
-## [](#leanpub-auto-using-the-microsoft-bing-search-apis){.anchor-link}Using the Microsoft Bing Search APIs {#leanpub-auto-using-the-microsoft-bing-search-apis}
+## Using the Microsoft Bing Search APIs
 
 You will need to register with Microsoft's Azure search service to use
 the material in this chapter. It is likely that you view search as a
@@ -1875,7 +1701,7 @@ manual human-centered activity. I hope to expand your thinking to
 considering applications that automate search, finding information on
 the web, and automatically organizing information.
 
-### [](#leanpub-auto-getting-an-access-key-for-microsoft-bing-search-apis){.anchor-link}Getting an Access Key for Microsoft Bing Search APIs {#leanpub-auto-getting-an-access-key-for-microsoft-bing-search-apis}
+### Getting an Access Key for Microsoft Bing Search APIs
 
 You will need an Azure account. I use the Bing search APIs fairly often
 for research but I have never spent more than about a dollar a month and
@@ -1889,9 +1715,9 @@ in this web form. When you navigate to the Search APIs tab, select the
 option Bing Search APIs v7. You will get an API key that you need to
 store in an environment variable that you will soon need:
 
-::: highlight
+
     export BING_SEARCH_V7_SUBSCRIPTION_KEY=4e97234341d9891191c772b7371ad5b1
-:::
+
 
 That is not my real subscription key!
 
@@ -1899,16 +1725,16 @@ After adding this to your **.profile** file (or **.zshrc**, or
 **.bashrc**, or etc.), open a new terminal window and make sure the
 following works for you:
 
-::: highlight
+
     $ hy
     hy 0.18.0 using CPython(default) 3.7.4 on Darwin
     => (import os)
     => (get os.environ "BING_SEARCH_V7_SUBSCRIPTION_KEY")
     '4e97234341d9891191c772b7371ad5b1'
     => 
-:::
 
-### [](#leanpub-auto-example-search-script){.anchor-link}Example Search Script {#leanpub-auto-example-search-script}
+
+### Example Search Script
 
 It takes very little Hy code to access the Bing search APIs. We will
 look at a long example script that expects a single command line
@@ -1917,7 +1743,7 @@ script shows you how to make a search query that requests search results
 in JSON format. We also look at parsing the returned JSON data. I
 formatted this listing to fit the page width:
 
-::: highlight
+
     #!/usr/bin/env hy
 
     (import json)
@@ -1977,19 +1803,19 @@ formatted this listing to fit the page width:
           (.format 
             " key: {:15} \t:\t {}" "name" 
             (get first-result "name"))))
-:::
+
 
 You can use search hints like "site:wikidata.org" to only search
 specific web sites. In the following example I use the search query:
 
-::: highlight
+
     1 "site:wikidata.org Sedona Arizona"
-:::
+
 
 This example generates 364 lines of output so I only show a few selected
 lines here:
 
-::: highlight
+
     $ ./bing.hy "site:wikidata.org Sedona Arizona" | wc -l
          364
     $ ./bing.hy "site:wikidata.org Sedona Arizona"
@@ -2015,9 +1841,9 @@ lines here:
      key: displayUrl       :   https://www.wikidata.org/wiki/Q80041
      key: language         :   en
      key: name             :   Sedona - Wikidata
-:::
 
-### [](#leanpub-auto-wrap-up-1){.anchor-link}Wrap-up {#leanpub-auto-wrap-up-1}
+
+### Wrap-up
 
 In addition to using automated web scraping to get data for my personal
 research, I often use automated web search. I find the Microsoft's Azure
@@ -2027,7 +1853,7 @@ search APIs but even though I use Duck Duck Go for 90% of my manual web
 searches, when I build automated systems I prefer to rely on services
 that I pay for.
 
-## [](#leanpub-auto-deep-learning){.anchor-link}Deep Learning {#leanpub-auto-deep-learning}
+## Deep Learning
 
 Most of my professional career since 2014 has involved Deep Learning,
 mostly with TensorFlow using the Keras APIs. In the late 1980s I was on
@@ -2113,7 +1939,7 @@ to make training and using Deep Learning models more efficient. That
 said, in the following section I am going to show you how simple neural
 networks are trained and used.
 
-### [](#leanpub-auto-simple-multi-layer-perceptron-neural-networks){.anchor-link}Simple Multi-layer Perceptron Neural Networks {#leanpub-auto-simple-multi-layer-perceptron-neural-networks}
+### Simple Multi-layer Perceptron Neural Networks
 
 I use the terms Multi-layer perceptron neural networks, backpropagation
 neural networks and delta-rule networks interchangeably. Backpropagation
@@ -2143,10 +1969,10 @@ values that change as the network is trained. Weights are represented in
 the following figure by arrows; in the code the weights connecting the
 input to the output neurons are represented as a two-dimensional array.
 
-::: {.figure-wrapper .center}
+
 ![Example Backpropagation network with One Hidden
-Layer](/site_images1/hy-lisp-python/nn_backprop2d.png){style="width: 100%"}
-:::
+Layer](/site_images1/hy-lisp-python/nn_backprop2d.png)
+
 
 Each non-input neuron has an activation value that is calculated from
 the activation values of connected neurons feeding into it, gated
@@ -2161,10 +1987,10 @@ function that is seen in the next figure, along with the derivative of
 the Sigmoid function which we will use in the code for training a
 network by adjusting the weights.
 
-::: {.figure-wrapper .center}
+
 ![Sigmoid Function and Derivative of Sigmoid Function
-(SigmoidP)](/site_images1/hy-lisp-python/nn_sigmoid.png){style="width: 100%"}
-:::
+(SigmoidP)](/site_images1/hy-lisp-python/nn_sigmoid.png)
+
 
 Simple neural network architectures with just one or two hidden layers
 are easy to train using backpropagation and I have from scratch code for
@@ -2185,7 +2011,7 @@ engineering work put into the development of frameworks like TensorFlow,
 PyTorch, mxnet, etc. We now move on to two examples built with
 TensorFlow.
 
-### [](#leanpub-auto-deep-learning-1){.anchor-link}Deep Learning {#leanpub-auto-deep-learning-1}
+### Deep Learning
 
 Deep Learning models are generally understood to have many more hidden
 layers than simple multi-layer perceptron neural networks and often
@@ -2224,7 +2050,7 @@ twice and also his complete course sequence using TensorFlow. I have
 also worked through much of Jeremy's material. I recommend both course
 sequences without reservation.
 
-### [](#leanpub-auto-using-keras-and-tensorflow-to-model-the-wisconsin-cancer-data-set){.anchor-link}Using Keras and TensorFlow to Model The Wisconsin Cancer Data Set {#leanpub-auto-using-keras-and-tensorflow-to-model-the-wisconsin-cancer-data-set}
+### Using Keras and TensorFlow to Model The Wisconsin Cancer Data Set
 
 The University of Wisconsin cancer database has 646 samples. Each sample
 has 9 input values and one output value, the target output class (0 for
@@ -2246,7 +2072,7 @@ We will use separate training and test files
 **hy-lisp-python/deeplearning/test.csv**. Here are a few samples from
 the training file:
 
-::: highlight
+
     6,2,1,1,1,1,7,1,1,0
     2,5,3,3,6,7,7,5,1,1
     10,4,3,1,3,3,6,5,2,1
@@ -2255,7 +2081,7 @@ the training file:
     1,1,1,1,2,1,2,1,2,0
     3,7,7,4,4,9,4,8,1,1
     1,1,1,1,2,1,2,1,1,0
-:::
+
 
 After you look at this data, if you did not have much experience with
 machine learning then it might not be obvious how to build a model to
@@ -2284,10 +2110,10 @@ There is an example in the git example repo directory
 **hy-lisp-python/matplotlib** in the file **plot_relu.hy** that
 generated the following figure:
 
-::: {.figure-wrapper .center}
+
 ![Relu
-Function](/site_images1/hy-lisp-python/relu.png){style="width: 100%"}
-:::
+Function](/site_images1/hy-lisp-python/relu.png)
+
 
 The following listing shows the use of the Keras TensorFlow APIs to
 build a model (lines 9-19) with one input layer, two hidden layers, and
@@ -2309,7 +2135,7 @@ The function **main** (lines 35-45) loads training and test (evaluation
 of model accuracy on data not used for training), trains a model, and
 then tests the accuracy of the model on the test (evaluation) data:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import argparse os)
@@ -2357,17 +2183,17 @@ then tests the accuracy of the model on the test (evaluation) data:
     45       (zip predictions expected))))
     46 
     47 (main)
-:::
+
 
 The following listing shows the output:
 
-::: highlight
+
     1 $ hy wisconsin.hy 
     2 Using TensorFlow backend.
     3 * predictions (calculated, expected):
     4 [(0.9759052, 1), (0.99994254, 1), (0.8564741, 1), (0.95866203, 1), (0.03042546, 0), \
     5 (0.21845636, 0), (0.99662805, 1), (0.08626339, 0), (0.045683343, 0), (0.9992156, 1)]
-:::
+
 
 Let's look at the first test case: the "real" output from the training
 data is a value of 1 and the calculated predicted value (using the
@@ -2377,7 +2203,7 @@ value less than the cutoff as a Boolean *false* prediction and
 calculated prediction value greater to or equal to the cutoff value is a
 Boolean *true* prediction.
 
-### [](#leanpub-auto-using-a-lstm-recurrent-neural-network-to-generate-english-text-similar-to-the--philosopher-nietzsches-writing){.anchor-link}Using a LSTM Recurrent Neural Network to Generate English Text Similar to the Philosopher Nietzsche's writing {#leanpub-auto-using-a-lstm-recurrent-neural-network-to-generate-english-text-similar-to-the--philosopher-nietzsches-writing}
+### Using a LSTM Recurrent Neural Network to Generate English Text Similar to the Philosopher Nietzsche's writing
 
 We will translate a Python example program from Google's [Keras
 documentation (listing of LSTM.py that is included with the example Hy
@@ -2397,12 +2223,12 @@ training data is fetched from the web and stored locally. You can
 manually edit the file **\~/.keras/datasets/nietzsche.txt** to remove
 75% of the data by:
 
-::: highlight
+
     1     pushd ~/.keras/datasets/
     2     mv nietzsche.txt nietzsche_large.txt
     3     head -800 nietzsche_large.txt > nietzsche.txt
     4     popd
-:::
+
 
 The next time you run the example, the Keras example data loading
 utilities will notice a local copy and even though the file now is much
@@ -2426,7 +2252,7 @@ of 1.0. I am going to show you a short REPL session so that you
 understand how this works and then we will look at the complete Hy code
 example.
 
-::: highlight
+
      1 $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import [keras.callbacks [LambdaCallback]])
@@ -2482,7 +2308,7 @@ example.
     53         [0., 0., 0., ..., 0., 0., 0.],
     54         [0., 0., 0., ..., 0., 0., 0.]]])
     55 => 
-:::
+
 
 For lines 48-54, each line represents a single character one-hot
 encoded. Notice how the third character shown on line 50 has a value of
@@ -2507,7 +2333,7 @@ schema as the training data. Here, training a model to mimic the
 philosopher Nietzsche's writing is much easier than learning highly
 structured data like JSON:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 ;; This example was translated from the Python example in the Keras
@@ -2600,7 +2426,7 @@ structured data like JSON:
     90 (setv print_callback (LambdaCallback :on_epoch_end on_epoch_end))
     91 
     92 (model.fit x y :batch_size 128 :epochs 60 :callbacks [print_callback])
-:::
+
 
 In lines 52-54 we defined a model using the Keras APIs and in lines
 56-57 compiled the model using a [categorical crossentropy loss function
@@ -2622,7 +2448,7 @@ If we print out the number of characters in text and the unique list of
 characters (variable **chars**) in the training text file nietzsche.txt
 we see:
 
-::: highlight
+
     corpus length: 600893
     ['\n', ' ', '!', '"', "'", '(', ')', ',', '-', '.', '0', '1', '2', '3', '4', '5', '6\
     ', '7', '8', '9', ':', ';', '=', '?', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', '\
@@ -2630,7 +2456,7 @@ we see:
     '[', ']', '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',\
      'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'Æ', 'ä', 'æ', 'é', 'ë'\
     ]
-:::
+
 
 **A review of one-hot encoding:**
 
@@ -2641,7 +2467,7 @@ a trained model to generate text. It will help to see the dictionaries
 for converting characters to indices and then reverse indices to
 original characters as we saw earlier, some output removed:
 
-::: highlight
+
     char_indices:
      {'\n': 0, ' ': 1, '!': 2, '"': 3, "'": 4, '(': 5, ')': 6, ',': 7, '-': 8, '.': 9, '\
     0': 10, '1': 11, '2': 12, '3': 13, '4': 14, '5': 15, '6': 16, '7': 17, '8': 18, '9':\
@@ -2657,14 +2483,14 @@ original characters as we saw earlier, some output removed:
        . . .
      'o', 68: 'p', 69: 'q', 70: 'r', 71: 's', 72: 't', 73: 'u', 74: 'v', 75: 'w', 76: 'x\
     ', 77: 'y', 78: 'z', 79: 'Æ', 80: 'ä', 81: 'æ', 82: 'é', 83: 'ë'}
-:::
+
 
 We prepare the input and target output data in lines 43-48 in the last
 code listing. Using a short string, let's look in the next REPL session
 listing at how these input and output training examples are extracted
 for an input string:
 
-::: highlight
+
      1 Marks-MacBook:deeplearning $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (setv text "0123456789abcdefg")
@@ -2680,7 +2506,7 @@ for an input string:
     13 => (cut text (+ i maxlen))
     14 '89abcdefg'
     15 => 
-:::
+
 
 So the input training sentences are each **maxlen** characters long and
 the **next-chars** target outputs each start with the character after
@@ -2693,7 +2519,7 @@ generated text is more realistic after many training epocs. In the
 following, I list a highly edited copy of running through several
 training epochs. I only show generated text for diversity equal to 0.2:
 
-::: highlight
+
      1 ----- Generating text after Epoch: 0
      2 ----- diversity: 0.2
      3 ----- Generating with seed: ocity. Equally so, gratitude.--Justice r
@@ -2735,7 +2561,7 @@ training epochs. I only show generated text for diversity equal to 0.2:
     39  the consequently the soul of the superstition of the special in the end to the poss\
     40 ible that it is will not be a sort of the superior of the superstition of the same m\
     41 an to the same man
-:::
+
 
 Here we trained on examples, translated to English, of the philosopher
 Nietzsche. I have used similar code to this example to train on highly
@@ -2749,7 +2575,7 @@ characters tend to appear together and in what order.
 In the next chapter we will use pre-trained Deep Learning models for
 natural language processing (NLP).
 
-## [](#leanpub-auto-natural-language-processing){.anchor-link}Natural Language Processing {#leanpub-auto-natural-language-processing}
+## Natural Language Processing
 
 I have been working in the field of Natural Language Processing (NLP)
 since 1985 so I 'lived through' the revolutionary change in NLP that has
@@ -2779,26 +2605,26 @@ difficulty in translating any spaCy Python examples to the Hy language.
 If you have not already done so install the **spaCy** library and the
 full English language model:
 
-::: highlight
+
     pip install spacy
     python -m spacy download en
-:::
+
 
 You can use a smaller model (which requires loading "en_core_web_sm"
 instead of "en" in the following examples):
 
-::: highlight
+
     pip install spacy
     python -m spacy download en_core_web_sm
-:::
 
-### [](#leanpub-auto-exploring-the-spacy-library){.anchor-link}Exploring the spaCy Library {#leanpub-auto-exploring-the-spacy-library}
+
+### Exploring the spaCy Library
 
 We will use the Hy REPL to experiment with spaCy, Lisp style. The
 following REPL listings are all from the same session, split into
 separate listings so that I can talk you through the examples:
 
-::: highlight
+
      1 Marks-MacBook:nlp $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import spacy)
@@ -2821,7 +2647,7 @@ separate listings so that I can talk you through the examples:
     20 ts', 'set_extension', 'similarity', 'tensor', 'text', 'text_with_ws', 'to_array', 't\
     21 o_bytes', 'to_disk', 'to_json', 'user_data', 'user_hooks', 'user_span_hooks', 'user_\
     22 token_hooks', 'vector', 'vector_norm', 'vocab']
-:::
+
 
 In lines 3-6 we import the spaCy library, load the English language
 model, and create a document from input text. What is a spaCy document?
@@ -2835,7 +2661,7 @@ In lines 23-26 we use the **dir** function again to see the attributes
 and methods for this class, but filter out any attributes containing the
 characters "\_\_":
 
-::: highlight
+
     23 => (lfor
     24 ... x (dir doc)
     25 ... :if (not (.startswith x "__"))
@@ -2849,13 +2675,13 @@ characters "\_\_":
     33 ', 'to_array', 'to_bytes', 'to_disk', 'to_json', 'user_data', 'user_hooks', 'user_sp\
     34 an_hooks', 'user_token_hooks', 'vector', 'vector_norm', 'vocab']
     35 =>
-:::
+
 
 The **to_json** method looks promising so we will import the Python
 pretty print library and look at the pretty printed result of calling
 the **to_json** method on our document stored in **doc**:
 
-::: highlight
+
      36 => (import [pprint [pprint]])
      37 => (pprint (doc.to_json))
      38 {'ents': [{'end': 21, 'label': 'PERSON', 'start': 10},
@@ -2954,7 +2780,7 @@ the **to_json** method on our document stored in **doc**:
     131              'start': 60,
     132              'tag': 'NN'}]}
     133 => 
-:::
+
 
 The JSON data is nested dictionaries. In a later chapter on Knowledge
 Graphs, we will want to get the named entities like people,
@@ -2979,7 +2805,7 @@ a list of lists where the sublists contain the entity name as a single
 string and the type of entity. We list the entity types supported by
 spaCy in the next section.
 
-::: highlight
+
     134 => doc.ents
     135 (George Bush, Mexico)
     136 => (for [entity doc.ents]
@@ -2989,23 +2815,23 @@ spaCy in the next section.
     140 => (lfor entity doc.ents [entity.text entity.label_])
     141 [['George Bush', 'PERSON'], ['Mexico', 'GPE']]
     142 => 
-:::
+
 
 We can also access each sentence as a separate string. In this example
 the original text used to create our sample document had only a single
 sentence so the **sents** property returns a list containing a single
 string:
 
-::: highlight
+
     147 => (list doc.sents)
     148 [President George Bush went to Mexico and he had a very good meal]
     149 => 
-:::
+
 
 The last example showing how to use a spaCy document object is listing
 each word with its part of speech:
 
-::: highlight
+
     150 => (for [word doc]
     151 ... (print word.text word.pos_))
     152 President PROPN
@@ -3022,7 +2848,7 @@ each word with its part of speech:
     163 good ADJ
     164 meal NOUN
     165 => 
-:::
+
 
 The following list shows the definitions for the part of speech (POS)
 tags:
@@ -3045,7 +2871,7 @@ tags:
 -   VERB: verb
 -   X: other
 
-### [](#leanpub-auto-implementing-a-hynlp-wrapper-for-the-python-spacy-library){.anchor-link}Implementing a HyNLP Wrapper for the Python spaCy Library {#leanpub-auto-implementing-a-hynlp-wrapper-for-the-python-spacy-library}
+### Implementing a HyNLP Wrapper for the Python spaCy Library
 
 We will generate two libraries (in files **nlp_lib.hy** and
 **coref_nlp_lib.hy**). The first is a general NLP library and the second
@@ -3079,7 +2905,7 @@ is pre-trained includes:
 
 Listing for hy-lisp-python/nlp/nlp_lib.hy:
 
-::: highlight
+
      1 (import spacy)
      2 
      3 (setv nlp-model (spacy.load "en"))
@@ -3090,11 +2916,11 @@ Listing for hy-lisp-python/nlp/nlp_lib.hy:
      8   (setv j (doc.to_json))
      9   (setv (get j "entities") entities)
     10   j)
-:::
+
 
 Listing for hy-lisp-python/nlp/nlp_example.hy:
 
-::: highlight
+
     1 #!/usr/bin/env hy
     2 
     3 (import [nlp-lib [nlp]])
@@ -3104,18 +2930,18 @@ Listing for hy-lisp-python/nlp/nlp_example.hy:
     7 
     8 (print
     9   (nlp "Lucy threw a ball to Bill and he caught it"))
-:::
 
-::: highlight
+
+
     1 Marks-MacBook:nlp $ ./nlp_example.hy
     2 {'text': 'President George Bush went to Mexico and he had a very good meal', 'ents':\
     3  [{'start': 10, 'end': 21, 'label': 'PERSON'}, {'start': 30, 'end': 36, 'label': 'GP\
     4 E'}], 'sents': [{'start': 0, 'end': 64}], 'tokens': 
     5 
     6   ..LOTS OF OUTPUT NOT SHOWN..
-:::
 
-### [](#leanpub-auto-coreference-anaphora-resolution){.anchor-link}Coreference (Anaphora Resolution) {#leanpub-auto-coreference-anaphora-resolution}
+
+### Coreference (Anaphora Resolution)
 
 Another common NLP task is coreference (or anaphora resolution) which is
 the process of resolving pronouns in text (e.g., he, she, it, etc.) with
@@ -3132,13 +2958,13 @@ In addition to installing **spaCy** you also need the library
 are compatible with each other. As of July 31, 2020 the following works
 to get dependencies and run the example for this section:
 
-::: highlight
+
     pip uninstall spacy neuralcoref
     pip install spacy==2.1.3
     python -m spacy download en
     pip install neuralcoref==4.0.0
     ./coref_example.hy 
-:::
+
 
 Please note that version 2.1.3 of **spaCy** is older than the default
 version that pip installs. You might want to create a new Python virtual
@@ -3148,7 +2974,7 @@ Anaconda environment.
 Listing of coref_nlp_lib.hy contains a wrapper for spaCy's coreference
 model:
 
-::: highlight
+
      1 (import argparse os)
      2 (import spacy neuralcoref)
      3 
@@ -3160,12 +2986,12 @@ model:
      9   { "corefs" doc._.coref_resolved
     10     "clusters" doc._.coref_clusters
     11     "scores" doc._.coref_scores})
-:::
+
 
 Listing of **coref_example.hy** shows code to test the Hy spaCy and
 coreference wrapper:
 
-::: highlight
+
     1 #!/usr/bin/env hy
     2 
     3 (import [coref-nlp-lib [coref-nlp]])
@@ -3174,11 +3000,11 @@ coreference wrapper:
     6 (print (coref-nlp "President George Bush went to Mexico and he had a very good meal"\
     7 ))
     8 (print (coref-nlp "Lucy threw a ball to Bill and he caught it"))
-:::
+
 
 The output will look like:
 
-::: highlight
+
      1 Marks-MacBook:nlp $ ./coref_example.hy 
      2 {'corefs': 'President George Bush went to Mexico and President George Bush had a ver\
      3 y good meal', 'clusters': [President George Bush: [President George Bush, he]], 'sco\
@@ -3198,13 +3024,13 @@ The output will look like:
     17 42036438, Lucy: 3.054243326187134, a ball: -1.818403720855713, Bill: 3.0774276256561\
     18 28}, it: {it: -1.0269954204559326, Lucy: -3.4972281455993652, a ball: -0.31290221214\
     19 294434, Bill: -2.5343685150146484, he: -3.6687228679656982}}}
-:::
+
 
 Anaphora resolution, also called coreference, refers to two or more
 words or phrases in an input text refer to the same noun. This analysis
 usually entails identifying which noun phrases that pronouns refer to.
 
-### [](#leanpub-auto-wrap-up-2){.anchor-link}Wrap-up {#leanpub-auto-wrap-up-2}
+### Wrap-up
 
 I spent several years of development time during the period from 1984
 through 2015 working on natural language processing technology and as a
@@ -3222,7 +3048,7 @@ automatically generating data for Knowledge Graphs. After working
 through the interactive REPL sessions and the examples in this chapter,
 you should be able to translate any Python API example code to Hy.
 
-## [](#leanpub-auto-datastores){.anchor-link}Datastores {#leanpub-auto-datastores}
+## Datastores
 
 I use flat files and the PostgreSQL relational database for most data
 storage and processing needs in my consulting business over the last
@@ -3253,7 +3079,7 @@ Programmer's Secret Weapon](https://leanpub.com/lovinglisp) I also
 covered the general purpose graph database Neo4j which I like to use for
 some use cases, but for the purposes of this book we stick with RDF.
 
-### [](#leanpub-auto-sqlite){.anchor-link}Sqlite {#leanpub-auto-sqlite}
+### Sqlite
 
 We will cover two relational databases: Sqlite and PostgreSQL. Sqlite is
 an embedded database. There are Sqlite libraries for many programming
@@ -3268,7 +3094,7 @@ queries.
 Let's start with putting common code for using Sqlite into a reusable
 library in the file **sqlite_lib.hy**:
 
-::: highlight
+
      1 (import [sqlite3 [connect version Error ]])
      2 
      3 (defn create-db [db-file-path] ;; db-file-path can also be ":memory:"
@@ -3285,7 +3111,7 @@ library in the file **sqlite_lib.hy**:
     14     (cur.execute sql variable-bindings)
     15     (cur.execute sql))
     16   (cur.fetchall))
-:::
+
 
 The function **create-db** in lines 3-6 creates a database from a file
 path if it does not already exist. The function **connection** (lines
@@ -3298,7 +3124,7 @@ and returns all matching data in nested lists.
 The following listing of file **sqlite_example.hy**shows how to use this
 simple library:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [sqlite-lib [create-db connection query]])
@@ -3326,7 +3152,7 @@ simple library:
     25   (conn.close))
     26 
     27 (test_sqlite-lib)
-:::
+
 
 We opened an in-memory database in lines 7 and 8 but we could have also
 created a persistent database on disk using, for example,
@@ -3339,7 +3165,7 @@ the database.
 
 Running the example program produces the following output:
 
-::: highlight
+
     1 $ ./sqlite_example.hy
     2 2.6.0
     3 []
@@ -3349,7 +3175,7 @@ Running the example program produces the following output:
     7 [('Mark Watson', 'mark@markwatson.com'), ('Kiddo', 'kiddo@markwatson.com')]
     8 []
     9 [('Mark Watson', 'mark@markwatson.com')]
-:::
+
 
 Line 2 shows the version of SQlist we are using. The lists in lines 1-2,
 4, and 6 are empty because the functions to create a table, insert data
@@ -3362,15 +3188,15 @@ string value but you can't query by key/value pairs in the data. You can
 encode JSON as a string and then decode it back to JSON (or as a
 dictionary) using:
 
-::: highlight
+
     1 (import [json [dumps loads]])
     2 
     3 (setv json-data .....)
     4 (setv s-data (json.dumps json-data))
     5 (setv restored-json-data (json.loads s-data))
-:::
 
-### [](#leanpub-auto-postgresql){.anchor-link}PostgreSQL {#leanpub-auto-postgresql}
+
+### PostgreSQL
 
 We just saw use cases for the Sqlite embedded database. Now we look at
 my favorite general purpose database, PostgreSQL. The PostgreSQL
@@ -3381,27 +3207,27 @@ or on a VPS or server.
 We will use the [psycopg](http://initd.org/psycopg/) PostgreSQL adapter
 that is compatible with CPython and can be installed using:
 
-::: highlight
+
     1     pip install psycopg2
-:::
+
 
 The following material is self-contained but before using PostgreSQL and
 psycopg in your own applications I recommend that you reference the
 psycopg documentation.
 
-#### [](#leanpub-auto-notes-for-using-postgresql-and-setting-up-an-example-database-hybook-on-macos-and-linux){.anchor-link}Notes for Using PostgreSQL and Setting Up an Example Database "hybook" on macOS and Linux {#leanpub-auto-notes-for-using-postgresql-and-setting-up-an-example-database-hybook-on-macos-and-linux}
+#### Notes for Using PostgreSQL and Setting Up an Example Database "hybook" on macOS and Linux
 
 The following two sections may help you get PostgreSQL set up on macOS
 and Linux.
 
-##### [](#leanpub-auto-macos){.anchor-link}macOS {#leanpub-auto-macos}
+##### macOS
 
 For macOS we use the PostgreSQL application and we will start by using
 the **postgres** command line utility to create a new database and table
 in this database. Using **postgres** account, create a new database
 **hybook**:
 
-::: highlight
+
      1 Marks-MacBook:datastores $ psql -d "postgres"
      2 psql (9.6.3)
      3 Type "help" for help.
@@ -3412,11 +3238,11 @@ in this database. Using **postgres** account, create a new database
      8 CREATE DATABASE
      9 postgres=# \q
     10 Marks-MacBook:datastores $ 
-:::
+
 
 Create a table **news** in database **hybook**:
 
-::: highlight
+
     1 markw $ psql -d "hybook"
     2 psql (9.6.3)
     3 Type "help" for help.
@@ -3425,31 +3251,31 @@ Create a table **news** in database **hybook**:
     6  VARCHAR(500), nlpdata VARCHAR(50)); 
     7 CREATE TABLE
     8 hybook=# 
-:::
 
-##### [](#leanpub-auto-linux){.anchor-link}Linux {#leanpub-auto-linux}
+
+##### Linux
 
 For **Ubuntu** **Linux** first install PostgreSQL and then use **sudo**
 to use the account **postgres**:
 
 To start a local server:
 
-::: highlight
+
     1 sudo su - postgres
     2 /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
-:::
+
 
 and to stop the server:
 
-::: highlight
+
     1 sudo su - postgres
     2 /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile stop
-:::
+
 
 When the PostgreSQL server is running we can use the **psql** command
 line program:
 
-::: highlight
+
      1 sudo su - postgres
      2 psql
      3 
@@ -3466,9 +3292,9 @@ line program:
     14 --------+------+-------+----------
     15  public | news | table | postgres
     16 (1 row)
-:::
 
-#### [](#leanpub-auto-using-hy-with-postgresql){.anchor-link}Using Hy with PostgreSQL {#leanpub-auto-using-hy-with-postgresql}
+
+#### Using Hy with PostgreSQL
 
 When using Hy (or any other Lisp language and also for Haskell), I
 usually start both coding and experimenting with new libraries and APIs
@@ -3476,7 +3302,7 @@ in a REPL. Let's do that here to see from a high level how we can use
 psycopg on the table **news** in the database **hybook** that we created
 in the last section:
 
-::: highlight
+
      1 Marks-MacBook:datastores $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import json psycopg2)
@@ -3500,7 +3326,7 @@ in the last section:
     21 ... (print (json.loads (first record))))
     22 {'type': 'news'}
     23 => 
-:::
+
 
 In lines 6-8 and 13-14 you notice that I am using PostgreSQL's native
 JSON support.
@@ -3513,7 +3339,7 @@ The file **postgres_lib.hy** wraps commonly used functionality for
 accessing a database, adding, modifying, and querying data in a short
 reusable library:
 
-::: highlight
+
      1 (import [psycopg2 [connect]])
      2 
      3 (defn connection-and-cursor [dbname username]
@@ -3525,7 +3351,7 @@ reusable library:
      9   (if variable-bindings
     10     (cursor.execute sql variable-bindings)
     11     (cursor.execute sql)))
-:::
+
 
 The function **query** in lines 8-11 executes any SQL comands so in
 addition to querying a database, it can also be used with appropriate
@@ -3534,7 +3360,7 @@ SQL commands to delete rows, update rows, and create and destroy tables.
 The following file **postgres_example.hy** contains examples for using
 the library we just defined:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [postgres-lib [connection-and-cursor query]])
@@ -3560,16 +3386,16 @@ the library we just defined:
     23   (conn.close))
     24 
     25 (test-postgres-lib)
-:::
+
 
 Here is the output from this example Hy script:
 
-::: highlight
+
     1 Marks-MacBook:datastores $ ./postgres_example.hy
     2 [('Mark', 'mark@markwatson.com'), ('Kiddo', 'kiddo@markwatson.com')]
     3 [('Kiddo', 'kiddo@markwatson.com'), ('Mark Watson', 'mark@markwatson.com')]
     4 [('Mark Watson', 'mark@markwatson.com')]
-:::
+
 
 I use PostgreSQL more than any other datastore and taking the time to
 learn how to manage PostgreSQL servers and write application software
@@ -3578,7 +3404,7 @@ developing data oriented product at work. I love using PostgreSQL and
 personally, I only use Sqlite for very small database tasks or
 applications.
 
-### [](#rdflibintro){.anchor-link}RDF Data Using the "rdflib" Library {#rdflibintro}
+### RDF Data Using the "rdflib" Library
 
 While the last two sections on Sqlite and PostgreSQL provided examples
 that you are likely to use in your own work, we will now turn to
@@ -3620,7 +3446,7 @@ with predicate and objects printed indented on two additional lines. In
 both cases a period character "." is used to terminate search RDF NT
 statement. The statements are displayed in arbitrary order.
 
-::: highlight
+
      1 Marks-MacBook:datastores $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import [rdflib [Graph]])
@@ -3704,7 +3530,7 @@ statement. The statements are displayed in arbitrary order.
     81    http://www.w3.org/1999/02/22-rdf-syntax-ns#type 
     82    http://www.ontoweb.org/ontology/1#Book  .
     83 => 
-:::
+
 
 We will cover the SPARQL query language in more detail in the next
 chapter but for now, notice that SPARQL is similar to SQL queries.
@@ -3714,7 +3540,7 @@ following simple SPARQL query finds all triples with the predicate equal
 to <http://www.w3.org/2000/10/swap/pim/contact#company> and prints out
 the subject and object of any matching triples:
 
-::: highlight
+
     84 => (for [[subject object
     85 ... (graph.query
     86 ...   "select ?s ?o where { ?s <http://www.w3.org/2000/10/swap/pim/contact#company> \
@@ -3722,7 +3548,7 @@ the subject and object of any matching triples:
     88 ... (print subject "\n contact company: " object))
     89 http://markwatson.com/index.rdf#mark_watson
     90   contact company:  Mark Watson Consulting Services
-:::
+
 
 We will see more examples of the SPARQL query language in the next
 chapter. For now, notice that the general form of a **select** query
@@ -3747,7 +3573,7 @@ the same REPL session, I will add two RDF statements indicating
 additional jobs and show how to serialize the new updated graph in three
 formats: XML, turtle (my favorite RDF notation) and NT:
 
-::: highlight
+
      89 => (import rdflib)
      90 => (setv mark-node (rdflib.URIRef  "http://markwatson.com/index.rdf#mark_watson"))
      91 => mark-node
@@ -3777,13 +3603,13 @@ formats: XML, turtle (my favorite RDF notation) and NT:
     115     LOTS OF STUFF NOT SHOWN
     116 
     117 </rdf:Description>\n</rdf:RDF>
-:::
+
 
 I like Turtle RDF notation better than the XML notation because Turtle
 is easier to read and understand. Here, on line 118 we serialize the
 graph (with new nodes added above in lines 90 to 96) to Turtle:
 
-::: highlight
+
     118 => (graph.serialize :format "turtle")
     119 @prefix contact: <http://www.w3.org/2000/10/swap/pim/contact#> .
     120 @prefix dc: <http://purl.org/dc/elements/1.1/> .
@@ -3825,13 +3651,13 @@ graph (with new nodes added above in lines 90 to 96) to Turtle:
     156                 contact:homepage <http://www.markwatson.com/> ;
     157                 contact:mailbox <mailto:markw@markwatson.com> ;
     158                 contact:motherTongue "en" .
-:::
+
 
 In addition to the Turtle format I also use the simpler NT format that
 puts URI prefixes inline and unlike Turtle does not use prefix
 abrieviations. Here in line 159 we serialize to NT format:
 
-::: highlight
+
     159 => (graph.serialize :format "nt")
     160 <http://markwatson.com/index.rdf#Sun_ONE> <http://www.ontoweb.org/ontology/1#booktit\
     161 le> "Sun ONE Services - J2EE" .
@@ -3867,9 +3693,9 @@ abrieviations. Here in line 159 we serialize to NT format:
     191 
     192       LOTS OF STUFF NOT SHOWN
     193 => 
-:::
 
-#### [](#leanpub-auto-using-relational-database-as-a-backend-for-rdflib){.anchor-link}Using Relational Database as a Backend for rdflib {#leanpub-auto-using-relational-database-as-a-backend-for-rdflib}
+
+#### Using Relational Database as a Backend for rdflib
 
 I am not going to cover using a non-default rdflib backend, but if you
 want to be able to load large RDF data sets and persist the data then
@@ -3877,9 +3703,9 @@ you can use the SQLAlchemy plugin extension.
 
 First, install the Python SQLAlchemy RDF library:
 
-::: highlight
+
     1     pip install rdflib_sqlalchemy
-:::
+
 
 Then, follow the test examples at the
 [rdflib-sqlalchemy](https://github.com/RDFLib/rdflib-sqlalchemy) github
@@ -3894,7 +3720,7 @@ Edition](https://www.ontotext.com/products/graphdb/graphdb-free/). I
 also like and recommend the commercial AllegroGraph and Stardog RDF
 server products.
 
-### [](#leanpub-auto-wrap-up-3){.anchor-link}Wrap-up {#leanpub-auto-wrap-up-3}
+### Wrap-up
 
 We will go into much more detail on practical uses of RDF and SPARQL in
 the next chapter. I hope that you worked through the REPL examples in
@@ -3902,7 +3728,7 @@ this section because if you understand the basics of using the
 **rdflib** then you will have an easier time understanding the more
 abstract material in the next chapter.
 
-## [](#leanpub-auto-linked-data-and-the-semantic-web){.anchor-link}Linked Data and the Semantic Web {#leanpub-auto-linked-data-and-the-semantic-web}
+## Linked Data and the Semantic Web
 
 Tim Berners Lee, James Hendler, and Ora Lassila wrote in 2001 an article
 for Scientific American where they introduced the term Semantic Web.
@@ -3958,47 +3784,47 @@ The following two figures show an abstract representation of linked data
 and then a sample of linked data with actual web URIs for resources and
 properties:
 
-::: {.figure-wrapper .center}
-![Abstract RDF representation with 2 Resources, 2 literal values, and 3
-Properties](/site_images1/hy-lisp-python/rdf1.png){style="width: 100%"}
-:::
 
-::: {.figure-wrapper .center}
+![Abstract RDF representation with 2 Resources, 2 literal values, and 3
+Properties](/site_images1/hy-lisp-python/rdf1.png)
+
+
+
 ![Concrete example using RDF seen in last chapter showing the RDF
 representation with 2 Resources, 2 literal values, and 3
-Properties](/site_images1/hy-lisp-python/rdf2.png){style="width: 100%"}
-:::
+Properties](/site_images1/hy-lisp-python/rdf2.png)
+
 
 We saw a SPARQL Query (SPARQL for RDF data is similar to SQL for
 relational database queries) in the last chapter. Let's look at another
 example using the RDF in the last figure:
 
-::: highlight
+
     1     select ?v where {  <http://markwatson.com/index.rdf#Sun_ONE>
     2                        <http://www.ontoweb.org/ontology/1#booktitle>
     3                        ?v }
-:::
+
 
 This query should return the result "Sun ONE Services - J2EE". If you
 wanted to query for all URI resources that are books with the literal
 value of their titles, then you can use:
 
-::: highlight
+
     1     select ?s ?v where {  ?s
     2                           <http://www.ontoweb.org/ontology/1#booktitle>
     3                           ?v }
-:::
+
 
 Note that **?s** and **?v** are arbitrary query variable names, here
 standing for "subject" and "value". You can use more descriptive
 variable names like:
 
-::: highlight
+
     1     select ?bookURI ?bookTitle where 
     2         { ?bookURI
     3           <http://www.ontoweb.org/ontology/1#booktitle>
     4           ?bookTitle }
-:::
+
 
 We will be diving a little deeper into RDF examples in the next chapter
 when we write a tool for generating RDF data from raw text input. For
@@ -4007,7 +3833,7 @@ triples, that web URIs represent things, properties, and sometimes
 values, and that URIs can be followed manually (often called
 "dereferencing") to see what they reference in human readable form.
 
-### [](#leanpub-auto-understanding-the-resource-description-framework-rdf){.anchor-link}Understanding the Resource Description Framework (RDF) {#leanpub-auto-understanding-the-resource-description-framework-rdf}
+### Understanding the Resource Description Framework (RDF)
 
 Text data on the web has some structure in the form of HTML elements
 like headers, page titles, anchor links, etc. but this structure is too
@@ -4018,7 +3844,7 @@ We used the RDF data on my web site in the last chapter to introduce the
 "plumbing" of using the **rdflib** Python library to access, manipulate,
 and query RDF data.
 
-### [](#leanpub-auto-resource-namespaces-provided-in-rdflib){.anchor-link}Resource Namespaces Provided in rdflib {#leanpub-auto-resource-namespaces-provided-in-rdflib}
+### Resource Namespaces Provided in rdflib
 
 The following standard namespaces are predefined in **rdflib**:
 
@@ -4037,7 +3863,7 @@ Let's look into the Friend of a Friend (FOAF) namespace. Click on the
 above link for FOAF <http://xmlns.com/foaf/0.1/> and find the
 definitions for the FOAF Core:
 
-::: highlight
+
      1     Agent
      2     Person
      3     name
@@ -4057,11 +3883,11 @@ definitions for the FOAF Core:
     17     member
     18     Document
     19     Image
-:::
+
 
 and for the Social Web:
 
-::: highlight
+
      1 nick
      2 mbox
      3 homepage
@@ -4087,7 +3913,7 @@ and for the Social Web:
     23 sha1
     24 thumbnail
     25 logo
-:::
+
 
 You now have seen a few common Schemas for RDF data. Another Schema that
 is widely used for annotating web sites, that we won't need for our
@@ -4095,7 +3921,7 @@ examples here, is [schema.org](https://schema.org). Let's now use a Hy
 REPL session to explore namespaces and programatically create RDF using
 **rdflib**:
 
-::: highlight
+
      1 Marks-MacBook:database $ hy
      2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
      3 => (import [rdflib.namespace [FOAF]])
@@ -4151,9 +3977,9 @@ REPL session to explore namespaces and programatically create RDF using
     53 n .
     54 _:N21c7fa7385b545eb8a7e3821b75b9cb5 <http://xmlns.com/foaf/0.1/nick> "Mark"@en .
     55 => 
-:::
 
-### [](#leanpub-auto-understanding-the-sparql-query-language){.anchor-link}Understanding the SPARQL Query Language {#leanpub-auto-understanding-the-sparql-query-language}
+
+### Understanding the SPARQL Query Language
 
 For the purposes of the material in this book, the two sample SPARQL
 queries here and in the last chapter are sufficient for you to get
@@ -4164,7 +3990,7 @@ The Apache Foundation has a [good introduction to
 SPARQL](https://jena.apache.org/tutorials/sparql.html) that I refer you
 to for more information.
 
-### [](#leanpub-auto-wrapping-the-python-rdflib-library){.anchor-link}Wrapping the Python **rdflib** Library {#leanpub-auto-wrapping-the-python-rdflib-library}
+### Wrapping the Python **rdflib** Library
 
 I hope that I have provided you with enough motivation to explore RDF
 data sources and consider the use of linked data/semantic web
@@ -4173,9 +3999,9 @@ technologies for your projects.
 You can install using the [source code for
 **rdflib**](https://github.com/RDFLib/rdflib) or using:
 
-::: highlight
+
     pip install rdflib
-:::
+
 
 If I depend on a library, regardless of the programming language, I like
 to keep an up-to-date copy of the source code ready at hand. There is
@@ -4185,7 +4011,7 @@ In the next chapter we will use natural language processing to extract
 structured information from raw text and automatically generate RDF
 data.
 
-## [](#leanpub-auto-knowledge-graph-creator){.anchor-link}Knowledge Graph Creator {#leanpub-auto-knowledge-graph-creator}
+## Knowledge Graph Creator
 
 A Knowledge Graph, that I often abbreviate as **KG**, is a graph
 database using a schema to define types (both objects and relationships
@@ -4260,7 +4086,7 @@ data and allowed relationships.
 There is also an executable aspect of KGs since their primary use may be
 to support other systems in an organization.
 
-### [](#leanpub-auto-recommended-industrial-use-of-knowledge-graphs){.anchor-link}Recommended Industrial Use of Knowledge Graphs {#leanpub-auto-recommended-industrial-use-of-knowledge-graphs}
+### Recommended Industrial Use of Knowledge Graphs
 
 Who needs a KG? How do you get started?
 
@@ -4327,7 +4153,7 @@ new KG by populating it with automatically generated RDF than can be
 manually curated by removing statements and adding new statements as
 appropriate.
 
-### [](#leanpub-auto-design-of-kgcreator-application){.anchor-link}Design of KGCreator Application {#leanpub-auto-design-of-kgcreator-application}
+### Design of KGCreator Application
 
 The example application developed here processes input text files in the
 sub-directory **test_data**. For each file with the extension **.txt**
@@ -4336,10 +4162,10 @@ in **test_data**, there should be a matching file with the extension
 The git repository for this book has a few files in **test_data** that
 you can experiment with or replace with your own data:
 
-::: highlight
+
     $ ls test_data 
     test1.meta test1.txt test2.meta test2.txt test3.meta test3.txt
-:::
+
 
 The \*.txt files contain plain text for analysis and the \*.meta files
 contain the original web source URI for the corresponding \*.txt files.
@@ -4347,10 +4173,10 @@ Using the spaCy library and Python/Hy's standard libraries for file
 access, the KGCreator is simple to implement. Here is the overall design
 of this example:
 
-::: {.figure-wrapper .center}
+
 ![Overview of the Knowledge Graph Creator
-script](/site_images1/hy-lisp-python/kg1.png){style="width: 100%"}
-:::
+script](/site_images1/hy-lisp-python/kg1.png)
+
 
 We will develop two versions of the Knowledge Graph Creator. The first
 generates RDF that uses string values for the object part of generated
@@ -4362,7 +4188,7 @@ Hy/Python libraries, this first example (uses strings a object values)
 is implemented in just 58 lines of Hy code that is seen in the following
 three code listings:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [os [scandir]])
@@ -4376,7 +4202,7 @@ three code listings:
     11     (.strip (.replace s "\n" " ")))
     12   (setv doc (nlp-model some-text))
     13   (map list (lfor entity doc.ents [(clean entity.text) entity.label_])))
-:::
+
 
 In lines 3 and 4 we import three standard Python utilities we need for
 finding all files in a directory, checking to see if a file exists, and
@@ -4388,10 +4214,10 @@ entity names by removing new line characters and other unnecessary white
 space (nested function **clean** in lines 10 and 11). We can run a test
 in a REPL:
 
-::: highlight
+
     => (list (find-entities-in-text "John Smith went to Los Angeles to work at IBM"))
     [['John Smith', 'PERSON'], ['Los Angeles', 'GPE'], ['IBM', 'ORG']]
-:::
+
 
 The function **find-entities-in-text** returns a map object so I wrapped
 the results in a **list** to print out the entities in the test
@@ -4399,7 +4225,7 @@ sentence. The entity types used by spaCy were defined in an earlier
 chapter, here we just use the entity types defined in lines 21-26 in the
 following listing:
 
-::: highlight
+
     14 (defn data2Rdf [meta-data entities fout]
     15   (for [[value abbreviation] entities]
     16     (if (in abbreviation e2umap)
@@ -4413,13 +4239,13 @@ following listing:
     24   "NORP" "<https://schema.org/nationality>"
     25   "PRODUCT" "<https://schema.org/Product>"
     26   "PERSON" "<https://schema.org/Person>"})
-:::
+
 
 In lines 28-39 we open an output file for writing generated RDF data and
 loop through all text files in the input directory and call the function
 **process-file** for each text + meta file pair in the input directory:
 
-::: highlight
+
     28 (defn process-directory [directory-name output-rdf]
     29   (with [frdf (open output-rdf "w")]
     30     (with [entries (scandir directory-name)]
@@ -4432,9 +4258,9 @@ loop through all text files in the input directory and call the function
     37                   (process-file entry.path check-file-name frdf)
     38                   (print "Warning: no .meta file for" entry.path
     39                          "in directory" directory-name))))))))
-:::
 
-::: highlight
+
+
     40 (defn process-file [txt-path meta-path frdf]
     41   
     42   (defn read-data [text-path meta-path]
@@ -4454,12 +4280,12 @@ loop through all text files in the input directory and call the function
     56   (data2Rdf meta entities frdf))
     57 
     58 (process-directory "test_data" "output.rdf")
-:::
+
 
 We will look at generated output, problems with it, and how to fix these
 problems in the next section.
 
-### [](#leanpub-auto-problems-with-using-literal-values-in-rdf){.anchor-link}Problems with using Literal Values in RDF {#leanpub-auto-problems-with-using-literal-values-in-rdf}
+### Problems with using Literal Values in RDF
 
 Using the Hy script in the last section, let's look at some of the
 generated RDF for the text files in the input test directory (most
@@ -4468,7 +4294,7 @@ URI of the data source, the second item in each statement is a URI
 representing a relationship (or property), and the third item is a
 literal string value:
 
-::: highlight
+
     <https://newsshop.com/may/a1023.html>
       <https://schema.org/nationality>    "Portuguese" .
     <https://newsshop.com/may/a1023.html>
@@ -4509,11 +4335,11 @@ literal string value:
     <https://abcnews.go.com/US/violent-long-lasting-tornadoes-threaten-oklahoma-texas/st\
     ory?id=63146361>
       <https://schema.org/location>   "Texas" .
-:::
+
 
 Let's visualize the results in a bash shell:
 
-::: highlight
+
     $ git clone https://github.com/fatestigma/ontology-visualization
     $ cd ontology-visualization
     $ chmod +x ontology_viz.py
@@ -4521,21 +4347,21 @@ Let's visualize the results in a bash shell:
     $ # copy the file output.rdf from examples repo directory hy-lisp-python/kgcreator
     $ dot -Tpng -o test.png test.dot
     $ open test.png
-:::
+
 
 Edited to fit on the page, the output looks like:
 
-::: {.figure-wrapper .center}
-![](/site_images1/hy-lisp-python/1dot1.png){style="width: 100%"}
-:::
 
-::: {.figure-wrapper .center}
-![](/site_images1/hy-lisp-python/1dot2.png){style="width: 100%"}
-:::
+![](/site_images1/hy-lisp-python/1dot1.png)
 
-::: {.figure-wrapper .center}
-![](/site_images1/hy-lisp-python/1dot3.png){style="width: 100%"}
-:::
+
+
+![](/site_images1/hy-lisp-python/1dot2.png)
+
+
+
+![](/site_images1/hy-lisp-python/1dot3.png)
+
 
 Because we used literal values, notice how for example the node for the
 entity **IBM** is not shared and thus a software agent using this RDF
@@ -4543,7 +4369,7 @@ data cannot, for example, infer relationships between two news sources
 that both have articles about IBM. We will work on a solution to this
 problem in the next section.
 
-### [](#leanpub-auto-revisiting-this-example-using-uris-instead-of-literal-values){.anchor-link}Revisiting This Example Using URIs Instead of Literal Values {#leanpub-auto-revisiting-this-example-using-uris-instead-of-literal-values}
+### Revisiting This Example Using URIs Instead of Literal Values
 
 Note that in the figure in the previous section that nodes for literal
 values (e.g., for "IBM") are not shared. In this section we will copy
@@ -4565,7 +4391,7 @@ In **kgcreator_uri.hy** we add a map **v2umap** for selected entity
 literal names to DBPedia URIs that I manually created using a web search
 on the DBPedia domain:
 
-::: highlight
+
     (setv v2umap { ;; object literal value to URI mapping
       "IBM" "<http://dbpedia.org/page/IBM>"
       "The Wall Street Journal" "<http://dbpedia.org/page/The_Wall_Street_Journal>"
@@ -4575,12 +4401,12 @@ on the DBPedia domain:
       "Australian Writers Guild"
       "http://dbpedia.org/page/Australian_Broadcasting_Corporation"
       "Microsoft" "http://dbpedia.org/page/Microsoft"})
-:::
+
 
 We also make a change in the function **data2Rdf** to use the map
 **v2umap**:
 
-::: highlight
+
     (defn data2Rdf [meta-data entities fout]
       (for [[value abbreviation] entities]
         (setv a-literal (+ "\"" value "\""))
@@ -4588,33 +4414,33 @@ We also make a change in the function **data2Rdf** to use the map
         (if (in abbreviation e2umap)
           (.write fout (+ "<" meta-data ">\t" (get e2umap abbreviation)
                           "\t" a-literal " .\n")))))
-:::
+
 
 Here is some of the generated RDF that has changed:
 
-::: highlight
+
     <https://newsshop.com/may/a1023.html>
       <https://schema.org/Organization>
       <http://dbpedia.org/page/IBM> .
     <https://newsshop.com/may/a1023.html>
       <https://schema.org/Organization>
       <http://dbpedia.org/page/Banco_Esp%C3%ADrito_Santo> .
-:::
+
 
 Now when we visualize generated RDF, we share nodes for The Wallstreet
 Journal and IBM:
 
-::: {.figure-wrapper .center}
+
 ![Part of the RDF graph that shows shared nodes when URIs are used for
 RDF values instead of literal
-strings](/site_images1/hy-lisp-python/2dot1.png){style="width: 100%"}
-:::
+strings](/site_images1/hy-lisp-python/2dot1.png)
+
 
 While literal values sometimes are useful in generated RDF, using
 literals for the values in RDF triples prevents types of queries and
 inference that can be performed on the data.
 
-### [](#leanpub-auto-wrap-up-4){.anchor-link}Wrap-up {#leanpub-auto-wrap-up-4}
+### Wrap-up
 
 In the field of Artificial Intelligence there are two topics that get me
 the most excited and I have been fortunate to be paid to work on both:
@@ -4628,7 +4454,7 @@ has that can be solved by not moving data around, but rather, by
 creating a custom Knowledge Graph for metadata for existing information
 in your organization.
 
-## [](#kgn){.anchor-link}Knowledge Graph Navigator {#kgn}
+## Knowledge Graph Navigator
 
 The Knowledge Graph Navigator (which I will often refer to as KGN) is a
 tool for processing a set of entity names and automatically exploring
@@ -4654,10 +4480,10 @@ DBPedia. We use the python library
 entity names and then to show the user a list of matches from DBPedia.
 The following screen shot shows these steps:
 
-::: {.figure-wrapper .center}
+
 ![Initial user interaction with Knowledge Graph Navigator
-example](/site_images1/hy-lisp-python/kgnuserselect.png){style="width: 100%"}
-:::
+example](/site_images1/hy-lisp-python/kgnuserselect.png)
+
 
 To select the entities of interest, the user uses a space character to
 select or deselect an entity and the return (or enter) key to accept the
@@ -4667,27 +4493,27 @@ After the user selects entities from the list, the list disappears. The
 next screen shot shows the output from this example after the user
 finishes selecting entities of interest:
 
-::: {.figure-wrapper .center}
+
 ![After the user selects entities of
-interest](/site_images1/hy-lisp-python/kgnafter.png){style="width: 100%"}
-:::
+interest](/site_images1/hy-lisp-python/kgnafter.png)
+
 
 The code for this application is in the directory **kgn**. You will need
 to install the following Python library that supports console/text user
 interfaces:
 
-::: highlight
+
     pip install PyInquirer
-:::
+
 
 You will also need the **spacy** library and language model that we used
 in the earlier chapter on natural language processing. If you have not
 already done so, install these requirements:
 
-::: highlight
+
     pip install spacy
     python -m spacy download en_core_web_sm
-:::
+
 
 After listing the generated SPARQL for finding information for the
 entities in the query, KGN searches for relationships between these
@@ -4703,12 +4529,12 @@ especially in development mode when testing a set of queries. This
 caching also takes some load off of the public DBPedia endpoint, which
 is a polite thing to do.
 
-### [](#leanpub-auto-review-of-nlp-utilities-used-in-application){.anchor-link}Review of NLP Utilities Used in Application {#leanpub-auto-review-of-nlp-utilities-used-in-application}
+### Review of NLP Utilities Used in Application
 
 We covered NLP in a previous chapter, so the following is just a quick
 review. The NLP code we use is near the top of the file **kgn.hy**:
 
-::: highlight
+
     (import spacy)
 
     (setv nlp-model (spacy.load "en"))
@@ -4722,19 +4548,19 @@ review. The NLP code we use is near the top of the file **kgn.hy**:
             (setv (get ret etype) (+ (get ret etype) [ename]))
             (assoc ret etype [ename])))
       ret)
-:::
+
 
 Here is an example use of this function:
 
-::: highlight
+
     => (kgn.entities-in-text "Bill Gates, Microsoft, Seattle")
     {'PERSON': ['Bill Gates'], 'ORG': ['Microsoft'], 'GPE': ['Seattle']}
-:::
+
 
 The entity type "GPE" indicates that the entity is some type of
 location.
 
-### [](#leanpub-auto-developing-low-level-caching-sparql-utilities){.anchor-link}Developing Low-Level Caching SPARQL Utilities {#leanpub-auto-developing-low-level-caching-sparql-utilities}
+### Developing Low-Level Caching SPARQL Utilities
 
 While developing KGN and also using it as an end user, many SPARQL
 queries to DBPedia contain repeated entity names so it makes sense to
@@ -4744,7 +4570,7 @@ the chapter on datastores.
 
 The caching layer is implemented in the file **cache.hy**:
 
-::: highlight
+
      1 (import [sqlite3 [connect version Error ]])
      2 (import json)
      3 
@@ -4781,12 +4607,12 @@ The caching layer is implemented in the file **cache.hy**:
     34   results)
     35  
     36 (create-db)
-:::
+
 
 Here we store structured data from SPARQL queries as JSON data
 serialized as string values.
 
-#### [](#leanpub-auto-sparql-utilities){.anchor-link}SPARQL Utilities {#leanpub-auto-sparql-utilities}
+#### SPARQL Utilities
 
 We will use the caching code from the last section and also the standard
 Python library **requests** to access the DBPedia servers. The following
@@ -4799,7 +4625,7 @@ The function **do-query-helper** contains generic code for SPARQL
 queries and is used in functions **wikidata-sparql** and
 **dbpedia-sparql**:
 
-::: highlight
+
     (import json)
     (import requests)
     (require [hy.contrib.walk [let]])
@@ -4844,11 +4670,11 @@ queries and is used in functions **wikidata-sparql** and
 
     (defn dbpedia-sparql [query]
       (do-query-helper dbpedia-endpoint query))
-:::
+
 
 Here is an example query (manually formatted for page width):
 
-::: highlight
+
     $ hy
     hy 0.18.0 using CPython(default) 3.7.4 on Darwin
     => (import sparql)
@@ -4859,7 +4685,7 @@ Here is an example query (manually formatted for page width):
       ['p', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type'],
       ['o', 'http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat']]]
     => 
-:::
+
 
 This is a wild-card SPARQL query that will match any of the 9.5 billion
 RDF triples in DBPedia and return just one result.
@@ -4868,7 +4694,7 @@ This caching layer greatly speeds up my own personal use of KGN. Without
 caching, queries that contain many entity references simply take too
 long to run.
 
-### [](#leanpub-auto-utilities-to-colorize-sparql-and-generated-output){.anchor-link}Utilities to Colorize SPARQL and Generated Output {#leanpub-auto-utilities-to-colorize-sparql-and-generated-output}
+### Utilities to Colorize SPARQL and Generated Output
 
 When I first had the basic functionality of KGN working, I was
 disappointed by how the application looked as normal text. Every editor
@@ -4878,7 +4704,7 @@ queries.
 
 The code in the following listing is in the file **colorize.hy**.
 
-::: highlight
+
     (require [hy.contrib.walk [let]])
     (import [io [StringIO]])
 
@@ -4916,12 +4742,12 @@ The code in the following listing is in the file **colorize.hy**.
               (.write ret " ")))
         (.seek ret 0)
         (.read ret)))
-:::
+
 
 You have seen colorized SPARQL in the two screen shots at the beginning
 of this chapter.
 
-### [](#leanpub-auto-text-utilities-for-queries-and-results){.anchor-link}Text Utilities for Queries and Results {#leanpub-auto-text-utilities-for-queries-and-results}
+### Text Utilities for Queries and Results
 
 The application low level utility functions are in the file
 **kgn-utils.hy**. The function **dbpedia-get-entities-by-name** requires
@@ -4935,7 +4761,7 @@ type. The filter expression specifies that we only want triple results
 with comment values in the English language by using **(lang(?comment) =
 'en')**:
 
-::: highlight
+
      1 #!/usr/bin/env hy
      2 
      3 (import [sparql [dbpedia-sparql]])
@@ -4953,16 +4779,16 @@ with comment values in the English language by using **(lang(?comment) =
     15     (print "Generated SPARQL to get DBPedia entity URIs from a name:")
     16     (print (colorize-sparql sparql))
     17     (dbpedia-sparql sparql)))
-:::
+
 
 Here is an example:
 
-::: {.figure-wrapper .center}
-![Getting entities by name with colorized SPARL query
-script](/site_images1/hy-lisp-python/kgnutils.png){style="width: 100%"}
-:::
 
-### [](#leanpub-auto-finishing-the-main-function-for-kgn){.anchor-link}Finishing the Main Function for KGN {#leanpub-auto-finishing-the-main-function-for-kgn}
+![Getting entities by name with colorized SPARL query
+script](/site_images1/hy-lisp-python/kgnutils.png)
+
+
+### Finishing the Main Function for KGN
 
 We already looked at the NLP code near the beginning of the file
 **kgn.hy**. Let's look at the remainder of the implementation.
@@ -4970,13 +4796,13 @@ We already looked at the NLP code near the beginning of the file
 We need a dictionary (or hash table) to convert **spaCy** entity type
 names to DBPedia type URIs:
 
-::: highlight
+
     1 (setv entity-type-to-type-uri
     2       {"PERSON" "<http://dbpedia.org/ontology/Person>"
     3        "GPE" "<http://dbpedia.org/ontology/Place>"
     4        "ORG" "<http://dbpedia.org/ontology/Organisation>"
     5        })
-:::
+
 
 When we get entity results from DBPedia, the comments describing
 entities can be a few paragraphs of text. We want to shorten the
@@ -4985,14 +4811,14 @@ we have seen earlier. The following code defines a comment shortening
 function and also a global variable that we will use to store the entity
 URIs for each shortened comment:
 
-::: highlight
+
     1 (setv short-comment-to-uri {})
     2 
     3 (defn shorten-comment [comment uri]
     4   (setv sc (+ (cut comment 0 70) "..."))
     5   (assoc short-comment-to-uri sc uri)
     6   sc)
-:::
+
 
 In line 5, we use the function **assoc** to add a key and value pair to
 an existing dictionary **short-comment-to-uri**.
@@ -5012,7 +4838,7 @@ selected back to DBPedia entity URIs. Finally in line 36 we use the
 function **entity-results-\>relationship-links** to find relationships
 between the user selected entities.
 
-::: highlight
+
      1 (defn kgn []
      2   (while
      3     True
@@ -5052,7 +4878,7 @@ between the user selected entities.
     37       (setv relation-data (entity-results->relationship-links uri-list))
     38       (print "\nDiscovered relationship links:")
     39       (pprint relation-data))))
-:::
+
 
 If you have not already done so, I hope you experiment running this
 example application. The first time you specify an entity name expect
@@ -5060,7 +4886,7 @@ some delay while DBPedia is accessed. Thereafter the cache will make the
 application more responsive when you use the same name again in a
 different query.
 
-### [](#leanpub-auto-wrap-up-5){.anchor-link}Wrap-up {#leanpub-auto-wrap-up-5}
+### Wrap-up
 
 If you enjoyed running and experimenting with this example and want to
 modify it for your own projects then I hope that I provided a sufficient
@@ -5071,7 +4897,7 @@ bit of time manually setting up SPARQL queries for DBPedia and other
 public sources like WikiData, and I wanted to experiment with partially
 automating this exploration process.
 
-## [](#leanpub-auto-book-wrap-up){.anchor-link}Book Wrap-up {#leanpub-auto-book-wrap-up}
+## Book Wrap-up
 
 I love programming in Lisp languages but I often need to use Python
 libraries for Deep Learning and NLP. The Hy language is a good fit for
@@ -5089,30 +4915,30 @@ Best regards,
 Mark Watson
 
 February 15, 2020
-:::
-:::
-:::
-:::
 
-::: container--small
+
+
+
+
+
 # [![Logo white 96 67 2x](https://d3g6anj9jkury9.cloudfront.net/assets/logos/logo-white-96-67-2x-9bfee74570449b60febfe179fb06c1eb.png)](https://leanpub.com/) {#logo-white-96-67-2x .footer-logo}
 
-### Publish Early, Publish Often {#publish-early-publish-often .footer-slogan}
+### Publish Early, Publish Often
 
--   ##### Path {#path .footer-headings}
+-   ##### Path
 
 -   There are many paths, but the one you\'re on right now on Leanpub
     is:
 
 -   Hy-lisp-python › Read
 
-::: footer-links
--   ##### READERS {#readers .footer-headings}
+
+-   ##### READERS
 
 ```{=html}
 <!-- -->
 ```
--   ##### Newsletters {#newsletters .footer-list-title}
+-   ##### Newsletters
 
 -   [Weekly Sale](/newsletters)
 
@@ -5121,7 +4947,7 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Store {#store .footer-list-title}
+-   ##### Store
 
 -   [Home](/)
 
@@ -5132,7 +4958,7 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Support {#support .footer-list-title}
+-   ##### Support
 
 -   [Leanpub
     FAQ](http://help.leanpub.com/en/articles/3788293-the-leanpub-faq)
@@ -5148,7 +4974,7 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### FRONTMATTER PODCAST {#frontmatter-podcast .footer-headings}
+-   ##### FRONTMATTER PODCAST
 
 -   [Featured Episode](/podcasts/featured)
 
@@ -5157,9 +4983,9 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### COMPANY {#company .footer-headings}
+-   ##### COMPANY
 
--   ##### About {#about .footer-list-title}
+-   ##### About
 
 -   [About Leanpub](/about)
 
@@ -5172,7 +4998,7 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Essays {#essays .footer-list-title}
+-   ##### Essays
 
 -   [Climate Change](/climatechange)
 
@@ -5183,7 +5009,7 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### More {#more .footer-list-title}
+-   ##### More
 
 -   [Causes](/causes)
 
@@ -5192,12 +5018,12 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### AUTHORS {#authors .footer-headings}
+-   ##### AUTHORS
 
 ```{=html}
 <!-- -->
 ```
--   ##### Write and Publish on Leanpub {#write-and-publish-on-leanpub .footer-list-title}
+-   ##### Write and Publish on Leanpub
 
 -   [Create a Book](/create/book)
 
@@ -5210,14 +5036,14 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Author Newsletter {#author-newsletter .footer-list-title}
+-   ##### Author Newsletter
 
 -   [The Leanpub Author Update](/newsletters)
 
 ```{=html}
 <!-- -->
 ```
--   ##### Author Support {#author-support .footer-list-title}
+-   ##### Author Support
 
 -   [Author Help Center](http://help.leanpub.com/author-help)
 
@@ -5234,14 +5060,14 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Developer Support {#developer-support .footer-list-title}
+-   ##### Developer Support
 
 -   [API Docs](/help/api)
 
 ```{=html}
 <!-- -->
 ```
--   ##### Companies and Publishers {#companies-and-publishers .footer-list-title}
+-   ##### Companies and Publishers
 
 -   [Learn More](/companies)
 
@@ -5250,14 +5076,14 @@ February 15, 2020
 ```{=html}
 <!-- -->
 ```
--   ##### Universities {#universities .footer-list-title}
+-   ##### Universities
 
 -   [Universities Program](/universities)
 
 ```{=html}
 <!-- -->
 ```
--   ##### LEGAL {#legal .footer-headings}
+-   ##### LEGAL
 
 -   [Terms of Service](/terms)
 
@@ -5266,7 +5092,7 @@ February 15, 2020
 -   [Privacy Policy](/privacy)
 
 -   [Refund Policy](/refunds)
-:::
+
 
 \*   \*   \*
 
@@ -5280,13 +5106,13 @@ Policy](https://policies.google.com/privacy){rel="noopener noreferrer"
 target="_blank"} and  [Terms of
 Service](https://policies.google.com/terms){rel="noopener noreferrer"
 target="_blank"} apply.
-:::
 
-::: {#react-modal}
-:::
-:::
 
-::: {.cookies-banner .alert .alert--info style="display: none"}
+
+
+
+
+
 Leanpub requires cookies in order to provide you the best experience.
 [Dismiss]{.dismiss .link}
-:::
+
