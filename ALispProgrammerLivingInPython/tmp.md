@@ -11,70 +11,35 @@ Mark Watson
 
 ## Preface
 
-While this is a book on the Hy Lisp language, we have a wider theme
-here. In an age where artificial intelligence (AI) is a driver of the
-largest corporations and government agencies, the question is how do
-individuals and small organizations take advantage of AI technologies
-given disadvantages of small scale. The material I chose to write about
-here is selected to help you, dear reader, survive as a healthy small
-fish in a big bond.
+本書はHy Lisp言語に関する書籍ですが、ここにはより広いテーマがあります。人工知能（AI）が大企業や政府機関を動かす時代において、小規模というデメリットを考慮した上で、個人や小さな組織がAI技術をどう活用するかという問題です。ここで書く材料は、読者の皆さんが大きな絆の中で健全な雑魚として生き残るために選んだものです。
 
-I have been using Lisp languages professionally since 1982 and have
-written books covering the Common Lisp and Scheme languages. Most of my
-career has involved working on AI projects so tools for developing AI
-applications will be a major theme. In addition to covering the Hy
-language, you will get experience with AI tools and techniques that will
-help you craft your own AI platforms regardless of whether you are a
-consultant, work at a startup, or a corporation.
+私は1982年から専門的にLisp言語を使っており、Common LispやScheme言語をカバーする書籍も執筆しています。私のキャリアのほとんどはAIプロジェクトに携わってきましたので、AIアプリケーションを開発するためのツールが大きなテーマとなります。本書では、Hy言語に加えて、コンサルタント、スタートアップ企業、企業などを問わず、独自のAIプラットフォームを構築するのに役立つAIツールやテクニックを体験することができます。
 
-This book covers many programming topics using the Lisp language **Hy**
-that compiles to Python AST and is compatible with code, libraries, and
-frameworks written in Python. The main topics we will cover and write
-example applications for are:
+本書では、Python ASTにコンパイルされ、Pythonで書かれたコード、ライブラリ、フレームワークと互換性のあるLisp言語 **Hy** を用いて、多くのプログラミングトピックを扱います。主なトピックとして、以下のものを取り上げ、サンプルアプリケーションを作成します。
 
--   Relational and graph databases
--   Web app development
--   Web scraping
--   Accessing semantic web and linked data sources like Wikipedia,
-    DBpedia, and Wikidata
--   Automatically constructing Knowledge Graphs from text documents,
-    semantic web and linked data
--   Deep Learning
--   Natural Language Processing (NLP) using Deep Learning
+- リレーショナルデータベース、グラフデータベース
+- ウェブアプリ開発
+- ウェブスクレイピング
+- Wikipedia、DBpedia、Wikidataなどのセマンティックウェブやリンクされたデータソースへのアクセス
+- テキスト文書、セマンティックウェブ、リンクデータから自動的にナレッジグラフを構築する
+- ディープラーニング
+- Deep Learningを用いた自然言語処理(NLP)
 
-The topics were chosen because of my work experience and the theme of
-this book is how to increase programmer productivity and happiness using
-a Lisp language in a bottom-up development style. This style relies
-heavily on the use of an interactive REPL for exploring APIs and writing
-new code. I chose the above topics based on my experience working as a
-developer and researcher. Please note: you will see the term REPL
-frequently in this book. REPL stands for *Read Eval Print Loop*.
+トピックは私の仕事の経験から選ばれました。本書のテーマは、ボトムアップ開発スタイルでLisp言語を使ってプログラマの生産性と幸福度をいかに高めるか、ということです。このスタイルは、APIを探索し新しいコードを書くために、インタラクティブなREPLの使用に大きく依存しています。私は、開発者と研究者として働いてきた経験をもとに、上記のトピックを選びました。注意：本書では、REPLという用語を頻繁に目にします。REPLとは、*Read Eval Print Loop*の略です。
 
-Some of the examples are very simple (e.g., the web app examples) while
-some are more complex (e.g., Deep Learning and knowledge graph
-examples). Regardless of the simplicity or complexity of the examples I
-hope that you find the code interesting, useful in your projects, and
-fun to experiment with.
+例題の中には、非常にシンプルなもの（Webアプリの例など）もあれば、複雑なもの（Deep Learningやナレッジグラフの例など）もあります。例のシンプルさ、複雑さに関わらず、コードが面白く、プロジェクトに役立ち、実験する楽しさを感じていただければと思います。
 
-### Setting Up Your Development Environment
+### 開発環境を整える
 
-This is a hands-on book! I expect you, dear reader, to follow along with
-the examples as you read this book. I assume that you know some Python
-and know how to use the command line tools **python** and **pip** and
-use a virtual Python environment like [Anaconda
-(**conda**)](https://www.anaconda.com/) or
-[**virtualenv**](https://virtualenv.pypa.io/en/latest/). Personally I
-prefer **conda** but you can use any Python 3.x setup you like as long
-as you have a few packages installed.
+本書は実践的な本です。親愛なる読者の皆さんには、この本を読みながら、例題に沿って進めていただくことを期待しています。Pythonをある程度知っていて、コマンドラインツール **python** と **pip** の使い方を知っていて、[Anaconda (**conda**)](https://www.anaconda.com/) や [**virtualenv**](https://virtualenv.pypa.io/en/latest/) などの仮想Python環境を使っていると仮定しています。個人的には**conda**が好きですが、いくつかのパッケージがインストールされている限り、好きなPython 3.xのセットアップを使用することができます。
 
-You can install the current stable version of **Hy** using:
+現在の安定版である**Hy**は、以下を使用してインストールすることができます。
 
 
     1     pip install git+https://github.com/hylang/hy.git
 
 
-Depending on which examples you run and experiment with you will also
-need to install some of the following libraries:
+どのサンプルを実行して実験するかにもよりますが、以下のライブラリのいくつかをインストールする必要があります。
 
 
     1     pip install beautifulsoup4 Flask Jinja2 Keras psycopg2
@@ -82,89 +47,39 @@ need to install some of the following libraries:
     3     pip install PyInquirer
 
 
-The Hy language is under active development and it is not unusual for
-libraries and frameworks created more than a few months before the
-current Hy release to break. As a result of this, I have been careful in
-the selection of book material to leave out interesting functionality
-and libraries from the Hy ecosystem that I feel might not work with new
-releases. Here we stick with a few popular Python libraries like Keras,
-TensorFlow, and spaCy and otherwise we will work with mostly pure Hy
-language code in the examples.
+Hy言語は活発に開発されており、現在のHyリリースの数ヶ月以上前に作成されたライブラリやフレームワークが壊れることは珍しくありません。このため、本のネタを選ぶ際には、新しいリリースでは動かないかもしれないと感じるHyエコシステムの興味深い機能やライブラリは省くように注意しています。ここでは、Keras、TensorFlow、spaCyといったいくつかの人気のあるPythonライブラリにこだわり、それ以外はほとんど純粋なHy言語のコードで例題を進めていく予定です。
 
-### What is Lisp Programming Style?
+### Lispプログラミングスタイルとは？
 
-I will give some examples here and also show exploratory Hy language
-REPL examples later in the book. How often do you search the web for
-documentation on how to use a library, write some code only to discover
-later that you didn't use the API correctly? I reduce the amount of time
-that I spend writing code by having a Lisp REPL open so that I can
-experiment with API calls and returned results while reading the
-documentation.
+ここではいくつかの例を挙げ、この本の後半では探索的Hy言語REPLの例も紹介します。あるライブラリの使い方のドキュメントをウェブで検索し、コードを書いてみて、後でAPIを正しく使っていなかったことに気づくことがよくあるのではないでしょうか？私は、Lisp REPLを開いておき、ドキュメントを読みながらAPIの呼び出しと返される結果を実験できるようにして、コードを書く時間を減らしています。
 
-When I am working on new code or a new algorithm I like to have a Lisp
-REPL open and try short snippets of code to get working code for solving
-low level problems, building up to more complex code. As I figure out
-how to do things I enter code that works and that I want to keep in a
-text editor and then convert this code into my own library. I then
-iterate on loading my new library into a REPL and stress test it, look
-for API improvements, etc.
+新しいコードやアルゴリズムに取り組むときは、LispのREPLを開いて、低レベルの問題を解決するための動作コードを得るために短いコードの断片を試し、より複雑なコードへと発展させるのが好きです。そして、そのコードを自分のライブラリに変換します。そして、新しいライブラリをREPLにロードしてストレステストを行い、APIの改善点を探すといったことを繰り返しています。
 
-I find, in general, that a "bottom-up" approach gets me to working high
-quality systems faster than spending too much time doing up front
-planning and design. The problem with spending too much up front time on
-design is that we change our minds as to what makes the most sense to
-solve a problem as we experiment with code. I try to avoid up front time
-spent on work that I will have to re-work or even toss out.
+私は、一般的に、「ボトムアップ」のアプローチの方が、前もって計画や設計に時間をかけすぎるよりも、高品質なシステムをより早く作ることができると考えています。設計に時間をかけすぎると、コードを試しながら問題を解決するために何が最も理にかなっているのか、考えが変わってしまうという問題があります。私は、やり直したり、捨てたりしなければならないような仕事には、なるべく時間をかけないようにしています。
 
-### Hy is Python, But With a Lisp Syntax
+### HyはPythonだがLispの構文で
 
-When I need a library for a Hy project I search for Python libraries and
-either write a thin Hy language "wrapper" around the Python library or
-just call the Python APIs directly from Hy code. You will see many
-examples of both approaches in this book.
+Hyのプロジェクトでライブラリが必要なとき、私はPythonのライブラリを探し、Pythonライブラリの周りに薄いHy言語の「ラッパー」を書くか、Hyのコードから直接PythonのAPIを呼び出すかのどちらかです。この本では、両方のアプローチの多くの例を見ることができます。
 
-### How This Book Reflects My Views on Artificial Intelligence and the Future of Society and Technology
+### 人工知能と社会・技術の未来に対する私の考え方が本書に反映されている点
 
-Since starting work on AI in 1982 I have seen the field progress from a
-niche technology where even international conferences had small
-attendances to a field that is generally viewed as transformative. In
-the USA there is legitimate concern that economic adversaries like China
-will exceed our abilities to develop core AI technologies and integrate
-these technologies into commercial and military systems. As I write this
-in February 2020, some people in our field including myself believe that
-the Chinese company Baidu may have already passed Google and Microsoft
-in applied AI.
+1982年に人工知能の研究を始めて以来、私はこの分野が、国際会議の出席者数さえ少ないニッチな技術から、一般に変革的とみなされている分野へと発展するのを目の当たりにしてきました。米国では、中国のような経済的敵対国が、AIの中核技術を開発し、その技術を商用および軍事システムに統合する我々の能力を超えるという正当な懸念がある。2020年2月にこれを書いている時点で、私を含むこの分野の人々の中には、中国企業のバイドゥが応用AIですでにグーグルやマイクロソフトを追い抜いたかもしれないと考えている人もいます。
 
-Even though most of my professional work in the last five years has been
-in Deep Learning (and before that I worked with the Knowledge Graph at
-Google on a knowledge representation problem and application), I believe
-that human level Artificial General Intelligence (AGI) will use hybrid
-Deep Learning, "old fashioned" symbolic AI, and techniques that we have
-yet to discover.
+過去5年間の私の専門的な仕事のほとんどはDeep Learningでしたが（その前はGoogleで知識表現問題とその応用に取り組んでいました）、私は人間レベルの人工一般知能（AGI）はDeep Learningと「昔ながらの」記号的AI、そしてまだ発見されていない技術をハイブリッドで使うことになると信じています。
 
-This belief that Deep Learning will not get us to AGI capabilities is a
-motivation for me to use the Hy language because it offers transparent
-access to Python Deep Learning frameworks with a bottom-up Lisp
-development style that I have used for decades using symbolic AI and
-knowledge representation.
+ディープラーニングではAGIの能力は得られないというこの信念が、私がHy言語を使う動機となっています。Hy言語は、私が記号AIと知識表現を使って何十年も使ってきたボトムアップのLisp開発スタイルでPython Deep Learningフレームワークへの透明なアクセスを提供してくれるからです。
 
-I hope you find that Hy meets your needs as it does my own.
+Hyが私のニーズと同じようにあなたのニーズにも合致していることを、私は願っています。
 
-### About the Book Cover
+### ブックカバーについて
 
-The official Hy Language logo is an octopus:
+Hy Languageの公式ロゴはタコです。
 
 
-![The Hy Language logo Cuddles by Karen
-Rustad](/site_images1/hy-lisp-python/hylisplogo.jpg)
+![The Hy Language logo Cuddles by Karen Rustad](/site_images1/hy-lisp-python/hylisplogo.jpg)
 
 
-Usually I use photographs that I take myself for covers of my LeanPub
-books. Although I have SCUBA dived since I was 13 years old, sadly I
-have no pictures of an octopus that I have taken myself. I did find a
-public domain picture I liked (that is the cover of this book) on
-Wikimedia. **Cover Credit**: Thanks to Wikimedia user Pseudopanax for
-placing the cover image in the public domain.
+普段、LeanPubの本の表紙は自分で撮った写真を使っています。私は13歳からSCUBAダイビングをしていますが、悲しいかな、自分で撮ったタコの写真は持っていません。しかし、Wikimediaで気に入ったパブリックドメインの写真（この本の表紙です）を見つけました。**表紙クレジット**。ウィキメディア・ユーザーのPseudopanaxが、この表紙画像をパブリックドメインに置いてくれたことに感謝します。
 
 ### A Request from the Author
 
