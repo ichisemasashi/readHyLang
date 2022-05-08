@@ -2,12 +2,12 @@
 ## **MANIPULATING STRINGS**
 
 
-![Image](../images/000123.jpg){.calibre3}
+![Image](../images/000123.jpg)
 
 
 Text is one of the most common forms of data your programs will handle.
 You already know how to concatenate two string values together with the
-[+]{.literal} operator, but you can do much more than that. You can
+[+] operator, but you can do much more than that. You can
 extract partial strings from string values, add or remove spacing,
 convert letters to lowercase or uppercase, and check that strings are
 formatted correctly. You can even write Python code to access the
@@ -19,53 +19,53 @@ Then you'll work through two different programming projects: a simple
 clipboard that stores multiple strings of text and a program to automate
 the boring chore of formatting pieces of text.
 
-### **Working with Strings** {#calibre_link-208 .h1}
+### **Working with Strings** !
 
 Let's look at some of the ways Python lets you write, print, and access
 strings in your code.
 
-#### ***String Literals*** {#calibre_link-209 .h2}
+#### ***String Literals*** !
 
 Typing string values in Python code is fairly straightforward: they
 begin and end with a single quote. But then how can you use a quote
-inside a string? Typing [\'That is Alice\'s cat.\']{.codestrong} won't
-work, because Python thinks the string ends after [Alice]{.literal}, and
-the rest ([s cat.\']{.literal}) is invalid Python code. Fortunately,
+inside a string? Typing [\'That is Alice\'s cat.\'] won't
+work, because Python thinks the string ends after [Alice], and
+the rest ([s cat.\']) is invalid Python code. Fortunately,
 there are multiple ways to type strings.
 
-##### **Double Quotes** {#calibre_link-1751 .h2}
+##### **Double Quotes** !
 
 Strings can begin and end with double quotes, just as they do with
 single quotes. One benefit of using double quotes is that the string can
 have a single quote character in it. Enter the following into the
 interactive shell:
 
-\>\>\> [spam = \"That is Alice\'s cat.\"]{.codestrong1}
+\>\>\> [spam = \"That is Alice\'s cat.\"]
 
 Since the string begins with a double quote, Python knows that the
 single quote is part of the string and not marking the end of the
 string. However, if you need to use both single quotes and double quotes
 in the string, you'll need to use escape characters.
 
-##### **Escape Characters** {#calibre_link-1752 .h2}
+##### **Escape Characters** !
 
 An *escape character* lets you use characters that are otherwise
 impossible to put into a string. An escape character consists of a
-backslash ([\\]{.literal}) followed by the character you want to add to
+backslash ([\\]) followed by the character you want to add to
 the string. (Despite consisting of two characters, it is commonly
 referred to as a singular escape character.) For example, the escape
-character for a single quote is [\\\']{.literal}. You can use this
+character for a single quote is [\\\']. You can use this
 inside a string that begins and ends with single quotes. To see how
 escape characters work, enter the following into the interactive shell:
 
-\>\>\> [spam = \'Say hi to Bob\\\'s mother.\']{.codestrong1}
+\>\>\> [spam = \'Say hi to Bob\\\'s mother.\']
 
-Python knows that since the single quote in [Bob\\\'s]{.literal} has a
+Python knows that since the single quote in [Bob\\\'s] has a
 backslash, it is not a single quote meant to end the string value. The
-escape characters [\\\']{.literal} and [\\\"]{.literal} let you put
+escape characters [\\\'] and [\\\"] let you put
 single quotes and double quotes inside your strings, respectively.
 
-[Table 6-1](#calibre_link-1615){.calibre6} lists the escape characters
+[Table 6-1](#calibre_link-1615) lists the escape characters
 you can use.
 
 []{#calibre_link-743 {http:="" www.idpf.org="" 2007=""
@@ -73,40 +73,40 @@ ops}type="pagebreak"}**Table 6-1:** Escape Characters
 
   **Escape character**   **Prints as**
   ---------------------- ----------------------
-  [\\\']{.literal}       Single quote
-  [\\\"]{.literal}       Double quote
-  [\\t]{.literal}        Tab
-  [\\n]{.literal}        Newline (line break)
-  [\\\\]{.literal}       Backslash
+  [\\\']       Single quote
+  [\\\"]       Double quote
+  [\\t]        Tab
+  [\\n]        Newline (line break)
+  [\\\\]       Backslash
 
 Enter the following into the interactive shell:
 
 \>\>\> [print(\"Hello there!\\nHow are you?\\nI\\\'m doing
-fine.\")]{.codestrong1}\
+fine.\")]\
 Hello there!\
 How are you?\
 I\'m doing fine.
 
-##### **Raw Strings** {#calibre_link-1753 .h2}
+##### **Raw Strings** !
 
-You can place an [r]{.literal} before the beginning quotation mark of a
+You can place an [r] before the beginning quotation mark of a
 string to make it a raw string. A *raw string* completely ignores all
 escape characters and prints any backslash that appears in the string.
 For example, enter the following into the interactive shell:
 
-\>\>\> [print(r\'That is Carol\\\'s cat.\')]{.codestrong1}\
+\>\>\> [print(r\'That is Carol\\\'s cat.\')]\
 That is Carol\\\'s cat.
 
 Because this is a raw string, Python considers the backslash as part of
 the string and not as the start of an escape character. Raw strings are
 helpful if you are typing string values that contain many backslashes,
 such as the strings used for Windows file paths like
-[r\'C:\\Users\\Al\\Desktop\']{.literal} or regular expressions described
+[r\'C:\\Users\\Al\\Desktop\'] or regular expressions described
 in the next chapter.
 
-##### **Multiline Strings with Triple Quotes** {#calibre_link-1754 .h2}
+##### **Multiline Strings with Triple Quotes** !
 
-While you can use the [\\n]{.literal} escape character to put a newline
+While you can use the [\\n] escape character to put a newline
 into a string, it is often easier to use multiline strings. A multiline
 string in Python begins and ends with either three single quotes or
 three double quotes. Any quotes, tabs, or newlines in between the
@@ -135,18 +135,18 @@ extortion.\
 Sincerely,\
 Bob
 
-Notice that the single quote character in [Eve\'s]{.literal} does not
+Notice that the single quote character in [Eve\'s] does not
 need to be escaped. Escaping single and double quotes is optional in
-multiline strings. The following [print()]{.literal} call would print
+multiline strings. The following [print()] call would print
 identical text but doesn't use a multiline string:
 
 print(\'Dear Alice,\\n\\nEve\\\'s cat has been arrested for catnapping,
 cat\
 burglary, and extortion.\\n\\nSincerely,\\nBob\')
 
-##### **Multiline Comments** {#calibre_link-1755 .h2}
+##### **Multiline Comments** !
 
-While the hash character ([\#]{.literal}) marks the beginning of a
+While the hash character ([\#]) marks the beginning of a
 comment for the rest of the line, a multiline string is often used for
 comments that span multiple lines. The following is perfectly valid
 Python code:
@@ -162,77 +162,77 @@ def spam():\
     explain what the spam() function does.\"\"\"\
     print(\'Hello!\')
 
-#### ***Indexing and Slicing Strings*** {#calibre_link-210 .h2}
+#### ***Indexing and Slicing Strings*** !
 
 Strings use indexes and slices the same way lists do. You can think of
-the string [\'Hello, world!\']{.literal} as a list and each character in
+the string [\'Hello, world!\'] as a list and each character in
 the string as an item with a corresponding index.
 
 \'   H   e   l   l   o   ,       w   o   r   l    d    !   \'\
     0   1   2   3   4   5   6   7   8   9   10   11   12
 
 The space and exclamation point are included in the character count, so
-[\'Hello, world!\']{.literal} is 13 characters long, from [H]{.literal}
-at index 0 to [!]{.literal} at index 12.
+[\'Hello, world!\'] is 13 characters long, from [H]
+at index 0 to [!] at index 12.
 
 []{#calibre_link-1010 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [spam = \'Hello, world!\']{.codestrong1}\
-\>\>\> [spam\[0\]]{.codestrong1}\
+\>\>\> [spam = \'Hello, world!\']\
+\>\>\> [spam\[0\]]\
 \'H\'\
-\>\>\> [spam\[4\]]{.codestrong1}\
+\>\>\> [spam\[4\]]\
 \'o\'\
-\>\>\> [spam\[-1\]]{.codestrong1}\
+\>\>\> [spam\[-1\]]\
 \'!\'\
-\>\>\> [spam\[0:5\]]{.codestrong1}\
+\>\>\> [spam\[0:5\]]\
 \'Hello\'\
-\>\>\> [spam\[:5\]]{.codestrong1}\
+\>\>\> [spam\[:5\]]\
 \'Hello\'\
-\>\>\> [spam\[7:\]]{.codestrong1}\
+\>\>\> [spam\[7:\]]\
 \'world!\'
 
 If you specify an index, you'll get the character at that position in
 the string. If you specify a range from one index to another, the
 starting index is included and the ending index is not. That's why, if
-[spam]{.literal} is [\'Hello, world!\']{.literal},
-[spam\[0:5\]]{.literal} is [\'Hello\']{.literal}. The substring you get
-from [spam\[0:5\]]{.literal} will include everything from
-[spam\[0\]]{.literal} to [spam\[4\]]{.literal}, leaving out the comma at
+[spam] is [\'Hello, world!\'],
+[spam\[0:5\]] is [\'Hello\']. The substring you get
+from [spam\[0:5\]] will include everything from
+[spam\[0\]] to [spam\[4\]], leaving out the comma at
 index 5 and the space at index 6. This is similar to how
-[range(5)]{.literal} will cause a [for]{.literal} loop to iterate up to,
-but not including, [5]{.literal}.
+[range(5)] will cause a [for] loop to iterate up to,
+but not including, [5].
 
 Note that slicing a string does not modify the original string. You can
 capture a slice from one variable in a separate variable. Try entering
 the following into the interactive shell:
 
-\>\>\> [spam = \'Hello, world!\']{.codestrong1}\
-\>\>\> [fizz = spam\[0:5\]]{.codestrong1}\
-\>\>\> [fizz]{.codestrong1}\
+\>\>\> [spam = \'Hello, world!\']\
+\>\>\> [fizz = spam\[0:5\]]\
+\>\>\> [fizz]\
 \'Hello\'
 
 By slicing and storing the resulting substring in another variable, you
 can have both the whole string and the substring handy for quick, easy
 access.
 
-#### ***The in and not in Operators with Strings*** {#calibre_link-211 .h2}
+#### ***The in and not in Operators with Strings*** !
 
-The [in]{.literal} and [not in]{.literal} operators can be used with
+The [in] and [not in] operators can be used with
 strings just like with list values. An expression with two strings
-joined using [in]{.literal} or [not in]{.literal} will evaluate to a
-Boolean [True]{.literal} or [False]{.literal}. Enter the following into
+joined using [in] or [not in] will evaluate to a
+Boolean [True] or [False]. Enter the following into
 the interactive shell:
 
-\>\>\> [\'Hello\' in \'Hello, World\']{.codestrong1}\
+\>\>\> [\'Hello\' in \'Hello, World\']\
 True\
-\>\>\> [\'Hello\' in \'Hello\']{.codestrong1}\
+\>\>\> [\'Hello\' in \'Hello\']\
 True\
-\>\>\> [\'HELLO\' in \'Hello, World\']{.codestrong1}\
+\>\>\> [\'HELLO\' in \'Hello, World\']\
 False\
-\>\>\> [\'\' in \'spam\']{.codestrong1}\
+\>\>\> [\'\' in \'spam\']\
 True\
-\>\>\> [\'cats\' not in \'cats and dogs\']{.codestrong1}\
+\>\>\> [\'cats\' not in \'cats and dogs\']\
 False
 
 []{#calibre_link-1042 {http:="" www.idpf.org="" 2007=""
@@ -240,87 +240,87 @@ ops}type="pagebreak"}These expressions test whether the first string
 (the exact string, case-sensitive) can be found within the second
 string.
 
-### **Putting Strings Inside Other Strings** {#calibre_link-212 .h1}
+### **Putting Strings Inside Other Strings** !
 
 Putting strings inside other strings is a common operation in
-programming. So far, we've been using the [+]{.literal} operator and
+programming. So far, we've been using the [+] operator and
 string concatenation to do this:
 
-\>\>\> [name = \'Al\']{.codestrong1}\
-\>\>\> [age = 4000]{.codestrong1}\
+\>\>\> [name = \'Al\']\
+\>\>\> [age = 4000]\
 \>\>\> [\'Hello, my name is \' + name + \'. I am \' + str(age) + \'
-years old.\']{.codestrong1}\
+years old.\']\
 \'Hello, my name is Al. I am 4000 years old.\'
 
 However, this requires a lot of tedious typing. A simpler approach is to
-use *string interpolation*, in which the [%s]{.literal} operator inside
+use *string interpolation*, in which the [%s] operator inside
 the string acts as a marker to be replaced by values following the
-string. One benefit of string interpolation is that [str()]{.literal}
+string. One benefit of string interpolation is that [str()]
 doesn't have to be called to convert values to strings. Enter the
 following into the interactive shell:
 
-\>\>\> [name = \'Al\']{.codestrong1}\
-\>\>\> [age = 4000]{.codestrong1}\
+\>\>\> [name = \'Al\']\
+\>\>\> [age = 4000]\
 \>\>\> [\'My name is %s. I am %s years old.\' % (name,
-age)]{.codestrong1}\
+age)]\
 \'My name is Al. I am 4000 years old.\'
 
 Python 3.6 introduced *f-strings*, which is similar to string
-interpolation except that braces are used instead of [%s]{.literal},
+interpolation except that braces are used instead of [%s],
 with the expressions placed directly inside the braces. Like raw
-strings, f-strings have an [f]{.literal} prefix before the starting
+strings, f-strings have an [f] prefix before the starting
 quotation mark. Enter the following into the interactive shell:
 
-\>\>\> [name = \'Al\']{.codestrong1}\
-\>\>\> [age = 4000]{.codestrong1}\
+\>\>\> [name = \'Al\']\
+\>\>\> [age = 4000]\
 \>\>\> [f\'My name is {name}. Next year I will be {age +
-1}.\']{.codestrong1}\
+1}.\']\
 \'My name is Al. Next year I will be 4001.\'
 
-Remember to include the [f]{.literal} prefix; otherwise, the braces and
+Remember to include the [f] prefix; otherwise, the braces and
 their contents will be a part of the string value:
 
 \>\>\> [\'My name is {name}. Next year I will be {age +
-1}.\']{.codestrong1}\
+1}.\']\
 \'My name is {name}. Next year I will be {age + 1}.\'
 
-### **Useful String Methods** {#calibre_link-213 .h1}
+### **Useful String Methods** !
 
 Several string methods analyze strings or create transformed string
 values. This section describes the methods you'll be using most often.
 
-#### []{#calibre_link-830 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***The upper(), lower(), isupper(), and islower() Methods*** {#calibre_link-214 .h2}
+#### []***The upper(), lower(), isupper(), and islower() Methods*** !
 
-The [upper()]{.literal} and [lower()]{.literal} string methods return a
+The [upper()] and [lower()] string methods return a
 new string where all the letters in the original string have been
 converted to uppercase or lowercase, respectively. Nonletter characters
 in the string remain unchanged. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \'Hello, world!\']{.codestrong1}\
-\>\>\> [spam = spam.upper()]{.codestrong1}\
-\>\>\> [spam]{.codestrong1}\
+\>\>\> [spam = \'Hello, world!\']\
+\>\>\> [spam = spam.upper()]\
+\>\>\> [spam]\
 \'HELLO, WORLD!\'\
-\>\>\> [spam = spam.lower()]{.codestrong1}\
-\>\>\> [spam]{.codestrong1}\
+\>\>\> [spam = spam.lower()]\
+\>\>\> [spam]\
 \'hello, world!\'
 
 Note that these methods do not change the string itself but return new
 string values. If you want to change the original string, you have to
-call [upper()]{.literal} or [lower()]{.literal} on the string and then
+call [upper()] or [lower()] on the string and then
 assign the new string to the variable where the original was stored.
-This is why you must use [spam = spam.upper()]{.literal} to change the
-string in [spam]{.literal} instead of simply [spam.upper()]{.literal}.
-(This is just like if a variable [eggs]{.literal} contains the value
-[10]{.literal}. Writing [eggs + 3]{.literal} does not change the value
-of [eggs]{.literal}, but [eggs = eggs + 3]{.literal} does.)
+This is why you must use [spam = spam.upper()] to change the
+string in [spam] instead of simply [spam.upper()].
+(This is just like if a variable [eggs] contains the value
+[10]. Writing [eggs + 3] does not change the value
+of [eggs], but [eggs = eggs + 3] does.)
 
-The [upper()]{.literal} and [lower()]{.literal} methods are helpful if
+The [upper()] and [lower()] methods are helpful if
 you need to make a case-insensitive comparison. For example, the strings
-[\'great\']{.literal} and [\'GREat\']{.literal} are not equal to each
+[\'great\'] and [\'GREat\'] are not equal to each
 other. But in the following small program, it does not matter whether
-the user types [Great]{.literal}, [GREAT]{.literal}, or
-[grEAT]{.literal}, because the string is first converted to lowercase.
+the user types [Great], [GREAT], or
+[grEAT], because the string is first converted to lowercase.
 
 print(\'How are you?\')\
 feeling = input()\
@@ -330,104 +330,104 @@ else:\
     print(\'I hope the rest of your day is good.\')
 
 When you run this program, the question is displayed, and entering a
-variation on [great]{.literal}, such as [GREat]{.literal}, will still
-give the output [I feel great too]{.literal}. Adding code to your
+variation on [great], such as [GREat], will still
+give the output [I feel great too]. Adding code to your
 program to handle variations or mistakes in user input, such as
 inconsistent capitalization, will make your programs easier to use and
 less likely to fail.
 
 How are you?\
-[GREat]{.codestrong1}\
+[GREat]\
 I feel great too.
 
 You can view the execution of this program at
-*[https://autbor.com/convertlowercase/](https://autbor.com/convertlowercase/){.calibre6}*.
-The [isupper()]{.literal} and [islower()]{.literal} methods will return
-a Boolean [True]{.literal} value if the string has at least one letter
+*[https://autbor.com/convertlowercase/](https://autbor.com/convertlowercase/)*.
+The [isupper()] and [islower()] methods will return
+a Boolean [True] value if the string has at least one letter
 and all the letters []{#calibre_link-1017 {http:="" www.idpf.org=""
 2007="" ops}type="pagebreak"}are uppercase or lowercase, respectively.
-Otherwise, the method returns [False]{.literal}. Enter the following
+Otherwise, the method returns [False]. Enter the following
 into the interactive shell, and notice what each method call returns:
 
-\>\>\> [spam = \'Hello, world!\']{.codestrong1}\
-\>\>\> [spam.islower()]{.codestrong1}\
+\>\>\> [spam = \'Hello, world!\']\
+\>\>\> [spam.islower()]\
 False\
-\>\>\> [spam.isupper()]{.codestrong1}\
+\>\>\> [spam.isupper()]\
 False\
-\>\>\> [\'HELLO\'.isupper()]{.codestrong1}\
+\>\>\> [\'HELLO\'.isupper()]\
 True\
-\>\>\> [\'abc12345\'.islower()]{.codestrong1}\
+\>\>\> [\'abc12345\'.islower()]\
 True\
-\>\>\> [\'12345\'.islower()]{.codestrong1}\
+\>\>\> [\'12345\'.islower()]\
 False\
-\>\>\> [\'12345\'.isupper()]{.codestrong1}\
+\>\>\> [\'12345\'.isupper()]\
 False
 
-Since the [upper()]{.literal} and [lower()]{.literal} string methods
+Since the [upper()] and [lower()] string methods
 themselves return strings, you can call string methods on *those*
 returned string values as well. Expressions that do this will look like
 a chain of method calls. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.upper()]{.codestrong1}\
+\>\>\> [\'Hello\'.upper()]\
 \'HELLO\'\
-\>\>\> [\'Hello\'.upper().lower()]{.codestrong1}\
+\>\>\> [\'Hello\'.upper().lower()]\
 \'hello\'\
-\>\>\> [\'Hello\'.upper().lower().upper()]{.codestrong1}\
+\>\>\> [\'Hello\'.upper().lower().upper()]\
 \'HELLO\'\
-\>\>\> [\'HELLO\'.lower()]{.codestrong1}\
+\>\>\> [\'HELLO\'.lower()]\
 \'hello\'\
-\>\>\> [\'HELLO\'.lower().islower()]{.codestrong1}\
+\>\>\> [\'HELLO\'.lower().islower()]\
 True
 
-#### ***The isX() Methods*** {#calibre_link-215 .h2}
+#### ***The isX() Methods*** !
 
-Along with [islower()]{.literal} and [isupper()]{.literal}, there are
+Along with [islower()] and [isupper()], there are
 several other string methods that have names beginning with the word
 *is*. These methods return a Boolean value that describes the nature of
-the string. Here are some common [is]{.literal}[X]{.codeitalic} string
+the string. Here are some common [is][X] string
 methods:
 
-[isalpha()]{.codestrong} Returns [True]{.literal} if the string consists
+[isalpha()] Returns [True] if the string consists
 only of letters and isn't blank
 
-[isalnum()]{.codestrong} Returns [True]{.literal} if the string consists
+[isalnum()] Returns [True] if the string consists
 only of letters and numbers and is not blank
 
-[isdecimal()]{.codestrong} Returns [True]{.literal} if the string
+[isdecimal()] Returns [True] if the string
 consists only of numeric characters and is not blank
 
-[isspace()]{.codestrong} Returns [True]{.literal} if the string consists
+[isspace()] Returns [True] if the string consists
 only of spaces, tabs, and newlines and is not blank
 
-[istitle()]{.codestrong} Returns [True]{.literal} if the string consists
+[istitle()] Returns [True] if the string consists
 only of words that begin with an uppercase letter followed by only
 lowercase letters
 
 []{#calibre_link-1014 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [\'hello\'.isalpha()]{.codestrong1}\
+\>\>\> [\'hello\'.isalpha()]\
 True\
-\>\>\> [\'hello123\'.isalpha()]{.codestrong1}\
+\>\>\> [\'hello123\'.isalpha()]\
 False\
-\>\>\> [\'hello123\'.isalnum()]{.codestrong1}\
+\>\>\> [\'hello123\'.isalnum()]\
 True\
-\>\>\> [\'hello\'.isalnum()]{.codestrong1}\
+\>\>\> [\'hello\'.isalnum()]\
 True\
-\>\>\> [\'123\'.isdecimal()]{.codestrong1}\
+\>\>\> [\'123\'.isdecimal()]\
 True\
-\>\>\> [\'    \'.isspace()]{.codestrong1}\
+\>\>\> [\'    \'.isspace()]\
 True\
-\>\>\> [\'This Is Title Case\'.istitle()]{.codestrong1}\
+\>\>\> [\'This Is Title Case\'.istitle()]\
 True\
-\>\>\> [\'This Is Title Case 123\'.istitle()]{.codestrong1}\
+\>\>\> [\'This Is Title Case 123\'.istitle()]\
 True\
-\>\>\> [\'This Is not Title Case\'.istitle()]{.codestrong1}\
+\>\>\> [\'This Is not Title Case\'.istitle()]\
 False\
-\>\>\> [\'This Is NOT Title Case Either\'.istitle()]{.codestrong1}\
+\>\>\> [\'This Is NOT Title Case Either\'.istitle()]\
 False
 
-The [is]{.literal}[X()]{.codeitalic} string methods are helpful when you
+The [is][X()] string methods are helpful when you
 need to validate user input. For example, the following program
 repeatedly asks users for their age and a password until they provide
 valid input. Open a new file editor window and enter this program,
@@ -447,13 +447,13 @@ while True:\
         break\
     print(\'Passwords can only have letters and numbers.\')
 
-In the first [while]{.literal} loop, we ask the user for their age and
-store their input in [age]{.literal}. If [age]{.literal} is a valid
-(decimal) value, we break out of this first [while]{.literal} loop and
+In the first [while] loop, we ask the user for their age and
+store their input in [age]. If [age] is a valid
+(decimal) value, we break out of this first [while] loop and
 move on to the second, which asks for a password. Otherwise, we inform
 the user that they need to enter a number and again ask them to enter
-their age. In the second [while]{.literal} loop, we ask for a password,
-store the user's input in [password]{.literal}, and break out of the
+their age. In the second [while] loop, we ask for a password,
+store the user's input in [password], and break out of the
 loop if the input was alpha­numeric. If it wasn't, we're not satisfied,
 so we tell the user the password needs to be alphanumeric and again ask
 them to enter a password.
@@ -462,198 +462,197 @@ them to enter a password.
 ops}type="pagebreak"}When run, the program's output looks like this:
 
 Enter your age:\
-[forty two]{.codestrong1}\
+[forty two]\
 Please enter a number for your age.\
 Enter your age:\
-[42]{.codestrong1}\
+[42]\
 Select a new password (letters and numbers only):\
-[secr3t!]{.codestrong1}\
+[secr3t!]\
 Passwords can only have letters and numbers.\
 Select a new password (letters and numbers only):\
-[secr3t]{.codestrong1}
+[secr3t]
 
 You can view the execution of this program at
-*[https://autbor.com/validateinput/](https://autbor.com/validateinput/){.calibre6}*.
-Calling [isdecimal()]{.literal} and [isalnum()]{.literal} on variables,
+*[https://autbor.com/validateinput/](https://autbor.com/validateinput/)*.
+Calling [isdecimal()] and [isalnum()] on variables,
 we're able to test whether the values stored in those variables are
 decimal or not, alphanumeric or not. Here, these tests help us reject
-the input [forty two]{.literal} but accept [42]{.literal}, and reject
-[secr3t!]{.literal} but accept [secr3t]{.literal}.
+the input [forty two] but accept [42], and reject
+[secr3t!] but accept [secr3t].
 
-#### ***The startswith() and endswith() Methods*** {#calibre_link-216 .h2}
+#### ***The startswith() and endswith() Methods*** !
 
-The [startswith()]{.literal} and [endswith()]{.literal} methods return
-[True]{.literal} if the string value they are called on begins or ends
+The [startswith()] and [endswith()] methods return
+[True] if the string value they are called on begins or ends
 (respectively) with the string passed to the method; otherwise, they
-return [False]{.literal}. Enter the following into the interactive
+return [False]. Enter the following into the interactive
 shell:
 
-\>\>\> [\'Hello, world!\'.startswith(\'Hello\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.startswith(\'Hello\')]\
 True\
-\>\>\> [\'Hello, world!\'.endswith(\'world!\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.endswith(\'world!\')]\
 True\
-\>\>\> [\'abc123\'.startswith(\'abcdef\')]{.codestrong1}\
+\>\>\> [\'abc123\'.startswith(\'abcdef\')]\
 False\
-\>\>\> [\'abc123\'.endswith(\'12\')]{.codestrong1}\
+\>\>\> [\'abc123\'.endswith(\'12\')]\
 False\
-\>\>\> [\'Hello, world!\'.startswith(\'Hello, world!\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.startswith(\'Hello, world!\')]\
 True\
-\>\>\> [\'Hello, world!\'.endswith(\'Hello, world!\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.endswith(\'Hello, world!\')]\
 True
 
-These methods are useful alternatives to the [==]{.literal} equals
+These methods are useful alternatives to the [==] equals
 operator if you need to check only whether the first or last part of the
 string, rather than the whole thing, is equal to another string.
 
-#### ***The join() and split() Methods*** {#calibre_link-217 .h2}
+#### ***The join() and split() Methods*** !
 
-The [join()]{.literal} method is useful when you have a list of strings
+The [join()] method is useful when you have a list of strings
 that need to be joined together into a single string value. The
-[join()]{.literal} method is called on a string, gets passed a list of
-strings, and returns a string. The returned string []{#calibre_link-1082
-{http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}is the
+[join()] method is called on a string, gets passed a list of
+strings, and returns a string. The returned string is the
 concatenation of each string in the passed-in list. For example, enter
 the following into the interactive shell:
 
-\>\>\> [\', \'.join(\[\'cats\', \'rats\', \'bats\'\])]{.codestrong1}\
+\>\>\> [\', \'.join(\[\'cats\', \'rats\', \'bats\'\])]\
 \'cats, rats, bats\'\
 \>\>\> [\' \'.join(\[\'My\', \'name\', \'is\',
-\'Simon\'\])]{.codestrong1}\
+\'Simon\'\])]\
 \'My name is Simon\'\
 \>\>\> [\'ABC\'.join(\[\'My\', \'name\', \'is\',
-\'Simon\'\])]{.codestrong1}\
+\'Simon\'\])]\
 \'MyABCnameABCisABCSimon\'
 
-Notice that the string [join()]{.literal} calls on is inserted between
+Notice that the string [join()] calls on is inserted between
 each string of the list argument. For example, when [join(\[\'cats\',
-\'rats\', \'bats\'\])]{.literal} is called on the [\', \']{.literal}
-string, the returned string is [\'cats, rats, bats\']{.literal}.
+\'rats\', \'bats\'\])] is called on the [\', \']
+string, the returned string is [\'cats, rats, bats\'].
 
-Remember that [join()]{.literal} is called on a string value and is
+Remember that [join()] is called on a string value and is
 passed a list value. (It's easy to accidentally call it the other way
-around.) The [split()]{.literal} method does the opposite: It's called
+around.) The [split()] method does the opposite: It's called
 on a string value and returns a list of strings. Enter the following
 into the interactive shell:
 
-\>\>\> [\'My name is Simon\'.split()]{.codestrong1}\
+\>\>\> [\'My name is Simon\'.split()]\
 \[\'My\', \'name\', \'is\', \'Simon\'\]
 
-By default, the string [\'My name is Simon\']{.literal} is split
+By default, the string [\'My name is Simon\'] is split
 wherever whitespace characters such as the space, tab, or newline
 characters are found. These whitespace characters are not included in
 the strings in the returned list. You can pass a delimiter string to the
-[split()]{.literal} method to specify a different string to split upon.
+[split()] method to specify a different string to split upon.
 For example, enter the following into the interactive shell:
 
-\>\>\> [\'MyABCnameABCisABCSimon\'.split(\'ABC\')]{.codestrong1}\
+\>\>\> [\'MyABCnameABCisABCSimon\'.split(\'ABC\')]\
 \[\'My\', \'name\', \'is\', \'Simon\'\]\
-\>\>\> [\'My name is Simon\'.split(\'m\')]{.codestrong1}\
+\>\>\> [\'My name is Simon\'.split(\'m\')]\
 \[\'My na\', \'e is Si\', \'on\'\]
 
-A common use of [split()]{.literal} is to split a multiline string along
+A common use of [split()] is to split a multiline string along
 the newline characters. Enter the following into the interactive shell:
 
-\>\>\> [spam = \'\'\'Dear Alice,]{.codestrong1}\
-[How have you been? I am fine.]{.codestrong1}\
-[There is a container in the fridge]{.codestrong1}\
-[that is labeled \"Milk Experiment.\"]{.codestrong1}\
+\>\>\> [spam = \'\'\'Dear Alice,]\
+[How have you been? I am fine.]\
+[There is a container in the fridge]\
+[that is labeled \"Milk Experiment.\"]\
 \
-[Please do not drink it.]{.codestrong1}\
-[Sincerely,]{.codestrong1}\
-[Bob\'\'\']{.codestrong1}\
-\>\>\> [spam.split(\'\\n\')]{.codestrong1}\
+[Please do not drink it.]\
+[Sincerely,]\
+[Bob\'\'\']\
+\>\>\> [spam.split(\'\\n\')]\
 \[\'Dear Alice,\', \'How have you been? I am fine.\', \'There is a
 container in the\
 fridge\', \'that is labeled \"Milk Experiment.\"\', \'\', \'Please do
 not drink it.\',\
 \'Sincerely,\', \'Bob\'\]
 
-Passing [split()]{.literal} the argument [\'\\n\']{.literal} lets us
-split the multiline string stored in [spam]{.literal} along the newlines
+Passing [split()] the argument [\'\\n\'] lets us
+split the multiline string stored in [spam] along the newlines
 and return a list in which each item corresponds to one line of the
 string.
 
-#### []{#calibre_link-833 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Splitting Strings with the partition() Method*** {#calibre_link-218 .h2}
+#### []***Splitting Strings with the partition() Method*** !
 
-The [partition()]{.literal} string method can split a string into the
+The [partition()] string method can split a string into the
 text before and after a separator string. This method searches the
 string it is called on for the separator string it is passed, and
 returns a tuple of three substrings for the "before," "separator," and
 "after" substrings. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello, world!\'.partition(\'w\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.partition(\'w\')]\
 (\'Hello, \', \'w\', \'orld!\')\
-\>\>\> [\'Hello, world!\'.partition(\'world\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.partition(\'world\')]\
 (\'Hello, \', \'world\', \'!\')
 
-If the separator string you pass to [partition()]{.literal} occurs
-multiple times in the string that [partition()]{.literal} calls on, the
+If the separator string you pass to [partition()] occurs
+multiple times in the string that [partition()] calls on, the
 method splits the string only on the first occurrence:
 
-\>\>\> [\'Hello, world!\'.partition(\'o\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.partition(\'o\')]\
 (\'Hell\', \'o\', \', world!\')
 
 If the separator string can't be found, the first string returned in the
 tuple will be the entire string, and the other two strings will be
 empty:
 
-\>\>\> [\'Hello, world!\'.partition(\'XYZ\')]{.codestrong1}\
+\>\>\> [\'Hello, world!\'.partition(\'XYZ\')]\
 (\'Hello, world!\', \'\', \'\')
 
 You can use the multiple assignment trick to assign the three returned
 strings to three variables:
 
 \>\>\> [before, sep, after = \'Hello, world!\'.partition(\'
-\')]{.codestrong1}\
-\>\>\> [before]{.codestrong1}\
+\')]\
+\>\>\> [before]\
 \'Hello,\'\
-\>\>\> [after]{.codestrong1}\
+\>\>\> [after]\
 \'world!\'
 
-The [partition()]{.literal} method is useful for splitting a string
+The [partition()] method is useful for splitting a string
 whenever you need the parts before, including, and after a particular
 separator string.
 
-#### ***Justifying Text with the rjust(), ljust(), and center() Methods*** {#calibre_link-219 .h2}
+#### ***Justifying Text with the rjust(), ljust(), and center() Methods*** !
 
-The [rjust()]{.literal} and [ljust()]{.literal} string methods return a
+The [rjust()] and [ljust()] string methods return a
 padded version of the string they are called on, with spaces inserted to
 justify the text. The first argument to both methods is an integer
 length for the justified string. Enter the following into the
 interactive shell:
 
-\>\>\> [\'Hello\'.rjust(10)]{.codestrong1}\
+\>\>\> [\'Hello\'.rjust(10)]\
 \'     Hello\'\
-\>\>\> [\'Hello\'.rjust(20)]{.codestrong1}\
+\>\>\> [\'Hello\'.rjust(20)]\
 \'              Hello\'\
-\>\>\> [\'Hello, World\'.rjust(20)]{.codestrong1}\
+\>\>\> [\'Hello, World\'.rjust(20)]\
 []{#calibre_link-1022 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}\'         Hello, World\'\
-\>\>\> [\'Hello\'.ljust(10)]{.codestrong1}\
+\>\>\> [\'Hello\'.ljust(10)]\
 \'Hello     \'
 
-[\'Hello\'.rjust(10)]{.literal} says that we want to right-justify
-[\'Hello\']{.literal} in a string of total length [10]{.literal}.
-[\'Hello\']{.literal} is five characters, so five spaces will be added
+[\'Hello\'.rjust(10)] says that we want to right-justify
+[\'Hello\'] in a string of total length [10].
+[\'Hello\'] is five characters, so five spaces will be added
 to its left, giving us a string of 10 characters with
-[\'Hello\']{.literal} justified right.
+[\'Hello\'] justified right.
 
-An optional second argument to [rjust()]{.literal} and
-[ljust()]{.literal} will specify a fill character other than a space
+An optional second argument to [rjust()] and
+[ljust()] will specify a fill character other than a space
 character. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.rjust(20, \'\*\')]{.codestrong1}\
+\>\>\> [\'Hello\'.rjust(20, \'\*\')]\
 \'\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello\'\
-\>\>\> [\'Hello\'.ljust(20, \'-\')]{.codestrong1}\
+\>\>\> [\'Hello\'.ljust(20, \'-\')]\
 \'Hello\-\-\-\-\-\-\-\-\-\-\-\-\-\--\'
 
-The [center()]{.literal} string method works like [ljust()]{.literal}
-and [rjust()]{.literal} but centers the text rather than justifying it
+The [center()] string method works like [ljust()]
+and [rjust()] but centers the text rather than justifying it
 to the left or right. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.center(20)]{.codestrong1}\
+\>\>\> [\'Hello\'.center(20)]\
 \'       Hello        \'\
-\>\>\> [\'Hello\'.center(20, \'=\')]{.codestrong1}\
+\>\>\> [\'Hello\'.center(20, \'=\')]\
 \'=======Hello========\'
 
 These methods are especially useful when you need to print tabular data
@@ -671,33 +670,33 @@ printPicnic(picnicItems, 12, 5)\
 printPicnic(picnicItems, 20, 6)
 
 You can view the execution of this program at
-*[https://autbor.com/picnictable/](https://autbor.com/picnictable/){.calibre6}*.
-In this program, we define a [printPicnic()]{.literal} method that will
-take in a dictionary of information and use [center()]{.literal},
-[ljust()]{.literal}, and [rjust()]{.literal} to display that information
+*[https://autbor.com/picnictable/](https://autbor.com/picnictable/)*.
+In this program, we define a [printPicnic()] method that will
+take in a dictionary of information and use [center()],
+[ljust()], and [rjust()] to display that information
 in a neatly aligned table-like format.
 
-The dictionary that we'll pass to [printPicnic()]{.literal} is
-[picnicItems]{.literal}. In [picnicItems]{.literal}, we have 4
+The dictionary that we'll pass to [printPicnic()] is
+[picnicItems]. In [picnicItems], we have 4
 sandwiches, 12 apples, 4 cups, and 8,000 cookies. We want to organize
 this information into two columns, with the name of the item on the left
 and the quantity on the right.
 
 To do this, we decide how wide we want the left and right columns to be.
 Along with our dictionary, we'll pass these values to
-[printPicnic()]{.literal}.
+[printPicnic()].
 
 []{#calibre_link-834 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The [printPicnic()]{.literal} function takes in a
-dictionary, a [leftWidth]{.literal} for the left column of a table, and
-a [rightWidth]{.literal} for the right column. It prints a title,
-[PICNIC ITEMS]{.literal}, centered above the table. Then, it loops
+ops}type="pagebreak"}The [printPicnic()] function takes in a
+dictionary, a [leftWidth] for the left column of a table, and
+a [rightWidth] for the right column. It prints a title,
+[PICNIC ITEMS], centered above the table. Then, it loops
 through the dictionary, printing each key-value pair on a line with the
 key justified left and padded by periods, and the value justified right
 and padded by spaces.
 
-After defining [printPicnic()]{.literal}, we define the dictionary
-[picnicItems]{.literal} and call [printPicnic()]{.literal} twice,
+After defining [printPicnic()], we define the dictionary
+[picnicItems] and call [printPicnic()] twice,
 passing it different widths for the left and right table columns.
 
 When you run this program, the picnic items are displayed twice. The
@@ -716,54 +715,54 @@ apples\...\...\...\.....    12\
 cups\...\...\...\...\....     4\
 cookies\...\...\...\....  8000
 
-Using [rjust()]{.literal}, [ljust()]{.literal}, and [center()]{.literal}
+Using [rjust()], [ljust()], and [center()]
 lets you ensure that strings are neatly aligned, even if you aren't sure
 how many characters long your strings are.
 
-#### ***Removing Whitespace with the strip(), rstrip(), and lstrip() Methods*** {#calibre_link-220 .h2}
+#### ***Removing Whitespace with the strip(), rstrip(), and lstrip() Methods*** !
 
 Sometimes you may want to strip off whitespace characters (space, tab,
 and newline) from the left side, right side, or both sides of a string.
-The [strip()]{.literal} string method will return a new string without
+The [strip()] string method will return a new string without
 any whitespace characters at the beginning or end. The
-[lstrip()]{.literal} and [rstrip()]{.literal} methods will remove
+[lstrip()] and [rstrip()] methods will remove
 whitespace characters from the left and right ends, respectively. Enter
 the following into the interactive shell:
 
-\>\>\> [spam = \'    Hello, World    \']{.codestrong1}\
-\>\>\> [spam.strip()]{.codestrong1}\
+\>\>\> [spam = \'    Hello, World    \']\
+\>\>\> [spam.strip()]\
 \'Hello, World\'\
-\>\>\> [spam.lstrip()]{.codestrong1}\
+\>\>\> [spam.lstrip()]\
 \'Hello, World    \'\
-\>\>\> [spam.rstrip()]{.codestrong1}\
+\>\>\> [spam.rstrip()]\
 \'    Hello, World\'
 
 Optionally, a string argument will specify which characters on the ends
 should be stripped. Enter the following into the interactive shell:
 
-\>\>\> [spam = \'SpamSpamBaconSpamEggsSpamSpam\']{.codestrong1}\
-\>\>\> [spam.strip(\'ampS\')]{.codestrong1}\
+\>\>\> [spam = \'SpamSpamBaconSpamEggsSpamSpam\']\
+\>\>\> [spam.strip(\'ampS\')]\
 \'BaconSpamEggs\'
 
 []{#calibre_link-846 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Passing [strip()]{.literal} the argument
-[\'ampS\']{.literal} will tell it to strip occurrences of [a]{.literal},
-[m]{.literal}, [p]{.literal}, and capital [S]{.literal} from the ends of
-the string stored in [spam]{.literal}. The order of the characters in
-the string passed to [strip()]{.literal} does not matter:
-[strip(\'ampS\')]{.literal} will do the same thing as
-[strip(\'mapS\')]{.literal} or [strip(\'Spam\')]{.literal}.
+ops}type="pagebreak"}Passing [strip()] the argument
+[\'ampS\'] will tell it to strip occurrences of [a],
+[m], [p], and capital [S] from the ends of
+the string stored in [spam]. The order of the characters in
+the string passed to [strip()] does not matter:
+[strip(\'ampS\')] will do the same thing as
+[strip(\'mapS\')] or [strip(\'Spam\')].
 
-### **Numeric Values of Characters with the ord() and chr() Functions** {#calibre_link-221 .h1}
+### **Numeric Values of Characters with the ord() and chr() Functions** !
 
 Computers store information as bytes---strings of binary numbers, which
 means we need to be able to convert text to numbers. Because of this,
 every text character has a corresponding numeric value called a *Unicode
-code point*. For example, the numeric code point is [65]{.literal} for
-[\'A\']{.literal}, [52]{.literal} for [\'4\']{.literal}, and
-[33]{.literal} for [\'!\']{.literal}. You can use the [ord()]{.literal}
+code point*. For example, the numeric code point is [65] for
+[\'A\'], [52] for [\'4\'], and
+[33] for [\'!\']. You can use the [ord()]
 function to get the code point of a one-character string, and the
-[chr()]{.literal} function to get the one-character string of an integer
+[chr()] function to get the one-character string of an integer
 code point. Enter the following into the interactive shell:
 
 \>\>\> ord(\'A\')\
@@ -791,12 +790,12 @@ There is more to Unicode and code points, but those details are beyond
 the scope of this book. If you'd like to know more, I recommend watching
 Ned Batchelder's 2012 PyCon talk, "Pragmatic Unicode, or, How Do I Stop
 the Pain?" at
-*[https://youtu.be/sgHbC6udIqc](https://youtu.be/sgHbC6udIqc){.calibre6}*.
+*[https://youtu.be/sgHbC6udIqc](https://youtu.be/sgHbC6udIqc)*.
 
-### **Copying and Pasting Strings with the pyperclip Module** {#calibre_link-222 .h1}
+### **Copying and Pasting Strings with the pyperclip Module** !
 
-The [pyperclip]{.literal} module has [copy()]{.literal} and
-[paste()]{.literal} functions that can send text to and receive text
+The [pyperclip] module has [copy()] and
+[paste()] functions that can send text to and receive text
 from your computer's clipboard. Sending the output of your program to
 the clipboard will make it easy to paste it into an email, word
 processor, or some other software.
@@ -810,35 +809,35 @@ inconvenience of opening Mu and the Python script each time you want to
 run a script. Fortunately, there are shortcuts you can set up to make
 running Python scripts easier. The steps are slightly different for
 Windows, macOS, and Linux, but each is described in [Appendix
-B](#calibre_link-35){.calibre6}. Turn to [Appendix
-B](#calibre_link-35){.calibre6} to learn how to run your Python scripts
+B](#calibre_link-35). Turn to [Appendix
+B](#calibre_link-35) to learn how to run your Python scripts
 conveniently and be able to pass command line arguments to them. (You
 will not be able to pass command line arguments to your programs using
 Mu.)
 
 
 []{#calibre_link-847 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The [pyperclip]{.literal} module does not come with
+ops}type="pagebreak"}The [pyperclip] module does not come with
 Python. To install it, follow the directions for installing third-party
-modules in [Appendix A](#calibre_link-2){.calibre6}. After installing
-[pyperclip]{.literal}, enter the following into the interactive shell:
+modules in [Appendix A](#calibre_link-2). After installing
+[pyperclip], enter the following into the interactive shell:
 
-\>\>\> [import pyperclip]{.codestrong1}\
-\>\>\> [pyperclip.copy(\'Hello, world!\')]{.codestrong1}\
-\>\>\> [pyperclip.paste()]{.codestrong1}\
+\>\>\> [import pyperclip]\
+\>\>\> [pyperclip.copy(\'Hello, world!\')]\
+\>\>\> [pyperclip.paste()]\
 \'Hello, world!\'
 
 Of course, if something outside of your program changes the clipboard
-contents, the [paste()]{.literal} function will return it. For example,
+contents, the [paste()] function will return it. For example,
 if I copied this sentence to the clipboard and then called
-[paste()]{.literal}, it would look like this:
+[paste()], it would look like this:
 
-\>\>\> [pyperclip.paste()]{.codestrong1}\
+\>\>\> [pyperclip.paste()]\
 \'For example, if I copied this sentence to the clipboard and then
 called\
 paste(), it would look like this:\'
 
-### **Project: Multi-Clipboard Automatic Messages** {#calibre_link-223 .h1}
+### **Project: Multi-Clipboard Automatic Messages** !
 
 If you've responded to a large number of emails with similar phrasing,
 you've probably had to do a lot of repetitive typing. Maybe you keep a
@@ -847,7 +846,7 @@ using the clipboard. But your clipboard can only store one message at a
 time, which isn't very convenient. Let's make this process a bit easier
 with a program that stores multiple phrases.
 
-#### ***Step 1: Program Design and Data Structures*** {#calibre_link-224 .h2}
+#### ***Step 1: Program Design and Data Structures*** !
 
 You want to be able to run this program with a command line argument
 that is a short key phrase---for instance, *agree* or *busy*. The
@@ -868,8 +867,8 @@ sections---follow along on your computer!
 
 []{#calibre_link-797 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Open a new file editor window and save the program
-as *mclip.py*. You need to start the program with a [#!]{.literal}
-(*shebang*) line (see [Appendix B](#calibre_link-35){.calibre6}) and
+as *mclip.py*. You need to start the program with a [#!]
+(*shebang*) line (see [Appendix B](#calibre_link-35)) and
 should also write a comment that briefly describes the program. Since
 you want to associate each piece of text with its key phrase, you can
 store these as strings in a dictionary. The dictionary will be the data
@@ -885,17 +884,17 @@ week?\"\"\",\
         \'upsell\': \"\"\"Would you consider making this a monthly
 donation?\"\"\"}
 
-#### ***Step 2: Handle Command Line Arguments*** {#calibre_link-225 .h2}
+#### ***Step 2: Handle Command Line Arguments*** !
 
 The command line arguments will be stored in the variable
-[sys.argv]{.literal}. (See [Appendix B](#calibre_link-35){.calibre6} for
+[sys.argv]. (See [Appendix B](#calibre_link-35) for
 more information on how to use command line arguments in your programs.)
-The first item in the [sys.argv]{.literal} list should always be a
-string containing the program's filename ([\'mclip.py\']{.literal}), and
+The first item in the [sys.argv] list should always be a
+string containing the program's filename ([\'mclip.py\']), and
 the second item should be the first command line argument. For this
 program, this argument is the key phrase of the message you want. Since
 the command line argument is mandatory, you display a usage message to
-the user if they forget to add it (that is, if the [sys.argv]{.literal}
+the user if they forget to add it (that is, if the [sys.argv]
 list has fewer than two values in it). Make your program look like the
 following:
 
@@ -908,27 +907,27 @@ week?\"\"\",\
         \'upsell\': \"\"\"Would you consider making this a monthly
 donation?\"\"\"}\
 \
-[i]{.codestrong1}[mport sys]{.codestrong1}\
-[if len(sys.argv) \< 2:]{.codestrong1}\
+[i][mport sys]\
+[if len(sys.argv) \< 2:]\
 [    print(\'Usage: python mclip.py \[keyphrase\] - copy phrase
-text\')]{.codestrong1}\
-[    sys.exit()]{.codestrong1}\
+text\')]\
+[    sys.exit()]\
 \
 [keyphrase = sys.argv\[1\]    # first command line arg is the
-keyphrase]{.codestrong1}
+keyphrase]
 
-#### []{#calibre_link-1045 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Step 3: Copy the Right Phrase*** {#calibre_link-226 .h2}
+#### []***Step 3: Copy the Right Phrase*** !
 
 Now that the key phrase is stored as a string in the variable
-[keyphrase]{.literal}, you need to see whether it exists in the
-[TEXT]{.literal} dictionary as a key. If so, you want to copy the key's
-value to the clipboard using [pyperclip.copy()]{.literal}. (Since you're
-using the [pyperclip]{.literal} module, you need to import it.) Note
-that you don't actually *need* the [keyphrase]{.literal} variable; you
-could just use [sys.argv\[1\]]{.literal} everywhere
-[keyphrase]{.literal} is used in this program. But a variable named
-[keyphrase]{.literal} is much more readable than something cryptic like
-[sys.argv\[1\]]{.literal}.
+[keyphrase], you need to see whether it exists in the
+[TEXT] dictionary as a key. If so, you want to copy the key's
+value to the clipboard using [pyperclip.copy()]. (Since you're
+using the [pyperclip] module, you need to import it.) Note
+that you don't actually *need* the [keyphrase] variable; you
+could just use [sys.argv\[1\]] everywhere
+[keyphrase] is used in this program. But a variable named
+[keyphrase] is much more readable than something cryptic like
+[sys.argv\[1\]].
 
 Make your program look like the following:
 
@@ -941,45 +940,45 @@ week?\"\"\",\
         \'upsell\': \"\"\"Would you consider making this a monthly
 donation?\"\"\"}\
 \
-import sys[,]{.codestrong1} [pyperclip]{.codestrong1}\
+import sys[,] [pyperclip]\
 if len(sys.argv) \< 2:\
     print(\'Usage: py mclip.py \[keyphrase\] - copy phrase text\')\
     sys.exit()\
 \
 keyphrase = sys.argv\[1\]    # first command line arg is the keyphrase\
 \
-[if keyphrase in TEXT:]{.codestrong1}\
-[    pyperclip.copy(TEXT\[keyphrase\])]{.codestrong1}\
+[if keyphrase in TEXT:]\
+[    pyperclip.copy(TEXT\[keyphrase\])]\
 [    print(\'Text for \' + keyphrase + \' copied to
-clipboard.\')]{.codestrong1}\
-[else:]{.codestrong1}\
-[    print(\'There is no text for \' + keyphrase)]{.codestrong1}
+clipboard.\')]\
+[else:]\
+[    print(\'There is no text for \' + keyphrase)]
 
-This new code looks in the [TEXT]{.literal} dictionary for the key
+This new code looks in the [TEXT] dictionary for the key
 phrase. If the key phrase is a key in the dictionary, we get the value
 corresponding to that key, copy it to the clipboard, and print a message
 saying that we copied the value. Otherwise, we print a message saying
 there's no key phrase with that name.
 
 That's the complete script. Using the instructions in [Appendix
-B](#calibre_link-35){.calibre6} for launching command line programs
+B](#calibre_link-35) for launching command line programs
 easily, you now have a fast way to copy messages to the clipboard. You
-will have to modify the [TEXT]{.literal} dictionary value in the source
+will have to modify the [TEXT] dictionary value in the source
 whenever you want to update the program with a new message.
 
 On Windows, you can create a batch file to run this program with the
-[WIN-R]{.small} Run window. (For more about batch files, see [Appendix
-B](#calibre_link-35){.calibre6}.) Enter the following into the file
+[WIN-R] Run window. (For more about batch files, see [Appendix
+B](#calibre_link-35).) Enter the following into the file
 editor and save the file as *mclip.bat* in the *C:\\Windows* folder:
 
-\@py.exe C:\\[path_to_file]{.codeitalic1}\\mclip.py %\*\
+\@py.exe C:\\[path_to_file]\\mclip.py %\*\
 \@pause
 
 With this batch file created, running the multi-clipboard program on
-Windows is just a matter of pressing [WIN-R]{.small} and typing
-[mclip]{.literal} [key phrase]{.codeitalic}.
+Windows is just a matter of pressing [WIN-R] and typing
+[mclip] [key phrase].
 
-### []{#calibre_link-784 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**Project: Adding Bullets to Wiki Markup** {#calibre_link-227 .h1}
+### []**Project: Adding Bullets to Wiki Markup** !
 
 When editing a Wikipedia article, you can create a bulleted list by
 putting each list item on its own line and placing a star in front. But
@@ -1008,7 +1007,7 @@ contain the following:
 This star-prefixed text is ready to be pasted into a Wikipedia article
 as a bulleted list.
 
-#### ***Step 1: Copy and Paste from the Clipboard*** {#calibre_link-228 .h2}
+#### ***Step 1: Copy and Paste from the Clipboard*** !
 
 You want the *bulletPointAdder.py* program to do the following:
 
@@ -1017,8 +1016,8 @@ You want the *bulletPointAdder.py* program to do the following:
 3.  Copy the new text to the clipboard.
 
 That second step is a little tricky, but steps 1 and 3 are pretty
-straightforward: they just involve the [pyperclip.copy()]{.literal} and
-[pyperclip.paste()]{.literal} functions. For now, let's just write the
+straightforward: they just involve the [pyperclip.copy()] and
+[pyperclip.paste()] functions. For now, let's just write the
 part of the program that covers steps 1 and 3. Enter the following,
 saving the program as *bulletPointAdder.py*:
 
@@ -1034,28 +1033,28 @@ text = pyperclip.paste()\
 pyperclip.copy(text)
 
 []{#calibre_link-1756 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The [TODO]{.literal} comment is a reminder that you
+ops}type="pagebreak"}The [TODO] comment is a reminder that you
 should complete this part of the program eventually. The next step is to
 actually implement that piece of the program.
 
-#### ***Step 2: Separate the Lines of Text and Add the Star*** {#calibre_link-229 .h2}
+#### ***Step 2: Separate the Lines of Text and Add the Star*** !
 
-The call to [pyperclip.paste()]{.literal} returns all the text on the
+The call to [pyperclip.paste()] returns all the text on the
 clipboard as one big string. If we used the "List of Lists of Lists"
-example, the string stored in [text]{.literal} would look like this:
+example, the string stored in [text] would look like this:
 
 \'Lists of animals\\nLists of aquarium life\\nLists of biologists by
 author\
 abbreviation\\nLists of cultivars\'
 
-The [\\n]{.literal} newline characters in this string cause it to be
+The [\\n] newline characters in this string cause it to be
 displayed with multiple lines when it is printed or pasted from the
 clipboard. There are many "lines" in this one string value. You want to
 add a star to the start of each of these lines.
 
-You could write code that searches for each [\\n]{.literal} newline
+You could write code that searches for each [\\n] newline
 character in the string and then adds the star just after that. But it
-would be easier to use the [split()]{.literal} method to return a list
+would be easier to use the [split()] method to return a list
 of strings, one for each line in the original string, and then add the
 star to the front of each string in the list.
 
@@ -1068,27 +1067,27 @@ Make your program look like the following:
 import pyperclip\
 text = pyperclip.paste()\
 \
-[\# Separate lines and add stars.]{.codestrong1}\
-[lines = text.split(\'\\n\')]{.codestrong1}\
+[\# Separate lines and add stars.]\
+[lines = text.split(\'\\n\')]\
 [for i in range(len(lines)):    # loop through all indexes in the
-\"lines\" list]{.codestrong1}\
+\"lines\" list]\
 [    lines\[i\] = \'\* \' + lines\[i\] \# add star to each string in
-\"lines\" list]{.codestrong1}\
+\"lines\" list]\
 \
 pyperclip.copy(text)
 
 We split the text along its newlines to get a list in which each item is
-one line of the text. We store the list in [lines]{.literal} and then
-loop through the items in [lines]{.literal}. For each line, we add a
+one line of the text. We store the list in [lines] and then
+loop through the items in [lines]. For each line, we add a
 star and a space to the start of the line. Now each string in
-[lines]{.literal} begins with a star.
+[lines] begins with a star.
 
-#### ***Step 3: Join the Modified Lines*** {#calibre_link-230 .h2}
+#### ***Step 3: Join the Modified Lines*** !
 
-The [lines]{.literal} list now contains modified lines that start with
-stars. But [pyperclip.copy()]{.literal} is expecting a single string
+The [lines] list now contains modified lines that start with
+stars. But [pyperclip.copy()] is expecting a single string
 value, however, not a list of string values. To make this single string
-value, pass [lines]{.literal} into the [join()]{.literal} method to get
+value, pass [lines] into the [join()] method to get
 a single string joined from the list's strings. Make your program look
 like the following:
 
@@ -1106,7 +1105,7 @@ for i in range(len(lines)):    # loop through all indexes for \"lines\"
 list\
     lines\[i\] = \'\* \' + lines\[i\] \# add star to each string in
 \"lines\" list\
-[text = \'\\n\'.join(lines)]{.codestrong1}\
+[text = \'\\n\'.join(lines)]\
 pyperclip.copy(text)
 
 When this program is run, it replaces the text on the clipboard with
@@ -1119,7 +1118,7 @@ spaces from the end of lines or converting text to uppercase or
 lowercase. Whatever your needs, you can use the clipboard for input and
 output.
 
-### **A Short Progam: Pig Latin** {#calibre_link-231 .h1}
+### **A Short Progam: Pig Latin** !
 
 Pig Latin is a silly made-up language that alters English words. If a
 word begins with a vowel, the word *yay* is added to the end of it. If a
@@ -1130,7 +1129,7 @@ that consonant or cluster is moved to the end of the word followed by
 Let's write a Pig Latin program that will output something like this:
 
 Enter the English message to translate into Pig Latin:\
-[My name is AL SWEIGART and I am 4,000 years old.]{.codestrong1}\
+[My name is AL SWEIGART and I am 4,000 years old.]\
 Ymay amenay isyay ALYAY EIGARTSWAY andyay Iyay amyay 4,000 yearsyay
 oldyay.
 
@@ -1207,7 +1206,7 @@ program.
 
 []{#calibre_link-1758 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Next, we're going to create the
-[pigLatin]{.literal} variable to store the words as we translate them
+[pigLatin] variable to store the words as we translate them
 into Pig Latin:
 
 pigLatin = \[\] \# A list of the words in Pig Latin.\
@@ -1222,16 +1221,16 @@ for word in message.split():\
         continue
 
 We need each word to be its own string, so we call
-[message.split()]{.literal} to get a list of the words as separate
+[message.split()] to get a list of the words as separate
 strings. The string [\'My name is AL SWEIGART and I am 4,000 years
-old.\']{.literal} would cause [split()]{.literal} to return [\[\'My\',
+old.\'] would cause [split()] to return [\[\'My\',
 \'name\', \'is\', \'AL\', \'SWEIGART\', \'and\', \'I\', \'am\',
-\'4,000\', \'years\', \'old.\'\]]{.literal}.
+\'4,000\', \'years\', \'old.\'\]].
 
 We need to remove any non-letters from the start and end of each word so
-that strings like [\'old.\']{.literal} translate to
-[\'oldyay.\']{.literal} instead of [\'old.yay\']{.literal}. We'll save
-these non-letters to a variable named [prefixNonLetters]{.literal}.
+that strings like [\'old.\'] translate to
+[\'oldyay.\'] instead of [\'old.yay\']. We'll save
+these non-letters to a variable named [prefixNonLetters].
 
     # Separate the non-letters at the end of this word:\
     suffixNonLetters = \'\'\
@@ -1239,13 +1238,13 @@ these non-letters to a variable named [prefixNonLetters]{.literal}.
         suffixNonLetters += word\[-1\]\
         word = word\[:-1\]
 
-A loop that calls [isalpha()]{.literal} on the first character in the
+A loop that calls [isalpha()] on the first character in the
 word will determine if we should remove a character from a word and
-concatenate it to the end of [prefixNonLetters]{.literal}. If the entire
-word is made of non-letter characters, like [\'4,000\']{.literal}, we
-can simply append it to the [pigLatin]{.literal} list and continue to
+concatenate it to the end of [prefixNonLetters]. If the entire
+word is made of non-letter characters, like [\'4,000\'], we
+can simply append it to the [pigLatin] list and continue to
 the next word to translate. We also need to save the non-letters at the
-end of the [word]{.literal} string. This code is similar to the previous
+end of the [word] string. This code is similar to the previous
 loop.
 
 Next, we'll make sure the program remembers if the word was in uppercase
@@ -1258,13 +1257,13 @@ Latin:
 \
     word = word.lower() \# Make the word lowercase for translation.
 
-For the rest of the code in the [for]{.literal} loop, we'll work on a
-lowercase version of [word]{.literal}.
+For the rest of the code in the [for] loop, we'll work on a
+lowercase version of [word].
 
 []{#calibre_link-1060 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}To convert a word like *sweigart* to *eigart-sway*,
 we need to remove all of the consonants from the beginning of
-[word]{.literal}:
+[word]:
 
     # Separate the consonants at the start of this word:\
     prefixConsonants = \'\'\
@@ -1273,14 +1272,14 @@ we need to remove all of the consonants from the beginning of
         word = word\[1:\]
 
 We use a loop similar to the loop that removed the non-letters from the
-start of [word]{.literal}, except now we are pulling off consonants and
-storing them to a variable named [prefixConsonants]{.literal}.
+start of [word], except now we are pulling off consonants and
+storing them to a variable named [prefixConsonants].
 
 If there were any consonants at the start of the word, they are now in
-[prefixConsonants]{.literal} and we should concatenate that variable and
-the string [\'ay\']{.literal} to the end of [word]{.literal}. Otherwise,
-we can assume [word]{.literal} begins with a vowel and we only need to
-concatenate [\'yay\']{.literal}:
+[prefixConsonants] and we should concatenate that variable and
+the string [\'ay\'] to the end of [word]. Otherwise,
+we can assume [word] begins with a vowel and we only need to
+concatenate [\'yay\']:
 
     # Add the Pig Latin ending to the word:\
     if prefixConsonants != \'\':\
@@ -1289,8 +1288,8 @@ concatenate [\'yay\']{.literal}:
         word += \'yay\'
 
 Recall that we set word to its lowercase version with [word =
-word.lower()]{.literal}. If [word]{.literal} was originally in uppercase
-or title case, this code will convert [word]{.literal} back to its
+word.lower()]. If [word] was originally in uppercase
+or title case, this code will convert [word] back to its
 original case:
 
     # Set the word back to uppercase or title case:\
@@ -1299,9 +1298,9 @@ original case:
     if wasTitle:\
         word = word.title()
 
-At the end of the [for]{.literal} loop, we append the word, along with
+At the end of the [for] loop, we append the word, along with
 any non-letter prefix or suffix it originally had, to the
-[pigLatin]{.literal} list:
+[pigLatin] list:
 
     # Add the non-letters back to the start or end of the word.\
     pigLatin.append(prefixNonLetters + word + suffixNonLetters)\
@@ -1310,13 +1309,13 @@ any non-letter prefix or suffix it originally had, to the
 print(\' \'.join(pigLatin))
 
 After this loop finishes, we combine the list of strings into a single
-string by calling the [join()]{.literal} method. This single string is
-passed to [print()]{.literal} to display our Pig Latin on the screen.
+string by calling the [join()] method. This single string is
+passed to [print()] to display our Pig Latin on the screen.
 
 You can find other short, text-based Python programs like this one at
-*[https://github.com/asweigart/pythonstdiogames/](https://github.com/asweigart/pythonstdiogames/){.calibre6}*.
+*[https://github.com/asweigart/pythonstdiogames/](https://github.com/asweigart/pythonstdiogames/)*.
 
-### []{#calibre_link-1759 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**Summary** {#calibre_link-232 .h1}
+### []**Summary** !
 
 Text is a common form of data, and Python comes with many helpful string
 methods to process the text stored in string values. You will make use
@@ -1325,8 +1324,8 @@ you write.
 
 The programs you are writing now don't seem too sophisticated---they
 don't have graphical user interfaces with images and colorful text. So
-far, you're displaying text with [print()]{.literal} and letting the
-user enter text with [input()]{.literal}. However, the user can quickly
+far, you're displaying text with [print()] and letting the
+user enter text with [input()]. However, the user can quickly
 enter large amounts of text through the clipboard. This ability provides
 a useful avenue for writing programs that manipulate massive amounts of
 text. These text-based programs might not have flashy windows or
@@ -1334,7 +1333,7 @@ graphics, but they can get a lot of useful work done quickly.
 
 Another way to manipulate large amounts of text is reading and writing
 files directly off the hard drive. You'll learn how to do this with
-Python in [Chapter 9](#calibre_link-32){.calibre6}.
+Python in [Chapter 9](#calibre_link-32).
 
 That just about covers all the basic concepts of Python programming!
 You'll continue to learn new concepts throughout the rest of this book,
@@ -1342,7 +1341,7 @@ but you now know enough to start writing some useful programs that can
 automate tasks. If you'd like to see a collection of short, simple
 Python programs built from the basic concepts you've learned so far,
 check out
-*[https://github.com/asweigart/pythonstdiogames/](https://github.com/asweigart/pythonstdiogames/){.calibre6}*.
+*[https://github.com/asweigart/pythonstdiogames/](https://github.com/asweigart/pythonstdiogames/)*.
 Try copying the source code for each program by hand, and then make
 modifications to see how they affect the behavior of the program. Once
 you have an understanding of how the program works, try re-creating the
@@ -1357,61 +1356,61 @@ programmers, provide functions that make it easy for you to do all these
 things. So let's learn how to write real programs to do useful automated
 tasks.
 
-### **Practice Questions** {#calibre_link-233 .h1}
+### **Practice Questions** !
 
-[1](#calibre_link-1616){#calibre_link-1313 .calibre6}. What are escape
+[1](#calibre_link-1616)!. What are escape
 characters?
 
-[2](#calibre_link-1617){#calibre_link-1314 .calibre6}. What do the
-[\\n]{.literal} and [\\t]{.literal} escape characters represent?
+[2](#calibre_link-1617)!. What do the
+[\\n] and [\\t] escape characters represent?
 
-[3](#calibre_link-1618){#calibre_link-1315 .calibre6}. How can you put a
-[\\]{.literal} backslash character in a string?
+[3](#calibre_link-1618)!. How can you put a
+[\\] backslash character in a string?
 
-[4](#calibre_link-1619){#calibre_link-1316 .calibre6}. The string value
-[\"Howl\'s Moving Castle\"]{.literal} is a valid string. Why isn't it a
-problem that the single quote character in the word [Howl\'s]{.literal}
+[4](#calibre_link-1619)!. The string value
+[\"Howl\'s Moving Castle\"] is a valid string. Why isn't it a
+problem that the single quote character in the word [Howl\'s]
 isn't escaped?
 
-[5](#calibre_link-1620){#calibre_link-1317 .calibre6}. If you don't want
-to put [\\n]{.literal} in your string, how can you write a string with
+[5](#calibre_link-1620)!. If you don't want
+to put [\\n] in your string, how can you write a string with
 newlines in it?
 
 []{#calibre_link-1760 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[6](#calibre_link-1621){#calibre_link-1318
 .calibre6}. What do the following expressions evaluate to?
 
--   [\'Hello, world!\'\[1\]]{.literal}
--   [\'Hello, world!\'\[0:5\]]{.literal}
--   [\'Hello, world!\'\[:5\]]{.literal}
--   [\'Hello, world!\'\[3:\]]{.literal}
+-   [\'Hello, world!\'\[1\]]
+-   [\'Hello, world!\'\[0:5\]]
+-   [\'Hello, world!\'\[:5\]]
+-   [\'Hello, world!\'\[3:\]]
 
-[7](#calibre_link-1622){#calibre_link-1319 .calibre6}. What do the
+[7](#calibre_link-1622)!. What do the
 following expressions evaluate to?
 
--   [\'Hello\'.upper()]{.literal}
--   [\'Hello\'.upper().isupper()]{.literal}
--   [\'Hello\'.upper().lower()]{.literal}
+-   [\'Hello\'.upper()]
+-   [\'Hello\'.upper().isupper()]
+-   [\'Hello\'.upper().lower()]
 
-[8](#calibre_link-1623){#calibre_link-1320 .calibre6}. What do the
+[8](#calibre_link-1623)!. What do the
 following expressions evaluate to?
 
--   [\'Remember, remember, the fifth of November.\'.split()]{.literal}
--   [\'-\'.join(\'There can be only one.\'.split())]{.literal}
+-   [\'Remember, remember, the fifth of November.\'.split()]
+-   [\'-\'.join(\'There can be only one.\'.split())]
 
-[9](#calibre_link-1624){#calibre_link-1321 .calibre6}. What string
+[9](#calibre_link-1624)!. What string
 methods can you use to right-justify, left-justify, and center a string?
 
-[10](#calibre_link-1625){#calibre_link-1322 .calibre6}. How can you trim
+[10](#calibre_link-1625)!. How can you trim
 whitespace characters from the beginning or end of a string?
 
-### **Practice Projects** {#calibre_link-234 .h1}
+### **Practice Projects** !
 
 For practice, write programs that do the following.
 
-#### ***Table Printer*** {#calibre_link-235 .h2}
+#### ***Table Printer*** !
 
-Write a function named [printTable()]{.literal} that takes a list of
+Write a function named [printTable()] that takes a list of
 lists of strings and displays it in a well-organized table with each
 column right-justified. Assume that all the inner lists will contain the
 same number of strings. For example, the value could look like this:
@@ -1420,7 +1419,7 @@ tableData = \[\[\'apples\', \'oranges\', \'cherries\', \'banana\'\],\
              \[\'Alice\', \'Bob\', \'Carol\', \'David\'\],\
              \[\'dogs\', \'cats\', \'moose\', \'goose\'\]\]
 
-Your [printTable()]{.literal} function would print the following:
+Your [printTable()] function would print the following:
 
    apples Alice  dogs\
   oranges   Bob  cats\
@@ -1430,19 +1429,19 @@ Your [printTable()]{.literal} function would print the following:
 Hint: your code will first have to find the longest string in each of
 the inner lists so that the whole column can be wide enough to fit all
 the strings. You can store the maximum width of each column as a list of
-integers. The [printTable()]{.literal} function can begin with
-[colWidths = \[0\] \* len(tableData)]{.literal}, which will create a
-list containing the same number of [0]{.literal} values as the number of
-inner lists in [tableData]{.literal}. That way,
-[colWidths\[0\]]{.literal} can store the width of the
+integers. The [printTable()] function can begin with
+[colWidths = \[0\] \* len(tableData)], which will create a
+list containing the same number of [0] values as the number of
+inner lists in [tableData]. That way,
+[colWidths\[0\]] can store the width of the
 []{#calibre_link-1761 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}longest string in [tableData\[0\]]{.literal},
-[colWidths\[1\]]{.literal} can store the width of the longest string in
-[tableData\[1\]]{.literal}, and so on. You can then find the largest
-value in the [colWidths]{.literal} list to find out what integer width
-to pass to the [rjust()]{.literal} string method.
+ops}type="pagebreak"}longest string in [tableData\[0\]],
+[colWidths\[1\]] can store the width of the longest string in
+[tableData\[1\]], and so on. You can then find the largest
+value in the [colWidths] list to find out what integer width
+to pass to the [rjust()] string method.
 
-#### ***Zombie Dice Bots*** {#calibre_link-236 .h2}
+#### ***Zombie Dice Bots*** !
 
 *Programming games* are a game genre where instead of playing a game
 directly, players write bot programs to play the game autonomously. I've
@@ -1487,40 +1486,40 @@ accrue three shotguns and lose everything. Once a player reaches 13
 points, the rest of the players get one more turn (to potentially catch
 up) and the game ends. The player with the most points wins. You can
 find the complete rules at
-*[https://github.com/asweigart/zombiedice/](https://github.com/asweigart/zombiedice/){.calibre6}*.
+*[https://github.com/asweigart/zombiedice/](https://github.com/asweigart/zombiedice/)*.
 
 []{#calibre_link-1762 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Install the [zombiedice]{.literal} module with pip
+ops}type="pagebreak"}Install the [zombiedice] module with pip
 by following the instructions in [Appendix
-A](#calibre_link-2){.calibre6}. You can run a demo of the simulator with
+A](#calibre_link-2). You can run a demo of the simulator with
 some pre-made bots by running the following in the interactive shell:
 
-\>\>\> [import zombiedice]{.codestrong1}\
-\>\>\> [zombiedice.demo()]{.codestrong1}\
+\>\>\> [import zombiedice]\
+\>\>\> [zombiedice.demo()]\
 Zombie Dice Visualization is running. Open your browser to http://\
 localhost:51810 to view it.\
 Press Ctrl-C to quit.
 
 The program launches your web browser, which will look like [Figure
-6-1](#calibre_link-1626){.calibre6}.
+6-1](#calibre_link-1626).
 
 
 []{#calibre_link-1626
-.calibre6}![image](../images/000068.jpg){.calibre3}
+.calibre6}![image](../images/000068.jpg)
 
 
 *Figure 6-1: The web GUI for the Zombie Dice simulator*
 
-You'll create bots by writing a class with a [turn()]{.literal} method,
+You'll create bots by writing a class with a [turn()] method,
 which is called by the simulator when it's your bot's turn to roll the
 dice. Classes are beyond the scope of this book, so the class code is
 already set up for you in the *myzombie.py* program, which is in the
 downloadable ZIP file for this book at
-*[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.
+*[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 Writing a method is essentially the same as writing a function, and you
-can use the [turn()]{.literal} code in the *myZombie.py* program as a
-template. Inside this [turn()]{.literal} method, you'll call the
-[zombiedice.roll()]{.literal} function as often as you want your bot to
+can use the [turn()] code in the *myZombie.py* program as a
+template. Inside this [turn()] method, you'll call the
+[zombiedice.roll()] function as often as you want your bot to
 roll the dice.
 
 import zombiedice\
@@ -1574,30 +1573,30 @@ Shotgun\', minShotguns=1),\
 #zombiedice.runTournament(zombies=zombies, numGames=1000)\
 zombiedice.runWebGui(zombies=zombies, numGames=1000)
 
-The [turn()]{.literal} method takes two parameters: [self]{.literal} and
-[gameState]{.literal}. You can ignore these in your first few zombie
+The [turn()] method takes two parameters: [self] and
+[gameState]. You can ignore these in your first few zombie
 bots and consult the online documentation for details later if you want
-to learn more. The [turn()]{.literal} method should call
-[zombiedice.roll()]{.literal} at least once for the initial roll. Then,
+to learn more. The [turn()] method should call
+[zombiedice.roll()] at least once for the initial roll. Then,
 depending on the strategy the bot uses, it can call
-[zombiedice.roll()]{.literal} again as many times as it wants. In
-*myZombie.py*, the [turn()]{.literal} method calls
-[zombiedice.roll()]{.literal} twice, which means the zombie bot will
+[zombiedice.roll()] again as many times as it wants. In
+*myZombie.py*, the [turn()] method calls
+[zombiedice.roll()] twice, which means the zombie bot will
 always roll its dice two times per turn regardless of the results of the
 roll.
 
-The return value of [zombiedice.roll()]{.literal} tells your code the
+The return value of [zombiedice.roll()] tells your code the
 results of the dice roll. It is a dictionary with four keys. Three of
-the keys, [\'shotgun\']{.literal}, [\'brains\']{.literal}, and
-[\'footsteps\']{.literal}, have integer values of how many dice came up
-with those icons. The fourth [\'rolls\']{.literal} key has a value that
+the keys, [\'shotgun\'], [\'brains\'], and
+[\'footsteps\'], have integer values of how many dice came up
+with those icons. The fourth [\'rolls\'] key has a value that
 is a list of tuples for each die roll. The tuples contain two strings:
-the color of the die at index [0]{.literal} and the icon rolled at index
-[1]{.literal}. Look at the code comments in the [turn()]{.literal}
+the color of the die at index [0] and the icon rolled at index
+[1]. Look at the code comments in the [turn()]
 []{#calibre_link-1764 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}method's definition for an example. If the bot has
-already rolled three shotguns, then [zombiedice.roll()]{.literal} will
-return [None]{.literal}.
+already rolled three shotguns, then [zombiedice.roll()] will
+return [None].
 
 Try writing some of your own bots to play Zombie Dice and see how they
 compare against the other bots. Specifically, try to create the
@@ -1614,7 +1613,7 @@ following bots:
 
 Run these bots through the simulator and see how they compare to each
 other. You can also examine the code of some premade bots at
-*[https://github.com/asweigart/zombiedice/](https://github.com/asweigart/zombiedice/){.calibre6}*.
+*[https://github.com/asweigart/zombiedice/](https://github.com/asweigart/zombiedice/)*.
 If you find yourself playing this game in the real world, you'll have
 the benefit of thousands of simulated games telling you that one of the
 best strategies is to simply stop once you've rolled two shotguns. But
