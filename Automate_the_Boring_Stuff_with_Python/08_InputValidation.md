@@ -23,19 +23,19 @@ repeatedly asking the user for input until they enter valid text, as in
 the following example:
 
 while True:\
-    print(\'Enter your age:\')\
+    print('Enter your age:')\
     age = input()\
     try:\
         age = int(age)\
     except:\
-        print(\'Please use numeric digits.\')\
+        print('Please use numeric digits.')\
         continue\
-    if age \< 1:\
-        print(\'Please enter a positive number.\')\
+    if age < 1:\
+        print('Please enter a positive number.')\
         continue\
     break\
 \
-print(f\'Your age is {age}.\')
+print(f'Your age is {age}.')
 
 When you run this program, the output could look like this:
 
@@ -79,7 +79,7 @@ command line. [Appendix A](#calibre_link-2) has complete
 instructions for installing third-party modules. To check if PyInputPlus
 installed correctly, import it in the interactive shell:
 
-\>\>\> [import pyinputplus]
+>>> [import pyinputplus]
 
 If no errors appear when you import the module, it has been successfully
 installed.
@@ -120,12 +120,12 @@ sensitive information, aren't displayed on the screen
 These functions will automatically reprompt the user for as long as they
 enter invalid input:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputNum()]\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputNum()]\
 [five]\
-\'five\' is not a number.\
+'five' is not a number.\
 [42]\
-\>\>\> [response]\
+>>> [response]\
 42
 
 The [as pyip] code in the [import] statement saves
@@ -134,7 +134,7 @@ PyInputPlus function. Instead we can use the shorter [pyip]
 name. If you take a look at the example, you see that unlike
 [input()], these functions return an [int] or
 [float] value: [42] and [3.14] instead of
-the strings [\'42\'] and [\'3.14\'].
+the strings ['42'] and ['3.14'].
 
 []{#calibre_link-1013 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Just as you can pass a string to
@@ -142,17 +142,17 @@ ops}type="pagebreak"}Just as you can pass a string to
 PyInputPlus function's [prompt] keyword argument to display a
 prompt:
 
-\>\>\> [response = input(\'Enter a number: \')]\
+>>> [response = input('Enter a number: ')]\
 Enter a number: [42]\
-\>\>\> [response]\
-\'42\'\
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputInt(prompt=\'Enter a number:
-\')]\
+>>> [response]\
+'42'\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputInt(prompt='Enter a number:
+')]\
 Enter a number: [cat]\
-\'cat\' is not an integer.\
+'cat' is not an integer.\
 Enter a number: [42]\
-\>\>\> [response]\
+>>> [response]\
 42
 
 Use Python's [help()] function to find out more about each of
@@ -173,28 +173,28 @@ also have [min], [max], [greaterThan], and
 [lessThan] keyword arguments for specifying a range of valid
 values. For example, enter the following into the interactive shell:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputNum(\'Enter num: \', min=4)]\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputNum('Enter num: ', min=4)]\
 Enter num:[3]\
 Input must be at minimum 4.\
 Enter num:[4]\
-\>\>\> [response]\
+>>> [response]\
 4\
-\>\>\> [response = pyip.inputNum(\'Enter num: \',
+>>> [response = pyip.inputNum('Enter num: ',
 greaterThan=4)]\
 Enter num: [4]\
 Input must be greater than 4.\
 Enter num: [5]\
-\>\>\> [response]\
+>>> [response]\
 5\
-\>\>\> [response = pyip.inputNum(\'\>\', min=4,
+>>> [response = pyip.inputNum('>', min=4,
 lessThan=6)]\
 Enter num: [6]\
 Input must be less than 6.\
 Enter num: [3]\
 Input must be at minimum 4.\
 Enter num: [4]\
-\>\>\> [response]\
+>>> [response]\
 4
 
 []{#calibre_link-1775 {http:="" www.idpf.org="" 2007=""
@@ -210,17 +210,17 @@ to them). Also, the input must be greater than the
 By default, blank input isn't allowed unless the [blank]
 keyword argument is set to [True]:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputNum(\'Enter num: \')]\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputNum('Enter num: ')]\
 Enter num:[(blank input entered here)]\
 Blank values are not allowed.\
 Enter num: [42]\
-\>\>\> [response]\
+>>> [response]\
 42\
-\>\>\> [response = pyip.inputNum(blank=True)]\
+>>> [response = pyip.inputNum(blank=True)]\
 [(blank input entered here)]\
-\>\>\> [response]\
-\'\'
+>>> [response]\
+''
 
 Use [blank=True] if you'd like to make input optional so that
 the user doesn't need to enter anything.
@@ -243,16 +243,16 @@ cause the function to raise a [RetryLimitException] or
 [TimeoutException], respectively. For example, enter the
 following into the interactive shell:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputNum(limit=2)]\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputNum(limit=2)]\
 [blah]\
-\'blah\' is not a number.\
+'blah' is not a number.\
 Enter num: [number]\
-\'number\' is not a number.\
+'number' is not a number.\
 Traceback (most recent call last):\
     [\--snip\--]\
 pyinputplus.RetryLimitException\
-\>\>\> [response = pyip.inputNum(timeout=10)]\
+>>> [response = pyip.inputNum(timeout=10)]\
 [42] [(entered after 10 seconds of
 waiting)]\
 []{#calibre_link-1776 {http:="" www.idpf.org="" 2007=""
@@ -264,18 +264,18 @@ When you use these keyword arguments and also pass a [default]
 keyword argument, the function returns the default value instead of
 raising an exception. Enter the following into the interactive shell:
 
-\>\>\> [response = pyip.inputNum(limit=2,
-default=\'N/A\')]\
+>>> [response = pyip.inputNum(limit=2,
+default='N/A')]\
 [hello]\
-\'hello\' is not a number.\
+'hello' is not a number.\
 [world]\
-\'world\' is not a number.\
-\>\>\> [response]\
-\'N/A\'
+'world' is not a number.\
+>>> [response]\
+'N/A'
 
 Instead of raising [RetryLimitException], the
 [inputNum()] function simply returns the string
-[\'N/A\'].
+['N/A'].
 
 #### ***The allowRegexes and blockRegexes Keyword Arguments*** 
 
@@ -287,25 +287,25 @@ accept or reject as valid input. For example, enter the following code
 into the interactive shell so that [inputNum()] will accept
 Roman numerals in addition to the usual numbers:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response =
-pyip.inputNum(allowRegexes=\[r\'(I\|V\|X\|L\|C\|D\|M)+\',
-r\'zero\'\])]\
+>>> [import pyinputplus as pyip]\
+>>> [response =
+pyip.inputNum(allowRegexes=\[r'(I\|V\|X\|L\|C\|D\|M)+',
+r'zero'\])]\
 [XLII]\
-\>\>\> [response]\
-\'XLII\'\
-\>\>\> [response =
-pyip.inputNum(allowRegexes=\[r\'(i\|v\|x\|l\|c\|d\|m)+\',
-r\'zero\'\])]\
+>>> [response]\
+'XLII'\
+>>> [response =
+pyip.inputNum(allowRegexes=\[r'(i\|v\|x\|l\|c\|d\|m)+',
+r'zero'\])]\
 [xlii]\
-\>\>\> [response]\
-\'xlii\'
+>>> [response]\
+'xlii'
 
 Of course, this regex affects only what letters the
 [inputNum()] function will accept from the user; the function
 will still accept Roman numerals with invalid ordering such as
-[\'XVX\'] or [\'MILLI\'] because the
-[r\'(I\|V\|X\|L\|C\|D\|M)+\'] regular expression accepts those
+['XVX'] or ['MILLI'] because the
+[r'(I\|V\|X\|L\|C\|D\|M)+'] regular expression accepts those
 strings.
 
 You can also specify a list of regular expression strings that a
@@ -313,35 +313,35 @@ PyInputPlus function won't accept by using the [blockRegexes]
 keyword argument. Enter the following into the interactive shell so that
 [inputNum()] won't accept even numbers:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response =
-pyip.inputNum(blockRegexes=\[r\'\[02468\]\$\'\])]\
+>>> [import pyinputplus as pyip]\
+>>> [response =
+pyip.inputNum(blockRegexes=\[r'\[02468\]\$'\])]\
 [42]\
 This response is invalid.\
 []{#calibre_link-1012 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[44]\
 This response is invalid.\
 [43]\
-\>\>\> [response]\
+>>> [response]\
 43
 
 If you specify both an [allowRegexes] and
 [blockRegexes] argument, the allow list overrides the block
 list. For example, enter the following into the interactive shell, which
-allows [\'caterpillar\'] and [\'category\'] but
-blocks anything else that has the word [\'cat\'] in it:
+allows ['caterpillar'] and ['category'] but
+blocks anything else that has the word ['cat'] in it:
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [response = pyip.inputStr(allowRegexes=\[r\'caterpillar\',
-\'category\'\],]\
-[blockRegexes=\[r\'cat\'\])]\
+>>> [import pyinputplus as pyip]\
+>>> [response = pyip.inputStr(allowRegexes=\[r'caterpillar',
+'category'\],]\
+[blockRegexes=\[r'cat'\])]\
 [cat]\
 This response is invalid.\
 [catastrophe]\
 This response is invalid.\
 [category]\
-\>\>\> [response]\
-\'category\'
+>>> [response]\
+'category'
 
 The PyInputPlus module's functions can save you from writing tedious
 input validation code yourself. But there's more to the PyInputPlus
@@ -372,20 +372,20 @@ call looks like [inputCustom(addsUpToTen)] and not
 [addsUpToTen()] function itself to [inputCustom()],
 not calling [addsUpToTen()] and passing its return value.
 
-\>\>\> [import pyinputplus as pyip]\
-\>\>\> [def addsUpToTen(numbers):]\
+>>> [import pyinputplus as pyip]\
+>>> [def addsUpToTen(numbers):]\
 []{#calibre_link-1001 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}\...   [numbersList = list(numbers)]\
 \...   [for i, digit in enumerate(numbersList):]\
 \...     [numbersList\[i\] = int(digit)]\
 \...   [if sum(numbersList) != 10:]\
-\...     [raise Exception(\'The digits must add up to 10, not %s.\'
+\...     [raise Exception('The digits must add up to 10, not %s.'
 %]\
 [(sum(numbersList)))]\
 \...   [return int(numbers)] \# Return an int form of
 numbers.\
 \...\
-\>\>\> [response =]
+>>> [response =]
 [pyip.inputCustom(addsUpToTen)] \# No parentheses after\
 addsUpToTen here.\
 [123]\
@@ -393,15 +393,15 @@ The digits must add up to 10, not 6.\
 [1235]\
 The digits must add up to 10, not 11.\
 [1234]\
-\>\>\> [response] \# inputStr() returned an int, not a
+>>> [response] \# inputStr() returned an int, not a
 string.\
 1234\
-\>\>\> [response =]
+>>> [response =]
 [pyip.inputCustom(addsUpToTen)]\
 [hello]\
-invalid literal for int() with base 10: \'h\'\
+invalid literal for int() with base 10: 'h'\
 [55]\
-\>\>\> [response]
+>>> [response]
 
 The [inputCustom()] function also supports the general
 PyInputPlus features, such as the [blank], [limit],
@@ -426,13 +426,13 @@ or "no," so we need to perform input validation. It would also be
 convenient for the user to be able to enter "y" or "n" instead of the
 full words. PyInputPlus's [inputYesNo()] function will handle
 this for us and, no matter what case the user enters, return a lowercase
-[\'yes\'] or [\'no\'] string value.
+['yes'] or ['no'] string value.
 
 When you run this program, it should look like the following:
 
 Want to know how to keep an idiot busy for hours?\
 [sure]\
-\'sure\' is not a valid yes/no response.\
+'sure' is not a valid yes/no response.\
 Want to know how to keep an idiot busy for hours?\
 [yes]\
 Want to know how to keep an idiot busy for hours?\
@@ -444,10 +444,10 @@ Want to know how to keep an idiot busy for hours?\
 [YES]\
 Want to know how to keep an idiot busy for hours?\
 [YES!!!!!!]\
-\'YES!!!!!!\' is not a valid yes/no response.\
+'YES!!!!!!' is not a valid yes/no response.\
 Want to know how to keep an idiot busy for hours?\
 [TELL ME HOW TO KEEP AN IDIOT BUSY FOR HOURS.]\
-\'TELL ME HOW TO KEEP AN IDIOT BUSY FOR HOURS.\' is not a valid yes/no
+'TELL ME HOW TO KEEP AN IDIOT BUSY FOR HOURS.' is not a valid yes/no
 response.\
 Want to know how to keep an idiot busy for hours?\
 [no]\
@@ -462,7 +462,7 @@ This imports the PyInputPlus module. Since [pyinputplus] is a
 bit much to type, we'll use the name [pyip] for short.
 
 while True:\
-    prompt = \'Want to know how to keep an idiot busy for hours?\\n\'\
+    prompt = 'Want to know how to keep an idiot busy for hours?\\n'\
     response = pyip.inputYesNo(prompt)
 
 Next, [while True:] creates an infinite loop that continues to
@@ -470,7 +470,7 @@ run until it encounters a [break] statement. In this loop, we
 call [pyip.inputYesNo()] to ensure that this function call
 won't return until the user enters a valid answer.
 
-    if response == \'no\':\
+    if response == 'no':\
         break
 
 The [pyip.inputYesNo()] call is guaranteed to only return
@@ -478,7 +478,7 @@ either the string [yes] or the string [no]. If it
 returned [no], then our program breaks out of the infinite
 loop and continues to the last line, which thanks the user:
 
-print(\'Thank you. Have a nice day.\')
+print('Thank you. Have a nice day.')
 
 Otherwise, the loop iterates once again.
 
@@ -487,10 +487,10 @@ non-English languages by passing [yesVal] and
 [noVal] keyword arguments. For example, the Spanish version of
 this program would have these two lines:
 
-    prompt = \'¿Quieres saber cómo mantener ocupado a un idiota durante
-horas?\\n\'\
-    response = pyip.inputYesNo(prompt, yesVal=\'sí\', noVal=\'no\')\
-    if response == \'sí\':
+    prompt = '¿Quieres saber cómo mantener ocupado a un idiota durante
+horas?\\n'\
+    response = pyip.inputYesNo(prompt, yesVal='sí', noVal='no')\
+    if response == 'sí':
 
 Now the user can enter either [sí] or [s] (in lower-
 or uppercase) instead of [yes] or [y] for an
@@ -531,22 +531,22 @@ number (1 to 10) and [N] are the two numbers to multiply.
     num1 = random.randint(0, 9)\
     num2 = random.randint(0, 9)\
 \
-    prompt = \'#%s: %s x %s = \' % (questionNumber, num1, num2)
+    prompt = '#%s: %s x %s = ' % (questionNumber, num1, num2)
 
 The [pyip.inputStr()] function will handle most of the
 features of this quiz program. The argument we pass for
 [allowRegexes] is a list with the regex string
-[\'\^%s\$\'], where [%s] is replaced with the
+['\^%s\$'], where [%s] is replaced with the
 correct answer. The [\^] and [%] characters ensure
 that the answer begins and ends with the correct number, though
 PyInputPlus trims any whitespace from the start and end of the user's
 response first just in case they inadvertently pressed the spacebar
 before or after their answer. The argument we pass for
-[blocklistRegexes] is a list with [(\'.\*\',
-\'Incorrect!\')]. The first string in the tuple is a regex
+[blocklistRegexes] is a list with [('.\*',
+'Incorrect!')]. The first string in the tuple is a regex
 that matches every possible string. Therefore, if the user response
 doesn't match the correct answer, the program will reject any other
-answer they provide. In that case, the [\'Incorrect!\'] string
+answer they provide. In that case, the ['Incorrect!'] string
 is displayed and the user is prompted to answer again. Additionally,
 passing [8] for [timeout] and [3] for
 [limit] will ensure that the user only has 8 seconds and 3
@@ -556,11 +556,11 @@ tries to provide a correct answer:
         # Right answers are handled by allowRegexes.\
         # Wrong answers are handled by blockRegexes, with a custom
 message.\
-        pyip.inputStr(prompt, allowRegexes=\[\'\^%s\$\' % (num1 \*
+        pyip.inputStr(prompt, allowRegexes=\['\^%s\$' % (num1 \*
 num2)\],\
 []{#calibre_link-1048 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}                              blockRegexes=\[(\'.\*\',
-\'Incorrect!\')\],\
+ops}type="pagebreak"}                              blockRegexes=\[('.\*',
+'Incorrect!')\],\
                               timeout=8, limit=3)
 
 If the user answers after the 8-second timeout has expired, even if they
@@ -571,9 +571,9 @@ exception. Both of these exception types are in the PyInputPlus module,
 so [pyip.] needs to prepend them:
 
     except pyip.TimeoutException:\
-        print(\'Out of time!\')\
+        print('Out of time!')\
     except pyip.RetryLimitException:\
-        print(\'Out of tries!\')
+        print('Out of tries!')
 
 Remember that, just like how [else] blocks can follow an
 [if] or [elif] block, they can optionally follow the
@@ -585,7 +585,7 @@ entered the correct answer:
     else:\
         # This block runs if no exceptions were raised in the try
 block.\
-        print(\'Correct!\')\
+        print('Correct!')\
         correctAnswers += 1
 
 No matter which of the three messages, "Out of time!", "Out of tries!",
@@ -595,7 +595,7 @@ has asked 10 questions and the [for] loop continues, let's
 show the user how many correct answers they made:
 
     time.sleep(1) \# Brief pause to let user see the result.\
-print(\'Score: %s / %s\' % (correctAnswers, numberOfQuestions))
+print('Score: %s / %s' % (correctAnswers, numberOfQuestions))
 
 PyInputPlus is flexible enough that you can use it in a wide variety of
 programs that take keyboard input from the user, as demonstrated by the
@@ -626,7 +626,7 @@ whitespace from the sides, setting timeout and retry limits with the
 [timeout] and [limit] keyword arguments, and passing
 lists of regular expression strings to [allowRegexes] or
 [blockRegexes] to include or exclude particular responses.
-You\'ll no longer need to write your own tedious while loops that check
+You'll no longer need to write your own tedious while loops that check
 for valid input and reprompt the user.
 
 If none of the PyInputPlus module's, functions fit your needs, but you'd
@@ -668,7 +668,7 @@ arguments?
 [inputStr(limit=3)] do if blank input is entered three times?
 
 [7](#calibre_link-1104). What does
-[inputStr(limit=3, default=\'hello\')] do if blank input is
+[inputStr(limit=3, default='hello')] do if blank input is
 entered three times?
 
 ### **Practice Projects** 

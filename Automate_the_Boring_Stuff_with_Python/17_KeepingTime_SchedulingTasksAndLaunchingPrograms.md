@@ -35,8 +35,8 @@ that moment as a float value. (Recall that a float is just a number with
 a decimal point.) This number is called an *epoch timestamp*. For
 example, enter the following into the interactive shell:
 
-\>\>\> [import time]\
-\>\>\> [time.time()]\
+>>> [import time]\
+>>> [time.time()]\
 1543813875.3518236
 
 Here I'm calling [time.time()] on December 2, 2018, at 9:11
@@ -62,8 +62,8 @@ editor tab and enter the following program:
 [➋] startTime = time.time()\
    prod = calcProd()\
 [➌] endTime = time.time()\
-[➍] print(\'The result is %s digits long.\' % (len(str(prod))))\
-[➎] print(\'Took %s seconds to calculate.\' % (endTime -
+[➍] print('The result is %s digits long.' % (len(str(prod))))\
+[➎] print('Took %s seconds to calculate.' % (endTime -
 startTime))
 
 At [➊], we define a function [calcProd()] to loop
@@ -99,12 +99,12 @@ of seconds since the Unix epoch, as returned by [time.time()],
 to get a string value of that time. Enter the following into the
 interactive shell:
 
-\>\>\> import time\
-\>\>\> time.ctime()\
-\'Mon Jun 15 14:00:38 2020\'\
-\>\>\> thisMoment = time.time()\
-\>\>\> time.ctime(thisMoment)\
-\'Mon Jun 15 14:00:45 2020\'
+>>> import time\
+>>> time.ctime()\
+'Mon Jun 15 14:00:38 2020'\
+>>> thisMoment = time.time()\
+>>> time.ctime(thisMoment)\
+'Mon Jun 15 14:00:45 2020'
 
 #### ***The time.sleep() Function*** 
 
@@ -113,11 +113,11 @@ If you need to pause your program for a while, call the
 want your program to stay paused. Enter the following into the
 interactive shell:
 
-   \>\>\> [import time]\
-   \>\>\> [for i in range(3):]\
-        [➊] [print(\'Tick\')]\
+   >>> [import time]\
+   >>> [for i in range(3):]\
+        [➊] [print('Tick')]\
         [➋] [time.sleep(1)]\
-        [➌] [print(\'Tock\')]\
+        [➌] [print('Tock')]\
         [➍] [time.sleep(1)]\
 \
    Tick\
@@ -126,7 +126,7 @@ interactive shell:
    Tock\
    Tick\
    Tock\
-[➎] \>\>\> [time.sleep(5)]
+[➎] >>> [time.sleep(5)]
 
 The [for] loop will print [Tick] [➊], pause
 for 1 second [➋], print [Tock] [➌], pause for 1
@@ -140,7 +140,7 @@ ops}type="pagebreak"}The [time.sleep()] function will
 execute other code---until after the number of seconds you passed to
 [time.sleep()] has elapsed. For example, if you enter
 [time.sleep(5)] [➎], you'll see that the next prompt
-([\>\>\>]) doesn't appear until 5 seconds have passed.
+([>>>]) doesn't appear until 5 seconds have passed.
 
 ### **Rounding Numbers** 
 
@@ -153,15 +153,15 @@ how many digits after the decimal point you want to round it to. If you
 omit the second argument, [round()] rounds your number to the
 nearest whole integer. Enter the following into the interactive shell:
 
-\>\>\> [import time]\
-\>\>\> [now = time.time()]\
-\>\>\> [now]\
+>>> [import time]\
+>>> [now = time.time()]\
+>>> [now]\
 1543814036.6147408\
-\>\>\> [round(now, 2)]\
+>>> [round(now, 2)]\
 1543814036.61\
-\>\>\> [round(now, 4)]\
+>>> [round(now, 4)]\
 1543814036.6147\
-\>\>\> [round(now)]\
+>>> [round(now)]\
 1543814037
 
 After importing [time] and storing [time.time()] in
@@ -217,13 +217,13 @@ Enter the following code into the file editor, writing a
 \
 import time\
 \
-\# Display the program\'s instructions.\
-print(\'Press ENTER to begin. Afterward, press ENTER to \"click\" the
+\# Display the program's instructions.\
+print('Press ENTER to begin. Afterward, press ENTER to "click" the
 stopwatch.\
-Press Ctrl-C to quit.\')\
+Press Ctrl-C to quit.')\
 input()                    # press Enter to begin\
-print(\'Started.\')\
-startTime = time.time()    # get the first lap\'s start time\
+print('Started.')\
+startTime = time.time()    # get the first lap's start time\
 lastTime = startTime\
 lapNum = 1\
 \
@@ -254,15 +254,15 @@ ops}type="pagebreak"}[\# Start tracking the lap times.]\
 2)]\
         [➍] [totalTime = round(time.time() - startTime,
 2)]\
-  [      ][➎] [print(\'Lap #%s: %s (%s)\' % (lapNum,
-totalTime, lapTime), end=\'\')]\
+  [      ][➎] [print('Lap #%s: %s (%s)' % (lapNum,
+totalTime, lapTime), end='')]\
 [           lapNum += 1]\
 [           lastTime = time.time() \# reset the last lap
 time]\
 [➏] [except KeyboardInterrupt:]\
    [    # Handle the Ctrl-C exception to keep its error message from
 displaying.]\
-   [    print(\'\\nDone.\')]
+   [    print('\\nDone.')]
 
 If the user presses [CTRL]-C to stop the stopwatch, the
 [KeyboardInterrupt] exception will be raised, and the program
@@ -289,7 +289,7 @@ the decimal point (such as [4.766272783279419]), we use the
 At [➎], we print the lap number, total time elapsed, and the lap
 time. Since the user pressing [ENTER] for the
 [input()] call will print a newline to the screen, pass
-[end=\'\'] to the [print()] function to avoid
+[end=''] to the [print()] function to avoid
 double-spacing the output. After printing the lap information, we get
 ready for the next lap by adding 1 to the count [lapNum] and
 setting [lastTime] to the current time, which is the start
@@ -323,14 +323,14 @@ The [datetime] module has its own [datetime] data
 type. [datetime] values represent a specific moment in time.
 Enter the following into the interactive shell:
 
-   \>\>\> [import datetime]\
-[➊] \>\>\> [datetime.datetime.now()]\
+   >>> [import datetime]\
+[➊] >>> [datetime.datetime.now()]\
 [➋] datetime.datetime(2019, 2, 27, 11, 10, 49, 55, 53)\
-[➌] \>\>\> [dt = datetime.datetime(2019, 10, 21, 16, 29,
+[➌] >>> [dt = datetime.datetime(2019, 10, 21, 16, 29,
 0)]\
-[➍] \>\>\> [dt.year, dt.month, dt.day]\
+[➍] >>> [dt.year, dt.month, dt.day]\
    (2019, 10, 21)\
-[➎] \>\>\> [dt.hour, dt.minute, dt.second]\
+[➎] >>> [dt.hour, dt.minute, dt.second]\
    (16, 29, 0)
 
 Calling [datetime.datetime.now()] [➊] returns a
@@ -350,10 +350,10 @@ with the [datetime.datetime.fromtimestamp()] function. The
 date and time of the [datetime] object will be converted for
 the local time zone. Enter the following into the interactive shell:
 
-\>\>\> [import datetime, time]\
-\>\>\> [datetime.datetime.fromtimestamp(1000000)]\
+>>> [import datetime, time]\
+>>> [datetime.datetime.fromtimestamp(1000000)]\
 datetime.datetime(1970, 1, 12, 5, 46, 40)\
-\>\>\> [datetime.datetime.fromtimestamp(time.time())]\
+>>> [datetime.datetime.fromtimestamp(time.time())]\
 datetime.datetime(2019, 10, 21, 16, 30, 0, 604980)
 
 Calling [datetime.datetime.fromtimestamp()] and passing it
@@ -371,21 +371,21 @@ comparison operators to find out which one precedes the other. The later
 [datetime] object is the "greater" value. Enter the following
 into the interactive shell:
 
-[➊] \>\>\> [halloween2019 = datetime.datetime(2019, 10, 31, 0, 0,
+[➊] >>> [halloween2019 = datetime.datetime(2019, 10, 31, 0, 0,
 0)]\
-[➋] \>\>\> [newyears2020 = datetime.datetime(2020, 1, 1, 0, 0,
+[➋] >>> [newyears2020 = datetime.datetime(2020, 1, 1, 0, 0,
 0)]\
-   \>\>\> [oct31_2019 = datetime.datetime(2019, 10, 31, 0, 0,
+   >>> [oct31_2019 = datetime.datetime(2019, 10, 31, 0, 0,
 0)]\
 []{#calibre_link-894 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➌] \>\>\> [halloween2019 ==
+ops}type="pagebreak"}[➌] >>> [halloween2019 ==
 oct31_2019]\
    True\
-[➍] \>\>\> [halloween2019 \> newyears2020]\
+[➍] >>> [halloween2019 > newyears2020]\
    False\
-[➎] \>\>\> [newyears2020 \> halloween2019]\
+[➎] >>> [newyears2020 > halloween2019]\
    True\
-   \>\>\> [newyears2020 != oct31_2019]\
+   >>> [newyears2020 != oct31_2019]\
    True
 
 Make a [datetime] object for the first moment (midnight) of
@@ -405,15 +405,15 @@ The [datetime] module also provides a [timedelta]
 data type, which represents a *duration* of time rather than a *moment*
 in time. Enter the following into the interactive shell:
 
-[➊] \>\>\> [delta = datetime.timedelta(days=11, hours=10,
+[➊] >>> [delta = datetime.timedelta(days=11, hours=10,
 minutes=9, seconds=8)]\
-[➋] \>\>\> [delta.days, delta.seconds,
+[➋] >>> [delta.days, delta.seconds,
 delta.microseconds]\
    (11, 36548, 0)\
-   \>\>\> [delta.total_seconds()]\
+   >>> [delta.total_seconds()]\
    986948.0\
-   \>\>\> str(delta)\
-   \'11 days, 10:09:08\'
+   >>> str(delta)\
+   '11 days, 10:09:08'
 
 To create a [timedelta] object, use the
 [datetime.timedelta()] function. The
@@ -449,11 +449,11 @@ ops}type="pagebreak"}The arithmetic operators can be used to perform
 calculate the date 1,000 days from now, enter the following into the
 interactive shell:
 
-\>\>\> [dt = datetime.datetime.now()]\
-\>\>\> [dt]\
+>>> [dt = datetime.datetime.now()]\
+>>> [dt]\
 datetime.datetime(2018, 12, 2, 18, 38, 50, 636181)\
-\>\>\> [thousandDays = datetime.timedelta(days=1000)]\
-\>\>\> [dt + thousandDays]\
+>>> [thousandDays = datetime.timedelta(days=1000)]\
+>>> [dt + thousandDays]\
 datetime.datetime(2021, 8, 28, 18, 38, 50, 636181)
 
 First, make a [datetime] object for the current moment and
@@ -474,15 +474,15 @@ using the [+] and [-] operators. A
 float values with the [\*] and [/] operators. Enter
 the following into the interactive shell:
 
-[➊] \>\>\> [oct21st = datetime.datetime(2019, 10, 21, 16, 29,
+[➊] >>> [oct21st = datetime.datetime(2019, 10, 21, 16, 29,
 0)]\
-[➋] \>\>\> [aboutThirtyYears = datetime.timedelta(days=365 \*
+[➋] >>> [aboutThirtyYears = datetime.timedelta(days=365 \*
 30)]\
-   \>\>\> [oct21st]\
+   >>> [oct21st]\
    datetime.datetime(2019, 10, 21, 16, 29)\
-   \>\>\> [oct21st - aboutThirtyYears]\
+   >>> [oct21st - aboutThirtyYears]\
    datetime.datetime(1989, 10, 28, 16, 29)\
-   \>\>\> [oct21st - (2 \* aboutThirtyYears)]\
+   >>> [oct21st - (2 \* aboutThirtyYears)]\
    datetime.datetime(1959, 11, 5, 16, 29)
 
 Here we make a [datetime] object for October 21, 2019,
@@ -504,7 +504,7 @@ code will continue to loop until Halloween 2016:
 import datetime\
 import time\
 halloween2016 = datetime.datetime(2016, 10, 31, 0, 0, 0)\
-while datetime.datetime.now() \< halloween2016:\
+while datetime.datetime.now() < halloween2016:\
     time.sleep(1)
 
 []{#calibre_link-892 {http:="" www.idpf.org="" 2007=""
@@ -530,22 +530,22 @@ full list of [strftime()] directives.
 
   [strftime()] **directive**   **Meaning**
   ----------------------------------------- -------------------------------------------------------------------------------
-  [%Y]                            Year with century, as in [\'2014\']
-  [%y]                            Year without century, [\'00\'] to [\'99\'] (1970 to 2069)
-  [%m]                            Month as a decimal number, [\'01\'] to [\'12\']
-  [%B]                            Full month name, as in [\'November\']
-  [%b]                            Abbreviated month name, as in [\'Nov\']
-  [%d]                            Day of the month, [\'01\'] to [\'31\']
-  [%j]                            Day of the year, [\'001\'] to [\'366\']
-  [%w]                            Day of the week, [\'0\'] (Sunday) to [\'6\'] (Saturday)
-  [%A]                            Full weekday name, as in [\'Monday\']
-  [%a]                            Abbreviated weekday name, as in [\'Mon\']
-  [%H]                            Hour (24-hour clock), [\'00\'] to [\'23\']
-  [%I]                            Hour (12-hour clock), [\'01\'] to [\'12\']
-  [%M]                            Minute, [\'00\'] to [\'59\']
-  [%S]                            Second, [\'00\'] to [\'59\']
-  [%p]                            [\'AM\'] or [\'PM\']
-  [%%]                            Literal [\'%\'] character
+  [%Y]                            Year with century, as in ['2014']
+  [%y]                            Year without century, ['00'] to ['99'] (1970 to 2069)
+  [%m]                            Month as a decimal number, ['01'] to ['12']
+  [%B]                            Full month name, as in ['November']
+  [%b]                            Abbreviated month name, as in ['Nov']
+  [%d]                            Day of the month, ['01'] to ['31']
+  [%j]                            Day of the year, ['001'] to ['366']
+  [%w]                            Day of the week, ['0'] (Sunday) to ['6'] (Saturday)
+  [%A]                            Full weekday name, as in ['Monday']
+  [%a]                            Abbreviated weekday name, as in ['Mon']
+  [%H]                            Hour (24-hour clock), ['00'] to ['23']
+  [%I]                            Hour (12-hour clock), ['01'] to ['12']
+  [%M]                            Minute, ['00'] to ['59']
+  [%S]                            Second, ['00'] to ['59']
+  [%p]                            ['AM'] or ['PM']
+  [%%]                            Literal ['%'] character
 
 Pass [strftime()] a custom format string containing formatting
 directives (along with any desired slashes, colons, and so on), and
@@ -553,30 +553,30 @@ directives (along with any desired slashes, colons, and so on), and
 information as a formatted string. Enter the following into the
 interactive shell:
 
-\>\>\> [oct21st = datetime.datetime(2019, 10, 21, 16, 29,
+>>> [oct21st = datetime.datetime(2019, 10, 21, 16, 29,
 0)]\
-\>\>\> [oct21st.strftime(\'%Y/%m/%d %H:%M:%S\')]\
-\'2019/10/21 16:29:00\'\
-\>\>\> [oct21st.strftime(\'%I:%M %p\')]\
-\'04:29 PM\'\
-\>\>\> [oct21st.strftime(\"%B of \'%y\")]\
-\"October of \'19\"
+>>> [oct21st.strftime('%Y/%m/%d %H:%M:%S')]\
+'2019/10/21 16:29:00'\
+>>> [oct21st.strftime('%I:%M %p')]\
+'04:29 PM'\
+>>> [oct21st.strftime("%B of '%y")]\
+"October of '19"
 
 []{#calibre_link-893 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we have a [datetime] object for
 October 21, 2019, at 4:29 [PM], stored in [oct21st].
-Passing [strftime()] the custom format string [\'%Y/%m/%d
-%H:%M:%S\'] returns a string containing 2019, 10, and 21
+Passing [strftime()] the custom format string ['%Y/%m/%d
+%H:%M:%S'] returns a string containing 2019, 10, and 21
 separated by slashes and 16, 29, and 00 separated by colons. Passing
-[\'%I:%M% p\'] returns [\'04:29 PM\'], and passing
-[\"%B of \'%y\"] returns [\"October of \'19\"]. Note
+['%I:%M% p'] returns ['04:29 PM'], and passing
+["%B of '%y"] returns ["October of '19"]. Note
 that [strftime()] doesn't begin with
 [datetime.datetime].
 
 #### ***Converting Strings into datetime Objects*** 
 
-If you have a string of date information, such as [\'2019/10/21
-16:29:00\'] or [\'October 21, 2019\'], and need to
+If you have a string of date information, such as ['2019/10/21
+16:29:00'] or ['October 21, 2019'], and need to
 convert it to a [datetime] object, use the
 [datetime.datetime.strptime()] function. The
 [strptime()] function is the inverse of the
@@ -588,23 +588,23 @@ directives as [strftime()] must be passed so that
 
 Enter the following into the interactive shell:
 
-[➊] \>\>\> [datetime.datetime.strptime(\'October 21, 2019\', \'%B
-%d, %Y\')]\
+[➊] >>> [datetime.datetime.strptime('October 21, 2019', '%B
+%d, %Y')]\
    datetime.datetime(2019, 10, 21, 0, 0)\
-   \>\>\> [datetime.datetime.strptime(\'2019/10/21 16:29:00\',
-\'%Y/%m/%d %H:%M:%S\')]\
+   >>> [datetime.datetime.strptime('2019/10/21 16:29:00',
+'%Y/%m/%d %H:%M:%S')]\
    datetime.datetime(2019, 10, 21, 16, 29)\
-   \>\>\> [datetime.datetime.strptime(\"October of \'19\", \"%B of
-\'%y\")]\
+   >>> [datetime.datetime.strptime("October of '19", "%B of
+'%y")]\
    datetime.datetime(2019, 10, 1, 0, 0)\
-   \>\>\> [datetime.datetime.strptime(\"November of \'63\", \"%B of
-\'%y\")]\
+   >>> [datetime.datetime.strptime("November of '63", "%B of
+'%y")]\
    datetime.datetime(2063, 11, 1, 0, 0)
 
-To get a [datetime] object from the string [\'October 21,
-2019\'], pass that string as the first argument to
+To get a [datetime] object from the string ['October 21,
+2019'], pass that string as the first argument to
 [strptime()] and the custom format string that corresponds to
-[\'October 21, 2019\'] as the second argument [➊]. The
+['October 21, 2019'] as the second argument [➊]. The
 string with the date information must match the custom format string
 exactly, or Python will raise a [ValueError] exception.
 
@@ -690,10 +690,10 @@ your program:
 import time, datetime\
 \
 startTime = datetime.datetime(2029, 10, 31, 0, 0, 0)\
-while datetime.datetime.now() \< startTime:\
+while datetime.datetime.now() < startTime:\
     time.sleep(1)\
 \
-print(\'Program now starting on Halloween 2029\')\
+print('Program now starting on Halloween 2029')\
 \--[snip]\--
 
 This code designates a start time of October 31, 2029, and keeps calling
@@ -727,16 +727,16 @@ object by calling the [threading.Thread()] function. Enter the
 following code in a new file and save it as *threadDemo.py*:
 
    import threading, time\
-   print(\'Start of program.\')\
+   print('Start of program.')\
 \
 [➊] def takeANap():\
        time.sleep(5)\
-       print(\'Wake up!\')\
+       print('Wake up!')\
 \
 [➋] threadObj = threading.Thread(target=takeANap)\
 [➌] threadObj.start()\
 \
-   print(\'End of program.\')
+   print('End of program.')
 
 At [➊], we define a function that we want to use in a new thread.
 To create a [Thread] object, we call
@@ -758,7 +758,7 @@ Start of program.\
 End of program.\
 Wake up!
 
-This can be a bit confusing. If [print(\'End of program.\')]
+This can be a bit confusing. If [print('End of program.')]
 is the last line of the program, you might think that it should be the
 last thing printed. The reason [Wake up!] comes after it is
 that when [threadObj.start()] is called, the
@@ -766,18 +766,18 @@ that when [threadObj.start()] is called, the
 ops}type="pagebreak"}target function for [threadObj] is run in
 a new thread of execution. Think of it as a second finger appearing at
 the start of the [takeANap()] function. The main thread
-continues to [print(\'End of program.\')]. Meanwhile, the new
+continues to [print('End of program.')]. Meanwhile, the new
 thread that has been executing the [time.sleep(5)] call,
 pauses for 5 seconds. After it wakes from its 5-second nap, it prints
-[\'Wake up!\'] and then returns from the
-[takeANap()] function. Chronologically, [\'Wake
-up!\'] is the last thing printed by the program.
+['Wake up!'] and then returns from the
+[takeANap()] function. Chronologically, ['Wake
+up!'] is the last thing printed by the program.
 
 Normally a program terminates when the last line of code in the file has
 run (or the [sys.exit()] function is called). But
 *threadDemo.py* has two threads. The first is the original thread that
-began at the start of the program and ends after [print(\'End of
-program.\')]. The second thread is created when
+began at the start of the program and ends after [print('End of
+program.')]. The second thread is created when
 [threadObj.start()] is called, begins at the start of the
 [takeANap()] function, and ends after [takeANap()]
 returns.
@@ -794,13 +794,13 @@ arguments, you can pass the target function's arguments to
 [threading.Thread()]. For example, say you wanted to run this
 [print()] call in its own thread:
 
-\>\>\> [print(\'Cats\', \'Dogs\', \'Frogs\', sep=\' &
-\')]\
+>>> [print('Cats', 'Dogs', 'Frogs', sep=' &
+')]\
 Cats & Dogs & Frogs
 
 This [print()] call has three regular arguments,
-[\'Cats\'], [\'Dogs\'], and [\'Frogs\'],
-and one keyword argument, [sep=\' & \']. The regular arguments
+['Cats'], ['Dogs'], and ['Frogs'],
+and one keyword argument, [sep=' & ']. The regular arguments
 can be passed as a list to the [args] keyword argument in
 [threading.Thread()]. The keyword argument can be specified as
 a dictionary to the [kwargs] keyword argument in
@@ -808,31 +808,31 @@ a dictionary to the [kwargs] keyword argument in
 
 Enter the following into the interactive shell:
 
-\>\>\> [import threading]\
-\>\>\> [threadObj = threading.Thread(target=print, args=\[\'Cats\',
-\'Dogs\', \'Frogs\'\],]\
-[kwargs={\'sep\': \' & \'})]\
-\>\>\> [threadObj.start()]\
+>>> [import threading]\
+>>> [threadObj = threading.Thread(target=print, args=\['Cats',
+'Dogs', 'Frogs'\],]\
+[kwargs={'sep': ' & '})]\
+>>> [threadObj.start()]\
 Cats & Dogs & Frogs
 
-To make sure the arguments [\'Cats\'], [\'Dogs\'],
-and [\'Frogs\'] get passed to [print()] in the new
-thread, we pass [args=\[\'Cats\', \'Dogs\', \'Frogs\'\]] to
+To make sure the arguments ['Cats'], ['Dogs'],
+and ['Frogs'] get passed to [print()] in the new
+thread, we pass [args=\['Cats', 'Dogs', 'Frogs'\]] to
 [threading.Thread()]. To make sure the keyword argument
-[sep=\' & \'] gets passed to [print()] in the new
-thread, we pass [kwargs={\'sep\': \'& \'}] to
+[sep=' & '] gets passed to [print()] in the new
+thread, we pass [kwargs={'sep': '& '}] to
 [threading.Thread()].
 
 The [threadObj.start()] call will create a new thread to call
-the [print()] function, and it will pass [\'Cats\'],
-[\'Dogs\'], and [\'Frogs\'] as arguments and [\' &
-\'] for the [sep] keyword argument.
+the [print()] function, and it will pass ['Cats'],
+['Dogs'], and ['Frogs'] as arguments and [' &
+'] for the [sep] keyword argument.
 
 This is an incorrect way to create the new thread that calls
 [print()]:
 
-threadObj = threading.Thread(target=print(\'Cats\', \'Dogs\', \'Frogs\',
-sep=\' & \'))
+threadObj = threading.Thread(target=print('Cats', 'Dogs', 'Frogs',
+sep=' & '))
 
 []{#calibre_link-862 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}What this ends up doing is calling the
@@ -911,35 +911,35 @@ Add the following code to your *threadedDownloadXkcd.py* program:
 threads.\
 \
    import requests, os, bs4, threading\
-[➊] os.makedirs(\'xkcd\', exist_ok=True)    # store comics in
+[➊] os.makedirs('xkcd', exist_ok=True)    # store comics in
 ./xkcd\
 \
 [➋] def downloadXkcd(startComic, endComic):\
      [➌] for urlNumber in range(startComic, endComic):\
            # Download the page.\
-           print(\'Downloading page https://xkcd.com/%s\...\' %
+           print('Downloading page https://xkcd.com/%s\...' %
 (urlNumber))\
-        [➍] res = requests.get(\'https://xkcd.com/%s\' %
+        [➍] res = requests.get('https://xkcd.com/%s' %
 (urlNumber))\
            res.raise_for_status()\
 \
-        [➎] soup = bs4.BeautifulSoup(res.text, \'html.parser\')\
+        [➎] soup = bs4.BeautifulSoup(res.text, 'html.parser')\
 \
            # Find the URL of the comic image.\
-        [➏] comicElem = soup.select(\'#comic img\')\
+        [➏] comicElem = soup.select('#comic img')\
            if comicElem == \[\]:\
-               print(\'Could not find comic image.\')\
+               print('Could not find comic image.')\
            else:\
-            [➐] comicUrl = comicElem\[0\].get(\'src\')\
+            [➐] comicUrl = comicElem\[0\].get('src')\
                # Download the image.\
-               print(\'Downloading image %s\...\' % (comicUrl))\
-            [➑] res = requests.get(\'https:\' + comicUrl)\
+               print('Downloading image %s\...' % (comicUrl))\
+            [➑] res = requests.get('https:' + comicUrl)\
                res.raise_for_status()\
 \
                # Save the image to ./xkcd.\
-               imageFile = open(os.path.join(\'xkcd\',
+               imageFile = open(os.path.join('xkcd',
 os.path.basename(comicUrl)),\
-\'wb\')\
+'wb')\
                for chunk in res.iter_content(100000):\
                    imageFile.write(chunk)\
                imageFile.close()\
@@ -1028,14 +1028,14 @@ ops}type="pagebreak"}\--[snip]\--\
 [\# Wait for all threads to end.]\
 [for downloadThread in downloadThreads:]\
 [    downloadThread.join()]\
-[print(\'Done.\')]
+[print('Done.')]
 
-The [\'Done.\'] string will not be printed until all of the
+The ['Done.'] string will not be printed until all of the
 [join()] calls have returned. If a [Thread] object
 has already completed when its [join()] method is called, then
 the method will simply return immediately. If you wanted to extend this
 program with code that runs only after all of the comics downloaded, you
-could replace the [print(\'Done.\')] line with your new code.
+could replace the [print('Done.')] line with your new code.
 
 ### **Launching Other Programs from Python** 
 
@@ -1076,16 +1076,16 @@ your Python program.
 
 On a Windows computer, enter the following into the interactive shell:
 
-\>\>\> [import subprocess]\
-\>\>\>
-[subprocess.Popen(\'C:\\\\Windows\\\\System32\\\\calc.exe\')]\
-\<subprocess.Popen object at 0x0000000003055A58\>
+>>> [import subprocess]\
+>>>
+[subprocess.Popen('C:\\\\Windows\\\\System32\\\\calc.exe')]\
+<subprocess.Popen object at 0x0000000003055A58>
 
 On Ubuntu Linux, you would enter the following:
 
-\>\>\> [import subprocess]\
-\>\>\> [subprocess.Popen(\'/snap/bin/gnome-calculator\')]\
-\<subprocess.Popen object at 0x7f2bcf93b20\>
+>>> [import subprocess]\
+>>> [subprocess.Popen('/snap/bin/gnome-calculator')]\
+<subprocess.Popen object at 0x7f2bcf93b20>
 
 On macOS, the process is slightly different. See "[Opening Files with
 Default Applications](#calibre_link-557)" on [page
@@ -1115,15 +1115,15 @@ On Windows, enter the following into the interactive shell. Note that
 the [wait()] call will block until you quit the launched MS
 Paint program.
 
-   \>\>\> [import subprocess]\
-[➊] \>\>\> [paintProc =
-subprocess.Popen(\'c:\\\\Windows\\\\System32\\\\mspaint.exe\')]\
-[➋] \>\>\> [paintProc.poll() == None]\
+   >>> [import subprocess]\
+[➊] >>> [paintProc =
+subprocess.Popen('c:\\\\Windows\\\\System32\\\\mspaint.exe')]\
+[➋] >>> [paintProc.poll() == None]\
    True\
-[➌] \>\>\> [paintProc.wait() \# Doesn\'t return until MS Paint
+[➌] >>> [paintProc.wait() \# Doesn't return until MS Paint
 closes.]\
    0\
-   \>\>\> [paintProc.poll()]\
+   >>> [paintProc.poll()]\
    0
 
 []{#calibre_link-856 {http:="" www.idpf.org="" 2007=""
@@ -1166,9 +1166,9 @@ when they start. For example, if you're using Windows, create a simple
 text file called *C:\\Users\\Al\\hello.txt* and then enter the following
 into the interactive shell:
 
-\>\>\> [subprocess.Popen(\[\'C:\\\\Windows\\\\notepad.exe\',
-\'C:\\\\Users\\Al\\\\hello.txt\'\])]\
-\<subprocess.Popen object at 0x00000000032DCEB8\>
+>>> [subprocess.Popen(\['C:\\\\Windows\\\\notepad.exe',
+'C:\\\\Users\\Al\\\\hello.txt'\])]\
+<subprocess.Popen object at 0x00000000032DCEB8>
 
 This will not only launch the Notepad application but also have it
 immediately open the *C:\\Users\\Al\\hello.txt* file.
@@ -1206,17 +1206,17 @@ application. Simply pass the *python.exe* executable to
 as its argument. For example, the following would run the *hello.py*
 script from [Chapter 1](#calibre_link-89):
 
-\>\>\> [subprocess.Popen(\[\'C:\\\\Users\\\\\<YOUR
-USERNAME\>\\\\AppData\\\\Local\\\\Programs\\\\]\
-[Python\\\\Python38\\\\python.exe\', \'hello.py\'\])]\
-\<subprocess.Popen object at 0x000000000331CF28\>
+>>> [subprocess.Popen(\['C:\\\\Users\\\\<YOUR
+USERNAME>\\\\AppData\\\\Local\\\\Programs\\\\]\
+[Python\\\\Python38\\\\python.exe', 'hello.py'\])]\
+<subprocess.Popen object at 0x000000000331CF28>
 
 Pass [Popen()] a list containing a string of the Python
 executable's path and a string of the script's filename. If the script
 you're launching needs command line arguments, add them to the list
 after the script's filename. The location of the Python executable on
-Windows is *C:\\Users\\\<YOUR
-USERNAME\>\\AppData\\Local\\Programs\\Python\\Python38\\python.exe*. On
+Windows is *C:\\Users\\<YOUR
+USERNAME>\\AppData\\Local\\Programs\\Python\\Python38\\python.exe*. On
 macOS, it is
 */Library/Frameworks/Python.framework/Versions/3.8/bin/python3*. On
 Linux, it is */usr/bin/python3.8*.
@@ -1236,23 +1236,23 @@ Each operating system has a program that performs the equivalent of
 double-clicking a document file to open it. On Windows, this is the
 [start] program. On macOS, this is the [open]
 program. On Ubuntu Linux, this is the [see] program. Enter the
-following into the interactive shell, passing [\'start\'],
-[\'open\'], or [\'see\'] to [Popen()]
+following into the interactive shell, passing ['start'],
+['open'], or ['see'] to [Popen()]
 depending on your system:
 
-\>\>\> [fileObj = open(\'hello.txt\', \'w\')]\
-\>\>\> [fileObj.write(\'Hello, world!\')]\
+>>> [fileObj = open('hello.txt', 'w')]\
+>>> [fileObj.write('Hello, world!')]\
 12\
-\>\>\> [fileObj.close()]\
-\>\>\> [import subprocess]\
-\>\>\>
-[subprocess.Popen(\[\'][[start]][\',
-\'hello.txt\'\], shell=True)]
+>>> [fileObj.close()]\
+>>> [import subprocess]\
+>>>
+[subprocess.Popen(\['][[start]][',
+'hello.txt'\], shell=True)]
 
 []{#calibre_link-873 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we write [Hello, world!] to a new
 *hello.txt* file. Then we call [Popen()], passing it a list
-containing the program name (in this example, [\'start\'] for
+containing the program name (in this example, ['start'] for
 Windows) and the filename. We also pass the [shell=True]
 keyword argument, which is needed only on Windows. The operating system
 knows all of the file associations and can figure out that it should
@@ -1262,9 +1262,9 @@ On macOS, the [open] program is used for opening both document
 files and programs. Enter the following into the interactive shell if
 you have a Mac:
 
-\>\>\> [subprocess.Popen(\[\'open\',
-\'/Applications/Calculator.app/\'\])]\
-\<subprocess.Popen object at 0x10202ff98\>
+>>> [subprocess.Popen(\['open',
+'/Applications/Calculator.app/'\])]\
+<subprocess.Popen object at 0x10202ff98>
 
 The Calculator app should open.
 
@@ -1301,8 +1301,8 @@ code and save the file as *countdown.py*:
    import time, subprocess\
 \
 [➊] timeLeft = 60\
-   while timeLeft \> 0:\
-    [➋] print(timeLeft, end=\'\')\
+   while timeLeft > 0:\
+    [➋] print(timeLeft, end='')\
     [➌] time.sleep(1)\
 []{#calibre_link-1081 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    [➍] timeLeft = timeLeft - 1\
@@ -1344,15 +1344,15 @@ import time, subprocess\
 \--[snip]\--\
 \
 [\# At the end of the countdown, play a sound file.]\
-[subprocess.Popen(\[\'start\', \'alarm.wav\'\],
+[subprocess.Popen(\['start', 'alarm.wav'\],
 shell=True)]
 
 After the [while] loop finishes, *alarm.wav* (or the sound
 file you choose) will play to notify the user that the countdown is
-over. On Windows, be sure to include [\'start\'] in the list
+over. On Windows, be sure to include ['start'] in the list
 you pass to [Popen()] and pass the keyword argument
-[shell=True]. On macOS, pass [\'open\'] instead of
-[\'start\'] and remove [shell=True].
+[shell=True]. On macOS, pass ['open'] instead of
+['start'] and remove [shell=True].
 
 Instead of playing a sound file, you could save a text file somewhere
 with a message like *Break time is over!* and use [Popen()] to

@@ -287,9 +287,9 @@ In Mu, the interactive shell is a pane in the lower half of the window with the 
 Jupyter QtConsole 4.3.1\
 Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 18:11:49) \[MSC v.1900 64 bit\
 (AMD64)\]\
-Type \'copyright\', \'credits\' or \'license\' for more information\
+Type 'copyright', 'credits' or 'license' for more information\
 IPython 6.2.1 \-- An enhanced Interactive Python.
-Type \'?\' for help.\
+Type '?' for help.\
 \
 In \[1\]:
 
@@ -298,19 +298,19 @@ If you run IDLE, the interactive shell is the window that first appears.  It sho
 Python 3.8.0b1 (tags/v3.8.0b1:3b5deb0116, Jun 4 2019, 19:52:55) \[MSC
 v.1916\
 64 bit (AMD64)\] on win32\
-Type \"help\", \"copyright\", \"credits\" or \"license\" for more
+Type "help", "copyright", "credits" or "license" for more
 information.\
-\>\>\>
+>>>
 
-[In \[1\]:] are called *prompts*. The examples in this book will use the [\>\>\>] prompt for the interactive shell since it's more common. If you run Python from the Terminal or Command Prompt, they'll use the [\>\>\>] prompt, as well. The [In \[1\]:] prompt was invented by Jupyter Notebook, another popular Python editor.
+[In \[1\]:] are called *prompts*. The examples in this book will use the [>>>] prompt for the interactive shell since it's more common. If you run Python from the Terminal or Command Prompt, they'll use the [>>>] prompt, as well. The [In \[1\]:] prompt was invented by Jupyter Notebook, another popular Python editor.
 
 For example, enter the following into the interactive shell next to the prompt:
 
-\>\>\> [print(\'Hello, world!\')]
+>>> [print('Hello, world!')]
 
 After you type that line and press [ENTER], the interactive shell should display this in response:
 
-\>\>\> [print(\'Hello, world!\')]\
+>>> [print('Hello, world!')]\
 Hello, world!
 
 You've just given the computer an instruction, and it did what you told it to do!
@@ -323,14 +323,14 @@ Some Python code requires your program to import modules. Some of these modules 
 
 Programmers tend to learn by searching the internet for answers to their questions. This is quite different from the way many people are accustomed to learning---through an in-person teacher who lectures and can answer questions. What's great about using the internet as a schoolroom is that there are whole communities of folks who can answer your questions. Indeed, your questions have probably already been answered, and the answers are waiting online for you to find them. If you encounter an error message or have trouble making your code work, you won't be the first person to have your problem, and finding a solution is easier than you might think.
 
-For example, let's cause an error on purpose: enter [\'42\' + 3] into the interactive shell. You don't need to know what this instruction means right now, but the result should look like this:
+For example, let's cause an error on purpose: enter ['42' + 3] into the interactive shell. You don't need to know what this instruction means right now, but the result should look like this:
 
-   \>\>\> [\'42\' + 3]\
+   >>> ['42' + 3]\
 [➊] Traceback (most recent call last):\
-     File \"\<pyshell#0\>\", line 1, in \<module\>\
-       \'42\' + 3\
-[➋] TypeError: Can\'t convert \'int\' object to str implicitly\
-   \>\>\>
+     File "<pyshell#0>", line 1, in <module>\
+       '42' + 3\
+[➋] TypeError: Can't convert 'int' object to str implicitly\
+   >>>
 
 The error message [➋] appears because Python couldn't understand your instruction. The traceback part [➊] of the error message shows the specific instruction and line number that Python had trouble with. If you're not sure what to make of a particular error message, search for it online. Enter **"TypeError: Can't convert 'int' object to str implicitly"** (including the quotes) into your favorite search engine, and you should see tons of links explaining what the error message means and what causes it, as shown in [Figure 0-2](#calibre_link-1612).
 

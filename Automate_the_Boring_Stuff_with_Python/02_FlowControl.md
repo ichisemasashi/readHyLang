@@ -54,16 +54,16 @@ these instructions are intentionally incorrect, and they'll cause error
 messages to appear.)
 
 []{#calibre_link-758 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➊] \>\>\> [spam = True]\
-   \>\>\> [spam]\
+ops}type="pagebreak"}[➊] >>> [spam = True]\
+   >>> [spam]\
    True\
-[➋] \>\>\> [true]\
+[➋] >>> [true]\
    Traceback (most recent call last):\
-     File \"\<pyshell#2\>\", line 1, in \<module\>\
+     File "<pyshell#2>", line 1, in <module>\
        true\
-   NameError: name \'true\' is not defined\
-[➌] \>\>\> [True = 2 + 2]\
-   SyntaxError: can\'t assign to keyword
+   NameError: name 'true' is not defined\
+[➌] >>> [True = 2 + 2]\
+   SyntaxError: can't assign to keyword
 
 Like any other value, Boolean values are used in expressions and can be
 stored in variables [➊]. If you don't use the proper case
@@ -82,22 +82,22 @@ values and evaluate down to a single Boolean value. [Table
   ----------------- --------------------------
   [==]    Equal to
   [!=]    Not equal to
-  [\<]    Less than
-  [\>]    Greater than
-  [\<=]   Less than or equal to
-  [\>=]   Greater than or equal to
+  [<]    Less than
+  [>]    Greater than
+  [<=]   Less than or equal to
+  [>=]   Greater than or equal to
 
 These operators evaluate to [True] or [False]
 depending on the values you give them. Let's try some operators now,
 starting with [==] and [!=].
 
-\>\>\> [42 == 42]\
+>>> [42 == 42]\
 True\
-\>\>\> [42 == 99]\
+>>> [42 == 99]\
 False\
-\>\>\> [2 != 3]\
+>>> [2 != 3]\
 True\
-\>\>\> [2 != 2]\
+>>> [2 != 2]\
 False
 
 As you might expect, [==] (equal to) evaluates to
@@ -107,41 +107,41 @@ values are different. The [==] and [!=] operators
 can actually work with values of any data type.
 
 []{#calibre_link-759 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}   \>\>\> [\'hello\' == \'hello\']\
+ops}type="pagebreak"}   >>> ['hello' == 'hello']\
    True\
-   \>\>\> [\'hello\' == \'Hello\']\
+   >>> ['hello' == 'Hello']\
    False\
-   \>\>\> [\'dog\' != \'cat\']\
+   >>> ['dog' != 'cat']\
    True\
-   \>\>\> [True == True]\
+   >>> [True == True]\
    True\
-   \>\>\> [True != False]\
+   >>> [True != False]\
    True\
-   \>\>\> [42 == 42.0]\
+   >>> [42 == 42.0]\
    True\
-[➊] \>\>\> [42 == \'42\']\
+[➊] >>> [42 == '42']\
    False
 
 Note that an integer or floating-point value will always be unequal to a
-string value. The expression [42 == \'42\'] [➊]
+string value. The expression [42 == '42'] [➊]
 evaluates to [False] because Python considers the integer
-[42] to be different from the string [\'42\'].
+[42] to be different from the string ['42'].
 
-The [\<], [\>], [\<=], and [\>=]
+The [<], [>], [<=], and [>=]
 operators, on the other hand, work properly only with integer and
 floating-point values.
 
-   \>\>\> [42 \< 100]\
+   >>> [42 < 100]\
    True\
-   \>\>\> [42 \> 100]\
+   >>> [42 > 100]\
    False\
-   \>\>\> [42 \< 42]\
+   >>> [42 < 42]\
    False\
-   \>\>\> [eggCount = 42]\
-[➊] \>\>\> [eggCount \<= 42]\
+   >>> [eggCount = 42]\
+[➊] >>> [eggCount <= 42]\
    True\
-   \>\>\> [myAge = 29]\
-[➋] \>\>\> [myAge \>= 10]\
+   >>> [myAge = 29]\
+[➋] >>> [myAge >= 10]\
    True
 
 
@@ -164,9 +164,9 @@ operator (equal to) consists of two characters, just like the
 
 []{#calibre_link-790 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You'll often use comparison operators to compare a
-variable's value to some other value, like in the [eggCount \<=
-42] [➊] and [myAge \>= 10] [➋] examples.
-(After all, instead of entering [\'dog\' != \'cat\'] in your
+variable's value to some other value, like in the [eggCount <=
+42] [➊] and [myAge >= 10] [➋] examples.
+(After all, instead of entering ['dog' != 'cat'] in your
 code, you could have just entered [True].) You'll see more
 examples of this later when you learn about flow control statements.
 
@@ -187,9 +187,9 @@ values (or expressions), so they're considered *binary* operators. The
 [False]. Enter some expressions using [and] into the
 interactive shell to see it in action.
 
-\>\>\> [True and True]\
+>>> [True and True]\
 True\
-\>\>\> [True and False]\
+>>> [True and False]\
 False
 
 A *truth table* shows every possible result of a Boolean operator.
@@ -210,9 +210,9 @@ to [True] if *either* of the two Boolean values is
 [True]. If both are [False], it evaluates to
 [False].
 
-\>\>\> [False or True]\
+>>> [False or True]\
 True\
-\>\>\> [False or False]\
+>>> [False or False]\
 False
 
 You can see every possible outcome of the [or] operator in its
@@ -236,9 +236,9 @@ operates on only one Boolean value (or expression). This makes it a
 *unary* operator. The [not] operator simply evaluates to the
 opposite Boolean value.
 
-   \>\>\> [not True]\
+   >>> [not True]\
    False\
-[➊] \>\>\> [not not not not True]\
+[➊] >>> [not not not not True]\
    True
 
 Much like using double negatives in speech and writing, you can nest
@@ -261,16 +261,16 @@ them in expressions with the Boolean operators.
 Recall that the [and], [or], and [not]
 operators are called Boolean operators because they always operate on
 the Boolean values [True] and [False]. While
-expressions like [4 \< 5] aren't Boolean values, they are
+expressions like [4 < 5] aren't Boolean values, they are
 expressions that evaluate down to Boolean values. Try entering some
 Boolean expressions that use comparison operators into the interactive
 shell.
 
-\>\>\> [(][4 \< 5) and (5 \< 6)]\
+>>> [(][4 < 5) and (5 < 6)]\
 True\
-\>\>\> [(][4 \< 5) and (9 \< 6)]\
+>>> [(][4 < 5) and (9 < 6)]\
 False\
-\>\>\> [(][1 == 2) or (2 == 2)]\
+>>> [(][1 == 2) or (2 == 2)]\
 True
 
 The computer will evaluate the left expression first, and then it will
@@ -278,7 +278,7 @@ evaluate the right expression. When it knows the Boolean value for each,
 []{#calibre_link-816 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}it will then evaluate the whole expression down to
 one Boolean value. You can think of the computer's evaluation process
-for [(4 \< 5) and (5 \< 6)] as the following:
+for [(4 < 5) and (5 < 6)] as the following:
 
 
 ![image](../images/000095.jpg)
@@ -287,7 +287,7 @@ for [(4 \< 5) and (5 \< 6)] as the following:
 You can also use multiple Boolean operators in an expression, along with
 the comparison operators:
 
-\>\>\> [2 + 2 == 4 and not 2 + 2 == 5 and 2 \* 2 == 2 +
+>>> [2 + 2 == 4 and not 2 + 2 == 5 and 2 \* 2 == 2 +
 2]\
 True
 
@@ -329,22 +329,22 @@ ops}type="pagebreak"}Blocks are easier to understand by looking at some
 indented code, so let's find the blocks in part of a small game program,
 shown here:
 
-  name = \'Mary\'\
-  password = \'swordfish\'\
-  if name == \'Mary\':\
-    [➊] print(\'Hello, Mary\')\
-       if password == \'swordfish\':\
-        [➋] print(\'Access granted.\')\
+  name = 'Mary'\
+  password = 'swordfish'\
+  if name == 'Mary':\
+    [➊] print('Hello, Mary')\
+       if password == 'swordfish':\
+        [➋] print('Access granted.')\
        else:\
-        [➌] print(\'Wrong password.\')
+        [➌] print('Wrong password.')
 
 You can view the execution of this program at
 *[https://autbor.com/blocks/](https://autbor.com/blocks/)*.
-The first block of code [➊] starts at the line [print(\'Hello,
-Mary\')] and contains all the lines after it. Inside this
+The first block of code [➊] starts at the line [print('Hello,
+Mary')] and contains all the lines after it. Inside this
 block is another block [➋], which has only a single line in it:
-[print(\'Access Granted.\')]. The third block [➌] is
-also one line long: [print(\'Wrong password.\')].
+[print('Access Granted.')]. The third block [➌] is
+also one line long: [print('Wrong password.')].
 
 ### **Program Execution** 
 
@@ -391,12 +391,12 @@ For example, let's say you have some code that checks to see whether
 someone's name is Alice. (Pretend [name] was assigned some
 value earlier.)
 
-if name == \'Alice\':\
-    print(\'Hi, Alice.\')
+if name == 'Alice':\
+    print('Hi, Alice.')
 
 All flow control statements end with a colon and are followed by a new
 block of code (the clause). This [if] statement's clause is
-the block with [print(\'Hi, Alice.\')]. [Figure
+the block with [print('Hi, Alice.')]. [Figure
 2-2](#calibre_link-1538) shows what a flowchart of this code
 would look like.
 
@@ -427,10 +427,10 @@ ops}type="pagebreak"}Returning to the Alice example, let's look at some
 code that uses an [else] statement to offer a different
 greeting if the person's name isn't Alice.
 
-if name == \'Alice\':\
-    print(\'Hi, Alice.\')\
+if name == 'Alice':\
+    print('Hi, Alice.')\
 else:\
-    print(\'Hello, stranger.\')
+    print('Hello, stranger.')
 
 [Figure 2-3](#calibre_link-1539) shows what a flowchart of
 this code would look like.
@@ -462,11 +462,11 @@ In code, an [elif] statement always consists of the following:
 Let's add an [elif] to the name checker to see this statement
 in action.
 
-if name == \'Alice\':\
-    print(\'Hi, Alice.\')\
+if name == 'Alice':\
+    print('Hi, Alice.')\
 []{#calibre_link-1712 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}elif age \< 12:\
-    print(\'You are not Alice, kiddo.\')
+ops}type="pagebreak"}elif age < 12:\
+    print('You are not Alice, kiddo.')
 
 This time, you check the person's age, and the program will tell them
 something different if they're younger than 12. You can see the
@@ -479,8 +479,8 @@ flowchart for this in [Figure 2-4](#calibre_link-1540).
 
 *Figure 2-4: The flowchart for an [elif] statement*
 
-The [elif] clause executes if [age \< 12] is
-[True] and [name == \'Alice\'] is [False].
+The [elif] clause executes if [age < 12] is
+[True] and [name == 'Alice'] is [False].
 However, if both of the conditions are [False], then both of
 the clauses are skipped. It is *not* guaranteed that at least one of the
 clauses will be executed. When there is a chain of [elif]
@@ -490,18 +490,18 @@ of the [elif] clauses are automatically skipped. For example,
 open a new file editor window and enter the following code, saving it as
 *vampire.py*:
 
-name = \'Carol\'\
+name = 'Carol'\
 age = 3000\
-if name == \'Alice\':\
-    print(\'Hi, Alice.\')\
-elif age \< 12:\
-    print(\'You are not Alice, kiddo.\')\
-elif age \> 2000:\
+if name == 'Alice':\
+    print('Hi, Alice.')\
+elif age < 12:\
+    print('You are not Alice, kiddo.')\
+elif age > 2000:\
 []{#calibre_link-1713 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    print(\'Unlike you, Alice is not an undead,
-immortal vampire.\')\
-elif age \> 100:\
-    print(\'You are not Alice, grannie.\')
+ops}type="pagebreak"}    print('Unlike you, Alice is not an undead,
+immortal vampire.')\
+elif age > 100:\
+    print('You are not Alice, grannie.')
 
 You can view the execution of this program at
 *[https://autbor.com/vampire/](https://autbor.com/vampire/)*.
@@ -526,33 +526,33 @@ a [True] condition has been found, so if you swap around some
 of the clauses in *vampire.py*, you run into a problem. Change the code
 to look like the following, and save it as *vampire2.py*:
 
-   name = \'Carol\'\
+   name = 'Carol'\
    age = 3000\
-   if name == \'Alice\':\
-       print(\'Hi, Alice.\')\
-   elif age \< 12:\
-       print(\'You are not Alice, kiddo.\')\
-[➊] elif age \> 100:\
-       print(\'You are not Alice, grannie.\')\
-   elif age \> 2000:\
-       print(\'Unlike you, Alice is not an undead, immortal vampire.\')
+   if name == 'Alice':\
+       print('Hi, Alice.')\
+   elif age < 12:\
+       print('You are not Alice, kiddo.')\
+[➊] elif age > 100:\
+       print('You are not Alice, grannie.')\
+   elif age > 2000:\
+       print('Unlike you, Alice is not an undead, immortal vampire.')
 
 You can view the execution of this program at
 *[https://autbor.com/vampire2/](https://autbor.com/vampire2/)*.
 Say the [age] variable contains the value [3000]
 before this code is executed. You might expect the code to print the
-string [\'Unlike you, Alice is not an undead, immortal
-vampire.\']. However, because the [age \> 100]
+string ['Unlike you, Alice is not an undead, immortal
+vampire.']. However, because the [age > 100]
 condition is [True] (after all, 3,000 *is* greater than 100)
-[➊], the string [\'You are not Alice, grannie.\'] is
+[➊], the string ['You are not Alice, grannie.'] is
 printed, and the rest of the [elif] statements are
 automatically skipped. Remember that at most only one of the clauses
 will be executed, and for [elif] statements, the order
 matters!
 
 [Figure 2-6](#calibre_link-1542) shows the flowchart for the
-previous code. Notice how the diamonds for [age \> 100] and
-[age \> 2000] are swapped.
+previous code. Notice how the diamonds for [age > 100] and
+[age > 2000] are swapped.
 
 Optionally, you can have an [else] statement after the last
 [elif] statement. In that case, it *is* guaranteed that at
@@ -562,14 +562,14 @@ conditions in every [if] and [elif] statement are
 example, let's re-create the Alice program to use [if],
 [elif], and [else] clauses.
 
-name = \'Carol\'\
+name = 'Carol'\
 age = 3000\
-if name == \'Alice\':\
-    print(\'Hi, Alice.\')\
-elif age \< 12:\
-    print(\'You are not Alice, kiddo.\')\
+if name == 'Alice':\
+    print('Hi, Alice.')\
+elif age < 12:\
+    print('You are not Alice, kiddo.')\
 else:\
-    print(\'You are neither Alice nor a little kid.\')
+    print('You are neither Alice nor a little kid.')
 
 You can view the execution of this program at
 *[https://autbor.com/littlekid/](https://autbor.com/littlekid/)*.
@@ -634,23 +634,23 @@ that use the same condition and take the same actions based on that
 condition. Here is the code with an [if] statement:
 
 spam = 0\
-if spam \< 5:\
-    print(\'Hello, world.\')\
+if spam < 5:\
+    print('Hello, world.')\
     spam = spam + 1
 
 Here is the code with a [while] statement:
 
 spam = 0\
-while spam \< 5:\
-    print(\'Hello, world.\')\
+while spam < 5:\
+    print('Hello, world.')\
     spam = spam + 1
 
 These statements are similar---both [if] and [while]
 check the value of [spam], and if it's less than 5, they print
 a message. But when you run these two code snippets, something very
 different happens for each one. For the [if] statement, the
-output is simply [\"Hello, world.\"]. But for the
-[while] statement, it's [\"Hello, world.\"] repeated
+output is simply ["Hello, world."]. But for the
+[while] statement, it's ["Hello, world."] repeated
 five times! Take a look at the flowcharts for these two pieces of code,
 [Figures 2-8](#calibre_link-1544) and
 [2-9](#calibre_link-1545), to see why this happens.
@@ -675,7 +675,7 @@ prints [Hello, world.] only once if that condition is true.
 The code with the [while] loop, on the other hand, will print
 it five times. The loop stops after five prints because the integer in
 [spam] increases by one at the end of each loop iteration,
-which means that the loop will execute five times before [spam \<
+which means that the loop will execute five times before [spam <
 5] is [False].
 
 In the [while] loop, the condition is always checked at the
@@ -692,17 +692,17 @@ literally, [your name]. Select **File** ▸ **New** to open a
 new file editor window, enter the following code, and save the file as
 *yourName.py*:
 
-[➊] name = \'\'\
-[➋] while name != \'your name\':\
-       print(\'Please type your name.\')\
+[➊] name = ''\
+[➋] while name != 'your name':\
+       print('Please type your name.')\
     [➌] name = input()\
-[➍] print(\'Thank you!\')
+[➍] print('Thank you!')
 
 You can view the execution of this program at
 *[https://autbor.com/yourname/](https://autbor.com/yourname/)*.
 First, the program sets the [name] variable [➊] to an
 empty string. This is so []{#calibre_link-1718 {http:="" www.idpf.org=""
-2007="" ops}type="pagebreak"}that the [name != \'your name\']
+2007="" ops}type="pagebreak"}that the [name != 'your name']
 condition will evaluate to [True] and the program execution
 will enter the [while] loop's clause [➋].
 
@@ -710,13 +710,13 @@ The code inside this clause asks the user to type their name, which is
 assigned to the [name] variable [➌]. Since this is the
 last line of the block, the execution moves back to the start of the
 [while] loop and reevaluates the condition. If the value in
-[name] is *not equal* to the string [\'your name\'],
+[name] is *not equal* to the string ['your name'],
 then the condition is [True], and the execution enters the
 [while] clause again.
 
 But once the user types [your name], the condition of the
-[while] loop will be [\'your name\' != \'your
-name\'], which evaluates to [False]. The condition
+[while] loop will be ['your name' != 'your
+name'], which evaluates to [False]. The condition
 is now [False], and instead of the program execution
 reentering the [while] loop's clause, Python skips past it and
 continues running the rest of the program [➍]. [Figure
@@ -766,11 +766,11 @@ previous program, but it uses a [break] statement to escape
 the loop. Enter the following code, and save the file as *yourName2.py*:
 
 [➊] while True:\
-       print(\'Please type your name.\')\
+       print('Please type your name.')\
     [➋] name = input()\
-    [➌] if name == \'your name\':\
+    [➌] if name == 'your name':\
         [➍] break\
-[➎] print(\'Thank you!\')
+[➎] print('Thank you!')
 
 You can view the execution of this program at
 *[https://autbor.com/yourname2/](https://autbor.com/yourname2/)*.
@@ -785,10 +785,10 @@ bug.)
 Just like before, this program asks the user to enter [your
 name] [➋]. Now, however, while the execution is still
 inside the [while] loop, an [if] statement checks
-[➌] whether [name] is equal to [\'your
-name\']. If this condition is [True], the
+[➌] whether [name] is equal to ['your
+name']. If this condition is [True], the
 [break] statement is run [➍], and the execution moves
-out of the loop to [print(\'Thank you!\')] [➎].
+out of the loop to [print('Thank you!')] [➎].
 Otherwise, the [if] statement's clause that contains the
 [break] statement is skipped, which puts the execution at the
 end of the [while] loop. At this point, the program execution
@@ -836,7 +836,7 @@ stop immediately. Try stopping a program by creating a simple infinite
 loop in the file editor, and save the program as *infiniteLoop.py*.
 
 while True:\
-    print(\'Hello, world!\')
+    print('Hello, world!')
 
 When you run this program, it will print [Hello, world!] to
 the screen forever because the [while] statement's condition
@@ -847,15 +847,15 @@ an infinite loop.
 
 []{#calibre_link-1025 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}  while True:\
-      print(\'Who are you?\')\
+      print('Who are you?')\
       name = input()\
-    [➊] if name != \'Joe\':\
+    [➊] if name != 'Joe':\
         [➋] continue\
-       print(\'Hello, Joe. What is the password? (It is a fish.)\')\
+       print('Hello, Joe. What is the password? (It is a fish.)')\
     [➌] password = input()\
-       if password == \'swordfish\':\
+       if password == 'swordfish':\
         [➍] break\
-[➎] print(\'Access granted.\')    
+[➎] print('Access granted.')    
 
 If the user enters any name besides [Joe] [➊], the
 [continue] statement [➋] causes the program execution to
@@ -885,21 +885,21 @@ never happen, because the loop condition is always [True].*
 
 Conditions will consider some values in other data types equivalent to
 [True] and [False]. When used in conditions,
-[0], [0.0], and [\'\'] (the empty
+[0], [0.0], and [''] (the empty
 string) are considered [False], while all other values are
 considered [True]. For example, look at the following
 program:
 
-name = \'\'\
+name = ''\
 [➊] while not name:\
-    print(\'Enter your name:\')\
+    print('Enter your name:')\
     name = input()\
-print(\'How many guests will you have?\')\
+print('How many guests will you have?')\
 numOfGuests = int(input())\
 [➋] if numOfGuests:\
-    [➌] print(\'Be sure to have enough room for all your
-guests.\')\
-print(\'Done\')
+    [➌] print('Be sure to have enough room for all your
+guests.')\
+print('Done')
 
 You can view the execution of this program at
 *[https://autbor.com/howmanyguests/](https://autbor.com/howmanyguests/)*.
@@ -910,7 +910,7 @@ If the user enters a blank string for [name], then the
 condition is considered to be [True], and the program will
 print a reminder for the user [➌].
 
-You could have entered [not name != \'\'] instead of [not
+You could have entered [not name != ''] instead of [not
 name], and [numOfGuests != 0] instead of
 [numOfGuests], but using the truthy and falsey values can
 make your code easier to read.
@@ -922,7 +922,7 @@ claim to be Joe, the program shouldn't ask for a password, and once you
 enter the correct password, it should exit.
 
 Who are you?\
-[I\'m fine, thanks. Who are you?]\
+[I'm fine, thanks. Who are you?]\
 Who are you?\
 [Joe]\
 Hello, Joe. What is the password? (It is a fish.)\
@@ -959,9 +959,9 @@ range(5):] and includes the following:
 Let's create a new program called *fiveTimes.py* to help you see a
 [for] loop in action.
 
-print(\'My name is\')\
+print('My name is')\
 for i in range(5):\
-    print(\'Jimmy Five Times (\' + str(i) + \')\')
+    print('Jimmy Five Times (' + str(i) + ')')
 
 You can view the execution of this program at
 *[https://autbor.com/fivetimesfor/](https://autbor.com/fivetimesfor/)*.
@@ -1044,10 +1044,10 @@ You can actually use a [while] loop to do the same thing as a
 rewrite *fiveTimes.py* to use a [while] loop equivalent of a
 [for] loop.
 
-print(\'My name is\')\
+print('My name is')\
 i = 0\
-while i \< 5:\
-    print(\'Jimmy Five Times (\' + str(i) + \')\')\
+while i < 5:\
+    print('Jimmy Five Times (' + str(i) + ')')\
     i = i + 1
 
 You can view the execution of this program at
@@ -1152,8 +1152,8 @@ that is used by one of Python's modules, such as *random.py*, *sys.py*,
 say, *random.py*, and use an [import random] statement in
 another program, your program would import your *random.py* file instead
 of Python's [random] module. This can lead to errors such as
-[AttributeError: module \'random\' has no attribute
-\'randint\'], since your *random.py* doesn't have the
+[AttributeError: module 'random' has no attribute
+'randint'], since your *random.py* doesn't have the
 functions that the real [random] module has. Don't use the
 names of any built-in Python functions either, such as
 [print()] or [input()].
@@ -1217,11 +1217,11 @@ Open a file editor window and enter the following code, saving it as
 import sys\
 \
 while True:\
-    print(\'Type exit to exit.\')\
+    print('Type exit to exit.')\
     response = input()\
-    if response == \'exit\':\
+    if response == 'exit':\
         sys.exit()\
-    print(\'You typed \' + response + \'.\')
+    print('You typed ' + response + '.')
 
 Run this program in IDLE. This program has an infinite loop with no
 [break] statement inside. The only way this program will end
@@ -1261,26 +1261,26 @@ editor, and save the file as *guessTheNumber.py*:
 \# This is a guess the number game.\
 import random\
 secretNumber = random.randint(1, 20)\
-print(\'I am thinking of a number between 1 and 20.\')\
+print('I am thinking of a number between 1 and 20.')\
 \
 \# Ask the player to guess 6 times.\
 for guessesTaken in range(1, 7):\
-    print(\'Take a guess.\')\
+    print('Take a guess.')\
     guess = int(input())\
 \
-    if guess \< secretNumber:\
-        print(\'Your guess is too low.\')\
-    elif guess \> secretNumber:\
-        print(\'Your guess is too high.\')\
+    if guess < secretNumber:\
+        print('Your guess is too low.')\
+    elif guess > secretNumber:\
+        print('Your guess is too high.')\
     else:\
         break    # This condition is the correct guess!\
 \
 if guess == secretNumber:\
-    print(\'Good job! You guessed my number in \' + str(guessesTaken) +
-\'\
-guesses!\')\
+    print('Good job! You guessed my number in ' + str(guessesTaken) +
+'\
+guesses!')\
 else:\
-    print(\'Nope. The number I was thinking of was \' +
+    print('Nope. The number I was thinking of was ' +
 str(secretNumber))
 
 You can view the execution of this program at
@@ -1297,11 +1297,11 @@ use the [random.randint()] function to generate a number for
 the user to guess. The return value, a random integer between 1 and 20,
 is stored in the variable [secretNumber].
 
-print(\'I am thinking of a number between 1 and 20.\')\
+print('I am thinking of a number between 1 and 20.')\
 \
 \# Ask the player to guess 6 times.\
 for guessesTaken in range(1, 7):\
-    print(\'Take a guess.\')\
+    print('Take a guess.')\
     guess = int(input())
 
 The program tells the player that it has come up with a secret number
@@ -1315,10 +1315,10 @@ ops}type="pagebreak"}[int()], which translates the string into
 an integer value. This gets stored in a variable named
 [guess].
 
-    if guess \< secretNumber:\
-        print(\'Your guess is too low.\')\
-    elif guess \> secretNumber:\
-        print(\'Your guess is too high.\')
+    if guess < secretNumber:\
+        print('Your guess is too low.')\
+    elif guess > secretNumber:\
+        print('Your guess is too high.')
 
 These few lines of code check to see whether the guess is less than or
 greater than the secret number. In either case, a hint is printed to the
@@ -1332,10 +1332,10 @@ must be equal to the secret number---in which case, you want the program
 execution to break out of the [for] loop.
 
 if guess == secretNumber:\
-    print(\'Good job! You guessed my number in \' + str(guessesTaken) +
-\' guesses!\')\
+    print('Good job! You guessed my number in ' + str(guessesTaken) +
+' guesses!')\
 else:\
-    print(\'Nope. The number I was thinking of was \' +
+    print('Nope. The number I was thinking of was ' +
 str(secretNumber))
 
 After the [for] loop, the previous [if\...else]
@@ -1377,7 +1377,7 @@ as *rpsGame.py*:
 
 import random, sys\
 \
-print(\'ROCK, PAPER, SCISSORS\')\
+print('ROCK, PAPER, SCISSORS')\
 \
 \# These variables keep track of the number of wins, losses, and ties.\
 wins = 0\
@@ -1385,67 +1385,67 @@ losses = 0\
 ties = 0\
 \
 while True: \# The main game loop.\
-    print(\'%s Wins, %s Losses, %s Ties\' % (wins, losses, ties))\
+    print('%s Wins, %s Losses, %s Ties' % (wins, losses, ties))\
     while True: \# The player input loop.\
-        print(\'Enter your move: (r)ock (p)aper (s)cissors or (q)uit\')\
+        print('Enter your move: (r)ock (p)aper (s)cissors or (q)uit')\
         playerMove = input()\
-        if playerMove == \'q\':\
+        if playerMove == 'q':\
             sys.exit() \# Quit the program.\
-        if playerMove == \'r\' or playerMove == \'p\' or playerMove ==
-\'s\':\
+        if playerMove == 'r' or playerMove == 'p' or playerMove ==
+'s':\
             break \# Break out of the player input loop.\
-        print(\'Type one of r, p, s, or q.\')\
+        print('Type one of r, p, s, or q.')\
 \
     # Display what the player chose:\
-    if playerMove == \'r\':\
-        print(\'ROCK versus\...\')\
-    elif playerMove == \'p\':\
-        print(\'PAPER versus\...\')\
-    elif playerMove == \'s\':\
-        print(\'SCISSORS versus\...\')\
+    if playerMove == 'r':\
+        print('ROCK versus\...')\
+    elif playerMove == 'p':\
+        print('PAPER versus\...')\
+    elif playerMove == 's':\
+        print('SCISSORS versus\...')\
 \
     # Display what the computer chose:\
     randomNumber = random.randint(1, 3)\
     if randomNumber == 1:\
-        computerMove = \'r\'\
-        print(\'ROCK\')\
+        computerMove = 'r'\
+        print('ROCK')\
     elif randomNumber == 2:\
-        computerMove = \'p\'\
-        print(\'PAPER\')\
+        computerMove = 'p'\
+        print('PAPER')\
     elif randomNumber == 3:\
-        computerMove = \'s\'\
-        print(\'SCISSORS\')\
+        computerMove = 's'\
+        print('SCISSORS')\
 \
     # Display and record the win/loss/tie:\
     if playerMove == computerMove:\
-        print(\'It is a tie!\')\
+        print('It is a tie!')\
         ties = ties + 1\
-    elif playerMove == \'r\' and computerMove == \'s\':\
-        print(\'You win!\')\
+    elif playerMove == 'r' and computerMove == 's':\
+        print('You win!')\
         wins = wins + 1\
 []{#calibre_link-1723 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    elif playerMove == \'p\' and computerMove ==
-\'r\':\
-        print(\'You win!\')\
+ops}type="pagebreak"}    elif playerMove == 'p' and computerMove ==
+'r':\
+        print('You win!')\
         wins = wins + 1\
-    elif playerMove == \'s\' and computerMove == \'p\':\
-        print(\'You win!\')\
+    elif playerMove == 's' and computerMove == 'p':\
+        print('You win!')\
         wins = wins + 1\
-    elif playerMove == \'r\' and computerMove == \'p\':\
-        print(\'You lose!\')\
+    elif playerMove == 'r' and computerMove == 'p':\
+        print('You lose!')\
         losses = losses + 1\
-    elif playerMove == \'p\' and computerMove == \'s\':\
-        print(\'You lose!\')\
+    elif playerMove == 'p' and computerMove == 's':\
+        print('You lose!')\
         losses = losses + 1\
-    elif playerMove == \'s\' and computerMove == \'r\':\
-        print(\'You lose!\')\
+    elif playerMove == 's' and computerMove == 'r':\
+        print('You lose!')\
         losses = losses + 1
 
 Let's look at this code line by line, starting at the top.
 
 import random, sys\
 \
-print(\'ROCK, PAPER, SCISSORS\')\
+print('ROCK, PAPER, SCISSORS')\
 \
 \# These variables keep track of the number of wins, losses, and ties.\
 wins = 0\
@@ -1458,16 +1458,16 @@ that our program can call the [random.randint()] and
 track of how many wins, losses, and ties the player has had.
 
 while True: \# The main game loop.\
-    print(\'%s Wins, %s Losses, %s Ties\' % (wins, losses, ties))\
+    print('%s Wins, %s Losses, %s Ties' % (wins, losses, ties))\
     while True: \# The player input loop.\
-        print(\'Enter your move: (r)ock (p)aper (s)cissors or (q)uit\')\
+        print('Enter your move: (r)ock (p)aper (s)cissors or (q)uit')\
         playerMove = input()\
-        if playerMove == \'q\':\
+        if playerMove == 'q':\
             sys.exit() \# Quit the program.\
-        if playerMove == \'r\' or playerMove == \'p\' or playerMove ==
-\'s\':\
+        if playerMove == 'r' or playerMove == 'p' or playerMove ==
+'s':\
             break \# Break out of the player input loop.\
-        print(\'Type one of r, p, s, or q.\')
+        print('Type one of r, p, s, or q.')
 
 This program uses a [while] loop inside of another
 [while] loop. The first loop is the main game loop, and a
@@ -1485,56 +1485,56 @@ program reminds the player to enter [r], [p],
 
 []{#calibre_link-1724 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    # Display what the player chose:\
-    if playerMove == \'r\':\
-        print(\'ROCK versus\...\')\
-    elif playerMove == \'p\':\
-        print(\'PAPER versus\...\')\
-    elif playerMove == \'s\':\
-        print(\'SCISSORS versus\...\')
+    if playerMove == 'r':\
+        print('ROCK versus\...')\
+    elif playerMove == 'p':\
+        print('PAPER versus\...')\
+    elif playerMove == 's':\
+        print('SCISSORS versus\...')
 
 The player's move is displayed on the screen.
 
     # Display what the computer chose:\
     randomNumber = random.randint(1, 3)\
     if randomNumber == 1:\
-        computerMove = \'r\'\
-        print(\'ROCK\')\
+        computerMove = 'r'\
+        print('ROCK')\
     elif randomNumber == 2:\
-        computerMove = \'p\'\
-        print(\'PAPER\')\
+        computerMove = 'p'\
+        print('PAPER')\
     elif randomNumber == 3:\
-        computerMove = \'s\'\
-        print(\'SCISSORS\')
+        computerMove = 's'\
+        print('SCISSORS')
 
 Next, the computer's move is randomly selected. Since
 [random.randint()] can only return a random number, the
 [1], [2], or [3] integer value it returns
 is stored in a variable named [randomNumber]. The program
-stores a [\'r\'], [\'p\'], or [\'s\']
+stores a ['r'], ['p'], or ['s']
 string in [computerMove] based on the integer in
 [randomNumber], as well as displays the computer's move.
 
     # Display and record the win/loss/tie:\
     if playerMove == computerMove:\
-        print(\'It is a tie!\')\
+        print('It is a tie!')\
         ties = ties + 1\
-    elif playerMove == \'r\' and computerMove == \'s\':\
-        print(\'You win!\')\
+    elif playerMove == 'r' and computerMove == 's':\
+        print('You win!')\
         wins = wins + 1\
-    elif playerMove == \'p\' and computerMove == \'r\':\
-        print(\'You win!\')\
+    elif playerMove == 'p' and computerMove == 'r':\
+        print('You win!')\
         wins = wins + 1\
-    elif playerMove == \'s\' and computerMove == \'p\':\
-        print(\'You win!\')\
+    elif playerMove == 's' and computerMove == 'p':\
+        print('You win!')\
         wins = wins + 1\
-    elif playerMove == \'r\' and computerMove == \'p\':\
-        print(\'You lose!\')\
+    elif playerMove == 'r' and computerMove == 'p':\
+        print('You lose!')\
         losses = losses + 1\
-    elif playerMove == \'p\' and computerMove == \'s\':\
-        print(\'You lose!\')\
+    elif playerMove == 'p' and computerMove == 's':\
+        print('You lose!')\
         losses = losses + 1\
-    elif playerMove == \'s\' and computerMove == \'r\':\
-        print(\'You lose!\')\
+    elif playerMove == 's' and computerMove == 'r':\
+        print('You lose!')\
         losses = losses + 1
 
 []{#calibre_link-1065 {http:="" www.idpf.org="" 2007=""
@@ -1575,10 +1575,10 @@ to).
 [4](#calibre_link-1553). What do the
 following expressions evaluate to?
 
-(5 \> 4) and (3 == 5)\
-not (5 \> 4)\
-(5 \> 4) or (3 == 5)\
-not ((5 \> 4) or (3 == 5))\
+(5 > 4) and (3 == 5)\
+not (5 > 4)\
+(5 > 4) or (3 == 5)\
+not ((5 > 4) or (3 == 5))\
 (True and True) and (True == False)\
 (not False) or (not True)
 
@@ -1596,14 +1596,14 @@ three blocks in this code:
 
 spam = 0\
 if spam == 10:\
-    print(\'eggs\')\
-    if spam \> 5:\
-        print(\'bacon\')\
+    print('eggs')\
+    if spam > 5:\
+        print('bacon')\
 []{#calibre_link-1725 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    else:\
-        print(\'ham\')\
-    print(\'spam\')\
-print(\'spam\')
+        print('ham')\
+    print('spam')\
+print('spam')
 
 [9](#calibre_link-1558). Write code that
 prints [Hello] if [1] is stored in [spam],
@@ -1646,7 +1646,7 @@ them in the interactive shell.
 <div>
 
 \
-Read the author\'s other free programming books on
+Read the author's other free programming books on
 [InventWithPython.com](https://inventwithpython.com). Support the author
 with a purchase: [Buy Direct from Publisher (Free
 Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on

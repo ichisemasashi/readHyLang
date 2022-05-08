@@ -62,7 +62,7 @@ interactive shell and check for any error messages.
 *Don't save your program as* pyautogui.py*. When you run [import
 pyautogui], Python will import your program instead of the
 PyAutoGUI and you'll get error messages like [AttributeError: module
-\'pyautogui\' has no attribute \'click\'].*
+'pyautogui' has no attribute 'click'].*
 
 
 ### **Setting Up Accessibility Apps on macOS** 
@@ -154,14 +154,14 @@ The [pyautogui.size()] function returns a two-integer tuple of
 the screen's width and height in pixels. Enter the following into the
 interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [wh =] [pyautogui.size()] \# Obtain
+>>> [import pyautogui]\
+>>> [wh =] [pyautogui.size()] \# Obtain
 the screen resolution.\
-\>\>\> [wh]\
+>>> [wh]\
 Size(width=1920, height=1080)\
-\>\>\> [wh\[0\]]\
+>>> [wh\[0\]]\
 1920\
-\>\>\> [wh.width]\
+>>> [wh.width]\
 1920
 
 The [pyautogui.size()] function returns [(1920,
@@ -187,8 +187,8 @@ mouse to the destination. If you leave it out, the default is
 [duration] keyword arguments in PyAutoGUI functions are
 optional.) Enter the following into the interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [for i in range(10):] \# Move mouse in a square.\
+>>> [import pyautogui]\
+>>> [for i in range(10):] \# Move mouse in a square.\
 [\...       pyautogui.moveTo(100, 100, duration=0.25)]\
 [\...       pyautogui.moveTo(200, 100, duration=0.25)]\
 [\...       pyautogui.moveTo(200, 200, duration=0.25)]\
@@ -207,8 +207,8 @@ mouse in the same square pattern, except it begins the square from
 wherever the mouse happens to be on the screen when the code starts
 running:
 
-\>\>\> [import pyautogui]\
-\>\>\> [for i in range(10):]\
+>>> [import pyautogui]\
+>>> [for i in range(10):]\
 [\...       pyautogui.move(100, 0, duration=0.25)   ]\#
 right\
 [\...       pyautogui.move(0, 100, duration=0.25)   ]\#
@@ -231,20 +231,20 @@ You can determine the mouse's current position by calling the
 positions at the time of the function call. Enter the following into the
 interactive shell, moving the mouse around after each call:
 
-\>\>\> [pyautogui.position()] \# Get current mouse
+>>> [pyautogui.position()] \# Get current mouse
 position.\
 Point(x=311, y=622)\
 []{#calibre_link-844 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [pyautogui.position()] \# Get
+ops}type="pagebreak"}>>> [pyautogui.position()] \# Get
 current mouse position again.\
 Point(x=377, y=481)\
-\>\>\> [p =] [pyautogui.position()] \# And
+>>> [p =] [pyautogui.position()] \# And
 again.\
-\>\>\> [p]\
+>>> [p]\
 Point(x=1536, y=637)\
-\>\>\> [p\[0\]] \# The x-coordinate is at index 0.\
+>>> [p\[0\]] \# The x-coordinate is at index 0.\
 1536\
-\>\>\> [p.x] \# The x-coordinate is also in the x
+>>> [p.x] \# The x-coordinate is also in the x
 attribute.\
 1536
 
@@ -267,16 +267,16 @@ than the mouse's current position.
 
 If you want to specify which mouse button to use, include the
 [button] keyword argument, with a value of
-[\'left\'], [\'middle\'], or [\'right\'].
-For example, [pyautogui.click(100, 150, button=\'left\')] will
+['left'], ['middle'], or ['right'].
+For example, [pyautogui.click(100, 150, button='left')] will
 click the left mouse button at the coordinates (100, 150), while
-[pyautogui.click(200, 250, button=\'right\')] will perform a
+[pyautogui.click(200, 250, button='right')] will perform a
 right-click at (200, 250).
 
 Enter the following into the interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [pyautogui.click(10, 5)] \# Move mouse to (10, 5)
+>>> [import pyautogui]\
+>>> [pyautogui.click(10, 5)] \# Move mouse to (10, 5)
 and click.
 
 You should see the mouse pointer move to near the top-left corner of
@@ -326,7 +326,7 @@ editor window and save it as *spiralDraw.py*:
 [?] pyautogui.click()    # Click to make the window active.\
    distance = 300\
    change = 20\
-   while distance \> 0:\
+   while distance > 0:\
     [?] pyautogui.drag(distance, 0, duration=0.2)   # Move right.\
     [?] distance = distance -- change\
     [?] pyautogui.drag(0, distance, duration=0.2)   # Move down.\
@@ -405,7 +405,7 @@ scrolls up, and passing a negative integer scrolls down. Run the
 following in Mu Editor's interactive shell while the mouse cursor is
 over the Mu Editor window:
 
-\>\>\> [pyautogui.scroll(200)]
+>>> [pyautogui.scroll(200)]
 
 You'll see Mu scroll upward if the mouse cursor is over a text field
 that can be scrolled up.
@@ -432,8 +432,8 @@ PyAutoGUI. The window for the application looks like [Figure
 
 Enter the following into the interactive shell:
 
-\>\>\> import pyautogui\
-\>\>\> pyautogui.mouseInfo()
+>>> import pyautogui\
+>>> pyautogui.mouseInfo()
 
 This makes the MouseInfo window appear. This window gives you
 information about the mouse's cursor current position, as well the color
@@ -489,8 +489,8 @@ To take screenshots in Python, call the
 [pyautogui.screenshot()] function. Enter the following into
 the interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [im = pyautogui.screenshot()]
+>>> [import pyautogui]\
+>>> [im = pyautogui.screenshot()]
 
 The [im] variable will contain the [Image] object of
 the screenshot. You can now call methods on the [Image] object
@@ -514,10 +514,10 @@ You can obtain the RGB color value of a particular pixel on the screen
 with the [pixel()] function. Enter the following into the
 interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [pyautogui.pixel((0, 0))]\
+>>> [import pyautogui]\
+>>> [pyautogui.pixel((0, 0))]\
 (176, 176, 175)\
-\>\>\> [pyautogui.pixel((50, 200))]\
+>>> [pyautogui.pixel((50, 200))]\
 (130, 135, 144)
 
 Pass [pixel()] a tuple of coordinates, like (0, 0) or (50,
@@ -534,13 +534,13 @@ integers for the x- and y-coordinates, and the third argument is a tuple
 of three integers for the RGB color the screen pixel must match. Enter
 the following into the interactive shell:
 
-   \>\>\> [import pyautogui]\
-[?] \>\>\> [pyautogui.pixel((50, 200))]\
+   >>> [import pyautogui]\
+[?] >>> [pyautogui.pixel((50, 200))]\
    (130, 135, 144)\
-[?] \>\>\> [pyautogui.pixelMatchesColor(50, 200, (130, 135,
+[?] >>> [pyautogui.pixelMatchesColor(50, 200, (130, 135,
 144))]\
    True\
-[?] \>\>\> [pyautogui.pixelMatchesColor(50, 200, (255, 135,
+[?] >>> [pyautogui.pixelMatchesColor(50, 200, (255, 135,
 144))]\
    False
 
@@ -568,15 +568,15 @@ image of a Submit button in *submit.png*, the
 that image is found. To see how [locateOnScreen()] works, try
 taking a screenshot of a small area on your screen; then save the image
 and enter the following into the interactive shell, replacing
-[\'submit.png\'] with the filename of your screenshot:
+['submit.png'] with the filename of your screenshot:
 
-\>\>\> [import pyautogui]\
-\>\>\> [b = pyautogui.locateOnScreen(\'submit.png\')]\
-\>\>\> [b]\
+>>> [import pyautogui]\
+>>> [b = pyautogui.locateOnScreen('submit.png')]\
+>>> [b]\
 Box(left=643, top=745, width=70, height=29)\
-\>\>\> [b\[0\]]\
+>>> [b\[0\]]\
 643\
-\>\>\> [b.left]\
+>>> [b.left]\
 643
 
 The [Box] object is a named tuple that
@@ -612,10 +612,10 @@ ops}type="pagebreak"}but you can pass them to [list()] to
 return a list of four-integer tuples. There will be one four-integer
 tuple for each location where the image is found on the screen. Continue
 the interactive shell example by entering the following (and replacing
-[\'submit.png\'] with your own image filename):
+['submit.png'] with your own image filename):
 
-\>\>\>
-[list(pyautogui.locateAllOnScreen(\'submit.png\'))]\
+>>>
+[list(pyautogui.locateAllOnScreen('submit.png'))]\
 \[(643, 745, 70, 29), (1007, 801, 70, 29)\]
 
 Each of the four-integer tuples represents an area on the screen. In the
@@ -628,12 +628,12 @@ Once you have the four-integer tuple for the specific image you want to
 select, you can click the center of this area by passing the tuple to
 [click()]. Enter the following into the interactive shell:
 
-\>\>\> [pyautogui.click((643, 745, 70, 29))]
+>>> [pyautogui.click((643, 745, 70, 29))]
 
 As a shortcut, you can also pass the image filename directly to the
 [click()] function:
 
-\>\>\> [pyautogui.click(\'submit.png\')]
+>>> [pyautogui.click('submit.png')]
 
 The [moveTo()] and [dragTo()] functions also accept
 image filename arguments. Remember [locateOnScreen()] raises
@@ -641,9 +641,9 @@ an exception if it can't find the image on the screen, so you should
 call it from inside a [try] statement:
 
 try:\
-    location = pyautogui.locateOnScreen(\'submit.png\')\
+    location = pyautogui.locateOnScreen('submit.png')\
 except:\
-    print(\'Image could not be found.\')
+    print('Image could not be found.')
 
 Without the [try] and [except] statements, the
 uncaught exception would crash your program. Since you can't be sure
@@ -716,25 +716,25 @@ To get the window's position, size, and title information from the
 [window] object, for example, enter the following into the
 interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [fw = pyautogui.getActiveWindow()]\
-\>\>\> [fw]\
+>>> [import pyautogui]\
+>>> [fw = pyautogui.getActiveWindow()]\
+>>> [fw]\
 Win32Window(hWnd=2034368)\
-\>\>\> [str(fw)]\
-\'\<Win32Window left=\"500\", top=\"300\", width=\"2070\",
-height=\"1208\", title=\"Mu 1.0.1 -- test1.py\"\>\'\
-\>\>\> [fw.title]\
-\'Mu 1.0.1 -- test1.py\'\
-\>\>\> [fw.size]\
+>>> [str(fw)]\
+'<Win32Window left="500", top="300", width="2070",
+height="1208", title="Mu 1.0.1 -- test1.py">'\
+>>> [fw.title]\
+'Mu 1.0.1 -- test1.py'\
+>>> [fw.size]\
 (2070, 1208)\
-\>\>\> [fw.left, fw.top, fw.right, fw.bottom]\
+>>> [fw.left, fw.top, fw.right, fw.bottom]\
 (500, 300, 2070, 1208)\
-\>\>\> [fw.topleft]\
+>>> [fw.topleft]\
 (256, 144)\
 []{#calibre_link-981 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [fw.area]\
+ops}type="pagebreak"}>>> [fw.area]\
 2500560\
-\>\>\> [pyautogui.click(fw.left + 10, fw.top + 20)]
+>>> [pyautogui.click(fw.left + 10, fw.top + 20)]
 
 You can now use these attributes to calculate precise coordinates within
 a window. If you know that a button you want to click is always 10
@@ -781,16 +781,16 @@ Windows attributes can do more than just tell you the size and position
 of the window. You can also set their values in order to resize or move
 the window. For example, enter the following into the interactive shell:
 
-   \>\>\> [import pyautogui]\
-   \>\>\> [fw = pyautogui.getActiveWindow()]\
-[?] \>\>\> [fw.width] \# Gets the current width of
+   >>> [import pyautogui]\
+   >>> [fw = pyautogui.getActiveWindow()]\
+[?] >>> [fw.width] \# Gets the current width of
 the window.\
    1669\
-[?] \>\>\> [fw.topleft] \# Gets the current position
+[?] >>> [fw.topleft] \# Gets the current position
 of the window.\
    (174, 153)\
-[?] \>\>\> [fw.width = 1000] \# Resizes the width.\
-[?] \>\>\> [fw.topleft = (800, 400)] \# Moves the
+[?] >>> [fw.width = 1000] \# Resizes the width.\
+[?] >>> [fw.topleft = (800, 400)] \# Moves the
 window.
 
 []{#calibre_link-1876 {http:="" www.idpf.org="" 2007=""
@@ -811,29 +811,29 @@ the [Window] object attributes to move and resize it*
 You can also find out and change the window's minimized, maximized, and
 activated states. Try entering the following into the interactive shell:
 
-   \>\>\> [import pyautogui]\
-   \>\>\> [fw = pyautogui.getActiveWindow()]\
-[?] \>\>\> [fw.isMaximized] \# Returns True if
+   >>> [import pyautogui]\
+   >>> [fw = pyautogui.getActiveWindow()]\
+[?] >>> [fw.isMaximized] \# Returns True if
 window is maximized.\
    False\
-[?] \>\>\> [fw.isMinimized] \# Returns True if
+[?] >>> [fw.isMinimized] \# Returns True if
 window is minimized.\
    []{#calibre_link-775 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}False\
-[?] \>\>\> [fw.isActive] \# Returns True if window
+[?] >>> [fw.isActive] \# Returns True if window
 is the active window.\
    True\
-[?] \>\>\> [fw.maximize()] \# Maximizes the window.\
-   \>\>\> [fw.isMaximized]\
+[?] >>> [fw.maximize()] \# Maximizes the window.\
+   >>> [fw.isMaximized]\
    True\
-[?] \>\>\> [fw.restore()] \# Undoes a
+[?] >>> [fw.restore()] \# Undoes a
 minimize/maximize action.\
-[?] \>\>\> [fw.minimize()] \# Minimizes the window.\
-   \>\>\> [import time]\
-   \>\>\> \# Wait 5 seconds while you activate a different window:\
-[?] \>\>\> [time.sleep(5); fw.activate()]\
-[?] \>\>\> [fw.close()] \# This will close the
-window you\'re typing in.
+[?] >>> [fw.minimize()] \# Minimizes the window.\
+   >>> [import time]\
+   >>> \# Wait 5 seconds while you activate a different window:\
+[?] >>> [time.sleep(5); fw.activate()]\
+[?] >>> [fw.close()] \# This will close the
+window you're typing in.
 
 The [isMaximized] [?], [isMinimized]
 [?], and [isActive] [?] attributes contain Boolean
@@ -875,8 +875,8 @@ window and position it in the upper-left corner of your screen so that
 PyAutoGUI will click in the right place to bring it into focus. Next,
 enter the following into the interactive shell:
 
-\>\>\> [pyautogui.click(100, 200); pyautogui.write(\'Hello,
-world!\')]
+>>> [pyautogui.click(100, 200); pyautogui.write('Hello,
+world!')]
 
 Notice how placing two commands on the same line, separated by a
 semicolon, keeps the interactive shell from prompting you for input
@@ -905,7 +905,7 @@ By default, the [write()] function will type the full string
 instantly. However, you can pass an optional second argument to add a
 short pause between each character. This second argument is an integer
 or float value of the number of seconds to pause. For example,
-[pyautogui.write(\'Hello, world!\', 0.25)] will wait a
+[pyautogui.write('Hello, world!', 0.25)] will wait a
 quarter-second after typing *H*, another quarter-second after *e*, and
 so on. This gradual typewriter effect may be useful for slower
 applications that can't process keystrokes fast enough to keep up with
@@ -919,16 +919,16 @@ holding down the [SHIFT] key as well.
 Not all keys are easy to represent with single text characters. For
 example, how do you represent [SHIFT] or the left arrow key as a
 single character? In PyAutoGUI, these keyboard keys are represented by
-short string values instead: [\'esc\'] for the [ESC]
-key or [\'enter\'] for the [ENTER] key.
+short string values instead: ['esc'] for the [ESC]
+key or ['enter'] for the [ENTER] key.
 
 Instead of a single string argument, a list of these keyboard key
 strings can be passed to [write()]. For example, the following
 call presses the A key, then the B key, then the left arrow key twice,
 and finally the X and Y keys:
 
-\>\>\> [pyautogui.write(\[\'a\', \'b\', \'left\', \'left\', \'X\',
-\'Y\'\])]
+>>> [pyautogui.write(\['a', 'b', 'left', 'left', 'X',
+'Y'\])]
 
 []{#calibre_link-989 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Because pressing the left arrow key moves the
@@ -939,35 +939,35 @@ any combination of keys.
 
 You can also examine the [pyautogui.KEYBOARD_KEYS] list to see
 all possible keyboard key strings that PyAutoGUI will accept. The
-[\'shift\'] string refers to the left [SHIFT] key and
-is equivalent to [\'shiftleft\']. The same applies for
-[\'ctrl\'], [\'alt\'], and [\'win\']
+['shift'] string refers to the left [SHIFT] key and
+is equivalent to ['shiftleft']. The same applies for
+['ctrl'], ['alt'], and ['win']
 strings; they all refer to the left-side key.
 
 **Table 20-1:** [PyKeyboard] Attributes
 
   **Keyboard key string**                                                                                                                                                                                                                         **Meaning**
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  [\'a\'], [\'b\'], [\'c\'], [\'A\'], [\'B\'], [\'C\'], [\'1\'], [\'2\'], [\'3\'], [\'!\'], [\'@\'], [\'#\'], and so on   The keys for single characters
-  [\'enter\'] (or [\'return\'] or [\'\\n\'])                                                                                                                                                                        The [ENTER] key
-  [\'esc\']                                                                                                                                                                                                                             The [ESC] key
-  [\'shiftleft\'], [\'shiftright\']                                                                                                                                                                                           The left and right [SHIFT] keys
-  [\'altleft\'], [\'altright\']                                                                                                                                                                                               The left and right [ALT] keys
-  [\'ctrlleft\'], [\'ctrlright\']                                                                                                                                                                                             The left and right [CTRL] keys
-  [\'tab\'] (or [\'\\t\'])                                                                                                                                                                                                    The [TAB] key
-  [\'backspace\'], [\'delete\']                                                                                                                                                                                               The [BACKSPACE] and [DELETE] keys
-  [\'pageup\'], [\'pagedown\']                                                                                                                                                                                                The [PAGE UP] and [PAGE DOWN] keys
-  [\'home\'], [\'end\']                                                                                                                                                                                                       The [HOME] and [END] keys
-  [\'up\'], [\'down\'], [\'left\'], [\'right\']                                                                                                                                                           The up, down, left, and right arrow keys
-  [\'f1\'], [\'f2\'], [\'f3\'], and so on                                                                                                                                                                           The F1 to F12 keys
-  [\'volumemute\'], [\'volumedown\'], [\'volumeup\']                                                                                                                                                                The mute, volume down, and volume up keys (some keyboards do not have these keys, but your operating system will still be able to understand these simulated keypresses)
-  [\'pause\']                                                                                                                                                                                                                           The [PAUSE] key
-  [\'capslock\'], [\'numlock\'], [\'scrolllock\']                                                                                                                                                                   The [CAPS LOCK], [NUM LOCK], and [SCROLL LOCK] keys
-  [\'insert\']                                                                                                                                                                                                                          The [INS] or [INSERT] key
-  [\'printscreen\']                                                                                                                                                                                                                     The [PRTSC] or [PRINT SCREEN] key
-  [\'winleft\'], [\'winright\']                                                                                                                                                                                               The left and right [WIN] keys (on Windows)
-  [\'command\']                                                                                                                                                                                                                         The Command (![image](../images/000064.jpg)) key (on macOS)
-  [\'option\']                                                                                                                                                                                                                          The [OPTION] key (on macOS)
+  ['a'], ['b'], ['c'], ['A'], ['B'], ['C'], ['1'], ['2'], ['3'], ['!'], ['@'], ['#'], and so on   The keys for single characters
+  ['enter'] (or ['return'] or ['\\n'])                                                                                                                                                                        The [ENTER] key
+  ['esc']                                                                                                                                                                                                                             The [ESC] key
+  ['shiftleft'], ['shiftright']                                                                                                                                                                                           The left and right [SHIFT] keys
+  ['altleft'], ['altright']                                                                                                                                                                                               The left and right [ALT] keys
+  ['ctrlleft'], ['ctrlright']                                                                                                                                                                                             The left and right [CTRL] keys
+  ['tab'] (or ['\\t'])                                                                                                                                                                                                    The [TAB] key
+  ['backspace'], ['delete']                                                                                                                                                                                               The [BACKSPACE] and [DELETE] keys
+  ['pageup'], ['pagedown']                                                                                                                                                                                                The [PAGE UP] and [PAGE DOWN] keys
+  ['home'], ['end']                                                                                                                                                                                                       The [HOME] and [END] keys
+  ['up'], ['down'], ['left'], ['right']                                                                                                                                                           The up, down, left, and right arrow keys
+  ['f1'], ['f2'], ['f3'], and so on                                                                                                                                                                           The F1 to F12 keys
+  ['volumemute'], ['volumedown'], ['volumeup']                                                                                                                                                                The mute, volume down, and volume up keys (some keyboards do not have these keys, but your operating system will still be able to understand these simulated keypresses)
+  ['pause']                                                                                                                                                                                                                           The [PAUSE] key
+  ['capslock'], ['numlock'], ['scrolllock']                                                                                                                                                                   The [CAPS LOCK], [NUM LOCK], and [SCROLL LOCK] keys
+  ['insert']                                                                                                                                                                                                                          The [INS] or [INSERT] key
+  ['printscreen']                                                                                                                                                                                                                     The [PRTSC] or [PRINT SCREEN] key
+  ['winleft'], ['winright']                                                                                                                                                                                               The left and right [WIN] keys (on Windows)
+  ['command']                                                                                                                                                                                                                         The Command (![image](../images/000064.jpg)) key (on macOS)
+  ['option']                                                                                                                                                                                                                          The [OPTION] key (on macOS)
 
 #### ***Pressing and Releasing the Keyboard*** 
 
@@ -985,8 +985,8 @@ ops}type="pagebreak"}Run the following code, which will type a dollar
 sign character (obtained by holding the [SHIFT] key and pressing
 4):
 
-\>\>\> [pyautogui.keyDown(\'shift\'); pyautogui.press(\'4\');
-pyautogui.keyUp(\'shift\')]
+>>> [pyautogui.keyDown('shift'); pyautogui.press('4');
+pyautogui.keyUp('shift')]
 
 This line presses down [SHIFT], presses (and releases) 4, and
 then releases [SHIFT]. If you need to type a string into a text
@@ -1005,10 +1005,10 @@ releases the C and [CTRL] keys. To do this with PyAutoGUI's
 [keyDown()] and [keyUp()] functions, you would have
 to enter the following:
 
-pyautogui.keyDown(\'ctrl\')\
-pyautogui.keyDown(\'c\')\
-pyautogui.keyUp(\'c\')\
-pyautogui.keyUp(\'ctrl\')
+pyautogui.keyDown('ctrl')\
+pyautogui.keyDown('c')\
+pyautogui.keyUp('c')\
+pyautogui.keyUp('ctrl')
 
 This is rather complicated. Instead, use the
 [pyautogui.hotkey()] function, which takes multiple keyboard
@@ -1016,14 +1016,14 @@ key string arguments, presses them in order, and releases them in the
 reverse order. For the [CTRL]-C example, the code would simply
 be as follows:
 
-pyautogui.hotkey(\'ctrl\', \'c\')
+pyautogui.hotkey('ctrl', 'c')
 
 This function is especially useful for larger hotkey combinations. In
 Word, the [CTRL]-[ALT]-[SHIFT]-S hotkey
 combination displays the Style pane. Instead of making eight different
 function calls (four [keyDown()] calls and four
-[keyUp()] calls), you can just call [hotkey(\'ctrl\', \'alt\',
-\'shift\', \'s\')].
+[keyUp()] calls), you can just call [hotkey('ctrl', 'alt',
+'shift', 's')].
 
 ### **Setting Up Your GUI Automation Scripts** 
 
@@ -1069,13 +1069,13 @@ user can set up the window the script will click on. PyAutoGUI has a
 give the user a visual indication that the script will continue soon.
 Enter the following into the interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [pyautogui.sleep(3)] \# Pauses the program for 3
+>>> [import pyautogui]\
+>>> [pyautogui.sleep(3)] \# Pauses the program for 3
 seconds.\
-\>\>\> [pyautogui.countdown(10)] \# Counts down over 10
+>>> [pyautogui.countdown(10)] \# Counts down over 10
 seconds.\
 10 9 8 7 6 5 4 3 2 1\
-\>\>\> [print(\'Starting in \', end=\'\');
+>>> [print('Starting in ', end='');
 pyautogui.countdown(3)]\
 Starting in 3 2 1
 
@@ -1311,24 +1311,24 @@ variable. Add the following to your program:
 \
 \--[snip]\--\
 \
-[formData = \[{\'name\': \'Alice\', \'fear\': \'eavesdroppers\',
-\'source\': \'wand\',]\
-[            \'robocop\': 4, \'comments\': \'Tell Bob I said
-hi.\'},]\
-[            {\'name\': \'Bob\', \'fear\': \'bees\', \'source\':
-\'amulet\', \'robocop\': 4,]\
-[            \'comments\': \'n/a\'},]\
-          [  {\'name\': \'Carol\', \'fear\': \'puppets\', \'source\':
-\'crystal ball\',]\
-[            \'robocop\': 1, \'comments\': \'Please take the puppets out
+[formData = \[{'name': 'Alice', 'fear': 'eavesdroppers',
+'source': 'wand',]\
+[            'robocop': 4, 'comments': 'Tell Bob I said
+hi.'},]\
+[            {'name': 'Bob', 'fear': 'bees', 'source':
+'amulet', 'robocop': 4,]\
+[            'comments': 'n/a'},]\
+          [  {'name': 'Carol', 'fear': 'puppets', 'source':
+'crystal ball',]\
+[            'robocop': 1, 'comments': 'Please take the puppets out
 of the]\
-[            break room.\'},]\
+[            break room.'},]\
 []{#calibre_link-1054 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[            {\'name\': \'Alex Murphy\', \'fear\':
-\'ED-209\', \'source\': \'money\',]\
-[            \'robocop\': 5, \'comments\': \'Protect the innocent. Serve
+ops}type="pagebreak"}[            {'name': 'Alex Murphy', 'fear':
+'ED-209', 'source': 'money',]\
+[            'robocop': 5, 'comments': 'Protect the innocent. Serve
 the public]\
-[            trust. Uphold the law.\'},]\
+[            trust. Uphold the law.'},]\
 [           \]]\
 \
 \--[snip]\--
@@ -1342,8 +1342,8 @@ active window. Add the following to your program after the
 [formData] assignment statement:
 
 pyautogui.PAUSE = 0.5\
-print(\'Ensure that the browser window is active and the form is
-loaded!\')
+print('Ensure that the browser window is active and the form is
+loaded!')
 
 #### ***Step 3: Start Typing Data*** 
 
@@ -1360,8 +1360,8 @@ Add the following code to your program:
 \
 [for person in formData:]\
 [    # Give the user a chance to kill the script.]\
-[    print(\'\>\>\> 5-SECOND PAUSE TO LET USER PRESS CTRL-C
-\<\<\<\')]\
+[    print('>>> 5-SECOND PAUSE TO LET USER PRESS CTRL-C
+<<<')]\
 [  ][?] [time.sleep(5)]\
 \
 \--[snip]\--
@@ -1378,19 +1378,19 @@ the page time to load, add the following:
 \
 \--[snip]\--\
 \
-[  ][?] [print(\'Entering %s info\...\' %
-(person\[\'name\'\]))]\
-[  ][?] [pyautogui.write(\[\'\\t\',
-\'\\t\'\])]\
+[  ][?] [print('Entering %s info\...' %
+(person\['name'\]))]\
+[  ][?] [pyautogui.write(\['\\t',
+'\\t'\])]\
 \
 [     # Fill out the Name field.]\
 []{#calibre_link-1879 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[  ][?]
-[pyautogui.write(person\[\'name\'\] + \'\\t\')]\
+[pyautogui.write(person\['name'\] + '\\t')]\
 \
 [     # Fill out the Greatest Fear(s) field.]\
-[  ][?] [pyautogui.write(person\[\'fear\'\] +
-\'\\t\')]\
+[  ][?] [pyautogui.write(person\['fear'\] +
+'\\t')]\
 \
 \--[snip]\--
 
@@ -1398,15 +1398,15 @@ We add an occasional [print()] call to display the program's
 status in its Terminal window to let the user know what's going on
 [?].
 
-Since the form has had time to load, call [pyautogui.write(\[\'\\t\',
-\'\\t\'\])] to press [TAB] twice and put the Name
+Since the form has had time to load, call [pyautogui.write(\['\\t',
+'\\t'\])] to press [TAB] twice and put the Name
 field into focus [?]. Then call [write()] again to enter
-the string in [person\[\'name\'\]] [?]. The
-[\'\\t\'] character is added to the end of the string passed
+the string in [person\['name'\]] [?]. The
+['\\t'] character is added to the end of the string passed
 to [write()] to simulate pressing [TAB], which moves
 the keyboard focus to the next field, Greatest Fear(s). Another call to
 [write()] will type the string in
-[person\[\'fear\'\]] into this field and then tab to the next
+[person\['fear'\]] into this field and then tab to the next
 field in the form [?].
 
 #### ***Step 4: Handle Select Lists and Radio Buttons*** 
@@ -1425,37 +1425,37 @@ Add the following to your program:
 \--[snip]\--\
 \
      [\# Fill out the Source of Wizard Powers field.]\
-[  ][?] [if person\[\'source\'\] ==
-\'wand\':]\
-[      ][?] [pyautogui.write(\[\'down\',
-\'\\t\'\]] [, 0.5)]\
-     [elif person\[\'source\'\] == \'amulet\':]\
-[         pyautogui.write(\[\'down\', \'down\', \'\\t\'\]]
+[  ][?] [if person\['source'\] ==
+'wand':]\
+[      ][?] [pyautogui.write(\['down',
+'\\t'\]] [, 0.5)]\
+     [elif person\['source'\] == 'amulet':]\
+[         pyautogui.write(\['down', 'down', '\\t'\]]
 [, 0.5)]\
-[     elif person\[\'source\'\] == \'crystal ball\':]\
-[         pyautogui.write(\[\'down\', \'down\', \'down\',
-\'\\t\'\]] [, 0.5)]\
-[     elif person\[\'source\'\] == \'money\':]\
-[         pyautogui.write(\[\'down\', \'down\', \'down\', \'down\',
-\'\\t\'\]] [, 0.5)]\
+[     elif person\['source'\] == 'crystal ball':]\
+[         pyautogui.write(\['down', 'down', 'down',
+'\\t'\]] [, 0.5)]\
+[     elif person\['source'\] == 'money':]\
+[         pyautogui.write(\['down', 'down', 'down', 'down',
+'\\t'\]] [, 0.5)]\
 \
 [     # Fill out the RoboCop field.]\
-[  ][?] [if person\[\'robocop\'\] ==
+[  ][?] [if person\['robocop'\] ==
 1:]\
-[      ][?] [pyautogui.write(\[\' \',
-\'\\t\'\]] [, 0.5)]\
-[     elif person\[\'robocop\'\] == 2:]\
-[         pyautogui.write(\[\'right\', \'\\t\'\]] [,
+[      ][?] [pyautogui.write(\[' ',
+'\\t'\]] [, 0.5)]\
+[     elif person\['robocop'\] == 2:]\
+[         pyautogui.write(\['right', '\\t'\]] [,
 0.5)]\
-[     elif person\[\'robocop\'\] == 3:]\
-[         pyautogui.write(\[\'right\', \'right\',
-\'\\t\'\]] [, 0.5)]\
-[     elif person\[\'robocop\'\] == 4:]\
-[         pyautogui.write(\[\'right\', \'right\', \'right\',
-\'\\t\'\]] [, 0.5)]\
-[     elif person\[\'robocop\'\] == 5:]\
-[         pyautogui.write(\[\'right\', \'right\', \'right\', \'right\',
-\'\\t\'\]] [, 0.5)]\
+[     elif person\['robocop'\] == 3:]\
+[         pyautogui.write(\['right', 'right',
+'\\t'\]] [, 0.5)]\
+[     elif person\['robocop'\] == 4:]\
+[         pyautogui.write(\['right', 'right', 'right',
+'\\t'\]] [, 0.5)]\
+[     elif person\['robocop'\] == 5:]\
+[         pyautogui.write(\['right', 'right', 'right', 'right',
+'\\t'\]] [, 0.5)]\
 \
 \--[snip]\--
 
@@ -1463,14 +1463,14 @@ Once the drop-down menu has focus (remember that you wrote code to
 simulate pressing [TAB] after filling out the Greatest Fear(s)
 field), pressing the down arrow key will move to the next item in the
 selection list. Depending on the value in
-[person\[\'source\'\]], your program should send a
+[person\['source'\]], your program should send a
 []{#calibre_link-1880 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}number of down arrow keypresses before tabbing to
-the next field. If the value at the [\'source\'] key in this
-user's dictionary is [\'wand\'] [?], we simulate
+the next field. If the value at the ['source'] key in this
+user's dictionary is ['wand'] [?], we simulate
 pressing the down arrow key once (to select *Wand*) and pressing
-[TAB] [?]. If the value at the [\'source\'] key
-is [\'amulet\'], we simulate pressing the down arrow key twice
+[TAB] [?]. If the value at the ['source'] key
+is ['amulet'], we simulate pressing the down arrow key twice
 and pressing [TAB], and so on for the other possible answers.
 The [0.5] argument in these [write()] calls add a
 half-second pause in between each key so that our program doesn't move
@@ -1484,10 +1484,10 @@ by just pressing the spacebar [?].
 
 You can fill out the Additional Comments field with the
 [write()] function by passing
-[person\[\'comments\'\]] as an argument. You can type an
-additional [\'\\t\'] to move the keyboard focus to the next
+[person\['comments'\]] as an argument. You can type an
+additional ['\\t'] to move the keyboard focus to the next
 field or the Submit button. Once the Submit button is in focus, calling
-[pyautogui.press(\'enter\')] will simulate pressing the
+[pyautogui.press('enter')] will simulate pressing the
 [ENTER] key and submit the form. After submitting the form, your
 program will wait five seconds for the next page to load.
 
@@ -1509,14 +1509,14 @@ Complete your program by adding the following code:
 \--[snip]\--\
 \
     [\# Fill out the Additional Comments field.]\
-[    pyautogui.write(person\[\'comments\'\] + \'\\t\')]\
+[    pyautogui.write(person\['comments'\] + '\\t')]\
 \
-[    # \"Click\" Submit button by pressing Enter.]\
+[    # "Click" Submit button by pressing Enter.]\
 [    time.sleep(0.5) \# Wait for the button to activate.]\
-[    pyautogui.press(\'enter\')]\
+[    pyautogui.press('enter')]\
 \
 [    # Wait until form page has loaded.]\
-[    print(\'Submitted form.\')]\
+[    print('Submitted form.')]\
 [    time.sleep(5)]\
 \
 [    # Click the Submit another response link.]\
@@ -1549,8 +1549,8 @@ message box functions:
 single OK button.
 
 [pyautogui.confirm(text)] Displays [text] and has OK
-and Cancel buttons, returning either [\'OK\'] or
-[\'Cancel\'] depending on the button clicked.
+and Cancel buttons, returning either ['OK'] or
+['Cancel'] depending on the button clicked.
 
 [pyautogui.prompt(text)] Displays [text] and has
 a text field for the user to type in, which it returns as a string.
@@ -1565,17 +1565,17 @@ The functions won't return until the user has clicked a button on them,
 so they can also be used to introduce pauses into your PyAutoGUI
 programs. Enter the following into the interactive shell:
 
-\>\>\> [import pyautogui]\
-\>\>\> [pyautogui.alert(\'This is a message.\',
-\'Important\')]\
-\'OK\'\
-\>\>\> [pyautogui.confirm(\'Do you want to continue?\')]
+>>> [import pyautogui]\
+>>> [pyautogui.alert('This is a message.',
+'Important')]\
+'OK'\
+>>> [pyautogui.confirm('Do you want to continue?')]
 \# Click Cancel\
-\'Cancel\'\
-\>\>\> [pyautogui.prompt(\"What is your cat\'s name?\")]\
-\'Zophie\'\
-\>\>\> [pyautogui.password(\'What is the password?\')]\
-\'hunter2\'
+'Cancel'\
+>>> [pyautogui.prompt("What is your cat's name?")]\
+'Zophie'\
+>>> [pyautogui.password('What is the password?')]\
+'hunter2'
 
 The pop-up message boxes that these lines produce look like [Figure
 20-8](#calibre_link-1636).
@@ -1642,7 +1642,7 @@ difference between [pyautogui.moveTo()] and
 can be used to drag the mouse?
 
 [6](#calibre_link-1642). What function
-call will type out the characters of [\"Hello, world!\"]?
+call will type out the characters of ["Hello, world!"]?
 
 [7](#calibre_link-1643). How can you do
 keypresses for special keys such as the keyboard's left arrow key?
@@ -1701,7 +1701,7 @@ running [import pyperclip] and [pyperclip.paste()].
 
 Write a program that follows this procedure for copying the text from a
 window's text fields. Use
-[pyautogui.getWindowsWithTitle(\'Notepad\')] (or whichever
+[pyautogui.getWindowsWithTitle('Notepad')] (or whichever
 text editor you choose) to obtain a Window object. The [top]
 and [left] attributes of this Window object can tell you where
 this window is, while the [activate()] method will ensure it
@@ -1709,8 +1709,8 @@ is at the front of the screen. You can then click the main text field of
 the text editor by adding, say, [100] or [200]
 pixels to the [top] and [left] attribute values with
 [pyautogui.click()] to put the keyboard focus there. Call
-[pyautogui.hotkey(\'ctrl\', \'a\')] and
-[pyautogui.hotkey(\'ctrl\', \'c\')] to select all the text and
+[pyautogui.hotkey('ctrl', 'a')] and
+[pyautogui.hotkey('ctrl', 'c')] to select all the text and
 copy it to the clipboard. Finally, call [pyperclip.paste()] to
 retrieve the text from the clipboard and paste it into your Python
 program. From there, you can use this string however you want, but just

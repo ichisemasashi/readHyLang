@@ -55,10 +55,10 @@ Exceptions are raised with a [raise] statement. In code, a
 
 For example, enter the following into the interactive shell:
 
-\>\>\> [raise Exception(\'This is the error message.\')]\
+>>> [raise Exception('This is the error message.')]\
 Traceback (most recent call last):\
-  File \"\<pyshell#191\>\", line 1, in \<module\>\
-    raise Exception(\'This is the error message.\')\
+  File "<pyshell#191>", line 1, in <module>\
+    raise Exception('This is the error message.')\
 Exception: This is the error message.
 
 If there are no [try] and [except] statements
@@ -74,25 +74,25 @@ following code, and save the program as *boxPrint.py*:
 
 def boxPrint(symbol, width, height):\
     if len(symbol) != 1:\
-      [➊] raise Exception(\'Symbol must be a single character
-string.\')\
-    if width \<= 2:\
-      [➋] raise Exception(\'Width must be greater than 2.\')\
+      [➊] raise Exception('Symbol must be a single character
+string.')\
+    if width <= 2:\
+      [➋] raise Exception('Width must be greater than 2.')\
 []{#calibre_link-896 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    if height \<= 2:\
-      [➌] raise Exception(\'Height must be greater than 2.\')\
+ops}type="pagebreak"}    if height <= 2:\
+      [➌] raise Exception('Height must be greater than 2.')\
 \
     print(symbol \* width)\
     for i in range(height - 2):\
-        print(symbol + (\' \' \* (width - 2)) + symbol)\
+        print(symbol + (' ' \* (width - 2)) + symbol)\
     print(symbol \* width)\
 \
-for sym, w, h in ((\'\*\', 4, 4), (\'O\', 20, 5), (\'x\', 1, 3),
-(\'ZZ\', 3, 3)):\
+for sym, w, h in (('\*', 4, 4), ('O', 20, 5), ('x', 1, 3),
+('ZZ', 3, 3)):\
     try:\
         boxPrint(sym, w, h)\
   [➍] except Exception as err:\
-      [➎] print(\'An exception happened: \' + str(err))
+      [➎] print('An exception happened: ' + str(err))
 
 You can view the execution of this program at
 *[https://autbor.com/boxprint](https://autbor.com/boxprint)*.
@@ -148,19 +148,19 @@ def spam():\
     bacon()\
 \
 def bacon():\
-    raise Exception(\'This is the error message.\')\
+    raise Exception('This is the error message.')\
 \
 spam()
 
 When you run *errorExample.py*, the output will look like this:
 
 Traceback (most recent call last):\
-  File \"errorExample.py\", line 7, in \<module\>\
+  File "errorExample.py", line 7, in <module>\
     spam()\
-  File \"errorExample.py\", line 2, in spam\
+  File "errorExample.py", line 2, in spam\
     bacon()\
-  File \"errorExample.py\", line 5, in bacon\
-    raise Exception(\'This is the error message.\')\
+  File "errorExample.py", line 5, in bacon\
+    raise Exception('This is the error message.')\
 Exception: This is the error message.
 
 From the traceback, you can see that the error happened on line 5, in
@@ -184,17 +184,17 @@ your program running. You can look at the text file later, when you're
 ready to debug your program. Enter the following into the interactive
 shell:
 
-\>\>\> [import traceback]\
-\>\>\> [try:]\
-[\...          raise Exception(\'This is the error
-message.\')]\
+>>> [import traceback]\
+>>> [try:]\
+[\...          raise Exception('This is the error
+message.')]\
 [except:]\
-[\...          errorFile = open(\'errorInfo.txt\',
-\'w\')]\
+[\...          errorFile = open('errorInfo.txt',
+'w')]\
 [\...          errorFile.write(traceback.format_exc())]\
 [\...          errorFile.close()]\
-[\...          print(\'The traceback info was written to
-errorInfo.txt.\')]\
+[\...          print('The traceback info was written to
+errorInfo.txt.')]\
 \
 \
 111\
@@ -206,7 +206,7 @@ ops}type="pagebreak"}The [111] is the return value from the
 file. The traceback text was written to *errorInfo.txt*.
 
 Traceback (most recent call last):\
-  File \"\<pyshell#28\>\", line 2, in \<module\>\
+  File "<pyshell#28>", line 2, in <module>\
 Exception: This is the error message.
 
 In "[Logging](#calibre_link-354)" on [page
@@ -233,21 +233,21 @@ the condition holds true, and if not, there is a bug somewhere, so
 immediately stop the program." For example, enter the following into the
 interactive shell:
 
-\>\>\> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
+>>> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
 73\]]\
-\>\>\> [ages.sort()]\
-\>\>\> [ages]\
+>>> [ages.sort()]\
+>>> [ages]\
 \[15, 17, 22, 26, 47, 54, 57, 73, 80, 92\]\
-\>\>\> [assert]\
-[ages\[0\] \<= ages\[-1\]] \# Assert that the first age is
-\<= the last age.
+>>> [assert]\
+[ages\[0\] <= ages\[-1\]] \# Assert that the first age is
+<= the last age.
 
 The [assert] statement here asserts that the first item in
 [ages] should be less than or equal to the last one. This is a
 sanity check; if the code in [sort()] is bug-free and did its
 job, then the assertion would be true.
 
-Because the [ages\[0\] \<= ages\[-1\]] expression evaluates to
+Because the [ages\[0\] <= ages\[-1\]] expression evaluates to
 [True], the [assert] statement does nothing.
 
 However, let's pretend we had a bug in our code. Say we accidentally
@@ -256,16 +256,16 @@ called the [reverse()] list method instead of the
 interactive shell, the [assert] statement raises an
 [AssertionError]:
 
-\>\>\> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
+>>> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
 73\]]\
-\>\>\> [ages.reverse()]\
-\>\>\> [ages]\
+>>> [ages.reverse()]\
+>>> [ages]\
 \[73, 47, 80, 17, 15, 22, 54, 92, 57, 26\]\
-\>\>\> [assert ages\[0\] \<= ages\[-1\]] \# Assert that
-the first age is \<= the last age.\
+>>> [assert ages\[0\] <= ages\[-1\]] \# Assert that
+the first age is <= the last age.\
 []{#calibre_link-800 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Traceback (most recent call last):\
-  File \"\<stdin\>\", line 1, in \<module\>\
+  File "<stdin>", line 1, in <module>\
 AssertionError
 
 Unlike exceptions, your code should *not* handle [assert]
@@ -292,7 +292,7 @@ even then.)
 
 Assertions also aren't a replacement for comprehensive testing. For
 instance, if the previous [ages] example was set to [\[10, 3,
-2, 1, 20\]], then the [assert ages\[0\] \<=
+2, 1, 20\]], then the [assert ages\[0\] <=
 ages\[-1\]] assertion wouldn't notice that the list was
 unsorted, because it just happened to have a first age that was less
 than or equal to the last age, which is the only thing the assertion
@@ -302,14 +302,14 @@ checked for.
 
 Say you're building a traffic light simulation program. The data
 structure representing the stoplights at an intersection is a dictionary
-with keys [\'ns\'] and [\'ew\'], for the stoplights
+with keys ['ns'] and ['ew'], for the stoplights
 facing north-south and east-west, respectively. The values at these keys
-will be one of the strings [\'green\'],
-[\'yellow\'], or [\'red\']. The code would look
+will be one of the strings ['green'],
+['yellow'], or ['red']. The code would look
 something like this:
 
-market_2nd = {\'ns\': \'green\', \'ew\': \'red\'}\
-mission_16th = {\'ns\': \'red\', \'ew\': \'green\'}
+market_2nd = {'ns': 'green', 'ew': 'red'}\
+mission_16th = {'ns': 'red', 'ew': 'green'}
 
 These two variables will be for the intersections of Market Street and
 2nd Street, and Mission Street and 16th Street. To start the project,
@@ -318,20 +318,20 @@ an intersection dictionary as an argument and switch the lights.
 
 At first, you might think that [switchLights()] should simply
 switch each light to the next color in the sequence: Any
-[\'green\'] values should change to [\'yellow\'],
-[\'yellow\'] values should change to [\'red\'], and
-[\'red\'] values should change to [\'green\']. The
+['green'] values should change to ['yellow'],
+['yellow'] values should change to ['red'], and
+['red'] values should change to ['green']. The
 code to implement this idea might look like this:
 
 def switchLights(stoplight):\
     for key in stoplight.keys():\
 []{#calibre_link-898 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}        if stoplight\[key\] == \'green\':\
-            stoplight\[key\] = \'yellow\'\
-        elif stoplight\[key\] == \'yellow\':\
-            stoplight\[key\] = \'red\'\
-        elif stoplight\[key\] == \'red\':\
-            stoplight\[key\] = \'green\'\
+ops}type="pagebreak"}        if stoplight\[key\] == 'green':\
+            stoplight\[key\] = 'yellow'\
+        elif stoplight\[key\] == 'yellow':\
+            stoplight\[key\] = 'red'\
+        elif stoplight\[key\] == 'red':\
+            stoplight\[key\] = 'green'\
 \
 switchLights(market_2nd)
 
@@ -349,21 +349,21 @@ But if while writing [switchLights()] you had added an
 assertion to check that *at least one of the lights is always red*, you
 might have included the following at the bottom of the function:
 
-assert \'red\' in stoplight.values(), \'Neither light is red! \' +
+assert 'red' in stoplight.values(), 'Neither light is red! ' +
 str(stoplight)
 
 With this assertion in place, your program would crash with this error
 message:
 
    Traceback (most recent call last):\
-     File \"carSim.py\", line 14, in \<module\>\
+     File "carSim.py", line 14, in <module>\
        switchLights(market_2nd)\
-     File \"carSim.py\", line 13, in switchLights\
-       assert \'red\' in stoplight.values(), \'Neither light is red! \'
+     File "carSim.py", line 13, in switchLights\
+       assert 'red' in stoplight.values(), 'Neither light is red! '
 +\
    str(stoplight)\
-[➊] AssertionError: Neither light is red! {\'ns\': \'yellow\',
-\'ew\': \'green\'}
+[➊] AssertionError: Neither light is red! {'ns': 'yellow',
+'ew': 'green'}
 
 The important line here is the [AssertionError] [➊].
 While your program crashing is not ideal, it immediately points out that
@@ -393,9 +393,9 @@ screen as your program runs, copy the following to the top of your
 program (but under the [#! python] shebang line):
 
 import logging\
-logging.basicConfig(level=logging.DEBUG, format=\' %(asctime)s
+logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s
 -  %(levelname)\
-s -  %(message)s\')
+s -  %(message)s')
 
 You don't need to worry too much about how this works, but basically,
 when Python logs an event, it creates a [LogRecord] object
@@ -412,23 +412,23 @@ messages to help yourself figure out what is going wrong. Save the
 program as *factorialLog.py*.
 
 import logging\
-logging.basicConfig(level=logging.DEBUG, format=\'%(asctime)s
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s
 -  %(levelname)s\
--  %(message)s\')\
-logging.debug(\'Start of program\')\
+-  %(message)s')\
+logging.debug('Start of program')\
 \
 def factorial(n):\
-    logging.debug(\'Start of factorial(%s%%)\'  % (n))\
+    logging.debug('Start of factorial(%s%%)'  % (n))\
     total = 1\
     for i in range(n + 1):\
         total \*= i\
-        logging.debug(\'i is \' + str(i) + \', total is \' +
+        logging.debug('i is ' + str(i) + ', total is ' +
 str(total))\
-    logging.debug(\'End of factorial(%s%%)\'  % (n))\
+    logging.debug('End of factorial(%s%%)'  % (n))\
     return total\
 \
 print(factorial(5))\
-logging.debug(\'End of program\')
+logging.debug('End of program')
 
 Here, we use the [logging.debug()] function when we want to
 print log information. This [debug()] function will call
@@ -490,8 +490,8 @@ just the strings passed to them but also a timestamp and the word
 #### ***Don't Debug with the print() Function*** 
 
 Typing [import logging] and
-[logging.basicConfig(level=logging.DEBUG, format=\'%(asctime)s -
-%(levelname)s - %(message)s\')] is somewhat unwieldy. You may
+[logging.basicConfig(level=logging.DEBUG, format='%(asctime)s -
+%(levelname)s - %(message)s')] is somewhat unwieldy. You may
 want to use [print()] calls instead, but don't give in to this
 temptation! Once you're done debugging, you'll end up spending a lot of
 time removing [print()] calls from your code for each log
@@ -533,24 +533,24 @@ logging levels are suggestions. Ultimately, it is up to you to decide
 which category your log message falls into. Enter the following into the
 interactive shell:
 
-\>\>\> [import logging]\
-\>\>\> [logging.basicConfig(level=logging.DEBUG, format=\' %(asctime)s
+>>> [import logging]\
+>>> [logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s
 -]\
-[%(levelname)s -  %(message)s\')]\
-\>\>\> [logging.debug(\'Some debugging details.\')]\
+[%(levelname)s -  %(message)s')]\
+>>> [logging.debug('Some debugging details.')]\
 2019-05-18 19:04:26,901 - DEBUG - Some debugging details.\
-\>\>\> [logging.info(\'The logging module is working.\')]\
+>>> [logging.info('The logging module is working.')]\
 2019-05-18 19:04:35,569 - INFO - The logging module is working.\
-\>\>\> [logging.warning(\'An error message is about to be
-logged.\')]\
+>>> [logging.warning('An error message is about to be
+logged.')]\
 2019-05-18 19:04:56,843 - WARNING - An error message is about to be
 logged.\
 []{#calibre_link-1797 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [logging.error(\'An error has
-occurred.\')]\
+ops}type="pagebreak"}>>> [logging.error('An error has
+occurred.')]\
 2019-05-18 19:05:07,737 - ERROR - An error has occurred.\
-\>\>\> [logging.critical(\'The program is unable to
-recover!\')]\
+>>> [logging.critical('The program is unable to
+recover!')]\
 2019-05-18 19:05:45,794 - CRITICAL - The program is unable to recover!
 
 The benefit of logging levels is that you can change what priority of
@@ -574,17 +574,17 @@ log messages at that level or lower. So if you want to disable logging
 entirely, just add [logging.disable(logging.CRITICAL)] to your
 program. For example, enter the following into the interactive shell:
 
-\>\>\> [import logging]\
-\>\>\> [logging.basicConfig(level=logging.INFO, format=\' %(asctime)s
+>>> [import logging]\
+>>> [logging.basicConfig(level=logging.INFO, format=' %(asctime)s
 -]\
-[%(levelname)s -  %(message)s\')]\
-\>\>\> [logging.critical(\'Critical error! Critical
-error!\')]\
+[%(levelname)s -  %(message)s')]\
+>>> [logging.critical('Critical error! Critical
+error!')]\
 2019-05-22 11:10:48,054 - CRITICAL - Critical error! Critical error!\
-\>\>\> [logging.disable(logging.CRITICAL)]\
-\>\>\> [logging.critical(\'Critical error! Critical
-error!\')]\
-\>\>\> [logging.error(\'Error! Error!\')]
+>>> [logging.disable(logging.CRITICAL)]\
+>>> [logging.critical('Critical error! Critical
+error!')]\
+>>> [logging.error('Error! Error!')]
 
 Since [logging.disable()] will disable all messages after it,
 you will probably want to add it near the [import logging]
@@ -599,9 +599,9 @@ to a text file. The [logging.basicConfig()] function takes a
 [filename] keyword argument, like so:
 
 import logging\
-logging.basicConfig([filename=\'myProgramLog.txt\'],
-level=logging.DEBUG, format=\'\
-%(asctime)s -  %(levelname)s -  %(message)s\')
+logging.basicConfig([filename='myProgramLog.txt'],
+level=logging.DEBUG, format='\
+%(asctime)s -  %(levelname)s -  %(message)s')
 
 The log messages will be saved to *myProgramLog.txt*. While logging
 messages are helpful, they can clutter your screen and make it hard to
@@ -686,13 +686,13 @@ button will immediately terminate the program.
 
 Open a new file editor tab and enter the following code:
 
-print(\'Enter the first number to add:\')\
+print('Enter the first number to add:')\
 first = input()\
-print(\'Enter the second number to add:\')\
+print('Enter the second number to add:')\
 second = input()\
-print(\'Enter the third number to add:\')\
+print('Enter the third number to add:')\
 third = input()\
-print(\'The sum is \' + first + second + third)
+print('The sum is ' + first + second + third)
 
 []{#calibre_link-1799 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Save it as *buggyAddingProgram.py* and run it first
@@ -752,7 +752,7 @@ variables are set to strings instead of integers, causing the bug.*
 
 In the Debug Inspector pane, you should see that the [first],
 [second], and [third] variables are set to string
-values [\'5\'], [\'3\'], and [\'42\']
+values ['5'], ['3'], and ['42']
 instead of integer values [5], [3], and
 [42]. When the last line is executed, Python concatenates
 these strings instead of adding the numbers together, causing the bug.
@@ -775,8 +775,8 @@ for i in range(1, 1001):\
   [➊] if random.randint(0, 1) == 1:\
          heads = heads + 1\
      if i == 500:\
-      [➋] print(\'Halfway done!\')\
-print(\'Heads came up \' + str(heads) + \' times.\')
+      [➋] print('Halfway done!')\
+print('Heads came up ' + str(heads) + ' times.')
 
 The [random.randint(0, 1)] call [➊] will return
 [0] half of the time and [1] the other half of the
@@ -793,7 +793,7 @@ would have to click the Step Over button thousands of times before the
 program terminated. If you were interested in the value of
 [heads] at the halfway point of the program's execution, when
 500 of 1,000 coin flips have been completed, you could instead just set
-a breakpoint on the line [print(\'Halfway done!\')] [➋].
+a breakpoint on the line [print('Halfway done!')] [➋].
 To set a breakpoint, click the line number in the file editor to cause a
 red dot to appear, marking the breakpoint like in [Figure
 11-4](#calibre_link-1198).
@@ -861,8 +861,8 @@ if the variable [spam] is an integer less than [10].
 [assert] statement that triggers an [AssertionError]
 if the variables [eggs] and [bacon] contain strings
 that are the same as each other, even if their cases are different (that
-is, [\'hello\'] and [\'hello\'] are considered the
-same, and [\'goodbye\'] and [\'GOODbye\'] are also
+is, ['hello'] and ['hello'] are considered the
+same, and ['goodbye'] and ['GOODbye'] are also
 considered the same).
 
 [3](#calibre_link-1201). Write an
@@ -913,18 +913,18 @@ has several bugs in it. Run through the program a few times to find the
 bugs that keep the program from working correctly.
 
 import random\
-guess = \'\'\
-while guess not in (\'heads\', \'tails\'):\
-    print(\'Guess the coin toss! Enter heads or tails:\')\
+guess = ''\
+while guess not in ('heads', 'tails'):\
+    print('Guess the coin toss! Enter heads or tails:')\
     guess = input()\
 toss = random.randint(0, 1) \# 0 is tails, 1 is heads\
 if toss == guess:\
-    print(\'You got it!\')\
+    print('You got it!')\
 else:\
-    print(\'Nope! Guess again!\')\
+    print('Nope! Guess again!')\
     guesss = input()\
     if toss == guess:\
-        print(\'You got it!\')\
+        print('You got it!')\
     else:\
-        print(\'Nope. You are really bad at this game.\')
+        print('Nope. You are really bad at this game.')
 

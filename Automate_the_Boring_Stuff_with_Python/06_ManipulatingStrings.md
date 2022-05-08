@@ -28,9 +28,9 @@ strings in your code.
 
 Typing string values in Python code is fairly straightforward: they
 begin and end with a single quote. But then how can you use a quote
-inside a string? Typing [\'That is Alice\'s cat.\'] won't
+inside a string? Typing ['That is Alice's cat.'] won't
 work, because Python thinks the string ends after [Alice], and
-the rest ([s cat.\']) is invalid Python code. Fortunately,
+the rest ([s cat.']) is invalid Python code. Fortunately,
 there are multiple ways to type strings.
 
 ##### **Double Quotes** !
@@ -40,7 +40,7 @@ single quotes. One benefit of using double quotes is that the string can
 have a single quote character in it. Enter the following into the
 interactive shell:
 
-\>\>\> [spam = \"That is Alice\'s cat.\"]
+>>> [spam = "That is Alice's cat."]
 
 Since the string begins with a double quote, Python knows that the
 single quote is part of the string and not marking the end of the
@@ -54,15 +54,15 @@ impossible to put into a string. An escape character consists of a
 backslash ([\\]) followed by the character you want to add to
 the string. (Despite consisting of two characters, it is commonly
 referred to as a singular escape character.) For example, the escape
-character for a single quote is [\\\']. You can use this
+character for a single quote is [\\']. You can use this
 inside a string that begins and ends with single quotes. To see how
 escape characters work, enter the following into the interactive shell:
 
-\>\>\> [spam = \'Say hi to Bob\\\'s mother.\']
+>>> [spam = 'Say hi to Bob\\'s mother.']
 
-Python knows that since the single quote in [Bob\\\'s] has a
+Python knows that since the single quote in [Bob\\'s] has a
 backslash, it is not a single quote meant to end the string value. The
-escape characters [\\\'] and [\\\"] let you put
+escape characters [\\'] and [\\"] let you put
 single quotes and double quotes inside your strings, respectively.
 
 [Table 6-1](#calibre_link-1615) lists the escape characters
@@ -73,19 +73,19 @@ ops}type="pagebreak"}**Table 6-1:** Escape Characters
 
   **Escape character**   **Prints as**
   ---------------------- ----------------------
-  [\\\']       Single quote
-  [\\\"]       Double quote
+  [\\']       Single quote
+  [\\"]       Double quote
   [\\t]        Tab
   [\\n]        Newline (line break)
   [\\\\]       Backslash
 
 Enter the following into the interactive shell:
 
-\>\>\> [print(\"Hello there!\\nHow are you?\\nI\\\'m doing
-fine.\")]\
+>>> [print("Hello there!\\nHow are you?\\nI\\'m doing
+fine.")]\
 Hello there!\
 How are you?\
-I\'m doing fine.
+I'm doing fine.
 
 ##### **Raw Strings** !
 
@@ -94,14 +94,14 @@ string to make it a raw string. A *raw string* completely ignores all
 escape characters and prints any backslash that appears in the string.
 For example, enter the following into the interactive shell:
 
-\>\>\> [print(r\'That is Carol\\\'s cat.\')]\
-That is Carol\\\'s cat.
+>>> [print(r'That is Carol\\'s cat.')]\
+That is Carol\\'s cat.
 
 Because this is a raw string, Python considers the backslash as part of
 the string and not as the start of an escape character. Raw strings are
 helpful if you are typing string values that contain many backslashes,
 such as the strings used for Windows file paths like
-[r\'C:\\Users\\Al\\Desktop\'] or regular expressions described
+[r'C:\\Users\\Al\\Desktop'] or regular expressions described
 in the next chapter.
 
 ##### **Multiline Strings with Triple Quotes** !
@@ -115,13 +115,13 @@ rules for blocks do not apply to lines inside a multiline string.
 
 Open the file editor and write the following:
 
-print(\'\'\'Dear Alice,\
+print('''Dear Alice,\
 \
-Eve\'s cat has been arrested for catnapping, cat burglary, and
+Eve's cat has been arrested for catnapping, cat burglary, and
 extortion.\
 \
 Sincerely,\
-Bob\'\'\')
+Bob''')
 
 []{#calibre_link-763 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Save this program as *catnapping.py* and run it.
@@ -129,20 +129,20 @@ The output will look like this:
 
 Dear Alice,\
 \
-Eve\'s cat has been arrested for catnapping, cat burglary, and
+Eve's cat has been arrested for catnapping, cat burglary, and
 extortion.\
 \
 Sincerely,\
 Bob
 
-Notice that the single quote character in [Eve\'s] does not
+Notice that the single quote character in [Eve's] does not
 need to be escaped. Escaping single and double quotes is optional in
 multiline strings. The following [print()] call would print
 identical text but doesn't use a multiline string:
 
-print(\'Dear Alice,\\n\\nEve\\\'s cat has been arrested for catnapping,
+print('Dear Alice,\\n\\nEve\\'s cat has been arrested for catnapping,
 cat\
-burglary, and extortion.\\n\\nSincerely,\\nBob\')
+burglary, and extortion.\\n\\nSincerely,\\nBob')
 
 ##### **Multiline Comments** !
 
@@ -151,52 +151,52 @@ comment for the rest of the line, a multiline string is often used for
 comments that span multiple lines. The following is perfectly valid
 Python code:
 
-\"\"\"This is a test Python program.\
+"""This is a test Python program.\
 Written by Al Sweigart al@inventwithpython.com\
 \
 This program was designed for Python 3, not Python 2.\
-\"\"\"\
+"""\
 \
 def spam():\
-    \"\"\"This is a multiline comment to help\
-    explain what the spam() function does.\"\"\"\
-    print(\'Hello!\')
+    """This is a multiline comment to help\
+    explain what the spam() function does."""\
+    print('Hello!')
 
 #### ***Indexing and Slicing Strings*** !
 
 Strings use indexes and slices the same way lists do. You can think of
-the string [\'Hello, world!\'] as a list and each character in
+the string ['Hello, world!'] as a list and each character in
 the string as an item with a corresponding index.
 
-\'   H   e   l   l   o   ,       w   o   r   l    d    !   \'\
+'   H   e   l   l   o   ,       w   o   r   l    d    !   '\
     0   1   2   3   4   5   6   7   8   9   10   11   12
 
 The space and exclamation point are included in the character count, so
-[\'Hello, world!\'] is 13 characters long, from [H]
+['Hello, world!'] is 13 characters long, from [H]
 at index 0 to [!] at index 12.
 
 []{#calibre_link-1010 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [spam = \'Hello, world!\']\
-\>\>\> [spam\[0\]]\
-\'H\'\
-\>\>\> [spam\[4\]]\
-\'o\'\
-\>\>\> [spam\[-1\]]\
-\'!\'\
-\>\>\> [spam\[0:5\]]\
-\'Hello\'\
-\>\>\> [spam\[:5\]]\
-\'Hello\'\
-\>\>\> [spam\[7:\]]\
-\'world!\'
+>>> [spam = 'Hello, world!']\
+>>> [spam\[0\]]\
+'H'\
+>>> [spam\[4\]]\
+'o'\
+>>> [spam\[-1\]]\
+'!'\
+>>> [spam\[0:5\]]\
+'Hello'\
+>>> [spam\[:5\]]\
+'Hello'\
+>>> [spam\[7:\]]\
+'world!'
 
 If you specify an index, you'll get the character at that position in
 the string. If you specify a range from one index to another, the
 starting index is included and the ending index is not. That's why, if
-[spam] is [\'Hello, world!\'],
-[spam\[0:5\]] is [\'Hello\']. The substring you get
+[spam] is ['Hello, world!'],
+[spam\[0:5\]] is ['Hello']. The substring you get
 from [spam\[0:5\]] will include everything from
 [spam\[0\]] to [spam\[4\]], leaving out the comma at
 index 5 and the space at index 6. This is similar to how
@@ -207,10 +207,10 @@ Note that slicing a string does not modify the original string. You can
 capture a slice from one variable in a separate variable. Try entering
 the following into the interactive shell:
 
-\>\>\> [spam = \'Hello, world!\']\
-\>\>\> [fizz = spam\[0:5\]]\
-\>\>\> [fizz]\
-\'Hello\'
+>>> [spam = 'Hello, world!']\
+>>> [fizz = spam\[0:5\]]\
+>>> [fizz]\
+'Hello'
 
 By slicing and storing the resulting substring in another variable, you
 can have both the whole string and the substring handy for quick, easy
@@ -224,15 +224,15 @@ joined using [in] or [not in] will evaluate to a
 Boolean [True] or [False]. Enter the following into
 the interactive shell:
 
-\>\>\> [\'Hello\' in \'Hello, World\']\
+>>> ['Hello' in 'Hello, World']\
 True\
-\>\>\> [\'Hello\' in \'Hello\']\
+>>> ['Hello' in 'Hello']\
 True\
-\>\>\> [\'HELLO\' in \'Hello, World\']\
+>>> ['HELLO' in 'Hello, World']\
 False\
-\>\>\> [\'\' in \'spam\']\
+>>> ['' in 'spam']\
 True\
-\>\>\> [\'cats\' not in \'cats and dogs\']\
+>>> ['cats' not in 'cats and dogs']\
 False
 
 []{#calibre_link-1042 {http:="" www.idpf.org="" 2007=""
@@ -246,11 +246,11 @@ Putting strings inside other strings is a common operation in
 programming. So far, we've been using the [+] operator and
 string concatenation to do this:
 
-\>\>\> [name = \'Al\']\
-\>\>\> [age = 4000]\
-\>\>\> [\'Hello, my name is \' + name + \'. I am \' + str(age) + \'
-years old.\']\
-\'Hello, my name is Al. I am 4000 years old.\'
+>>> [name = 'Al']\
+>>> [age = 4000]\
+>>> ['Hello, my name is ' + name + '. I am ' + str(age) + '
+years old.']\
+'Hello, my name is Al. I am 4000 years old.'
 
 However, this requires a lot of tedious typing. A simpler approach is to
 use *string interpolation*, in which the [%s] operator inside
@@ -259,11 +259,11 @@ string. One benefit of string interpolation is that [str()]
 doesn't have to be called to convert values to strings. Enter the
 following into the interactive shell:
 
-\>\>\> [name = \'Al\']\
-\>\>\> [age = 4000]\
-\>\>\> [\'My name is %s. I am %s years old.\' % (name,
+>>> [name = 'Al']\
+>>> [age = 4000]\
+>>> ['My name is %s. I am %s years old.' % (name,
 age)]\
-\'My name is Al. I am 4000 years old.\'
+'My name is Al. I am 4000 years old.'
 
 Python 3.6 introduced *f-strings*, which is similar to string
 interpolation except that braces are used instead of [%s],
@@ -271,18 +271,18 @@ with the expressions placed directly inside the braces. Like raw
 strings, f-strings have an [f] prefix before the starting
 quotation mark. Enter the following into the interactive shell:
 
-\>\>\> [name = \'Al\']\
-\>\>\> [age = 4000]\
-\>\>\> [f\'My name is {name}. Next year I will be {age +
-1}.\']\
-\'My name is Al. Next year I will be 4001.\'
+>>> [name = 'Al']\
+>>> [age = 4000]\
+>>> [f'My name is {name}. Next year I will be {age +
+1}.']\
+'My name is Al. Next year I will be 4001.'
 
 Remember to include the [f] prefix; otherwise, the braces and
 their contents will be a part of the string value:
 
-\>\>\> [\'My name is {name}. Next year I will be {age +
-1}.\']\
-\'My name is {name}. Next year I will be {age + 1}.\'
+>>> ['My name is {name}. Next year I will be {age +
+1}.']\
+'My name is {name}. Next year I will be {age + 1}.'
 
 ### **Useful String Methods** !
 
@@ -297,13 +297,13 @@ converted to uppercase or lowercase, respectively. Nonletter characters
 in the string remain unchanged. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \'Hello, world!\']\
-\>\>\> [spam = spam.upper()]\
-\>\>\> [spam]\
-\'HELLO, WORLD!\'\
-\>\>\> [spam = spam.lower()]\
-\>\>\> [spam]\
-\'hello, world!\'
+>>> [spam = 'Hello, world!']\
+>>> [spam = spam.upper()]\
+>>> [spam]\
+'HELLO, WORLD!'\
+>>> [spam = spam.lower()]\
+>>> [spam]\
+'hello, world!'
 
 Note that these methods do not change the string itself but return new
 string values. If you want to change the original string, you have to
@@ -317,17 +317,17 @@ of [eggs], but [eggs = eggs + 3] does.)
 
 The [upper()] and [lower()] methods are helpful if
 you need to make a case-insensitive comparison. For example, the strings
-[\'great\'] and [\'GREat\'] are not equal to each
+['great'] and ['GREat'] are not equal to each
 other. But in the following small program, it does not matter whether
 the user types [Great], [GREAT], or
 [grEAT], because the string is first converted to lowercase.
 
-print(\'How are you?\')\
+print('How are you?')\
 feeling = input()\
-if feeling.lower() == \'great\':\
-    print(\'I feel great too.\')\
+if feeling.lower() == 'great':\
+    print('I feel great too.')\
 else:\
-    print(\'I hope the rest of your day is good.\')
+    print('I hope the rest of your day is good.')
 
 When you run this program, the question is displayed, and entering a
 variation on [great], such as [GREat], will still
@@ -349,18 +349,18 @@ and all the letters []{#calibre_link-1017 {http:="" www.idpf.org=""
 Otherwise, the method returns [False]. Enter the following
 into the interactive shell, and notice what each method call returns:
 
-\>\>\> [spam = \'Hello, world!\']\
-\>\>\> [spam.islower()]\
+>>> [spam = 'Hello, world!']\
+>>> [spam.islower()]\
 False\
-\>\>\> [spam.isupper()]\
+>>> [spam.isupper()]\
 False\
-\>\>\> [\'HELLO\'.isupper()]\
+>>> ['HELLO'.isupper()]\
 True\
-\>\>\> [\'abc12345\'.islower()]\
+>>> ['abc12345'.islower()]\
 True\
-\>\>\> [\'12345\'.islower()]\
+>>> ['12345'.islower()]\
 False\
-\>\>\> [\'12345\'.isupper()]\
+>>> ['12345'.isupper()]\
 False
 
 Since the [upper()] and [lower()] string methods
@@ -368,15 +368,15 @@ themselves return strings, you can call string methods on *those*
 returned string values as well. Expressions that do this will look like
 a chain of method calls. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.upper()]\
-\'HELLO\'\
-\>\>\> [\'Hello\'.upper().lower()]\
-\'hello\'\
-\>\>\> [\'Hello\'.upper().lower().upper()]\
-\'HELLO\'\
-\>\>\> [\'HELLO\'.lower()]\
-\'hello\'\
-\>\>\> [\'HELLO\'.lower().islower()]\
+>>> ['Hello'.upper()]\
+'HELLO'\
+>>> ['Hello'.upper().lower()]\
+'hello'\
+>>> ['Hello'.upper().lower().upper()]\
+'HELLO'\
+>>> ['HELLO'.lower()]\
+'hello'\
+>>> ['HELLO'.lower().islower()]\
 True
 
 #### ***The isX() Methods*** !
@@ -406,25 +406,25 @@ lowercase letters
 []{#calibre_link-1014 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [\'hello\'.isalpha()]\
+>>> ['hello'.isalpha()]\
 True\
-\>\>\> [\'hello123\'.isalpha()]\
+>>> ['hello123'.isalpha()]\
 False\
-\>\>\> [\'hello123\'.isalnum()]\
+>>> ['hello123'.isalnum()]\
 True\
-\>\>\> [\'hello\'.isalnum()]\
+>>> ['hello'.isalnum()]\
 True\
-\>\>\> [\'123\'.isdecimal()]\
+>>> ['123'.isdecimal()]\
 True\
-\>\>\> [\'    \'.isspace()]\
+>>> ['    '.isspace()]\
 True\
-\>\>\> [\'This Is Title Case\'.istitle()]\
+>>> ['This Is Title Case'.istitle()]\
 True\
-\>\>\> [\'This Is Title Case 123\'.istitle()]\
+>>> ['This Is Title Case 123'.istitle()]\
 True\
-\>\>\> [\'This Is not Title Case\'.istitle()]\
+>>> ['This Is not Title Case'.istitle()]\
 False\
-\>\>\> [\'This Is NOT Title Case Either\'.istitle()]\
+>>> ['This Is NOT Title Case Either'.istitle()]\
 False
 
 The [is][X()] string methods are helpful when you
@@ -434,18 +434,18 @@ valid input. Open a new file editor window and enter this program,
 saving it as *validateInput.py*:
 
 while True:\
-    print(\'Enter your age:\')\
+    print('Enter your age:')\
     age = input()\
     if age.isdecimal():\
         break\
-    print(\'Please enter a number for your age.\')\
+    print('Please enter a number for your age.')\
 \
 while True:\
-    print(\'Select a new password (letters and numbers only):\')\
+    print('Select a new password (letters and numbers only):')\
     password = input()\
     if password.isalnum():\
         break\
-    print(\'Passwords can only have letters and numbers.\')
+    print('Passwords can only have letters and numbers.')
 
 In the first [while] loop, we ask the user for their age and
 store their input in [age]. If [age] is a valid
@@ -488,17 +488,17 @@ The [startswith()] and [endswith()] methods return
 return [False]. Enter the following into the interactive
 shell:
 
-\>\>\> [\'Hello, world!\'.startswith(\'Hello\')]\
+>>> ['Hello, world!'.startswith('Hello')]\
 True\
-\>\>\> [\'Hello, world!\'.endswith(\'world!\')]\
+>>> ['Hello, world!'.endswith('world!')]\
 True\
-\>\>\> [\'abc123\'.startswith(\'abcdef\')]\
+>>> ['abc123'.startswith('abcdef')]\
 False\
-\>\>\> [\'abc123\'.endswith(\'12\')]\
+>>> ['abc123'.endswith('12')]\
 False\
-\>\>\> [\'Hello, world!\'.startswith(\'Hello, world!\')]\
+>>> ['Hello, world!'.startswith('Hello, world!')]\
 True\
-\>\>\> [\'Hello, world!\'.endswith(\'Hello, world!\')]\
+>>> ['Hello, world!'.endswith('Hello, world!')]\
 True
 
 These methods are useful alternatives to the [==] equals
@@ -514,19 +514,19 @@ strings, and returns a string. The returned string is the
 concatenation of each string in the passed-in list. For example, enter
 the following into the interactive shell:
 
-\>\>\> [\', \'.join(\[\'cats\', \'rats\', \'bats\'\])]\
-\'cats, rats, bats\'\
-\>\>\> [\' \'.join(\[\'My\', \'name\', \'is\',
-\'Simon\'\])]\
-\'My name is Simon\'\
-\>\>\> [\'ABC\'.join(\[\'My\', \'name\', \'is\',
-\'Simon\'\])]\
-\'MyABCnameABCisABCSimon\'
+>>> [', '.join(\['cats', 'rats', 'bats'\])]\
+'cats, rats, bats'\
+>>> [' '.join(\['My', 'name', 'is',
+'Simon'\])]\
+'My name is Simon'\
+>>> ['ABC'.join(\['My', 'name', 'is',
+'Simon'\])]\
+'MyABCnameABCisABCSimon'
 
 Notice that the string [join()] calls on is inserted between
-each string of the list argument. For example, when [join(\[\'cats\',
-\'rats\', \'bats\'\])] is called on the [\', \']
-string, the returned string is [\'cats, rats, bats\'].
+each string of the list argument. For example, when [join(\['cats',
+'rats', 'bats'\])] is called on the [', ']
+string, the returned string is ['cats, rats, bats'].
 
 Remember that [join()] is called on a string value and is
 passed a list value. (It's easy to accidentally call it the other way
@@ -534,40 +534,40 @@ around.) The [split()] method does the opposite: It's called
 on a string value and returns a list of strings. Enter the following
 into the interactive shell:
 
-\>\>\> [\'My name is Simon\'.split()]\
-\[\'My\', \'name\', \'is\', \'Simon\'\]
+>>> ['My name is Simon'.split()]\
+\['My', 'name', 'is', 'Simon'\]
 
-By default, the string [\'My name is Simon\'] is split
+By default, the string ['My name is Simon'] is split
 wherever whitespace characters such as the space, tab, or newline
 characters are found. These whitespace characters are not included in
 the strings in the returned list. You can pass a delimiter string to the
 [split()] method to specify a different string to split upon.
 For example, enter the following into the interactive shell:
 
-\>\>\> [\'MyABCnameABCisABCSimon\'.split(\'ABC\')]\
-\[\'My\', \'name\', \'is\', \'Simon\'\]\
-\>\>\> [\'My name is Simon\'.split(\'m\')]\
-\[\'My na\', \'e is Si\', \'on\'\]
+>>> ['MyABCnameABCisABCSimon'.split('ABC')]\
+\['My', 'name', 'is', 'Simon'\]\
+>>> ['My name is Simon'.split('m')]\
+\['My na', 'e is Si', 'on'\]
 
 A common use of [split()] is to split a multiline string along
 the newline characters. Enter the following into the interactive shell:
 
-\>\>\> [spam = \'\'\'Dear Alice,]\
+>>> [spam = '''Dear Alice,]\
 [How have you been? I am fine.]\
 [There is a container in the fridge]\
-[that is labeled \"Milk Experiment.\"]\
+[that is labeled "Milk Experiment."]\
 \
 [Please do not drink it.]\
 [Sincerely,]\
-[Bob\'\'\']\
-\>\>\> [spam.split(\'\\n\')]\
-\[\'Dear Alice,\', \'How have you been? I am fine.\', \'There is a
+[Bob''']\
+>>> [spam.split('\\n')]\
+\['Dear Alice,', 'How have you been? I am fine.', 'There is a
 container in the\
-fridge\', \'that is labeled \"Milk Experiment.\"\', \'\', \'Please do
-not drink it.\',\
-\'Sincerely,\', \'Bob\'\]
+fridge', 'that is labeled "Milk Experiment."', '', 'Please do
+not drink it.',\
+'Sincerely,', 'Bob'\]
 
-Passing [split()] the argument [\'\\n\'] lets us
+Passing [split()] the argument ['\\n'] lets us
 split the multiline string stored in [spam] along the newlines
 and return a list in which each item corresponds to one line of the
 string.
@@ -580,34 +580,34 @@ string it is called on for the separator string it is passed, and
 returns a tuple of three substrings for the "before," "separator," and
 "after" substrings. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello, world!\'.partition(\'w\')]\
-(\'Hello, \', \'w\', \'orld!\')\
-\>\>\> [\'Hello, world!\'.partition(\'world\')]\
-(\'Hello, \', \'world\', \'!\')
+>>> ['Hello, world!'.partition('w')]\
+('Hello, ', 'w', 'orld!')\
+>>> ['Hello, world!'.partition('world')]\
+('Hello, ', 'world', '!')
 
 If the separator string you pass to [partition()] occurs
 multiple times in the string that [partition()] calls on, the
 method splits the string only on the first occurrence:
 
-\>\>\> [\'Hello, world!\'.partition(\'o\')]\
-(\'Hell\', \'o\', \', world!\')
+>>> ['Hello, world!'.partition('o')]\
+('Hell', 'o', ', world!')
 
 If the separator string can't be found, the first string returned in the
 tuple will be the entire string, and the other two strings will be
 empty:
 
-\>\>\> [\'Hello, world!\'.partition(\'XYZ\')]\
-(\'Hello, world!\', \'\', \'\')
+>>> ['Hello, world!'.partition('XYZ')]\
+('Hello, world!', '', '')
 
 You can use the multiple assignment trick to assign the three returned
 strings to three variables:
 
-\>\>\> [before, sep, after = \'Hello, world!\'.partition(\'
-\')]\
-\>\>\> [before]\
-\'Hello,\'\
-\>\>\> [after]\
-\'world!\'
+>>> [before, sep, after = 'Hello, world!'.partition('
+')]\
+>>> [before]\
+'Hello,'\
+>>> [after]\
+'world!'
 
 The [partition()] method is useful for splitting a string
 whenever you need the parts before, including, and after a particular
@@ -621,51 +621,51 @@ justify the text. The first argument to both methods is an integer
 length for the justified string. Enter the following into the
 interactive shell:
 
-\>\>\> [\'Hello\'.rjust(10)]\
-\'     Hello\'\
-\>\>\> [\'Hello\'.rjust(20)]\
-\'              Hello\'\
-\>\>\> [\'Hello, World\'.rjust(20)]\
+>>> ['Hello'.rjust(10)]\
+'     Hello'\
+>>> ['Hello'.rjust(20)]\
+'              Hello'\
+>>> ['Hello, World'.rjust(20)]\
 []{#calibre_link-1022 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\'         Hello, World\'\
-\>\>\> [\'Hello\'.ljust(10)]\
-\'Hello     \'
+ops}type="pagebreak"}'         Hello, World'\
+>>> ['Hello'.ljust(10)]\
+'Hello     '
 
-[\'Hello\'.rjust(10)] says that we want to right-justify
-[\'Hello\'] in a string of total length [10].
-[\'Hello\'] is five characters, so five spaces will be added
+['Hello'.rjust(10)] says that we want to right-justify
+['Hello'] in a string of total length [10].
+['Hello'] is five characters, so five spaces will be added
 to its left, giving us a string of 10 characters with
-[\'Hello\'] justified right.
+['Hello'] justified right.
 
 An optional second argument to [rjust()] and
 [ljust()] will specify a fill character other than a space
 character. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.rjust(20, \'\*\')]\
-\'\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello\'\
-\>\>\> [\'Hello\'.ljust(20, \'-\')]\
-\'Hello\-\-\-\-\-\-\-\-\-\-\-\-\-\--\'
+>>> ['Hello'.rjust(20, '\*')]\
+'\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello'\
+>>> ['Hello'.ljust(20, '-')]\
+'Hello\-\-\-\-\-\-\-\-\-\-\-\-\-\--'
 
 The [center()] string method works like [ljust()]
 and [rjust()] but centers the text rather than justifying it
 to the left or right. Enter the following into the interactive shell:
 
-\>\>\> [\'Hello\'.center(20)]\
-\'       Hello        \'\
-\>\>\> [\'Hello\'.center(20, \'=\')]\
-\'=======Hello========\'
+>>> ['Hello'.center(20)]\
+'       Hello        '\
+>>> ['Hello'.center(20, '=')]\
+'=======Hello========'
 
 These methods are especially useful when you need to print tabular data
 that has correct spacing. Open a new file editor window and enter the
 following code, saving it as *picnicTable.py*:
 
 def printPicnic(itemsDict, leftWidth, rightWidth):\
-    print(\'PICNIC ITEMS\'.center(leftWidth + rightWidth, \'-\'))\
+    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))\
     for k, v in itemsDict.items():\
-        print(k.ljust(leftWidth, \'.\') + str(v).rjust(rightWidth))\
+        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))\
 \
-picnicItems = {\'sandwiches\': 4, \'apples\': 12, \'cups\': 4,
-\'cookies\': 8000}\
+picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4,
+'cookies': 8000}\
 printPicnic(picnicItems, 12, 5)\
 printPicnic(picnicItems, 20, 6)
 
@@ -729,29 +729,29 @@ any whitespace characters at the beginning or end. The
 whitespace characters from the left and right ends, respectively. Enter
 the following into the interactive shell:
 
-\>\>\> [spam = \'    Hello, World    \']\
-\>\>\> [spam.strip()]\
-\'Hello, World\'\
-\>\>\> [spam.lstrip()]\
-\'Hello, World    \'\
-\>\>\> [spam.rstrip()]\
-\'    Hello, World\'
+>>> [spam = '    Hello, World    ']\
+>>> [spam.strip()]\
+'Hello, World'\
+>>> [spam.lstrip()]\
+'Hello, World    '\
+>>> [spam.rstrip()]\
+'    Hello, World'
 
 Optionally, a string argument will specify which characters on the ends
 should be stripped. Enter the following into the interactive shell:
 
-\>\>\> [spam = \'SpamSpamBaconSpamEggsSpamSpam\']\
-\>\>\> [spam.strip(\'ampS\')]\
-\'BaconSpamEggs\'
+>>> [spam = 'SpamSpamBaconSpamEggsSpamSpam']\
+>>> [spam.strip('ampS')]\
+'BaconSpamEggs'
 
 []{#calibre_link-846 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Passing [strip()] the argument
-[\'ampS\'] will tell it to strip occurrences of [a],
+['ampS'] will tell it to strip occurrences of [a],
 [m], [p], and capital [S] from the ends of
 the string stored in [spam]. The order of the characters in
 the string passed to [strip()] does not matter:
-[strip(\'ampS\')] will do the same thing as
-[strip(\'mapS\')] or [strip(\'Spam\')].
+[strip('ampS')] will do the same thing as
+[strip('mapS')] or [strip('Spam')].
 
 ### **Numeric Values of Characters with the ord() and chr() Functions** !
 
@@ -759,32 +759,32 @@ Computers store information as bytes---strings of binary numbers, which
 means we need to be able to convert text to numbers. Because of this,
 every text character has a corresponding numeric value called a *Unicode
 code point*. For example, the numeric code point is [65] for
-[\'A\'], [52] for [\'4\'], and
-[33] for [\'!\']. You can use the [ord()]
+['A'], [52] for ['4'], and
+[33] for ['!']. You can use the [ord()]
 function to get the code point of a one-character string, and the
 [chr()] function to get the one-character string of an integer
 code point. Enter the following into the interactive shell:
 
-\>\>\> ord(\'A\')\
+>>> ord('A')\
 65\
-\>\>\> ord(\'4\')\
+>>> ord('4')\
 52\
-\>\>\> ord(\'!\')\
+>>> ord('!')\
 33\
-\>\>\> chr(65)\
-\'A\'
+>>> chr(65)\
+'A'
 
 These functions are useful when you need to do an ordering or
 mathematical operation on characters:
 
-\>\>\> ord(\'B\')\
+>>> ord('B')\
 66\
-\>\>\> ord(\'A\') \< ord(\'B\')\
+>>> ord('A') < ord('B')\
 True\
-\>\>\> chr(ord(\'A\'))\
-\'A\'\
-\>\>\> chr(ord(\'A\') + 1)\
-\'B\'
+>>> chr(ord('A'))\
+'A'\
+>>> chr(ord('A') + 1)\
+'B'
 
 There is more to Unicode and code points, but those details are beyond
 the scope of this book. If you'd like to know more, I recommend watching
@@ -822,20 +822,20 @@ Python. To install it, follow the directions for installing third-party
 modules in [Appendix A](#calibre_link-2). After installing
 [pyperclip], enter the following into the interactive shell:
 
-\>\>\> [import pyperclip]\
-\>\>\> [pyperclip.copy(\'Hello, world!\')]\
-\>\>\> [pyperclip.paste()]\
-\'Hello, world!\'
+>>> [import pyperclip]\
+>>> [pyperclip.copy('Hello, world!')]\
+>>> [pyperclip.paste()]\
+'Hello, world!'
 
 Of course, if something outside of your program changes the clipboard
 contents, the [paste()] function will return it. For example,
 if I copied this sentence to the clipboard and then called
 [paste()], it would look like this:
 
-\>\>\> [pyperclip.paste()]\
-\'For example, if I copied this sentence to the clipboard and then
+>>> [pyperclip.paste()]\
+'For example, if I copied this sentence to the clipboard and then
 called\
-paste(), it would look like this:\'
+paste(), it would look like this:'
 
 ### **Project: Multi-Clipboard Automatic Messages** !
 
@@ -878,11 +878,11 @@ look like the following:
 #! python3\
 \# mclip.py - A multi-clipboard program.\
 \
-TEXT = {\'agree\': \"\"\"Yes, I agree. That sounds fine to me.\"\"\",\
-        \'busy\': \"\"\"Sorry, can we do this later this week or next
-week?\"\"\",\
-        \'upsell\': \"\"\"Would you consider making this a monthly
-donation?\"\"\"}
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+        'busy': """Sorry, can we do this later this week or next
+week?""",\
+        'upsell': """Would you consider making this a monthly
+donation?"""}
 
 #### ***Step 2: Handle Command Line Arguments*** !
 
@@ -890,7 +890,7 @@ The command line arguments will be stored in the variable
 [sys.argv]. (See [Appendix B](#calibre_link-35) for
 more information on how to use command line arguments in your programs.)
 The first item in the [sys.argv] list should always be a
-string containing the program's filename ([\'mclip.py\']), and
+string containing the program's filename (['mclip.py']), and
 the second item should be the first command line argument. For this
 program, this argument is the key phrase of the message you want. Since
 the command line argument is mandatory, you display a usage message to
@@ -901,16 +901,16 @@ following:
 #! python3\
 \# mclip.py - A multi-clipboard program.\
 \
-TEXT = {\'agree\': \"\"\"Yes, I agree. That sounds fine to me.\"\"\",\
-        \'busy\': \"\"\"Sorry, can we do this later this week or next
-week?\"\"\",\
-        \'upsell\': \"\"\"Would you consider making this a monthly
-donation?\"\"\"}\
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+        'busy': """Sorry, can we do this later this week or next
+week?""",\
+        'upsell': """Would you consider making this a monthly
+donation?"""}\
 \
 [i][mport sys]\
-[if len(sys.argv) \< 2:]\
-[    print(\'Usage: python mclip.py \[keyphrase\] - copy phrase
-text\')]\
+[if len(sys.argv) < 2:]\
+[    print('Usage: python mclip.py \[keyphrase\] - copy phrase
+text')]\
 [    sys.exit()]\
 \
 [keyphrase = sys.argv\[1\]    # first command line arg is the
@@ -934,25 +934,25 @@ Make your program look like the following:
 #! python3\
 \# mclip.py - A multi-clipboard program.\
 \
-TEXT = {\'agree\': \"\"\"Yes, I agree. That sounds fine to me.\"\"\",\
-        \'busy\': \"\"\"Sorry, can we do this later this week or next
-week?\"\"\",\
-        \'upsell\': \"\"\"Would you consider making this a monthly
-donation?\"\"\"}\
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+        'busy': """Sorry, can we do this later this week or next
+week?""",\
+        'upsell': """Would you consider making this a monthly
+donation?"""}\
 \
 import sys[,] [pyperclip]\
-if len(sys.argv) \< 2:\
-    print(\'Usage: py mclip.py \[keyphrase\] - copy phrase text\')\
+if len(sys.argv) < 2:\
+    print('Usage: py mclip.py \[keyphrase\] - copy phrase text')\
     sys.exit()\
 \
 keyphrase = sys.argv\[1\]    # first command line arg is the keyphrase\
 \
 [if keyphrase in TEXT:]\
 [    pyperclip.copy(TEXT\[keyphrase\])]\
-[    print(\'Text for \' + keyphrase + \' copied to
-clipboard.\')]\
+[    print('Text for ' + keyphrase + ' copied to
+clipboard.')]\
 [else:]\
-[    print(\'There is no text for \' + keyphrase)]
+[    print('There is no text for ' + keyphrase)]
 
 This new code looks in the [TEXT] dictionary for the key
 phrase. If the key phrase is a key in the dictionary, we get the value
@@ -1043,9 +1043,9 @@ The call to [pyperclip.paste()] returns all the text on the
 clipboard as one big string. If we used the "List of Lists of Lists"
 example, the string stored in [text] would look like this:
 
-\'Lists of animals\\nLists of aquarium life\\nLists of biologists by
+'Lists of animals\\nLists of aquarium life\\nLists of biologists by
 author\
-abbreviation\\nLists of cultivars\'
+abbreviation\\nLists of cultivars'
 
 The [\\n] newline characters in this string cause it to be
 displayed with multiple lines when it is printed or pasted from the
@@ -1068,11 +1068,11 @@ import pyperclip\
 text = pyperclip.paste()\
 \
 [\# Separate lines and add stars.]\
-[lines = text.split(\'\\n\')]\
+[lines = text.split('\\n')]\
 [for i in range(len(lines)):    # loop through all indexes in the
-\"lines\" list]\
-[    lines\[i\] = \'\* \' + lines\[i\] \# add star to each string in
-\"lines\" list]\
+"lines" list]\
+[    lines\[i\] = '\* ' + lines\[i\] \# add star to each string in
+"lines" list]\
 \
 pyperclip.copy(text)
 
@@ -1100,12 +1100,12 @@ import pyperclip\
 text = pyperclip.paste()\
 \
 \# Separate lines and add stars.\
-lines = text.split(\'\\n\')\
-for i in range(len(lines)):    # loop through all indexes for \"lines\"
+lines = text.split('\\n')\
+for i in range(len(lines)):    # loop through all indexes for "lines"
 list\
-    lines\[i\] = \'\* \' + lines\[i\] \# add star to each string in
-\"lines\" list\
-[text = \'\\n\'.join(lines)]\
+    lines\[i\] = '\* ' + lines\[i\] \# add star to each string in
+"lines" list\
+[text = '\\n'.join(lines)]\
 pyperclip.copy(text)
 
 When this program is run, it replaces the text on the clipboard with
@@ -1138,16 +1138,16 @@ this chapter. Type the following source code into the file editor, and
 save the file as *pigLat.py*:
 
 \# English to Pig Latin\
-print(\'Enter the English message to translate into Pig Latin:\')\
+print('Enter the English message to translate into Pig Latin:')\
 message = input()\
 \
-VOWELS = (\'a\', \'e\', \'i\', \'o\', \'u\', \'y\')\
+VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')\
 \
 pigLatin = \[\] \# A list of the words in Pig Latin.\
 for word in message.split():\
     # Separate the non-letters at the start of this word:\
-    prefixNonLetters = \'\'\
-    while len(word) \> 0 and not word\[0\].isalpha():\
+    prefixNonLetters = ''\
+    while len(word) > 0 and not word\[0\].isalpha():\
         prefixNonLetters += word\[0\]\
         word = word\[1:\]\
 []{#calibre_link-1757 {http:="" www.idpf.org="" 2007=""
@@ -1156,7 +1156,7 @@ ops}type="pagebreak"}    if len(word) == 0:\
         continue\
 \
     # Separate the non-letters at the end of this word:\
-    suffixNonLetters = \'\'\
+    suffixNonLetters = ''\
     while not word\[-1\].isalpha():\
         suffixNonLetters += word\[-1\]\
         word = word\[:-1\]\
@@ -1168,16 +1168,16 @@ ops}type="pagebreak"}    if len(word) == 0:\
     word = word.lower() \# Make the word lowercase for translation.\
 \
     # Separate the consonants at the start of this word:\
-    prefixConsonants = \'\'\
-    while len(word) \> 0 and not word\[0\] in VOWELS:\
+    prefixConsonants = ''\
+    while len(word) > 0 and not word\[0\] in VOWELS:\
         prefixConsonants += word\[0\]\
         word = word\[1:\]\
 \
     # Add the Pig Latin ending to the word:\
-    if prefixConsonants != \'\':\
-        word += prefixConsonants + \'ay\'\
+    if prefixConsonants != '':\
+        word += prefixConsonants + 'ay'\
     else:\
-        word += \'yay\'\
+        word += 'yay'\
 \
     # Set the word back to uppercase or title case:\
     if wasUpper:\
@@ -1189,15 +1189,15 @@ ops}type="pagebreak"}    if len(word) == 0:\
     pigLatin.append(prefixNonLetters + word + suffixNonLetters)\
 \
 \# Join all the words back together into a single string:\
-print(\' \'.join(pigLatin))
+print(' '.join(pigLatin))
 
 Let's look at this code line by line, starting at the top:
 
 \# English to Pig Latin\
-print(\'Enter the English message to translate into Pig Latin:\')\
+print('Enter the English message to translate into Pig Latin:')\
 message = input()\
 \
-VOWELS = (\'a\', \'e\', \'i\', \'o\', \'u\', \'y\')
+VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')
 
 First, we ask the user to enter the English text to translate into Pig
 Latin. Also, we create a constant that holds every lowercase vowel
@@ -1212,8 +1212,8 @@ into Pig Latin:
 pigLatin = \[\] \# A list of the words in Pig Latin.\
 for word in message.split():\
     # Separate the non-letters at the start of this word:\
-    prefixNonLetters = \'\'\
-    while len(word) \> 0 and not word\[0\].isalpha():\
+    prefixNonLetters = ''\
+    while len(word) > 0 and not word\[0\].isalpha():\
         prefixNonLetters += word\[0\]\
         word = word\[1:\]\
     if len(word) == 0:\
@@ -1222,18 +1222,18 @@ for word in message.split():\
 
 We need each word to be its own string, so we call
 [message.split()] to get a list of the words as separate
-strings. The string [\'My name is AL SWEIGART and I am 4,000 years
-old.\'] would cause [split()] to return [\[\'My\',
-\'name\', \'is\', \'AL\', \'SWEIGART\', \'and\', \'I\', \'am\',
-\'4,000\', \'years\', \'old.\'\]].
+strings. The string ['My name is AL SWEIGART and I am 4,000 years
+old.'] would cause [split()] to return [\['My',
+'name', 'is', 'AL', 'SWEIGART', 'and', 'I', 'am',
+'4,000', 'years', 'old.'\]].
 
 We need to remove any non-letters from the start and end of each word so
-that strings like [\'old.\'] translate to
-[\'oldyay.\'] instead of [\'old.yay\']. We'll save
+that strings like ['old.'] translate to
+['oldyay.'] instead of ['old.yay']. We'll save
 these non-letters to a variable named [prefixNonLetters].
 
     # Separate the non-letters at the end of this word:\
-    suffixNonLetters = \'\'\
+    suffixNonLetters = ''\
     while not word\[-1\].isalpha():\
         suffixNonLetters += word\[-1\]\
         word = word\[:-1\]
@@ -1241,7 +1241,7 @@ these non-letters to a variable named [prefixNonLetters].
 A loop that calls [isalpha()] on the first character in the
 word will determine if we should remove a character from a word and
 concatenate it to the end of [prefixNonLetters]. If the entire
-word is made of non-letter characters, like [\'4,000\'], we
+word is made of non-letter characters, like ['4,000'], we
 can simply append it to the [pigLatin] list and continue to
 the next word to translate. We also need to save the non-letters at the
 end of the [word] string. This code is similar to the previous
@@ -1266,8 +1266,8 @@ we need to remove all of the consonants from the beginning of
 [word]:
 
     # Separate the consonants at the start of this word:\
-    prefixConsonants = \'\'\
-    while len(word) \> 0 and not word\[0\] in VOWELS:\
+    prefixConsonants = ''\
+    while len(word) > 0 and not word\[0\] in VOWELS:\
         prefixConsonants += word\[0\]\
         word = word\[1:\]
 
@@ -1277,15 +1277,15 @@ storing them to a variable named [prefixConsonants].
 
 If there were any consonants at the start of the word, they are now in
 [prefixConsonants] and we should concatenate that variable and
-the string [\'ay\'] to the end of [word]. Otherwise,
+the string ['ay'] to the end of [word]. Otherwise,
 we can assume [word] begins with a vowel and we only need to
-concatenate [\'yay\']:
+concatenate ['yay']:
 
     # Add the Pig Latin ending to the word:\
-    if prefixConsonants != \'\':\
-        word += prefixConsonants + \'ay\'\
+    if prefixConsonants != '':\
+        word += prefixConsonants + 'ay'\
     else:\
-        word += \'yay\'
+        word += 'yay'
 
 Recall that we set word to its lowercase version with [word =
 word.lower()]. If [word] was originally in uppercase
@@ -1306,7 +1306,7 @@ any non-letter prefix or suffix it originally had, to the
     pigLatin.append(prefixNonLetters + word + suffixNonLetters)\
 \
 \# Join all the words back together into a single string:\
-print(\' \'.join(pigLatin))
+print(' '.join(pigLatin))
 
 After this loop finishes, we combine the list of strings into a single
 string by calling the [join()] method. This single string is
@@ -1368,8 +1368,8 @@ characters?
 [\\] backslash character in a string?
 
 [4](#calibre_link-1619)!. The string value
-[\"Howl\'s Moving Castle\"] is a valid string. Why isn't it a
-problem that the single quote character in the word [Howl\'s]
+["Howl's Moving Castle"] is a valid string. Why isn't it a
+problem that the single quote character in the word [Howl's]
 isn't escaped?
 
 [5](#calibre_link-1620)!. If you don't want
@@ -1380,23 +1380,23 @@ newlines in it?
 ops}type="pagebreak"}[6](#calibre_link-1621){#calibre_link-1318
 .calibre6}. What do the following expressions evaluate to?
 
--   [\'Hello, world!\'\[1\]]
--   [\'Hello, world!\'\[0:5\]]
--   [\'Hello, world!\'\[:5\]]
--   [\'Hello, world!\'\[3:\]]
+-   ['Hello, world!'\[1\]]
+-   ['Hello, world!'\[0:5\]]
+-   ['Hello, world!'\[:5\]]
+-   ['Hello, world!'\[3:\]]
 
 [7](#calibre_link-1622)!. What do the
 following expressions evaluate to?
 
--   [\'Hello\'.upper()]
--   [\'Hello\'.upper().isupper()]
--   [\'Hello\'.upper().lower()]
+-   ['Hello'.upper()]
+-   ['Hello'.upper().isupper()]
+-   ['Hello'.upper().lower()]
 
 [8](#calibre_link-1623)!. What do the
 following expressions evaluate to?
 
--   [\'Remember, remember, the fifth of November.\'.split()]
--   [\'-\'.join(\'There can be only one.\'.split())]
+-   ['Remember, remember, the fifth of November.'.split()]
+-   ['-'.join('There can be only one.'.split())]
 
 [9](#calibre_link-1624)!. What string
 methods can you use to right-justify, left-justify, and center a string?
@@ -1415,9 +1415,9 @@ lists of strings and displays it in a well-organized table with each
 column right-justified. Assume that all the inner lists will contain the
 same number of strings. For example, the value could look like this:
 
-tableData = \[\[\'apples\', \'oranges\', \'cherries\', \'banana\'\],\
-             \[\'Alice\', \'Bob\', \'Carol\', \'David\'\],\
-             \[\'dogs\', \'cats\', \'moose\', \'goose\'\]\]
+tableData = \[\['apples', 'oranges', 'cherries', 'banana'\],\
+             \['Alice', 'Bob', 'Carol', 'David'\],\
+             \['dogs', 'cats', 'moose', 'goose'\]\]
 
 Your [printTable()] function would print the following:
 
@@ -1494,8 +1494,8 @@ by following the instructions in [Appendix
 A](#calibre_link-2). You can run a demo of the simulator with
 some pre-made bots by running the following in the interactive shell:
 
-\>\>\> [import zombiedice]\
-\>\>\> [zombiedice.demo()]\
+>>> [import zombiedice]\
+>>> [zombiedice.demo()]\
 Zombie Dice Visualization is running. Open your browser to http://\
 localhost:51810 to view it.\
 Press Ctrl-C to quit.
@@ -1536,36 +1536,36 @@ current state of the game.\
         # You can choose to ignore it in your code.\
 \
         diceRollResults = zombiedice.roll() \# first roll\
-        # roll() returns a dictionary with keys \'brains\', \'shotgun\',
+        # roll() returns a dictionary with keys 'brains', 'shotgun',
 and\
-        # \'footsteps\' with how many rolls of each type there were.\
-        # The \'rolls\' key is a list of (color, icon) tuples with the\
+        # 'footsteps' with how many rolls of each type there were.\
+        # The 'rolls' key is a list of (color, icon) tuples with the\
         # exact roll result information.\
         # Example of a roll() return value:\
-        # {\'brains\': 1, \'footsteps\': 1, \'shotgun\': 1,\
-        #  \'rolls\': \[(\'yellow\', \'brains\'), (\'red\',
-\'footsteps\'),\
-        #            (\'green\', \'shotgun\')\]}\
+        # {'brains': 1, 'footsteps': 1, 'shotgun': 1,\
+        #  'rolls': \[('yellow', 'brains'), ('red',
+'footsteps'),\
+        #            ('green', 'shotgun')\]}\
 \
         # REPLACE THIS ZOMBIE CODE WITH YOUR OWN:\
         brains = 0\
         while diceRollResults is not None:\
-            brains += diceRollResults\[\'brains\'\]\
+            brains += diceRollResults\['brains'\]\
 \
-            if brains \< 2:\
+            if brains < 2:\
                 diceRollResults = zombiedice.roll() \# roll again\
             else:\
                 break\
 \
 zombies = (\
-    zombiedice.examples.RandomCoinFlipZombie(name=\'Random\'),\
-    zombiedice.examples.RollsUntilInTheLeadZombie(name=\'Until
-Leading\'),\
-    zombiedice.examples.MinNumShotgunsThenStopsZombie(name=\'Stop at 2\
-Shotguns\', minShotguns=2),\
-    zombiedice.examples.MinNumShotgunsThenStopsZombie(name=\'Stop at 1\
-Shotgun\', minShotguns=1),\
-    MyZombie(name=\'My Zombie Bot\'),\
+    zombiedice.examples.RandomCoinFlipZombie(name='Random'),\
+    zombiedice.examples.RollsUntilInTheLeadZombie(name='Until
+Leading'),\
+    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2\
+Shotguns', minShotguns=2),\
+    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1\
+Shotgun', minShotguns=1),\
+    MyZombie(name='My Zombie Bot'),\
     # Add any other zombie players here.\
 )\
 \
@@ -1587,9 +1587,9 @@ roll.
 
 The return value of [zombiedice.roll()] tells your code the
 results of the dice roll. It is a dictionary with four keys. Three of
-the keys, [\'shotgun\'], [\'brains\'], and
-[\'footsteps\'], have integer values of how many dice came up
-with those icons. The fourth [\'rolls\'] key has a value that
+the keys, ['shotgun'], ['brains'], and
+['footsteps'], have integer values of how many dice came up
+with those icons. The fourth ['rolls'] key has a value that
 is a list of tuples for each die roll. The tuples contain two strings:
 the color of the die at index [0] and the icon rolled at index
 [1]. Look at the code comments in the [turn()]

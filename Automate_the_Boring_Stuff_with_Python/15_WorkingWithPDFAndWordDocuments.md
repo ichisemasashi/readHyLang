@@ -65,15 +65,15 @@ ops}type="pagebreak"}Download this PDF from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*
 and enter the following into the interactive shell:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [pdfFileObj = open(\'meetingminutes.pdf\',
-\'rb\')]\
-   \>\>\> [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]\
-[➊] \>\>\> [pdfReader.numPages]\
+   >>> [import PyPDF2]\
+   >>> [pdfFileObj = open('meetingminutes.pdf',
+'rb')]\
+   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]\
+[➊] >>> [pdfReader.numPages]\
    19\
-[➋] \>\>\> [pageObj = pdfReader.getPage(0)]\
-[➌] \>\>\> [pageObj.extractText()]\
-   \'OOFFFFIICCIIAALL  BBOOAARRDD  MMIINNUUTTEESS   Meeting of March 7,\
+[➋] >>> [pageObj = pdfReader.getPage(0)]\
+[➌] >>> [pageObj.extractText()]\
+   'OOFFFFIICCIIAALL  BBOOAARRDD  MMIINNUUTTEESS   Meeting of March 7,\
    2015        \\n     The Board of Elementary and Secondary Education
 shall\
    provide leadership and create policies for education that expand
@@ -82,8 +82,8 @@ opportunities\
 in an\
    increasingly competitive global market. BOARD  of ELEMENTARY
 and  SECONDARY\
-   EDUCATION  \'\
-   \>\>\> [pdfFileObj.close()]
+   EDUCATION  '\
+   >>> [pdfFileObj.close()]
 
 First, import the [PyPDF2] module. Then open
 *meetingminutes.pdf* in read binary mode and store it in
@@ -128,27 +128,27 @@ being read until whoever is opening the document provides a password.
 Enter the following into the interactive shell with the PDF you
 downloaded, which has been encrypted with the password *rosebud*:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [pdfReader = PyPDF2.PdfFileReader(open(\'encrypted.pdf\',
-\'rb\'))]\
+   >>> [import PyPDF2]\
+   >>> [pdfReader = PyPDF2.PdfFileReader(open('encrypted.pdf',
+'rb'))]\
 []{#calibre_link-902 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➊] \>\>\>
+ops}type="pagebreak"}[➊] >>>
 [pdfReader.isEncrypted]\
    True\
-   \>\>\> [pdfReader.getPage(0)]\
+   >>> [pdfReader.getPage(0)]\
 [➋] Traceback (most recent call last):\
-     File \"\<pyshell#173\>\", line 1, in \<module\>\
+     File "<pyshell#173>", line 1, in <module>\
        pdfReader.getPage()\
      \--[snip]\--\
-     File \"C:\\Python34\\lib\\site-packages\\PyPDF2\\pdf.py\", line
+     File "C:\\Python34\\lib\\site-packages\\PyPDF2\\pdf.py", line
 1173, in getObject\
-       raise utils.PdfReadError(\"file has not been decrypted\")\
+       raise utils.PdfReadError("file has not been decrypted")\
    PyPDF2.utils.PdfReadError: file has not been decrypted\
-\>\>\> [pdfReader = PyPDF2.PdfFileReader(open(\'encrypted.pdf\',
-\'rb\'))]\
-[➌] \>\>\> [pdfReader.decrypt(\'rosebud\')]\
+>>> [pdfReader = PyPDF2.PdfFileReader(open('encrypted.pdf',
+'rb'))]\
+[➌] >>> [pdfReader.decrypt('rosebud')]\
    1\
-   \>\>\> [pageObj = pdfReader.getPage(0)]
+   >>> [pageObj = pdfReader.getPage(0)]
 
 All [PdfFileReader] objects have an [isEncrypted]
 attribute that is [True] if the PDF is encrypted and
@@ -209,7 +209,7 @@ The [write()] method takes a regular [File] object
 that has been opened in *write-binary* mode. You can get such a
 [File] object by calling Python's [open()] function
 with two arguments: the string of what you want the PDF's filename to be
-and [\'wb\'] to indicate the file should be opened in
+and ['wb'] to indicate the file should be opened in
 write-binary mode.
 
 If this sounds a little confusing, don't worry---you'll see how this
@@ -226,33 +226,33 @@ Download *meetingminutes.pdf* and *meetingminutes2.pdf* from
 and place the PDFs in the current working directory. Enter the following
 into the interactive shell:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [pdf1File = open(\'meetingminutes.pdf\',
-\'rb\')]\
-   \>\>\> [pdf2File = open(\'meetingminutes2.pdf\',
-\'rb\')]\
-[➊] \>\>\> [pdf1Reader =
+   >>> [import PyPDF2]\
+   >>> [pdf1File = open('meetingminutes.pdf',
+'rb')]\
+   >>> [pdf2File = open('meetingminutes2.pdf',
+'rb')]\
+[➊] >>> [pdf1Reader =
 PyPDF2.PdfFileReader(pdf1File)]\
-[➋] \>\>\> [pdf2Reader =
+[➋] >>> [pdf2Reader =
 PyPDF2.PdfFileReader(pdf2File)]\
-[➌] \>\>\> [pdfWriter = PyPDF2.PdfFileWriter()]\
+[➌] >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
 \
-   \>\>\> [for pageNum in range(pdf1Reader.numPages):]\
+   >>> [for pageNum in range(pdf1Reader.numPages):]\
          [➍] [pageObj =
 pdf1Reader.getPage(pageNum)]\
          [➎] [pdfWriter.addPage(pageObj)]\
 \
-   \>\>\> [for pageNum in range(pdf2Reader.numPages):]\
+   >>> [for pageNum in range(pdf2Reader.numPages):]\
          [➍] [pageObj =
 pdf2Reader.getPage(pageNum)]\
          [➎] [pdfWriter.addPage(pageObj)]\
 \
-[➏] \>\>\> [pdfOutputFile = open(\'combinedminutes.pdf\',
-\'wb\')]\
-   \>\>\> [pdfWriter.write(pdfOutputFile)]\
-   \>\>\> [pdfOutputFile.close()]\
-   \>\>\> [pdf1File.close()]\
-   \>\>\> [pdf2File.close()]
+[➏] >>> [pdfOutputFile = open('combinedminutes.pdf',
+'wb')]\
+   >>> [pdfWriter.write(pdfOutputFile)]\
+   >>> [pdfOutputFile.close()]\
+   >>> [pdf1File.close()]\
+   >>> [pdf2File.close()]
 
 Open both PDF files in read binary mode and store the two resulting
 [File] objects in [pdf1File] and
@@ -288,10 +288,10 @@ You have now created a new PDF file that combines the pages from
 *meetingminutes.pdf* and *meetingminutes2.pdf* into a single document.
 Remember that the [File] object passed to
 [PyPDF2.PdfFileReader()] needs to be opened in read-binary
-mode by passing [\'rb\'] as the second argument to
+mode by passing ['rb'] as the second argument to
 [open()]. Likewise, the [File] object passed to
 [PyPDF2.PdfFileWriter()] needs to be opened in write-binary
-mode with [\'wb\'].
+mode with ['wb'].
 
 ##### **Rotating Pages** 
 
@@ -302,22 +302,22 @@ methods. Pass one of the integers [90], [180], or
 interactive shell, with the *meetingminutes.pdf* file in the current
 working directory:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [minutesFile =] [open(\'meetingminutes.pdf\',
-\'rb\')]\
-   \>\>\> [pdfReader = PyPDF2.PdfFileReader(minutesFile)]\
-[➊] \>\>\> [page = pdfReader.getPage(0)]\
-[➋] \>\>\> [page.rotateClockwise(90)]\
-   {\'/Contents\': \[IndirectObject(961, 0), IndirectObject(962, 0),\
+   >>> [import PyPDF2]\
+   >>> [minutesFile =] [open('meetingminutes.pdf',
+'rb')]\
+   >>> [pdfReader = PyPDF2.PdfFileReader(minutesFile)]\
+[➊] >>> [page = pdfReader.getPage(0)]\
+[➋] >>> [page.rotateClockwise(90)]\
+   {'/Contents': \[IndirectObject(961, 0), IndirectObject(962, 0),\
    \--[snip]\--\
    }\
-   \>\>\> [pdfWriter = PyPDF2.PdfFileWriter()]\
-   \>\>\> [pdfWriter.addPage(page)]\
-[➌] \>\>\> [resultPdfFile = open(\'rotatedPage.pdf\',
-\'wb\')]\
-   \>\>\> [pdfWriter.write(resultPdfFile)]\
-   \>\>\> [resultPdfFile.close()]\
-   \>\>\> [minutesFile.close()]
+   >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
+   >>> [pdfWriter.addPage(page)]\
+[➌] >>> [resultPdfFile = open('rotatedPage.pdf',
+'wb')]\
+   >>> [pdfWriter.write(resultPdfFile)]\
+   >>> [resultPdfFile.close()]\
+   >>> [minutesFile.close()]
 
 Here we use [getPage(0)] to select the first page of the PDF
 [➊], and then we call [rotateClockwise(90)] on that page
@@ -352,30 +352,30 @@ and place the PDF in the current working directory along with
 *meetingminutes.pdf*. Then enter the following into the interactive
 shell:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [minutesFile = open(\'meetingminutes.pdf\',
-\'rb\')]\
-[➊] \>\>\> [pdfReader =
+   >>> [import PyPDF2]\
+   >>> [minutesFile = open('meetingminutes.pdf',
+'rb')]\
+[➊] >>> [pdfReader =
 PyPDF2.PdfFileReader(minutesFile)]\
-[➋] \>\>\> [minutesFirstPage =
+[➋] >>> [minutesFirstPage =
 pdfReader.getPage(0)]\
-[➌] \>\>\> [pdfWatermarkReader =
-PyPDF2.PdfFileReader(open(\'watermark.pdf\', \'rb\'))]\
-[➍] \>\>\>
+[➌] >>> [pdfWatermarkReader =
+PyPDF2.PdfFileReader(open('watermark.pdf', 'rb'))]\
+[➍] >>>
 [minutesFirstPage.mergePage(pdfWatermarkReader.getPage(0))]\
-[➎] \>\>\> [pdfWriter = PyPDF2.PdfFileWriter()]\
-[➏] \>\>\> [pdfWriter.addPage(minutesFirstPage)]\
+[➎] >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
+[➏] >>> [pdfWriter.addPage(minutesFirstPage)]\
 \
-[➐] \>\>\> [for pageNum in range(1,
+[➐] >>> [for pageNum in range(1,
 pdfReader.numPages):]\
            [pageObj = pdfReader.getPage(pageNum)]\
            [pdfWriter.addPage(pageObj)]\
 \
-   \>\>\> [resultPdfFile = open(\'watermarkedCover.pdf\',
-\'wb\')]\
-   \>\>\> [pdfWriter.write(resultPdfFile)]\
-   \>\>\> [minutesFile.close()]\
-   \>\>\> [resultPdfFile.close()]
+   >>> [resultPdfFile = open('watermarkedCover.pdf',
+'wb')]\
+   >>> [pdfWriter.write(resultPdfFile)]\
+   >>> [minutesFile.close()]\
+   >>> [resultPdfFile.close()]
 
 []{#calibre_link-1056 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we make a [PdfFileReader] object of
@@ -412,19 +412,19 @@ the merged PDF (right)*
 A [PdfFileWriter] object can also add encryption to a PDF
 document. Enter the following into the interactive shell:
 
-   \>\>\> [import PyPDF2]\
-   \>\>\> [pdfFile = open(\'meetingminutes.pdf\',
-\'rb\')]\
-   \>\>\> [pdfReader = PyPDF2.PdfFileReader(pdfFile)]\
-   \>\>\> [pdfWriter = PyPDF2.PdfFileWriter()]\
-   \>\>\> [for pageNum in range(pdfReader.numPages):]\
+   >>> [import PyPDF2]\
+   >>> [pdfFile = open('meetingminutes.pdf',
+'rb')]\
+   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFile)]\
+   >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
+   >>> [for pageNum in range(pdfReader.numPages):]\
            [pdfWriter.addPage(pdfReader.getPage(pageNum))]\
 \
-[➊] \>\>\> [pdfWriter.encrypt(\'swordfish\')]\
-   \>\>\> [resultPdf = open(\'encryptedminutes.pdf\',
-\'wb\')]\
-   \>\>\> [pdfWriter.write(resultPdf)]\
-   \>\>\> [resultPdf.close()]
+[➊] >>> [pdfWriter.encrypt('swordfish')]\
+   >>> [resultPdf = open('encryptedminutes.pdf',
+'wb')]\
+   >>> [pdfWriter.write(resultPdf)]\
+   >>> [resultPdf.close()]
 
 Before calling the [write()] method to save to a file, call
 the [encrypt()] method and pass it a password string
@@ -493,8 +493,8 @@ directory into\
 []{#calibre_link-1832 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   # Get all the PDF filenames.\
    pdfFiles = \[\]\
-   for filename in os.listdir(\'.\'):\
-       if filename.endswith(\'.pdf\'):\
+   for filename in os.listdir('.'):\
+       if filename.endswith('.pdf'):\
          [➋] pdfFiles.append(filename)\
 [➌] pdfFiles.sort(key = str.lower)\
 \
@@ -508,7 +508,7 @@ ops}type="pagebreak"}   # Get all the PDF filenames.\
 
 After the shebang line and the descriptive comment about what the
 program does, this code imports the [os] and
-[PyPDF2] modules [➊]. The [os.listdir(\'.\')]
+[PyPDF2] modules [➊]. The [os.listdir('.')]
 call will return a list of every file in the current working directory.
 The code loops over this list and adds only those files with the *.pdf*
 extension to [pdfFiles] [➋]. Afterward, this list is
@@ -537,14 +537,14 @@ pdfFiles = \[\]\
 \
 [\# Loop through all the PDF files.]\
 [for filename in pdfFiles:]\
-    [pdfFileObj = open(filename, \'rb\')]\
+    [pdfFileObj = open(filename, 'rb')]\
     [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]\
     # TODO: Loop through all the pages (except the first) and add them.\
 \
 \# TODO: Save the resulting PDF to a file.
 
 For each PDF, the loop opens a filename in read-binary mode by calling
-[open()] with [\'rb\'] as the second argument. The
+[open()] with ['rb'] as the second argument. The
 [open()] call returns a [File] object, which gets
 passed to [PyPDF2.PdfFileReader()] to create a
 [PdfFileReader] object for that PDF file.
@@ -607,12 +607,12 @@ for filename in pdfFiles:\
     \--[snip]\--\
 \
 [\# Save the resulting PDF to a file.]\
-[pdfOutput = open(\'allminutes.pdf\', \'wb\')]\
+[pdfOutput = open('allminutes.pdf', 'wb')]\
 []{#calibre_link-853 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[pdfWriter.write(pdfOutput)]\
 [pdfOutput.close()]
 
-Passing [\'wb\'] to [open()] opens the output PDF
+Passing ['wb'] to [open()] opens the output PDF
 file, *allminutes.pdf*, in write-binary mode. Then, passing the
 resulting [File] object to the [write()] method
 creates the actual PDF file. A call to the [close()] method
@@ -691,24 +691,24 @@ from
 and save the document to the working directory. Then enter the following
 into the interactive shell:
 
-   \>\>\> [import docx]\
-[➊] \>\>\> [doc = docx.Document(\'demo.docx\')]\
-[➋] \>\>\> [len(doc.paragraphs)]\
+   >>> [import docx]\
+[➊] >>> [doc = docx.Document('demo.docx')]\
+[➋] >>> [len(doc.paragraphs)]\
    7\
-[➌] \>\>\> [doc.paragraphs\[0\].text]\
-   \'Document Title\'\
-[➍] \>\>\> [doc.paragraphs\[1\].text]\
-   \'A plain paragraph with some bold and some italic\'\
-[➎] \>\>\> [len(doc.paragraphs\[1\].runs)]\
+[➌] >>> [doc.paragraphs\[0\].text]\
+   'Document Title'\
+[➍] >>> [doc.paragraphs\[1\].text]\
+   'A plain paragraph with some bold and some italic'\
+[➎] >>> [len(doc.paragraphs\[1\].runs)]\
    4\
-[➏] \>\>\> [doc.paragraphs\[1\].runs\[0\].text]\
-   \'A plain paragraph with some \'\
-[➐] \>\>\> [doc.paragraphs\[1\].runs\[1\].text]\
-   \'bold\'\
-[➑] \>\>\> [doc.paragraphs\[1\].runs\[2\].text]\
-   \' and some \'\
-[➒] \>\>\> [doc.paragraphs\[1\].runs\[3\].text]\
-   \'italic\'
+[➏] >>> [doc.paragraphs\[1\].runs\[0\].text]\
+   'A plain paragraph with some '\
+[➐] >>> [doc.paragraphs\[1\].runs\[1\].text]\
+   'bold'\
+[➑] >>> [doc.paragraphs\[1\].runs\[2\].text]\
+   ' and some '\
+[➒] >>> [doc.paragraphs\[1\].runs\[3\].text]\
+   'italic'
 
 At [➊], we open a *.docx* file in Python, call
 [docx.Document()], and pass the filename *demo.docx*. This
@@ -720,23 +720,23 @@ it returns [7], which tells us that there are seven
 [Paragraph] objects has a [text] attribute that
 contains a string of the text in that paragraph (without the style
 information). Here, the first [text] attribute contains
-[\'DocumentTitle\'] [➌], and the second contains [\'A
-plain paragraph with some bold and some italic\'] [➍].
+['DocumentTitle'] [➌], and the second contains ['A
+plain paragraph with some bold and some italic'] [➍].
 
 Each [Paragraph] object also has a [runs] attribute
 that is a list of [Run] objects. [Run] objects also
 have a [text] attribute, containing just the text in that
 particular run. Let's look at the [text] attributes in the
-second [Paragraph] object, [\'A plain paragraph with some bold
-and some italic\']. Calling [len()] on this
+second [Paragraph] object, ['A plain paragraph with some bold
+and some italic']. Calling [len()] on this
 [Paragraph] object tells us that there are four
-[Run] objects [➎]. The first run object contains [\'A
-plain paragraph with some \'] [➏]. Then, the text
-changes to a bold style, so [\'bold\'] starts a new
+[Run] objects [➎]. The first run object contains ['A
+plain paragraph with some '] [➏]. Then, the text
+changes to a bold style, so ['bold'] starts a new
 [Run] object [➐]. The text returns to an unbolded style
-after that, which results in a third [Run] object, [\' and
-some \'] [➑]. Finally, the fourth and last
-[Run] object contains [\'italic\'] in an italic
+after that, which results in a third [Run] object, [' and
+some '] [➑]. Finally, the fourth and last
+[Run] object contains ['italic'] in an italic
 style [➒].
 
 With Python-Docx, your Python programs will now be able to read the text
@@ -759,7 +759,7 @@ def getText(filename):\
     fullText = \[\]\
     for para in doc.paragraphs:\
         fullText.append(para.text)\
-    return \'\\n\'.join(fullText)
+    return '\\n'.join(fullText)
 
 The [getText()] function opens the Word document, loops over
 all the [Paragraph] objects in the [paragraphs]
@@ -771,8 +771,8 @@ The *readDocx.py* program can be imported like any other module. Now if
 you just need the text from a Word document, you can enter the
 following:
 
-\>\>\> [import readDocx]\
-\>\>\> [print(readDocx.getText(\'demo.docx\'))]\
+>>> [import readDocx]\
+>>> [print(readDocx.getText('demo.docx'))]\
 Document Title\
 A plain paragraph with some bold and some italic\
 Heading, level 1\
@@ -784,12 +784,12 @@ You can also adjust [getText()] to modify the string before
 returning it. For example, to indent each paragraph, replace the
 [append()] call in *readDocx.py* with this:
 
-fullText.append([\'  \' +] para.text)
+fullText.append(['  ' +] para.text)
 
 To add a double space between paragraphs, change the [join()]
 call code to this:
 
-return \'\\n[\\n]\'.join(fullText)
+return '\\n[\\n]'.join(fullText)
 
 As you can see, it takes only a few lines of code to write functions
 that will read a *.docx* file and return a string of its content to your
@@ -832,45 +832,45 @@ there will be no style associated with the [Paragraph] or
 The string values for the default Word styles are as follows:
 
 +----------------+----------------+----------------+----------------+
-| [\'Norma       | [\'Heading     | [\'List        | [\'List        |
-| l\'] | 5\'] | Bulle          | Paragrap       |
-|                |                | t\'] | h\'] |
-| [\'Body        | [\'Heading     |                |                |
-| Tex            | 6\'] | [\'List Bullet | [\'MacroTex    |
-| t\'] |                | 2\'] | t\'] |
-|                | [\'Heading     |                |                |
-| [\'Body Text   | 7\'] | [\'List Bullet | [\'No          |
-| 2\'] |                | 3\'] | Spacin         |
-|                | [\'Heading     |                | g\'] |
-| [\'Body Text   | 8\'] | [\'List        |                |
-| 3\'] |                | Continu        | [\'Quot        |
-|                | [\'Heading     | e\'] | e\'] |
-| [\'Captio      | 9\'] |                |                |
-| n\'] |                | [\'List        | [\'Subtitl     |
-|                | [\'Intense     | Continue       | e\'] |
-| [\'Heading     | Quot           | 2\'] |                |
-| 1\'] | e\'] |                | [\'TOC         |
-|                |                | [\'List        | Headin         |
-| [\'Heading     | [\'Lis         | Continue       | g\'] |
-| 2\'] | t\'] | 3\'] |                |
-|                |                |                | [\'Titl        |
-| [\'Heading     | [\'List        | [\'List Number | e\'] |
-| 3\'] | 2\'] | \']  |                |
+| ['Norma       | ['Heading     | ['List        | ['List        |
+| l'] | 5'] | Bulle          | Paragrap       |
+|                |                | t'] | h'] |
+| ['Body        | ['Heading     |                |                |
+| Tex            | 6'] | ['List Bullet | ['MacroTex    |
+| t'] |                | 2'] | t'] |
+|                | ['Heading     |                |                |
+| ['Body Text   | 7'] | ['List Bullet | ['No          |
+| 2'] |                | 3'] | Spacin         |
+|                | ['Heading     |                | g'] |
+| ['Body Text   | 8'] | ['List        |                |
+| 3'] |                | Continu        | ['Quot        |
+|                | ['Heading     | e'] | e'] |
+| ['Captio      | 9'] |                |                |
+| n'] |                | ['List        | ['Subtitl     |
+|                | ['Intense     | Continue       | e'] |
+| ['Heading     | Quot           | 2'] |                |
+| 1'] | e'] |                | ['TOC         |
+|                |                | ['List        | Headin         |
+| ['Heading     | ['Lis         | Continue       | g'] |
+| 2'] | t'] | 3'] |                |
+|                |                |                | ['Titl        |
+| ['Heading     | ['List        | ['List Number | e'] |
+| 3'] | 2'] | ']  |                |
 |                |                |                |                |
-| [\'Heading     | [\'List        | [\'List Number |                |
-| 4\'] | 3\'] | 2\'] |                |
+| ['Heading     | ['List        | ['List Number |                |
+| 4'] | 3'] | 2'] |                |
 |                |                |                |                |
-|                |                | [\'List Number |                |
-|                |                | 3\'] |                |
+|                |                | ['List Number |                |
+|                |                | 3'] |                |
 +----------------+----------------+----------------+----------------+
 
 []{#calibre_link-1079 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}When using a linked style for a [Run]
-object, you will need to add [\' Char\'] to the end of its
+object, you will need to add [' Char'] to the end of its
 name. For example, to set the Quote linked style for a
 [Paragraph] object, you would use [paragraphObj.style =
-\'Quote\'], but for a [Run] object, you would use
-[runObj.style = \'Quote Char\'].
+'Quote'], but for a [Run] object, you would use
+[runObj.style = 'Quote Char'].
 
 In the current version of Python-Docx (0.8.10), the only styles that can
 be used are the default Word styles and the styles in the opened
@@ -931,27 +931,27 @@ ops}type="pagebreak"}**Table 15-1:** [Run] Object
 For example, to change the styles of *demo.docx*, enter the following
 into the interactive shell:
 
-\>\>\> [import docx]\
-\>\>\> [doc = docx.Document(\'demo.docx\')]\
-\>\>\> [doc.paragraphs\[0\].text]\
-\'Document Title\'\
-\>\>\> [doc.paragraphs\[0\].style \# The exact id may be
+>>> [import docx]\
+>>> [doc = docx.Document('demo.docx')]\
+>>> [doc.paragraphs\[0\].text]\
+'Document Title'\
+>>> [doc.paragraphs\[0\].style \# The exact id may be
 different:]\
-\_ParagraphStyle(\'Title\') id: 3095631007984\
-\>\>\> [doc.paragraphs\[0\].style = \'Normal\']\
-\>\>\> [doc.paragraphs\[1\].text]\
-\'A plain paragraph with some bold and some italic\'\
-\>\>\> [(doc.paragraphs\[1\].runs\[0\].text,
+\_ParagraphStyle('Title') id: 3095631007984\
+>>> [doc.paragraphs\[0\].style = 'Normal']\
+>>> [doc.paragraphs\[1\].text]\
+'A plain paragraph with some bold and some italic'\
+>>> [(doc.paragraphs\[1\].runs\[0\].text,
 doc.paragraphs\[1\].runs\[1\].text, doc.\
 paragraphs\[1\].runs\[2\].text,
 doc.paragraphs\[1\].runs\[3\].text)]\
-(\'A plain paragraph with some \', \'bold\', \' and some \',
-\'italic\')\
-\>\>\> [doc.paragraphs\[1\].runs\[0\].style =
-\'QuoteChar\']\
-\>\>\> [doc.paragraphs\[1\].runs\[1\].underline = True]\
-\>\>\> [doc.paragraphs\[1\].runs\[3\].underline = True]\
-\>\>\> [doc.save(\'restyled.docx\')]
+('A plain paragraph with some ', 'bold', ' and some ',
+'italic')\
+>>> [doc.paragraphs\[1\].runs\[0\].style =
+'QuoteChar']\
+>>> [doc.paragraphs\[1\].runs\[1\].underline = True]\
+>>> [doc.paragraphs\[1\].runs\[3\].underline = True]\
+>>> [doc.save('restyled.docx')]
 
 Here, we use the [text] and [style] attributes to
 easily see what's in the paragraphs in our document. We can see that
@@ -982,11 +982,11 @@ at *https://python-docx.readthedocs.io/en/latest/user/styles.html*.
 
 Enter the following into the interactive shell:
 
-\>\>\> [import docx]\
-\>\>\> [doc = docx.Document()]\
-\>\>\> [doc.add_paragraph(\'Hello, world!\')]\
-\<docx.text.Paragraph object at 0x0000000003B56F60\>\
-\>\>\> [doc.save(\'helloworld.docx\')]
+>>> [import docx]\
+>>> [doc = docx.Document()]\
+>>> [doc.add_paragraph('Hello, world!')]\
+<docx.text.Paragraph object at 0x0000000003B56F60>\
+>>> [doc.save('helloworld.docx')]
 
 To create your own *.docx* file, call [docx.Document()] to
 return a new, blank Word [Document] object. The
@@ -1004,8 +1004,8 @@ directory that, when opened, looks like [Figure
 ![image](../images/000065.jpg)
 
 
-*Figure 15-8: The Word document created using [add_paragraph(\'Hello,
-world!\')]*
+*Figure 15-8: The Word document created using [add_paragraph('Hello,
+world!')]*
 
 []{#calibre_link-780 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You can add paragraphs by calling the
@@ -1014,18 +1014,18 @@ Or to add text to the end of an existing paragraph, you can call the
 paragraph's [add_run()] method and pass it a string. Enter the
 following into the interactive shell:
 
-\>\>\> [import docx]\
-\>\>\> [doc = docx.Document()]\
-\>\>\> [doc.add_paragraph(\'Hello world!\')]\
-\<docx.text.Paragraph object at 0x000000000366AD30\>\
-\>\>\> [paraObj1 = doc.add_paragraph(\'This is a second
-paragraph.\')]\
-\>\>\> [paraObj2 = doc.add_paragraph(\'This is a yet another
-paragraph.\')]\
-\>\>\> [paraObj1.add_run(\' This text is being added to the second
-paragraph.\')]\
-\<docx.text.Run object at 0x0000000003A2C860\>\
-\>\>\> [doc.save(\'multipleParagraphs.docx\')]
+>>> [import docx]\
+>>> [doc = docx.Document()]\
+>>> [doc.add_paragraph('Hello world!')]\
+<docx.text.Paragraph object at 0x000000000366AD30>\
+>>> [paraObj1 = doc.add_paragraph('This is a second
+paragraph.')]\
+>>> [paraObj2 = doc.add_paragraph('This is a yet another
+paragraph.')]\
+>>> [paraObj1.add_run(' This text is being added to the second
+paragraph.')]\
+<docx.text.Run object at 0x0000000003A2C860>\
+>>> [doc.save('multipleParagraphs.docx')]
 
 The resulting document will look like [Figure
 15-9](#calibre_link-13). Note that the text *This text is
@@ -1055,7 +1055,7 @@ Both [add_paragraph()] and [add_run()] accept an
 optional second argument that is a string of the [Paragraph]
 or [Run] object's style. Here's an example:
 
-\>\>\> [doc.add_paragraph(\'Hello, world!\', \'Title\')]
+>>> [doc.add_paragraph('Hello, world!', 'Title')]
 
 This line adds a paragraph with the text *Hello, world!* in the Title
 style.
@@ -1065,18 +1065,18 @@ style.
 Calling [add_heading()] adds a paragraph with one of the
 heading styles. Enter the following into the interactive shell:
 
-\>\>\> [doc = docx.Document()]\
-\>\>\> [doc.add_heading(\'Header 0\', 0)]\
-\<docx.text.Paragraph object at 0x00000000036CB3C8\>\
-\>\>\> [doc.add_heading(\'Header 1\', 1)]\
-\<docx.text.Paragraph object at 0x00000000036CB630\>\
-\>\>\> [doc.add_heading(\'Header 2\', 2)]\
-\<docx.text.Paragraph object at 0x00000000036CB828\>\
-\>\>\> [doc.add_heading(\'Header 3\', 3)]\
-\<docx.text.Paragraph object at 0x00000000036CB2E8\>\
-\>\>\> [doc.add_heading(\'Header 4\', 4)]\
-\<docx.text.Paragraph object at 0x00000000036CB3C8\>\
-\>\>\> [doc.save(\'headings.docx\')]
+>>> [doc = docx.Document()]\
+>>> [doc.add_heading('Header 0', 0)]\
+<docx.text.Paragraph object at 0x00000000036CB3C8>\
+>>> [doc.add_heading('Header 1', 1)]\
+<docx.text.Paragraph object at 0x00000000036CB630>\
+>>> [doc.add_heading('Header 2', 2)]\
+<docx.text.Paragraph object at 0x00000000036CB828>\
+>>> [doc.add_heading('Header 3', 3)]\
+<docx.text.Paragraph object at 0x00000000036CB2E8>\
+>>> [doc.add_heading('Header 4', 4)]\
+<docx.text.Paragraph object at 0x00000000036CB3C8>\
+>>> [doc.save('headings.docx')]
 
 The arguments to [add_heading()] are a string of the heading
 text and an integer from [0] to [4]. The integer
@@ -1106,16 +1106,16 @@ page break instead, you need to pass the value
 [add_break()], as is done in the middle of the following
 example:
 
-   \>\>\> [doc = docx.Document()]\
-   \>\>\> [doc.add_paragraph(\'This is on the first
-page!\')]\
-   \<docx.text.Paragraph object at 0x0000000003785518\>\
-[➊] \>\>\>
+   >>> [doc = docx.Document()]\
+   >>> [doc.add_paragraph('This is on the first
+page!')]\
+   <docx.text.Paragraph object at 0x0000000003785518>\
+[➊] >>>
 [doc.paragraphs\[0\].runs\[0\].add_break(docx.enum.text.WD_BREAK.PAGE)]\
-   \>\>\> [doc.add_paragraph(\'This is on the second
-page!\')]\
-   \<docx.text.Paragraph object at 0x00000000037855F8\>\
-   \>\>\> [doc.save(\'twoPage.docx\')]
+   >>> [doc.add_paragraph('This is on the second
+page!')]\
+   <docx.text.Paragraph object at 0x00000000037855F8>\
+   >>> [doc.save('twoPage.docx')]
 
 []{#calibre_link-781 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}This creates a two-page Word document with *This is
@@ -1134,10 +1134,10 @@ a file *zophie.png* in the current working directory. You can add
 height of 4 centimeters (Word can use both imperial and metric units) by
 entering the following:
 
-\>\>\> [doc.add_picture(\'zophie.png\',
+>>> [doc.add_picture('zophie.png',
 width=docx.shared.Inches(1),]\
 [height=docx.shared.Cm(4))]\
-\<docx.shape.InlineShape object at 0x00000000036C7D30\>
+<docx.shape.InlineShape object at 0x00000000036C7D30>
 
 The first argument is a string of the image's filename. The optional
 [width] and [height] keyword arguments will set the
@@ -1163,17 +1163,17 @@ Open a new file editor tab, enter the following code, and save it as
 *convertWordToPDF.py*:
 
 \# This script runs on Windows only, and you must have Word installed.\
-import win32com.client \# install with \"pip install pywin32==224\"\
+import win32com.client \# install with "pip install pywin32==224"\
 import docx\
-wordFilename = \'[your_word_document].docx\'\
-pdfFilename = \'[your_pdf_filename].pdf\'\
+wordFilename = '[your_word_document].docx'\
+pdfFilename = '[your_pdf_filename].pdf'\
 \
 doc = docx.Document()\
 \# Code to create Word document goes here.\
 doc.save(wordFilename)\
 \
-wdFormatPDF = 17 \# Word\'s numeric code for PDFs.\
-wordObj = win32com.client.Dispatch(\'Word.Application\')\
+wdFormatPDF = 17 \# Word's numeric code for PDFs.\
+wordObj = win32com.client.Dispatch('Word.Application')\
 \
 []{#calibre_link-1836 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}docObj = wordObj.Documents.Open(wordFilename)\
@@ -1268,7 +1268,7 @@ difference between setting the [bold] variable to
 a [Document] object for a new Word document?
 
 [13](#calibre_link-28). How do you add a
-paragraph with the text [\'Hello, there!\'] to a
+paragraph with the text ['Hello, there!'] to a
 [Document] object stored in a variable named [doc]?
 
 [14](#calibre_link-29). What integers

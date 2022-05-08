@@ -175,13 +175,13 @@ Pass your spreadsheet's ID as a string to the
 [ezsheets.Spreadsheet()] function to obtain a
 [Spreadsheet] object for its spreadsheet:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss =
-ezsheets.Spreadsheet(\'][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][\')]\
-\>\>\> [ss]\
-Spreadsheet(spreadsheetId=\'[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]\')\
-\>\>\> [ss.title]\
-\'Education Data\'
+>>> [import ezsheets]\
+>>> [ss =
+ezsheets.Spreadsheet('][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][')]\
+>>> [ss]\
+Spreadsheet(spreadsheetId='[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]')\
+>>> [ss.title]\
+'Education Data'
 
 []{#calibre_link-1822 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}For convenience, you can also obtain a
@@ -195,11 +195,11 @@ To make a new, blank spreadsheet, call the
 for the new spreadsheet's title. For example, enter the following into
 the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss = ezsheets.createSpreadsheet(\'][[Title of My
-New Spreadsheet]][\')]\
-\>\>\> [ss.title]\
-\'[Title of My New Spreadsheet]\'
+>>> [import ezsheets]\
+>>> [ss = ezsheets.createSpreadsheet('][[Title of My
+New Spreadsheet]][')]\
+>>> [ss.title]\
+'[Title of My New Spreadsheet]'
 
 To upload an existing Excel, OpenOffice, CSV, or TSV spreadsheet to
 Google Sheets, pass the filename of the spreadsheet to
@@ -207,19 +207,19 @@ Google Sheets, pass the filename of the spreadsheet to
 shell, replacing [my_spreadsheet.xlsx] with a spreadsheet
 file of your own:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss =
-ezsheets.upload(\'][[my_spreadsheet.xlsx]][\')]\
-\>\>\> [ss.title]\
-\'[my_spreadsheet]\'
+>>> [import ezsheets]\
+>>> [ss =
+ezsheets.upload('][[my_spreadsheet.xlsx]][')]\
+>>> [ss.title]\
+'[my_spreadsheet]'
 
 You can list the spreadsheets in your Google account by calling the
 [listSpreadsheets()] function. Enter the following into the
 interactive shell after uploading a spreadsheet:
 
-\>\>\> [ezsheets.listSpreadsheets()]\
-{\'[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]\':
-\'Education Data\'}
+>>> [ezsheets.listSpreadsheets()]\
+{'[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]':
+'Education Data'}
 
 The [listSpreadsheets()] function returns a dictionary where
 the keys are spreadsheet IDs and the values are the titles of each
@@ -237,49 +237,49 @@ manipulating the spreadsheet itself: [title],
 [spreadsheetId], [url], [sheetTitles], and
 [sheets]. Enter the following into the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss =
-ezsheets.Spreadsheet(\'][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][\')]\
-\>\>\> [ss.title         ]\# The title of the
+>>> [import ezsheets]\
+>>> [ss =
+ezsheets.Spreadsheet('][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][')]\
+>>> [ss.title         ]\# The title of the
 spreadsheet.\
-\'Education Data\'\
-\>\>\> [ss.title = \'Class Data\'] \# Change the title.\
-\>\>\> [ss.spreadsheetId] \# The unique ID (this is a
+'Education Data'\
+>>> [ss.title = 'Class Data'] \# Change the title.\
+>>> [ss.spreadsheetId] \# The unique ID (this is a
 read-only attribute).\
-[\'1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU\']\
-\>\>\> [ss.url           ]\# The original URL (this is a
+['1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU']\
+>>> [ss.url           ]\# The original URL (this is a
 read-only attribute).\
 []{#calibre_link-915 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\'https://docs.google.com/spreadsheets/d/[1J-Jx6Ne2K_vqI9J2SO-]\
-[TAXOFbxx_9tUjwnkPC22LjeU/]\'\
-\>\>\> [ss.sheetTitles     ]\# The titles of all the Sheet
+ops}type="pagebreak"}'https://docs.google.com/spreadsheets/d/[1J-Jx6Ne2K_vqI9J2SO-]\
+[TAXOFbxx_9tUjwnkPC22LjeU/]'\
+>>> [ss.sheetTitles     ]\# The titles of all the Sheet
 objects\
-(\'Students\', \'Classes\', \'Resources\')\
-\>\>\> [ss.sheets          ]\# The Sheet objects in this
+('Students', 'Classes', 'Resources')\
+>>> [ss.sheets          ]\# The Sheet objects in this
 Spreadsheet, in order.\
-(\<Sheet sheetId=0, title=\'Students\', rowCount=1000, columnCount=26\>,
-\<Sheet\
-sheetId=1669384683, title=\'Classes\', rowCount=1000, columnCount=26\>,
-\<Sheet\
-sheetId=151537240, title=\'Resources\', rowCount=1000,
-columnCount=26\>)\
-\>\>\> [ss\[0\]              ]\# The first Sheet object in
+(<Sheet sheetId=0, title='Students', rowCount=1000, columnCount=26>,
+<Sheet\
+sheetId=1669384683, title='Classes', rowCount=1000, columnCount=26>,
+<Sheet\
+sheetId=151537240, title='Resources', rowCount=1000,
+columnCount=26>)\
+>>> [ss\[0\]              ]\# The first Sheet object in
 this Spreadsheet.\
-\<Sheet sheetId=0, title=\'Students\', rowCount=1000, columnCount=26\>\
-\>\>\> [ss\[\'Students\'\]     ]\# Sheets can also be
+<Sheet sheetId=0, title='Students', rowCount=1000, columnCount=26>\
+>>> [ss\['Students'\]     ]\# Sheets can also be
 accessed by title.\
-\<Sheet sheetId=0, title=\'Students\', rowCount=1000, columnCount=26\>\
-\>\>\> [del ss\[0\]          ]\# Delete the first Sheet
+<Sheet sheetId=0, title='Students', rowCount=1000, columnCount=26>\
+>>> [del ss\[0\]          ]\# Delete the first Sheet
 object in this Spreadsheet.\
-\>\>\> [ss.sheetTitles     ]\# The \"Students\" Sheet
+>>> [ss.sheetTitles     ]\# The "Students" Sheet
 object has been deleted:\
-(\'Classes\', \'Resources\')
+('Classes', 'Resources')
 
 If someone changes the spreadsheet through the Google Sheets website,
 your script can update the [Spreadsheet] object to match the
 online data by calling the [refresh()] method:
 
-\>\>\> [ss.refresh()]
+>>> [ss.refresh()]
 
 This will refresh not only the [Spreadsheet] object's
 attributes but also the data in the [Sheet] objects it
@@ -293,29 +293,29 @@ Excel, OpenOffice, CSV, TSV, and PDF. You can also download it as a ZIP
 file containing HTML files of the spreadsheet's data. EZSheets contains
 functions for each of these options:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss =
-ezsheets.Spreadsheet(\'][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][\')]\
-\>\>\> [ss.title]\
-\'Class Data\'\
-\>\>\> [ss.downloadAsExcel()] \# Downloads the spreadsheet
+>>> [import ezsheets]\
+>>> [ss =
+ezsheets.Spreadsheet('][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][')]\
+>>> [ss.title]\
+'Class Data'\
+>>> [ss.downloadAsExcel()] \# Downloads the spreadsheet
 as an Excel file.\
-\'Class_Data.xlsx\'\
-\>\>\> [ss.downloadAsODS()] \# Downloads the spreadsheet
+'Class_Data.xlsx'\
+>>> [ss.downloadAsODS()] \# Downloads the spreadsheet
 as an OpenOffice file.\
-\'Class_Data.ods\'\
-\>\>\> [ss.downloadAsCSV()] \# Only downloads the first
+'Class_Data.ods'\
+>>> [ss.downloadAsCSV()] \# Only downloads the first
 sheet as a CSV file.\
-\'Class_Data.csv\'\
-\>\>\> [ss.downloadAsTSV()] \# Only downloads the first
+'Class_Data.csv'\
+>>> [ss.downloadAsTSV()] \# Only downloads the first
 sheet as a TSV file.\
-\'Class_Data.tsv\'\
-\>\>\> [ss.downloadAsPDF()] \# Downloads the spreadsheet
+'Class_Data.tsv'\
+>>> [ss.downloadAsPDF()] \# Downloads the spreadsheet
 as a PDF.\
-\'Class_Data.pdf\'\
-\>\>\> [ss.downloadAsHTML()] \# Downloads the spreadsheet
+'Class_Data.pdf'\
+>>> [ss.downloadAsHTML()] \# Downloads the spreadsheet
 as a ZIP of HTML files.\
-\'Class_Data.zip\'
+'Class_Data.zip'
 
 Note that files in the CSV and TSV formats can contain only one sheet;
 therefore, if you download a Google Sheets spreadsheet in this format,
@@ -330,9 +330,9 @@ The download functions all return a string of the downloaded file's
 filename. You can also specify your own filename for the spreadsheet by
 passing the new filename to the download function:
 
-\>\>\>
-ss.downloadAsExcel(\'[a_different_filename].xlsx\')\
-\'[a_different_filename].xlsx\'
+>>>
+ss.downloadAsExcel('[a_different_filename].xlsx')\
+'[a_different_filename].xlsx'
 
 The function should return the updated filename.
 
@@ -340,14 +340,14 @@ The function should return the updated filename.
 
 To delete a spreadsheet, call the [delete()] method:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss = ezsheets.createSpreadsheet(\'Delete me\')] \#
+>>> [import ezsheets]\
+>>> [ss = ezsheets.createSpreadsheet('Delete me')] \#
 Create the spreadsheet.\
-\>\>\> [ezsheets.listSpreadsheets()] \# Confirm that
-we\'ve created a spreadsheet.\
-{\'1aCw2NNJSZblDbhygVv77kPsL3djmgV5zJZllSOZ_mRk\': \'Delete me\'}\
-\>\>\> [ss.delete()] \# Delete the spreadsheet.\
-\>\>\> [ezsheets.listSpreadsheets()]\
+>>> [ezsheets.listSpreadsheets()] \# Confirm that
+we've created a spreadsheet.\
+{'1aCw2NNJSZblDbhygVv77kPsL3djmgV5zJZllSOZ_mRk': 'Delete me'}\
+>>> [ss.delete()] \# Delete the spreadsheet.\
+>>> [ezsheets.listSpreadsheets()]\
 {}
 
 The [delete()] method will move your spreadsheet to the Trash
@@ -357,7 +357,7 @@ folder at
 To permanently delete your spreadsheet, pass [True] for the
 [permanent] keyword argument:
 
-\>\>\> [ss.delete(permanent=True)]
+>>> [ss.delete(permanent=True)]
 
 In general, permanently deleting your spreadsheets is not a good idea,
 because it would be impossible to recover a spreadsheet that a bug in
@@ -376,24 +376,24 @@ objects in the order in which they appear in the spreadsheet. To access
 the [Sheet] objects in a spreadsheet, enter the following into
 the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss =
-ezsheets.Spreadsheet(\'][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][\')]\
-\>\>\> [ss.sheets    ]\# The Sheet objects in this
+>>> [import ezsheets]\
+>>> [ss =
+ezsheets.Spreadsheet('][[1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]][')]\
+>>> [ss.sheets    ]\# The Sheet objects in this
 Spreadsheet, in order.\
 []{#calibre_link-959 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}(\<Sheet sheetId=1669384683, title=\'Classes\',
-rowCount=1000, columnCount=26\>,\
-\<Sheet sheetId=151537240, title=\'Resources\', rowCount=1000,
-columnCount=26\>)\
-\>\>\> [ss.sheets\[0\]] \# Gets the first Sheet object in
+ops}type="pagebreak"}(<Sheet sheetId=1669384683, title='Classes',
+rowCount=1000, columnCount=26>,\
+<Sheet sheetId=151537240, title='Resources', rowCount=1000,
+columnCount=26>)\
+>>> [ss.sheets\[0\]] \# Gets the first Sheet object in
 this Spreadsheet.\
-\<Sheet sheetId=1669384683, title=\'Classes\', rowCount=1000,
-columnCount=26\>\
-\>\>\> [ss\[0\]        ]\# Also gets the first Sheet
+<Sheet sheetId=1669384683, title='Classes', rowCount=1000,
+columnCount=26>\
+>>> [ss\[0\]        ]\# Also gets the first Sheet
 object in this Spreadsheet.\
-\<Sheet sheetId=1669384683, title=\'Classes\', rowCount=1000,
-columnCount=26\>
+<Sheet sheetId=1669384683, title='Classes', rowCount=1000,
+columnCount=26>
 
 You can also obtain a [Sheet] object with the square brackets
 operator and a string of the sheet's name. The [Spreadsheet]
@@ -401,13 +401,13 @@ object's [sheetTitles] attribute holds a tuple of all the
 sheet titles. For example, enter the following into the interactive
 shell:
 
-\>\>\> [ss.sheetTitles] \# The titles of all the Sheet
+>>> [ss.sheetTitles] \# The titles of all the Sheet
 objects in this Spreadsheet.\
-(\'Classes\', \'Resources\')\
-\>\>\> [ss\[\'Classes\'\]] \# Sheets can also be accessed
+('Classes', 'Resources')\
+>>> [ss\['Classes'\]] \# Sheets can also be accessed
 by title.\
-\<Sheet sheetId=1669384683, title=\'Classes\', rowCount=1000,
-columnCount=26\>
+<Sheet sheetId=1669384683, title='Classes', rowCount=1000,
+columnCount=26>
 
 Once you have a [Sheet] object, you can read data from and
 write data to it using the [Sheet] object's methods, as
@@ -421,29 +421,29 @@ and write data from and to these cells. For example, to create a new
 spreadsheet and add data to it, enter the following into the interactive
 shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss = ezsheets.createSpreadsheet(\'My
-Spreadsheet\')]\
-\>\>\> [sheet = ss\[0\]] \# Get the first sheet in this
+>>> [import ezsheets]\
+>>> [ss = ezsheets.createSpreadsheet('My
+Spreadsheet')]\
+>>> [sheet = ss\[0\]] \# Get the first sheet in this
 spreadsheet.\
-\>\>\> [sheet.title]\
-\'Sheet1\'\
-\>\>\> [sheet = ss\[0\]]\
-\>\>\> [sheet\[\'A1\'\] = \'Name\'] \# Set the value in
+>>> [sheet.title]\
+'Sheet1'\
+>>> [sheet = ss\[0\]]\
+>>> [sheet\['A1'\] = 'Name'] \# Set the value in
 cell A1.\
-\>\>\> [sheet\[\'B1\'\] = \'Age\']\
-\>\>\> [sheet\[\'C1\'\] = \'Favorite Movie\']\
-\>\>\> [sheet\[\'A1\'\]] \# Read the value in cell A1.\
-\'Name\'\
-\>\>\> [sheet\[\'A2\'\]] \# Empty cells return a blank
+>>> [sheet\['B1'\] = 'Age']\
+>>> [sheet\['C1'\] = 'Favorite Movie']\
+>>> [sheet\['A1'\]] \# Read the value in cell A1.\
+'Name'\
+>>> [sheet\['A2'\]] \# Empty cells return a blank
 string.\
-\'\'\
-\>\>\> [sheet\[2, 1\]] \# Column 2, Row 1 is the same
+''\
+>>> [sheet\[2, 1\]] \# Column 2, Row 1 is the same
 address as B1.\
-\'Age\'\
-\>\>\> [sheet\[\'A2\'\] = \'Alice\']\
-\>\>\> [sheet\[\'B2\'\] = 30]\
-\>\>\> [sheet\[\'C2\'\] = \'RoboCop\']
+'Age'\
+>>> [sheet\['A2'\] = 'Alice']\
+>>> [sheet\['B2'\] = 30]\
+>>> [sheet\['C2'\] = 'RoboCop']
 
 These instructions should produce a Google Sheets spreadsheet that looks
 like [Figure 14-5](#calibre_link-1235).
@@ -460,7 +460,7 @@ Multiple users can update a sheet simultaneously. To refresh the local
 data in the [Sheet] object, call its [refresh()]
 method:
 
-\>\>\> [sheet.refresh()]
+>>> [sheet.refresh()]
 
 All of the data in the [Sheet] object is loaded when the
 [Spreadsheet] object is first loaded, so the data is read
@@ -473,32 +473,32 @@ cells to update, updating them one at a time might be quite slow.
 Cell addressing works in Google Sheets just like in Excel. The only
 difference is that, unlike Python's 0-based list indexes, Google Sheets
 have 1-based columns and rows: the first column or row is at index 1,
-not 0. You can convert the [\'A2\'] string-style address to
+not 0. You can convert the ['A2'] string-style address to
 the [(column, row)] tuple-style address (and vice versa) with
 the [convertAddress()] function. The
 [getColumnLetterOf()] and [getColumnNumberOf()]
 functions will also convert a column address between letters and
 numbers. Enter the following into the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ezsheets.convertAddress(\'A2\')] \# Converts
+>>> [import ezsheets]\
+>>> [ezsheets.convertAddress('A2')] \# Converts
 addresses\...\
 (1, 2)\
-\>\>\> [ezsheets.convertAddress(1, 2)] \# \...and converts
+>>> [ezsheets.convertAddress(1, 2)] \# \...and converts
 them back, too.\
-\'A2\'\
-\>\>\> [ezsheets.getColumnLetterOf(2)]\
-\'B\'\
-\>\>\> [ezsheets.getColumnNumberOf(\'B\')]\
+'A2'\
+>>> [ezsheets.getColumnLetterOf(2)]\
+'B'\
+>>> [ezsheets.getColumnNumberOf('B')]\
 2\
-\>\>\> [ezsheets.getColumnLetterOf(999)]\
-\'ALK\'\
+>>> [ezsheets.getColumnLetterOf(999)]\
+'ALK'\
 []{#calibre_link-961 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\>
-[ezsheets.getColumnNumberOf(\'ZZZ\')]\
+ops}type="pagebreak"}>>>
+[ezsheets.getColumnNumberOf('ZZZ')]\
 18278
 
-The [\'A2\'] string-style addresses are convenient if you're
+The ['A2'] string-style addresses are convenient if you're
 typing addresses into your source code. But the [(column,
 row)] tuple-style addresses are convenient if you're looping
 over a range of addresses and need a numeric form for the column. The
@@ -537,39 +537,39 @@ Spreadsheet
 To upload this spreadsheet, enter the following into the interactive
 shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss = ezsheets.upload(\'produceSales.xlsx\')]\
-\>\>\> [sheet = ss\[0\]]\
-\>\>\> [sheet.getRow(1)] \# The first row is row 1, not
+>>> [import ezsheets]\
+>>> [ss = ezsheets.upload('produceSales.xlsx')]\
+>>> [sheet = ss\[0\]]\
+>>> [sheet.getRow(1)] \# The first row is row 1, not
 row 0.\
-\[\'PRODUCE\', \'COST PER POUND\', \'POUNDS SOLD\', \'TOTAL\', \'\',
-\'\'\]\
-\>\>\> [sheet.getRow(2)]\
-\[\'Potatoes\', \'0.86\', \'21.6\', \'18.58\', \'\', \'\'\]\
-\>\>\> [columnOne = sheet.getColumn(1)]\
-\>\>\> [sheet.getColumn(1)]\
-\[\'PRODUCE\', \'Potatoes\', \'Okra\', \'Fava beans\', \'Watermelon\',
-\'Garlic\',\
+\['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
+''\]\
+>>> [sheet.getRow(2)]\
+\['Potatoes', '0.86', '21.6', '18.58', '', ''\]\
+>>> [columnOne = sheet.getColumn(1)]\
+>>> [sheet.getColumn(1)]\
+\['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
+'Garlic',\
 [\--snip\--]\
-\>\>\> [sheet.getColumn(\'A\')] \# Same result as
+>>> [sheet.getColumn('A')] \# Same result as
 getColumn(1)\
-\[\'PRODUCE\', \'Potatoes\', \'Okra\', \'Fava beans\', \'Watermelon\',
-\'Garlic\',\
+\['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
+'Garlic',\
 [\--snip\--]\
-\>\>\> [sheet.getRow(3)]\
+>>> [sheet.getRow(3)]\
 []{#calibre_link-960 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\[\'Okra\', \'2.26\', \'38.6\', \'87.24\', \'\',
-\'\'\]\
-\>\>\> [sheet.updateRow(3, \[\'Pumpkin\', \'11.50\', \'20\',
-\'230\'\])]\
-\>\>\> [sheet.getRow(3)]\
-\[\'Pumpkin\', \'11.50\', \'20\', \'230\', \'\', \'\'\]\
-\>\>\> [columnOne = sheet.getColumn(1)]\
-\>\>\> [for i, value in enumerate(columnOne):]\
+ops}type="pagebreak"}\['Okra', '2.26', '38.6', '87.24', '',
+''\]\
+>>> [sheet.updateRow(3, \['Pumpkin', '11.50', '20',
+'230'\])]\
+>>> [sheet.getRow(3)]\
+\['Pumpkin', '11.50', '20', '230', '', ''\]\
+>>> [columnOne = sheet.getColumn(1)]\
+>>> [for i, value in enumerate(columnOne):]\
 \...     # Make the Python list contain uppercase strings:\
 \...     [columnOne\[i\] = value.upper()]\
 \...\
-\>\>\> [sheet.updateColumn(1, columnOne)] \# Update the
+>>> [sheet.updateColumn(1, columnOne)] \# Update the
 entire column in one\
 request.
 
@@ -578,7 +578,7 @@ the data from every cell in a specific row or column as a list of
 values. Note that empty cells become blank string values in the list.
 You can pass [getColumn()] either a column number or letter to
 tell it to retrieve a specific column's data. The previous example shows
-that [getColumn(1)] and [getColumn(\'A\')] return
+that [getColumn(1)] and [getColumn('A')] return
 the same list.
 
 The [updateRow()] and [updateColumn()] functions
@@ -602,26 +602,26 @@ data structure to change the produce name, pounds sold, and total cost
 of some of the rows. Then you pass it to the [updateRows()]
 method by entering the following into the interactive shell:
 
-\>\>\> [rows = sheet.getRows()] \# Get every row in the
+>>> [rows = sheet.getRows()] \# Get every row in the
 spreadsheet.\
-\>\>\> [rows\[0\]] \# Examine the values in the first
+>>> [rows\[0\]] \# Examine the values in the first
 row.\
-\[\'PRODUCE\', \'COST PER POUND\', \'POUNDS SOLD\', \'TOTAL\', \'\',
-\'\'\]\
-\>\>\> [rows\[1\]]\
-\[\'POTATOES\', \'0.86\', \'21.6\', \'18.58\', \'\', \'\'\]\
-\>\>\> [rows\[1\]\[0\] = \'PUMPKIN\'] \# Change the
+\['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
+''\]\
+>>> [rows\[1\]]\
+\['POTATOES', '0.86', '21.6', '18.58', '', ''\]\
+>>> [rows\[1\]\[0\] = 'PUMPKIN'] \# Change the
 produce name.\
-\>\>\> [rows\[1\]]\
-\[\'PUMPKIN\', \'0.86\', \'21.6\', \'18.58\', \'\', \'\'\]\
-\>\>\> [rows\[10\]]\
-\[\'OKRA\', \'2.26\', \'40\', \'90.4\', \'\', \'\'\]\
-\>\>\> [rows\[10\]\[2\] = \'400\'] \# Change the pounds
+>>> [rows\[1\]]\
+\['PUMPKIN', '0.86', '21.6', '18.58', '', ''\]\
+>>> [rows\[10\]]\
+\['OKRA', '2.26', '40', '90.4', '', ''\]\
+>>> [rows\[10\]\[2\] = '400'] \# Change the pounds
 sold.\
-\>\>\> [rows\[10\]\[3\] = \'904\'] \# Change the total.\
-\>\>\> [rows\[10\]]\
-\[\'OKRA\', \'2.26\', \'400\', \'904\', \'\', \'\'\]\
-\>\>\> [sheet.updateRows(rows)] \# Update the online
+>>> [rows\[10\]\[3\] = '904'] \# Change the total.\
+>>> [rows\[10\]]\
+\['OKRA', '2.26', '400', '904', '', ''\]\
+>>> [sheet.updateRows(rows)] \# Update the online
 spreadsheet with the changes.
 
 You can update the entire sheet in a single request by passing
@@ -636,15 +636,15 @@ the number of rows and columns in a sheet with the [rowCount]
 and [columnCount] attributes. Then by setting these values,
 you can change the size of the sheet.
 
-\>\>\> [sheet.rowCount        ]\# The number of rows in
+>>> [sheet.rowCount        ]\# The number of rows in
 the sheet.\
 23758\
-\>\>\> [sheet.columnCount     ]\# The number of columns in
+>>> [sheet.columnCount     ]\# The number of columns in
 the sheet.\
 6\
-\>\>\> [sheet.columnCount = 4] \# Change the number of
+>>> [sheet.columnCount = 4] \# Change the number of
 columns to 4.\
-\>\>\> [sheet.columnCount     ]\# Now the number of
+>>> [sheet.columnCount     ]\# Now the number of
 columns in the sheet is 4.\
 4
 
@@ -675,30 +675,30 @@ the new sheet's title. An optional second argument can specify the
 integer index of the new sheet. To create a spreadsheet and then add new
 sheets to it, enter the following into the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss = ezsheets.createSpreadsheet(\'Multiple
-Sheets\')]\
-\>\>\> [ss.sheetTitles]\
-(\'Sheet1\',)\
+>>> [import ezsheets]\
+>>> [ss = ezsheets.createSpreadsheet('Multiple
+Sheets')]\
+>>> [ss.sheetTitles]\
+('Sheet1',)\
 []{#calibre_link-842 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [ss.createSheet(\'Spam\')] \#
+ops}type="pagebreak"}>>> [ss.createSheet('Spam')] \#
 Create a new sheet at the end of the list of\
 sheets.\
-\<Sheet sheetId=2032744541, title=\'Spam\', rowCount=1000,
-columnCount=26\>\
-\>\>\> [ss.createSheet(\'Eggs\')] \# Create another new
+<Sheet sheetId=2032744541, title='Spam', rowCount=1000,
+columnCount=26>\
+>>> [ss.createSheet('Eggs')] \# Create another new
 sheet.\
-\<Sheet sheetId=417452987, title=\'Eggs\', rowCount=1000,
-columnCount=26\>\
-\>\>\> [ss.sheetTitles]\
-(\'Sheet1\', \'Spam\', \'Eggs\')\
-\>\>\> [ss.createSheet(\'Bacon\', 0)] code\># Create a
+<Sheet sheetId=417452987, title='Eggs', rowCount=1000,
+columnCount=26>\
+>>> [ss.sheetTitles]\
+('Sheet1', 'Spam', 'Eggs')\
+>>> [ss.createSheet('Bacon', 0)] code># Create a
 sheet at index 0 in the list of\
 sheets.\
-\<Sheet sheetId=814694991, title=\'Bacon\', rowCount=1000,
-columnCount=26\>\
-\>\>\> [ss.sheetTitles]\
-(\'Bacon\', \'Sheet1\', \'Spam\', \'Eggs\')
+<Sheet sheetId=814694991, title='Bacon', rowCount=1000,
+columnCount=26>\
+>>> [ss.sheetTitles]\
+('Bacon', 'Sheet1', 'Spam', 'Eggs')
 
 These instructions add three new sheets to the spreadsheet: "Bacon,"
 "Spam," and "Eggs" (in addition to the default "Sheet1"). The sheets in
@@ -726,28 +726,28 @@ the data it contains, call the [clear()] method to clear all
 the cells and make it a blank sheet. Enter the following into the
 interactive shell:
 
-\>\>\> [ss.sheetTitles]\
-(\'Bacon\', \'Sheet1\', \'Spam\', \'Eggs\')\
-\>\>\> [ss\[0\].delete()      ]\# Delete the sheet at
-index 0: the \"Bacon\" sheet.\
-\>\>\> [ss.sheetTitles]\
-(\'Sheet1\', \'Spam\', \'Eggs\')\
+>>> [ss.sheetTitles]\
+('Bacon', 'Sheet1', 'Spam', 'Eggs')\
+>>> [ss\[0\].delete()      ]\# Delete the sheet at
+index 0: the "Bacon" sheet.\
+>>> [ss.sheetTitles]\
+('Sheet1', 'Spam', 'Eggs')\
 []{#calibre_link-870 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [ss\[\'Spam\'\].delete()] \#
-Delete the \"Spam\" sheet.\
-\>\>\> [ss.sheetTitles]\
-(\'Sheet1\', \'Eggs\')\
-\>\>\> [sheet = ss\[\'Eggs\'\]  ]\# Assign a variable to
-the \"Eggs\" sheet.\
-\>\>\> [sheet.delete()      ]\# Delete the \"Eggs\"
+ops}type="pagebreak"}>>> [ss\['Spam'\].delete()] \#
+Delete the "Spam" sheet.\
+>>> [ss.sheetTitles]\
+('Sheet1', 'Eggs')\
+>>> [sheet = ss\['Eggs'\]  ]\# Assign a variable to
+the "Eggs" sheet.\
+>>> [sheet.delete()      ]\# Delete the "Eggs"
 sheet.\
-\>\>\> [ss.sheetTitles]\
-(\'Sheet1\',)\
-\>\>\> [ss\[0\].clear()       ]\# Clear all the cells on
-the \"Sheet1\" sheet.\
-\>\>\> [ss.sheetTitles      ]\# The \"Sheet1\" sheet is
+>>> [ss.sheetTitles]\
+('Sheet1',)\
+>>> [ss\[0\].clear()       ]\# Clear all the cells on
+the "Sheet1" sheet.\
+>>> [ss.sheetTitles      ]\# The "Sheet1" sheet is
 empty but still exists.\
-(\'Sheet1\',)
+('Sheet1',)
 
 Deleting sheets is permanent; there's no way to recover the data.
 However, you can back up sheets by copying them to another spreadsheet
@@ -764,20 +764,20 @@ Pass it the destination [Spreadsheet] object as an argument.
 To create two spreadsheets and copy the first spreadsheet's data to the
 other sheet, enter the following into the interactive shell:
 
-\>\>\> [import ezsheets]\
-\>\>\> [ss1 = ezsheets.createSpreadsheet(\'First
-Spreadsheet\')]\
-\>\>\> [ss2 = ezsheets.createSpreadsheet(\'Second
-Spreadsheet\')]\
-\>\>\> [ss1\[0\]]\
-\<Sheet sheetId=0, title=\'Sheet1\', rowCount=1000, columnCount=26\>\
-\>\>\> [ss1\[0\].updateRow(1, \[\'Some\', \'data\', \'in\', \'the\',
-\'first\', \'row\'\])]\
-\>\>\> [ss1\[0\].copyTo(ss2)] \# Copy the ss1\'s Sheet1 to
+>>> [import ezsheets]\
+>>> [ss1 = ezsheets.createSpreadsheet('First
+Spreadsheet')]\
+>>> [ss2 = ezsheets.createSpreadsheet('Second
+Spreadsheet')]\
+>>> [ss1\[0\]]\
+<Sheet sheetId=0, title='Sheet1', rowCount=1000, columnCount=26>\
+>>> [ss1\[0\].updateRow(1, \['Some', 'data', 'in', 'the',
+'first', 'row'\])]\
+>>> [ss1\[0\].copyTo(ss2)] \# Copy the ss1's Sheet1 to
 the ss2 spreadsheet.\
-\>\>\> [ss2.sheetTitles    ]\# ss2 now contains a copy of
-ss1\'s Sheet1.\
-(\'Sheet1\', \'Copy of Sheet1\')
+>>> [ss2.sheetTitles    ]\# ss2 now contains a copy of
+ss1's Sheet1.\
+('Sheet1', 'Copy of Sheet1')
 
 Note that since the destination spreadsheet ([ss2] in the
 previous example) already had a sheet named [Sheet1], the
@@ -913,9 +913,9 @@ spreadsheet with all the bean totals and uploaded them to Google Sheets.
 The spreadsheet is publicly viewable (but not editable). You can get
 this spreadsheet with the following code:
 
-\>\>\> import ezsheets\
-\>\>\> ss =
-ezsheets.Spreadsheet(\'1jDZEdvSIh4TmZxccyy0ZXrH-ELlrwq8_YYiZrEOB4jg\')
+>>> import ezsheets\
+>>> ss =
+ezsheets.Spreadsheet('1jDZEdvSIh4TmZxccyy0ZXrH-ELlrwq8_YYiZrEOB4jg')
 
 You can look at this spreadsheet in your browser by going to
 *[https://docs.google.com/spreadsheets/d/1jDZEdvSIh4TmZxccyy0ZXrH-ELlrwq8_YYiZrEOB4jg/edit?usp=sharing/](https://docs.google.com/spreadsheets/d/1jDZEdvSIh4TmZxccyy0ZXrH-ELlrwq8_YYiZrEOB4jg/edit?usp=sharing/)*.

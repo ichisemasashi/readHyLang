@@ -61,12 +61,12 @@ openpyxl==2.6.2] because newer versions of OpenPyXL are
 incompatible with the information in this book. To test whether it is
 installed correctly, enter the following into the interactive shell:
 
-\>\>\> [import openpyxl]
+>>> [import openpyxl]
 
 If the module was correctly installed, this should produce no error
 messages. Remember to import the [openpyxl] module before
 running the interactive shell examples in this chapter, or you'll get a
-[NameError: name \'openpyxl\' is not defined] error.
+[NameError: name 'openpyxl' is not defined] error.
 
 You can find the full documentation for OpenPyXL at
 *[https://openpyxl.readthedocs.org/](https://openpyxl.readthedocs.org/)*.
@@ -119,10 +119,10 @@ Once you've imported the [openpyxl] module, you'll be able to
 use the [openpyxl.load_workbook()] function. Enter the
 following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [type(wb)]\
-\<class \'openpyxl.workbook.workbook.Workbook\'\>
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [type(wb)]\
+<class 'openpyxl.workbook.workbook.Workbook'>
 
 The [openpyxl.load_workbook()] function takes in the filename
 and returns a value of the [workbook] data type. This
@@ -141,23 +141,23 @@ You can get a list of all the sheet names in the workbook by accessing
 the [sheetnames] attribute. Enter the following into the
 interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [wb.sheetnames] \# The workbook\'s sheets\' names.\
-\[\'Sheet1\', \'Sheet2\', \'Sheet3\'\]\
-\>\>\> [sheet = wb\[\'Sheet3\'\]] \# Get a sheet from the
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [wb.sheetnames] \# The workbook's sheets' names.\
+\['Sheet1', 'Sheet2', 'Sheet3'\]\
+>>> [sheet = wb\['Sheet3'\]] \# Get a sheet from the
 workbook.\
-\>\>\> [sheet]\
-\<Worksheet \"Sheet3\"\>\
-\>\>\> [type(sheet)]\
-\<class \'openpyxl.worksheet.worksheet.Worksheet\'\>\
-\>\>\> [sheet.title] \# Get the sheet\'s title as a
+>>> [sheet]\
+<Worksheet "Sheet3">\
+>>> [type(sheet)]\
+<class 'openpyxl.worksheet.worksheet.Worksheet'>\
+>>> [sheet.title] \# Get the sheet's title as a
 string.\
-\'Sheet3\'\
-\>\>\> [anotherSheet = wb.active] \# Get the active
+'Sheet3'\
+>>> [anotherSheet = wb.active] \# Get the active
 sheet.\
-\>\>\> [anotherSheet]\
-\<Worksheet \"Sheet1\"\>
+>>> [anotherSheet]\
+<Worksheet "Sheet1">
 
 Each sheet is represented by a [Worksheet] object, which you
 can obtain by using the square brackets with the sheet name string like
@@ -173,26 +173,26 @@ Once you have a [Worksheet] object, you can access a
 [Cell] object by its name. Enter the following into the
 interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [sheet = wb\[\'Sheet1\'\]] \# Get a sheet from the
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [sheet = wb\['Sheet1'\]] \# Get a sheet from the
 workbook.\
-\>\>\> [sheet\[\'A1\'\]] \# Get a cell from the sheet.\
-\<Cell \'Sheet1\'.A1\>\
-\>\>\> [sheet\[\'A1\'\].value] \# Get the value from the
+>>> [sheet\['A1'\]] \# Get a cell from the sheet.\
+<Cell 'Sheet1'.A1>\
+>>> [sheet\['A1'\].value] \# Get the value from the
 cell.\
 datetime.datetime(2015, 4, 5, 13, 34, 2)\
-\>\>\> [c = sheet\[\'B1\'\]] \# Get another cell from the
+>>> [c = sheet\['B1'\]] \# Get another cell from the
 sheet.\
-\>\>\> [c.value]\
-\'Apples\'\
-\>\>\> \# Get the row, column, and value from the cell.\
-\>\>\> [\'Row %s, Column %s is %s\' % (c.row, c.column,
+>>> [c.value]\
+'Apples'\
+>>> \# Get the row, column, and value from the cell.\
+>>> ['Row %s, Column %s is %s' % (c.row, c.column,
 c.value)]\
-\'Row 1, Column B is Apples\'\
-\>\>\> [\'Cell %s is %s\' % (c.coordinate, c.value)]\
-\'Cell B1 is Apples\'\
-\>\>\> [sheet\[\'C1\'\].value]\
+'Row 1, Column B is Apples'\
+>>> ['Cell %s is %s' % (c.coordinate, c.value)]\
+'Cell B1 is Apples'\
+>>> [sheet\['C1'\].value]\
 73
 
 The [Cell] object has a [value] attribute that
@@ -204,10 +204,10 @@ for the cell.
 []{#calibre_link-891 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here, accessing the [value] attribute of
 our [Cell] object for cell B1 gives us the string
-[\'Apples\']. The [row] attribute gives us the
+['Apples']. The [row] attribute gives us the
 integer [1], the [column] attribute gives us
-[\'B\'], and the [coordinate] attribute gives us
-[\'B1\'].
+['B'], and the [coordinate] attribute gives us
+['B1'].
 
 OpenPyXL will automatically interpret the dates in column A and return
 them as [datetime] values rather than strings. The
@@ -222,11 +222,11 @@ sheet's [cell()] method and passing integers for its
 or column integer is [1], not [0]. Continue the
 interactive shell example by entering the following:
 
-\>\>\> [sheet.cell(row=1, column=2)]\
-\<Cell \'Sheet1\'.B1\>\
-\>\>\> [sheet.cell(row=1, column=2).value]\
-\'Apples\'\
-\>\>\> [for i in range(1, 8, 2):] \# Go through every
+>>> [sheet.cell(row=1, column=2)]\
+<Cell 'Sheet1'.B1>\
+>>> [sheet.cell(row=1, column=2).value]\
+'Apples'\
+>>> [for i in range(1, 8, 2):] \# Go through every
 other row:\
 [\...     print(i, sheet.cell(row=i, column=2).value)]\
 \...\
@@ -238,7 +238,7 @@ other row:\
 As you can see, using the sheet's [cell()] method and passing
 it [row=1] and [column=2] gets you a
 [Cell] object for cell [B1], just like specifying
-[sheet\[\'B1\'\]] did. Then, using the [cell()]
+[sheet\['B1'\]] did. Then, using the [cell()]
 method and its keyword arguments, you can write a [for] loop
 to print the values of a series of cells.
 
@@ -249,18 +249,18 @@ this case, all the odd-numbered rows). The [for] loop's
 [i] variable is passed for the [row] keyword
 argument to the [cell()] method, while [2] is always
 passed for the [column] keyword argument. Note that the
-integer [2], not the string [\'B\'], is passed.
+integer [2], not the string ['B'], is passed.
 
 You can determine the size of the sheet with the [Worksheet]
 object's [max_row] and [max_column] attributes.
 Enter the following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [sheet = wb\[\'Sheet1\'\]]\
-\>\>\> [sheet.max_row] \# Get the highest row number.\
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [sheet = wb\['Sheet1'\]]\
+>>> [sheet.max_row] \# Get the highest row number.\
 7\
-\>\>\> [sheet.max_column] \# Get the highest column
+>>> [sheet.max_column] \# Get the highest column
 number.\
 3
 
@@ -275,26 +275,26 @@ convert from numbers to letters, call the
 [openpyxl.utils.get_column_letter()] function. Enter the
 following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [from openpyxl.utils import get_column_letter,
+>>> [import openpyxl]\
+>>> [from openpyxl.utils import get_column_letter,
 column_index_from_string]\
-\>\>\> [get_column_letter(1)] \# Translate column 1 to a
+>>> [get_column_letter(1)] \# Translate column 1 to a
 letter.\
-\'A\'\
-\>\>\> [get_column_letter(2])\
-\'B\'\
-\>\>\> [get_column_letter(27)]\
-\'AA\'\
-\>\>\> [get_column_letter(900)]\
-\'AHP\'\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [sheet = wb\[\'Sheet1\'\]]\
-\>\>\> [get_column_letter(sheet.max_column)]\
-\'C\'\
-\>\>\> [column_index_from_string(\'A\')] \# Get A\'s
+'A'\
+>>> [get_column_letter(2])\
+'B'\
+>>> [get_column_letter(27)]\
+'AA'\
+>>> [get_column_letter(900)]\
+'AHP'\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [sheet = wb\['Sheet1'\]]\
+>>> [get_column_letter(sheet.max_column)]\
+'C'\
+>>> [column_index_from_string('A')] \# Get A's
 number.\
 1\
-\>\>\> [column_index_from_string(\'AA\')]\
+>>> [column_index_from_string('AA')]\
 27
 
 After you import these two functions from the [openpyxl.utils]
@@ -315,22 +315,22 @@ You can slice [Worksheet] objects to get all the
 spreadsheet. Then you can loop over all the cells in the slice. Enter
 the following into the interactive shell:
 
-   \>\>\> [import openpyxl]\
-   \>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-   \>\>\> [sheet = wb\[\'Sheet1\'\]]\
-   \>\>\> [tuple(sheet\[\'A1\':\'C3\'\])] \# Get all cells
+   >>> [import openpyxl]\
+   >>> [wb = openpyxl.load_workbook('example.xlsx')]\
+   >>> [sheet = wb\['Sheet1'\]]\
+   >>> [tuple(sheet\['A1':'C3'\])] \# Get all cells
 from A1 to C3.\
-   ((\<Cell \'Sheet1\'.A1\>, \<Cell \'Sheet1\'.B1\>, \<Cell
-\'Sheet1\'.C1\>), (\<Cell\
-   \'Sheet1\'.A2\>, \<Cell \'Sheet1\'.B2\>, \<Cell \'Sheet1\'.C2\>),
-(\<Cell \'Sheet1\'.A3\>,\
-   \<Cell \'Sheet1\'.B3\>, \<Cell \'Sheet1\'.C3\>))\
-[➊] \>\>\> [for rowOfCellObjects in
-sheet\[\'A1\':\'C3\'\]:]\
+   ((<Cell 'Sheet1'.A1>, <Cell 'Sheet1'.B1>, <Cell
+'Sheet1'.C1>), (<Cell\
+   'Sheet1'.A2>, <Cell 'Sheet1'.B2>, <Cell 'Sheet1'.C2>),
+(<Cell 'Sheet1'.A3>,\
+   <Cell 'Sheet1'.B3>, <Cell 'Sheet1'.C3>))\
+[➊] >>> [for rowOfCellObjects in
+sheet\['A1':'C3'\]:]\
 [➋] [\...     for cellObj in rowOfCellObjects:]\
    [\...         print(cellObj.coordinate,
 cellObj.value)]\
-   [\...     print(\'\-\-- END OF ROW \-\--\')]\
+   [\...     print('\-\-- END OF ROW \-\--')]\
 \
    A1 2015-04-05 13:34:02\
 []{#calibre_link-1810 {http:="" www.idpf.org="" 2007=""
@@ -372,16 +372,16 @@ lists with the [list()] function before you can use the square
 brackets and an index with them. Enter the following into the
 interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [list(sheet.columns)\[1\]] \# Get second column\'s
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [sheet = wb.active]\
+>>> [list(sheet.columns)\[1\]] \# Get second column's
 cells.\
-(\<Cell \'Sheet1\'.B1\>, \<Cell \'Sheet1\'.B2\>, \<Cell \'Sheet1\'.B3\>,
-\<Cell \'Sheet1\'.\
-B4\>, \<Cell \'Sheet1\'.B5\>, \<Cell \'Sheet1\'.B6\>, \<Cell
-\'Sheet1\'.B7\>)\
-\>\>\> [for cellObj in list(sheet.columns)\[1\]:]\
+(<Cell 'Sheet1'.B1>, <Cell 'Sheet1'.B2>, <Cell 'Sheet1'.B3>,
+<Cell 'Sheet1'.\
+B4>, <Cell 'Sheet1'.B5>, <Cell 'Sheet1'.B6>, <Cell
+'Sheet1'.B7>)\
+>>> [for cellObj in list(sheet.columns)\[1\]:]\
         [print(cellObj.value)]\
 \
 Apples\
@@ -474,7 +474,7 @@ This means your code will need to do the following:
 #### ***Step 1: Read the Spreadsheet Data*** 
 
 There is just one sheet in the *censuspopdata.xlsx* spreadsheet, named
-[\'Population by Census Tract\'], and each row holds the data
+['Population by Census Tract'], and each row holds the data
 for a single census tract. The columns are the tract number (A), the
 state abbreviation (B), the county name (C), and the population of the
 tract (D).
@@ -488,19 +488,19 @@ tracts for\
    # each county.\
 \
 [➊] import openpyxl, pprint\
-   print(\'Opening workbook\...\')\
-[➋] wb = openpyxl.load_workbook(\'censuspopdata.xlsx\')\
-[➌] sheet = wb\[\'Population by Census Tract\'\]\
+   print('Opening workbook\...')\
+[➋] wb = openpyxl.load_workbook('censuspopdata.xlsx')\
+[➌] sheet = wb\['Population by Census Tract'\]\
    countyData = {}\
 \
-   # TODO: Fill in countyData with each county\'s population and
+   # TODO: Fill in countyData with each county's population and
 tracts.\
-   print(\'Reading rows\...\')\
+   print('Reading rows\...')\
 [➍] for row in range(2, sheet.max_row + 1):\
        # Each row in the spreadsheet has data for one census tract.\
-       state  = sheet\[\'B\' + str(row)\].value\
-       county = sheet\[\'C\' + str(row)\].value\
-       pop    = sheet\[\'D\' + str(row)\].value\
+       state  = sheet\['B' + str(row)\].value\
+       county = sheet\['C' + str(row)\].value\
+       pop    = sheet\['D' + str(row)\].value\
 \
 \# TODO: Open a new text file and write the contents of countyData to
 it.
@@ -523,33 +523,33 @@ The data structure stored in [countyData] will be a dictionary
 with state abbreviations as its keys. Each state abbreviation will map
 to another dictionary, whose keys are strings of the county names in
 that state. Each county name will in turn map to a dictionary with just
-two keys, [\'tracts\'] and [\'pop\']. These keys map
+two keys, ['tracts'] and ['pop']. These keys map
 to the number of census tracts and population for the county. For
 example, the dictionary will look similar to this:
 
-{\'AK\': {\'Aleutians East\': {\'pop\': 3141, \'tracts\': 1},\
-        \'Aleutians West\': {\'pop\': 5561, \'tracts\': 2},\
-        \'Anchorage\': {\'pop\': 291826, \'tracts\': 55},\
-        \'Bethel\': {\'pop\': 17013, \'tracts\': 3},\
-        \'Bristol Bay\': {\'pop\': 997, \'tracts\': 1},\
+{'AK': {'Aleutians East': {'pop': 3141, 'tracts': 1},\
+        'Aleutians West': {'pop': 5561, 'tracts': 2},\
+        'Anchorage': {'pop': 291826, 'tracts': 55},\
+        'Bethel': {'pop': 17013, 'tracts': 3},\
+        'Bristol Bay': {'pop': 997, 'tracts': 1},\
         \--[snip]\--
 
 If the previous dictionary were stored in [countyData], the
 following expressions would evaluate like this:
 
-\>\>\> [countyData\[\'AK\'\]\[\'Anchorage\'\]\[\'pop\'\]]\
+>>> [countyData\['AK'\]\['Anchorage'\]\['pop'\]]\
 291826\
-\>\>\>
-[countyData\[\'AK\'\]\[\'Anchorage\'\]\[\'tracts\'\]]\
+>>>
+[countyData\['AK'\]\['Anchorage'\]\['tracts'\]]\
 55
 
 More generally, the [countyData] dictionary's keys will look
 like this:
 
 countyData\[[state
-abbrev]\]\[[county]\]\[\'tracts\'\]\
+abbrev]\]\[[county]\]\['tracts'\]\
 countyData\[[state
-abbrev]\]\[[county]\]\[\'pop\'\]
+abbrev]\]\[[county]\]\['pop'\]
 
 Now that you know how [countyData] will be structured, you can
 write the code that will fill it with the county data. Add the following
@@ -565,9 +565,9 @@ for\
 []{#calibre_link-1058 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}for row in range(2, sheet.max_row + 1):\
      # Each row in the spreadsheet has data for one census tract.\
-     state  = sheet\[\'B\' + str(row)\].value\
-     county = sheet\[\'C\' + str(row)\].value\
-     pop    = sheet\[\'D\' + str(row)\].value\
+     state  = sheet\['B' + str(row)\].value\
+     county = sheet\['C' + str(row)\].value\
+     pop    = sheet\['D' + str(row)\].value\
 \
 [     # Make sure the key for this state exists.]\
 [  ][➊] [countyData.setdefault(state,
@@ -575,15 +575,15 @@ ops}type="pagebreak"}for row in range(2, sheet.max_row + 1):\
 [     # Make sure the key for this county in this state
 exists.]\
 [  ][➋] [countyData\[state\].setdefault(county,
-{\'tracts\': 0, \'pop\': 0})]\
+{'tracts': 0, 'pop': 0})]\
 \
 [     # Each row represents one census tract, so increment by
 one.]\
-[  ][➌] [countyData\[state\]\[county\]\[\'tracts\'\]
+[  ][➌] [countyData\[state\]\[county\]\['tracts'\]
 += 1]\
 [     # Increase the county pop by the pop in this census
 tract.]\
-[  ][➍] [countyData\[state\]\[county\]\[\'pop\'\] +=
+[  ][➍] [countyData\[state\]\[county\]\['pop'\] +=
 int(pop)]\
 \
 \# TODO: Open a new text file and write the contents of countyData to
@@ -597,8 +597,8 @@ iteration of the [for] loop.
 The other code is there because you cannot add a county dictionary as
 the value for a state abbreviation key until the key itself exists in
 [countyData]. (That is,
-[countyData\[\'AK\'\]\[\'Anchorage\'\]\[\'tracts\'\] += 1]
-will cause an error if the \'[AK\'] key doesn't exist yet.) To
+[countyData\['AK'\]\['Anchorage'\]\['tracts'\] += 1]
+will cause an error if the '[AK'] key doesn't exist yet.) To
 make sure the state abbreviation key exists in your data structure, you
 need to call the [setdefault()] method to set a value if one
 does not already exist for [state] [➊].
@@ -607,7 +607,7 @@ Just as the [countyData] dictionary needs a dictionary as the
 value for each state abbreviation key, each of *those* dictionaries will
 need its own dictionary as the value for each county key [➋]. And
 each of *those* dictionaries in turn will need keys
-[\'tracts\'] and [\'pop\'] that start with the
+['tracts'] and ['pop'] that start with the
 integer value [0]. (If you ever lose track of the dictionary
 structure, look back at the example dictionary at the start of this
 section.)
@@ -641,12 +641,12 @@ for row in range(2, sheet.max_row + 1):\
 \
 [\# Open a new text file and write the contents of countyData to
 it.]\
-[print(\'Writing results\...\')]\
-[resultFile = open(\'census2010.py\', \'w\')]\
-[resultFile.write(\'allData = \' +
+[print('Writing results\...')]\
+[resultFile = open('census2010.py', 'w')]\
+[resultFile.write('allData = ' +
 pprint.pformat(countyData))]\
 [resultFile.close()]\
-[print(\'Done.\')]
+[print('Done.')]
 
 The [pprint.pformat()] function produces a string that itself
 is formatted as valid Python code. By outputting it to a text file named
@@ -656,14 +656,14 @@ now import *census2010.py* just like any other Python module. In the
 interactive shell, change the current working directory to the folder
 with your newly created *census2010.py* file and then import it:
 
-\>\>\> [import os]\
+>>> [import os]\
 \
-\>\>\> [import census2010]\
-\>\>\> [census2010.allData\[\'AK\'\]\[\'Anchorage\'\]]\
-{\'pop\': 291826, \'tracts\': 55}\
-\>\>\> [anchoragePop =
-census2010.allData\[\'AK\'\]\[\'Anchorage\'\]\[\'pop\'\]]\
-\>\>\> [print(\'The 2010 population of Anchorage was \' +
+>>> [import census2010]\
+>>> [census2010.allData\['AK'\]\['Anchorage'\]]\
+{'pop': 291826, 'tracts': 55}\
+>>> [anchoragePop =
+census2010.allData\['AK'\]\['Anchorage'\]\['pop'\]]\
+>>> [print('The 2010 population of Anchorage was ' +
 str(anchoragePop))]\
 The 2010 population of Anchorage was 291826
 
@@ -707,18 +707,18 @@ Call the [openpyxl.Workbook()] function to create a new, blank
 [Workbook] object. Enter the following into the interactive
 shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()] \# Create a blank
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()] \# Create a blank
 workbook.\
-\>\>\> [wb.sheetnames] \# It starts with one sheet.\
-\[\'Sheet\'\]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet.title]\
-\'Sheet\'\
-\>\>\> [sheet.title = \'Spam Bacon Eggs Sheet\'] \# Change
+>>> [wb.sheetnames] \# It starts with one sheet.\
+\['Sheet'\]\
+>>> [sheet = wb.active]\
+>>> [sheet.title]\
+'Sheet'\
+>>> [sheet.title = 'Spam Bacon Eggs Sheet'] \# Change
 title.\
-\>\>\> [wb.sheetnames]\
-\[\'Spam Bacon Eggs Sheet\'\]
+>>> [wb.sheetnames]\
+\['Spam Bacon Eggs Sheet'\]
 
 The workbook will start off with a single sheet named *Sheet*. You can
 change the name of the sheet by storing a new string in its
@@ -730,17 +730,17 @@ cells, the spreadsheet file will not be saved until you call the
 interactive shell (with *example.xlsx* in the current working
 directory):
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'example.xlsx\')]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet.title = \'Spam Spam Spam\']\
-\>\>\> [wb.save(\'example_copy.xlsx\')] \# Save the
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('example.xlsx')]\
+>>> [sheet = wb.active]\
+>>> [sheet.title = 'Spam Spam Spam']\
+>>> [wb.save('example_copy.xlsx')] \# Save the
 workbook.
 
 Here, we change the name of our sheet. To save our changes, we pass a
 filename as a string to the [save()] method. Passing a
 different filename than the original, such as
-[\'example_copy.xlsx\'], saves the changes to a copy of the
+['example_copy.xlsx'], saves the changes to a copy of the
 spreadsheet.
 
 Whenever you edit a spreadsheet you've loaded from a file, you should
@@ -755,23 +755,23 @@ Sheets can be added to and removed from a workbook with the
 [create_sheet()] method and [del] operator. Enter
 the following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [wb.sheetnames]\
-\[\'Sheet\'\]\
-\>\>\> [wb.create_sheet()] \# Add a new sheet.\
-\<Worksheet \"Sheet1\"\>\
-\>\>\> [wb.sheetnames]\
-\[\'Sheet\', \'Sheet1\'\]\
-\>\>\> \# Create a new sheet at index 0.\
-\>\>\> [wb.create_sheet(index=0, title=\'First Sheet\')]\
-\<Worksheet \"First Sheet\"\>\
-\>\>\> [wb.sheetnames]\
-\[\'First Sheet\', \'Sheet\', \'Sheet1\'\]\
-\>\>\> [wb.create_sheet(index=2, title=\'Middle Sheet\')]\
-\<Worksheet \"Middle Sheet\"\>\
-\>\>\> [wb.sheetnames]\
-\[\'First Sheet\', \'Sheet\', \'Middle Sheet\', \'Sheet1\'\]
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [wb.sheetnames]\
+\['Sheet'\]\
+>>> [wb.create_sheet()] \# Add a new sheet.\
+<Worksheet "Sheet1">\
+>>> [wb.sheetnames]\
+\['Sheet', 'Sheet1'\]\
+>>> \# Create a new sheet at index 0.\
+>>> [wb.create_sheet(index=0, title='First Sheet')]\
+<Worksheet "First Sheet">\
+>>> [wb.sheetnames]\
+\['First Sheet', 'Sheet', 'Sheet1'\]\
+>>> [wb.create_sheet(index=2, title='Middle Sheet')]\
+<Worksheet "Middle Sheet">\
+>>> [wb.sheetnames]\
+\['First Sheet', 'Sheet', 'Middle Sheet', 'Sheet1'\]
 
 The [create_sheet()] method returns a new
 [Worksheet] object named [Sheet][X],
@@ -781,12 +781,12 @@ the [index] and [title] keyword arguments.
 
 Continue the previous example by entering the following:
 
-\>\>\> [wb.sheetnames]\
-\[\'First Sheet\', \'Sheet\', \'Middle Sheet\', \'Sheet1\'\]\
-\>\>\> [del wb\[\'Middle Sheet\'\]]\
-\>\>\> [del wb\[\'Sheet1\'\]]\
-\>\>\> [wb.sheetnames]\
-\[\'First Sheet\', \'Sheet\'\]
+>>> [wb.sheetnames]\
+\['First Sheet', 'Sheet', 'Middle Sheet', 'Sheet1'\]\
+>>> [del wb\['Middle Sheet'\]]\
+>>> [del wb\['Sheet1'\]]\
+>>> [wb.sheetnames]\
+\['First Sheet', 'Sheet'\]
 
 You can use the [del] operator to delete a sheet from a
 workbook, just like you can use it to delete a key-value pair from a
@@ -800,13 +800,13 @@ adding sheets to or removing sheets from the workbook.
 Writing values to cells is much like writing values to keys in a
 dictionary. Enter this into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb\[\'Sheet\'\]]\
-\>\>\> [sheet\[\'A1\'\] = \'Hello, world!\'] \# Edit the
-cell\'s value.\
-\>\>\> [sheet\[\'A1\'\].value]\
-\'Hello, world!\'
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb\['Sheet'\]]\
+>>> [sheet\['A1'\] = 'Hello, world!'] \# Edit the
+cell's value.\
+>>> [sheet\['A1'\].value]\
+'Hello, world!'
 
 []{#calibre_link-944 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}If you have the cell's coordinate as a string, you
@@ -874,11 +874,11 @@ Lemon         1.27
 
 You could write code like this:
 
-if produceName == \'Celery\':\
+if produceName == 'Celery':\
     cellObj = 1.19\
-if produceName == \'Garlic\':\
+if produceName == 'Garlic':\
     cellObj = 3.07\
-if produceName == \'Lemon\':\
+if produceName == 'Lemon':\
     cellObj = 1.27
 
 Having the produce and updated price data hardcoded like this is a bit
@@ -895,13 +895,13 @@ file editor tab, enter the following code:
 \
 import openpyxl\
 \
-wb = openpyxl.load_workbook(\'produceSales.xlsx\')\
-sheet = wb\[\'Sheet\'\]\
+wb = openpyxl.load_workbook('produceSales.xlsx')\
+sheet = wb\['Sheet'\]\
 \
 \# The produce types and their updated prices\
-PRICE_UPDATES = {\'Garlic\': 3.07,\
-                 \'Celery\': 1.19,\
-                 \'Lemon\': 1.27}\
+PRICE_UPDATES = {'Garlic': 3.07,\
+                 'Celery': 1.19,\
+                 'Lemon': 1.27}\
 \
 \# TODO: Loop through the rows and update the prices.
 
@@ -929,7 +929,7 @@ PRICE_UPDATES:]\
  [         sheet.cell(row=rowNum, column=2).value =
 PRICE_UPDATES\[produceName\]]\
 \
-[➍] [wb.save(\'updatedProduceSales.xlsx\')]
+[➍] [wb.save('updatedProduceSales.xlsx')]
 
 We loop through the rows starting at row 2, since row 1 is just the
 header [➊]. The cell in column 1 (that is, column A) will be
@@ -941,7 +941,7 @@ price corrected. The correct price will be in
 
 Notice how clean using [PRICE_UPDATES] makes the code. Only
 one [if] statement, rather than code like [if produceName ==
-\'Garlic\':] , is necessary for every type of produce to
+'Garlic':] , is necessary for every type of produce to
 update. And since the code uses the [PRICE_UPDATES] dictionary
 instead of hardcoding the produce names and updated costs into the
 [for] loop, you modify only the [PRICE_UPDATES]
@@ -996,22 +996,22 @@ Here's an example that creates a new workbook and sets cell A1 to have a
 24-point, italicized font. Enter the following into the interactive
 shell:
 
-  \>\>\> [import openpyxl]\
-  \>\>\> [from openpyxl.styles import Font]\
-  \>\>\> [wb = openpyxl.Workbook()]\
-  \>\>\> [sheet = wb\[\'Sheet\'\]]\
-[➊] \>\>\> [italic24Font = Font(size=24,
+  >>> [import openpyxl]\
+  >>> [from openpyxl.styles import Font]\
+  >>> [wb = openpyxl.Workbook()]\
+  >>> [sheet = wb\['Sheet'\]]\
+[➊] >>> [italic24Font = Font(size=24,
 italic=True)] \# Create a font.\
-[➋] \>\>\> [sheet\[\'A1\'\].font = italic24Font] \#
+[➋] >>> [sheet\['A1'\].font = italic24Font] \#
 Apply the font to A1.\
-  \>\>\> [sheet\[\'A1\'\] = \'Hello, world!\']\
-  \>\>\> [wb.save(\'styles.xlsx\')]
+  >>> [sheet\['A1'\] = 'Hello, world!']\
+  >>> [wb.save('styles.xlsx')]
 
 In this example, [Font(size=24, italic=True)] returns a
 [Font] object, which is stored in [italic24Font]
 [➊]. The keyword arguments to [Font()], [size]
 and [italic], configure the [Font] object's styling
-information. And when [sheet\[\'A1\'\].font] is assigned the
+information. And when [sheet\['A1'\].font] is assigned the
 [italic24Font] object [➋], all that font styling
 information gets applied to cell A1.
 
@@ -1025,7 +1025,7 @@ the possible keyword arguments for the [Font()] function.
 
   **Keyword argument**   **Data type**   **Description**
   ---------------------- --------------- -----------------------------------------------------------------------------------
-  [name]       String          The font name, such as [\'Calibri\'] or [\'Times New Roman\']
+  [name]       String          The font name, such as ['Calibri'] or ['Times New Roman']
   [size]       Integer         The point size
   [bold]       Boolean         [True], for bold font
   [italic]     Boolean         [True], for italic font
@@ -1037,21 +1037,21 @@ variable. You then assign that variable to a [Cell] object's
 [font] attribute. For example, this code creates various font
 styles:
 
-\>\>\> [import openpyxl]\
-\>\>\> [from openpyxl.styles import Font]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb\[\'Sheet\'\]]\
+>>> [import openpyxl]\
+>>> [from openpyxl.styles import Font]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb\['Sheet'\]]\
 \
-\>\>\> [fontObj1 = Font(name=\'Times New Roman\',
+>>> [fontObj1 = Font(name='Times New Roman',
 bold=True)]\
-\>\>\> [sheet\[\'A1\'\].font = fontObj1]\
-\>\>\> [sheet\[\'A1\'\] = \'Bold Times New Roman\']\
+>>> [sheet\['A1'\].font = fontObj1]\
+>>> [sheet\['A1'\] = 'Bold Times New Roman']\
 \
-\>\>\> [fontObj2 = Font(size=24, italic=True)]\
-\>\>\> [sheet\[\'B3\'\].font = fontObj2]\
-\>\>\> [sheet\[\'B3\'\] = \'24 pt Italic\']\
+>>> [fontObj2 = Font(size=24, italic=True)]\
+>>> [sheet\['B3'\].font = fontObj2]\
+>>> [sheet\['B3'\] = '24 pt Italic']\
 \
-\>\>\> [wb.save(\'styles.xlsx\')]
+>>> [wb.save('styles.xlsx')]
 
 Here, we store a [Font] object in [fontObj1] and
 then set the A1 [Cell] object's [font] attribute to
@@ -1068,7 +1068,7 @@ set to custom font styles, as shown in [Figure
 
 *Figure 13-4: A spreadsheet with custom font styles*
 
-For cell A1, we set the font name to [\'Times New Roman\'] and
+For cell A1, we set the font name to ['Times New Roman'] and
 set [bold] to [true], so our text appears in bold
 Times New Roman. We didn't specify a size, so the [openpyxl]
 default, 11, is used. In cell B3, our text is italic, with a size of 24;
@@ -1082,7 +1082,7 @@ contain values calculated from other cells. In this section, you'll use
 the [openpyxl] module to programmatically add formulas to
 cells, just like any normal value. For example:
 
-[\>\>\> sheet\[\'B9\'\] = \'=SUM(B1:B8)\']
+[>>> sheet\['B9'\] = '=SUM(B1:B8)']
 
 []{#calibre_link-1815 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}This will store *=SUM(B1:B8)* as the value in cell
@@ -1101,14 +1101,14 @@ cells B1 to B8.*
 An Excel formula is set just like any other text value in a cell. Enter
 the following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet\[\'A1\'\] = 200]\
-\>\>\> [sheet\[\'A2\'\] = 300]\
-\>\>\> [sheet\[\'A3\'\] = \'=SUM(A1:A2)\'] \# Set the
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb.active]\
+>>> [sheet\['A1'\] = 200]\
+>>> [sheet\['A2'\] = 300]\
+>>> [sheet\['A3'\] = '=SUM(A1:A2)'] \# Set the
 formula.\
-\>\>\> [wb.save(\'writeFormula.xlsx\')]
+>>> [wb.save('writeFormula.xlsx')]
 
 The cells in A1 and A2 are set to 200 and 300, respectively. The value
 in cell A3 is set to a formula that sums the values in A1 and A2. When
@@ -1118,8 +1118,8 @@ Excel formulas offer a level of programmability for spreadsheets but can
 quickly become unmanageable for complicated tasks. For example, even if
 you're deeply familiar with Excel formulas, it's a headache to try to
 decipher what *=IFERROR(TRIM(IF(LEN(VLOOKUP(F7,
-Sheet2!\$A\$1:\$B\$10000, 2, FALSE))\>0,SUBSTITUTE(VLOOKUP(F7,
-Sheet2!\$A\$1:\$B\$10000, 2, FALSE), \" \", \"\"),\"\")), \"\")*
+Sheet2!\$A\$1:\$B\$10000, 2, FALSE))>0,SUBSTITUTE(VLOOKUP(F7,
+Sheet2!\$A\$1:\$B\$10000, 2, FALSE), " ", ""),"")), "")*
 actually does. Python code is much more readable.
 
 ### **Adjusting Rows and Columns** 
@@ -1142,15 +1142,15 @@ headers).
 [column_dimensions] attributes that control row heights and
 column widths. Enter this into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet\[\'A1\'\] = \'Tall row\']\
-\>\>\> [sheet\[\'B2\'\] = \'Wide column\']\
-\>\>\> \# Set the height and width:\
-\>\>\> [sheet.row_dimensions\[1\].height = 70]\
-\>\>\> [sheet.column_dimensions\[\'B\'\].width = 20]\
-\>\>\> [wb.save(\'dimensions.xlsx\')]
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb.active]\
+>>> [sheet\['A1'\] = 'Tall row']\
+>>> [sheet\['B2'\] = 'Wide column']\
+>>> \# Set the height and width:\
+>>> [sheet.row_dimensions\[1\].height = 70]\
+>>> [sheet.column_dimensions\['B'\].width = 20]\
+>>> [wb.save('dimensions.xlsx')]
 
 A sheet's [row_dimensions] and [column_dimensions]
 are dictionary-like values; [row_dimensions] contains
@@ -1189,21 +1189,21 @@ A rectangular area of cells can be merged into a single cell with the
 [merge_cells()] sheet method. Enter the following into the
 interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet.merge_cells(\'A1:D3\')] \# Merge all these
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb.active]\
+>>> [sheet.merge_cells('A1:D3')] \# Merge all these
 cells.\
-\>\>\> [sheet\[\'A1\'\] = \'Twelve cells merged
-together.\']\
-\>\>\> [sheet.merge_cells(\'C5:D5\')] \# Merge these two
+>>> [sheet\['A1'\] = 'Twelve cells merged
+together.']\
+>>> [sheet.merge_cells('C5:D5')] \# Merge these two
 cells.\
-\>\>\> [sheet\[\'C5\'\] = \'Two merged cells.\']\
-\>\>\> [wb.save(\'merged.xlsx\')]
+>>> [sheet\['C5'\] = 'Two merged cells.']\
+>>> [wb.save('merged.xlsx')]
 
 The argument to [merge_cells()] is a single string of the
 top-left and bottom-right cells of the rectangular area to be merged:
-[\'A1:D3\'] merges 12 cells into a single cell. To set the
+['A1:D3'] merges 12 cells into a single cell. To set the
 value of these merged cells, simply set the value of the top-left cell
 of the merged group.
 
@@ -1220,13 +1220,13 @@ When you run this code, *merged.xlsx* will look like [Figure
 To unmerge cells, call the [unmerge_cells()] sheet method.
 Enter this into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.load_workbook(\'merged.xlsx\')]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet.unmerge_cells(\'A1:D3\')] \# Split these
+>>> [import openpyxl]\
+>>> [wb = openpyxl.load_workbook('merged.xlsx')]\
+>>> [sheet = wb.active]\
+>>> [sheet.unmerge_cells('A1:D3')] \# Split these
 cells up.\
-\>\>\> [sheet.unmerge_cells(\'C5:D5\')]\
-\>\>\> [wb.save(\'merged.xlsx\')]
+>>> [sheet.unmerge_cells('C5:D5')]\
+>>> [wb.save('merged.xlsx')]
 
 If you save your changes and then take a look at the spreadsheet, you'll
 see that the merged cells have gone back to being individual cells.
@@ -1245,7 +1245,7 @@ all rows above and all columns to the left of this cell will be frozen,
 but the row and column of the cell itself will not be frozen.
 
 To unfreeze all panes, set [freeze_panes] to [None]
-or [\'A1\']. [Table 13-3](#calibre_link-1584) shows
+or ['A1']. [Table 13-3](#calibre_link-1584) shows
 which rows and columns will be frozen for some example settings of
 [freeze_panes].
 
@@ -1253,25 +1253,25 @@ which rows and columns will be frozen for some example settings of
 
   [freeze_panes] **setting**                                            **Rows and columns frozen**
   ---------------------------------------------------------------------------------- -----------------------------
-  [sheet.freeze_panes = \'A2\']                                            Row 1
-  [sheet.freeze_panes = \'B1\']                                            Column A
-  [sheet.freeze_panes = \'C1\']                                            Columns A and B
-  [sheet.freeze_panes = \'C2\']                                            Row 1 and columns A and B
-  [sheet.freeze_panes = \'A1\'] or [sheet.freeze_panes = None]   No frozen panes
+  [sheet.freeze_panes = 'A2']                                            Row 1
+  [sheet.freeze_panes = 'B1']                                            Column A
+  [sheet.freeze_panes = 'C1']                                            Columns A and B
+  [sheet.freeze_panes = 'C2']                                            Row 1 and columns A and B
+  [sheet.freeze_panes = 'A1'] or [sheet.freeze_panes = None]   No frozen panes
 
 Make sure you have the produce sales spreadsheet from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 Then enter the following into the interactive shell:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb =
-openpyxl.load_workbook(\'produceSales.xlsx\')]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [sheet.freeze_panes = \'A2\'] \# Freeze the rows
+>>> [import openpyxl]\
+>>> [wb =
+openpyxl.load_workbook('produceSales.xlsx')]\
+>>> [sheet = wb.active]\
+>>> [sheet.freeze_panes = 'A2'] \# Freeze the rows
 above A2.\
-\>\>\> [wb.save(\'freezeExample.xlsx\')]
+>>> [wb.save('freezeExample.xlsx')]
 
-If you set the [freeze_panes] attribute to [\'A2\'],
+If you set the [freeze_panes] attribute to ['A2'],
 row 1 will always be viewable, no matter where the user scrolls in the
 spreadsheet. You can see this in [Figure
 13-8](#calibre_link-1585).
@@ -1281,7 +1281,7 @@ spreadsheet. You can see this in [Figure
 .calibre6}![image](../images/000083.jpg)
 
 
-*Figure 13-8: With [freeze_panes] set to [\'A2\'],
+*Figure 13-8: With [freeze_panes] set to ['A2'],
 row 1 is always visible, even as the user scrolls down.*
 
 ### []**Charts** 
@@ -1328,26 +1328,26 @@ coordinate arguments.
 Enter this interactive shell example to create a bar chart and add it to
 the spreadsheet:
 
-\>\>\> [import openpyxl]\
-\>\>\> [wb = openpyxl.Workbook()]\
-\>\>\> [sheet = wb.active]\
-\>\>\> [for i in range(1, 11):] \# create some data in
+>>> [import openpyxl]\
+>>> [wb = openpyxl.Workbook()]\
+>>> [sheet = wb.active]\
+>>> [for i in range(1, 11):] \# create some data in
 column A\
-[\...     sheet\[\'A\' + str(i)\] = i]\
+[\...     sheet\['A' + str(i)\] = i]\
 \...\
-\>\>\> [refObj = openpyxl.chart.Reference(sheet, min_col=1, min_row=1,
+>>> [refObj = openpyxl.chart.Reference(sheet, min_col=1, min_row=1,
 max_col=1,\
 max_row=10)]\
 []{#calibre_link-913 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [seriesObj = openpyxl.chart.Series(refObj,
-title=\'First series\')]\
+ops}type="pagebreak"}>>> [seriesObj = openpyxl.chart.Series(refObj,
+title='First series')]\
 \
-\>\>\> [chartObj = openpyxl.chart.BarChart()]\
-\>\>\> [chartObj.title = \'My Chart\']\
-\>\>\> [chartObj.append(seriesObj)]\
+>>> [chartObj = openpyxl.chart.BarChart()]\
+>>> [chartObj.title = 'My Chart']\
+>>> [chartObj.append(seriesObj)]\
 \
-\>\>\> [sheet.add_chart(chartObj, \'C5\')]\
-\>\>\> [wb.save(\'sampleChart.xlsx\')]
+>>> [sheet.add_chart(chartObj, 'C5')]\
+>>> [wb.save('sampleChart.xlsx')]
 
 This produces a spreadsheet that looks like [Figure
 13-10](#calibre_link-1587).
@@ -1402,7 +1402,7 @@ object in [img].
 
 [3](#calibre_link-1590). How would you
 retrieve the [Worksheet] object for a sheet named
-[\'Sheet1\']?
+['Sheet1']?
 
 [4](#calibre_link-1591). How would you
 retrieve the [Worksheet] object for the workbook's active
@@ -1412,7 +1412,7 @@ sheet?
 retrieve the value in the cell C5?
 
 [6](#calibre_link-1593). How would you set
-the value in the cell C5 to [\"Hello\"]?
+the value in the cell C5 to ["Hello"]?
 
 [7](#calibre_link-1594). How would you
 retrieve the cell's row and column as integers?
@@ -1422,7 +1422,7 @@ retrieve the cell's row and column as integers?
 attributes hold, and what is the data type of these attributes?
 
 [9](#calibre_link-1596). If you needed to
-get the integer index for column [\'M\'], what function would
+get the integer index for column ['M'], what function would
 you need to call?
 
 [10](#calibre_link-1597). If you needed to

@@ -38,9 +38,9 @@ The [webbrowser] module's [open()] function can
 launch a new browser to a specified URL. Enter the following into the
 interactive shell:
 
-\>\>\> [import webbrowser]\
-\>\>\>
-[webbrowser.open(\'https://inventwithpython.com/\')]
+>>> [import webbrowser]\
+>>>
+[webbrowser.open('https://inventwithpython.com/')]
 
 A web browser tab will open to the URL
 *[https://inventwithpython.com/](https://inventwithpython.com/)*.
@@ -73,7 +73,7 @@ Based on the instructions in [Appendix B](#calibre_link-35),
 set up *mapIt.py* so that when you run it from the command line, like so
 . . .
 
-C:\\\> mapit 870 Valencia St, San Francisco, CA 94110
+C:\\> mapit 870 Valencia St, San Francisco, CA 94110
 
 . . . the script will use the command line arguments instead of the
 clipboard. If there are no command line arguments, then the program will
@@ -93,7 +93,7 @@ customize sites. But if you try just going to
 *[https://www.google.com/maps/place/870+Valencia+St+San+Francisco+CA/](https://www.google.com/maps/place/870+Valencia+St+San+Francisco+CA/)*,
 you'll find that it still brings up the correct page. So your program
 can be set to open a web browser to
-[\'https://www.google.com/maps/place/][your_address_string][\']
+['https://www.google.com/maps/place/][your_address_string][']
 (where [your_address_string] is the address you want to
 map).
 
@@ -106,9 +106,9 @@ Make your code look like this:
 \# command line or clipboard.\
 \
 import webbrowser, sys\
-if len(sys.argv) \> 1:\
+if len(sys.argv) > 1:\
     # Get address from command line.\
-    address = \' \'.join(sys.argv\[1:\])\
+    address = ' '.join(sys.argv\[1:\])\
 \
 \# TODO: Get address from clipboard.
 
@@ -136,11 +136,11 @@ mapit 870 Valencia St, San Francisco, CA 94110
 
 . . . the [sys.argv] variable will contain this list value:
 
-\[\'mapIt.py\', \'870\', \'Valencia\', \'St, \', \'San\', \'Francisco,
-\', \'CA\', \'94110\'\]
+\['mapIt.py', '870', 'Valencia', 'St, ', 'San', 'Francisco,
+', 'CA', '94110'\]
 
-The [address] variable will contain the string [\'870 Valencia
-St, San Francisco, CA 94110\'].
+The [address] variable will contain the string ['870 Valencia
+St, San Francisco, CA 94110'].
 
 #### []***Step 3: Handle the Clipboard Content and Launch the Browser*** 
 
@@ -150,14 +150,14 @@ Make your code look like the following:
 \# mapIt.py - Launches a map in the browser using an address from the\
 \# command line or clipboard.\
 import webbrowser, sys[,] [pyperclip]\
-if len(sys.argv) \> 1:\
+if len(sys.argv) > 1:\
     # Get address from command line.\
-    address = \' \'.join(sys.argv\[1:\])\
+    address = ' '.join(sys.argv\[1:\])\
 [else:]\
 [    # Get address from clipboard.]\
 [    address = pyperclip.paste()]\
 \
-[webbrowser.open(\'https://www.google.com/maps/place/\' +
+[webbrowser.open('https://www.google.com/maps/place/' +
 address)]
 
 If there are no command line arguments, the program will assume the
@@ -222,7 +222,7 @@ Next, do a simple test to make sure the [requests] module
 installed itself correctly. Enter the following into the interactive
 shell:
 
-\>\>\> [import requests]
+>>> [import requests]
 
 If no error messages show up, then the [requests] module has
 been successfully installed.
@@ -237,16 +237,16 @@ I'll explain the [Response] object in more detail later, but
 for now, enter the following into the interactive shell while your
 computer is connected to the internet:
 
-   \>\>\> [import requests]\
-[➊] \>\>\> [res =
-requests.get(\'https://automatetheboringstuff.com/files/rj.txt\')]\
-   \>\>\> [type(res)]\
-   \<class \'requests.models.Response\'\>\
-[➋] \>\>\> [res.status_code == requests.codes.ok]\
+   >>> [import requests]\
+[➊] >>> [res =
+requests.get('https://automatetheboringstuff.com/files/rj.txt')]\
+   >>> [type(res)]\
+   <class 'requests.models.Response'>\
+[➋] >>> [res.status_code == requests.codes.ok]\
    True\
-   \>\>\> [len(res.text)]\
+   >>> [len(res.text)]\
    178981\
-   \>\>\> [print(res.text\[:250\])]\
+   >>> [print(res.text\[:250\])]\
    The Project Gutenberg EBook of Romeo and Juliet, by William
 Shakespeare\
 \
@@ -291,15 +291,15 @@ on the [Response] object. This will raise an exception if
 there was an error downloading the file and will do nothing if the
 download succeeded. Enter the following into the interactive shell:
 
-\>\>\> [res =
-requests.get(\'https://inventwithpython.com/page_that_does_not_exist\')]\
-\>\>\> [res.raise_for_status()]\
+>>> [res =
+requests.get('https://inventwithpython.com/page_that_does_not_exist')]\
+>>> [res.raise_for_status()]\
 Traceback (most recent call last):\
-  File \"\<stdin\>\", line 1, in \<module\>\
+  File "<stdin>", line 1, in <module>\
 \
   File
-\"C:\\Users\\Al\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\requests\\models\
-.py\", line 940, in raise_for_status\
+"C:\\Users\\Al\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\requests\\models\
+.py", line 940, in raise_for_status\
     raise HTTPError(http_error_msg, response=self)\
 requests.exceptions.HTTPError: 404 Client Error: Not Found for url:
 https://inventwithpython\
@@ -315,11 +315,11 @@ crashing.
 
 import requests\
 res =
-requests.get(\'https://inventwithpython.com/page_that_does_not_exist\')\
+requests.get('https://inventwithpython.com/page_that_does_not_exist')\
 try:\
     res.raise_for_status()\
 except Exception as exc:\
-    print(\'There was a problem: %s\' % (exc))
+    print('There was a problem: %s' % (exc))
 
 This [raise_for_status()] method call causes the program to
 output the following:
@@ -337,7 +337,7 @@ download has actually worked before your program continues.
 From here, you can save the web page to a file on your hard drive with
 the standard [open()] function and [write()] method.
 There are some slight differences, though. First, you must open the file
-in *write binary* mode by passing the string [\'wb\'] as the
+in *write binary* mode by passing the string ['wb'] as the
 second argument to [open()]. Even if the page is in plaintext
 (such as the *Romeo and Juliet* text you downloaded earlier), you need
 to write binary data instead of text data in order to maintain the
@@ -346,17 +346,17 @@ to write binary data instead of text data in order to maintain the
 To write the web page to a file, you can use a [for] loop with
 the [Response] object's [iter_content()] method.
 
-\>\>\> [import requests]\
-\>\>\> [res =
-requests.get(\'https://automatetheboringstuff.com/files/rj.txt\')]\
-\>\>\> [res.raise_for_status()]\
-\>\>\> [playFile = open(\'RomeoAndJuliet.txt\', \'wb\')]\
-\>\>\> [for chunk in res.iter_content(100000):]\
+>>> [import requests]\
+>>> [res =
+requests.get('https://automatetheboringstuff.com/files/rj.txt')]\
+>>> [res.raise_for_status()]\
+>>> [playFile = open('RomeoAndJuliet.txt', 'wb')]\
+>>> [for chunk in res.iter_content(100000):]\
 [        playFile.write(chunk)]\
 \
 100000\
 78981\
-\>\>\> [playFile.close()]
+>>> [playFile.close()]
 
 The [iter_content()] method returns "chunks" of the content on
 each iteration through the loop. Each chunk is of the *bytes* data type,
@@ -395,7 +395,7 @@ To review, here's the complete process for downloading and saving a
 file:
 
 1.  Call [requests.get()] to download the file.
-2.  Call [open()] with [\'wb\'] to create a new file
+2.  Call [open()] with ['wb'] to create a new file
     in write binary mode.
 3.  Loop over the [Response] object's
     [iter_content()] method.
@@ -442,7 +442,7 @@ content between the starting and closing tags. For example, the
 following HTML will display *Hello, world!* in the browser, with *Hello*
 in bold:
 
-\<strong\>Hello\</strong\>, world!
+<strong>Hello</strong>, world!
 
 []{#calibre_link-803 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}This HTML will look like [Figure
@@ -454,18 +454,18 @@ ops}type="pagebreak"}This HTML will look like [Figure
 
 *Figure 12-1:* Hello, world! *rendered in the browser*
 
-The opening [\<strong\>] tag says that the enclosed text will
-appear in bold. The closing [\</strong\>] tags tells the
+The opening [<strong>] tag says that the enclosed text will
+appear in bold. The closing [</strong>] tags tells the
 browser where the end of the bold text is.
 
 There are many different tags in HTML. Some of these tags have extra
 properties in the form of *attributes* within the angle brackets. For
-example, the [\<a\>] tag encloses text that should be a link.
+example, the [<a>] tag encloses text that should be a link.
 The URL that the text links to is determined by the [href]
 attribute. Here's an example:
 
-Al\'s free \<a href=\"https://inventwithpython.com\"\>Python
-books\</a\>.
+Al's free <a href="https://inventwithpython.com">Python
+books</a>.
 
 This HTML will look like [Figure 12-2](#calibre_link-38) in a
 browser.
@@ -593,15 +593,15 @@ developer tools*
 
 []{#calibre_link-812 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}From the developer tools, you can see that the HTML
-responsible for the forecast part of the web page is [\<div
-class=\"col-sm-10 forecast-text\"\>Sunny, with a high near 64. West wind
-11 to 16 mph, with gusts as high as 21 mph.\</div\>]. This is
+responsible for the forecast part of the web page is [<div
+class="col-sm-10 forecast-text">Sunny, with a high near 64. West wind
+11 to 16 mph, with gusts as high as 21 mph.</div>]. This is
 exactly what you were looking for! It seems that the forecast
-information is contained inside a [\<div\>] element with the
+information is contained inside a [<div>] element with the
 [forecast-text] CSS class. Right-click on this element in the
 browser's developer console, and from the context menu that appears,
 select **Copy** ▸ **CSS Selector**. This will copy a string such as
-[\'div.row-odd:nth-child(1) \> div:nth-child(2)\'] to the
+['div.row-odd:nth-child(1) > div:nth-child(2)'] to the
 clipboard. You can use this string for Beautiful Soup's
 [select()] or Selenium's
 [find_element_by_css_selector()] methods, as explained later
@@ -626,16 +626,16 @@ a new file editor tab in Mu, enter the following, and save it as
 *example.html*. Alternatively, download it from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 
-\<!\-- This is the example.html example file. \--\>\
+<!\-- This is the example.html example file. \-->\
 \
-\<html\>\<head\>\<title\>The Website Title\</title\>\</head\>\
-\<body\>\
-\<p\>Download my \<strong\>Python\</strong\> book from \<a
-href=\"https://\
-inventwithpython.com\"\>my website\</a\>.\</p\>\
-\<p class=\"slogan\"\>Learn Python the easy way!\</p\>\
-\<p\>By \<span id=\"author\"\>Al Sweigart\</span\>\</p\>\
-\</body\>\</html\>
+<html><head><title>The Website Title</title></head>\
+<body>\
+<p>Download my <strong>Python</strong> book from <a
+href="https://\
+inventwithpython.com">my website</a>.</p>\
+<p class="slogan">Learn Python the easy way!</p>\
+<p>By <span id="author">Al Sweigart</span></p>\
+</body></html>
 
 As you can see, even a simple HTML file involves many different tags and
 attributes, and matters quickly get confusing with complex websites.
@@ -649,13 +649,13 @@ string containing the HTML it will parse. The
 [BeautifulSoup] object. Enter the following into the
 interactive shell while your computer is connected to the internet:
 
-\>\>\> [import requests, bs4]\
-\>\>\> [res = requests.get(\'https://nostarch.com\')]\
-\>\>\> [res.raise_for_status()]\
-\>\>\> [noStarchSoup = bs4.BeautifulSoup(res.text,
-\'html.parser\')]\
-\>\>\> [type(noStarchSoup)]\
-\<class \'bs4.BeautifulSoup\'\>
+>>> [import requests, bs4]\
+>>> [res = requests.get('https://nostarch.com')]\
+>>> [res.raise_for_status()]\
+>>> [noStarchSoup = bs4.BeautifulSoup(res.text,
+'html.parser')]\
+>>> [type(noStarchSoup)]\
+<class 'bs4.BeautifulSoup'>
 
 This code uses [requests.get()] to download the main page from
 the No Starch Press website and then passes the [text]
@@ -671,14 +671,14 @@ the HTML.
 Enter the following into the interactive shell (after making sure the
 *example.html* file is in the working directory):
 
-\>\>\> [exampleFile = open(\'example.html\')]\
-\>\>\> [exampleSoup = bs4.BeautifulSoup(exampleFile,
-\'html.parser\')]\
-\>\>\> [type(exampleSoup)]\
-\<class \'bs4.BeautifulSoup\'\>
+>>> [exampleFile = open('example.html')]\
+>>> [exampleSoup = bs4.BeautifulSoup(exampleFile,
+'html.parser')]\
+>>> [type(exampleSoup)]\
+<class 'bs4.BeautifulSoup'>
 
-The [\'html.parser\'] parser used here comes with Python.
-However, you can use the faster [\'lxml\'] parser if you
+The ['html.parser'] parser used here comes with Python.
+However, you can use the faster ['lxml'] parser if you
 install the third-party [lxml] module. Follow the instructions
 in [Appendix A](#calibre_link-2) to install this module by
 running [pip install \--user lxml]. Forgetting to include this
@@ -708,18 +708,18 @@ ops}type="pagebreak"}**Table 12-2:** Examples of CSS Selectors
 
   **Selector passed to the [select()] method**   **Will match . . .**
   ----------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------
-  [soup.select(\'div\')]                            All elements named [\<div\>]
-  [soup.select(\'#author\')]                        The element with an [id] attribute of [author]
-  [soup.select(\'.notice\')]                        All elements that use a CSS [class] attribute named [notice]
-  [soup.select(\'div span\')]                       All elements named [\<span\>] that are within an element named [\<div\>]
-  [soup.select(\'div \> span\')]                    All elements named [\<span\>] that are *directly* within an element named [\<div\>], with no other element in between
-  [soup.select(\'input\[name\]\')]                  All elements named [\<input\>] that have a [name] attribute with any value
-  [soup.select(\'input\[type=\"button\"\]\')]       All elements named [\<input\>] that have an attribute named [type] with value [button]
+  [soup.select('div')]                            All elements named [<div>]
+  [soup.select('#author')]                        The element with an [id] attribute of [author]
+  [soup.select('.notice')]                        All elements that use a CSS [class] attribute named [notice]
+  [soup.select('div span')]                       All elements named [<span>] that are within an element named [<div>]
+  [soup.select('div > span')]                    All elements named [<span>] that are *directly* within an element named [<div>], with no other element in between
+  [soup.select('input\[name\]')]                  All elements named [<input>] that have a [name] attribute with any value
+  [soup.select('input\[type="button"\]')]       All elements named [<input>] that have an attribute named [type] with value [button]
 
 The various selector patterns can be combined to make sophisticated
-matches. For example, [soup.select(\'p #author\')] will match
+matches. For example, [soup.select('p #author')] will match
 any element that has an [id] attribute of [author],
-as long as it is also inside a [\<p\>] element. Instead of
+as long as it is also inside a [<p>] element. Instead of
 writing the selector yourself, you can also right-click on the element
 in your browser and select **Inspect Element**. When the browser's
 developer console opens, right-click on the element's HTML and select
@@ -735,60 +735,60 @@ values also have an [attrs] attribute that shows all the HTML
 attributes of the tag as a dictionary. Using the *example.html* file
 from earlier, enter the following into the interactive shell:
 
-\>\>\> [import bs4]\
-\>\>\> [exampleFile = open(\'example.html\')]\
-\>\>\> [exampleSoup = bs4.BeautifulSoup(exampleFile.read(),
-\'html.parser\')]\
-\>\>\> [elems = exampleSoup.select(\'#author\')]\
-\>\>\> [type(elems)] \# elems is a list of Tag objects.\
-\<class \'list\'\>\
-\>\>\> [len(elems)]\
+>>> [import bs4]\
+>>> [exampleFile = open('example.html')]\
+>>> [exampleSoup = bs4.BeautifulSoup(exampleFile.read(),
+'html.parser')]\
+>>> [elems = exampleSoup.select('#author')]\
+>>> [type(elems)] \# elems is a list of Tag objects.\
+<class 'list'>\
+>>> [len(elems)]\
 1\
-\>\>\> [type(elems\[0\])]\
-\<class \'bs4.element.Tag\'\>\
-\>\>\> [str(elems\[0\])] \# The Tag object as a string.\
-\'\<span id=\"author\"\>Al Sweigart\</span\>\'\
-\>\>\> [elems\[0\].getText()]\
-\'Al Sweigart\'\
-\>\>\> [elems\[0\].attrs]\
-{\'id\': \'author\'}
+>>> [type(elems\[0\])]\
+<class 'bs4.element.Tag'>\
+>>> [str(elems\[0\])] \# The Tag object as a string.\
+'<span id="author">Al Sweigart</span>'\
+>>> [elems\[0\].getText()]\
+'Al Sweigart'\
+>>> [elems\[0\].attrs]\
+{'id': 'author'}
 
 []{#calibre_link-826 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}This code will pull the element with
-[id=\"author\"] out of our example HTML. We use
-[select(\'#author\')] to return a list of all the elements
-with [id=\"author\"]. We store this list of [Tag]
+[id="author"] out of our example HTML. We use
+[select('#author')] to return a list of all the elements
+with [id="author"]. We store this list of [Tag]
 objects in the variable [elems], and [len(elems)]
 tells us there is one [Tag] object in the list; there was
 one match. Calling [getText()] on the element returns the
 element's text, or inner HTML. The text of an element is the content
-between the opening and closing tags: in this case, [\'Al
-Sweigart\'].
+between the opening and closing tags: in this case, ['Al
+Sweigart'].
 
 Passing the element to [str()] returns a string with the
 starting and closing tags and the element's text. Finally,
 [attrs] gives us a dictionary with the element's attribute,
-[\'id\'], and the value of the [id] attribute,
-[\'author\'].
+['id'], and the value of the [id] attribute,
+['author'].
 
-You can also pull all the [\<p\>] elements from the
+You can also pull all the [<p>] elements from the
 [BeautifulSoup] object. Enter this into the interactive shell:
 
-\>\>\> [pElems = exampleSoup.select(\'p\')]\
-\>\>\> [str(pElems\[0\])]\
-\'\<p\>Download my \<strong\>Python\</strong\> book from \<a
-href=\"https://\
-inventwithpython.com\"\>my website\</a\>.\</p\>\'\
-\>\>\> [pElems\[0\].getText()]\
-\'Download my Python book from my website.\'\
-\>\>\> [str(pElems\[1\])]\
-\'\<p class=\"slogan\"\>Learn Python the easy way!\</p\>\'\
-\>\>\> [pElems\[1\].getText()]\
-\'Learn Python the easy way!\'\
-\>\>\> [str(pElems\[2\])]\
-\'\<p\>By \<span id=\"author\"\>Al Sweigart\</span\>\</p\>\'\
-\>\>\> [pElems\[2\].getText()]\
-\'By Al Sweigart\'
+>>> [pElems = exampleSoup.select('p')]\
+>>> [str(pElems\[0\])]\
+'<p>Download my <strong>Python</strong> book from <a
+href="https://\
+inventwithpython.com">my website</a>.</p>'\
+>>> [pElems\[0\].getText()]\
+'Download my Python book from my website.'\
+>>> [str(pElems\[1\])]\
+'<p class="slogan">Learn Python the easy way!</p>'\
+>>> [pElems\[1\].getText()]\
+'Learn Python the easy way!'\
+>>> [str(pElems\[2\])]\
+'<p>By <span id="author">Al Sweigart</span></p>'\
+>>> [pElems\[2\].getText()]\
+'By Al Sweigart'
 
 This time, [select()] gives us a list of three matches, which
 we store in [pElems]. Using [str()] on
@@ -803,25 +803,25 @@ to access attribute values from an element. The method is passed a
 string of an attribute name and returns that attribute's value. Using
 *example.html*, enter the following into the interactive shell:
 
-\>\>\> [import bs4]\
-\>\>\> [soup = bs4.BeautifulSoup(open(\'example.html\'),
-\'html.parser\')]\
-\>\>\> [spanElem = soup.select(\'span\')\[0\]]\
-\>\>\> [str(spanElem)]\
-\'\<span id=\"author\"\>Al Sweigart\</span\>\'\
-\>\>\> [spanElem.get(\'id\')]\
-\'author\'\
-\>\>\> [spanElem.get(\'some_nonexistent_addr\') == None]\
+>>> [import bs4]\
+>>> [soup = bs4.BeautifulSoup(open('example.html'),
+'html.parser')]\
+>>> [spanElem = soup.select('span')\[0\]]\
+>>> [str(spanElem)]\
+'<span id="author">Al Sweigart</span>'\
+>>> [spanElem.get('id')]\
+'author'\
+>>> [spanElem.get('some_nonexistent_addr') == None]\
 True\
-\>\>\> [spanElem.attrs]\
-{\'id\': \'author\'}
+>>> [spanElem.attrs]\
+{'id': 'author'}
 
 []{#calibre_link-1091 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we use [select()] to find any
-[\<span\>] elements and then store the first matched element
-in [spanElem]. Passing the attribute name [\'id\']
+[<span>] elements and then store the first matched element
+in [spanElem]. Passing the attribute name ['id']
 to [get()] returns the attribute's value,
-[\'author\'].
+['author'].
 
 ### **Project: Opening All Search Results** 
 
@@ -861,7 +861,7 @@ Open a new file editor tab and save it as *searchpypi.py*.
 Before coding anything, you first need to know the URL of the search
 result page. By looking at the browser's address bar after doing a
 search, you can see that the result page has a URL like
-*https://pypi.org/search/?q=\<SEARCH_TERM_HERE\>*. The
+*https://pypi.org/search/?q=<SEARCH_TERM_HERE>*. The
 [requests] module can download this page and then you can use
 Beautiful Soup to find the search result links in the HTML. Finally,
 you'll use the [webbrowser] module to open those links in
@@ -874,11 +874,11 @@ Make your code look like the following:
 \
 import requests, sys, webbrowser, bs4\
 []{#calibre_link-1803 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}print(\'Searching\...\')    # display text while
+ops}type="pagebreak"}print('Searching\...')    # display text while
 downloading the search result page\
-res = requests.get(\'https://google.com/search?q=\'
-\'https://pypi.org/search/?q=\'\
-+ \' \'.join(sys.argv\[1:\]))\
+res = requests.get('https://google.com/search?q='
+'https://pypi.org/search/?q='\
++ ' '.join(sys.argv\[1:\]))\
 res.raise_for_status()\
 \
 \# TODO: Retrieve top search result links.\
@@ -894,16 +894,16 @@ list in [sys.argv].
 Now you need to use Beautiful Soup to extract the top search result
 links from your downloaded HTML. But how do you figure out the right
 selector for the job? For example, you can't just search for all
-[\<a\>] tags, because there are lots of links you don't care
+[<a>] tags, because there are lots of links you don't care
 about in the HTML. Instead, you must inspect the search result page with
 the browser's developer tools to try to find a selector that will pick
 out only the links you want.
 
 After doing a search for *Beautiful Soup*, you can open the browser's
 developer tools and inspect some of the link elements on the page. They
-can look complicated, something like pages of this: [\<a
-class=\"package-snippet\" href=\"HYPERLINK
-\"view-source:https://pypi.org/project/xml-parser/\"/project/xml-parser/\"\>].
+can look complicated, something like pages of this: [<a
+class="package-snippet" href="HYPERLINK
+"view-source:https://pypi.org/project/xml-parser/"/project/xml-parser/">].
 
 It doesn't matter that the element looks incredibly complicated. You
 just need to find the pattern that all the search result links have.
@@ -915,20 +915,20 @@ Make your code look like the following:
 import requests, sys, webbrowser, bs4\
 \--[snip]\--\
 [\# Retrieve top search result links.]\
-[soup = bs4.BeautifulSoup(res.text, \'html.parser\')]\
+[soup = bs4.BeautifulSoup(res.text, 'html.parser')]\
 [\# Open a browser tab for each result.]\
-[linkElems = soup.select(\'.package-snippet\')]
+[linkElems = soup.select('.package-snippet')]
 
-If you look at the [\<a\>] elements, though, the search result
-links all have [class=\"package-snippet\"]. Looking through
+If you look at the [<a>] elements, though, the search result
+links all have [class="package-snippet"]. Looking through
 the rest of the HTML source, it looks like the
 [package-snippet] class is used only for search result links.
 You don't have to know what the CSS class [package-snippet] is
 or what it does. You're just going to use it as a marker for the
-[\<a\>] element you are looking for. You can create a
+[<a>] element you are looking for. You can create a
 [BeautifulSoup] object from the downloaded page's HTML text
-and then use the selector [\'.package-snippet\'] to find all
-[\<a\>] elements that are within an element that has the
+and then use the selector ['.package-snippet'] to find all
+[<a>] elements that are within an element that has the
 [package-snippet] CSS class. Note that if the PyPI website
 changes its layout, you may need to update this program with a new CSS
 selector string to pass to [soup.select()]. The rest of the
@@ -944,19 +944,19 @@ results. Add the following to the end of your program:
 import requests, sys, webbrowser, bs4\
 \--[snip]\--\
 \# Open a browser tab for each result.\
-linkElems = soup.select(\'.package-snippet\')\
+linkElems = soup.select('.package-snippet')\
 [numOpen = min(5, len(linkElems))]\
 [for i in range(numOpen):]\
-[    urlToOpen = \'https://pypi.org\' +
-linkElems\[i\].get(\'href\')]\
-[    print(\'Opening\', urlToOpen)]\
+[    urlToOpen = 'https://pypi.org' +
+linkElems\[i\].get('href')]\
+[    print('Opening', urlToOpen)]\
 [    webbrowser.open(urlToOpen)]
 
 By default, you open the first five search results in new tabs using the
 [webbrowser] module. However, the user may have searched for
 something that turned up fewer than five results. The
 [soup.select()] call returns a list of all the elements that
-matched your [\'.package-snippet\'] selector, so the number of
+matched your ['.package-snippet'] selector, so the number of
 tabs you want to open is either [5] or the length of this list
 (whichever is smaller).
 
@@ -970,7 +970,7 @@ in a variable named [numOpen]. Then you can run through a
 
 On each iteration of the loop, you use [webbrowser.open()] to
 open a new tab in the web browser. Note that the [href]
-attribute's value in the returned [\<a\>] elements do not have
+attribute's value in the returned [<a>] elements do not have
 the initial [https://pypi.org] part, so you have to
 concatenate that to the [href] attribute's string value.
 
@@ -1040,9 +1040,9 @@ If you open the browser's developer tools and inspect the elements on
 the page, you'll find the following:
 
 -   The URL of the comic's image file is given by the [href]
-    attribute of an [\<img\>] element.
--   The [\<img\>] element is inside a [\<div
-    id=\"comic\"\>] element.
+    attribute of an [<img>] element.
+-   The [<img>] element is inside a [<div
+    id="comic">] element.
 -   The Prev button has a [rel] HTML attribute with the value
     [prev].
 -   The first comic's Prev button links to the
@@ -1056,9 +1056,9 @@ Make your code look like the following:
 \
 import requests, os, bs4\
 \
-url = \'https://xkcd.com\'               # starting url\
-os.makedirs(\'xkcd\', exist_ok=True)    # store comics in ./xkcd\
-while not url.endswith(\'#\'):\
+url = 'https://xkcd.com'               # starting url\
+os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd\
+while not url.endswith('#'):\
     # TODO: Download the page.\
 \
     # TODO: Find the URL of the comic image.\
@@ -1067,16 +1067,16 @@ while not url.endswith(\'#\'):\
 \
     # TODO: Save the image to ./xkcd.\
 \
-    # TODO: Get the Prev button\'s url.\
+    # TODO: Get the Prev button's url.\
 \
-print(\'Done.\')
+print('Done.')
 
 You'll have a [url] variable that starts with the value
-[\'https://xkcd.com\'] and repeatedly update it (in a
+['https://xkcd.com'] and repeatedly update it (in a
 [for] loop) with the URL of the current page's Prev link. At
 every step in the loop, you'll download the comic at [url].
 You'll know to end the loop when [url] ends with
-[\'#\'].
+['#'].
 
 You will download the image files to a folder in the current working
 directory named *xkcd*. The call [os.makedirs()] ensures that
@@ -1096,15 +1096,15 @@ like the following:
 \
 import requests, os, bs4\
 \
-url = \'https://xkcd.com\'               # starting url\
-os.makedirs(\'xkcd\', exist_ok=True)    # store comics in ./xkcd\
-while not url.endswith(\'#\'):\
+url = 'https://xkcd.com'               # starting url\
+os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd\
+while not url.endswith('#'):\
     [\# Download the page.]\
-[    print(\'Downloading page %s\...\' % url)]\
+[    print('Downloading page %s\...' % url)]\
 [    res = requests.get(url)]\
 [    res.raise_for_status()]\
 \
- [   soup = bs4.BeautifulSoup(res.text, \'html.parser\')]\
+ [   soup = bs4.BeautifulSoup(res.text, 'html.parser')]\
 \
     # TODO: Find the URL of the comic image.\
 \
@@ -1112,9 +1112,9 @@ while not url.endswith(\'#\'):\
 \
     # TODO: Save the image to ./xkcd.\
 \
-    # TODO: Get the Prev button\'s url.\
+    # TODO: Get the Prev button's url.\
 \
-print(\'Done.\')
+print('Done.')
 
 First, print [url] so that the user knows which URL the
 program is about to download; then use the [requests] module's
@@ -1136,41 +1136,41 @@ import requests, os, bs4\
 \--[snip]\--\
 \
 [    # Find the URL of the comic image.]\
-[    comicElem = soup.select(\'#comic img\')]\
+[    comicElem = soup.select('#comic img')]\
 []{#calibre_link-1093 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[    if comicElem == \[\]:]\
-[        print(\'Could not find comic image.\')]\
+[        print('Could not find comic image.')]\
 [    else:]\
-[        comicUrl = \'https:\' +
-comicElem\[0\].get(\'src\')]\
+[        comicUrl = 'https:' +
+comicElem\[0\].get('src')]\
 [        # Download the image.]\
-[        print(\'Downloading image %s\...\' %
+[        print('Downloading image %s\...' %
 (comicUrl))]\
 [        res = requests.get(comicUrl)]\
 [        res.raise_for_status()]\
 \
     # TODO: Save the image to ./xkcd.\
 \
-    # TODO: Get the Prev button\'s url.\
+    # TODO: Get the Prev button's url.\
 \
-print(\'Done.\')
+print('Done.')
 
 From inspecting the XKCD home page with your developer tools, you know
-that the [\<img\>] element for the comic image is inside a
-[\<div\>] element with the [id] attribute set to
-[comic], so the selector [\'#comic img\'] will get
-you the correct [\<img\>] element from the
+that the [<img>] element for the comic image is inside a
+[<div>] element with the [id] attribute set to
+[comic], so the selector ['#comic img'] will get
+you the correct [<img>] element from the
 [BeautifulSoup] object.
 
 A few XKCD pages have special content that isn't a simple image file.
 That's fine; you'll just skip those. If your selector doesn't find any
-elements, then [soup.select(\'#comic img\')] will return a
+elements, then [soup.select('#comic img')] will return a
 blank list. When that happens, the program can just print an error
 message and move on without downloading the image.
 
 Otherwise, the selector will return a list containing one
-[\<img\>] element. You can get the [src] attribute
-from this [\<img\>] element and pass it to
+[<img>] element. You can get the [src] attribute
+from this [<img>] element and pass it to
 [requests.get()] to download the comic's image file.
 
 #### ***Step 4: Save the Image and Find the Previous Comic*** 
@@ -1185,18 +1185,18 @@ import requests, os, bs4\
 \--[snip]\--\
 \
  [       # Save the image to ./xkcd.]\
-[        imageFile = open(os.path.join(\'xkcd\',
+[        imageFile = open(os.path.join('xkcd',
 os.path.basename(comicUrl)),]\
-[\'wb\')]\
+['wb')]\
 [        for chunk in res.iter_content(100000):]\
 [            imageFile.write(chunk)]\
 [        imageFile.close()]\
 \
-[    # Get the Prev button\'s url.]\
-[    prevLink = soup.select(\'a\[rel=\"prev\"\]\')\[0\]]\
-[    url = \'https://xkcd.com\' + prevLink.get(\'href\')]\
+[    # Get the Prev button's url.]\
+[    prevLink = soup.select('a\[rel="prev"\]')\[0\]]\
+[    url = 'https://xkcd.com' + prevLink.get('href')]\
 \
-print(\'Done.\')
+print('Done.')
 
 []{#calibre_link-1806 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}At this point, the image file of the comic is
@@ -1205,17 +1205,17 @@ data to a file on the hard drive.
 
 You'll need a filename for the local image file to pass to
 [open()]. The [comicUrl] will have a value like
-[\'https://imgs.xkcd.com/comics/heartbleed_explanation.png\']---which
+['https://imgs.xkcd.com/comics/heartbleed_explanation.png']---which
 you might have noticed looks a lot like a file path. And in fact, you
 can call [os.path.basename()] with [comicUrl], and
 it will return just the last part of the URL,
-[\'heartbleed_explanation.png\']. You can use this as the
+['heartbleed_explanation.png']. You can use this as the
 filename when saving the image to your hard drive. You join this name
 with the name of your [xkcd] folder using
 [os.path.join()] so that your program uses backslashes
 ([\\]) on Windows and forward slashes ([/]) on macOS
 and Linux. Now that you finally have the filename, you can call
-[open()] to open a new file in [\'wb\'] "write
+[open()] to open a new file in ['wb'] "write
 binary" mode.
 
 Remember from earlier in this chapter that to save files you've
@@ -1225,9 +1225,9 @@ value of the [iter_content()] method. The code in the
 100,000 bytes each) to the file and then you close the file. The image
 is now saved to your hard drive.
 
-Afterward, the selector [\'a\[rel=\"prev\"\]\'] identifies the
-[\<a\>] element with the [rel] attribute set to
-[prev], and you can use this [\<a\>] element's
+Afterward, the selector ['a\[rel="prev"\]'] identifies the
+[<a>] element with the [rel] attribute set to
+[prev], and you can use this [<a>] element's
 [href] attribute to get the previous comic's URL, which gets
 stored in [url]. Then the [while] loop begins the
 entire download process again for this comic.
@@ -1298,13 +1298,13 @@ A major "tell" to websites that you're using a script is the
 *user-agent* string, which identifies the web browser and is included in
 all HTTP requests. For example, the user-agent string for the
 [requests] module is something like
-[\'python-requests/2.21.0\']. You can visit a site such as
+['python-requests/2.21.0']. You can visit a site such as
 *[https://www.whatsmyua.info/](https://www.whatsmyua.info/)*
 to see your user-agent string. Using [selenium], you're much
 more likely to "pass for human" because not only is Selenium's
 user-agent is the same as a regular browser (for instance,
-[\'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101
-Firefox/65.0\']), but it has the same traffic patterns: a
+['Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101
+Firefox/65.0']), but it has the same traffic patterns: a
 [selenium]-controlled browser will download images,
 advertisements, cookies, and privacy-invading trackers just like a
 regular browser. However, [selenium] can still be detected by
@@ -1329,17 +1329,17 @@ this book.) []{#calibre_link-972 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}After that, you can launch the Firefox browser with
 [selenium]. Enter the following into the interactive shell:
 
-\>\>\> [from selenium import webdriver]\
-\>\>\> [browser = webdriver.Firefox()]\
-\>\>\> [type(browser)]\
-\<class \'selenium.webdriver.firefox.webdriver.WebDriver\'\>\
-\>\>\> [browser.get(\'https://inventwithpython.com\')]
+>>> [from selenium import webdriver]\
+>>> [browser = webdriver.Firefox()]\
+>>> [type(browser)]\
+<class 'selenium.webdriver.firefox.webdriver.WebDriver'>\
+>>> [browser.get('https://inventwithpython.com')]
 
 You'll notice when [webdriver.Firefox()] is called, the
 Firefox web browser starts up. Calling [type()] on the value
 [webdriver.Firefox()] reveals it's of the
 [WebDriver] data type. And calling
-[browser.get(\'https://inventwithpython.com\')] directs the
+[browser.get('https://inventwithpython.com')] directs the
 browser to
 *[https://inventwithpython.com/](https://inventwithpython.com/)*.
 Your browser should look something like [Figure
@@ -1352,7 +1352,7 @@ Your browser should look something like [Figure
 *Figure 12-7: After we call [webdriver.Firefox()] and
 [get()] in Mu, the Firefox browser appears.*
 
-If you encounter the error message "\'geckodriver\' executable needs to
+If you encounter the error message "'geckodriver' executable needs to
 be in [PATH].", then you need to manually download the
 webdriver for Firefox before you can use [selenium] to control
 it. You can also control browsers other than Firefox if you install the
@@ -1379,7 +1379,7 @@ contain a *chromedriver.exe* (on Windows) or *chromedriver* (on macOS or
 Linux) file that you can put on your system [PATH].
 
 Other major web browsers also have webdrivers available, and you can
-often find these by performing an internet search for "\<browser name\>
+often find these by performing an internet search for "<browser name>
 webdriver".
 
 If you still have problems opening up a new browser under the control of
@@ -1442,7 +1442,7 @@ Elements
 | er.find_elements_by_id(]{.litera |                                  |
 | l}[id][)] |                                  |
 +----------------------------------+----------------------------------+
-| [browser.find_                   | [\<a\>] elements that  |
+| [browser.find_                   | [<a>] elements that  |
 | element_by_link_text(] | completely\                      |
 | [text][)] | match the [text]    |
 |                                  | provided                         |
@@ -1450,7 +1450,7 @@ Elements
 | lements_by_link_text(] |                                  |
 | [text][)] |                                  |
 +----------------------------------+----------------------------------+
-| [browser.find_element_           | [\<a\>] elements that  |
+| [browser.find_element_           | [<a>] elements that  |
 | by_partial_link_text(] | contain the\                     |
 | [text][)] | [text] provided     |
 |                                  |                                  |
@@ -1469,9 +1469,9 @@ Elements
 | [browser.find_                   | Elements with a matching tag     |
 | element_by_tag_name(][ | [name]\             |
 | name][)]\ | (case-insensitive; an            |
-| [browser.find_                   | [\<a\>] element is\    |
-| elements_by_tag_name(] | matched by [\'a\'] and |
-| [name][)] | [\'A\'])               |
+| [browser.find_                   | [<a>] element is\    |
+| elements_by_tag_name(] | matched by ['a'] and |
+| [name][)] | ['A'])               |
 +----------------------------------+----------------------------------+
 
 []{#calibre_link-843 {http:="" www.idpf.org="" 2007=""
@@ -1490,39 +1490,39 @@ about it by reading the attributes or calling the methods in [Table
 
   **Attribute or method**                                      **Description**
   ------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------------------------
-  [tag_name]                                         The tag name, such as [\'a\'] for an [\<a\>] element
+  [tag_name]                                         The tag name, such as ['a'] for an [<a>] element
   [get_attribute(][name][)]   The value for the element's [name] attribute
-  [text]                                             The text within the element, such as [\'hello\'] in [\<span\>hello \</span\>]
+  [text]                                             The text within the element, such as ['hello'] in [<span>hello </span>]
   [clear()]                                          For text field or text area elements, clears the text typed into it
   [is_displayed()]                                   Returns [True] if the element is visible; otherwise returns [False]
   [is_enabled()]                                     For input elements, returns [True] if the element is enabled; otherwise returns [False]
   [is_selected()]                                    For checkbox or radio button elements, returns [True] if the element is selected; otherwise returns [False]
-  [location]                                         A dictionary with keys [\'x\'] and [\'y\'] for the position of the element in the page
+  [location]                                         A dictionary with keys ['x'] and ['y'] for the position of the element in the page
 
 For example, open a new file editor tab and enter the following program:
 
 from selenium import webdriver\
 browser = webdriver.Firefox()\
-browser.get(\'https://inventwithpython.com\')\
+browser.get('https://inventwithpython.com')\
 try:\
-    elem = browser.find_element_by_class_name(\' cover-thumb\')\
-    print(\'Found \<%s\> element with that class name!\' %
+    elem = browser.find_element_by_class_name(' cover-thumb')\
+    print('Found <%s> element with that class name!' %
 (elem.tag_name))\
 except:\
-    print(\'Was not able to find an element with that name.\')
+    print('Was not able to find an element with that name.')
 
 Here we open Firefox and direct it to a URL. On this page, we try to
-find elements with the class name [\'bookcover\'], and if such
+find elements with the class name ['bookcover'], and if such
 an element is found, we print its tag name using the
 [tag_name] attribute. If no such element was found, we print a
 different message.
 
 This program will output the following:
 
-Found \<img\> element with that class name!
+Found <img> element with that class name!
 
-We found an element with the class name [\'bookcover\'] and
-the tag name [\'img\'].
+We found an element with the class name ['bookcover'] and
+the tag name ['img'].
 
 #### []***Clicking the Page*** 
 
@@ -1534,44 +1534,44 @@ radio button, click a Submit button, or trigger whatever else might
 happen when the element is clicked by the mouse. For example, enter the
 following into the interactive shell:
 
-\>\>\> [from selenium import webdriver]\
-\>\>\> [browser = webdriver.Firefox()]\
-\>\>\> [browser.get(\'https://inventwithpython.com\')]\
-\>\>\> [linkElem = browser.find_element_by_link_text(\'Read Online for
-Free\')]\
-\>\>\> [type(linkElem)]\
-\<class \'selenium.webdriver.remote.webelement.FirefoxWebElement\'\>\
-\>\>\> [linkElem.click()] \# follows the \"Read Online for
-Free\" link
+>>> [from selenium import webdriver]\
+>>> [browser = webdriver.Firefox()]\
+>>> [browser.get('https://inventwithpython.com')]\
+>>> [linkElem = browser.find_element_by_link_text('Read Online for
+Free')]\
+>>> [type(linkElem)]\
+<class 'selenium.webdriver.remote.webelement.FirefoxWebElement'>\
+>>> [linkElem.click()] \# follows the "Read Online for
+Free" link
 
 This opens Firefox to
 *[https://inventwithpython.com/](https://inventwithpython.com/)*,
-gets the [WebElement] object for the [\<a\>] element
+gets the [WebElement] object for the [<a>] element
 with the text *Read It Online*, and then simulates clicking that
-[\<a\>] element. It's just like if you clicked the link
+[<a>] element. It's just like if you clicked the link
 yourself; the browser then follows that link.
 
 #### ***Filling Out and Submitting Forms*** 
 
 Sending keystrokes to text fields on a web page is a matter of finding
-the [\<input\>] or [\<textarea\>] element for that
+the [<input>] or [<textarea>] element for that
 text field and then calling the [send_keys()]method. For
 example, enter the following into the interactive shell:
 
-\>\>\> [from selenium import webdriver]\
-\>\>\> [browser = webdriver.Firefox()]\
-\>\>\> [browser.get(\'https://login.metafilter.com\')]\
-\>\>\> [userElem =
-browser.find_element_by_id(\'user_name)]\
-\>\>\>
-[userElem.send_keys(\'][[your_real_username_here]][\')]\
+>>> [from selenium import webdriver]\
+>>> [browser = webdriver.Firefox()]\
+>>> [browser.get('https://login.metafilter.com')]\
+>>> [userElem =
+browser.find_element_by_id('user_name)]\
+>>>
+[userElem.send_keys('][[your_real_username_here]][')]\
 \
 \
-\>\>\> [passwordElem =
-browser.find_element_by_id(\'user_pass\')]\
-\>\>\>
-[passwordElem.send_keys(\'][[your_real_password_here]][\')]\
-\>\>\> [passwordElem.submit()]
+>>> [passwordElem =
+browser.find_element_by_id('user_pass')]\
+>>>
+[passwordElem.send_keys('][[your_real_password_here]][')]\
+>>> [passwordElem.submit()]
 
 As long as login page for MetaFilter hasn't changed the [id]
 of the Username and Password text fields since this book was published,
@@ -1625,20 +1625,20 @@ top and bottom of the page, respectively. Enter the following into the
 interactive shell, and notice how the [send_keys()] calls
 scroll the page:
 
-\>\>\> [from selenium import webdriver]\
-\>\>\> [from selenium.webdriver.common.keys import Keys]\
-\>\>\> [browser = webdriver.Firefox()]\
-\>\>\> [browser.get(\'https://nostarch.com\')]\
-\>\>\> [htmlElem =
-browser.find_element_by_tag_name(\'html\')]\
-\>\>\> [htmlElem.send_keys(Keys.END)]     # scrolls to
+>>> [from selenium import webdriver]\
+>>> [from selenium.webdriver.common.keys import Keys]\
+>>> [browser = webdriver.Firefox()]\
+>>> [browser.get('https://nostarch.com')]\
+>>> [htmlElem =
+browser.find_element_by_tag_name('html')]\
+>>> [htmlElem.send_keys(Keys.END)]     # scrolls to
 bottom\
-\>\>\> [htmlElem.send_keys(Keys.HOME)]    # scrolls to top
+>>> [htmlElem.send_keys(Keys.HOME)]    # scrolls to top
 
-The [\<html]\> tag is the base tag in HTML files: the full
-content of the HTML file is enclosed within the [\<html\>] and
-[\</html\>] tags. Calling
-[browser.find_element_by_tag_name(\'html\')] is a good place
+The [<html]> tag is the base tag in HTML files: the full
+content of the HTML file is enclosed within the [<html>] and
+[</html>] tags. Calling
+[browser.find_element_by_tag_name('html')] is a good place
 to send keys to the general web page. This would be useful if, for
 example, new content is loaded once you've scrolled to the bottom of the
 page.
@@ -1715,18 +1715,18 @@ ops}type="pagebreak"}What is the CSS selector string that would find the
 elements with a CSS class of [highlight]?
 
 [10](#calibre_link-58). What is the CSS
-selector string that would find all the [\<div\>] elements
-inside another [\<div\>] element?
+selector string that would find all the [<div>] elements
+inside another [<div>] element?
 
 [11](#calibre_link-59). What is the CSS
-selector string that would find the [\<button\>] element with
+selector string that would find the [<button>] element with
 a [value] attribute set to [favorite]?
 
 [12](#calibre_link-60). Say you have a
 Beautiful Soup [Tag] object stored in the variable
-[spam] for the element [\<div\>Hello,
-world!\</div\>]. How could you get a string [\'Hello,
-world!\'] from the [Tag] object?
+[spam] for the element [<div>Hello,
+world!</div>]. How could you get a string ['Hello,
+world!'] from the [Tag] object?
 
 [13](#calibre_link-61). How would you
 store all the attributes of a Beautiful Soup [Tag] object in a

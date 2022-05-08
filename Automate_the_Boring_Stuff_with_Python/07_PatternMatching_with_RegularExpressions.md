@@ -62,12 +62,12 @@ def isPhoneNumber(text):\
      for i in range(0, 3):\
       [➋] if not text\[i\].isdecimal():\
              return False\
-  [➌] if text\[3\] != \'-\':\
+  [➌] if text\[3\] != '-':\
          return False\
      for i in range(4, 7):\
       [➍] if not text\[i\].isdecimal():\
              return False\
-  [➎] if text\[7\] != \'-\':\
+  [➎] if text\[7\] != '-':\
          return False\
  []{#calibre_link-1767 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    for i in range(8, 12):\
@@ -75,10 +75,10 @@ ops}type="pagebreak"}    for i in range(8, 12):\
              return False\
   [➐] return True\
 \
-print(\'Is 415-555-4242 a phone number?\')\
-print(isPhoneNumber(\'415-555-4242\'))\
-print(\'Is Moshi moshi a phone number?\')\
-print(isPhoneNumber(\'Moshi moshi\'))
+print('Is 415-555-4242 a phone number?')\
+print(isPhoneNumber('415-555-4242'))\
+print('Is Moshi moshi a phone number?')\
+print(isPhoneNumber('Moshi moshi'))
 
 When this program is run, the output looks like this:
 
@@ -101,23 +101,23 @@ hyphen after the area code [➌], three more numeric characters
 it returns [True] [➐].
 
 Calling [isPhoneNumber()] with the argument
-[\'415-555-4242\'] will return [True]. Calling
-[isPhoneNumber()] with [\'Moshi moshi\'] will return
-[False]; the first test fails because [\'Moshi
-moshi\'] is not 12 characters long.
+['415-555-4242'] will return [True]. Calling
+[isPhoneNumber()] with ['Moshi moshi'] will return
+[False]; the first test fails because ['Moshi
+moshi'] is not 12 characters long.
 
 If you wanted to find a phone number within a larger string, you would
 have to add even more code to find the phone number pattern. Replace the
 last four [print()] function calls in *isPhoneNumber.py* with
 the following:
 
-message = \'Call me at 415-555-1011 tomorrow. 415-555-9999 is my
-office.\'\
+message = 'Call me at 415-555-1011 tomorrow. 415-555-9999 is my
+office.'\
 for i in range(len(message)):\
   [➊] chunk = message\[i:i+12\]\
   [➋] if isPhoneNumber(chunk):\
-          print(\'Phone number found: \' + chunk)\
-print(\'Done\')
+          print('Phone number found: ' + chunk)\
+print('Done')
 
 When this program is run, the output will look like this:
 
@@ -130,17 +130,17 @@ ops}type="pagebreak"}On each iteration of the [for] loop, a
 new chunk of 12 characters from [message] is assigned to the
 variable [chunk] [➊]. For example, on the first
 iteration, [i] is [0], and [chunk] is
-assigned [message\[0:12\]] (that is, the string [\'Call me at
-4\']). On the next iteration, [i] is [1],
+assigned [message\[0:12\]] (that is, the string ['Call me at
+4']). On the next iteration, [i] is [1],
 and [chunk] is assigned [message\[1:13\]] (the
-string [\'all me at 41\']). In other words, on each iteration
+string ['all me at 41']). In other words, on each iteration
 of the [for] loop, [chunk] takes on the following
 values:
 
--   [\'Call me at 4\']
--   [\'all me at 41\']
--   [\'ll me at 415\']
--   [\'l me at 415-\']
+-   ['Call me at 4']
+-   ['all me at 41']
+-   ['ll me at 415']
+-   ['l me at 415-']
 -   . . . and so on.
 
 You pass [chunk] to [isPhoneNumber()] to see whether
@@ -191,7 +191,7 @@ number format.
 All the regex functions in Python are in the [re] module.
 Enter the following into the interactive shell to import this module:
 
-\>\>\> [import re]
+>>> [import re]
 
 
 **[NOTE]**
@@ -199,7 +199,7 @@ Enter the following into the interactive shell to import this module:
 *Most of the examples in this chapter will require the [re]
 module, so remember to import it at the beginning of any script you
 write or any time you restart Mu. Otherwise, you'll get a [NameError:
-name \'re\' is not defined] error message.*
+name 're' is not defined] error message.*
 
 
 Passing a string value representing your regular expression to
@@ -212,8 +212,8 @@ pattern, enter the following into the interactive shell. (Remember that
 [\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d] is the regular expression
 for a phone number pattern.)
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d\')]
+>>> [phoneNumRegex =
+re.compile(r'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d')]
 
 Now the [phoneNumRegex] variable contains a [Regex]
 object.
@@ -229,11 +229,11 @@ have a [group()] method that will return the actual matched
 text from the searched string. (I'll explain groups shortly.) For
 example, enter the following into the interactive shell:
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d\')]\
-\>\>\> [mo = phoneNumRegex.search(\'My number is
-415-555-4242.\')]\
-\>\>\> [print(\'Phone number found: \' + mo.group())]\
+>>> [phoneNumRegex =
+re.compile(r'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d')]\
+>>> [mo = phoneNumRegex.search('My number is
+415-555-4242.')]\
+>>> [print('Phone number found: ' + mo.group())]\
 Phone number found: 415-555-4242
 
 The [mo] variable name is just a generic name to use for
@@ -300,29 +300,29 @@ Passing [0] or nothing to the [group()] method will
 return the entire matched text. Enter the following into the interactive
 shell:
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'(\\d\\d\\d)-(\\d\\d\\d-\\d\\d\\d\\d)\')]\
-\>\>\> [mo = phoneNumRegex.search(\'My number is
-415-555-4242.\')]\
-\>\>\> [mo.group(1)]\
-\'415\'\
-\>\>\> [mo.group(2)]\
-\'555-4242\'\
-\>\>\> [mo.group(0)]\
-\'415-555-4242\'\
-\>\>\> [mo.group()]\
-\'415-555-4242\'
+>>> [phoneNumRegex =
+re.compile(r'(\\d\\d\\d)-(\\d\\d\\d-\\d\\d\\d\\d)')]\
+>>> [mo = phoneNumRegex.search('My number is
+415-555-4242.')]\
+>>> [mo.group(1)]\
+'415'\
+>>> [mo.group(2)]\
+'555-4242'\
+>>> [mo.group(0)]\
+'415-555-4242'\
+>>> [mo.group()]\
+'415-555-4242'
 
 If you would like to retrieve all the groups at once, use the
 [groups()] method---note the plural form for the name.
 
 []{#calibre_link-1769 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [mo.groups()]\
-(\'415\', \'555-4242\')\
-\>\>\> [areaCode, mainNumber = mo.groups()]\
-\>\>\> [print(areaCode)]\
+ops}type="pagebreak"}>>> [mo.groups()]\
+('415', '555-4242')\
+>>> [areaCode, mainNumber = mo.groups()]\
+>>> [print(areaCode)]\
 415\
-\>\>\> [print(mainNumber)]\
+>>> [print(mainNumber)]\
 555-4242
 
 Since [mo.groups()] returns a tuple of multiple values, you
@@ -337,14 +337,14 @@ in parentheses. In this case, you need to escape the [(] and
 [)] characters with a backslash. Enter the following into the
 interactive shell:
 
-\>\>\> [phoneNumRegex = re.compile(r\'(\\(\\d\\d\\d\\))
-(\\d\\d\\d-\\d\\d\\d\\d)\')]\
-\>\>\> [mo = phoneNumRegex.search(\'My phone number is (415)
-555-4242.\')]\
-\>\>\> [mo.group(1)]\
-\'(415)\'\
-\>\>\> [mo.group(2)]\
-\'555-4242\'
+>>> [phoneNumRegex = re.compile(r'(\\(\\d\\d\\d\\))
+(\\d\\d\\d-\\d\\d\\d\\d)')]\
+>>> [mo = phoneNumRegex.search('My phone number is (415)
+555-4242.')]\
+>>> [mo.group(1)]\
+'(415)'\
+>>> [mo.group(2)]\
+'555-4242'
 
 The [\\(] and [\\)] escape characters in the raw
 string passed to [re.compile()] will match actual parenthesis
@@ -365,34 +365,34 @@ about "missing )" or "unbalanced parenthesis," you may have forgotten to
 include the closing unescaped parenthesis for a group, like in this
 example:
 
-\>\>\> [re.compile(r\'(\\(Parentheses\\)\')]\
+>>> [re.compile(r'(\\(Parentheses\\)')]\
 Traceback (most recent call last):\
     \--[snip]\--\
 re.error: missing ), unterminated subpattern at position 0
 
 The error message tells you that there is an opening parenthesis at
-index [0] of the [r\'(\\(Parentheses\\)\'] string
+index [0] of the [r'(\\(Parentheses\\)'] string
 that is missing its corresponding closing parenthesis.
 
 #### []***Matching Multiple Groups with the Pipe*** 
 
 The [\|] character is called a *pipe*. You can use it anywhere
 you want to match one of many expressions. For example, the regular
-expression [r\'Batman\|Tina Fey\'] will match either
-[\'Batman\'] or [\'Tina Fey\'].
+expression [r'Batman\|Tina Fey'] will match either
+['Batman'] or ['Tina Fey'].
 
 When *both* Batman and Tina Fey occur in the searched string, the first
 occurrence of matching text will be returned as the [Match]
 object. Enter the following into the interactive shell:
 
-\>\>\> [heroRegex = re.compile (r\'Batman\|Tina Fey\')]\
-\>\>\> [mo1 = heroRegex.search(\'Batman and Tina Fey\')]\
-\>\>\> [mo1.group()]\
-\'Batman\'\
+>>> [heroRegex = re.compile (r'Batman\|Tina Fey')]\
+>>> [mo1 = heroRegex.search('Batman and Tina Fey')]\
+>>> [mo1.group()]\
+'Batman'\
 \
-\>\>\> [mo2 = heroRegex.search(\'Tina Fey and Batman\')]\
-\>\>\> [mo2.group()]\
-\'Tina Fey\'
+>>> [mo2 = heroRegex.search('Tina Fey and Batman')]\
+>>> [mo2.group()]\
+'Tina Fey'
 
 
 **[NOTE]**
@@ -405,24 +405,24 @@ Method](#calibre_link-252)" on [page
 
 You can also use the pipe to match one of several patterns as part of
 your regex. For example, say you wanted to match any of the strings
-[\'Batman\'], [\'Batmobile\'],
-[\'Batcopter\'], and [\'Batbat\']. Since all these
+['Batman'], ['Batmobile'],
+['Batcopter'], and ['Batbat']. Since all these
 strings start with [Bat], it would be nice if you could
 specify that prefix only once. This can be done with parentheses. Enter
 the following into the interactive shell:
 
-\>\>\> [batRegex =
-re.compile(r\'Bat(man\|mobile\|copter\|bat)\')]\
-\>\>\> [mo = batRegex.search(\'Batmobile lost a wheel\')]\
-\>\>\> [mo.group()]\
-\'Batmobile\'\
-\>\>\> [mo.group(1)]\
-\'mobile\'
+>>> [batRegex =
+re.compile(r'Bat(man\|mobile\|copter\|bat)')]\
+>>> [mo = batRegex.search('Batmobile lost a wheel')]\
+>>> [mo.group()]\
+'Batmobile'\
+>>> [mo.group(1)]\
+'mobile'
 
 The method call [mo.group()] returns the full matched text
-[\'Batmobile\'], while [mo.group(1)] returns just
+['Batmobile'], while [mo.group(1)] returns just
 the part of the matched text inside the first parentheses group,
-[\'mobile\']. By using the pipe character and grouping
+['mobile']. By using the pipe character and grouping
 parentheses, you can specify several alternative patterns you would like
 your regex to match.
 
@@ -437,38 +437,38 @@ text is there. The [?] character flags the group that precedes
 it as an optional part of the pattern. For example, enter the following
 into the interactive shell:
 
-\>\>\> [batRegex = re.compile(r\'Bat(wo)?man\')]\
-\>\>\> [mo1 = batRegex.search(\'The Adventures of
-Batman\')]\
+>>> [batRegex = re.compile(r'Bat(wo)?man')]\
+>>> [mo1 = batRegex.search('The Adventures of
+Batman')]\
 []{#calibre_link-770 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [mo1.group()]\
-\'Batman\'\
+ops}type="pagebreak"}>>> [mo1.group()]\
+'Batman'\
 \
-\>\>\> [mo2 = batRegex.search(\'The Adventures of
-Batwoman\')]\
-\>\>\> [mo2.group()]\
-\'Batwoman\'
+>>> [mo2 = batRegex.search('The Adventures of
+Batwoman')]\
+>>> [mo2.group()]\
+'Batwoman'
 
 The [(wo)?] part of the regular expression means that the
 pattern [wo] is an optional group. The regex will match text
 that has zero instances or one instance of *wo* in it. This is why the
-regex matches both [\'Batwoman\'] and [\'Batman\'].
+regex matches both ['Batwoman'] and ['Batman'].
 
 Using the earlier phone number example, you can make the regex look for
 phone numbers that do or do not have an area code. Enter the following
 into the interactive shell:
 
-\>\>\> [phoneRegex =
-re.compile(r\'(\\d\\d\\d-)?\\d\\d\\d-\\d\\d\\d\\d\')]\
-\>\>\> [mo1 = phoneRegex.search(\'My number is
-415-555-4242\')]\
-\>\>\> [mo1.group()]\
-\'415-555-4242\'\
+>>> [phoneRegex =
+re.compile(r'(\\d\\d\\d-)?\\d\\d\\d-\\d\\d\\d\\d')]\
+>>> [mo1 = phoneRegex.search('My number is
+415-555-4242')]\
+>>> [mo1.group()]\
+'415-555-4242'\
 \
-\>\>\> [mo2 = phoneRegex.search(\'My number is
-555-4242\')]\
-\>\>\> [mo2.group()]\
-\'555-4242\'
+>>> [mo2 = phoneRegex.search('My number is
+555-4242')]\
+>>> [mo2.group()]\
+'555-4242'
 
 You can think of the [?] as saying, "Match zero or one of the
 group preceding this question mark."
@@ -483,26 +483,26 @@ or more"---the group that precedes the star can occur any number of
 times in the text. It can be completely absent or repeated over and over
 again. Let's look at the Batman example again.
 
-\>\>\> [batRegex = re.compile(r\'Bat(wo)\*man\')]\
-\>\>\> [mo1 = batRegex.search(\'The Adventures of
-Batman\')]\
-\>\>\> [mo1.group()]\
-\'Batman\'\
+>>> [batRegex = re.compile(r'Bat(wo)\*man')]\
+>>> [mo1 = batRegex.search('The Adventures of
+Batman')]\
+>>> [mo1.group()]\
+'Batman'\
 \
-\>\>\> [mo2 = batRegex.search(\'The Adventures of
-Batwoman\')]\
-\>\>\> [mo2.group()]\
-\'Batwoman\'\
+>>> [mo2 = batRegex.search('The Adventures of
+Batwoman')]\
+>>> [mo2.group()]\
+'Batwoman'\
 \
-\>\>\> [mo3 = batRegex.search(\'The Adventures of
-Batwowowowoman\')]\
-\>\>\> [mo3.group()]\
-\'Batwowowowoman\'
+>>> [mo3 = batRegex.search('The Adventures of
+Batwowowowoman')]\
+>>> [mo3.group()]\
+'Batwowowowoman'
 
-For [\'Batman\'], the [(wo)\*] part of the regex
+For ['Batman'], the [(wo)\*] part of the regex
 matches zero instances of [wo] in the string; for
-[\'Batwoman\'], the [(wo)\*] matches one instance of
-[wo]; and for [\'Batwowowowoman\'],
+['Batwoman'], the [(wo)\*] matches one instance of
+[wo]; and for ['Batwowowowoman'],
 [(wo)\*] matches four instances of [wo].
 
 If you need to match an actual star character, prefix the star in the
@@ -517,24 +517,24 @@ plus must appear *at least once*. It is not optional. Enter the
 following into the interactive shell, and compare it with the star
 regexes in the previous section:
 
-\>\>\> [batRegex = re.compile(r\'Bat(wo)+man\')]\
-\>\>\> [mo1 = batRegex.search(\'The Adventures of
-Batwoman\')]\
-\>\>\> [mo1.group()]\
-\'Batwoman\'\
+>>> [batRegex = re.compile(r'Bat(wo)+man')]\
+>>> [mo1 = batRegex.search('The Adventures of
+Batwoman')]\
+>>> [mo1.group()]\
+'Batwoman'\
 \
-\>\>\> [mo2 = batRegex.search(\'The Adventures of
-Batwowowowoman\')]\
-\>\>\> [mo2.group()]\
-\'Batwowowowoman\'\
+>>> [mo2 = batRegex.search('The Adventures of
+Batwowowowoman')]\
+>>> [mo2.group()]\
+'Batwowowowoman'\
 \
-\>\>\> [mo3 = batRegex.search(\'The Adventures of
-Batman\')]\
-\>\>\> [mo3 == None]\
+>>> [mo3 = batRegex.search('The Adventures of
+Batman')]\
+>>> [mo3 == None]\
 True
 
-The regex [Bat(wo)+man] will not match the string [\'The
-Adventures of Batman\'], because at least one [wo]
+The regex [Bat(wo)+man] will not match the string ['The
+Adventures of Batman'], because at least one [wo]
 is required by the plus sign.
 
 If you need to match an actual plus sign character, prefix the plus sign
@@ -544,14 +544,14 @@ with a backslash to escape it: [\\+].
 
 If you have a group that you want to repeat a specific number of times,
 follow the group in your regex with a number in braces. For example, the
-regex [(Ha){3}] will match the string [\'HaHaHa\'],
-but it will not match [\'HaHa\'], since the latter has only
+regex [(Ha){3}] will match the string ['HaHaHa'],
+but it will not match ['HaHa'], since the latter has only
 two repeats of the [(Ha)] group.
 
 Instead of one number, you can specify a range by writing a minimum, a
 comma, and a maximum in between the braces. For example, the regex
-[(Ha){3,5}] will match [\'HaHaHa\'],
-[\'HaHaHaHa\'], and [\'HaHaHaHaHa\'].
+[(Ha){3,5}] will match ['HaHaHa'],
+['HaHaHaHa'], and ['HaHaHaHaHa'].
 
 You can also leave out the first or second number in the braces to leave
 the minimum or maximum unbounded. For example, [(Ha){3,}] will
@@ -571,27 +571,27 @@ And these two regular expressions also match identical patterns:
 []{#calibre_link-746 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [haRegex = re.compile(r\'(Ha){3}\')]\
-\>\>\> [mo1 = haRegex.search(\'HaHaHa\')]\
-\>\>\> [mo1.group()]\
-\'HaHaHa\'\
+>>> [haRegex = re.compile(r'(Ha){3}')]\
+>>> [mo1 = haRegex.search('HaHaHa')]\
+>>> [mo1.group()]\
+'HaHaHa'\
 \
-\>\>\> [mo2 = haRegex.search(\'Ha\')]\
-\>\>\> [mo2 == None]\
+>>> [mo2 = haRegex.search('Ha')]\
+>>> [mo2 == None]\
 True
 
-Here, [(Ha){3}] matches [\'HaHaHa\'] but not
-[\'Ha\']. Since it doesn't match [\'Ha\'],
+Here, [(Ha){3}] matches ['HaHaHa'] but not
+['Ha']. Since it doesn't match ['Ha'],
 [search()] returns [None].
 
 ### **Greedy and Non-greedy Matching** 
 
 Since [(Ha){3,5}] can match three, four, or five instances of
-[Ha] in the string [\'HaHaHaHaHa\'], you may wonder
+[Ha] in the string ['HaHaHaHaHa'], you may wonder
 why the [Match] object's call to [group()] in the
-previous brace example returns [\'HaHaHaHaHa\'] instead of the
-shorter possibilities. After all, [\'HaHaHa\'] and
-[\'HaHaHaHa\'] are also valid matches of the regular
+previous brace example returns ['HaHaHaHaHa'] instead of the
+shorter possibilities. After all, ['HaHaHa'] and
+['HaHaHaHa'] are also valid matches of the regular
 expression [(Ha){3,5}].
 
 Python's regular expressions are *greedy* by default, which means that
@@ -604,15 +604,15 @@ Enter the following into the interactive shell, and notice the
 difference between the greedy and non-greedy forms of the braces
 searching the same string:
 
-\>\>\> [greedyHaRegex = re.compile(r\'(Ha){3,5}\')]\
-\>\>\> [mo1 = greedyHaRegex.search(\'HaHaHaHaHa\')]\
-\>\>\> [mo1.group()]\
-\'HaHaHaHaHa\'\
+>>> [greedyHaRegex = re.compile(r'(Ha){3,5}')]\
+>>> [mo1 = greedyHaRegex.search('HaHaHaHaHa')]\
+>>> [mo1.group()]\
+'HaHaHaHaHa'\
 \
-\>\>\> [nongreedyHaRegex = re.compile(r\'(Ha){3,5}?\')]\
-\>\>\> [mo2 = nongreedyHaRegex.search(\'HaHaHaHaHa\')]\
-\>\>\> [mo2.group()]\
-\'HaHaHa\'
+>>> [nongreedyHaRegex = re.compile(r'(Ha){3,5}?')]\
+>>> [mo2 = nongreedyHaRegex.search('HaHaHaHaHa')]\
+>>> [mo2.group()]\
+'HaHaHa'
 
 Note that the question mark can have two meanings in regular
 expressions: declaring a non-greedy match or flagging an optional group.
@@ -630,12 +630,12 @@ string. To see how [search()] returns a [Match]
 object only on the first instance of matching text, enter the following
 into the interactive shell:
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d\')]\
-\>\>\> [mo = phoneNumRegex.search(\'Cell: 415-555-9999 Work:
-212-555-0000\')]\
-\>\>\> [mo.group()]\
-\'415-555-9999\'
+>>> [phoneNumRegex =
+re.compile(r'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d')]\
+>>> [mo = phoneNumRegex.search('Cell: 415-555-9999 Work:
+212-555-0000')]\
+>>> [mo.group()]\
+'415-555-9999'
 
 On the other hand, [findall()] will not return a
 [Match] object but a list of strings---*as long as there are
@@ -643,12 +643,12 @@ no groups in the regular expression*. Each string in the list is a piece
 of the searched text that matched the regular expression. Enter the
 following into the interactive shell:
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d\') \# has no
+>>> [phoneNumRegex =
+re.compile(r'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d') \# has no
 groups]\
-\>\>\> [phoneNumRegex.findall(\'Cell: 415-555-9999 Work:
-212-555-0000\')]\
-\[\'415-555-9999\', \'212-555-0000\'\]
+>>> [phoneNumRegex.findall('Cell: 415-555-9999 Work:
+212-555-0000')]\
+\['415-555-9999', '212-555-0000'\]
 
 If there *are* groups in the regular expression, then
 [findall()] will return a list of tuples. Each tuple
@@ -657,12 +657,12 @@ group in the regex. To see [findall()] in action, enter the
 following into the interactive shell (notice that the regular expression
 being compiled now has groups in parentheses):
 
-\>\>\> [phoneNumRegex =
-re.compile(r\'(\\d\\d\\d)-(\\d\\d\\d)-(\\d\\d\\d\\d)\') \# has
+>>> [phoneNumRegex =
+re.compile(r'(\\d\\d\\d)-(\\d\\d\\d)-(\\d\\d\\d\\d)') \# has
 groups]\
-\>\>\> [phoneNumRegex.findall(\'Cell: 415-555-9999 Work:
-212-555-0000\')]\
-\[(\'415\', \'555\', \'9999\'), (\'212\', \'555\', \'0000\')\]
+>>> [phoneNumRegex.findall('Cell: 415-555-9999 Work:
+212-555-0000')]\
+\[('415', '555', '9999'), ('212', '555', '0000')\]
 
 To summarize what the [findall()] method returns, remember the
 following:
@@ -670,12 +670,12 @@ following:
 -   When called on a regex with no groups, such as
     [\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d], the method
     [findall()] returns a list of string matches, such as
-    [\[\'415-555-9999\', \'212-555-0000\'\]].
+    [\['415-555-9999', '212-555-0000'\]].
 -   When called on a regex that has groups, such as
     [(\\d\\d\\d)-(\\d\\d\\d)-(\\d\\d\\d\\d)], the method
     [findall()] returns a list of tuples of strings (one
-    string for each group), such as [\[(\'415\', \'555\', \'9999\'),
-    (\'212\', \'555\', \'0000\')\]].
+    string for each group), such as [\[('415', '555', '9999'),
+    ('212', '555', '0000')\]].
 
 ### **Character Classes** 
 
@@ -710,15 +710,15 @@ next.)
 
 For example, enter the following into the interactive shell:
 
-\>\>\> [xmasRegex = re.compile(r\'\\d+\\s\\w+\')]\
-\>\>\> [xmasRegex.findall(\'12 drummers, 11 pipers, 10 lords, 9 ladies,
+>>> [xmasRegex = re.compile(r'\\d+\\s\\w+')]\
+>>> [xmasRegex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies,
 8 maids, 7]\
 [swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, 1
-partridge\')]\
-\[\'12 drummers\', \'11 pipers\', \'10 lords\', \'9 ladies\', \'8
-maids\', \'7 swans\', \'6\
-geese\', \'5 rings\', \'4 birds\', \'3 hens\', \'2 doves\', \'1
-partridge\'\]
+partridge')]\
+\['12 drummers', '11 pipers', '10 lords', '9 ladies', '8
+maids', '7 swans', '6\
+geese', '5 rings', '4 birds', '3 hens', '2 doves', '1
+partridge'\]
 
 The regular expression [\\d+\\s\\w+] will match text that has
 one or more numeric digits ([\\d+]), followed by a whitespace
@@ -736,11 +736,11 @@ character class using square brackets. For example, the character class
 [\[aeiouAEIOU\]] will match any vowel, both lowercase and
 uppercase. Enter the following into the interactive shell:
 
-\>\>\> [vowelRegex = re.compile(r\'\[aeiouAEIOU\]\')]\
-\>\>\> [vowelRegex.findall(\'RoboCop eats baby food. BABY
-FOOD.\')]\
-\[\'o\', \'o\', \'o\', \'e\', \'a\', \'a\', \'o\', \'o\', \'A\', \'O\',
-\'O\'\]
+>>> [vowelRegex = re.compile(r'\[aeiouAEIOU\]')]\
+>>> [vowelRegex.findall('RoboCop eats baby food. BABY
+FOOD.')]\
+\['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O',
+'O'\]
 
 []{#calibre_link-749 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You can also include ranges of letters or numbers
@@ -762,13 +762,13 @@ negative character class will match all the characters that are *not* in
 the character class. For example, enter the following into the
 interactive shell:
 
-\>\>\> [consonantRegex =
-re.compile(r\'\[\^aeiouAEIOU\]\')]\
-\>\>\> [consonantRegex.findall(\'RoboCop eats baby food. BABY
-FOOD.\')]\
-\[\'R\', \'b\', \'C\', \'p\', \' \', \'t\', \'s\', \' \', \'b\', \'b\',
-\'y\', \' \', \'f\', \'d\', \'.\', \'\
-\', \'B\', \'B\', \'Y\', \' \', \'F\', \'D\', \'.\'\]
+>>> [consonantRegex =
+re.compile(r'\[\^aeiouAEIOU\]')]\
+>>> [consonantRegex.findall('RoboCop eats baby food. BABY
+FOOD.')]\
+\['R', 'b', 'C', 'p', ' ', 't', 's', ' ', 'b', 'b',
+'y', ' ', 'f', 'd', '.', '\
+', 'B', 'B', 'Y', ' ', 'F', 'D', '.'\]
 
 Now, instead of matching every vowel, we're matching every character
 that isn't a vowel.
@@ -783,40 +783,40 @@ pattern. And you can use the [\^] and [\$] together
 to indicate that the entire string must match the regex---that is, it's
 not enough for a match to be made on some subset of the string.
 
-For example, the [r\'\^Hello\'] regular expression string
-matches strings that begin with [\'Hello\']. Enter the
+For example, the [r'\^Hello'] regular expression string
+matches strings that begin with ['Hello']. Enter the
 following into the interactive shell:
 
-\>\>\> [beginsWithHello = re.compile(r\'\^Hello\')]\
-\>\>\> [beginsWithHello.search(\'Hello, world!\')]\
-\<re.Match object; span=(0, 5), match=\'Hello\'\>\
-\>\>\> [beginsWithHello.search(\'He said hello.\') ==
+>>> [beginsWithHello = re.compile(r'\^Hello')]\
+>>> [beginsWithHello.search('Hello, world!')]\
+<re.Match object; span=(0, 5), match='Hello'>\
+>>> [beginsWithHello.search('He said hello.') ==
 None]\
 True
 
-The [r\'\\d\$\'] regular expression string matches strings
+The [r'\\d\$'] regular expression string matches strings
 that end with a numeric character from 0 to 9. Enter the following into
 the interactive shell:
 
-\>\>\> [endsWithNumber = re.compile(r\'\\d\$\')]\
-\>\>\> [endsWithNumber.search(\'Your number is 42\')]\
-\<re.Match object; span=(16, 17), match=\'2\'\>\
-\>\>\> [endsWithNumber.search(\'Your number is forty two.\') ==
+>>> [endsWithNumber = re.compile(r'\\d\$')]\
+>>> [endsWithNumber.search('Your number is 42')]\
+<re.Match object; span=(16, 17), match='2'>\
+>>> [endsWithNumber.search('Your number is forty two.') ==
 None]\
 True
 
 []{#calibre_link-755 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The [r\'\^\\d+\$\'] regular expression
+ops}type="pagebreak"}The [r'\^\\d+\$'] regular expression
 string matches strings that both begin and end with one or more numeric
 characters. Enter the following into the interactive shell:
 
-\>\>\> [wholeStringIsNum = re.compile(r\'\^\\d+\$\')]\
-\>\>\> [wholeStringIsNum.search(\'1234567890\')]\
-\<re.Match object; span=(0, 10), match=\'1234567890\'\>\
-\>\>\> [wholeStringIsNum.search(\'12345xyz67890\') ==
+>>> [wholeStringIsNum = re.compile(r'\^\\d+\$')]\
+>>> [wholeStringIsNum.search('1234567890')]\
+<re.Match object; span=(0, 10), match='1234567890'>\
+>>> [wholeStringIsNum.search('12345xyz67890') ==
 None]\
 True\
-\>\>\> [wholeStringIsNum.search(\'12  34567890\') ==
+>>> [wholeStringIsNum.search('12  34567890') ==
 None]\
 True
 
@@ -834,10 +834,10 @@ The [.] (or *dot*) character in a regular expression is called
 a *wildcard* and will match any character except for a newline. For
 example, enter the following into the interactive shell:
 
-\>\>\> [atRegex = re.compile(r\'.at\')]\
-\>\>\> [atRegex.findall(\'The cat in the hat sat on the flat
-mat.\')]\
-\[\'cat\', \'hat\', \'sat\', \'lat\', \'mat\'\]
+>>> [atRegex = re.compile(r'.at')]\
+>>> [atRegex.findall('The cat in the hat sat on the flat
+mat.')]\
+\['cat', 'hat', 'sat', 'lat', 'mat'\]
 
 Remember that the dot character will match just one character, which is
 why the match for the text [flat] in the previous example
@@ -847,8 +847,8 @@ with a backslash: [\\.].
 #### ***Matching Everything with Dot-Star*** 
 
 Sometimes you will want to match everything and anything. For example,
-say you want to match the string [\'First Name:\'], followed
-by any and all text, followed by [\'Last Name:\'], and then
+say you want to match the string ['First Name:'], followed
+by any and all text, followed by ['Last Name:'], and then
 followed by anything again. You can use the dot-star ([.\*])
 to stand in for that "anything." Remember that the dot character means
 "any single character except the newline," and the star character means
@@ -856,14 +856,14 @@ to stand in for that "anything." Remember that the dot character means
 
 Enter the following into the interactive shell:
 
-\>\>\> [nameRegex = re.compile(r\'First Name: (.\*) Last Name:
-(.\*)\')]\
-\>\>\> [mo = nameRegex.search(\'First Name: Al Last Name:
-Sweigart\')]\
-\>\>\> [mo.group(1)]\
-\'Al\'\
-\>\>\> [mo.group(2)]\
-\'Sweigart\'
+>>> [nameRegex = re.compile(r'First Name: (.\*) Last Name:
+(.\*)')]\
+>>> [mo = nameRegex.search('First Name: Al Last Name:
+Sweigart')]\
+>>> [mo.group(1)]\
+'Al'\
+>>> [mo.group(2)]\
+'Sweigart'
 
 []{#calibre_link-747 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The dot-star uses *greedy* mode: It will always try
@@ -875,25 +875,25 @@ match in a non-greedy way.
 Enter the following into the interactive shell to see the difference
 between the greedy and non-greedy versions:
 
-\>\>\> [nongreedyRegex = re.compile(r\'\<.\*?\>\')]\
-\>\>\> [mo = nongreedyRegex.search(\'\<To serve man\> for
-dinner.\>\')]\
-\>\>\> [mo.group()]\
-\'\<To serve man\>\'\
+>>> [nongreedyRegex = re.compile(r'<.\*?>')]\
+>>> [mo = nongreedyRegex.search('<To serve man> for
+dinner.>')]\
+>>> [mo.group()]\
+'<To serve man>'\
 \
-\>\>\> [greedyRegex = re.compile(r\'\<.\*\>\')]\
-\>\>\> [mo = greedyRegex.search(\'\<To serve man\> for
-dinner.\>\')]\
-\>\>\> [mo.group()]\
-\'\<To serve man\> for dinner.\>\'
+>>> [greedyRegex = re.compile(r'<.\*>')]\
+>>> [mo = greedyRegex.search('<To serve man> for
+dinner.>')]\
+>>> [mo.group()]\
+'<To serve man> for dinner.>'
 
 Both regexes roughly translate to "Match an opening angle bracket,
 followed by anything, followed by a closing angle bracket." But the
-string [\'\<To serve man\> for dinner.\>\'] has two possible
+string ['<To serve man> for dinner.>'] has two possible
 matches for the closing angle bracket. In the non-greedy version of the
-regex, Python matches the shortest possible string: [\'\<To serve
-man\>\']. In the greedy version, Python matches the longest
-possible string: [\'\<To serve man\> for dinner.\>\'].
+regex, Python matches the shortest possible string: ['<To serve
+man>']. In the greedy version, Python matches the longest
+possible string: ['<To serve man> for dinner.>'].
 
 #### ***Matching Newlines with the Dot Character*** 
 
@@ -904,18 +904,18 @@ characters, including the newline character.
 
 Enter the following into the interactive shell:
 
-\>\>\> [noNewlineRegex = re.compile(\'.\*\')]\
-\>\>\> [noNewlineRegex.search(\'Serve the public trust.\\nProtect the
+>>> [noNewlineRegex = re.compile('.\*')]\
+>>> [noNewlineRegex.search('Serve the public trust.\\nProtect the
 innocent.]\
-[\\nUphold the law.\').group()]\
-\'Serve the public trust.\'\
+[\\nUphold the law.').group()]\
+'Serve the public trust.'\
 \
 \
-\>\>\> [newlineRegex = re.compile(\'.\*\', re.DOTALL)]\
-\>\>\> [newlineRegex.search(\'Serve the public trust.\\nProtect the
+>>> [newlineRegex = re.compile('.\*', re.DOTALL)]\
+>>> [newlineRegex.search('Serve the public trust.\\nProtect the
 innocent.]\
-[\\nUphold the law.\').group()]\
-\'Serve the public trust.\\nProtect the innocent.\\nUphold the law.\'
+[\\nUphold the law.').group()]\
+'Serve the public trust.\\nProtect the innocent.\\nUphold the law.'
 
 The regex [noNewlineRegex], which did not have
 [re.DOTALL] passed to the [re.compile()] call that
@@ -958,10 +958,10 @@ Normally, regular expressions match text with the exact casing you
 specify. For example, the following regexes match completely different
 strings:
 
-\>\>\> [regex1 = re.compile(\'RoboCop\')]\
-\>\>\> [regex2 = re.compile(\'ROBOCOP\')]\
-\>\>\> [regex3 = re.compile(\'robOcop\')]\
-\>\>\> [regex4 = re.compile(\'RobocOp\')]
+>>> [regex1 = re.compile('RoboCop')]\
+>>> [regex2 = re.compile('ROBOCOP')]\
+>>> [regex3 = re.compile('robOcop')]\
+>>> [regex4 = re.compile('RobocOp')]
 
 But sometimes you care only about matching the letters without worrying
 whether they're uppercase or lowercase. To make your regex
@@ -969,18 +969,18 @@ case-insensitive, you can pass [re.IGNORECASE] or
 [re.I] as a second argument to [re.compile()]. Enter
 the following into the interactive shell:
 
-\>\>\> [robocop = re.compile(r\'robocop\', re.I)]\
-\>\>\> [robocop.search(\'RoboCop is part man, part machine, all
-cop.\').group()]\
-\'RoboCop\'\
+>>> [robocop = re.compile(r'robocop', re.I)]\
+>>> [robocop.search('RoboCop is part man, part machine, all
+cop.').group()]\
+'RoboCop'\
 \
-\>\>\> [robocop.search(\'ROBOCOP protects the
-innocent.\').group()]\
-\'ROBOCOP\'\
+>>> [robocop.search('ROBOCOP protects the
+innocent.').group()]\
+'ROBOCOP'\
 \
-\>\>\> [robocop.search(\'Al, why does your programming book talk about
-robocop so much?\').group()]\
-\'robocop\'
+>>> [robocop.search('Al, why does your programming book talk about
+robocop so much?').group()]\
+'robocop'
 
 ### []**Substituting Strings with the sub() Method** 
 
@@ -993,10 +993,10 @@ string with the substitutions applied.
 
 For example, enter the following into the interactive shell:
 
-\>\>\> [namesRegex = re.compile(r\'Agent \\w+\')]\
-\>\>\> [namesRegex.sub(\'CENSORED\', \'Agent Alice gave the secret
-documents to Agent Bob.\')]\
-\'CENSORED gave the secret documents to CENSORED.\'
+>>> [namesRegex = re.compile(r'Agent \\w+')]\
+>>> [namesRegex.sub('CENSORED', 'Agent Alice gave the secret
+documents to Agent Bob.')]\
+'CENSORED gave the secret documents to CENSORED.'
 
 Sometimes you may need to use the matched text itself as part of the
 substitution. In the first argument to [sub()], you can type
@@ -1007,18 +1007,18 @@ and so on, in the substitution."
 For example, say you want to censor the names of the secret agents by
 showing just the first letters of their names. To do this, you could use
 the regex [Agent (\\w)\\w\*] and pass
-[r\'\\1\*\*\*\*\'] as the first argument to [sub()].
+[r'\\1\*\*\*\*'] as the first argument to [sub()].
 The [\\1] in that string will be replaced by whatever text was
 matched by group [1]---that is, the [(\\w)] group of
 the regular expression.
 
-\>\>\> [agentNamesRegex = re.compile(r\'Agent
-(\\w)\\w\*\')]\
-\>\>\> [agentNamesRegex.sub(r\'\\1\*\*\*\*\', \'Agent Alice told Agent
+>>> [agentNamesRegex = re.compile(r'Agent
+(\\w)\\w\*')]\
+>>> [agentNamesRegex.sub(r'\\1\*\*\*\*', 'Agent Alice told Agent
 Carol that Agent]\
-[Eve knew Agent Bob was a double agent.\')]\
+[Eve knew Agent Bob was a double agent.')]\
 A\*\*\*\* told C\*\*\*\* that E\*\*\*\* knew B\*\*\*\* was a double
-agent.\'
+agent.'
 
 ### **Managing Complex Regexes** 
 
@@ -1033,13 +1033,13 @@ by passing the variable [re.VERBOSE] as the second argument to
 Now instead of a hard-to-read regular expression like this:
 
 phoneRegex =
-re.compile(r\'((\\d{3}\|\\(\\d{3}\\))?(\\s\|-\|\\.)?\\d{3}(\\s\|-\|\\.)\\d{4}\
-(\\s\*(ext\|x\|ext.)\\s\*\\d{2,5})?)\')
+re.compile(r'((\\d{3}\|\\(\\d{3}\\))?(\\s\|-\|\\.)?\\d{3}(\\s\|-\|\\.)\\d{4}\
+(\\s\*(ext\|x\|ext.)\\s\*\\d{2,5})?)')
 
 you can spread the regular expression over multiple lines with comments
 like this:
 
-phoneRegex = re.compile(r\'\'\'(\
+phoneRegex = re.compile(r'''(\
     (\\d{3}\|\\(\\d{3}\\))?            # area code\
     (\\s\|-\|\\.)?                    # separator\
     \\d{3}                         # first 3 digits\
@@ -1048,10 +1048,10 @@ phoneRegex = re.compile(r\'\'\'(\
 []{#calibre_link-817 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    (\\s\*(ext\|x\|ext.)\\s\*\\d{2,5})?  #
 extension\
-    )\'\'\', re.VERBOSE)
+    )''', re.VERBOSE)
 
 Note how the previous example uses the triple-quote syntax
-([\'\'\']) to create a multiline string so that you can spread
+([''']) to create a multiline string so that you can spread
 the regular expression definition over many lines, making it much more
 legible.
 
@@ -1077,12 +1077,12 @@ So if you want a regular expression that's case-insensitive *and*
 includes newlines to match the dot character, you would form your
 [re.compile()] call like this:
 
-\>\>\> [someRegexValue = re.compile(\'foo\', re.IGNORECASE \|
+>>> [someRegexValue = re.compile('foo', re.IGNORECASE \|
 re.DOTALL)]
 
 Including all three options in the second argument will look like this:
 
-\>\>\> [someRegexValue = re.compile(\'foo\', re.IGNORECASE \| re.DOTALL
+>>> [someRegexValue = re.compile('foo', re.IGNORECASE \| re.DOTALL
 \| re.VERBOSE)]
 
 This syntax is a little old-fashioned and originates from early versions
@@ -1146,14 +1146,14 @@ clipboard.\
 \
 import pyperclip, re\
 \
-phoneRegex = re.compile(r\'\'\'(\
+phoneRegex = re.compile(r'''(\
     (\\d{3}\|\\(\\d{3}\\))?                # area code\
     (\\s\|-\|\\.)?                        # separator\
     (\\d{3})                           # first 3 digits\
     (\\s\|-\|\\.)                         # separator\
     (\\d{4})                           # last 4 digits\
     (\\s\*(ext\|x\|ext.)\\s\*(\\d{2,5}))?    # extension\
-    )\'\'\', re.VERBOSE)\
+    )''', re.VERBOSE)\
 \
 \# TODO: Create email regex.\
 \
@@ -1201,11 +1201,11 @@ clipboard.\
 \
 import pyperclip, re\
 \
-phoneRegex = re.compile(r\'\'\'(\
+phoneRegex = re.compile(r'''(\
 \--[snip]\--\
 \
 [\# Create email regex.]\
-[emailRegex = re.compile(r\'\'\'(]\
+[emailRegex = re.compile(r'''(]\
 [  ][➊] [\[a-zA-Z0-9.\_%+-\]+      #
 username]\
 [  ][➋] [@                      # @
@@ -1213,7 +1213,7 @@ symbol]\
 [  ][➌] [\[a-zA-Z0-9.-\]+         # domain
 name]\
 [    (\\.\[a-zA-Z\]{2,4})       # dot-something]\
-[    )\'\'\', re.VERBOSE)]\
+[    )''', re.VERBOSE)]\
 \
 \# TODO: Find matches in clipboard text.\
 \
@@ -1253,7 +1253,7 @@ clipboard.\
 \
    import pyperclip, re\
 \
-   phoneRegex = re.compile(r\'\'\'(\
+   phoneRegex = re.compile(r'''(\
    \--[snip]\--\
 \
    [\# Find matches in clipboard text.]\
@@ -1261,10 +1261,10 @@ clipboard.\
 \
 [➊] [matches = \[\]]\
 [➋] [for groups in phoneRegex.findall(text):]\
-[       phoneNum = \'-\'.join(\[groups\[1\], groups\[3\],
+[       phoneNum = '-'.join(\[groups\[1\], groups\[3\],
 groups\[5\]\])]\
-[       if groups\[8\] != \'\':]\
-[           phoneNum += \' x\' + groups\[8\]]\
+[       if groups\[8\] != '':]\
+[           phoneNum += ' x' + groups\[8\]]\
 [       matches.append(phoneNum)]\
 [➌] [for groups in emailRegex.findall(text):]\
 [       matches.append(groups\[0\])]\
@@ -1311,13 +1311,13 @@ for groups in emailRegex.findall(text):\
     matches.append(groups\[0\])\
 \
 [\# Copy results to the clipboard.]\
-[if len(matches) \> 0:]\
-[    pyperclip.copy(\'\\n\'.join(matches))]\
-[    print(\'Copied to clipboard:\')]\
-[    print(\'\\n\'.join(matches))]\
+[if len(matches) > 0:]\
+[    pyperclip.copy('\\n'.join(matches))]\
+[    print('Copied to clipboard:')]\
+[    print('\\n'.join(matches))]\
 [else:]\
-[    print(\'No phone numbers or email addresses
-found.\')]
+[    print('No phone numbers or email addresses
+found.')]
 
 #### ***Running the Program*** 
 
@@ -1390,7 +1390,7 @@ the actual strings that match the pattern from a [Match]
 object?
 
 [5](#calibre_link-1149). In the regex
-created from [r\'(\\d\\d\\d)-(\\d\\d\\d-\\d\\d\\d\\d)\'], what
+created from [r'(\\d\\d\\d)-(\\d\\d\\d-\\d\\d\\d\\d)'], what
 does group [0] cover? Group [1]? Group
 [2]?
 
@@ -1442,8 +1442,8 @@ a regular expression case-insensitive?
 [re.compile()]?
 
 [18](#calibre_link-1162). If [numRegex =
-re.compile(r\'\\d+\')], what will [numRegex.sub(\'X\', \'12
-drummers, 11 pipers, five rings, 3 hens\')] return?
+re.compile(r'\\d+')], what will [numRegex.sub('X', '12
+drummers, 11 pipers, five rings, 3 hens')] return?
 
 [19](#calibre_link-1163). What does
 passing [re.VERBOSE] as the second argument to
@@ -1453,15 +1453,15 @@ passing [re.VERBOSE] as the second argument to
 write a regex that matches a number with commas for every three digits?
 It must match the following:
 
--   [\'42\']
--   [\'1,234\']
--   [\'6,368,745\']
+-   ['42']
+-   ['1,234']
+-   ['6,368,745']
 
 but not the following:
 
--   [\'12,34,567\'] (which has only two digits between the
+-   ['12,34,567'] (which has only two digits between the
     commas)
--   [\'1234\'] (which lacks commas)
+-   ['1234'] (which lacks commas)
 
 [21](#calibre_link-1165). How would you
 write a regex that matches the full name of someone whose last name is
@@ -1469,18 +1469,18 @@ Watanabe? You can assume that the first name that comes before it will
 always be one word that begins with a capital letter. The regex must
 match the following:
 
--   [\'Haruto Watanabe\']
--   [\'Alice Watanabe\']
--   [\'RoboCop Watanabe\']
+-   ['Haruto Watanabe']
+-   ['Alice Watanabe']
+-   ['RoboCop Watanabe']
 
 but not the following:
 
--   [\'haruto Watanabe\'] (where the first name is not
+-   ['haruto Watanabe'] (where the first name is not
     capitalized)
--   [\'Mr. Watanabe\'] (where the preceding word has a
+-   ['Mr. Watanabe'] (where the preceding word has a
     nonletter character)
--   [\'Watanabe\'] (which has no first name)
--   [\'Haruto watanabe\'] (where Watanabe is not capitalized)
+-   ['Watanabe'] (which has no first name)
+-   ['Haruto watanabe'] (where Watanabe is not capitalized)
 
 [22](#calibre_link-1166). How would you
 write a regex that matches a sentence where the first word is either
@@ -1489,18 +1489,18 @@ write a regex that matches a sentence where the first word is either
 sentence ends with a period? This regex should be case-insensitive. It
 must match the following:
 
--   [\'Alice eats apples.\']
--   [\'Bob pets cats.\']
--   [\'Carol throws baseballs.\']
--   [\'Alice throws Apples.\']
--   [\'BOB EATS CATS.\']
+-   ['Alice eats apples.']
+-   ['Bob pets cats.']
+-   ['Carol throws baseballs.']
+-   ['Alice throws Apples.']
+-   ['BOB EATS CATS.']
 
 []{#calibre_link-1774 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}but not the following:
 
--   [\'RoboCop eats apples.\']
--   [\'ALICE THROWS FOOTBALLS.\']
--   [\'Carol eats 7 cats.\']
+-   ['RoboCop eats apples.']
+-   ['ALICE THROWS FOOTBALLS.']
+-   ['Carol eats 7 cats.']
 
 ### **Practice Projects** 
 

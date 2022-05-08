@@ -24,7 +24,7 @@ A *list* is a value that contains multiple values in an ordered
 sequence. The term *list value* refers to the list itself (which is a
 value that can be stored in a variable or passed to a function like any
 other value), not the values inside the list value. A list value looks
-like this: [\[\'cat\', \'bat\', \'rat\', \'elephant\'\]]. Just
+like this: [\['cat', 'bat', 'rat', 'elephant'\]]. Just
 as string values are typed with quote characters to mark where the
 string begins and ends, a list begins with an opening square bracket and
 ends with a closing square bracket, [\[\]]. Values inside the
@@ -32,29 +32,29 @@ list are also called *items*. Items are separated with commas (that is,
 they are *comma-delimited*). For example, enter the following into the
 interactive shell:
 
-   \>\>\> [\[1, 2, 3\]]\
+   >>> [\[1, 2, 3\]]\
    \[1, 2, 3\]\
-   \>\>\> [\[\'cat\', \'bat\', \'rat\', \'elephant\'\]]\
-   \[\'cat\', \'bat\', \'rat\', \'elephant\'\]\
-   \>\>\> [\[\'hello\', 3.1415, True, None, 42\]]\
-   \[\'hello\', 3.1415, True, None, 42\]\
-[➊] \>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-   \>\>\> [spam]\
-   \[\'cat\', \'bat\', \'rat\', \'elephant\'\]
+   >>> [\['cat', 'bat', 'rat', 'elephant'\]]\
+   \['cat', 'bat', 'rat', 'elephant'\]\
+   >>> [\['hello', 3.1415, True, None, 42\]]\
+   \['hello', 3.1415, True, None, 42\]\
+[➊] >>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+   >>> [spam]\
+   \['cat', 'bat', 'rat', 'elephant'\]
 
 The [spam] variable [➊] is still assigned only one
 value: the list value. But the list value itself contains other values.
 The value [\[\]] is an empty list that contains no values,
-similar to [\'\'], the empty string.
+similar to [''], the empty string.
 
 #### ***Getting Individual Values in a List with Indexes*** !
 
-Say you have the list [\[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]] stored in a variable named [spam].
+Say you have the list [\['cat', 'bat', 'rat',
+'elephant'\]] stored in a variable named [spam].
 The Python code [spam\[0\]] would evaluate to
-[\'cat\'], and [spam\[1\]] would evaluate to
-[\'bat\'], and so on. The integer inside the square brackets
+['cat'], and [spam\[1\]] would evaluate to
+['bat'], and so on. The integer inside the square brackets
 that follows the list is called an *index*. The first value in the list
 is at index [0], the second value is at index [1],
 the third value is at index [2], and so on. [Figure
@@ -74,74 +74,74 @@ showing which value each index refers to*
 For example, enter the following expressions into the interactive shell.
 Start by assigning a list to the variable [spam].
 
-   \>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-   \>\>\> [spam\[0\]]\
-   \'cat\'\
+   >>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+   >>> [spam\[0\]]\
+   'cat'\
  []{#calibre_link-1008 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}  \>\>\> [spam\[1\]]\
-   \'bat\'\
-   \>\>\> [spam\[2\]]\
-   \'rat\'\
-   \>\>\> [spam\[3\]]\
-   \'elephant\'\
-   \>\>\> [\[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]\[3\]]\
-   \'elephant\'\
-[➊] \>\>\> [\'Hello, \' + spam\[0\]]\
-[➋] \'Hello, cat\'\
-   \>\>\> [\'The \' + spam\[1\] + \' ate the \' + spam\[0\] +
-\'.\']\
-   \'The bat ate the cat.\'
+ops}type="pagebreak"}  >>> [spam\[1\]]\
+   'bat'\
+   >>> [spam\[2\]]\
+   'rat'\
+   >>> [spam\[3\]]\
+   'elephant'\
+   >>> [\['cat', 'bat', 'rat',
+'elephant'\]\[3\]]\
+   'elephant'\
+[➊] >>> ['Hello, ' + spam\[0\]]\
+[➋] 'Hello, cat'\
+   >>> ['The ' + spam\[1\] + ' ate the ' + spam\[0\] +
+'.']\
+   'The bat ate the cat.'
 
-Notice that the expression [\'Hello, \' + spam\[0\]] [➊]
-evaluates to [\'Hello, \' + \'cat\'] because
-[spam\[0\]] evaluates to the string [\'cat\']. This
-expression in turn evaluates to the string value [\'Hello,
-cat\'] [➋].
+Notice that the expression ['Hello, ' + spam\[0\]] [➊]
+evaluates to ['Hello, ' + 'cat'] because
+[spam\[0\]] evaluates to the string ['cat']. This
+expression in turn evaluates to the string value ['Hello,
+cat'] [➋].
 
 Python will give you an [IndexError] error message if you use
 an index that exceeds the number of values in your list value.
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[10000\]]\
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[10000\]]\
 Traceback (most recent call last):\
-  File \"\<pyshell#9\>\", line 1, in \<module\>\
+  File "<pyshell#9>", line 1, in <module>\
     spam\[10000\]\
 IndexError: list index out of range
 
 Indexes can be only integer values, not floats. The following example
 will cause a [TypeError] error:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[1\]]\
-\'bat\'\
-\>\>\> [spam\[1.0\]]\
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[1\]]\
+'bat'\
+>>> [spam\[1.0\]]\
 Traceback (most recent call last):\
-  File \"\<pyshell#13\>\", line 1, in \<module\>\
+  File "<pyshell#13>", line 1, in <module>\
     spam\[1.0\]\
 TypeError: list indices must be integers or slices, not float\
-\>\>\> [spam\[int(1.0)\]]\
-\'bat\'
+>>> [spam\[int(1.0)\]]\
+'bat'
 
 Lists can also contain other list values. The values in these lists of
 lists can be accessed using multiple indexes, like so:
 
-\>\>\> [spam = \[\[\'cat\', \'bat\'\], \[10, 20, 30, 40,
+>>> [spam = \[\['cat', 'bat'\], \[10, 20, 30, 40,
 50\]\]]\
-\>\>\> [spam\[0\]]\
-\[\'cat\', \'bat\'\]\
-\>\>\> [spam\[0\]\[1\]]\
-\'bat\'\
-\>\>\> [spam\[1\]\[4\]]\
+>>> [spam\[0\]]\
+\['cat', 'bat'\]\
+>>> [spam\[0\]\[1\]]\
+'bat'\
+>>> [spam\[1\]\[4\]]\
 50
 
 []{#calibre_link-754 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The first index dictates which list value to use,
 and the second indicates the value within the list value. For example,
-[spam\[0\]\[1\]] prints [\'bat\'], the second value
+[spam\[0\]\[1\]] prints ['bat'], the second value
 in the first list. If you only use one index, the program will print the
 full list value at that index.
 
@@ -153,15 +153,15 @@ to the last index in a list, the value [-2] refers to the
 second-to-last index in a list, and so on. Enter the following into the
 interactive shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[-1\]]\
-\'elephant\'\
-\>\>\> [spam\[-3\]]\
-\'bat\'\
-\>\>\> [\'The \' + spam\[-1\] + \' is afraid of the \' + spam\[-3\] +
-\'.\']\
-\'The elephant is afraid of the bat.\'
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[-1\]]\
+'elephant'\
+>>> [spam\[-3\]]\
+'bat'\
+>>> ['The ' + spam\[-1\] + ' is afraid of the ' + spam\[-3\] +
+'.']\
+'The elephant is afraid of the bat.'
 
 #### ***Getting a List from Another List with Slices*** !
 
@@ -178,14 +178,14 @@ second integer is the index where the slice ends. A slice goes up to,
 but will not include, the value at the second index. A slice evaluates
 to a new list value. Enter the following into the interactive shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[0:4\]]\
-\[\'cat\', \'bat\', \'rat\', \'elephant\'\]\
-\>\>\> [spam\[1:3\]]\
-\[\'bat\', \'rat\'\]\
-\>\>\> [spam\[0:-1\]]\
-\[\'cat\', \'bat\', \'rat\'\]
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[0:4\]]\
+\['cat', 'bat', 'rat', 'elephant'\]\
+>>> [spam\[1:3\]]\
+\['bat', 'rat'\]\
+>>> [spam\[0:-1\]]\
+\['cat', 'bat', 'rat'\]
 
 As a shortcut, you can leave out one or both of the indexes on either
 side of the colon in the slice. Leaving out the first index is the same
@@ -194,15 +194,15 @@ second index is the same as using the length of the list, which will
 slice to the end of the list. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[:2\]]\
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[:2\]]\
 []{#calibre_link-769 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\[\'cat\', \'bat\'\]\
-\>\>\> [spam\[1:\]]\
-\[\'bat\', \'rat\', \'elephant\'\]\
-\>\>\> [spam\[:\]]\
-\[\'cat\', \'bat\', \'rat\', \'elephant\'\]
+ops}type="pagebreak"}\['cat', 'bat'\]\
+>>> [spam\[1:\]]\
+\['bat', 'rat', 'elephant'\]\
+>>> [spam\[:\]]\
+\['cat', 'bat', 'rat', 'elephant'\]
 
 #### ***Getting a List's Length with the len() Function*** !
 
@@ -211,8 +211,8 @@ in a list value passed to it, just like it can count the number of
 characters in a string value. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'cat\', \'dog\', \'moose\'\]]\
-\>\>\> [len(spam)]\
+>>> [spam = \['cat', 'dog', 'moose'\]]\
+>>> [len(spam)]\
 3
 
 #### ***Changing Values in a List with Indexes*** !
@@ -220,22 +220,22 @@ shell:
 Normally, a variable name goes on the left side of an assignment
 statement, like [spam = 42]. However, you can also use an
 index of a list to change the value at that index. For example,
-[spam\[1\] = \'aardvark\'] means "Assign the value at index
+[spam\[1\] = 'aardvark'] means "Assign the value at index
 [1] in the list [spam] to the string
-[\'aardvark\']." Enter the following into the interactive
+['aardvark']." Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam\[1\] = \'aardvark\']\
-\>\>\> [spam]\
-\[\'cat\', \'aardvark\', \'rat\', \'elephant\'\]\
-\>\>\> [spam\[2\] = spam\[1\]]\
-\>\>\> [spam]\
-\[\'cat\', \'aardvark\', \'aardvark\', \'elephant\'\]\
-\>\>\> [spam\[-1\] = 12345]\
-\>\>\> [spam]\
-\[\'cat\', \'aardvark\', \'aardvark\', 12345\]
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam\[1\] = 'aardvark']\
+>>> [spam]\
+\['cat', 'aardvark', 'rat', 'elephant'\]\
+>>> [spam\[2\] = spam\[1\]]\
+>>> [spam]\
+\['cat', 'aardvark', 'aardvark', 'elephant'\]\
+>>> [spam\[-1\] = 12345]\
+>>> [spam]\
+\['cat', 'aardvark', 'aardvark', 12345\]
 
 #### ***List Concatenation and List Replication*** !
 
@@ -244,14 +244,14 @@ Lists can be concatenated and replicated just like strings. The
 the [\*] operator can be used with a list and an integer value
 to replicate the list. Enter the following into the interactive shell:
 
-\>\>\> [\[1, 2, 3\] + \[\'A\', \'B\', \'C\'\]]\
-\[1, 2, 3, \'A\', \'B\', \'C\'\]\
-\>\>\> [\[\'X\', \'Y\', \'Z\'\] \* 3]\
-\[\'X\', \'Y\', \'Z\', \'X\', \'Y\', \'Z\', \'X\', \'Y\', \'Z\'\]\
-\>\>\> [spam = \[1, 2, 3\]]\
-\>\>\> [spam = spam + \[\'A\', \'B\', \'C\'\]]\
-\>\>\> [spam]\
-\[1, 2, 3, \'A\', \'B\', \'C\'\]
+>>> [\[1, 2, 3\] + \['A', 'B', 'C'\]]\
+\[1, 2, 3, 'A', 'B', 'C'\]\
+>>> [\['X', 'Y', 'Z'\] \* 3]\
+\['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z'\]\
+>>> [spam = \[1, 2, 3\]]\
+>>> [spam = spam + \['A', 'B', 'C'\]]\
+>>> [spam]\
+\[1, 2, 3, 'A', 'B', 'C'\]
 
 #### ***Removing Values from Lists with del Statements*** !
 
@@ -259,14 +259,14 @@ The [del] statement will delete values at an index in a list.
 All of the values in the list after the deleted value will be moved up
 one index. For example, enter the following into the interactive shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [del spam\[2\]]\
-\>\>\> [spam]\
-\[\'cat\', \'bat\', \'elephant\'\]\
-\>\>\> [del spam\[2\]]\
-\>\>\> [spam]\
-\[\'cat\', \'bat\'\]
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [del spam\[2\]]\
+>>> [spam]\
+\['cat', 'bat', 'elephant'\]\
+>>> [del spam\[2\]]\
+>>> [spam]\
+\['cat', 'bat'\]
 
 The [del] statement can also be used on a simple variable to
 delete it, as if it were an "unassignment" statement. If you try to use
@@ -282,12 +282,12 @@ individual variables to store a group of similar values. For example, if
 I wanted to store the names of my cats, I might be tempted to write code
 like this:
 
-catName1 = \'Zophie\'\
-catName2 = \'Pooka\'\
-catName3 = \'Simon\'\
-catName4 = \'Lady Macbeth\'\
-catName5 = \'Fat-tail\'\
-catName6 = \'Miss Cleo\'
+catName1 = 'Zophie'\
+catName2 = 'Pooka'\
+catName3 = 'Simon'\
+catName4 = 'Lady Macbeth'\
+catName5 = 'Fat-tail'\
+catName6 = 'Miss Cleo'
 
 It turns out that this is a bad way to write code. (Also, I don't
 actually own this many cats, I swear.) For one thing, if the number of
@@ -297,23 +297,23 @@ or nearly identical code in them. Consider how much duplicate code is in
 the following program, which you should enter into the file editor and
 save as *allMyCats1.py*:
 
-print(\'Enter the name of cat 1:\')\
+print('Enter the name of cat 1:')\
 catName1 = input()\
-print(\'Enter the name of cat 2:\')\
+print('Enter the name of cat 2:')\
 catName2 = input()\
-print(\'Enter the name of cat 3:\')\
+print('Enter the name of cat 3:')\
 catName3 = input()\
-print(\'Enter the name of cat 4:\')\
+print('Enter the name of cat 4:')\
 catName4 = input()\
-print(\'Enter the name of cat 5:\')\
+print('Enter the name of cat 5:')\
 catName5 = input()\
-print(\'Enter the name of cat 6:\')\
+print('Enter the name of cat 6:')\
 []{#calibre_link-1732 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}catName6 = input()\
-print(\'The cat names are:\')\
-print(catName1 + \' \' + catName2 + \' \' + catName3 + \' \' +
-catName4 + \' \' +\
-catName5 + \' \' + catName6)
+print('The cat names are:')\
+print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' +
+catName4 + ' ' +\
+catName5 + ' ' + catName6)
 
 Instead of using multiple, repetitive variables, you can use a single
 variable that contains a list value. For example, here's a new and
@@ -324,15 +324,15 @@ a new file editor window, enter the following source code and save it as
 
 catNames = \[\]\
 while True:\
-    print(\'Enter the name of cat \' + str(len(catNames) + 1) +\
-      \' (Or enter nothing to stop.):\')\
+    print('Enter the name of cat ' + str(len(catNames) + 1) +\
+      ' (Or enter nothing to stop.):')\
     name = input()\
-    if name == \'\':\
+    if name == '':\
         break\
     catNames = catNames + \[name\]  # list concatenation\
-print(\'The cat names are:\')\
+print('The cat names are:')\
 for name in catNames:\
-    print(\'  \' + name)
+    print('  ' + name)
 
 When you run this program, the output will look something like this:
 
@@ -402,10 +402,10 @@ A common Python technique is to use
 [for] loop to iterate over the indexes of a list. For example,
 enter the following into the interactive shell:
 
-\>\>\> [supplies = \[\'pens\', \'staplers\', \'flamethrowers\',
-\'binders\'\]]\
-\>\>\> [for i in range(len(supplies)):]\
-\...     [print(\'Index \' + str(i) + \' in supplies is: \' +
+>>> [supplies = \['pens', 'staplers', 'flamethrowers',
+'binders'\]]\
+>>> [for i in range(len(supplies)):]\
+\...     [print('Index ' + str(i) + ' in supplies is: ' +
 supplies\[i\])]\
 \
 Index 0 in supplies is: pens\
@@ -430,16 +430,16 @@ may be []{#calibre_link-820 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}found. These expressions will evaluate to a Boolean
 value. Enter the following into the interactive shell:
 
-\>\>\> [\'howdy\' in \[\'hello\', \'hi\', \'howdy\',
-\'heyas\'\]]\
+>>> ['howdy' in \['hello', 'hi', 'howdy',
+'heyas'\]]\
 True\
-\>\>\> [spam = \[\'hello\', \'hi\', \'howdy\',
-\'heyas\'\]]\
-\>\>\> [\'cat\' in spam]\
+>>> [spam = \['hello', 'hi', 'howdy',
+'heyas'\]]\
+>>> ['cat' in spam]\
 False\
-\>\>\> [\'howdy\' not in spam]\
+>>> ['howdy' not in spam]\
 False\
-\>\>\> [\'cat\' not in spam]\
+>>> ['cat' not in spam]\
 True
 
 For example, the following program lets the user type in a pet name and
@@ -447,13 +447,13 @@ then checks to see whether the name is in a list of pets. Open a new
 file editor window, enter the following code, and save it as
 *myPets.py*:
 
-myPets = \[\'Zophie\', \'Pooka\', \'Fat-tail\'\]\
-print(\'Enter a pet name:\')\
+myPets = \['Zophie', 'Pooka', 'Fat-tail'\]\
+print('Enter a pet name:')\
 name = input()\
 if name not in myPets:\
-    print(\'I do not have a pet named \' + name)\
+    print('I do not have a pet named ' + name)\
 else:\
-    print(name + \' is my pet.\')
+    print(name + ' is my pet.')
 
 The output may look something like this:
 
@@ -470,24 +470,24 @@ The *multiple assignment trick* (technically called *tuple unpacking*)
 is a shortcut that lets you assign multiple variables with the values in
 a list in one line of code. So instead of doing this:
 
-\>\>\> [cat = \[\'fat\', \'gray\', \'loud\'\]]\
-\>\>\> [size = cat\[0\]]\
-\>\>\> [color = cat\[1\]]\
-\>\>\> [disposition = cat\[2\]]
+>>> [cat = \['fat', 'gray', 'loud'\]]\
+>>> [size = cat\[0\]]\
+>>> [color = cat\[1\]]\
+>>> [disposition = cat\[2\]]
 
 you could type this line of code:
 
-\>\>\> [cat = \[\'fat\', \'gray\', \'loud\'\]]\
-\>\>\> [size, color, disposition = cat]
+>>> [cat = \['fat', 'gray', 'loud'\]]\
+>>> [size, color, disposition = cat]
 
 []{#calibre_link-935 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The number of variables and the length of the list
 must be exactly equal, or Python will give you a [ValueError]:
 
-\>\>\> [cat = \[\'fat\', \'gray\', \'loud\'\]]\
-\>\>\> [size, color, disposition, name = cat]\
+>>> [cat = \['fat', 'gray', 'loud'\]]\
+>>> [size, color, disposition, name = cat]\
 Traceback (most recent call last):\
-  File \"\<pyshell#84\>\", line 1, in \<module\>\
+  File "<pyshell#84>", line 1, in <module>\
     size, color, disposition, name = cat\
 ValueError: not enough values to unpack (expected 4, got 3)
 
@@ -503,10 +503,10 @@ itself. For example, this code is equivalent to the code in the "[Using
 for Loops with Lists](#calibre_link-162)" on [page
 84](#calibre_link-710):
 
-\>\>\> [supplies = \[\'pens\', \'staplers\', \'flamethrowers\',
-\'binders\'\]]\
-\>\>\> [for index, item in enumerate(supplies):]\
-\...     [print(\'Index \' + str(index) + \' in supplies is: \' +
+>>> [supplies = \['pens', 'staplers', 'flamethrowers',
+'binders'\]]\
+>>> [for index, item in enumerate(supplies):]\
+\...     [print('Index ' + str(index) + ' in supplies is: ' +
 item)]\
 \
 Index 0 in supplies is: pens\
@@ -524,14 +524,14 @@ for arguments. The [random.choice()] function will return a
 randomly selected item from the list. Enter the following into the
 interactive shell:
 
-\>\>\> [import random]\
-\>\>\> [pets = \[\'Dog\', \'Cat\', \'Moose\'\]]\
-\>\>\> [random.choice(pets)]\
-\'Dog\'\
-\>\>\> [random.choice(pets)]\
-\'Cat\'\
-\>\>\> [random.choice(pets)]\
-\'Cat\'
+>>> [import random]\
+>>> [pets = \['Dog', 'Cat', 'Moose'\]]\
+>>> [random.choice(pets)]\
+'Dog'\
+>>> [random.choice(pets)]\
+'Cat'\
+>>> [random.choice(pets)]\
+'Cat'
 
 You can consider [random.choice(someList)] to be a shorter
 form of [someList\[random.randint(0, len(someList) -- 1\]].
@@ -542,15 +542,15 @@ reorder the items in a list. This function modifies the list in place,
 rather than returning a new list. Enter the following into the
 interactive shell:
 
-\>\>\> [import random]\
-\>\>\> [people = \[\'Alice\', \'Bob\', \'Carol\',
-\'David\'\]]\
-\>\>\> [random.shuffle(people)]\
-\>\>\> [people]\
-\[\'Carol\', \'David\', \'Alice\', \'Bob\'\]\
-\>\>\> [random.shuffle(people)]\
-\>\>\> [people]\
-\[\'Alice\', \'David\', \'Bob\', \'Carol\'\]
+>>> [import random]\
+>>> [people = \['Alice', 'Bob', 'Carol',
+'David'\]]\
+>>> [random.shuffle(people)]\
+>>> [people]\
+\['Carol', 'David', 'Alice', 'Bob'\]\
+>>> [random.shuffle(people)]\
+>>> [people]\
+\['Alice', 'David', 'Bob', 'Carol'\]
 
 ### **Augmented Assignment Operators** !
 
@@ -559,17 +559,17 @@ variable itself. For example, after assigning [42] to the
 variable [spam], you would increase the value in
 [spam] by [1] with the following code:
 
-\>\>\> [spam = 42]\
-\>\>\> [spam = spam + 1]\
-\>\>\> [spam]\
+>>> [spam = 42]\
+>>> [spam = spam + 1]\
+>>> [spam]\
 43
 
 As a shortcut, you can use the augmented assignment operator
 [+=] to do the same thing:
 
-\>\>\> [spam = 42]\
-\>\>\> [spam += 1]\
-\>\>\> [spam]\
+>>> [spam = 42]\
+>>> [spam += 1]\
+>>> [spam]\
 43
 
 There are augmented assignment operators for the [+],
@@ -591,21 +591,21 @@ ops}type="pagebreak"}The [+=] operator can also do string and
 list concatenation, and the [\*=] operator can do string and
 list replication. Enter the following into the interactive shell:
 
-\>\>\> [spam = \'Hello,\']\
-\>\>\> [spam += \' world!\']\
-\>\>\> [spam]\
-\'Hello world!\'\
-\>\>\> [bacon = \[\'Zophie\'\]]\
-\>\>\> [bacon \*= 3]\
-\>\>\> [bacon]\
-\[\'Zophie\', \'Zophie\', \'Zophie\'\]
+>>> [spam = 'Hello,']\
+>>> [spam += ' world!']\
+>>> [spam]\
+'Hello world!'\
+>>> [bacon = \['Zophie'\]]\
+>>> [bacon \*= 3]\
+>>> [bacon]\
+\['Zophie', 'Zophie', 'Zophie'\]
 
 ### **Methods** !
 
 A *method* is the same thing as a function, except it is "called on" a
 value. For example, if a list value were stored in [spam], you
 would call the [index()] list method (which I'll explain
-shortly) on that list like so: [spam.index(\'hello\')]. The
+shortly) on that list like so: [spam.index('hello')]. The
 method part comes after the value, separated by a period.
 
 Each data type has its own set of methods. The list data type, for
@@ -620,26 +620,26 @@ returned. If the value isn't in the list, then Python produces a
 [ValueError] error. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'hello\', \'hi\', \'howdy\',
-\'heyas\'\]]\
-\>\>\> [spam.index(\'hello\')]\
+>>> [spam = \['hello', 'hi', 'howdy',
+'heyas'\]]\
+>>> [spam.index('hello')]\
 0\
-\>\>\> [spam.index(\'heyas\')]\
+>>> [spam.index('heyas')]\
 3\
-\>\>\> [spam.index(\'howdy howdy howdy\')]\
+>>> [spam.index('howdy howdy howdy')]\
 Traceback (most recent call last):\
-  File \"\<pyshell#31\>\", line 1, in \<module\>\
-    spam.index(\'howdy howdy howdy\')\
-ValueError: \'howdy howdy howdy\' is not in list
+  File "<pyshell#31>", line 1, in <module>\
+    spam.index('howdy howdy howdy')\
+ValueError: 'howdy howdy howdy' is not in list
 
 When there are duplicates of the value in the list, the index of its
 first appearance is returned. Enter the following into the interactive
 shell, and notice that [index()] returns [1], not
 [3]:
 
-\>\>\> [spam = \[\'Zophie\', \'Pooka\', \'Fat-tail\',
-\'Pooka\'\]]\
-\>\>\> [spam.index(\'Pooka\')]\
+>>> [spam = \['Zophie', 'Pooka', 'Fat-tail',
+'Pooka'\]]\
+>>> [spam.index('Pooka')]\
 1
 
 #### ***Adding Values to Lists with the append() and insert() Methods*** !
@@ -649,10 +649,10 @@ To add new values to a list, use the [append()] and
 shell to call the [append()] method on a list value stored in
 the variable [spam]:
 
-\>\>\> [spam = \[\'cat\', \'dog\', \'bat\'\]]\
-\>\>\> [spam.append(\'moose\')]\
-\>\>\> [spam]\
-\[\'cat\', \'dog\', \'bat\', \'moose\'\]
+>>> [spam = \['cat', 'dog', 'bat'\]]\
+>>> [spam.append('moose')]\
+>>> [spam]\
+\['cat', 'dog', 'bat', 'moose'\]
 
 The previous [append()] method call adds the argument to the
 end of the list. The [insert()] method can insert a value at
@@ -660,15 +660,15 @@ any index in the list. The first argument to [insert()] is the
 index for the new value, and the second argument is the new value to be
 inserted. Enter the following into the interactive shell:
 
-\>\>\> [spam = \[\'cat\', \'dog\', \'bat\'\]]\
-\>\>\> [spam.insert(1, \'chicken\'])\
-\>\>\> [spam]\
-\[\'cat\', \'chicken\', \'dog\', \'bat\'\]
+>>> [spam = \['cat', 'dog', 'bat'\]]\
+>>> [spam.insert(1, 'chicken'])\
+>>> [spam]\
+\['cat', 'chicken', 'dog', 'bat'\]
 
-Notice that the code is [spam.append(\'moose\')] and
-[spam.insert(1, \'chicken\')], not [spam =
-spam.append(\'moose\')] and [spam = spam.insert(1,
-\'chicken\')]. Neither [append()] nor
+Notice that the code is [spam.append('moose')] and
+[spam.insert(1, 'chicken')], not [spam =
+spam.append('moose')] and [spam = spam.insert(1,
+'chicken')]. Neither [append()] nor
 [insert()] gives the new value of [spam] as its
 return value. (In fact, the return value of [append()] and
 [insert()] is [None], so you definitely wouldn't
@@ -684,18 +684,18 @@ list values, not on other values such as strings or integers. Enter the
 following into the interactive shell, and note the
 [AttributeError] error messages that show up:
 
-\>\>\> [eggs = \'hello\']\
-\>\>\> [eggs.append(\'world\')]\
+>>> [eggs = 'hello']\
+>>> [eggs.append('world')]\
 Traceback (most recent call last):\
-  File \"\<pyshell#19\>\", line 1, in \<module\>\
-    eggs.append(\'world\')\
-AttributeError: \'str\' object has no attribute \'append\'\
-\>\>\> [bacon = 42]\
-\>\>\> [bacon.insert(1, \'world\')]\
+  File "<pyshell#19>", line 1, in <module>\
+    eggs.append('world')\
+AttributeError: 'str' object has no attribute 'append'\
+>>> [bacon = 42]\
+>>> [bacon.insert(1, 'world')]\
 Traceback (most recent call last):\
-  File \"\<pyshell#22\>\", line 1, in \<module\>\
-    bacon.insert(1, \'world\')\
-AttributeError: \'int\' object has no attribute \'insert\'
+  File "<pyshell#22>", line 1, in <module>\
+    bacon.insert(1, 'world')\
+AttributeError: 'int' object has no attribute 'insert'
 
 #### ***Removing Values from Lists with the remove() Method*** !
 
@@ -703,33 +703,33 @@ The [remove()] method is passed the value to be removed from
 the list it is called on. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam.remove(\'bat\')]\
-\>\>\> [spam]\
-\[\'cat\', \'rat\', \'elephant\'\]
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam.remove('bat')]\
+>>> [spam]\
+\['cat', 'rat', 'elephant'\]
 
 Attempting to delete a value that does not exist in the list will result
 in a [ValueError] error. For example, enter the following into
 the interactive shell and notice the error that is displayed:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\',
-\'elephant\'\]]\
-\>\>\> [spam.remove(\'chicken\')]\
+>>> [spam = \['cat', 'bat', 'rat',
+'elephant'\]]\
+>>> [spam.remove('chicken')]\
 Traceback (most recent call last):\
-  File \"\<pyshell#11\>\", line 1, in \<module\>\
-    spam.remove(\'chicken\')\
+  File "<pyshell#11>", line 1, in <module>\
+    spam.remove('chicken')\
 ValueError: list.remove(x): x not in list
 
 If the value appears multiple times in the list, only the first instance
 of the value will be removed. Enter the following into the interactive
 shell:
 
-\>\>\> [spam = \[\'cat\', \'bat\', \'rat\', \'cat\', \'hat\',
-\'cat\'\]]\
-\>\>\> [spam.remove(\'cat\')]\
-\>\>\> [spam]\
-\[\'bat\', \'rat\', \'cat\', \'hat\', \'cat\'\]
+>>> [spam = \['cat', 'bat', 'rat', 'cat', 'hat',
+'cat'\]]\
+>>> [spam.remove('cat')]\
+>>> [spam]\
+\['bat', 'rat', 'cat', 'hat', 'cat'\]
 
 The [del] statement is good to use when you know the index of
 the value you want to remove from the list. The [remove()]
@@ -742,24 +742,24 @@ Lists of number values or lists of strings can be sorted with the
 [sort()] method. For example, enter the following into the
 interactive shell:
 
-\>\>\> [spam = \[2, 5, 3.14, 1, -7\]]\
-\>\>\> [spam.sort()]\
-\>\>\> [spam]\
+>>> [spam = \[2, 5, 3.14, 1, -7\]]\
+>>> [spam.sort()]\
+>>> [spam]\
 \[-7, 1, 2, 3.14, 5\]\
-\>\>\> [spam = \[\'ants\', \'cats\', \'dogs\', \'badgers\',
-\'elephants\'\]]\
-\>\>\> [spam.sort()]\
-\>\>\> [spam]\
-\[\'ants\', \'badgers\', \'cats\', \'dogs\', \'elephants\'\]
+>>> [spam = \['ants', 'cats', 'dogs', 'badgers',
+'elephants'\]]\
+>>> [spam.sort()]\
+>>> [spam]\
+\['ants', 'badgers', 'cats', 'dogs', 'elephants'\]
 
 []{#calibre_link-798 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You can also pass [True] for the
 [reverse] keyword argument to have [sort()] sort the
 values in reverse order. Enter the following into the interactive shell:
 
-\>\>\> [spam.sort(reverse=True)]\
-\>\>\> [spam]\
-\[\'elephants\', \'dogs\', \'cats\', \'badgers\', \'ants\'\]
+>>> [spam.sort(reverse=True)]\
+>>> [spam]\
+\['elephants', 'dogs', 'cats', 'badgers', 'ants'\]
 
 There are three things you should note about the [sort()]
 method. First, the [sort()] method sorts the list in place;
@@ -771,12 +771,12 @@ values in them, since Python doesn't know how to compare these values.
 Enter the following into the interactive shell and notice the
 [TypeError] error:
 
-\>\>\> [spam = \[1, 3, 2, 4, \'Alice\', \'Bob\'\]]\
-\>\>\> [spam.sort()]\
+>>> [spam = \[1, 3, 2, 4, 'Alice', 'Bob'\]]\
+>>> [spam.sort()]\
 Traceback (most recent call last):\
-  File \"\<pyshell#70\>\", line 1, in \<module\>\
+  File "<pyshell#70>", line 1, in <module>\
     spam.sort()\
-TypeError: \'\<\' not supported between instances of \'str\' and \'int\'
+TypeError: '<' not supported between instances of 'str' and 'int'
 
 Third, [sort()] uses "ASCIIbetical order" rather than actual
 alphabetical order for sorting strings. This means uppercase letters
@@ -784,20 +784,20 @@ come before lowercase letters. Therefore, the lowercase *a* is sorted so
 that it comes *after* the uppercase *Z*. For an example, enter the
 following into the interactive shell:
 
-\>\>\> [spam = \[\'Alice\', \'ants\', \'Bob\', \'badgers\', \'Carol\',
-\'cats\'\]]\
-\>\>\> [spam.sort()]\
-\>\>\> [spam]\
-\[\'Alice\', \'Bob\', \'Carol\', \'ants\', \'badgers\', \'cats\'\]
+>>> [spam = \['Alice', 'ants', 'Bob', 'badgers', 'Carol',
+'cats'\]]\
+>>> [spam.sort()]\
+>>> [spam]\
+\['Alice', 'Bob', 'Carol', 'ants', 'badgers', 'cats'\]
 
 If you need to sort the values in regular alphabetical order, pass
 [str.lower] for the [key] keyword argument in the
 [sort()] method call.
 
-\>\>\> [spam = \[\'a\', \'z\', \'A\', \'Z\'\]]\
-\>\>\> [spam.sort(key=str.lower)]\
-\>\>\> [spam]\
-\[\'a\', \'A\', \'z\', \'Z\'\]
+>>> [spam = \['a', 'z', 'A', 'Z'\]]\
+>>> [spam.sort(key=str.lower)]\
+>>> [spam]\
+\['a', 'A', 'z', 'Z'\]
 
 This causes the [sort()] function to treat all the items in
 the list as if they were lowercase without actually changing the values
@@ -809,10 +809,10 @@ If you need to quickly reverse the order of the items in a list, you can
 call the [reverse()] list method. Enter the following into the
 interactive shell:
 
-\>\>\> [spam = \[\'cat\', \'dog\', \'moose\'\]]\
-\>\>\> [spam.reverse()]\
-\>\>\> [spam]\
-\[\'moose\', \'dog\', \'cat\'\]
+>>> [spam = \['cat', 'dog', 'moose'\]]\
+>>> [spam.reverse()]\
+>>> [spam]\
+\['moose', 'dog', 'cat'\]
 
 
 **EXCEPTIONS TO INDENTATION RULES IN PYTHON**
@@ -824,10 +824,10 @@ file. The indentation of these lines does not matter; Python knows that
 the list is not finished until it sees the ending square bracket. For
 example, you can have code that looks like this:
 
-spam = \[\'apples\',\
-    \'oranges\',\
-                    \'bananas\',\
-\'cats\'\]\
+spam = \['apples',\
+    'oranges',\
+                    'bananas',\
+'cats'\]\
 print(spam)
 
 Of course, practically speaking, most people use Python's behavior to
@@ -841,8 +841,8 @@ line." The indentation on the line after a [\\] line
 continuation is not significant. For example, the following is valid
 Python code:
 
-print(\'Four score and seven \' + \\\
-      \'years ago\...\')
+print('Four score and seven ' + \\\
+      'years ago\...')
 
 These tricks are useful when you want to rearrange long lines of Python
 code to be a bit more readable.
@@ -864,16 +864,16 @@ following code. Save it as *magic8Ball2.py*.
 
 import random\
 \
-messages = \[\'It is certain\',\
-    \'It is decidedly so\',\
-    \'Yes definitely\',\
-    \'Reply hazy try again\',\
-    \'Ask again later\',\
-    \'Concentrate and ask again\',\
-    \'My reply is no\',\
+messages = \['It is certain',\
+    'It is decidedly so',\
+    'Yes definitely',\
+    'Reply hazy try again',\
+    'Ask again later',\
+    'Concentrate and ask again',\
+    'My reply is no',\
 []{#calibre_link-709 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    \'Outlook not so good\',\
-    \'Very doubtful\'\]\
+ops}type="pagebreak"}    'Outlook not so good',\
+    'Very doubtful'\]\
 \
 print(messages\[random.randint(0, len(messages) - 1)\])
 
@@ -907,21 +907,21 @@ indexing; slicing; and using them with [for] loops, with
 [len()], and with the [in] and [not in]
 operators. To see this, enter the following into the interactive shell:
 
-\>\>\> [name = \'Zophie\']\
-\>\>\> [name\[0\]]\
-\'Z\'\
-\>\>\> [name\[-2\]]\
-\'i\'\
-\>\>\> [name\[0:4\]]\
-\'Zoph\'\
-\>\>\> [\'Zo\' in name]\
+>>> [name = 'Zophie']\
+>>> [name\[0\]]\
+'Z'\
+>>> [name\[-2\]]\
+'i'\
+>>> [name\[0:4\]]\
+'Zoph'\
+>>> ['Zo' in name]\
 True\
-\>\>\> [\'z\' in name]\
+>>> ['z' in name]\
 False\
-\>\>\> [\'p\' not in name]\
+>>> ['p' not in name]\
 False\
-\>\>\> [for i in name:]\
-\...     [print(\'\* \* \* \' + i + \' \* \* \*\')]\
+>>> [for i in name:]\
+\...     [print('\* \* \* ' + i + ' \* \* \*')]\
 \
 \* \* \* Z \* \* \*\
 \* \* \* o \* \* \*\
@@ -939,35 +939,35 @@ reassign a single character in a string results in a
 [TypeError] error, as you can see by entering the following
 into the interactive shell:
 
-\>\>\> [name = \'Zophie a cat\']\
-\>\>\> [name\[7\] = \'the\']\
+>>> [name = 'Zophie a cat']\
+>>> [name\[7\] = 'the']\
 Traceback (most recent call last):\
-  File \"\<pyshell#50\>\", line 1, in \<module\>\
-    name\[7\] = \'the\'\
-TypeError: \'str\' object does not support item assignment
+  File "<pyshell#50>", line 1, in <module>\
+    name\[7\] = 'the'\
+TypeError: 'str' object does not support item assignment
 
 The proper way to "mutate" a string is to use slicing and concatenation
 to build a *new* string by copying from parts of the old string. Enter
 the following into the interactive shell:
 
-\>\>\> [name = \'Zophie a cat\']\
-\>\>\> [newName = name\[0:7\] + \'the\' + name\[8:12\]]\
-\>\>\> [name]\
-\'Zophie a cat\'\
-\>\>\> [newName]\
-\'Zophie the cat\'
+>>> [name = 'Zophie a cat']\
+>>> [newName = name\[0:7\] + 'the' + name\[8:12\]]\
+>>> [name]\
+'Zophie a cat'\
+>>> [newName]\
+'Zophie the cat'
 
 We used [\[0:7\]] and [\[8:12\]] to refer to the
 characters that we don't wish to replace. Notice that the original
-[\'Zophie a cat\'] string is not modified, because strings are
+['Zophie a cat'] string is not modified, because strings are
 immutable.
 
 Although a list value *is* mutable, the second line in the following
 code does not modify the list [eggs]:
 
-\>\>\> [eggs = \[1, 2, 3\]]\
-\>\>\> [eggs = \[4, 5, 6\]]\
-\>\>\> [eggs]\
+>>> [eggs = \[1, 2, 3\]]\
+>>> [eggs = \[4, 5, 6\]]\
+>>> [eggs]\
 \[4, 5, 6\]
 
 The list value in [eggs] isn't being changed here; rather, an
@@ -979,14 +979,14 @@ If you wanted to actually modify the original list in [eggs]
 to contain [\[4, 5, 6\]], you would have to do something like
 this:
 
-\>\>\> [eggs = \[1, 2, 3\]]\
-\>\>\> [del eggs\[2\]]\
-\>\>\> [del eggs\[1\]]\
-\>\>\> [del eggs\[0\]]\
-\>\>\> [eggs.append(4)]\
-\>\>\> [eggs.append(5)]\
-\>\>\> [eggs.append(6)]\
-\>\>\> [eggs]\
+>>> [eggs = \[1, 2, 3\]]\
+>>> [del eggs\[2\]]\
+>>> [del eggs\[1\]]\
+>>> [del eggs\[0\]]\
+>>> [eggs.append(4)]\
+>>> [eggs.append(5)]\
+>>> [eggs.append(6)]\
+>>> [eggs]\
 \[4, 5, 6\]
 
 
@@ -1031,12 +1031,12 @@ in two ways. First, tuples are typed with parentheses, [(] and
 [\]]. For example, enter the following into the interactive
 shell:
 
-\>\>\> [eggs = (\'hello\', 42, 0.5)]\
-\>\>\> [eggs\[0\]]\
-\'hello\'\
-\>\>\> [eggs\[1:3\]]\
+>>> [eggs = ('hello', 42, 0.5)]\
+>>> [eggs\[0\]]\
+'hello'\
+>>> [eggs\[1:3\]]\
 (42, 0.5)\
-\>\>\> [len(eggs)]\
+>>> [len(eggs)]\
 3
 
 But the main way that tuples are different from lists is that tuples,
@@ -1044,12 +1044,12 @@ like strings, are immutable. Tuples cannot have their values modified,
 appended, or removed. Enter the following into the interactive shell,
 and look at the [TypeError] error message:
 
-\>\>\> [eggs = (\'hello\', 42, 0.5)]\
-\>\>\> [eggs\[1\] = 99]\
+>>> [eggs = ('hello', 42, 0.5)]\
+>>> [eggs\[1\] = 99]\
 Traceback (most recent call last):\
-  File \"\<pyshell#5\>\", line 1, in \<module\>\
+  File "<pyshell#5>", line 1, in <module>\
     eggs\[1\] = 99\
-TypeError: \'tuple\' object does not support item assignment
+TypeError: 'tuple' object does not support item assignment
 
 If you have only one value in your tuple, you can indicate this by
 placing a trailing comma after the value inside the parentheses.
@@ -1060,10 +1060,10 @@ comma after the last item in a list or tuple in Python.) Enter the
 following [type()] function calls into the interactive shell
 to see the distinction:
 
-\>\>\> [type((\'hello\',))]\
-\<class \'tuple\'\>\
-\>\>\> [type((\'hello\'))]\
-\<class \'str\'\>
+>>> [type(('hello',))]\
+<class 'tuple'>\
+>>> [type(('hello'))]\
+<class 'str'>
 
 You can use tuples to convey to anyone reading your code that you don't
 intend for that sequence of values to change. If you need an ordered
@@ -1074,19 +1074,19 @@ that make code using tuples slightly faster than code using lists.
 
 #### ***Converting Types with the list() and tuple() Functions*** !
 
-Just like how [str(42)] will return [\'42\'], the
+Just like how [str(42)] will return ['42'], the
 string representation of the integer [42], the functions
 [list()] and [tuple()] will return list and tuple
 versions of the values passed to them. Enter the following into the
 interactive shell, and notice that the return value is of a different
 data type than the value passed:
 
-\>\>\> [tuple(\[\'cat\', \'dog\', 5\])]\
-(\'cat\', \'dog\', 5)\
-\>\>\> [list((\'cat\', \'dog\', 5))]\
-\[\'cat\', \'dog\', 5\]\
-\>\>\> [list(\'hello\')]\
-\[\'h\', \'e\', \'l\', \'l\', \'o\'\]
+>>> [tuple(\['cat', 'dog', 5\])]\
+('cat', 'dog', 5)\
+>>> [list(('cat', 'dog', 5))]\
+\['cat', 'dog', 5\]\
+>>> [list('hello')]\
+\['h', 'e', 'l', 'l', 'o'\]
 
 Converting a tuple to a list is handy if you need a mutable version of a
 tuple value.
@@ -1099,12 +1099,12 @@ Technically, variables are storing references to the computer memory
 locations where the values are stored. Enter the following into the
 interactive shell:
 
-\>\>\> [spam = 42]\
-\>\>\> [cheese = spam]\
-\>\>\> [spam = 100]\
-\>\>\> [spam]\
+>>> [spam = 42]\
+>>> [cheese = spam]\
+>>> [spam = 100]\
+>>> [spam]\
 100\
-\>\>\> [cheese]\
+>>> [cheese]\
 42
 
 When you assign [42] to the [spam] variable, you are
@@ -1124,17 +1124,17 @@ But lists don't work this way, because list values can change; that is,
 lists are *mutable*. Here is some code that will make this distinction
 easier to understand. Enter this into the interactive shell:
 
-[➊] \>\>\> [spam = \[0, 1, 2, 3, 4, 5\]]\
-[➋] \>\>\> [cheese = spam] \# The reference is being
+[➊] >>> [spam = \[0, 1, 2, 3, 4, 5\]]\
+[➋] >>> [cheese = spam] \# The reference is being
 copied, not the list.\
-[➌] \>\>\> [cheese\[1\] = \'Hello!\'] \# This
+[➌] >>> [cheese\[1\] = 'Hello!'] \# This
 changes the list value.\
-   \>\>\> [spam]\
+   >>> [spam]\
    []{#calibre_link-1733 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\[0, \'Hello!\', 2, 3, 4, 5\]\
-   \>\>\> [cheese] \# The cheese variable refers to the
+ops}type="pagebreak"}\[0, 'Hello!', 2, 3, 4, 5\]\
+   >>> [cheese] \# The cheese variable refers to the
 same list.\
-   \[0, \'Hello!\', 2, 3, 4, 5\]
+   \[0, 'Hello!', 2, 3, 4, 5\]
 
 This might look odd to you. The code touched only the [cheese]
 list, but it seems that both the [cheese] and [spam]
@@ -1186,7 +1186,7 @@ list. You can see this in [Figure 4-6](#calibre_link-719).
 ![image](../images/000077.jpg)
 
 
-*Figure 4-6: [cheese\[1\] = \'Hello!\'] modifies the list
+*Figure 4-6: [cheese\[1\] = 'Hello!'] modifies the list
 that both variables refer to.*
 
 Although Python variables technically contain references to values,
@@ -1201,30 +1201,30 @@ this. All values in Python have a unique identity that can be obtained
 with the [id()] function. Enter the following into the
 interactive shell:
 
-\>\>\> [id(\'Howdy\')] \# The returned number will be
+>>> [id('Howdy')] \# The returned number will be
 different on your machine.\
 44491136
 
-When Python runs [id(\'Howdy\')], it creates the
-[\'Howdy\'] string in the computer's memory. The numeric
+When Python runs [id('Howdy')], it creates the
+['Howdy'] string in the computer's memory. The numeric
 memory address where the string is stored is returned by the
 [id()] function. Python picks this address based on which
 memory bytes happen to be free on your computer at the time, so it'll be
 different each time you run this code.
 
-Like all strings, [\'Howdy\'] is immutable and cannot be
+Like all strings, ['Howdy'] is immutable and cannot be
 changed. If you "change" the string in a variable, a new string object
 is being made at a different place in memory, and the variable refers to
 this new string. For example, enter the following into the interactive
 shell and see how the identity of the string referred to by
 [bacon] changes:
 
-\>\>\> [bacon = \'Hello\']\
-\>\>\> [id(bacon)]\
+>>> [bacon = 'Hello']\
+>>> [id(bacon)]\
 44491136\
-\>\>\> [bacon += \' world!\'] \# A new string is made from
-\'Hello\' and \' world!\'.\
-\>\>\> [id(bacon)] \# bacon now refers to a completely
+>>> [bacon += ' world!'] \# A new string is made from
+'Hello' and ' world!'.\
+>>> [id(bacon)] \# bacon now refers to a completely
 different string.\
 44609712
 
@@ -1234,19 +1234,19 @@ mutable objects. The [append()] method doesn't create a new
 list object; it changes the existing list object. We call this
 "modifying the object *in-place.*"
 
-\>\>\> [eggs = \[\'cat\', \'dog\'\]] \# This creates a new
+>>> [eggs = \['cat', 'dog'\]] \# This creates a new
 list.\
-\>\>\> [id(eggs)]\
+>>> [id(eggs)]\
 35152584\
-\>\>\> [eggs.append(\'moose\')] \# append() modifies the
-list \"in place\".\
-\>\>\> [id(eggs)] \# eggs still refers to the same list as
+>>> [eggs.append('moose')] \# append() modifies the
+list "in place".\
+>>> [id(eggs)] \# eggs still refers to the same list as
 before.\
 35152584\
-\>\>\> [eggs = \[\'bat\', \'rat\', \'cow\'\]] \# This
+>>> [eggs = \['bat', 'rat', 'cow'\]] \# This
 creates a new list, which has a new\
 identity.\
-\>\>\> [id(eggs)] \# eggs now refers to a completely
+>>> [id(eggs)] \# eggs now refers to a completely
 different list.\
 44409800
 
@@ -1274,7 +1274,7 @@ of this, open a new file editor window, enter the following code, and
 save it as *passingReference.py*:
 
 def eggs(someParameter):\
-    someParameter.append(\'Hello\')\
+    someParameter.append('Hello')\
 \
 spam = \[1, 2, 3\]\
 eggs(spam)\
@@ -1285,11 +1285,11 @@ used to assign a new value to [spam]. Instead, it modifies the
 list in place, directly. When run, this program produces the following
 output:
 
-\[1, 2, 3, \'Hello\'\]
+\[1, 2, 3, 'Hello'\]
 
 Even though [spam] and [someParameter] contain
 separate references, they both refer to the same list. This is why the
-[append(\'Hello\')] method call inside the function affects
+[append('Hello')] method call inside the function affects
 the list even after the function call has returned.
 
 []{#calibre_link-868 {http:="" www.idpf.org="" 2007=""
@@ -1309,19 +1309,19 @@ named [copy] that provides both the [copy()] and
 mutable value like a list or dictionary, not just a copy of a reference.
 Enter the following into the interactive shell:
 
-\>\>\> [import copy]\
-\>\>\> [spam = \[\'A\', \'B\', \'C\', \'D\'\]]\
-\>\>\> [id(spam)]\
+>>> [import copy]\
+>>> [spam = \['A', 'B', 'C', 'D'\]]\
+>>> [id(spam)]\
 44684232\
-\>\>\> [cheese = copy.copy(spam)]\
-\>\>\> [id(cheese)] \# cheese is a different list with
+>>> [cheese = copy.copy(spam)]\
+>>> [id(cheese)] \# cheese is a different list with
 different identity.\
 44685832\
-\>\>\> [cheese\[1\] = 42]\
-\>\>\> [spam]\
-\[\'A\', \'B\', \'C\', \'D\'\]\
-\>\>\> [cheese]\
-\[\'A\', 42, \'C\', \'D\'\]
+>>> [cheese\[1\] = 42]\
+>>> [spam]\
+\['A', 'B', 'C', 'D'\]\
+>>> [cheese]\
+\['A', 42, 'C', 'D'\]
 
 Now the [spam] and [cheese] variables refer to
 separate lists, which is why only the list in [cheese] is
@@ -1367,13 +1367,13 @@ advanced behavior is a rather simple program.
 
 We can use a list of lists to represent the two-dimensional field. The
 inner list represents each column of squares and stores a
-[\'#\'] hash string for living squares and a [\' \']
+['#'] hash string for living squares and a [' ']
 space string for dead squares. Type the following source code into the
 file editor, and save the file as *conway.py*. It's fine if you don't
 quite understand how all of the code works; just enter it and follow
 along with comments and explanations provided here as close as you can:
 
-\# Conway\'s Game of Life\
+\# Conway's Game of Life\
 import random, time, copy\
 WIDTH = 60\
 HEIGHT = 20\
@@ -1384,24 +1384,24 @@ for x in range(WIDTH):\
     column = \[\] \# Create a new column.\
     for y in range(HEIGHT):\
         if random.randint(0, 1) == 0:\
-            column.append(\'#\') \# Add a living cell.\
+            column.append('#') \# Add a living cell.\
         else:\
-            column.append(\' \') \# Add a dead cell.\
+            column.append(' ') \# Add a dead cell.\
     nextCells.append(column) \# nextCells is a list of column lists.\
 \
 while True: \# Main program loop.\
-    print(\'\\n\\n\\n\\n\\n\') \# Separate each step with newlines.\
+    print('\\n\\n\\n\\n\\n') \# Separate each step with newlines.\
     currentCells = copy.deepcopy(nextCells)\
 \
 []{#calibre_link-1735 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    # Print currentCells on the screen:\
     for y in range(HEIGHT):\
         for x in range(WIDTH):\
-            print(currentCells\[x\]\[y\], end=\'\') \# Print the \# or
+            print(currentCells\[x\]\[y\], end='') \# Print the \# or
 space.\
         print() \# Print a newline at the end of the row.\
 \
-    # Calculate the next step\'s cells based on current step\'s cells:\
+    # Calculate the next step's cells based on current step's cells:\
     for x in range(WIDTH):\
         for y in range(HEIGHT):\
             # Get neighboring coordinates:\
@@ -1414,40 +1414,40 @@ WIDTH - 1\
 \
             # Count number of living neighbors:\
             numNeighbors = 0\
-            if currentCells\[leftCoord\]\[aboveCoord\] == \'#\':\
+            if currentCells\[leftCoord\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top-left neighbor is alive.\
-            if currentCells\[x\]\[aboveCoord\] == \'#\':\
+            if currentCells\[x\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top neighbor is alive.\
-            if currentCells\[rightCoord\]\[aboveCoord\] == \'#\':\
+            if currentCells\[rightCoord\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top-right neighbor is alive.\
-            if currentCells\[leftCoord\]\[y\] == \'#\':\
+            if currentCells\[leftCoord\]\[y\] == '#':\
                 numNeighbors += 1 \# Left neighbor is alive.\
-            if currentCells\[rightCoord\]\[y\] == \'#\':\
+            if currentCells\[rightCoord\]\[y\] == '#':\
                 numNeighbors += 1 \# Right neighbor is alive.\
-            if currentCells\[leftCoord\]\[belowCoord\] == \'#\':\
+            if currentCells\[leftCoord\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom-left neighbor is alive.\
-            if currentCells\[x\]\[belowCoord\] == \'#\':\
+            if currentCells\[x\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom neighbor is alive.\
-            if currentCells\[rightCoord\]\[belowCoord\] == \'#\':\
+            if currentCells\[rightCoord\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom-right neighbor is alive.\
 \
-            # Set cell based on Conway\'s Game of Life rules:\
-            if currentCells\[x\]\[y\] == \'#\' and (numNeighbors == 2
+            # Set cell based on Conway's Game of Life rules:\
+            if currentCells\[x\]\[y\] == '#' and (numNeighbors == 2
 or\
 numNeighbors == 3):\
                 # Living cells with 2 or 3 neighbors stay alive:\
-                nextCells\[x\]\[y\] = \'#\'\
-            elif currentCells\[x\]\[y\] == \' \' and numNeighbors == 3:\
+                nextCells\[x\]\[y\] = '#'\
+            elif currentCells\[x\]\[y\] == ' ' and numNeighbors == 3:\
                 # Dead cells with 3 neighbors become alive:\
-                nextCells\[x\]\[y\] = \'#\'\
+                nextCells\[x\]\[y\] = '#'\
             else:\
                 # Everything else dies or stays dead:\
-                nextCells\[x\]\[y\] = \' \'\
+                nextCells\[x\]\[y\] = ' '\
     time.sleep(1) \# Add a 1-second pause to reduce flickering.
 
 Let's look at this code line by line, starting at the top.
 
-\# Conway\'s Game of Life\
+\# Conway's Game of Life\
 import random, time, copy\
 WIDTH = 60\
 HEIGHT = 20
@@ -1463,14 +1463,14 @@ for x in range(WIDTH):\
     column = \[\] \# Create a new column.\
     for y in range(HEIGHT):\
         if random.randint(0, 1) == 0:\
-            column.append(\'#\') \# Add a living cell.\
+            column.append('#') \# Add a living cell.\
         else:\
-            column.append(\' \') \# Add a dead cell.\
+            column.append(' ') \# Add a dead cell.\
     nextCells.append(column) \# nextCells is a list of column lists.
 
 The very first step of our cellular automata will be completely random.
 We need to create a list of lists data structure to store the
-[\'#\'] and [\' \'] strings that represent a living
+['#'] and [' '] strings that represent a living
 or dead cell, and their place in the list of lists reflects their
 position on the screen. The inner lists each represent a column of
 cells. The [random.randint(0, 1)] call gives an even 50/50
@@ -1487,7 +1487,7 @@ the cell at the top left of the screen, while
 cell and [nextCells\[0\]\[1\]] represents the cell beneath it.
 
 while True: \# Main program loop.\
-    print(\'\\n\\n\\n\\n\\n\') \# Separate each step with newlines.\
+    print('\\n\\n\\n\\n\\n') \# Separate each step with newlines.\
     currentCells = copy.deepcopy(nextCells)
 
 Each iteration of our main program loop will be a single step of our
@@ -1499,7 +1499,7 @@ cells in [nextCells].
     # Print currentCells on the screen:\
     for y in range(HEIGHT):\
         for x in range(WIDTH):\
-            print(currentCells\[x\]\[y\], end=\'\') \# Print the \# or
+            print(currentCells\[x\]\[y\], end='') \# Print the \# or
 space.\
         print() \# Print a newline at the end of the row.
 
@@ -1507,7 +1507,7 @@ These nested [for] loops ensure that we print a full row of
 cells to the screen, followed by a newline character at the end of the
 row. We repeat this for each row in [nextCells].
 
-    # Calculate the next step\'s cells based on current step\'s cells:\
+    # Calculate the next step's cells based on current step's cells:\
     for x in range(WIDTH):\
         for y in range(HEIGHT):\
             # Get neighboring coordinates:\
@@ -1534,21 +1534,21 @@ works for the right, above, and below neighbors as well.
 
             # Count number of living neighbors:\
             numNeighbors = 0\
-            if currentCells\[leftCoord\]\[aboveCoord\] == \'#\':\
+            if currentCells\[leftCoord\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top-left neighbor is alive.\
-            if currentCells\[x\]\[aboveCoord\] == \'#\':\
+            if currentCells\[x\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top neighbor is alive.\
-            if currentCells\[rightCoord\]\[aboveCoord\] == \'#\':\
+            if currentCells\[rightCoord\]\[aboveCoord\] == '#':\
                 numNeighbors += 1 \# Top-right neighbor is alive.\
-            if currentCells\[leftCoord\]\[y\] == \'#\':\
+            if currentCells\[leftCoord\]\[y\] == '#':\
                 numNeighbors += 1 \# Left neighbor is alive.\
-            if currentCells\[rightCoord\]\[y\] == \'#\':\
+            if currentCells\[rightCoord\]\[y\] == '#':\
                 numNeighbors += 1 \# Right neighbor is alive.\
-            if currentCells\[leftCoord\]\[belowCoord\] == \'#\':\
+            if currentCells\[leftCoord\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom-left neighbor is alive.\
-            if currentCells\[x\]\[belowCoord\] == \'#\':\
+            if currentCells\[x\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom neighbor is alive.\
-            if currentCells\[rightCoord\]\[belowCoord\] == \'#\':\
+            if currentCells\[rightCoord\]\[belowCoord\] == '#':\
                 numNeighbors += 1 \# Bottom-right neighbor is alive.
 
 To decide if the cell at [nextCells\[x\]\[y\]] should be
@@ -1557,25 +1557,25 @@ living or dead, we need to count the number of living neighbors
 statements checks each of the eight neighbors of this cell, and adds
 [1] to [numNeighbors] for each living one.
 
-            # Set cell based on Conway\'s Game of Life rules:\
-            if currentCells\[x\]\[y\] == \'#\' and (numNeighbors == 2
+            # Set cell based on Conway's Game of Life rules:\
+            if currentCells\[x\]\[y\] == '#' and (numNeighbors == 2
 or\
 numNeighbors == 3):\
                 # Living cells with 2 or 3 neighbors stay alive:\
-                nextCells\[x\]\[y\] = \'#\'\
-            elif currentCells\[x\]\[y\] == \' \' and numNeighbors == 3:\
+                nextCells\[x\]\[y\] = '#'\
+            elif currentCells\[x\]\[y\] == ' ' and numNeighbors == 3:\
                 # Dead cells with 3 neighbors become alive:\
-                nextCells\[x\]\[y\] = \'#\'\
+                nextCells\[x\]\[y\] = '#'\
             else:\
                 # Everything else dies or stays dead:\
-                nextCells\[x\]\[y\] = \' \'\
+                nextCells\[x\]\[y\] = ' '\
     time.sleep(1) \# Add a 1-second pause to reduce flickering.
 
 []{#calibre_link-866 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Now that we know the number of living neighbors for
 the cell at [currentCells\[x\]\[y\]], we can set
-[nextCells\[x\]\[y\]] to either [\'#\'] or [\'
-\']. After we loop over every possible x- and y-coordinate,
+[nextCells\[x\]\[y\]] to either ['#'] or ['
+']. After we loop over every possible x- and y-coordinate,
 the program takes a 1-second pause by calling [time.sleep(1)].
 Then the program execution goes back to the start of the main program
 loop to continue with the next step.
@@ -1626,17 +1626,17 @@ changes to a list in one variable without modifying the original list.
 [\[\]]?
 
 [2](#calibre_link-723)!. How would you
-assign the value [\'hello\'] as the third value in a list
+assign the value ['hello'] as the third value in a list
 stored in a variable named [spam]? (Assume [spam]
 contains [\[2, 4, 6, 8, 10\]].)
 
 []{#calibre_link-1738 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}For the following three questions, let's say
-[spam] contains the list [\[\'a\', \'b\', \'c\',
-\'d\'\]].
+[spam] contains the list [\['a', 'b', 'c',
+'d'\]].
 
 [3](#calibre_link-724)!. What does
-[spam\[int(int(\'3\' \* 2) // 11)\]] evaluate to?
+[spam\[int(int('3' \* 2) // 11)\]] evaluate to?
 
 [4](#calibre_link-725)!. What does
 [spam\[-1\]] evaluate to?
@@ -1645,17 +1645,17 @@ ops}type="pagebreak"}For the following three questions, let's say
 [spam\[:2\]] evaluate to?
 
 For the following three questions, let's say [bacon] contains
-the list [\[3.14, \'cat\', 11, \'cat\', True\]].
+the list [\[3.14, 'cat', 11, 'cat', True\]].
 
 [6](#calibre_link-727)!. What does
-[bacon.index(\'cat\')] evaluate to?
+[bacon.index('cat')] evaluate to?
 
 [7](#calibre_link-728)!. What does
 [bacon.append(99)] make the list value in [bacon]
 look like?
 
 [8](#calibre_link-729)!. What does
-[bacon.remove(\'cat\')] make the list value in
+[bacon.remove('cat')] make the list value in
 [bacon] look like?
 
 [9](#calibre_link-730)!. What are the
@@ -1697,13 +1697,13 @@ For practice, write programs to do the following tasks.
 
 Say you have a list value like this:
 
-spam = \[\'apples\', \'bananas\', \'tofu\', \'cats\'\]
+spam = \['apples', 'bananas', 'tofu', 'cats'\]
 
 Write a function that takes a list value as an argument and returns a
 string with all the items separated by a comma and a space, with *and*
 inserted before the last item. For example, passing the previous
-[spam] list to the function would return [\'apples, bananas,
-tofu, and cats\']. But your function should be able to work
+[spam] list to the function would return ['apples, bananas,
+tofu, and cats']. But your function should be able to work
 with any list value passed to it. Be sure to test the case where an
 empty list [\[\]] is passed to your function.
 
@@ -1723,8 +1723,8 @@ Humans are predictably bad at being random.
 Write a program to find out how often a streak of six heads or a streak
 of six tails comes up in a randomly generated list of heads and tails.
 Your program breaks up the experiment into two parts: the first part
-generates a list of randomly selected [\'heads\'] and
-[\'tails\'] values, and the second part checks if there is a
+generates a list of randomly selected ['heads'] and
+['tails'] values, and the second part checks if there is a
 streak in it. Put all of this code in a loop that repeats the experiment
 10,000 times so we can find out what percentage of the coin flips
 contains a streak of six heads or tails in a row. As a hint, the
@@ -1737,11 +1737,11 @@ You can start with the following template:
 import random\
 numberOfStreaks = 0\
 for experimentNumber in range(10000):\
-    # Code that creates a list of 100 \'heads\' or \'tails\' values.\
+    # Code that creates a list of 100 'heads' or 'tails' values.\
 \
     # Code that checks if there is a streak of 6 heads or tails in a
 row.\
-print(\'Chance of streak: %s%%\' % (numberOfStreaks / 100))
+print('Chance of streak: %s%%' % (numberOfStreaks / 100))
 
 Of course, this is only an estimate, but 10,000 is a decent sample size.
 Some knowledge of mathematics could give you the exact answer and save
@@ -1753,15 +1753,15 @@ bad at math.
 Say you have a list of lists where each value in the inner lists is a
 one-character string, like this:
 
-grid = \[\[\'.\', \'.\', \'.\', \'.\', \'.\', \'.\'\],\
-        \[\'.\', \'O\', \'O\', \'.\', \'.\', \'.\'\],\
-        \[\'O\', \'O\', \'O\', \'O\', \'.\', \'.\'\],\
-        \[\'O\', \'O\', \'O\', \'O\', \'O\', \'.\'\],\
-        \[\'.\', \'O\', \'O\', \'O\', \'O\', \'O\'\],\
-        \[\'O\', \'O\', \'O\', \'O\', \'O\', \'.\'\],\
-        \[\'O\', \'O\', \'O\', \'O\', \'.\', \'.\'\],\
-        \[\'.\', \'O\', \'O\', \'.\', \'.\', \'.\'\],\
-        \[\'.\', \'.\', \'.\', \'.\', \'.\', \'.\'\]\]
+grid = \[\['.', '.', '.', '.', '.', '.'\],\
+        \['.', 'O', 'O', '.', '.', '.'\],\
+        \['O', 'O', 'O', 'O', '.', '.'\],\
+        \['O', 'O', 'O', 'O', 'O', '.'\],\
+        \['.', 'O', 'O', 'O', 'O', 'O'\],\
+        \['O', 'O', 'O', 'O', 'O', '.'\],\
+        \['O', 'O', 'O', 'O', '.', '.'\],\
+        \['.', 'O', 'O', '.', '.', '.'\],\
+        \['.', '.', '.', '.', '.', '.'\]\]
 
 Think of [grid\[x\]\[y\]] as being the character at the x- and
 y-coordinates of a "picture" drawn with text characters. The [(0,

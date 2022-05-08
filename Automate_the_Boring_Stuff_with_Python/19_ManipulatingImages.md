@@ -73,36 +73,36 @@ names and their values.
 Pillow offers the [ImageColor.getcolor()] function so you
 don't have to memorize RGBA values for the colors you want to use. This
 function takes a color name string as its first argument, and the string
-[\'RGBA\'] as its second argument, and it returns an RGBA
+['RGBA'] as its second argument, and it returns an RGBA
 tuple.
 
 []{#calibre_link-849 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}To see how this function works, enter the following
 into the interactive shell:
 
-[➊] \>\>\> [from PIL import ImageColor]\
-[➋] \>\>\> [ImageColor.getcolor(\'red\', \'RGBA\')]\
+[➊] >>> [from PIL import ImageColor]\
+[➋] >>> [ImageColor.getcolor('red', 'RGBA')]\
    (255, 0, 0, 255)\
-[➌] \>\>\> [ImageColor.getcolor(\'RED\', \'RGBA\')]\
+[➌] >>> [ImageColor.getcolor('RED', 'RGBA')]\
    (255, 0, 0, 255)\
-   \>\>\> [ImageColor.getcolor(\'Black\', \'RGBA\')]\
+   >>> [ImageColor.getcolor('Black', 'RGBA')]\
    (0, 0, 0, 255)\
-   \>\>\> [ImageColor.getcolor(\'chocolate\', \'RGBA\')]\
+   >>> [ImageColor.getcolor('chocolate', 'RGBA')]\
    (210, 105, 30, 255)\
-   \>\>\> [ImageColor.getcolor(\'CornflowerBlue\',
-\'RGBA\')]\
+   >>> [ImageColor.getcolor('CornflowerBlue',
+'RGBA')]\
    (100, 149, 237, 255)
 
 First, you need to import the [ImageColor] module from PIL
 [➊] (not from Pillow; you'll see why in a moment). The color name
 string you pass to [ImageColor.getcolor()] is
-case-insensitive, so passing [\'red\'] [➋] and passing
-[\'RED\'] [➌] give you the same RGBA tuple. You can also
-pass more unusual color names, like [\'chocolate\'] and
-[\'Cornflower Blue\'].
+case-insensitive, so passing ['red'] [➋] and passing
+['RED'] [➌] give you the same RGBA tuple. You can also
+pass more unusual color names, like ['chocolate'] and
+['Cornflower Blue'].
 
 Pillow supports a huge number of color names, from
-[\'aliceblue\'] to [\'whitesmoke\']. You can find
+['aliceblue'] to ['whitesmoke']. You can find
 the full list of more than 100 standard color names in the resources at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 
@@ -170,8 +170,8 @@ Once you have the image file *zophie.png* in your current working
 directory, you'll be ready to load the image of Zophie into Python, like
 so:
 
-\>\>\> [from PIL import Image]\
-\>\>\> [catIm = Image.open(\'zophie.png\')]
+>>> [from PIL import Image]\
+>>> [catIm = Image.open('zophie.png')]
 
 To load the image, import the [Image] module from Pillow and
 call [Image.open()], passing it the image's filename. You can
@@ -197,8 +197,8 @@ If the image file isn't in the current working directory, change the
 working directory to the folder that contains the image file by calling
 the [os.chdir()] function.
 
-\>\>\> [import os]\
-\>\>\> [os.chdir(\'C:\\\\folder_with_image_file\')]
+>>> [import os]\
+>>> [os.chdir('C:\\\\folder_with_image_file')]
 
 The [Image.open()] function returns a value of the
 [Image] object data type, which is how Pillow represents an
@@ -227,23 +227,23 @@ PNG).
 
 For example, enter the following into the interactive shell:
 
-   \>\>\> [from PIL import Image]\
-   \>\>\> [catIm = Image.open(\'zophie.png\')]\
+   >>> [from PIL import Image]\
+   >>> [catIm = Image.open('zophie.png')]\
    []{#calibre_link-1052 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\>\>\> [catIm.size]\
+ops}type="pagebreak"}>>> [catIm.size]\
 [➊] (816, 1088)\
-[➋] \>\>\> [width, height = catIm.size]\
-[➌] \>\>\> [width]\
+[➋] >>> [width, height = catIm.size]\
+[➌] >>> [width]\
    816\
-[➍] \>\>\> [height]\
+[➍] >>> [height]\
    1088\
-   \>\>\> [catIm.filename]\
-   \'zophie.png\'\
-   \>\>\> [catIm.format]\
-   \'PNG\'\
-   \>\>\> [catIm.format_description]\
-   \'Portable network graphics\'\
-[➎] \>\>\> [catIm.save(\'zophie.jpg\')]
+   >>> [catIm.filename]\
+   'zophie.png'\
+   >>> [catIm.format]\
+   'PNG'\
+   >>> [catIm.format_description]\
+   'Portable network graphics'\
+[➎] >>> [catIm.save('zophie.jpg')]
 
 After making an [Image] object from *zophie.png* and storing
 the [Image] object in [catIm], we can see that the
@@ -257,7 +257,7 @@ strings that describe the image format of the original file (with
 [format_description] being a bit more verbose).
 
 Finally, calling the [save()] method and passing it
-[\'zophie.jpg\'] saves a new image with the filename
+['zophie.jpg'] saves a new image with the filename
 *zophie.jpg* to your hard drive [➎]. Pillow sees that the file
 extension is *.jpg* and automatically saves the image using the JPEG
 image format. Now you should have two images, *zophie.png* and
@@ -269,7 +269,7 @@ an [Image] object---much like [Image.open()], except
 the image represented by [Image.new()]'s object will be blank.
 The arguments to [Image.new()] are as follows:
 
--   The string [\'RGBA\'], which sets the color mode to RGBA.
+-   The string ['RGBA'], which sets the color mode to RGBA.
     (There are other modes that this book doesn't go into.)
 -   The size, as a two-integer tuple of the new image's width and
     height.
@@ -281,12 +281,12 @@ The arguments to [Image.new()] are as follows:
 
 For example, enter the following into the interactive shell:
 
-   \>\>\> [from PIL import Image]\
-[➊] \>\>\> [im = Image.new(\'RGBA\', (100, 200),
-\'purple\')]\
-   \>\>\> [im.save(\'purpleImage.png\')]\
-[➋] \>\>\> [im2 = Image.new(\'RGBA\', (20, 20))]\
-   \>\>\> [im2.save(\'transparentImage.png\')]
+   >>> [from PIL import Image]\
+[➊] >>> [im = Image.new('RGBA', (100, 200),
+'purple')]\
+   >>> [im.save('purpleImage.png')]\
+[➋] >>> [im2 = Image.new('RGBA', (20, 20))]\
+   >>> [im2.save('transparentImage.png')]
 
 []{#calibre_link-880 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we create an [Image] object for an
@@ -314,10 +314,10 @@ bottom row of pixels.
 
 Enter the following into the interactive shell:
 
-\>\>\> [from PIL import Image]\
-\>\>\> [catIm = Image.open(\'zophie.png\')]\
-\>\>\> [croppedIm = catIm.crop((335, 345, 565, 560))]\
-\>\>\> [croppedIm.save(\'cropped.png\')]
+>>> [from PIL import Image]\
+>>> [catIm = Image.open('zophie.png')]\
+>>> [croppedIm = catIm.crop((335, 345, 565, 560))]\
+>>> [croppedIm.save('cropped.png')]
 
 This makes a new [Image] object for the cropped image, stores
 the object in [croppedIm], and then calls [save()]
@@ -341,9 +341,9 @@ This is useful if you need to make changes to an image but also want to
 keep an untouched version of the original. For example, enter the
 following into the interactive shell:
 
-\>\>\> [from PIL import Image]\
-\>\>\> [catIm = Image.open(\'zophie.png\')]\
-\>\>\> [catCopyIm = catIm.copy()]
+>>> [from PIL import Image]\
+>>> [catIm = Image.open('zophie.png')]\
+>>> [catCopyIm = catIm.copy()]
 
 The [catIm] and [catCopyIm] variables contain two
 separate [Image] objects, which both have the same image on
@@ -357,12 +357,12 @@ The [paste()] method is called on an [Image] object
 and pastes another image on top of it. Let's continue the shell example
 by pasting a smaller image onto [catCopyIm].
 
-\>\>\> [faceIm = catIm.crop((335, 345, 565, 560))]\
-\>\>\> [faceIm.size]\
+>>> [faceIm = catIm.crop((335, 345, 565, 560))]\
+>>> [faceIm.size]\
 (230, 215)\
-\>\>\> [catCopyIm.paste(faceIm, (0, 0))]\
-\>\>\> [catCopyIm.paste(faceIm, (400, 500))]\
-\>\>\> [catCopyIm.save(\'pasted.png\')]
+>>> [catCopyIm.paste(faceIm, (0, 0))]\
+>>> [catCopyIm.paste(faceIm, (400, 500))]\
+>>> [catCopyIm.save('pasted.png')]
 
 First we pass [crop()] a box tuple for the rectangular area in
 *zophie.png* that contains Zophie's face. This creates an
@@ -408,10 +408,10 @@ Say you want to tile Zophie's head across the entire image, as in
 effect with just a couple [for] loops. Continue the
 interactive shell example by entering the following:
 
-   \>\>\> [catImWidth, catImHeight = catIm.size]\
-   \>\>\> [faceImWidth, faceImHeight = faceIm.size]\
-[➊] \>\>\> [catCopyTwo = catIm.copy()]\
-[➋] \>\>\> [for left in range(0, catImWidth,
+   >>> [catImWidth, catImHeight = catIm.size]\
+   >>> [faceImWidth, faceImHeight = faceIm.size]\
+[➊] >>> [catCopyTwo = catIm.copy()]\
+[➋] >>> [for left in range(0, catImWidth,
 faceImWidth):]\
         [➌] [for top in range(0, catImHeight,
 faceImHeight):]\
@@ -428,7 +428,7 @@ faceImHeight):]\
    \--[snip]\--\
    690 860\
    690 1075\
-   \>\>\> [catCopyTwo.save(\'tiled.png\')]
+   >>> [catCopyTwo.save('tiled.png')]
 
 
 []{#calibre_link-1005 {http:="" www.idpf.org="" 2007=""
@@ -464,15 +464,15 @@ height. It accepts a two-integer tuple argument, representing the new
 width and height of the returned image. Enter the following into the
 interactive shell:
 
-   \>\>\> [from PIL import Image]\
-   \>\>\> [catIm = Image.open(\'zophie.png\')]\
-[➊] \>\>\> [width, height = catIm.size]\
-[➋] \>\>\> [quartersizedIm = catIm.resize((int(width / 2),
+   >>> [from PIL import Image]\
+   >>> [catIm = Image.open('zophie.png')]\
+[➊] >>> [width, height = catIm.size]\
+[➋] >>> [quartersizedIm = catIm.resize((int(width / 2),
 int(height / 2)))]\
-   \>\>\> [quartersizedIm.save(\'quartersized.png\')]\
-[➌] \>\>\> [svelteIm = catIm.resize((width, height +
+   >>> [quartersizedIm.save('quartersized.png')]\
+[➌] >>> [svelteIm = catIm.resize((width, height +
 300))]\
-   \>\>\> [svelteIm.save(\'svelte.png\')]
+   >>> [svelteIm.save('svelte.png')]
 
 Here we assign the two values in the [catIm.size] tuple to the
 variables [width] and [height] [➊]. Using
@@ -510,11 +510,11 @@ the original [Image] object unchanged. The argument to
 number of degrees to rotate the image counterclockwise. Enter the
 following into the interactive shell:
 
-\>\>\> [from PIL import Image]\
-\>\>\> [catIm = Image.open(\'zophie.png\')]\
-\>\>\> [catIm.rotate(90).save(\'rotated90.png\')]\
-\>\>\> [catIm.rotate(180).save(\'rotated180.png\')]\
-\>\>\> [catIm.rotate(270).save(\'rotated270.png\')]
+>>> [from PIL import Image]\
+>>> [catIm = Image.open('zophie.png')]\
+>>> [catIm.rotate(90).save('rotated90.png')]\
+>>> [catIm.rotate(180).save('rotated180.png')]\
+>>> [catIm.rotate(270).save('rotated270.png')]
 
 Note how you can *chain* method calls by calling [save()]
 directly on the [Image] object returned from
@@ -546,9 +546,9 @@ keyword argument that can be set to [True] to enlarge the
 dimensions of the image to fit the entire rotated new image. For
 example, enter the following into the interactive shell:
 
-\>\>\> [catIm.rotate(6).save(\'rotated6.png\')]\
-\>\>\> [catIm.rotate(6,
-expand=True).save(\'rotated6_expanded.png\')]
+>>> [catIm.rotate(6).save('rotated6.png')]\
+>>> [catIm.rotate(6,
+expand=True).save('rotated6_expanded.png')]
 
 The first call rotates the image 6 degrees and saves it to *rotate6.png*
 (see the image on the left of [Figure
@@ -571,10 +571,10 @@ You can also get a "mirror flip" of an image with the
 to the [transpose()] method. Enter the following into the
 interactive shell:
 
-\>\>\>
-[catIm.transpose(Image.FLIP_LEFT_RIGHT).save(\'horizontal_flip.png\')]\
-\>\>\>
-[catIm.transpose(Image.FLIP_TOP_BOTTOM).save(\'vertical_flip.png\')]
+>>>
+[catIm.transpose(Image.FLIP_LEFT_RIGHT).save('horizontal_flip.png')]\
+>>>
+[catIm.transpose(Image.FLIP_TOP_BOTTOM).save('vertical_flip.png')]
 
 Like [rotate()], [transpose()] creates a new
 [Image] object. Here we pass [Image.FLIP_LEFT_RIGHT]
@@ -602,25 +602,25 @@ argument for the color of the pixel. This color argument is a
 four-integer RGBA tuple or a three-integer RGB tuple. Enter the
 following into the interactive shell:
 
-   \>\>\> [from PIL import Image]\
-[➊] \>\>\> [im = Image.new(\'RGBA\', (100, 100))]\
-[➋] \>\>\> [im.getpixel((0, 0))]\
+   >>> [from PIL import Image]\
+[➊] >>> [im = Image.new('RGBA', (100, 100))]\
+[➋] >>> [im.getpixel((0, 0))]\
    (0, 0, 0, 0)\
-[➌] \>\>\> [for x in range(100):]\
+[➌] >>> [for x in range(100):]\
            [for y in range(50):]\
             [➍] [im.putpixel((x, y), (210, 210,
 210))]\
 \
-   \>\>\> [from PIL import ImageColor]\
-[➎] \>\>\> [for x in range(100):]\
+   >>> [from PIL import ImageColor]\
+[➎] >>> [for x in range(100):]\
            [for y in range(50, 100):]\
             [➏] [im.putpixel((x, y),
-ImageColor.getcolor(\'darkgray\', \'RGBA\'))]\
-   \>\>\> [im.getpixel((0, 0))]\
+ImageColor.getcolor('darkgray', 'RGBA'))]\
+   >>> [im.getpixel((0, 0))]\
    (210, 210, 210, 255)\
-   \>\>\> [im.getpixel((0, 50))]\
+   >>> [im.getpixel((0, 50))]\
    (169, 169, 169, 255)\
-   \>\>\> [im.save(\'putPixel.png\')]
+   >>> [im.save('putPixel.png')]
 
 At [➊] we make a new image that is a 100×100 transparent square.
 Calling [getpixel()] on some coordinates in this image returns
@@ -635,9 +635,9 @@ light gray.
 ops}type="pagebreak"}Say we want to color the bottom half of the image
 dark gray but don't know the RGB tuple for dark gray. The
 [putpixel()] method doesn't accept a standard color name like
-[\'darkgray\'], so you have to use
+['darkgray'], so you have to use
 [ImageColor.getcolor()] to get a color tuple from
-[\'darkgray\']. Loop through the pixels in the bottom half of
+['darkgray']. Loop through the pixels in the bottom half of
 the image [➎] and pass [putpixel()] the return value of
 [ImageColor.getcolor()] [➏], and you should now have an
 image that is light gray in its top half and dark gray in the bottom
@@ -691,7 +691,7 @@ ops}type="pagebreak"}At a high level, here's what the program should do:
 This means the code will need to do the following:
 
 1.  Open the *catlogo.png* file as an [Image] object.
-2.  Loop over the strings returned from [os.listdir(\'.\')].
+2.  Loop over the strings returned from [os.listdir('.')].
 3.  Get the width and height of the image from the [size]
     attribute.
 4.  Calculate the new width and height of the resized image.
@@ -715,7 +715,7 @@ corner.\
    from PIL import Image\
 \
 [➊] SQUARE_FIT_SIZE = 300\
-[➋] LOGO_FILENAME = \'catlogo.png\'\
+[➋] LOGO_FILENAME = 'catlogo.png'\
 \
 [➌] logoIm = Image.open(LOGO_FILENAME)\
 [➍] logoWidth, logoHeight = logoIm.size\
@@ -743,7 +743,7 @@ code, change those values once, and you're done. (Or you can make it so
 that the values for these constants are taken from the command line
 arguments.) Without these constants, you'd instead have to search the
 code for all instances of [300] and
-[\'catlogo.png\'] and replace them with the values for your
+['catlogo.png'] and replace them with the values for your
 new project. In short, using constants makes your program more
 generalized.
 
@@ -774,11 +774,11 @@ corner.\
 \
    \--[snip]\--\
 \
-   os.makedirs(\'withLogo\', exist_ok=True)\
+   os.makedirs('withLogo', exist_ok=True)\
    [\# Loop over all files in the working directory.]\
-[➊] [for filename in os.listdir(\'.\'):]\
-[    ][➋] [if not (filename.endswith(\'.png\') or
-filename.endswith(\'.jpg\')) \\]\
+[➊] [for filename in os.listdir('.'):]\
+[    ][➋] [if not (filename.endswith('.png') or
+filename.endswith('.jpg')) \\]\
    [       or filename == LOGO_FILENAME:]\
 [        ][➌] [continue    # skip non-image files
 and the logo file itself]\
@@ -793,12 +793,12 @@ store the finished images with logos, instead of overwriting the
 original image files. The [exist_ok=True] keyword argument
 will keep [os.makedirs()] from raising an exception if
 *withLogo* already exists. While looping through all the files in the
-working directory with [os.listdir(\'.\')] [➊], the long
+working directory with [os.listdir('.')] [➊], the long
 [if] statement [➋] checks whether each filename doesn't
 end with *.png* or *.jpg*. If so---or if the file is the logo image
 itself---then the loop should skip it and use [continue]
 [➌] to go to the next file. If [filename] *does* end
-with [\'.png\'] or [\'.jpg\'] (and isn't the logo
+with ['.png'] or ['.jpg'] (and isn't the logo
 file), you can open it as an [Image] object [➍] and set
 [width] and [height].
 
@@ -821,11 +821,11 @@ from PIL import Image\
 \--[snip]\--\
 \
 [     # Check if image needs to be resized.]\
-[     if width \> SQUARE_FIT_SIZE and height \>
+[     if width > SQUARE_FIT_SIZE and height >
 SQUARE_FIT_SIZE:]\
 [         # Calculate the new width and height to resize
 to.]\
-[         if width \> height:]\
+[         if width > height:]\
 [            ][➊] [height = int((SQUARE_FIT_SIZE /
 width) \* height)]\
    [            width = SQUARE_FIT_SIZE]\
@@ -835,7 +835,7 @@ height) \* width)]\
   [             height = SQUARE_FIT_SIZE]\
 \
    [        # Resize the image.]\
-   [        print(\'Resizing %s\...\' % (filename))]\
+   [        print('Resizing %s\...' % (filename))]\
 [        ][➌] [im = im.resize((width,
 height))]\
 \
@@ -898,13 +898,13 @@ from PIL import Image\
      \--[snip]\--\
 \
 [     # Add the logo.]\
-[  ][➊] [print(\'Adding logo to %s\...\' %
+[  ][➊] [print('Adding logo to %s\...' %
 (filename))]\
 [  ][➋] [im.paste(logoIm, (width - logoWidth,
 height - logoHeight), logoIm)]\
 \
 [     # Save changes.]\
-[  ][➌] [im.save(os.path.join(\'withLogo\',
+[  ][➌] [im.save(os.path.join('withLogo',
 filename))]
 
 The new code prints a message telling the user that the logo is being
@@ -953,9 +953,9 @@ If you need to draw lines, rectangles, circles, or other simple shapes
 on an image, use Pillow's [ImageDraw] module. Enter the
 following into the interactive shell:
 
-\>\>\> [from PIL import Image, ImageDraw]\
-\>\>\> [im = Image.new(\'RGBA\', (200, 200), \'white\')]\
-\>\>\> [draw = ImageDraw.Draw(im)]
+>>> [from PIL import Image, ImageDraw]\
+>>> [im = Image.new('RGBA', (200, 200), 'white')]\
+>>> [draw = ImageDraw.Draw(im)]
 
 []{#calibre_link-922 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}First, we import [Image] and
@@ -983,7 +983,7 @@ draw. The list can be a list of x- and y-coordinate tuples, such as
 [\[(x, y), (x, y), \...\]], or a list of x- and y-coordinates
 without tuples, such as [\[x1, y1, x2, y2, \...\]]. The
 [fill] argument is the color of the points and is either an
-RGBA tuple or a string of a color name, such as [\'red\']. The
+RGBA tuple or a string of a color name, such as ['red']. The
 [fill] argument is optional.
 
 ##### **Lines** 
@@ -1042,24 +1042,24 @@ polygon's outline.
 
 Enter the following into the interactive shell:
 
-   \>\>\> [from PIL import Image, ImageDraw]\
-   \>\>\> [im = Image.new(\'RGBA\', (200, 200),
-\'white\')]\
-   \>\>\> [draw = ImageDraw.Draw(im)]\
-[➊] \>\>\> [draw.line(\[(0, 0), (199, 0), (199, 199), (0, 199),
-(0, 0)\], fill=\'black\')]\
-[➋] \>\>\> [draw.rectangle((20, 30, 60, 60),
-fill=\'blue\')]\
-[➌] \>\>\> [draw.ellipse((120, 30, 160, 60),
-fill=\'red\')]\
-[➍] \>\>\> [draw.polygon(((57, 87), (79, 62), (94, 85), (120, 90),
+   >>> [from PIL import Image, ImageDraw]\
+   >>> [im = Image.new('RGBA', (200, 200),
+'white')]\
+   >>> [draw = ImageDraw.Draw(im)]\
+[➊] >>> [draw.line(\[(0, 0), (199, 0), (199, 199), (0, 199),
+(0, 0)\], fill='black')]\
+[➋] >>> [draw.rectangle((20, 30, 60, 60),
+fill='blue')]\
+[➌] >>> [draw.ellipse((120, 30, 160, 60),
+fill='red')]\
+[➍] >>> [draw.polygon(((57, 87), (79, 62), (94, 85), (120, 90),
 (103, 113)),]\
-   [fill=\'brown\')]\
-[➎] \>\>\> [for i in range(100, 200, 10):]\
+   [fill='brown')]\
+[➎] >>> [for i in range(100, 200, 10):]\
            [draw.line(\[(i, 0), (200, i - 100)\],
-fill=\'green\')]\
+fill='green')]\
 \
-   \>\>\> [im.save(\'drawing.png\')]
+   >>> [im.save('drawing.png')]
 
 After making an [Image] object for a 200×200 white image,
 passing it to [ImageDraw.Draw()] to get an
@@ -1119,7 +1119,7 @@ Both [text()] and [textsize()] take an optional
 [ImageFont] object as their final arguments. To create one of
 these objects, first run the following:
 
-\>\>\> [from PIL import ImageFont]
+>>> [from PIL import ImageFont]
 
 Now that you've imported Pillow's [ImageFont] module, you can
 call the [ImageFont.truetype()] function, which takes two
@@ -1147,21 +1147,21 @@ ops}type="pagebreak"}Enter the following into the interactive shell,
 replacing [FONT_FOLDER] with the actual folder name your
 operating system uses:
 
-   \>\>\> [from PIL import Image, ImageDraw, ImageFont]\
-   \>\>\> [import os]\
-[➊] \>\>\> [im = Image.new(\'RGBA\', (200, 200),
-\'white\')]\
-[➋] \>\>\> [draw = ImageDraw.Draw(im)]\
-[➌] \>\>\> [draw.text((20, 150), \'Hello\',
-fill=\'purple\')]\
-   \>\>\> [fontsFolder = \'FONT_FOLDER\' \# e.g.
-'/Library/Fonts\']\
-[➍] \>\>\> [arialFont =
-ImageFont.truetype(os.path.join(fontsFolder, \'arial.ttf\'),
+   >>> [from PIL import Image, ImageDraw, ImageFont]\
+   >>> [import os]\
+[➊] >>> [im = Image.new('RGBA', (200, 200),
+'white')]\
+[➋] >>> [draw = ImageDraw.Draw(im)]\
+[➌] >>> [draw.text((20, 150), 'Hello',
+fill='purple')]\
+   >>> [fontsFolder = 'FONT_FOLDER' \# e.g.
+'/Library/Fonts']\
+[➍] >>> [arialFont =
+ImageFont.truetype(os.path.join(fontsFolder, 'arial.ttf'),
 32)]\
-[➎] \>\>\> [draw.text((100, 150), \'Howdy\', fill=\'gray\',
+[➎] >>> [draw.text((100, 150), 'Howdy', fill='gray',
 font=arialFont)]\
-   \>\>\> [im.save(\'text.png\')]
+   >>> [im.save('text.png')]
 
 After importing [Image], [ImageDraw],
 [ImageFont], and [os], we make an [Image]
@@ -1226,7 +1226,7 @@ your programming powers to processing images as well!
 value?
 
 [2](#calibre_link-1504). How can you get
-the RGBA value of [\'CornflowerBlue\'] from the
+the RGBA value of ['CornflowerBlue'] from the
 [Pillow] module?
 
 [3](#calibre_link-1505). What is a box
@@ -1307,11 +1307,11 @@ As a hint, here's a rough skeleton of what this program might look like:
 #! python3\
 \# Import modules and write comments to describe this program.\
 \
-for foldername, subfolders, filenames in os.walk(\'C:\\\\\'):\
+for foldername, subfolders, filenames in os.walk('C:\\\\'):\
     numPhotoFiles = 0\
     numNonPhotoFiles = 0\
     for filename in filenames:\
-        # Check if file extension isn\'t .png or .jpg.\
+        # Check if file extension isn't .png or .jpg.\
 []{#calibre_link-1873 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}        if TODO:\
             numNonPhotoFiles += 1\
@@ -1344,7 +1344,7 @@ images for custom seating cards for your guests. For each of the guests
 listed in the *guests.txt* file from the resources at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*,
 generate an image file with the guest name and some flowery decoration.
-A public domain flower image is also available in the book\'s resources.
+A public domain flower image is also available in the book's resources.
 
 To ensure that each seating card is the same size, add a black rectangle
 on the edges of the invitation image so that when the image is printed

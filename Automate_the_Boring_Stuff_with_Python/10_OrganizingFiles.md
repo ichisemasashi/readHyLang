@@ -59,15 +59,15 @@ name of the copied file. This function returns a string or
 Enter the following into the interactive shell to see how
 [shutil.copy()] works:
 
-   \>\>\> [import shutil, os]\
-   \>\>\> [from pathlib import Path]\
-   \>\>\> [p = Path.home()]\
-[➊] \>\>\> [shutil.copy(p / \'spam.txt\', p /
-\'some_folder\')]\
-   \'C:\\\\Users\\\\Al\\\\some_folder\\\\spam.txt\'\
-[➋] \>\>\> [shutil.copy(p / \'eggs.txt\', p /
-\'some_folder/eggs2.txt\')]\
-   WindowsPath(\'C:/Users/Al/some_folder/eggs2.txt\')
+   >>> [import shutil, os]\
+   >>> [from pathlib import Path]\
+   >>> [p = Path.home()]\
+[➊] >>> [shutil.copy(p / 'spam.txt', p /
+'some_folder')]\
+   'C:\\\\Users\\\\Al\\\\some_folder\\\\spam.txt'\
+[➋] >>> [shutil.copy(p / 'eggs.txt', p /
+'some_folder/eggs2.txt')]\
+   WindowsPath('C:/Users/Al/some_folder/eggs2.txt')
 
 The first [shutil.copy()] call copies the file at
 *C:\\Users\\Al\\spam.txt* to the folder *C:\\Users\\Al\\some_folder*.
@@ -91,12 +91,12 @@ strings. The function returns a string of the path of the copied folder.
 []{#calibre_link-966 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
-\>\>\> [import shutil, os]\
-\>\>\> [from pathlib import Path]\
-\>\>\> [p = Path.home()]\
-\>\>\> [shutil.copytree(p / \'spam\', p /
-\'spam_backup\')]\
-WindowsPath(\'C:/Users/Al/spam_backup\')
+>>> [import shutil, os]\
+>>> [from pathlib import Path]\
+>>> [p = Path.home()]\
+>>> [shutil.copytree(p / 'spam', p /
+'spam_backup')]\
+WindowsPath('C:/Users/Al/spam_backup')
 
 The [shutil.copytree()] call creates a new folder named
 *spam_backup* with the same content as the original *spam* folder. You
@@ -114,9 +114,9 @@ If [destination] points to a folder, the
 and keeps its current filename. For example, enter the following into
 the interactive shell:
 
-\>\>\> [import shutil]\
-\>\>\> [shutil.move(\'C:\\\\bacon.txt\', \'C:\\\\eggs\')]\
-\'C:\\\\eggs\\\\bacon.txt\'
+>>> [import shutil]\
+>>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]\
+'C:\\\\eggs\\\\bacon.txt'
 
 Assuming a folder named *eggs* already exists in the *C:\\* directory,
 this [shutil.move()] call says, "Move *C:\\bacon.txt* into the
@@ -130,9 +130,9 @@ The [destination] path can also specify a filename. In the
 following example, the [source] file is moved *and*
 renamed.
 
-\>\>\> [shutil.move(\'C:\\\\bacon.txt\',
-\'C:\\\\eggs\\\\new_bacon.txt\')]\
-\'C:\\\\eggs\\\\new_bacon.txt\'
+>>> [shutil.move('C:\\\\bacon.txt',
+'C:\\\\eggs\\\\new_bacon.txt')]\
+'C:\\\\eggs\\\\new_bacon.txt'
 
 This line says, "Move *C:\\bacon.txt* into the folder *C:\\eggs*, and
 while you're at it, rename that *bacon.txt* file to *new_bacon.txt*."
@@ -142,8 +142,8 @@ a folder *eggs* in the *C:\\* directory. But if there is no *eggs*
 folder, then [move()] will rename *bacon.txt* to a file named
 *eggs*.
 
-\>\>\> [shutil.move(\'C:\\\\bacon.txt\', \'C:\\\\eggs\')]\
-\'C:\\\\eggs\'
+>>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]\
+'C:\\\\eggs'
 
 Here, [move()] can't find a folder named *eggs* in the *C:\\*
 directory and so assumes that [destination] must be
@@ -160,13 +160,13 @@ Finally, the folders that make up the destination must already exist, or
 else Python will throw an exception. Enter the following into the
 interactive shell:
 
-\>\>\> [shutil.move(\'spam.txt\',
-\'c:\\\\does_not_exist\\\\eggs\\\\ham\')]\
+>>> [shutil.move('spam.txt',
+'c:\\\\does_not_exist\\\\eggs\\\\ham')]\
 Traceback (most recent call last):\
   \--[snip]\--\
 FileNotFoundError: \[Errno 2\] No such file or directory:
-\'c:\\\\does_not_exist\\\\\
-eggs\\\\ham\'
+'c:\\\\does_not_exist\\\\\
+eggs\\\\ham'
 
 Python looks for *eggs* and *ham* inside the directory *does_not_exist*.
 It doesn't find the nonexistent directory, so it can't move *spam.txt*
@@ -196,7 +196,7 @@ causes it to delete *.rxt* files instead:
 
 import os\
 from pathlib import Path\
-for filename in Path.home().glob(\'\*.[r]xt\'):\
+for filename in Path.home().glob('\*.[r]xt'):\
     os.unlink(filename)
 
 If you had any important files ending with *.rxt*, they would have been
@@ -205,7 +205,7 @@ the program like this:
 
 import os\
 from pathlib import Path\
-for filename in Path.home().glob(\'\*.rxt\'):\
+for filename in Path.home().glob('\*.rxt'):\
     #os.unlink(filename)\
     print(filename)
 
@@ -240,13 +240,13 @@ intend to delete, you can later restore it from the recycle bin.
 After you have installed [send2trash], enter the following
 into the interactive shell:
 
-\>\>\> [import send2trash]\
-\>\>\> [baconFile = open(\'bacon.txt\', \'a\')   # creates the
+>>> [import send2trash]\
+>>> [baconFile = open('bacon.txt', 'a')   # creates the
 file]\
-\>\>\> [baconFile.write(\'Bacon is not a vegetable.\')]\
+>>> [baconFile.write('Bacon is not a vegetable.')]\
 25\
-\>\>\> [baconFile.close()]\
-\>\>\> [send2trash.send2trash(\'bacon.txt\')]
+>>> [baconFile.close()]\
+>>> [send2trash.send2trash('bacon.txt')]
 
 In general, you should always use the
 [send2trash.send2trash()] function to delete files and
@@ -282,16 +282,16 @@ on the directory tree from [Figure 10-1](#calibre_link-1195):
 
 import os\
 \
-for folderName, subfolders, filenames in os.walk(\'C:\\\\delicious\'):\
-    print(\'The current folder is \' + folderName)\
+for folderName, subfolders, filenames in os.walk('C:\\\\delicious'):\
+    print('The current folder is ' + folderName)\
 \
     for subfolder in subfolders:\
-        print(\'SUBFOLDER OF \' + folderName + \': \' + subfolder)\
+        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)\
 \
     for filename in filenames:\
-        print(\'FILE INSIDE \' + folderName + \': \'+ filename)\
+        print('FILE INSIDE ' + folderName + ': '+ filename)\
 \
-    print(\'\')
+    print('')
 
 The [os.walk()] function is passed a single string value: the
 path of a folder. You can use [os.walk()] in a [for]
@@ -379,26 +379,26 @@ function.
 
 For example, enter the following into the interactive shell:
 
-   \>\>\> [import zipfile, os]\
+   >>> [import zipfile, os]\
 \
-   \>\>\> [from pathlib import Path]\
-   \>\>\> [p = Path.home()]\
-   \>\>\> [exampleZip = zipfile.ZipFile(p /
-\'example.zip\')]\
-   \>\>\> [exampleZip.namelist()]\
-   \[\'spam.txt\', \'cats/\', \'cats/catnames.txt\',
-\'cats/zophie.jpg\'\]\
-   \>\>\> [spamInfo = exampleZip.getinfo(\'spam.txt\')]\
-   \>\>\> [spamInfo.file_size]\
+   >>> [from pathlib import Path]\
+   >>> [p = Path.home()]\
+   >>> [exampleZip = zipfile.ZipFile(p /
+'example.zip')]\
+   >>> [exampleZip.namelist()]\
+   \['spam.txt', 'cats/', 'cats/catnames.txt',
+'cats/zophie.jpg'\]\
+   >>> [spamInfo = exampleZip.getinfo('spam.txt')]\
+   >>> [spamInfo.file_size]\
    13908\
-   \>\>\> [spamInfo.compress_size]\
+   >>> [spamInfo.compress_size]\
    3828\
-[➊] \>\>\> [f\'Compressed file is {round(spamInfo.file_size /
+[➊] >>> [f'Compressed file is {round(spamInfo.file_size /
 spamInfo]\
-   [.compress_size, 2)}x smaller!\']\
+   [.compress_size, 2)}x smaller!']\
    [)]\
-   \'Compressed file is 3.63x smaller!\'\
-   \>\>\> [exampleZip.close()]
+   'Compressed file is 3.63x smaller!'\
+   >>> [exampleZip.close()]
 
 A [ZipFile] object has a [namelist()] method that
 returns a list of strings for all the files and folders contained in the
@@ -421,13 +421,13 @@ The [extractall()] method for [ZipFile] objects
 extracts all the files and folders from a ZIP file into the current
 working directory.
 
-   \>\>\> [import zipfile, os]\
-   \>\>\> [from pathlib import Path]\
-   \>\>\> [p = Path.home()]\
-   \>\>\> [exampleZip = zipfile.ZipFile(p /
-\'example.zip\')]\
-[➊] \>\>\> [exampleZip.extractall()]\
-   \>\>\> [exampleZip.close()]
+   >>> [import zipfile, os]\
+   >>> [from pathlib import Path]\
+   >>> [p = Path.home()]\
+   >>> [exampleZip = zipfile.ZipFile(p /
+'example.zip')]\
+[➊] >>> [exampleZip.extractall()]\
+   >>> [exampleZip.close()]
 
 []{#calibre_link-858 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}After running this code, the contents of
@@ -436,7 +436,7 @@ folder name to [extractall()] to have it extract the files
 into a folder other than the current working directory. If the folder
 passed to the [extractall()] method does not exist, it will be
 created. For instance, if you replaced the call at [➊] with
-[exampleZip.extractall(\'C:\\\\delicious\')], the code would
+[exampleZip.extractall('C:\\\\delicious')], the code would
 extract the files from *example.zip* into a newly created
 *C:\\delicious* folder.
 
@@ -444,12 +444,12 @@ The [extract()] method for [ZipFile] objects will
 extract a single file from the ZIP file. Continue the interactive shell
 example:
 
-\>\>\> [exampleZip.extract(\'spam.txt\')]\
-\'C:\\\\spam.txt\'\
-\>\>\> [exampleZip.extract(\'spam.txt\',
-\'C:\\\\some\\\\new\\\\folders\')]\
-\'C:\\\\some\\\\new\\\\folders\\\\spam.txt\'\
-\>\>\> [exampleZip.close()]
+>>> [exampleZip.extract('spam.txt')]\
+'C:\\\\spam.txt'\
+>>> [exampleZip.extract('spam.txt',
+'C:\\\\some\\\\new\\\\folders')]\
+'C:\\\\some\\\\new\\\\folders\\\\spam.txt'\
+>>> [exampleZip.close()]
 
 The string you pass to [extract()] must match one of the
 strings in the list returned by [namelist()]. Optionally, you
@@ -462,9 +462,9 @@ path to which the file was extracted.
 #### ***Creating and Adding to ZIP Files*** 
 
 To create your own compressed ZIP files, you must open the
-[ZipFile] object in *write mode* by passing [\'w\']
+[ZipFile] object in *write mode* by passing ['w']
 as the second argument. (This is similar to opening a text file in write
-mode by passing [\'w\'] to the [open()] function.)
+mode by passing ['w'] to the [open()] function.)
 
 When you pass a path to the [write()] method of a
 [ZipFile] object, Python will compress the file at that path
@@ -476,18 +476,18 @@ should use to compress the files; you can always just set this value to
 compression algorithm, which works well on all types of data.) Enter the
 following into the interactive shell:
 
-\>\>\> [import zipfile]\
-\>\>\> [newZip = zipfile.ZipFile(\'new.zip\', \'w\')]\
-\>\>\> [newZip.write(\'spam.txt\',
+>>> [import zipfile]\
+>>> [newZip = zipfile.ZipFile('new.zip', 'w')]\
+>>> [newZip.write('spam.txt',
 compress_type=zipfile.ZIP_DEFLATED)]\
-\>\>\> [newZip.close()]
+>>> [newZip.close()]
 
 This code will create a new ZIP file named *new.zip* that has the
 compressed contents of *spam.txt*.
 
 Keep in mind that, just as with writing to files, write mode will erase
 all existing contents of a ZIP file. If you want to simply add files to
-an existing ZIP file, pass [\'a\'] as the second argument to
+an existing ZIP file, pass ['a'] as the second argument to
 [zipfile.ZipFile()] to open the ZIP file in *append mode*.
 
 ### []**Project: Renaming Files with American-Style Dates to European-Style Dates** 
@@ -533,7 +533,7 @@ format\
 [➊] import shutil, os, re\
 \
    # Create a regex that matches files with the American date format.\
-[➋] datePattern = re.compile(r\"\"\"\^(.\*?) \# all text before
+[➋] datePattern = re.compile(r"""\^(.\*?) \# all text before
 the date\
        ((0\|1)?\\d)-                     # one or two digits for the
 month\
@@ -541,7 +541,7 @@ month\
 day\
        ((19\|20)\\d\\d)                   # four digits for the year\
        (.\*?)\$                          # all text after the date\
-       \"\"\", re.VERBOSE[➌])\
+       """, re.VERBOSE[➌])\
 \
    # TODO: Loop over the files in the working directory.\
 \
@@ -612,7 +612,7 @@ format\
 \--[snip]\--\
 \
 [\# Loop over the files in the working directory.]\
-[for amerFilename in os.listdir(\'.\'):]\
+[for amerFilename in os.listdir('.'):]\
 []{#calibre_link-1791 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[    mo =
 datePattern.search(amerFilename)]\
@@ -648,7 +648,7 @@ beginning, and count up each time you encounter an opening parenthesis.
 Without thinking about the code, just write an outline of the regular
 expression. This can help you visualize the groups. Here's an example:
 
-datePattern = re.compile(r\"\"\"\^([1]) \# all text before
+datePattern = re.compile(r"""\^([1]) \# all text before
 the date\
     ([2] ([3]) )-                     # one
 or two digits for the month\
@@ -658,7 +658,7 @@ or two digits for the day\
 digits for the year\
     ([8])\$                          # all text after the
 date\
-    \"\"\", re.VERBOSE)
+    """, re.VERBOSE)
 
 Here, the numbers **1** through **8** represent the groups in the
 regular expression you wrote. Making an outline of the regular
@@ -683,19 +683,19 @@ format \# to European DD-MM-YYYY.\
 ops}type="pagebreak"}   [  # Form the European-style
 filename.]\
 [  ][➊] [euroFilename = beforePart + dayPart +
-\'-\' + monthPart + \'-\' + yearPart +]\
+'-' + monthPart + '-' + yearPart +]\
 [                    afterPart]\
 \
 [     # Get the full, absolute file paths.]\
-[     absWorkingDir = os.path.abspath(\'.\')]\
+[     absWorkingDir = os.path.abspath('.')]\
 [     amerFilename = os.path.join(absWorkingDir,
 amerFilename)]\
 [     euroFilename = os.path.join(absWorkingDir,
 euroFilename)]\
 \
 [     # Rename the files.]\
-  [➋] [print(f\'Renaming \"{amerFilename}\" to
-\"{euroFilename}\"\...\')]\
+  [➋] [print(f'Renaming "{amerFilename}" to
+"{euroFilename}"\...')]\
   [➌] [#shutil.move(amerFilename, euroFilename)   # uncomment
 after testing]
 
@@ -752,7 +752,7 @@ perform the backup. Make your program look like this:
 [➊] import zipfile, os\
 \
    def backupToZip(folder):\
-       # Back up the entire contents of \"folder\" into a ZIP file.\
+       # Back up the entire contents of "folder" into a ZIP file.\
 \
        folder = os.path.abspath(folder)   # make sure folder is
 absolute\
@@ -761,8 +761,8 @@ absolute\
        # what files already exist.\
     [➋] number = 1\
     [➌] while True:\
-           zipFilename = os.path.basename(folder) + \'\_\' +
-str(number) + \'.zip\'\
+           zipFilename = os.path.basename(folder) + '\_' +
+str(number) + '.zip'\
            if not os.path.exists(zipFilename):\
                break\
            number = number + 1\
@@ -771,9 +771,9 @@ str(number) + \'.zip\'\
 \
        # TODO: Walk the entire folder tree and compress the files in
 each folder.\
-       print(\'Done.\')\
+       print('Done.')\
 \
-backupToZip(\'C:\\\\delicious\')
+backupToZip('C:\\\\delicious')
 
 Do the basics first: add the shebang ([#!]) line, describe
 what the program does, and import the [zipfile] and
@@ -814,27 +814,27 @@ following:
 \
 \--[snip]\--\
     while True:\
-        zipFilename = os.path.basename(folder) + \'\_\' + str(number) +
-\'.zip\'\
+        zipFilename = os.path.basename(folder) + '\_' + str(number) +
+'.zip'\
         if not os.path.exists(zipFilename):\
             break\
         number = number + 1\
 \
     [\# Create the ZIP file.]\
-[    print(f\'Creating {zipFilename}\...\')]\
+[    print(f'Creating {zipFilename}\...')]\
 [  ][➊] [backupZip = zipfile.ZipFile(zipFilename,
-\'w\')]\
+'w')]\
 \
      # TODO: Walk the entire folder tree and compress the files in each
 folder.\
-     print(\'Done.\')\
+     print('Done.')\
 \
-backupToZip(\'C:\\\\delicious\')
+backupToZip('C:\\\\delicious')
 
 Now that the new ZIP file's name is stored in the
 [zipFilename] variable, you can call
 [zipfile.ZipFile()] to actually create the ZIP file [➊].
-Be sure to pass [\'w\'] as the second argument so that the ZIP
+Be sure to pass ['w'] as the second argument so that the ZIP
 file is opened in write mode.
 
 #### ***Step 3: Walk the Directory Tree and Add to the ZIP File*** 
@@ -853,7 +853,7 @@ look like the following:
 folder.]\
 [  ][➊] [for foldername, subfolders, filenames in
 os.walk(folder):]\
-[         print(f\'Adding files in {foldername}\...\')]\
+[         print(f'Adding files in {foldername}\...')]\
 [         # Add the current folder to the ZIP file.]\
 [      ][➋]
 [backupZip.write(foldername)]\
@@ -862,18 +862,18 @@ os.walk(folder):]\
 file.]\
 [      ][➌] [for filename in
 filenames:]\
-[            newBase = os.path.basename(folder) + \'\_\']\
+[            newBase = os.path.basename(folder) + '\_']\
 [            if filename.startswith(newBase) and
-filename.endswith(\'.zip\'):]\
-[                continue   # don\'t back up the backup ZIP
+filename.endswith('.zip'):]\
+[                continue   # don't back up the backup ZIP
 files]\
 [             backupZip.write(os.path.join(foldername,
 filename))]\
 [     backupZip.close()]\
 []{#calibre_link-807 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}     print(\'Done.\')\
+ops}type="pagebreak"}     print('Done.')\
 \
-backupToZip(\'C:\\\\delicious\')
+backupToZip('C:\\\\delicious')
 
 You can use [os.walk()] in a [for] loop [➊],
 and on each iteration it will return the iteration's current folder

@@ -15,9 +15,9 @@ To better understand how functions work, let's create one. Enter this
 program into the file editor and save it as *helloFunc.py*:
 
 [➊] def hello():\
-    [➋] print(\'Howdy!\')\
-       print(\'Howdy!!!\')\
-       print(\'Hello there.\')\
+    [➋] print('Howdy!')\
+       print('Howdy!!!')\
+       print('Hello there.')\
 \
 [➌] hello()\
    hello()\
@@ -59,15 +59,15 @@ A major purpose of functions is to group code that gets executed
 multiple times. Without a function defined, you would have to copy and
 paste this code each time, and the program would look like this:
 
-print(\'Howdy!\')\
-print(\'Howdy!!!\')\
-print(\'Hello there.\')\
-print(\'Howdy!\')\
-print(\'Howdy!!!\')\
-print(\'Hello there.\')\
-print(\'Howdy!\')\
-print(\'Howdy!!!\')\
-print(\'Hello there.\')
+print('Howdy!')\
+print('Howdy!!!')\
+print('Hello there.')\
+print('Howdy!')\
+print('Howdy!!!')\
+print('Hello there.')\
+print('Howdy!')\
+print('Howdy!!!')\
+print('Hello there.')
 
 In general, you always want to avoid duplicating code because if you
 ever decide to update the code---if, for example, you find a bug you
@@ -88,10 +88,10 @@ arguments. Type this example into the file editor and save it as
 *helloFunc2.py*:
 
 [➊] def hello(name):\
-    [➋] print(\'Hello, \' + name)\
+    [➋] print('Hello, ' + name)\
 \
-[➌] hello(\'Alice\')\
-   hello(\'Bob\')
+[➌] hello('Alice')\
+   hello('Bob')
 
 When you run this program, the output looks like this:
 
@@ -105,17 +105,17 @@ parameter called [name] [➊]. *Parameters* are variables
 that contain arguments. When a function is called with arguments, the
 arguments are stored in the parameters. The first time the
 [hello()] function is called, it is passed the argument
-[\'Alice\'] [➌]. The program execution enters the
+['Alice'] [➌]. The program execution enters the
 function, and the parameter [name] is automatically set to
-[\'Alice\'], which is what gets printed by the
+['Alice'], which is what gets printed by the
 [print()] statement [➋].
 
 One special thing to note about parameters is that the value stored in a
 parameter is forgotten when the function returns. For example, if you
-added [print(name)] after [hello(\'Bob\')] in the
+added [print(name)] after [hello('Bob')] in the
 previous program, the program would give you a [NameError]
 because there is no variable named [name]. This variable is
-destroyed after the function call [hello(\'Bob\')] returns, so
+destroyed after the function call [hello('Bob')] returns, so
 [print(name)] would refer to a [name] variable that
 does not exist.
 
@@ -129,19 +129,19 @@ The terms *define*, *call*, *pass*, *argument*, and *parameter* can be
 confusing. Let's look at a code example to review these terms:
 
 [➊] def sayHello(name):\
-       print(\'Hello, \' + name)\
-[➋] sayHello(\'Al\')
+       print('Hello, ' + name)\
+[➋] sayHello('Al')
 
 To *define* a function is to create it, just like an assignment
 statement like [spam = 42] creates the [spam]
 variable. The [def] statement defines the
 [sayHello()] function [➊]. The
-[sayHello(\'Al\')] line [➋] *calls* the now-created
+[sayHello('Al')] line [➋] *calls* the now-created
 function, sending the execution to the top of the function's code. This
 function call is also known as *passing* the string value
-[\'Al\'] to the function. A value being passed to a
+['Al'] to the function. A value being passed to a
 function in a function call is an *argument*. The argument
-[\'Al\'] is assigned to a local variable named
+['Al'] is assigned to a local variable named
 [name]. Variables that have arguments assigned to them are
 *parameters*.
 
@@ -151,7 +151,7 @@ that you know precisely what the text in this chapter means.
 ### **Return Values and return Statements** 
 
 When you call the [len()] function and pass it an argument
-such as [\'Hello\'], the function call evaluates to the
+such as ['Hello'], the function call evaluates to the
 integer value [5], which is the length of the string you
 passed it. In general, the value that a function call evaluates to is
 called the *return value* of the function.
@@ -173,23 +173,23 @@ into the file editor and save it as *magic8Ball.py*:
 \
 [➋] def getAnswer(answerNumber):\
     [➌] if answerNumber == 1:\
-           return \'It is certain\'\
+           return 'It is certain'\
        elif answerNumber == 2:\
-           return \'It is decidedly so\'\
+           return 'It is decidedly so'\
        elif answerNumber == 3:\
-           return \'Yes\'\
+           return 'Yes'\
        elif answerNumber == 4:\
-           return \'Reply hazy try again\'\
+           return 'Reply hazy try again'\
        elif answerNumber == 5:\
-           return \'Ask again later\'\
+           return 'Ask again later'\
        elif answerNumber == 6:\
-           return \'Concentrate and ask again\'\
+           return 'Concentrate and ask again'\
        elif answerNumber == 7:\
-           return \'My reply is no\'\
+           return 'My reply is no'\
        elif answerNumber == 8:\
-           return \'Outlook not so good\'\
+           return 'Outlook not so good'\
        elif answerNumber == 9:\
-           return \'Very doubtful\'\
+           return 'Very doubtful'\
 \
 [➍] r = random.randint(1, 9)\
 [➎] fortune = getAnswer(r)\
@@ -254,9 +254,9 @@ calls need to evaluate to a return value, [print()] returns
 [None]. To see this in action, enter the following into the
 interactive shell:
 
-\>\>\> [spam = print(\'Hello!\')]\
+>>> [spam = print('Hello!')]\
 Hello!\
-\>\>\> [None == spam]\
+>>> [None == spam]\
 True
 
 []{#calibre_link-796 {http:="" www.idpf.org="" 2007=""
@@ -287,8 +287,8 @@ arguments and between its arguments (separating them), respectively.
 
 If you ran a program with the following code:
 
-[print(\'Hello\')]\
-[print(\'World\')]
+[print('Hello')]\
+[print('World')]
 
 the output would look like this:
 
@@ -301,15 +301,15 @@ the end of the string it is passed. However, you can set the
 [end] keyword argument to change the newline character to a
 different string. For example, if the code were this:
 
-[print(\'Hello\', end=\'\')]\
-[print(\'World\')]
+[print('Hello', end='')]\
+[print('World')]
 
 the output would look like this:
 
 HelloWorld
 
 The output is printed on a single line because there is no longer a
-newline printed after [\'Hello\']. Instead, the blank string
+newline printed after ['Hello']. Instead, the blank string
 is printed. This is useful if you need to disable the newline that gets
 added to the end of every [print()] function call.
 
@@ -318,14 +318,14 @@ ops}type="pagebreak"}Similarly, when you pass multiple string values to
 [print()], the function will automatically separate them with
 a single space. Enter the following into the interactive shell:
 
-\>\>\> [print(\'cats\', \'dogs\', \'mice\')]\
+>>> [print('cats', 'dogs', 'mice')]\
 cats dogs mice
 
 But you could replace the default separating string by passing the
 [sep] keyword argument a different string. Enter the following
 into the interactive shell:
 
-\>\>\> [print(\'cats\', \'dogs\', \'mice\', sep=\',\')]\
+>>> [print('cats', 'dogs', 'mice', sep=',')]\
 cats,dogs,mice
 
 You can add keyword arguments to the functions you write as well, but
@@ -367,23 +367,23 @@ ops}type="pagebreak"}Open a file editor window and enter the following
 code, saving it as *abcdCallStack.py*:
 
    def a():\
-       print(\'a() starts\')\
+       print('a() starts')\
     [➊] b()\
     [➋] d()\
-       print(\'a() returns\')\
+       print('a() returns')\
 \
    def b():\
-       print(\'b() starts\')\
+       print('b() starts')\
     [➌] c()\
-       print(\'b() returns\')\
+       print('b() returns')\
 \
    def c():\
-    [➍] print(\'c() starts\')\
-       print(\'c() returns\')\
+    [➍] print('c() starts')\
+       print('c() returns')\
 \
    def d():\
-       print(\'d() starts\')\
-       print(\'d() returns\')\
+       print('d() starts')\
+       print('d() returns')\
 \
 [➎] a()
 
@@ -520,9 +520,9 @@ print(eggs)
 If you run this program, the output will look like this:
 
 Traceback (most recent call last):\
-  File \"C:/test1.py\", line 4, in \<module\>\
+  File "C:/test1.py", line 4, in <module>\
     print(eggs)\
-NameError: name \'eggs\' is not defined
+NameError: name 'eggs' is not defined
 
 The error happens because the [eggs] variable exists only in
 the local scope created when [spam()] is called [➊].
@@ -601,18 +601,18 @@ the following code into the file editor and save it as
 *localGlobalSameName.py*:
 
    def spam():\
-    [➊] eggs = \'spam local\'\
-       print(eggs)    # prints \'spam local\'\
+    [➊] eggs = 'spam local'\
+       print(eggs)    # prints 'spam local'\
 \
    def bacon():\
-    [➋] eggs = \'bacon local\'\
-       print(eggs)    # prints \'bacon local\'\
+    [➋] eggs = 'bacon local'\
+       print(eggs)    # prints 'bacon local'\
        spam()\
-       print(eggs)    # prints \'bacon local\'\
+       print(eggs)    # prints 'bacon local'\
 \
-[➌] eggs = \'global\'\
+[➌] eggs = 'global'\
    bacon()\
-   print(eggs)        # prints \'global\'
+   print(eggs)        # prints 'global'
 
 When you run this program, it outputs the following:
 
@@ -652,10 +652,10 @@ following code into the file editor and save it as *globalStatement.py*:
 
 def spam():\
   [➊] global eggs\
-  [➋] eggs = \'spam\'\
+  [➋] eggs = 'spam'\
 []{#calibre_link-1728 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}\
-eggs = \'global\'\
+eggs = 'global'\
 spam()\
 print(eggs)
 
@@ -668,7 +668,7 @@ You can view the execution of this program at
 *[https://autbor.com/globalstatement/](https://autbor.com/globalstatement/)*.
 Because [eggs] is declared [global] at the top of
 [spam()] [➊], when [eggs] is set to
-[\'spam\'] [➋], this assignment is done to the globally
+['spam'] [➋], this assignment is done to the globally
 scoped [eggs]. No local [eggs] variable is created.
 
 There are four rules to tell whether a variable is in a local scope or
@@ -689,10 +689,10 @@ the following code into the file editor and save it as
 
 def spam():\
   [➊] global eggs\
-     eggs = \'spam\' \# this is the global\
+     eggs = 'spam' \# this is the global\
 \
 def bacon():\
-  [➋] eggs = \'bacon\' \# this is a local\
+  [➋] eggs = 'bacon' \# this is a local\
 \
 def ham():\
   [➌] print(eggs) \# this is the global\
@@ -736,19 +736,19 @@ To see this, enter the following into the file editor and save it as
 
    def spam():\
        print(eggs) \# ERROR!\
-    [➊] eggs = \'spam local\'\
+    [➊] eggs = 'spam local'\
 \
-[➋] eggs = \'global\'\
+[➋] eggs = 'global'\
    spam()
 
 If you run the previous program, it produces an error message.
 
 Traceback (most recent call last):\
-  File \"C:/sameNameError.py\", line 6, in \<module\>\
+  File "C:/sameNameError.py", line 6, in <module>\
     spam()\
-  File \"C:/sameNameError.py\", line 2, in spam\
+  File "C:/sameNameError.py", line 2, in spam\
     print(eggs) \# ERROR!\
-UnboundLocalError: local variable \'eggs\' referenced before assignment
+UnboundLocalError: local variable 'eggs' referenced before assignment
 
 You can view the execution of this program at
 *[https://autbor.com/sameNameError/](https://autbor.com/sameNameError/)*.
@@ -805,9 +805,9 @@ code:
 21.0\
 3.5\
 Traceback (most recent call last):\
-  File \"C:/zeroDivide.py\", line 6, in \<module\>\
+  File "C:/zeroDivide.py", line 6, in <module>\
     print(spam(0))\
-  File \"C:/zeroDivide.py\", line 2, in spam\
+  File "C:/zeroDivide.py", line 2, in spam\
     return 42 / divideBy\
 ZeroDivisionError: division by zero
 
@@ -831,7 +831,7 @@ def spam(divideBy):\
     try:\
         return 42 / divideBy\
     except ZeroDivisionError:\
-        print(\'Error: Invalid argument.\')\
+        print('Error: Invalid argument.')\
 \
 print(spam(2))\
 print(spam(12))\
@@ -865,7 +865,7 @@ try:\
     print(spam(0))\
     print(spam(1))\
 except ZeroDivisionError:\
-    print(\'Error: Invalid argument.\')
+    print('Error: Invalid argument.')
 
 When this program is run, the output looks like this:
 
@@ -909,8 +909,8 @@ not.\
 \
 try:\
     while True: \# The main program loop.\
-        print(\' \' \* indent, end=\'\')\
-        print(\'\*\*\*\*\*\*\*\*\')\
+        print(' ' \* indent, end='')\
+        print('\*\*\*\*\*\*\*\*')\
         time.sleep(0.1) \# Pause for 1/10 of a second.\
 \
         if indentIncreasing:\
@@ -943,8 +943,8 @@ determine if the amount of indentation is increasing or decreasing.
 
 try:\
     while True: \# The main program loop.\
-        print(\' \' \* indent, end=\'\')\
-        print(\'\*\*\*\*\*\*\*\*\')\
+        print(' ' \* indent, end='')\
+        print('\*\*\*\*\*\*\*\*')\
         time.sleep(0.1) \# Pause for 1/10 of a second.
 
 []{#calibre_link-1070 {http:="" www.idpf.org="" 2007=""
@@ -959,10 +959,10 @@ for our program, we want it to cleanly handle the
 statement at the end of the program.)
 
 The [while True:] infinite loop will repeat the instructions
-in our program forever. This involves using [\' \' \* indent]
+in our program forever. This involves using [' ' \* indent]
 to print the correct amount of spaces of indentation. We don't want to
 automatically print a newline after these spaces, so we also pass
-[end=\'\'] to the first [print()] call. A second
+[end=''] to the first [print()] call. A second
 [print()] call prints the band of asterisks. The
 [time.sleep()] function hasn't been covered yet, but suffice
 it to say that it introduces a one-tenth-second pause in our program at
@@ -1114,7 +1114,7 @@ Add [try] and [except] statements to the previous
 project to detect whether the user types in a noninteger string.
 Normally, the [int()] function will raise a
 [ValueError] error if it is passed a noninteger string, as in
-[int(\'puppy\')]. In the [except] clause, print a
+[int('puppy')]. In the [except] clause, print a
 message to the user saying they must enter an integer.
 
 

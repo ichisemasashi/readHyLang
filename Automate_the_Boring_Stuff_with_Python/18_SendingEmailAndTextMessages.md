@@ -79,10 +79,10 @@ as your Gmail password and not share with anyone else.
 
 Then, in the interactive shell, enter the following code:
 
-\>\>\> [import ezgmail, os]\
-\>\>\>
-[os.chdir(r\'C:\\path\\to\\credentials_json_file\')]\
-\>\>\> [ezgmail.init()]
+>>> [import ezgmail, os]\
+>>>
+[os.chdir(r'C:\\path\\to\\credentials_json_file')]\
+>>> [ezgmail.init()]
 
 Make sure you set your current working directory to the same folder that
 *credentials.json* is in and that you're connected to the internet. The
@@ -109,16 +109,16 @@ your Gmail password in your source code.
 Once you have a *token.json* file, the EZGmail module should be able to
 send email with a single function call:
 
-\>\>\> [import ezgmail]\
-\>\>\> [ezgmail.send(\'recipient@example.com\', \'Subject line\', \'Body
-of the email\')]
+>>> [import ezgmail]\
+>>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
+of the email')]
 
 If you want to attach files to your email, you can provide an extra list
 argument to the [send()] function:
 
-\>\>\> [ezgmail.send(\'recipient@example.com\', \'Subject line\', \'Body
-of the email\',]\
-[\[\'attachment1.jpg\', \'attachment2.mp3\'\])]
+>>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
+of the email',]\
+[\['attachment1.jpg', 'attachment2.mp3'\])]
 
 Note that as part of its security and anti-spam features, Gmail might
 not send repeated emails with the exact same text (since these are
@@ -128,21 +128,21 @@ likely spam) or emails that contain *.exe* or *.zip* file attachments
 You can also supply the optional keyword arguments [cc] and
 [bcc] to send carbon copies and blind carbon copies:
 
-\>\>\> [import ezgmail]\
-\>\>\> [ezgmail.send(\'recipient@example.com\', \'Subject line\', \'Body
-of the email\',]\
-[cc=\'friend@example.com\',
-bcc=\'otherfriend@example.com,someoneelse@example.com\')]
+>>> [import ezgmail]\
+>>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
+of the email',]\
+[cc='friend@example.com',
+bcc='otherfriend@example.com,someoneelse@example.com')]
 
 If you need to remember which Gmail address the *token.json* file is
 configured for, you can examine [ezgmail.EMAIL_ADDRESS]. Note
 that this variable is populated only after [ezgmail.init()] or
 any other EZGmail function is called:
 
-\>\>\> [import ezgmail]\
-\>\>\> [ezgmail.init()]\
-\>\>\> [ezgmail.EMAIL_ADDRESS]\
-\'example@gmail.com\'
+>>> [import ezgmail]\
+>>> [ezgmail.init()]\
+>>> [ezgmail.EMAIL_ADDRESS]\
+'example@gmail.com'
 
 Be sure to treat the *token.json* file the same as your password. If
 someone else obtains this file, they can access your Gmail account
@@ -170,10 +170,10 @@ objects for all unread emails, which can then be passed to
 [ezgmail.summary()] to print a summary of the conversation
 threads in that list:
 
-\>\>\> [import ezgmail]\
-\>\>\> [unreadThreads = ezgmail.unread() \# List of GmailThread
+>>> [import ezgmail]\
+>>> [unreadThreads = ezgmail.unread() \# List of GmailThread
 objects.]\
-\>\>\> [ezgmail.summary(unreadThreads)]\
+>>> [ezgmail.summary(unreadThreads)]\
 Al, Jon - Do you want to watch RoboCop this weekend? - Dec 09\
 Jon - Thanks for stopping me from buying Bitcoin. - Dec 09
 
@@ -186,30 +186,30 @@ make up the thread, and these have [subject],
 [body], [timestamp], [sender], and
 [recipient] attributes that describe the email:
 
-\>\>\> [len(unreadThreads)]\
+>>> [len(unreadThreads)]\
 2\
-\>\>\> [str(unreadThreads\[0\])]\
-\"\<GmailThread len=2 snippet= Do you want to watch RoboCop this
-weekend?\'\>\"\
-\>\>\> [len(unreadThreads\[0\].messages)]\
+>>> [str(unreadThreads\[0\])]\
+"<GmailThread len=2 snippet= Do you want to watch RoboCop this
+weekend?'>"\
+>>> [len(unreadThreads\[0\].messages)]\
 2\
-\>\>\> [str(unreadThreads\[0\].messages\[0\])]\
-\"\<GmailMessage from=\'Al Sweigart \<al@inventwithpython.com\>\'
-to=\'Jon Doe\
-\<example@gmail.com\>\' timestamp=datetime.datetime(2018, 12, 9, 13, 28,
+>>> [str(unreadThreads\[0\].messages\[0\])]\
+"<GmailMessage from='Al Sweigart <al@inventwithpython.com>'
+to='Jon Doe\
+<example@gmail.com>' timestamp=datetime.datetime(2018, 12, 9, 13, 28,
 48)\
-subject=\'RoboCop\' snippet=\'Do you want to watch RoboCop this
-weekend?\'\>\"\
-\>\>\> [unreadThreads\[0\].messages\[0\].subject]\
-\'RoboCop\'\
-\>\>\> [unreadThreads\[0\].messages\[0\].body]\
-\'Do you want to watch RoboCop this weekend?\\r\\n\'\
-\>\>\> [unreadThreads\[0\].messages\[0\].timestamp]\
+subject='RoboCop' snippet='Do you want to watch RoboCop this
+weekend?'>"\
+>>> [unreadThreads\[0\].messages\[0\].subject]\
+'RoboCop'\
+>>> [unreadThreads\[0\].messages\[0\].body]\
+'Do you want to watch RoboCop this weekend?\\r\\n'\
+>>> [unreadThreads\[0\].messages\[0\].timestamp]\
 datetime.datetime(2018, 12, 9, 13, 28, 48)\
-\>\>\> [unreadThreads\[0\].messages\[0\].sender]\
-\'Al Sweigart \<al@inventwithpython.com\>\'\
-\>\>\> [unreadThreads\[0\].messages\[0\].recipient]\
-\'Jon Doe \<example@gmail.com\>\'
+>>> [unreadThreads\[0\].messages\[0\].sender]\
+'Al Sweigart <al@inventwithpython.com>'\
+>>> [unreadThreads\[0\].messages\[0\].recipient]\
+'Jon Doe <example@gmail.com>'
 
 []{#calibre_link-954 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Similar to the [ezgmail.unread()]
@@ -217,11 +217,11 @@ function, the [ezgmail.recent()] function will return the 25
 most recent threads in your Gmail account. You can pass an optional
 [maxResults] keyword argument to change this limit:
 
-\>\>\> [recentThreads = ezgmail.recent()]\
-\>\>\> [len(recentThreads)]\
+>>> [recentThreads = ezgmail.recent()]\
+>>> [len(recentThreads)]\
 25\
-\>\>\> [recentThreads = ezgmail.recent(maxResults=100)]\
-\>\>\> [len(recentThreads)]\
+>>> [recentThreads = ezgmail.recent(maxResults=100)]\
+>>> [len(recentThreads)]\
 46
 
 #### ***Searching Mail from a Gmail Account*** 
@@ -232,10 +232,10 @@ same way you would if you entered queries into the
 *[https://gmail.com/](https://gmail.com/)* search box, by
 calling [ezgmail.search()]:
 
-\>\>\> [resultThreads = ezgmail.search(\'RoboCop\')]\
-\>\>\> [len(resultThreads)]\
+>>> [resultThreads = ezgmail.search('RoboCop')]\
+>>> [len(resultThreads)]\
 1\
-\>\>\> [ezgmail.summary(resultThreads)]\
+>>> [ezgmail.summary(resultThreads)]\
 Al, Jon - Do you want to watch RoboCop this weekend? - Dec 09
 
 The previous [search()] call should yield the same results as
@@ -255,14 +255,14 @@ objects. You can also pass any of the special search operators that you
 can enter into the search box to the [search()] function, such
 as the following:
 
-[\'label:UNREAD\'] For unread emails
+['label:UNREAD'] For unread emails
 
-[\'from:al@inventwithpython.com\'] For emails from
+['from:al@inventwithpython.com'] For emails from
 *[al@inventwithpython.com](mailto:al@inventwithpython.com)*
 
-[\'subject:hello\'] For emails with "hello" in the subject
+['subject:hello'] For emails with "hello" in the subject
 
-[\'has:attachment\'] For emails with file attachments
+['has:attachment'] For emails with file attachments
 
 You can view a full list of search operators at
 *[https://support.google.com/mail/answer/7190?hl=en/](https://support.google.com/mail/answer/7190?hl=en/)*.
@@ -281,16 +281,16 @@ additional [downloadFolder] keyword argument to
 [downloadAttachment()] and
 [downloadAllAttachments()] as well. For example:
 
-\>\>\> [import ezgmail]\
-\>\>\> [threads = ezgmail.search(\'vacation photos\')]\
-\>\>\> [threads\[0\].messages\[0\].attachments]\
-\[\'tulips.jpg\', \'canal.jpg\', \'bicycles.jpg\'\]\
-\>\>\>
-[threads\[0\].messages\[0\].downloadAttachment(\'tulips.jpg\')]\
-\>\>\>
-[threads\[0\].messages\[0\].downloadAllAttachments(downloadFolder=\'vacat]\
-[ion2019\')]\
-\[\'tulips.jpg\', \'canal.jpg\', \'bicycles.jpg\'\]
+>>> [import ezgmail]\
+>>> [threads = ezgmail.search('vacation photos')]\
+>>> [threads\[0\].messages\[0\].attachments]\
+\['tulips.jpg', 'canal.jpg', 'bicycles.jpg'\]\
+>>>
+[threads\[0\].messages\[0\].downloadAttachment('tulips.jpg')]\
+>>>
+[threads\[0\].messages\[0\].downloadAllAttachments(downloadFolder='vacat]\
+[ion2019')]\
+\['tulips.jpg', 'canal.jpg', 'bicycles.jpg'\]
 
 If a file already exists with the attachment's filename, the downloaded
 attachment will automatically overwrite it.
@@ -344,25 +344,25 @@ placeholders. This code is just an overview of the process of sending
 email with Python.*
 
 
-\>\>\> [import smtplib]\
-\>\>\> [smtpObj = smtplib.SMTP(\'smtp.example.com\',
+>>> [import smtplib]\
+>>> [smtpObj = smtplib.SMTP('smtp.example.com',
 587)]\
-\>\>\> [smtpObj.ehlo()]\
-(250, b\'mx.example.com at your service, \[216.172.148.131\]\\nSIZE
+>>> [smtpObj.ehlo()]\
+(250, b'mx.example.com at your service, \[216.172.148.131\]\\nSIZE
 35882577\\\
-n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING\')\
-\>\>\> [smtpObj.starttls()]\
-(220, b\'2.0.0 Ready to start TLS\')\
-\>\>\> [smtpObj.login(\'bob@example.com\',
-\'][[MY_SECRET_PASSWORD]][\')]\
-(235, b\'2.7.0 Accepted\')\
-\>\>\> [smtpObj.sendmail(\'bob@example.com\', \'alice@example.com\',
-\'Subject: So]\
+n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING')\
+>>> [smtpObj.starttls()]\
+(220, b'2.0.0 Ready to start TLS')\
+>>> [smtpObj.login('bob@example.com',
+'][[MY_SECRET_PASSWORD]][')]\
+(235, b'2.7.0 Accepted')\
+>>> [smtpObj.sendmail('bob@example.com', 'alice@example.com',
+'Subject: So]\
 [long.\\nDear Alice, so long and thanks for all the fish. Sincerely,
-Bob\')]\
+Bob')]\
 {}\
-\>\>\> [smtpObj.quit()]\
-(221, b\'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp\')
+>>> [smtpObj.quit()]\
+(221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
 
 In the following sections, we'll go through each step, replacing the
 placeholders with your information to connect and log in to an SMTP
@@ -373,7 +373,7 @@ server, send an email, and disconnect from the server.
 If you've ever set up Thunderbird, Outlook, or another program to
 connect to your email account, you may be familiar with configuring the
 SMTP server and port. These settings will be different for each email
-provider, but a web search for *\<your provider\> smtp settings* should
+provider, but a web search for *<your provider> smtp settings* should
 turn up the server and port to use.
 
 The domain name for the SMTP server will usually be the name of your
@@ -405,10 +405,10 @@ and has methods for sending emails. For example, the following call
 creates an [SMTP] object for connecting to an imaginary email
 server:
 
-\>\>\> [smtpObj = smtplib.SMTP(\'smtp.example.com\',
+>>> [smtpObj = smtplib.SMTP('smtp.example.com',
 587)]\
-\>\>\> [type(smtpObj)]\
-\<class \'smtplib.SMTP\'\>
+>>> [type(smtpObj)]\
+<class 'smtplib.SMTP'>
 
 Entering [type(smtpObj)] shows you that there's an
 [SMTP] object stored in [smtpObj]. You'll need this
@@ -418,7 +418,7 @@ your SMTP server might not support TLS on port 587. In this case, you
 will need to create an [SMTP] object using
 [smtplib.SMTP_SSL()] and port 465 instead.
 
-\>\>\> [smtpObj = smtplib.SMTP_SSL(\'smtp.example.com\',
+>>> [smtpObj = smtplib.SMTP_SSL('smtp.example.com',
 465)]
 
 
@@ -447,10 +447,10 @@ thing after getting the [SMTP] object or else the later method
 calls will result in errors. The following is an example of an
 [ehlo()] call and its return value:
 
-\>\>\> [smtpObj.ehlo()]\
-(250, b\'mx.example.com at your service, \[216.172.148.131\]\\nSIZE
+>>> [smtpObj.ehlo()]\
+(250, b'mx.example.com at your service, \[216.172.148.131\]\\nSIZE
 35882577\\\
-n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING\')
+n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING')
 
 If the first item in the returned tuple is the integer [250]
 (the code for "success" in SMTP), then the greeting succeeded.
@@ -466,8 +466,8 @@ encryption is already set up, and you should skip this step.
 
 Here's an example of the [starttls()] method call:
 
-\>\>\> [smtpObj.starttls()]\
-(220, b\'2.0.0 Ready to start TLS\')
+>>> [smtpObj.starttls()]\
+(220, b'2.0.0 Ready to start TLS')
 
 The [starttls()] method puts your SMTP connection in TLS mode.
 The [220] in the return value tells you that the server is
@@ -479,10 +479,10 @@ Once your encrypted connection to the SMTP server is set up, you can log
 in with your username (usually your email address) and email password by
 calling the [login()] method.
 
-\>\>\>
-[smtpObj.login(\'][[my_email_address@example.com]][\',
-\'][[MY_SECRET_PASSWORD]][\')]\
-(235, b\'2.7.0 Accepted\')
+>>>
+[smtpObj.login('][[my_email_address@example.com]][',
+'][[MY_SECRET_PASSWORD]][')]\
+(235, b'2.7.0 Accepted')
 
 Pass a string of your email address as the first argument and a string
 of your password as the second argument. The [235] in the
@@ -508,13 +508,13 @@ Once you are logged in to your email provider's SMTP server, you can
 call the [sendmail()] method to actually send the email. The
 [sendmail()] method call looks like this:
 
-\>\>\>
-[smtpObj.sendmail(\'][[my_email_address@example.com]]\
-[\',
-\'][[recipient@example.com]][\',
-\'Subject: So long.\\nDear Alice, so long and thanks for all the
+>>>
+[smtpObj.sendmail('][[my_email_address@example.com]]\
+[',
+'][[recipient@example.com]][',
+'Subject: So long.\\nDear Alice, so long and thanks for all the
 fish.]\
-[Sincerely, Bob\')]\
+[Sincerely, Bob')]\
 {}
 
 The [sendmail()] method requires three arguments:
@@ -526,8 +526,8 @@ The [sendmail()] method requires three arguments:
 
 []{#calibre_link-929 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The start of the email body string *must* begin
-with [\'Subject: \\n\'] for the subject line of the email. The
-[\'\\n\'] newline character separates the subject line from
+with ['Subject: \\n'] for the subject line of the email. The
+['\\n'] newline character separates the subject line from
 the main body of the email.
 
 The return value from [sendmail()] is a dictionary. There will
@@ -540,8 +540,8 @@ email delivery *failed*. An empty dictionary means all recipients were
 Be sure to call the [quit()] method when you are done sending
 emails. This will disconnect your program from the SMTP server.
 
-\>\>\> [smtpObj.quit()]\
-(221, b\'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp\')
+>>> [smtpObj.quit()]\
+(221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
 
 The [221] in the return value means the session is ending.
 
@@ -582,48 +582,48 @@ third-party modules. Just to give you an overview, here's a full example
 of logging in to an IMAP server, searching for emails, fetching them,
 and then extracting the text of the email messages from them.
 
-\>\>\> [import imapclient]\
-\>\>\> [imapObj = imapclient.IMAPClient(\'imap.example.com\',
+>>> [import imapclient]\
+>>> [imapObj = imapclient.IMAPClient('imap.example.com',
 ssl=True)]\
-\>\>\>
-[imapObj.login(\'][[my_email_address@example.com]][\',
-\'][[MY_SECRET_PASSWORD]][\')]\
+>>>
+[imapObj.login('][[my_email_address@example.com]][',
+'][[MY_SECRET_PASSWORD]][')]\
 []{#calibre_link-962 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\'my_email_address@example.com Jane Doe
-authenticated (Success)\'\
-\>\>\> [imapObj.select_folder(\'INBOX\', readonly=True)]\
-\>\>\> [UIDs = imapObj.search(\[\'SINCE 05-Jul-2019\'\])]\
-\>\>\> [UIDs]\
+ops}type="pagebreak"}'my_email_address@example.com Jane Doe
+authenticated (Success)'\
+>>> [imapObj.select_folder('INBOX', readonly=True)]\
+>>> [UIDs = imapObj.search(\['SINCE 05-Jul-2019'\])]\
+>>> [UIDs]\
 \[40032, 40033, 40034, 40035, 40036, 40037, 40038, 40039, 40040,
 40041\]\
-\>\>\> [rawMessages = imapObj.fetch(\[40041\], \[\'BODY\[\]\',
-\'FLAGS\'\])]\
-\>\>\> [import pyzmail]\
-\>\>\> [message =
-pyzmail.PyzMessage.factory(rawMessages\[40041\]\[b\'BODY\[\]\'\])]\
-\>\>\> [message.get_subject()]\
-\'Hello!\'\
-\>\>\> [message.get_addresses(\'from\')]\
-\[(\'Edward Snowden\', \'esnowden@nsa.gov\')\]\
-\>\>\> [message.get_addresses(\'to\')]\
-\[(\'Jane Doe\', \'jdoe@example.com\')\]\
-\>\>\> [message.get_addresses(\'cc\')]\
+>>> [rawMessages = imapObj.fetch(\[40041\], \['BODY\[\]',
+'FLAGS'\])]\
+>>> [import pyzmail]\
+>>> [message =
+pyzmail.PyzMessage.factory(rawMessages\[40041\]\[b'BODY\[\]'\])]\
+>>> [message.get_subject()]\
+'Hello!'\
+>>> [message.get_addresses('from')]\
+\[('Edward Snowden', 'esnowden@nsa.gov')\]\
+>>> [message.get_addresses('to')]\
+\[('Jane Doe', 'jdoe@example.com')\]\
+>>> [message.get_addresses('cc')]\
 \[\]\
-\>\>\> [message.get_addresses(\'bcc\')]\
+>>> [message.get_addresses('bcc')]\
 \[\]\
-\>\>\> [message.text_part != None]\
+>>> [message.text_part != None]\
 True\
-\>\>\>
+>>>
 [message.text_part.get_payload().decode(message.text_part.charset)]\
-\'Follow the money.\\r\\n\\r\\n-Ed\\r\\n\'\
-\>\>\> [message.html_part != None]\
+'Follow the money.\\r\\n\\r\\n-Ed\\r\\n'\
+>>> [message.html_part != None]\
 True\
-\>\>\>
+>>>
 [message.html_part.get_payload().decode(message.html_part.charset)]\
-\'\<div dir=\"ltr\"\>\<div\>So long, and thanks for all the
-fish!\<br\>\<br\>\</div\>-\
-Al\<br\>\</div\>\\r\\n\'\
-\>\>\> [imapObj.logout()]
+'<div dir="ltr"><div>So long, and thanks for all the
+fish!<br><br></div>-\
+Al<br></div>\\r\\n'\
+>>> [imapObj.logout()]
 
 You don't have to memorize these steps. After we go through each step in
 detail, you can come back to this overview to refresh your memory.
@@ -658,8 +658,8 @@ encryption, so pass the [ssl=True] keyword argument. Enter the
 following into the interactive shell (using your provider's domain
 name):
 
-\>\>\> [import imapclient]\
-\>\>\> [imapObj = imapclient.IMAPClient(\'imap.example.com\',
+>>> [import imapclient]\
+>>> [imapObj = imapclient.IMAPClient('imap.example.com',
 ssl=True)]
 
 In all of the interactive shell examples in the following sections, the
@@ -673,10 +673,10 @@ Once you have an [IMAPClient] object, call its
 [login()] method, passing in the username (this is usually
 your email address) and password as strings.
 
-\>\>\>
-[imapObj.login(\'][[my_email_address@example.com]][\',
-\'][[MY_SECRET_PASSWORD]][\')]\
-\'my_email_address@example.com Jane Doe authenticated (Success)\'
+>>>
+[imapObj.login('][[my_email_address@example.com]][',
+'][[MY_SECRET_PASSWORD]][')]\
+'my_email_address@example.com Jane Doe authenticated (Success)'
 
 
 **[WARNING]**
@@ -705,19 +705,19 @@ object's [list_folders()] method. This returns a list of
 tuples. Each tuple contains information about a single folder. Continue
 the interactive shell example by entering the following:
 
-\>\>\> [import pprint]\
-\>\>\> [pprint.pprint(imapObj.list_folders())]\
-\[((\'\\\\HasNoChildren\',), \'/\', \'Drafts\'),\
+>>> [import pprint]\
+>>> [pprint.pprint(imapObj.list_folders())]\
+\[(('\\\\HasNoChildren',), '/', 'Drafts'),\
 []{#calibre_link-1006 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"} ((\'\\\\HasNoChildren\',), \'/\', \'Filler\'),\
- ((\'\\\\HasNoChildren\',), \'/\', \'INBOX\'),\
- ((\'\\\\HasNoChildren\',), \'/\', \'Sent\'),\
+ops}type="pagebreak"} (('\\\\HasNoChildren',), '/', 'Filler'),\
+ (('\\\\HasNoChildren',), '/', 'INBOX'),\
+ (('\\\\HasNoChildren',), '/', 'Sent'),\
 \--[snip]\--\
- ((\'\\\\HasNoChildren\', \'\\\\Flagged\'), \'/\', \'Starred\'),\
- ((\'\\\\HasNoChildren\', \'\\\\Trash\'), \'/\', \'Trash\')\]
+ (('\\\\HasNoChildren', '\\\\Flagged'), '/', 'Starred'),\
+ (('\\\\HasNoChildren', '\\\\Trash'), '/', 'Trash')\]
 
 The three values in each of the tuples---for example,
-[((\'\\\\HasNoChildren\',), \'/\', \'INBOX\')]---are as
+[(('\\\\HasNoChildren',), '/', 'INBOX')]---are as
 follows:
 
 -   A tuple of the folder's flags. (Exactly what these flags represent
@@ -731,7 +731,7 @@ To select a folder to search through, pass the folder's name as a string
 into the [IMAPClient] object's [select_folder()]
 method.
 
-\>\>\> [imapObj.select_folder(\'INBOX\', readonly=True)]
+>>> [imapObj.select_folder('INBOX', readonly=True)]
 
 You can ignore [select_folder()]'s return value. If the
 selected folder does not exist, Python raises an
@@ -767,48 +767,48 @@ ops}type="pagebreak"}**Table 18-3:** IMAP Search Keys
 
   **Search key**                                                                                                                                                                                                              **Meaning**
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  [\'ALL\']                                                                                                                                                                                                         Returns all messages in the folder. You may run into [imaplib] size limits if you request all the messages in a large folder. See "[Size Limits](#calibre_link-1114)" on [page 429](#calibre_link-1007).
-  [\'BEFORE] [date][\'], [\'ON] [date][\'], [\'SINCE] [date][\']                                                           These three search keys return, respectively, messages that were received by the IMAP server before, on, or after the given [date]. The date must be formatted like [05-Jul-2019]. Also, while [\'SINCE 05-Jul-2019\'] will match messages on and after July 5, [\'BEFORE 05-Jul-2019\'] will match only messages before July 5 but not on July 5 itself.
-  [\'SUBJECT] [string][\'], [\'BODY] [string][\'], [\'TEXT] [string][\']                                                   Returns messages where [string] is found in the subject, body, or either, respectively. If [string] has spaces in it, then enclose it with double quotes: [\'TEXT \"search with spaces\"\'].
-  [\'FROM] [string][\'], [\'TO] [string][\'], [\'CC] [string][\'], [\'BCC] [string][\']   Returns all messages where [string] is found in the "from" email address, "to" addresses, "cc" (carbon copy) addresses, or "bcc" (blind carbon copy) addresses, respectively. If there are multiple email addresses in [string], then separate them with spaces and enclose them all with double quotes: [\'CC \"][firstcc@example.com] [secondcc@example.com][\"\'].
-  [\'SEEN\'], [\'UNSEEN\']                                                                                                                                                                                Returns all messages with and without the *\\Seen* flag, respectively. An email obtains the *\\Seen* flag if it has been accessed with a [fetch()] method call (described later) or if it is clicked when you're checking your email in an email program or web browser. It's more common to say the email has been "read" rather than "seen," but they mean the same thing.
-  [\'ANSWERED\'], [\'UNANSWERED\']                                                                                                                                                                        Returns all messages with and without the *\\Answered* flag, respectively. A message obtains the *\\Answered* flag when it is replied to.
-  [\'DELETED\'], [\'UNDELETED\']                                                                                                                                                                          Returns all messages with and without the *\\Deleted* flag, respectively. Email messages deleted with the [delete_messages()] method are given the *\\Deleted* flag but are not permanently deleted until the [expunge()] method is called (see "[Deleting Emails](#calibre_link-590)" on [page 432](#calibre_link-903)). Note that some email providers automatically expunge emails.
-  [\'DRAFT\'], [\'UNDRAFT\']                                                                                                                                                                              Returns all messages with and without the *\\Draft* flag, respectively. Draft messages are usually kept in a separate [Drafts] folder rather than in the [INBOX] folder.
-  [\'FLAGGED\'], [\'UNFLAGGED\']                                                                                                                                                                          Returns all messages with and without the *\\Flagged* flag, respectively. This flag is usually used to mark email messages as "Important" or "Urgent."
-  [\'LARGER] [N][\'], [\'SMALLER] [N][\']                                                                                                                   Returns all messages larger or smaller than [N] bytes, respectively.
-  [\'NOT] [search-key][\']                                                                                                                                                                   Returns the messages that [search-key] would *not* have returned.
-  [\'OR] [search-key1] [search-key2][\']                                                                                                                                        Returns the messages that match *either* the first or second [search-key].
+  ['ALL']                                                                                                                                                                                                         Returns all messages in the folder. You may run into [imaplib] size limits if you request all the messages in a large folder. See "[Size Limits](#calibre_link-1114)" on [page 429](#calibre_link-1007).
+  ['BEFORE] [date]['], ['ON] [date]['], ['SINCE] [date][']                                                           These three search keys return, respectively, messages that were received by the IMAP server before, on, or after the given [date]. The date must be formatted like [05-Jul-2019]. Also, while ['SINCE 05-Jul-2019'] will match messages on and after July 5, ['BEFORE 05-Jul-2019'] will match only messages before July 5 but not on July 5 itself.
+  ['SUBJECT] [string]['], ['BODY] [string]['], ['TEXT] [string][']                                                   Returns messages where [string] is found in the subject, body, or either, respectively. If [string] has spaces in it, then enclose it with double quotes: ['TEXT "search with spaces"'].
+  ['FROM] [string]['], ['TO] [string]['], ['CC] [string]['], ['BCC] [string][']   Returns all messages where [string] is found in the "from" email address, "to" addresses, "cc" (carbon copy) addresses, or "bcc" (blind carbon copy) addresses, respectively. If there are multiple email addresses in [string], then separate them with spaces and enclose them all with double quotes: ['CC "][firstcc@example.com] [secondcc@example.com]["'].
+  ['SEEN'], ['UNSEEN']                                                                                                                                                                                Returns all messages with and without the *\\Seen* flag, respectively. An email obtains the *\\Seen* flag if it has been accessed with a [fetch()] method call (described later) or if it is clicked when you're checking your email in an email program or web browser. It's more common to say the email has been "read" rather than "seen," but they mean the same thing.
+  ['ANSWERED'], ['UNANSWERED']                                                                                                                                                                        Returns all messages with and without the *\\Answered* flag, respectively. A message obtains the *\\Answered* flag when it is replied to.
+  ['DELETED'], ['UNDELETED']                                                                                                                                                                          Returns all messages with and without the *\\Deleted* flag, respectively. Email messages deleted with the [delete_messages()] method are given the *\\Deleted* flag but are not permanently deleted until the [expunge()] method is called (see "[Deleting Emails](#calibre_link-590)" on [page 432](#calibre_link-903)). Note that some email providers automatically expunge emails.
+  ['DRAFT'], ['UNDRAFT']                                                                                                                                                                              Returns all messages with and without the *\\Draft* flag, respectively. Draft messages are usually kept in a separate [Drafts] folder rather than in the [INBOX] folder.
+  ['FLAGGED'], ['UNFLAGGED']                                                                                                                                                                          Returns all messages with and without the *\\Flagged* flag, respectively. This flag is usually used to mark email messages as "Important" or "Urgent."
+  ['LARGER] [N]['], ['SMALLER] [N][']                                                                                                                   Returns all messages larger or smaller than [N] bytes, respectively.
+  ['NOT] [search-key][']                                                                                                                                                                   Returns the messages that [search-key] would *not* have returned.
+  ['OR] [search-key1] [search-key2][']                                                                                                                                        Returns the messages that match *either* the first or second [search-key].
 
 []{#calibre_link-1007 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here are some example [search()] method
 calls along with their meanings:
 
-[imapObj.search(\[\'ALL\'\])] Returns every message in the
+[imapObj.search(\['ALL'\])] Returns every message in the
 currently selected folder.
 
-[imapObj.search(\[\'ON 05-Jul-2019\'\])] Returns every
+[imapObj.search(\['ON 05-Jul-2019'\])] Returns every
 message sent on July 5, 2019.
 
-[imapObj.search(\[\'SINCE 01-Jan-2019\', \'BEFORE 01-Feb-2019\',
-\'UNSEEN\'\])] Returns every message sent in January 2019
+[imapObj.search(\['SINCE 01-Jan-2019', 'BEFORE 01-Feb-2019',
+'UNSEEN'\])] Returns every message sent in January 2019
 that is unread. (Note that this means *on and after* January 1 and *up
 to but not including* February 1.)
 
-[imapObj.search(\[\'SINCE 01-Jan-2019\', \'FROM
-alice@example.com\'\])] Returns every message from
+[imapObj.search(\['SINCE 01-Jan-2019', 'FROM
+alice@example.com'\])] Returns every message from
 *alice@example.com* sent since the start of 2019.
 
-[imapObj.search(\[\'SINCE 01-Jan-2019\', \'NOT FROM
-alice@example.com\'\])] Returns every message sent from
+[imapObj.search(\['SINCE 01-Jan-2019', 'NOT FROM
+alice@example.com'\])] Returns every message sent from
 everyone except *alice@example.com* since the start of 2019.
 
-[imapObj.search(\[\'OR FROM alice@example.com FROM
-bob@example.com\'\])] Returns every message ever sent from
+[imapObj.search(\['OR FROM alice@example.com FROM
+bob@example.com'\])] Returns every message ever sent from
 *alice@example.com* or *bob@example.com*.
 
-[imapObj.search(\[\'FROM alice@example.com\', \'FROM
-bob@example.com\'\])] Trick example! This search never
+[imapObj.search(\['FROM alice@example.com', 'FROM
+bob@example.com'\])] Trick example! This search never
 returns any messages, because messages must match *all* search keywords.
 Since there can be only one "from" address, it is impossible for a
 message to be from both *alice@example.com* and *bob@example.com*.
@@ -820,8 +820,8 @@ content.
 
 Continue the interactive shell example by entering the following:
 
-\>\>\> [UIDs = imapObj.search(\[\'SINCE 05-Jul-2019\'\])]\
-\>\>\> [UIDs]\
+>>> [UIDs = imapObj.search(\['SINCE 05-Jul-2019'\])]\
+>>> [UIDs]\
 \[40032, 40033, 40034, 40035, 40036, 40037, 40038, 40039, 40040, 40041\]
 
 Here, the list of message IDs (for messages received July 5 onward)
@@ -844,8 +844,8 @@ programs from eating up too much memory. Unfortunately, the default size
 limit is often too small. You can change this limit from 10,000 bytes to
 10,000,000 bytes by running this code:
 
-\>\>\> [import imaplib]\
-\>\>\> [imaplib.\_MAXLINE = 10000000]
+>>> [import imaplib]\
+>>> [imaplib.\_MAXLINE = 10000000]
 
 This should prevent this error message from coming up again. You may
 want to make these two lines part of every IMAP program you write.
@@ -856,35 +856,35 @@ Once you have a list of UIDs, you can call the [IMAPClient]
 object's [fetch()] method to get the actual email content.
 
 The list of UIDs will be [fetch()]'s first argument. The
-second argument should be the list [\[\'BODY\[\]\'\]], which
+second argument should be the list [\['BODY\[\]'\]], which
 tells [fetch()] to download all the body content for the
 emails specified in your UID list.
 
 Let's continue our interactive shell example.
 
-\>\>\> [rawMessages = imapObj.fetch(UIDs,
-\[\'BODY\[\]\'\])]\
-\>\>\> [import pprint]\
-\>\>\> [pprint.pprint(rawMessages)]\
-{40040: {\'BODY\[\]\': \'Delivered-To:
-my_email_address@example.com\\r\\n\'\
-                   \'Received: by 10.76.71.167 with SMTP id \'\
+>>> [rawMessages = imapObj.fetch(UIDs,
+\['BODY\[\]'\])]\
+>>> [import pprint]\
+>>> [pprint.pprint(rawMessages)]\
+{40040: {'BODY\[\]': 'Delivered-To:
+my_email_address@example.com\\r\\n'\
+                   'Received: by 10.76.71.167 with SMTP id '\
 \--[snip]\--\
-                   \'\\r\\n\'\
-                   \'\-\-\-\-\--=\_Part_6000970_707736290.1404819487066\--\\r\\n\',\
-         \'SEQ\': 5430}}
+                   '\\r\\n'\
+                   '\-\-\-\-\--=\_Part_6000970_707736290.1404819487066\--\\r\\n',\
+         'SEQ': 5430}}
 
 Import [pprint] and pass the return value from
 [fetch()], stored in the variable [rawMessages], to
 [pprint.pprint()] to "pretty print" it, and you'll see that
 this return value is a nested dictionary of messages with UIDs as the
 keys. Each message is stored as a dictionary with two keys:
-[\'BODY\[\]\'] and [\'SEQ\']. The
-[\'BODY\[\]\'] key maps to the actual body of the email. The
-[\'SEQ\'] key is for a *sequence number*, which has a similar
+['BODY\[\]'] and ['SEQ']. The
+['BODY\[\]'] key maps to the actual body of the email. The
+['SEQ'] key is for a *sequence number*, which has a similar
 role to the UID. You can safely ignore it.
 
-As you can see, the message content in the [\'BODY\[\]\'] key
+As you can see, the message content in the ['BODY\[\]'] key
 is pretty unintelligible. It's in a format called RFC 822, which is
 designed for IMAP servers to read. But you don't need to understand the
 RFC 822 format; later in this chapter, the [pyzmail] module
@@ -901,7 +901,7 @@ selected folder is already in read-only mode, you can reselect the
 current folder with another call to [select_folder()], this
 time with the [readonly=False] keyword argument:
 
-\>\>\> [imapObj.select_folder(\'INBOX\', readonly=False)]
+>>> [imapObj.select_folder('INBOX', readonly=False)]
 
 #### []***Getting Email Addresses from a Raw Message*** 
 
@@ -915,14 +915,14 @@ to your Python code.
 Continue the interactive shell example with the following (using UIDs
 from your own email account, not the ones shown here):
 
-\>\>\> [import pyzmail]\
-\>\>\> [message =
-pyzmail.PyzMessage.factory(rawMessages\[40041\]\[b\'BODY\[\]\'\])]
+>>> [import pyzmail]\
+>>> [message =
+pyzmail.PyzMessage.factory(rawMessages\[40041\]\[b'BODY\[\]'\])]
 
 First, import [pyzmail]. Then, to create a
 [PyzMessage] object of an email, call the
 [pyzmail.PyzMessage.factory()] function and pass it the
-[\'BODY\[\]\'] section of the raw message. (Note that the
+['BODY\[\]'] section of the raw message. (Note that the
 [b] prefix means this is a bytes value, not a string value.
 The difference isn't too important; just remember to include the
 [b] prefix in your code.) Store the result in
@@ -934,25 +934,25 @@ subject as a simple string value. The [get_addresses()] method
 returns a list of addresses for the field you pass it. For example, the
 method calls might look like this:
 
-\>\>\> [message.get_subject()]\
-\'Hello!\'\
-\>\>\> [message.get_addresses(\'from\')]\
-\[(\'Edward Snowden\', \'esnowden@nsa.gov\')\]\
-\>\>\> [message.get_addresses(\'to\')]\
-\[(\'Jane Doe\', \'my_email_address@example.com\')\]\
-\>\>\> [message.get_addresses(\'cc\')]\
+>>> [message.get_subject()]\
+'Hello!'\
+>>> [message.get_addresses('from')]\
+\[('Edward Snowden', 'esnowden@nsa.gov')\]\
+>>> [message.get_addresses('to')]\
+\[('Jane Doe', 'my_email_address@example.com')\]\
+>>> [message.get_addresses('cc')]\
 \[\]\
-\>\>\> [message.get_addresses(\'bcc\')]\
+>>> [message.get_addresses('bcc')]\
 \[\]
 
 Notice that the argument for [get_addresses()] is
-[\'from\'], [\'to\'], [\'cc\'], or
-[\'bcc\']. The return value of [get_addresses()] is
+['from'], ['to'], ['cc'], or
+['bcc']. The return value of [get_addresses()] is
 a list of tuples. Each tuple contains two strings: the first is the name
 associated with the email address, and the second is the email address
 itself. If there are no addresses in the requested field,
 [get_addresses()] returns a blank list. Here, the
-[\'cc\'] carbon copy and [\'bcc\'] blind carbon copy
+['cc'] carbon copy and ['bcc'] blind carbon copy
 fields both contained no addresses and so returned empty lists.
 
 #### ***Getting the Body from a Raw Message*** 
@@ -979,19 +979,19 @@ attribute. This, finally, will return the string of the email's body.
 
 Continue the interactive shell example by entering the following:
 
-[➊] \>\>\> [message.text_part != None]\
+[➊] >>> [message.text_part != None]\
    True\
-   \>\>\>
+   >>>
 [message.text_part.get_payload().decode(message.text_part.charset)]\
-[➋] \'So long, and thanks for all the
-fish!\\r\\n\\r\\n-Al\\r\\n\'\
-[➌] \>\>\> [message.html_part != None]\
+[➋] 'So long, and thanks for all the
+fish!\\r\\n\\r\\n-Al\\r\\n'\
+[➌] >>> [message.html_part != None]\
    True\
-[➍] \>\>\>
+[➍] >>>
 [message.html_part.get_payload().decode(message.html_part.charset)]\
-   \'\<div dir=\"ltr\"\>\<div\>So long, and thanks for all the
-fish!\<br\>\<br\>\</div\>-Al\
-   \<br\>\</div\>\\r\\n\'
+   '<div dir="ltr"><div>So long, and thanks for all the
+fish!<br><br></div>-Al\
+   <br></div>\\r\\n'
 
 The email we're working with has both plaintext and HTML content, so the
 [PyzMessage] object stored in [message] has
@@ -1012,19 +1012,19 @@ This marks the emails with the *\\Deleted* flag. Calling the
 */Deleted* flag in the currently selected folder. Consider the following
 interactive shell example:
 
-[➊] \>\>\> [imapObj.select_folder(\'INBOX\',
+[➊] >>> [imapObj.select_folder('INBOX',
 readonly=False)]\
-[➋] \>\>\> [UIDs = imapObj.search(\[\'ON
-09-Jul-2019\'\])]\
-   \>\>\> [UIDs]\
+[➋] >>> [UIDs = imapObj.search(\['ON
+09-Jul-2019'\])]\
+   >>> [UIDs]\
    \[40066\]\
-   \>\>\> [imapObj.delete_messages(UIDs)]\
-[➌] {40066: (\'\\\\Seen\', \'\\\\Deleted\')}\
-   \>\>\> [imapObj.expunge()]\
-   (\'Success\', \[(5452, \'EXISTS\')\])
+   >>> [imapObj.delete_messages(UIDs)]\
+[➌] {40066: ('\\\\Seen', '\\\\Deleted')}\
+   >>> [imapObj.expunge()]\
+   ('Success', \[(5452, 'EXISTS')\])
 
 Here we select the inbox by calling [select_folder()] on the
-[IMAPClient] object and passing [\'INBOX\'] as the
+[IMAPClient] object and passing ['INBOX'] as the
 first argument; we also pass the keyword argument
 [readonly=False] so that we can delete emails [➊]. We
 search the inbox for messages received on a specific date and store the
@@ -1046,7 +1046,7 @@ When your program has finished retrieving or deleting emails, simply
 call the IMAPClient's [logout()] method to disconnect from the
 IMAP server.
 
-\>\>\> [imapObj.logout()]
+>>> [imapObj.logout()]
 
 If your program runs for several minutes or more, the IMAP server may
 *time out*, or automatically disconnect. In this case, the next method
@@ -1130,13 +1130,13 @@ spreadsheet.\
 \
    # Open the spreadsheet and get the latest dues status.\
 \
-[➊] wb = openpyxl.load_workbook(\'duesRecords.xlsx\')\
-[➋] sheet = wb.get_sheet_by_name(\'Sheet1\')\
+[➊] wb = openpyxl.load_workbook('duesRecords.xlsx')\
+[➋] sheet = wb.get_sheet_by_name('Sheet1')\
 []{#calibre_link-1853 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[➌] lastCol = sheet.max_column\
 [➍] latestMonth = sheet.cell(row=1, column=lastCol).value\
 \
-   # TODO: Check each member\'s payment status.\
+   # TODO: Check each member's payment status.\
 \
    # TODO: Log in to email account.\
 \
@@ -1171,12 +1171,12 @@ spreadsheet.\
 \
    \--[snip]\--\
 \
-   [\# Check each member\'s payment status.]\
+   [\# Check each member's payment status.]\
    [unpaidMembers = {}]\
 [➊] [for r in range(2, sheet.max_row + 1):]\
 [    ][➋] [payment = sheet.cell(row=r,
 column=lastCol).value]\
-   [    if payment != \'paid\':]\
+   [    if payment != 'paid':]\
 [        ][➌] [name = sheet.cell(row=r,
 column=1).value]\
 [        ][➍] [email = sheet.cell(row=r,
@@ -1187,7 +1187,7 @@ email]
 This code sets up an empty dictionary [unpaidMembers] and then
 loops through all the rows after the first [➊]. For each row, the
 value in the most recent column is stored in [payment]
-[➋]. If [payment] is not equal to [\'paid\'],
+[➋]. If [payment] is not equal to ['paid'],
 then the value of the first column is stored in [name]
 [➌], the value of the second column is stored in [email]
 [➍], and [name] and [email] are added to
@@ -1206,10 +1206,10 @@ spreadsheet.\
 \--[snip]\--\
 \
 [\# Log in to email account.]\
-[smtpObj = smtplib.SMTP(\'smtp.example.com\', 587)]\
+[smtpObj = smtplib.SMTP('smtp.example.com', 587)]\
 [smtpObj.ehlo()]\
 [smtpObj.starttls()]\
-[smtpObj.login(\'][[my_email_address@example.com]][\',
+[smtpObj.login('][[my_email_address@example.com]][',
 sys.argv\[1\])]
 
 Create an [SMTP] object by calling [smtplib.SMTP()]
@@ -1233,20 +1233,20 @@ spreadsheet.\
 \
    [\# Send out reminder emails.]\
    [for name, email in unpaidMembers.items():]\
-  [  ][➊] [body = \"Subject: %s dues unpaid.\\nDear
+  [  ][➊] [body = "Subject: %s dues unpaid.\\nDear
 %s,\\nRecords show that you have not]\
    [paid dues for %s. Please make this payment as soon as possible.
-Thank you!\'\" %]\
+Thank you!'" %]\
    [(latestMonth, name, latestMonth)]\
-  [  ][➋] [print(\'Sending email to %s\...\' %
+  [  ][➋] [print('Sending email to %s\...' %
 email)]\
   [  ][➌] [sendmailStatus =
-smtpObj.sendmail(\'][[my_email_address@example.com]][\',
+smtpObj.sendmail('][[my_email_address@example.com]][',
 email,]\
 [body)]\
 \
   [  ][➍] [if sendmailStatus != {}:]\
-   [        print(\'There was a problem sending email to %s: %s\' %
+   [        print('There was a problem sending email to %s: %s' %
 (email,]\
    [        sendmailStatus))]\
    [smtpObj.quit()]
@@ -1414,19 +1414,19 @@ following into the interactive shell, replacing the
 [myTwilioNumber], and [myCellPhone] variable values
 with your real information:
 
-[➊] \>\>\> [from twilio.rest import Client]\
-   \>\>\> [accountSID =]
-[\'][[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][\']\
-   \>\>\> [authToken  =]
-[\'][[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][\']\
-[➋] \>\>\> [twilioCli = Client(accountSID,
+[➊] >>> [from twilio.rest import Client]\
+   >>> [accountSID =]
+['][[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']\
+   >>> [authToken  =]
+['][[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']\
+[➋] >>> [twilioCli = Client(accountSID,
 authToken)]\
-   \>\>\> [myTwilioNumber = \'+14955551234\']\
-   \>\>\> [myCellPhone = \'+14955558888\']\
-[➌] \>\>\> [message =
-twilioCli.messages.create][(body=\'Mr. Watson - Come
+   >>> [myTwilioNumber = '+14955551234']\
+   >>> [myCellPhone = '+14955558888']\
+[➌] >>> [message =
+twilioCli.messages.create][(body='Mr. Watson - Come
 here - I want]\
-   [to see you.\', from\_=myTwilioNumber, to=myCellPhone)]
+   [to see you.', from\_=myTwilioNumber, to=myCellPhone)]
 
 A few moments after typing the last line, you should receive a text
 message that reads, *Sent from your Twilio trial account - Mr. Watson -
@@ -1454,12 +1454,12 @@ The [Message] object returned from the [create()]
 method will have information about the text message that was sent.
 Continue the interactive shell example by entering the following:
 
-\>\>\> [message.to]\
-\'+14955558888\'\
-\>\>\> [message.from]\_\
-\'+14955551234\'\
-\>\>\> [message.body]\
-\'Mr. Watson - Come here - I want to see you.\'
+>>> [message.to]\
+'+14955558888'\
+>>> [message.from]\_\
+'+14955551234'\
+>>> [message.body]\
+'Mr. Watson - Come here - I want to see you.'
 
 The [to], [from\_], and [body] attributes
 should hold your cell phone number, Twilio number, and message,
@@ -1472,18 +1472,18 @@ Python (you've seen it used in the [from]
 attribute name. Continue the interactive shell example with the
 following:
 
-\>\>\> [message.status]\
-\'queued\'\
-\>\>\> [message.date_created]\
+>>> [message.status]\
+'queued'\
+>>> [message.date_created]\
 datetime.datetime(2019, 7, 8, 1, 36, 18)\
-\>\>\> [message.date_sent == None]\
+>>> [message.date_sent == None]\
 True
 
 The [status] attribute should give you a string. The
 [date_created] and [date_sent] attributes should
 give you a [datetime] object if the message has been created
 and sent. It may seem odd that the [status] attribute is set
-to [\'queued\'] and the [date_sent] attribute is set
+to ['queued'] and the [date_sent] attribute is set
 to [None] when you've already received the text message. This
 is because you captured the [Message] object in the
 [message] variable *before* the text was actually sent. You
@@ -1493,14 +1493,14 @@ Twilio message has a unique string ID (SID) that can be used to fetch
 the latest update of the [Message] object. Continue the
 inter­active shell example by entering the following:
 
-   \>\>\> [message.sid]\
-   \'SM09520de7639ba3af137c6fcb7c5f4b51\'\
+   >>> [message.sid]\
+   'SM09520de7639ba3af137c6fcb7c5f4b51'\
 []{#calibre_link-1023 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➊] \>\>\> [updatedMessage =
+ops}type="pagebreak"}[➊] >>> [updatedMessage =
 twilioCli.messages.get(message.sid)]\
-   \>\>\> [updatedMessage.status]\
-   \'delivered\'\
-   \>\>\> [updatedMessage.date_sent]\
+   >>> [updatedMessage.status]\
+   'delivered'\
+   >>> [updatedMessage.date_sent]\
    datetime.datetime(2019, 7, 8, 1, 36, 18)
 
 Entering [message.sid] shows you this message's long SID. By
@@ -1510,9 +1510,9 @@ most up-to-date information. In this new [Message] object, the
 [status] and [date_sent] attributes are correct.
 
 The [status] attribute will be set to one of the following
-string values: [\'queued\'], [\'sending\'],
-[\'sent\'], [\'delivered\'],
-[\'undelivered\'], or [\'failed\']. These statuses
+string values: ['queued'], ['sending'],
+['sent'], ['delivered'],
+['undelivered'], or ['failed']. These statuses
 are self-explanatory, but for more precise details, take a look at the
 resources at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
@@ -1549,10 +1549,10 @@ message\
    # passed to it as a string.\
 \
    # Preset values:\
-   accountSID = \'[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\'\
-   authToken  = \'[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]\'\
-   myNumber = \'+15559998888\'\
-   twilioNumber = \'+15552225678\'\
+   accountSID = '[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'\
+   authToken  = '[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'\
+   myNumber = '+15559998888'\
+   twilioNumber = '+15552225678'\
    []{#calibre_link-1024 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}from twilio.rest import Client\
 \
@@ -1572,7 +1572,7 @@ folder as your Python script. Whenever you want one of your programs to
 text you, just add the following:
 
 import textmyself\
-textmyself.textmyself(\'The boring task is finished.\')
+textmyself.textmyself('The boring task is finished.')
 
 You need to sign up for Twilio and write the texting code only once.
 After that, it's just two lines of code to send a text from any of your
@@ -1673,7 +1673,7 @@ Here's a hint: if you pass a list to the [random.choice()]
 function, it will return a randomly selected item from the list. Part of
 your code could look like this:
 
-chores = \[\'dishes\', \'bathroom\', \'vacuum\', \'walk dog\'\]\
+chores = \['dishes', 'bathroom', 'vacuum', 'walk dog'\]\
 randomChore = random.choice(chores)\
 chores.remove(randomChore)    # this chore is now taken, so remove it
 
@@ -1727,9 +1727,9 @@ on your computer using the [subprocess.Popen()] function. For
 example, the following call would launch the qBittorrent program, along
 with a torrent file:
 
-qbProcess = subprocess.Popen(\[\'C:\\\\Program Files
+qbProcess = subprocess.Popen(\['C:\\\\Program Files
 (x86)\\\\qBittorrent\\\\\
-qbittorrent.exe\', \'shakespeare_complete_works.torrent\'\])
+qbittorrent.exe', 'shakespeare_complete_works.torrent'\])
 
 Of course, you'll want the program to make sure the emails come from
 you. In particular, you might want to require that the emails contain a
