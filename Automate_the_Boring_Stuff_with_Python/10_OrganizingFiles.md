@@ -59,14 +59,14 @@ name of the copied file. This function returns a string or
 Enter the following into the interactive shell to see how
 [shutil.copy()] works:
 
-   >>> [import shutil, os]\
-   >>> [from pathlib import Path]\
-   >>> [p = Path.home()]\
+   >>> [import shutil, os]
+   >>> [from pathlib import Path]
+   >>> [p = Path.home()]
 [➊] >>> [shutil.copy(p / 'spam.txt', p /
-'some_folder')]\
-   'C:\\\\Users\\\\Al\\\\some_folder\\\\spam.txt'\
+'some_folder')]
+   'C:\\\\Users\\\\Al\\\\some_folder\\\\spam.txt'
 [➋] >>> [shutil.copy(p / 'eggs.txt', p /
-'some_folder/eggs2.txt')]\
+'some_folder/eggs2.txt')]
    WindowsPath('C:/Users/Al/some_folder/eggs2.txt')
 
 The first [shutil.copy()] call copies the file at
@@ -91,11 +91,11 @@ strings. The function returns a string of the path of the copied folder.
 []{#calibre_link-966 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
->>> [import shutil, os]\
->>> [from pathlib import Path]\
->>> [p = Path.home()]\
+>>> [import shutil, os]
+>>> [from pathlib import Path]
+>>> [p = Path.home()]
 >>> [shutil.copytree(p / 'spam', p /
-'spam_backup')]\
+'spam_backup')]
 WindowsPath('C:/Users/Al/spam_backup')
 
 The [shutil.copytree()] call creates a new folder named
@@ -114,8 +114,8 @@ If [destination] points to a folder, the
 and keeps its current filename. For example, enter the following into
 the interactive shell:
 
->>> [import shutil]\
->>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]\
+>>> [import shutil]
+>>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]
 'C:\\\\eggs\\\\bacon.txt'
 
 Assuming a folder named *eggs* already exists in the *C:\\* directory,
@@ -131,7 +131,7 @@ following example, the [source] file is moved *and*
 renamed.
 
 >>> [shutil.move('C:\\\\bacon.txt',
-'C:\\\\eggs\\\\new_bacon.txt')]\
+'C:\\\\eggs\\\\new_bacon.txt')]
 'C:\\\\eggs\\\\new_bacon.txt'
 
 This line says, "Move *C:\\bacon.txt* into the folder *C:\\eggs*, and
@@ -142,7 +142,7 @@ a folder *eggs* in the *C:\\* directory. But if there is no *eggs*
 folder, then [move()] will rename *bacon.txt* to a file named
 *eggs*.
 
->>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]\
+>>> [shutil.move('C:\\\\bacon.txt', 'C:\\\\eggs')]
 'C:\\\\eggs'
 
 Here, [move()] can't find a folder named *eggs* in the *C:\\*
@@ -161,11 +161,11 @@ else Python will throw an exception. Enter the following into the
 interactive shell:
 
 >>> [shutil.move('spam.txt',
-'c:\\\\does_not_exist\\\\eggs\\\\ham')]\
-Traceback (most recent call last):\
-  --[snip]--\
+'c:\\\\does_not_exist\\\\eggs\\\\ham')]
+Traceback (most recent call last):
+  --[snip]--
 FileNotFoundError: [Errno 2] No such file or directory:
-'c:\\\\does_not_exist\\\\\
+'c:\\\\does_not_exist\\\\
 eggs\\\\ham'
 
 Python looks for *eggs* and *ham* inside the directory *does_not_exist*.
@@ -194,19 +194,19 @@ deleted. Here is a Python program that was intended to delete files that
 have the *.txt* file extension but has a typo (highlighted in bold) that
 causes it to delete *.rxt* files instead:
 
-import os\
-from pathlib import Path\
-for filename in Path.home().glob('\*.[r]xt'):\
+import os
+from pathlib import Path
+for filename in Path.home().glob('\*.[r]xt'):
     os.unlink(filename)
 
 If you had any important files ending with *.rxt*, they would have been
 accidentally, permanently deleted. Instead, you should have first run
 the program like this:
 
-import os\
-from pathlib import Path\
-for filename in Path.home().glob('\*.rxt'):\
-    #os.unlink(filename)\
+import os
+from pathlib import Path
+for filename in Path.home().glob('\*.rxt'):
+    #os.unlink(filename)
     print(filename)
 
 []{#calibre_link-906 {http:="" www.idpf.org="" 2007=""
@@ -240,12 +240,12 @@ intend to delete, you can later restore it from the recycle bin.
 After you have installed [send2trash], enter the following
 into the interactive shell:
 
->>> [import send2trash]\
+>>> [import send2trash]
 >>> [baconFile = open('bacon.txt', 'a')   # creates the
-file]\
->>> [baconFile.write('Bacon is not a vegetable.')]\
-25\
->>> [baconFile.close()]\
+file]
+>>> [baconFile.write('Bacon is not a vegetable.')]
+25
+>>> [baconFile.close()]
 >>> [send2trash.send2trash('bacon.txt')]
 
 In general, you should always use the
@@ -280,17 +280,17 @@ files*
 Here is an example program that uses the [os.walk()] function
 on the directory tree from [Figure 10-1](#calibre_link-1195):
 
-import os\
-\
-for folderName, subfolders, filenames in os.walk('C:\\\\delicious'):\
-    print('The current folder is ' + folderName)\
-\
-    for subfolder in subfolders:\
-        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)\
-\
-    for filename in filenames:\
-        print('FILE INSIDE ' + folderName + ': '+ filename)\
-\
+import os
+
+for folderName, subfolders, filenames in os.walk('C:\\\\delicious'):
+    print('The current folder is ' + folderName)
+
+    for subfolder in subfolders:
+        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)
+
+    for filename in filenames:
+        print('FILE INSIDE ' + folderName + ': '+ filename)
+
     print('')
 
 The [os.walk()] function is passed a single string value: the
@@ -317,19 +317,19 @@ use the names [foldername], [subfolders], and
 
 When you run this program, it will output the following:
 
-The current folder is C:\\delicious\
-SUBFOLDER OF C:\\delicious: cats\
-SUBFOLDER OF C:\\delicious: walnut\
-FILE INSIDE C:\\delicious: spam.txt\
-\
-The current folder is C:\\delicious\\cats\
-FILE INSIDE C:\\delicious\\cats: catnames.txt\
-FILE INSIDE C:\\delicious\\cats: zophie.jpg\
-\
-The current folder is C:\\delicious\\walnut\
-SUBFOLDER OF C:\\delicious\\walnut: waffles\
-\
-The current folder is C:\\delicious\\walnut\\waffles\
+The current folder is C:\\delicious
+SUBFOLDER OF C:\\delicious: cats
+SUBFOLDER OF C:\\delicious: walnut
+FILE INSIDE C:\\delicious: spam.txt
+
+The current folder is C:\\delicious\\cats
+FILE INSIDE C:\\delicious\\cats: catnames.txt
+FILE INSIDE C:\\delicious\\cats: zophie.jpg
+
+The current folder is C:\\delicious\\walnut
+SUBFOLDER OF C:\\delicious\\walnut: waffles
+
+The current folder is C:\\delicious\\walnut\\waffles
 FILE INSIDE C:\\delicious\\walnut\\waffles: butter.txt.
 
 Since [os.walk()] returns lists of strings for the
@@ -379,25 +379,25 @@ function.
 
 For example, enter the following into the interactive shell:
 
-   >>> [import zipfile, os]\
-\
-   >>> [from pathlib import Path]\
-   >>> [p = Path.home()]\
+   >>> [import zipfile, os]
+
+   >>> [from pathlib import Path]
+   >>> [p = Path.home()]
    >>> [exampleZip = zipfile.ZipFile(p /
-'example.zip')]\
-   >>> [exampleZip.namelist()]\
+'example.zip')]
+   >>> [exampleZip.namelist()]
    ['spam.txt', 'cats/', 'cats/catnames.txt',
-'cats/zophie.jpg']\
-   >>> [spamInfo = exampleZip.getinfo('spam.txt')]\
-   >>> [spamInfo.file_size]\
-   13908\
-   >>> [spamInfo.compress_size]\
-   3828\
+'cats/zophie.jpg']
+   >>> [spamInfo = exampleZip.getinfo('spam.txt')]
+   >>> [spamInfo.file_size]
+   13908
+   >>> [spamInfo.compress_size]
+   3828
 [➊] >>> [f'Compressed file is {round(spamInfo.file_size /
-spamInfo]\
-   [.compress_size, 2)}x smaller!']\
-   [)]\
-   'Compressed file is 3.63x smaller!'\
+spamInfo]
+   [.compress_size, 2)}x smaller!']
+   [)]
+   'Compressed file is 3.63x smaller!'
    >>> [exampleZip.close()]
 
 A [ZipFile] object has a [namelist()] method that
@@ -421,12 +421,12 @@ The [extractall()] method for [ZipFile] objects
 extracts all the files and folders from a ZIP file into the current
 working directory.
 
-   >>> [import zipfile, os]\
-   >>> [from pathlib import Path]\
-   >>> [p = Path.home()]\
+   >>> [import zipfile, os]
+   >>> [from pathlib import Path]
+   >>> [p = Path.home()]
    >>> [exampleZip = zipfile.ZipFile(p /
-'example.zip')]\
-[➊] >>> [exampleZip.extractall()]\
+'example.zip')]
+[➊] >>> [exampleZip.extractall()]
    >>> [exampleZip.close()]
 
 []{#calibre_link-858 {http:="" www.idpf.org="" 2007=""
@@ -444,11 +444,11 @@ The [extract()] method for [ZipFile] objects will
 extract a single file from the ZIP file. Continue the interactive shell
 example:
 
->>> [exampleZip.extract('spam.txt')]\
-'C:\\\\spam.txt'\
+>>> [exampleZip.extract('spam.txt')]
+'C:\\\\spam.txt'
 >>> [exampleZip.extract('spam.txt',
-'C:\\\\some\\\\new\\\\folders')]\
-'C:\\\\some\\\\new\\\\folders\\\\spam.txt'\
+'C:\\\\some\\\\new\\\\folders')]
+'C:\\\\some\\\\new\\\\folders\\\\spam.txt'
 >>> [exampleZip.close()]
 
 The string you pass to [extract()] must match one of the
@@ -476,10 +476,10 @@ should use to compress the files; you can always just set this value to
 compression algorithm, which works well on all types of data.) Enter the
 following into the interactive shell:
 
->>> [import zipfile]\
->>> [newZip = zipfile.ZipFile('new.zip', 'w')]\
+>>> [import zipfile]
+>>> [newZip = zipfile.ZipFile('new.zip', 'w')]
 >>> [newZip.write('spam.txt',
-compress_type=zipfile.ZIP_DEFLATED)]\
+compress_type=zipfile.ZIP_DEFLATED)]
 >>> [newZip.close()]
 
 This code will create a new ZIP file named *new.zip* that has the
@@ -525,36 +525,36 @@ comments will remind you what's left to write in this program. Typing
 them as [TODO] makes them easy to find using Mu editor's
 [CTRL-F] find feature. Make your code look like the following:
 
-   #! python3\
+   #! python3
    # renameDates.py - Renames filenames with American MM-DD-YYYY date
-format\
-   # to European DD-MM-YYYY.\
-\
-[➊] import shutil, os, re\
-\
-   # Create a regex that matches files with the American date format.\
+format
+   # to European DD-MM-YYYY.
+
+[➊] import shutil, os, re
+
+   # Create a regex that matches files with the American date format.
 [➋] datePattern = re.compile(r"""\^(.\*?) \# all text before
-the date\
+the date
        ((0\|1)?\\d)-                     # one or two digits for the
-month\
+month
        ((0\|1\|2\|3)?\\d)-                 # one or two digits for the
-day\
-       ((19\|20)\\d\\d)                   # four digits for the year\
-       (.\*?)\$                          # all text after the date\
-       """, re.VERBOSE[➌])\
-\
-   # TODO: Loop over the files in the working directory.\
-\
-   # TODO: Skip files without a date.\
-\
+day
+       ((19\|20)\\d\\d)                   # four digits for the year
+       (.\*?)\$                          # all text after the date
+       """, re.VERBOSE[➌])
+
+   # TODO: Loop over the files in the working directory.
+
+   # TODO: Skip files without a date.
+
 []{#calibre_link-1790 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   # TODO: Get the different parts of the
-filename.\
-\
-   # TODO: Form the European-style filename.\
-\
-   # TODO: Get the full, absolute file paths.\
-\
+filename.
+
+   # TODO: Form the European-style filename.
+
+   # TODO: Get the full, absolute file paths.
+
    # TODO: Rename the files.
 
 From this chapter, you know the [shutil.move()] function can
@@ -604,31 +604,31 @@ filenames that have a date, the matched text will be stored in several
 variables. Fill in the first three [TODO]s in your program
 with the following code:
 
-#! python3\
+#! python3
 \# renameDates.py - Renames filenames with American MM-DD-YYYY date
-format\
-\# to European DD-MM-YYYY.\
-\
---[snip]--\
-\
-[\# Loop over the files in the working directory.]\
-[for amerFilename in os.listdir('.'):]\
+format
+\# to European DD-MM-YYYY.
+
+--[snip]--
+
+[\# Loop over the files in the working directory.]
+[for amerFilename in os.listdir('.'):]
 []{#calibre_link-1791 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[    mo =
-datePattern.search(amerFilename)]\
-\
-[    # Skip files without a date.]\
-  [➊] [if mo == None:]\
-      [➋] [continue]\
-\
+datePattern.search(amerFilename)]
+
+[    # Skip files without a date.]
+  [➊] [if mo == None:]
+      [➋] [continue]
+
 [  ][➌] [\# Get the different parts of the
-filename.]\
-[    beforePart = mo.group(1)]\
-[    monthPart  = mo.group(2)]\
-[    dayPart    = mo.group(4)]\
-[    yearPart   = mo.group(6)]\
-[    afterPart  = mo.group(8)]\
-\
+filename.]
+[    beforePart = mo.group(1)]
+[    monthPart  = mo.group(2)]
+[    dayPart    = mo.group(4)]
+[    yearPart   = mo.group(6)]
+[    afterPart  = mo.group(8)]
+
 --[snip]--
 
 If the [Match] object returned from the [search()]
@@ -649,15 +649,15 @@ Without thinking about the code, just write an outline of the regular
 expression. This can help you visualize the groups. Here's an example:
 
 datePattern = re.compile(r"""\^([1]) \# all text before
-the date\
+the date
     ([2] ([3]) )-                     # one
-or two digits for the month\
+or two digits for the month
     ([4] ([5]) )-                     # one
-or two digits for the day\
+or two digits for the day
     ([6] ([7]) )                      # four
-digits for the year\
+digits for the year
     ([8])\$                          # all text after the
-date\
+date
     """, re.VERBOSE)
 
 Here, the numbers **1** through **8** represent the groups in the
@@ -673,29 +673,29 @@ previous step with the European-style date: the date comes before the
 month. Fill in the three remaining [TODO]s in your program
 with the following code:
 
-#! python3\
+#! python3
 \# renameDates.py - Renames filenames with American MM-DD-YYYY date
-format \# to European DD-MM-YYYY.\
-\
---[snip]--\
-\
+format \# to European DD-MM-YYYY.
+
+--[snip]--
+
 []{#calibre_link-806 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   [  # Form the European-style
-filename.]\
+filename.]
 [  ][➊] [euroFilename = beforePart + dayPart +
-'-' + monthPart + '-' + yearPart +]\
-[                    afterPart]\
-\
-[     # Get the full, absolute file paths.]\
-[     absWorkingDir = os.path.abspath('.')]\
+'-' + monthPart + '-' + yearPart +]
+[                    afterPart]
+
+[     # Get the full, absolute file paths.]
+[     absWorkingDir = os.path.abspath('.')]
 [     amerFilename = os.path.join(absWorkingDir,
-amerFilename)]\
+amerFilename)]
 [     euroFilename = os.path.join(absWorkingDir,
-euroFilename)]\
-\
-[     # Rename the files.]\
+euroFilename)]
+
+[     # Rename the files.]
   [➋] [print(f'Renaming "{amerFilename}" to
-"{euroFilename}"\...')]\
+"{euroFilename}"\...')]
   [➌] [#shutil.move(amerFilename, euroFilename)   # uncomment
 after testing]
 
@@ -745,34 +745,34 @@ ops}type="pagebreak"}into other Python programs that need this
 functionality. At the end of the program, the function will be called to
 perform the backup. Make your program look like this:
 
-   #! python3\
-   # backupToZip.py - Copies an entire folder and its contents into\
-   # a ZIP file whose filename increments.\
-\
-[➊] import zipfile, os\
-\
-   def backupToZip(folder):\
-       # Back up the entire contents of "folder" into a ZIP file.\
-\
+   #! python3
+   # backupToZip.py - Copies an entire folder and its contents into
+   # a ZIP file whose filename increments.
+
+[➊] import zipfile, os
+
+   def backupToZip(folder):
+       # Back up the entire contents of "folder" into a ZIP file.
+
        folder = os.path.abspath(folder)   # make sure folder is
-absolute\
-\
-       # Figure out the filename this code should use based on\
-       # what files already exist.\
-    [➋] number = 1\
-    [➌] while True:\
+absolute
+
+       # Figure out the filename this code should use based on
+       # what files already exist.
+    [➋] number = 1
+    [➌] while True:
            zipFilename = os.path.basename(folder) + '\_' +
-str(number) + '.zip'\
-           if not os.path.exists(zipFilename):\
-               break\
-           number = number + 1\
-\
-    [➍] \# TODO: Create the ZIP file.\
-\
+str(number) + '.zip'
+           if not os.path.exists(zipFilename):
+               break
+           number = number + 1
+
+    [➍] \# TODO: Create the ZIP file.
+
        # TODO: Walk the entire folder tree and compress the files in
-each folder.\
-       print('Done.')\
-\
+each folder.
+       print('Done.')
+
 backupToZip('C:\\\\delicious')
 
 Do the basics first: add the shebang ([#!]) line, describe
@@ -808,27 +808,27 @@ the new zip.
 Next let's create the ZIP file. Make your program look like the
 following:
 
-#! python3\
-\# backupToZip.py - Copies an entire folder and its contents into\
-\# a ZIP file whose filename increments.\
-\
---[snip]--\
-    while True:\
+#! python3
+\# backupToZip.py - Copies an entire folder and its contents into
+\# a ZIP file whose filename increments.
+
+--[snip]--
+    while True:
         zipFilename = os.path.basename(folder) + '\_' + str(number) +
-'.zip'\
-        if not os.path.exists(zipFilename):\
-            break\
-        number = number + 1\
-\
-    [\# Create the ZIP file.]\
-[    print(f'Creating {zipFilename}\...')]\
+'.zip'
+        if not os.path.exists(zipFilename):
+            break
+        number = number + 1
+
+    [\# Create the ZIP file.]
+[    print(f'Creating {zipFilename}\...')]
 [  ][➊] [backupZip = zipfile.ZipFile(zipFilename,
-'w')]\
-\
+'w')]
+
      # TODO: Walk the entire folder tree and compress the files in each
-folder.\
-     print('Done.')\
-\
+folder.
+     print('Done.')
+
 backupToZip('C:\\\\delicious')
 
 Now that the new ZIP file's name is stored in the
@@ -843,36 +843,36 @@ Now you need to use the [os.walk()] function to do the work of
 listing every file in the folder and its subfolders. Make your program
 look like the following:
 
-#! python3\
-\# backupToZip.py - Copies an entire folder and its contents into\
-\# a ZIP file whose filename increments.\
-\
---[snip]--\
-\
+#! python3
+\# backupToZip.py - Copies an entire folder and its contents into
+\# a ZIP file whose filename increments.
+
+--[snip]--
+
 [     # Walk the entire folder tree and compress the files in each
-folder.]\
+folder.]
 [  ][➊] [for foldername, subfolders, filenames in
-os.walk(folder):]\
-[         print(f'Adding files in {foldername}\...')]\
-[         # Add the current folder to the ZIP file.]\
+os.walk(folder):]
+[         print(f'Adding files in {foldername}\...')]
+[         # Add the current folder to the ZIP file.]
 [      ][➋]
-[backupZip.write(foldername)]\
-\
+[backupZip.write(foldername)]
+
          [\# Add all the files in this folder to the ZIP
-file.]\
+file.]
 [      ][➌] [for filename in
-filenames:]\
-[            newBase = os.path.basename(folder) + '\_']\
+filenames:]
+[            newBase = os.path.basename(folder) + '\_']
 [            if filename.startswith(newBase) and
-filename.endswith('.zip'):]\
+filename.endswith('.zip'):]
 [                continue   # don't back up the backup ZIP
-files]\
+files]
 [             backupZip.write(os.path.join(foldername,
-filename))]\
-[     backupZip.close()]\
+filename))]
+[     backupZip.close()]
 []{#calibre_link-807 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}     print('Done.')\
-\
+ops}type="pagebreak"}     print('Done.')
+
 backupToZip('C:\\\\delicious')
 
 You can use [os.walk()] in a [for] loop [➊],
@@ -887,12 +887,12 @@ the ZIP file, except for previously made backup ZIPs.
 When you run this program, it will produce output that will look
 something like this:
 
-Creating delicious_1.zip\...\
-Adding files in C:\\delicious\...\
-Adding files in C:\\delicious\\cats\...\
-Adding files in C:\\delicious\\waffles\...\
-Adding files in C:\\delicious\\walnut\...\
-Adding files in C:\\delicious\\walnut\\waffles\...\
+Creating delicious_1.zip\...
+Adding files in C:\\delicious\...
+Adding files in C:\\delicious\\cats\...
+Adding files in C:\\delicious\\waffles\...
+Adding files in C:\\delicious\\walnut\...
+Adding files in C:\\delicious\\walnut\\waffles\...
 Done.
 
 The second time you run it, it will put all the files in *C:\\delicious*

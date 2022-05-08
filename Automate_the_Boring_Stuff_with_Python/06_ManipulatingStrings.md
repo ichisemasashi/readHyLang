@@ -82,9 +82,9 @@ ops}type="pagebreak"}**Table 6-1:** Escape Characters
 Enter the following into the interactive shell:
 
 >>> [print("Hello there!\\nHow are you?\\nI\\'m doing
-fine.")]\
-Hello there!\
-How are you?\
+fine.")]
+Hello there!
+How are you?
 I'm doing fine.
 
 ##### **Raw Strings** !
@@ -94,7 +94,7 @@ string to make it a raw string. A *raw string* completely ignores all
 escape characters and prints any backslash that appears in the string.
 For example, enter the following into the interactive shell:
 
->>> [print(r'That is Carol\\'s cat.')]\
+>>> [print(r'That is Carol\\'s cat.')]
 That is Carol\\'s cat.
 
 Because this is a raw string, Python considers the backslash as part of
@@ -115,24 +115,24 @@ rules for blocks do not apply to lines inside a multiline string.
 
 Open the file editor and write the following:
 
-print('''Dear Alice,\
-\
+print('''Dear Alice,
+
 Eve's cat has been arrested for catnapping, cat burglary, and
-extortion.\
-\
-Sincerely,\
+extortion.
+
+Sincerely,
 Bob''')
 
 []{#calibre_link-763 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Save this program as *catnapping.py* and run it.
 The output will look like this:
 
-Dear Alice,\
-\
+Dear Alice,
+
 Eve's cat has been arrested for catnapping, cat burglary, and
-extortion.\
-\
-Sincerely,\
+extortion.
+
+Sincerely,
 Bob
 
 Notice that the single quote character in [Eve's] does not
@@ -141,7 +141,7 @@ multiline strings. The following [print()] call would print
 identical text but doesn't use a multiline string:
 
 print('Dear Alice,\\n\\nEve\\'s cat has been arrested for catnapping,
-cat\
+cat
 burglary, and extortion.\\n\\nSincerely,\\nBob')
 
 ##### **Multiline Comments** !
@@ -151,15 +151,15 @@ comment for the rest of the line, a multiline string is often used for
 comments that span multiple lines. The following is perfectly valid
 Python code:
 
-"""This is a test Python program.\
-Written by Al Sweigart al@inventwithpython.com\
-\
-This program was designed for Python 3, not Python 2.\
-"""\
-\
-def spam():\
-    """This is a multiline comment to help\
-    explain what the spam() function does."""\
+"""This is a test Python program.
+Written by Al Sweigart al@inventwithpython.com
+
+This program was designed for Python 3, not Python 2.
+"""
+
+def spam():
+    """This is a multiline comment to help
+    explain what the spam() function does."""
     print('Hello!')
 
 #### ***Indexing and Slicing Strings*** !
@@ -168,7 +168,7 @@ Strings use indexes and slices the same way lists do. You can think of
 the string ['Hello, world!'] as a list and each character in
 the string as an item with a corresponding index.
 
-'   H   e   l   l   o   ,       w   o   r   l    d    !   '\
+'   H   e   l   l   o   ,       w   o   r   l    d    !   '
     0   1   2   3   4   5   6   7   8   9   10   11   12
 
 The space and exclamation point are included in the character count, so
@@ -178,18 +178,18 @@ at index 0 to [!] at index 12.
 []{#calibre_link-1010 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
->>> [spam = 'Hello, world!']\
->>> [spam[0]]\
-'H'\
->>> [spam[4]]\
-'o'\
->>> [spam[-1]]\
-'!'\
->>> [spam[0:5]]\
-'Hello'\
->>> [spam[:5]]\
-'Hello'\
->>> [spam[7:]]\
+>>> [spam = 'Hello, world!']
+>>> [spam[0]]
+'H'
+>>> [spam[4]]
+'o'
+>>> [spam[-1]]
+'!'
+>>> [spam[0:5]]
+'Hello'
+>>> [spam[:5]]
+'Hello'
+>>> [spam[7:]]
 'world!'
 
 If you specify an index, you'll get the character at that position in
@@ -207,9 +207,9 @@ Note that slicing a string does not modify the original string. You can
 capture a slice from one variable in a separate variable. Try entering
 the following into the interactive shell:
 
->>> [spam = 'Hello, world!']\
->>> [fizz = spam[0:5]]\
->>> [fizz]\
+>>> [spam = 'Hello, world!']
+>>> [fizz = spam[0:5]]
+>>> [fizz]
 'Hello'
 
 By slicing and storing the resulting substring in another variable, you
@@ -224,15 +224,15 @@ joined using [in] or [not in] will evaluate to a
 Boolean [True] or [False]. Enter the following into
 the interactive shell:
 
->>> ['Hello' in 'Hello, World']\
-True\
->>> ['Hello' in 'Hello']\
-True\
->>> ['HELLO' in 'Hello, World']\
-False\
->>> ['' in 'spam']\
-True\
->>> ['cats' not in 'cats and dogs']\
+>>> ['Hello' in 'Hello, World']
+True
+>>> ['Hello' in 'Hello']
+True
+>>> ['HELLO' in 'Hello, World']
+False
+>>> ['' in 'spam']
+True
+>>> ['cats' not in 'cats and dogs']
 False
 
 []{#calibre_link-1042 {http:="" www.idpf.org="" 2007=""
@@ -246,10 +246,10 @@ Putting strings inside other strings is a common operation in
 programming. So far, we've been using the [+] operator and
 string concatenation to do this:
 
->>> [name = 'Al']\
->>> [age = 4000]\
+>>> [name = 'Al']
+>>> [age = 4000]
 >>> ['Hello, my name is ' + name + '. I am ' + str(age) + '
-years old.']\
+years old.']
 'Hello, my name is Al. I am 4000 years old.'
 
 However, this requires a lot of tedious typing. A simpler approach is to
@@ -259,10 +259,10 @@ string. One benefit of string interpolation is that [str()]
 doesn't have to be called to convert values to strings. Enter the
 following into the interactive shell:
 
->>> [name = 'Al']\
->>> [age = 4000]\
+>>> [name = 'Al']
+>>> [age = 4000]
 >>> ['My name is %s. I am %s years old.' % (name,
-age)]\
+age)]
 'My name is Al. I am 4000 years old.'
 
 Python 3.6 introduced *f-strings*, which is similar to string
@@ -271,17 +271,17 @@ with the expressions placed directly inside the braces. Like raw
 strings, f-strings have an [f] prefix before the starting
 quotation mark. Enter the following into the interactive shell:
 
->>> [name = 'Al']\
->>> [age = 4000]\
+>>> [name = 'Al']
+>>> [age = 4000]
 >>> [f'My name is {name}. Next year I will be {age +
-1}.']\
+1}.']
 'My name is Al. Next year I will be 4001.'
 
 Remember to include the [f] prefix; otherwise, the braces and
 their contents will be a part of the string value:
 
 >>> ['My name is {name}. Next year I will be {age +
-1}.']\
+1}.']
 'My name is {name}. Next year I will be {age + 1}.'
 
 ### **Useful String Methods** !
@@ -297,12 +297,12 @@ converted to uppercase or lowercase, respectively. Nonletter characters
 in the string remain unchanged. Enter the following into the interactive
 shell:
 
->>> [spam = 'Hello, world!']\
->>> [spam = spam.upper()]\
->>> [spam]\
-'HELLO, WORLD!'\
->>> [spam = spam.lower()]\
->>> [spam]\
+>>> [spam = 'Hello, world!']
+>>> [spam = spam.upper()]
+>>> [spam]
+'HELLO, WORLD!'
+>>> [spam = spam.lower()]
+>>> [spam]
 'hello, world!'
 
 Note that these methods do not change the string itself but return new
@@ -322,11 +322,11 @@ other. But in the following small program, it does not matter whether
 the user types [Great], [GREAT], or
 [grEAT], because the string is first converted to lowercase.
 
-print('How are you?')\
-feeling = input()\
-if feeling.lower() == 'great':\
-    print('I feel great too.')\
-else:\
+print('How are you?')
+feeling = input()
+if feeling.lower() == 'great':
+    print('I feel great too.')
+else:
     print('I hope the rest of your day is good.')
 
 When you run this program, the question is displayed, and entering a
@@ -336,8 +336,8 @@ program to handle variations or mistakes in user input, such as
 inconsistent capitalization, will make your programs easier to use and
 less likely to fail.
 
-How are you?\
-[GREat]\
+How are you?
+[GREat]
 I feel great too.
 
 You can view the execution of this program at
@@ -349,18 +349,18 @@ and all the letters []{#calibre_link-1017 {http:="" www.idpf.org=""
 Otherwise, the method returns [False]. Enter the following
 into the interactive shell, and notice what each method call returns:
 
->>> [spam = 'Hello, world!']\
->>> [spam.islower()]\
-False\
->>> [spam.isupper()]\
-False\
->>> ['HELLO'.isupper()]\
-True\
->>> ['abc12345'.islower()]\
-True\
->>> ['12345'.islower()]\
-False\
->>> ['12345'.isupper()]\
+>>> [spam = 'Hello, world!']
+>>> [spam.islower()]
+False
+>>> [spam.isupper()]
+False
+>>> ['HELLO'.isupper()]
+True
+>>> ['abc12345'.islower()]
+True
+>>> ['12345'.islower()]
+False
+>>> ['12345'.isupper()]
 False
 
 Since the [upper()] and [lower()] string methods
@@ -368,15 +368,15 @@ themselves return strings, you can call string methods on *those*
 returned string values as well. Expressions that do this will look like
 a chain of method calls. Enter the following into the interactive shell:
 
->>> ['Hello'.upper()]\
-'HELLO'\
->>> ['Hello'.upper().lower()]\
-'hello'\
->>> ['Hello'.upper().lower().upper()]\
-'HELLO'\
->>> ['HELLO'.lower()]\
-'hello'\
->>> ['HELLO'.lower().islower()]\
+>>> ['Hello'.upper()]
+'HELLO'
+>>> ['Hello'.upper().lower()]
+'hello'
+>>> ['Hello'.upper().lower().upper()]
+'HELLO'
+>>> ['HELLO'.lower()]
+'hello'
+>>> ['HELLO'.lower().islower()]
 True
 
 #### ***The isX() Methods*** !
@@ -406,25 +406,25 @@ lowercase letters
 []{#calibre_link-1014 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
->>> ['hello'.isalpha()]\
-True\
->>> ['hello123'.isalpha()]\
-False\
->>> ['hello123'.isalnum()]\
-True\
->>> ['hello'.isalnum()]\
-True\
->>> ['123'.isdecimal()]\
-True\
->>> ['    '.isspace()]\
-True\
->>> ['This Is Title Case'.istitle()]\
-True\
->>> ['This Is Title Case 123'.istitle()]\
-True\
->>> ['This Is not Title Case'.istitle()]\
-False\
->>> ['This Is NOT Title Case Either'.istitle()]\
+>>> ['hello'.isalpha()]
+True
+>>> ['hello123'.isalpha()]
+False
+>>> ['hello123'.isalnum()]
+True
+>>> ['hello'.isalnum()]
+True
+>>> ['123'.isdecimal()]
+True
+>>> ['    '.isspace()]
+True
+>>> ['This Is Title Case'.istitle()]
+True
+>>> ['This Is Title Case 123'.istitle()]
+True
+>>> ['This Is not Title Case'.istitle()]
+False
+>>> ['This Is NOT Title Case Either'.istitle()]
 False
 
 The [is][X()] string methods are helpful when you
@@ -433,18 +433,18 @@ repeatedly asks users for their age and a password until they provide
 valid input. Open a new file editor window and enter this program,
 saving it as *validateInput.py*:
 
-while True:\
-    print('Enter your age:')\
-    age = input()\
-    if age.isdecimal():\
-        break\
-    print('Please enter a number for your age.')\
-\
-while True:\
-    print('Select a new password (letters and numbers only):')\
-    password = input()\
-    if password.isalnum():\
-        break\
+while True:
+    print('Enter your age:')
+    age = input()
+    if age.isdecimal():
+        break
+    print('Please enter a number for your age.')
+
+while True:
+    print('Select a new password (letters and numbers only):')
+    password = input()
+    if password.isalnum():
+        break
     print('Passwords can only have letters and numbers.')
 
 In the first [while] loop, we ask the user for their age and
@@ -461,15 +461,15 @@ them to enter a password.
 []{#calibre_link-934 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}When run, the program's output looks like this:
 
-Enter your age:\
-[forty two]\
-Please enter a number for your age.\
-Enter your age:\
-[42]\
-Select a new password (letters and numbers only):\
-[secr3t!]\
-Passwords can only have letters and numbers.\
-Select a new password (letters and numbers only):\
+Enter your age:
+[forty two]
+Please enter a number for your age.
+Enter your age:
+[42]
+Select a new password (letters and numbers only):
+[secr3t!]
+Passwords can only have letters and numbers.
+Select a new password (letters and numbers only):
 [secr3t]
 
 You can view the execution of this program at
@@ -488,17 +488,17 @@ The [startswith()] and [endswith()] methods return
 return [False]. Enter the following into the interactive
 shell:
 
->>> ['Hello, world!'.startswith('Hello')]\
-True\
->>> ['Hello, world!'.endswith('world!')]\
-True\
->>> ['abc123'.startswith('abcdef')]\
-False\
->>> ['abc123'.endswith('12')]\
-False\
->>> ['Hello, world!'.startswith('Hello, world!')]\
-True\
->>> ['Hello, world!'.endswith('Hello, world!')]\
+>>> ['Hello, world!'.startswith('Hello')]
+True
+>>> ['Hello, world!'.endswith('world!')]
+True
+>>> ['abc123'.startswith('abcdef')]
+False
+>>> ['abc123'.endswith('12')]
+False
+>>> ['Hello, world!'.startswith('Hello, world!')]
+True
+>>> ['Hello, world!'.endswith('Hello, world!')]
 True
 
 These methods are useful alternatives to the [==] equals
@@ -514,13 +514,13 @@ strings, and returns a string. The returned string is the
 concatenation of each string in the passed-in list. For example, enter
 the following into the interactive shell:
 
->>> [', '.join(['cats', 'rats', 'bats'])]\
-'cats, rats, bats'\
+>>> [', '.join(['cats', 'rats', 'bats'])]
+'cats, rats, bats'
 >>> [' '.join(['My', 'name', 'is',
-'Simon'])]\
-'My name is Simon'\
+'Simon'])]
+'My name is Simon'
 >>> ['ABC'.join(['My', 'name', 'is',
-'Simon'])]\
+'Simon'])]
 'MyABCnameABCisABCSimon'
 
 Notice that the string [join()] calls on is inserted between
@@ -534,7 +534,7 @@ around.) The [split()] method does the opposite: It's called
 on a string value and returns a list of strings. Enter the following
 into the interactive shell:
 
->>> ['My name is Simon'.split()]\
+>>> ['My name is Simon'.split()]
 ['My', 'name', 'is', 'Simon']
 
 By default, the string ['My name is Simon'] is split
@@ -544,27 +544,27 @@ the strings in the returned list. You can pass a delimiter string to the
 [split()] method to specify a different string to split upon.
 For example, enter the following into the interactive shell:
 
->>> ['MyABCnameABCisABCSimon'.split('ABC')]\
-['My', 'name', 'is', 'Simon']\
->>> ['My name is Simon'.split('m')]\
+>>> ['MyABCnameABCisABCSimon'.split('ABC')]
+['My', 'name', 'is', 'Simon']
+>>> ['My name is Simon'.split('m')]
 ['My na', 'e is Si', 'on']
 
 A common use of [split()] is to split a multiline string along
 the newline characters. Enter the following into the interactive shell:
 
->>> [spam = '''Dear Alice,]\
-[How have you been? I am fine.]\
-[There is a container in the fridge]\
-[that is labeled "Milk Experiment."]\
-\
-[Please do not drink it.]\
-[Sincerely,]\
-[Bob''']\
->>> [spam.split('\\n')]\
+>>> [spam = '''Dear Alice,]
+[How have you been? I am fine.]
+[There is a container in the fridge]
+[that is labeled "Milk Experiment."]
+
+[Please do not drink it.]
+[Sincerely,]
+[Bob''']
+>>> [spam.split('\\n')]
 ['Dear Alice,', 'How have you been? I am fine.', 'There is a
-container in the\
+container in the
 fridge', 'that is labeled "Milk Experiment."', '', 'Please do
-not drink it.',\
+not drink it.',
 'Sincerely,', 'Bob']
 
 Passing [split()] the argument ['\\n'] lets us
@@ -580,33 +580,33 @@ string it is called on for the separator string it is passed, and
 returns a tuple of three substrings for the "before," "separator," and
 "after" substrings. Enter the following into the interactive shell:
 
->>> ['Hello, world!'.partition('w')]\
-('Hello, ', 'w', 'orld!')\
->>> ['Hello, world!'.partition('world')]\
+>>> ['Hello, world!'.partition('w')]
+('Hello, ', 'w', 'orld!')
+>>> ['Hello, world!'.partition('world')]
 ('Hello, ', 'world', '!')
 
 If the separator string you pass to [partition()] occurs
 multiple times in the string that [partition()] calls on, the
 method splits the string only on the first occurrence:
 
->>> ['Hello, world!'.partition('o')]\
+>>> ['Hello, world!'.partition('o')]
 ('Hell', 'o', ', world!')
 
 If the separator string can't be found, the first string returned in the
 tuple will be the entire string, and the other two strings will be
 empty:
 
->>> ['Hello, world!'.partition('XYZ')]\
+>>> ['Hello, world!'.partition('XYZ')]
 ('Hello, world!', '', '')
 
 You can use the multiple assignment trick to assign the three returned
 strings to three variables:
 
 >>> [before, sep, after = 'Hello, world!'.partition('
-')]\
->>> [before]\
-'Hello,'\
->>> [after]\
+')]
+>>> [before]
+'Hello,'
+>>> [after]
 'world!'
 
 The [partition()] method is useful for splitting a string
@@ -621,14 +621,14 @@ justify the text. The first argument to both methods is an integer
 length for the justified string. Enter the following into the
 interactive shell:
 
->>> ['Hello'.rjust(10)]\
-'     Hello'\
->>> ['Hello'.rjust(20)]\
-'              Hello'\
->>> ['Hello, World'.rjust(20)]\
+>>> ['Hello'.rjust(10)]
+'     Hello'
+>>> ['Hello'.rjust(20)]
+'              Hello'
+>>> ['Hello, World'.rjust(20)]
 []{#calibre_link-1022 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}'         Hello, World'\
->>> ['Hello'.ljust(10)]\
+ops}type="pagebreak"}'         Hello, World'
+>>> ['Hello'.ljust(10)]
 'Hello     '
 
 ['Hello'.rjust(10)] says that we want to right-justify
@@ -641,32 +641,32 @@ An optional second argument to [rjust()] and
 [ljust()] will specify a fill character other than a space
 character. Enter the following into the interactive shell:
 
->>> ['Hello'.rjust(20, '\*')]\
-'\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello'\
->>> ['Hello'.ljust(20, '-')]\
+>>> ['Hello'.rjust(20, '\*')]
+'\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello'
+>>> ['Hello'.ljust(20, '-')]
 'Hello---------------'
 
 The [center()] string method works like [ljust()]
 and [rjust()] but centers the text rather than justifying it
 to the left or right. Enter the following into the interactive shell:
 
->>> ['Hello'.center(20)]\
-'       Hello        '\
->>> ['Hello'.center(20, '=')]\
+>>> ['Hello'.center(20)]
+'       Hello        '
+>>> ['Hello'.center(20, '=')]
 '=======Hello========'
 
 These methods are especially useful when you need to print tabular data
 that has correct spacing. Open a new file editor window and enter the
 following code, saving it as *picnicTable.py*:
 
-def printPicnic(itemsDict, leftWidth, rightWidth):\
-    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))\
-    for k, v in itemsDict.items():\
-        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))\
-\
+def printPicnic(itemsDict, leftWidth, rightWidth):
+    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+    for k, v in itemsDict.items():
+        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+
 picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4,
-'cookies': 8000}\
-printPicnic(picnicItems, 12, 5)\
+'cookies': 8000}
+printPicnic(picnicItems, 12, 5)
 printPicnic(picnicItems, 20, 6)
 
 You can view the execution of this program at
@@ -704,15 +704,15 @@ first time the left column is 12 characters wide, and the right column
 is 5 characters wide. The second time they are 20 and 6 characters wide,
 respectively.
 
----PICNIC ITEMS--\
-sandwiches..    4\
-apples\...\...   12\
-cups\...\.....    4\
-cookies\..... 8000\
--------PICNIC ITEMS-------\
-sandwiches\...\...\....     4\
-apples\...\...\...\.....    12\
-cups\...\...\...\...\....     4\
+---PICNIC ITEMS--
+sandwiches..    4
+apples\...\...   12
+cups\...\.....    4
+cookies\..... 8000
+-------PICNIC ITEMS-------
+sandwiches\...\...\....     4
+apples\...\...\...\.....    12
+cups\...\...\...\...\....     4
 cookies\...\...\...\....  8000
 
 Using [rjust()], [ljust()], and [center()]
@@ -729,19 +729,19 @@ any whitespace characters at the beginning or end. The
 whitespace characters from the left and right ends, respectively. Enter
 the following into the interactive shell:
 
->>> [spam = '    Hello, World    ']\
->>> [spam.strip()]\
-'Hello, World'\
->>> [spam.lstrip()]\
-'Hello, World    '\
->>> [spam.rstrip()]\
+>>> [spam = '    Hello, World    ']
+>>> [spam.strip()]
+'Hello, World'
+>>> [spam.lstrip()]
+'Hello, World    '
+>>> [spam.rstrip()]
 '    Hello, World'
 
 Optionally, a string argument will specify which characters on the ends
 should be stripped. Enter the following into the interactive shell:
 
->>> [spam = 'SpamSpamBaconSpamEggsSpamSpam']\
->>> [spam.strip('ampS')]\
+>>> [spam = 'SpamSpamBaconSpamEggsSpamSpam']
+>>> [spam.strip('ampS')]
 'BaconSpamEggs'
 
 []{#calibre_link-846 {http:="" www.idpf.org="" 2007=""
@@ -765,25 +765,25 @@ function to get the code point of a one-character string, and the
 [chr()] function to get the one-character string of an integer
 code point. Enter the following into the interactive shell:
 
->>> ord('A')\
-65\
->>> ord('4')\
-52\
->>> ord('!')\
-33\
->>> chr(65)\
+>>> ord('A')
+65
+>>> ord('4')
+52
+>>> ord('!')
+33
+>>> chr(65)
 'A'
 
 These functions are useful when you need to do an ordering or
 mathematical operation on characters:
 
->>> ord('B')\
-66\
->>> ord('A') < ord('B')\
-True\
->>> chr(ord('A'))\
-'A'\
->>> chr(ord('A') + 1)\
+>>> ord('B')
+66
+>>> ord('A') < ord('B')
+True
+>>> chr(ord('A'))
+'A'
+>>> chr(ord('A') + 1)
 'B'
 
 There is more to Unicode and code points, but those details are beyond
@@ -822,9 +822,9 @@ Python. To install it, follow the directions for installing third-party
 modules in [Appendix A](#calibre_link-2). After installing
 [pyperclip], enter the following into the interactive shell:
 
->>> [import pyperclip]\
->>> [pyperclip.copy('Hello, world!')]\
->>> [pyperclip.paste()]\
+>>> [import pyperclip]
+>>> [pyperclip.copy('Hello, world!')]
+>>> [pyperclip.paste()]
 'Hello, world!'
 
 Of course, if something outside of your program changes the clipboard
@@ -832,9 +832,9 @@ contents, the [paste()] function will return it. For example,
 if I copied this sentence to the clipboard and then called
 [paste()], it would look like this:
 
->>> [pyperclip.paste()]\
+>>> [pyperclip.paste()]
 'For example, if I copied this sentence to the clipboard and then
-called\
+called
 paste(), it would look like this:'
 
 ### **Project: Multi-Clipboard Automatic Messages** !
@@ -875,12 +875,12 @@ store these as strings in a dictionary. The dictionary will be the data
 structure that organizes your key phrases and text. Make your program
 look like the following:
 
-#! python3\
-\# mclip.py - A multi-clipboard program.\
-\
-TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+#! python3
+\# mclip.py - A multi-clipboard program.
+
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",
         'busy': """Sorry, can we do this later this week or next
-week?""",\
+week?""",
         'upsell': """Would you consider making this a monthly
 donation?"""}
 
@@ -898,21 +898,21 @@ the user if they forget to add it (that is, if the [sys.argv]
 list has fewer than two values in it). Make your program look like the
 following:
 
-#! python3\
-\# mclip.py - A multi-clipboard program.\
-\
-TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+#! python3
+\# mclip.py - A multi-clipboard program.
+
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",
         'busy': """Sorry, can we do this later this week or next
-week?""",\
+week?""",
         'upsell': """Would you consider making this a monthly
-donation?"""}\
-\
-[i][mport sys]\
-[if len(sys.argv) < 2:]\
+donation?"""}
+
+[i][mport sys]
+[if len(sys.argv) < 2:]
 [    print('Usage: python mclip.py [keyphrase] - copy phrase
-text')]\
-[    sys.exit()]\
-\
+text')]
+[    sys.exit()]
+
 [keyphrase = sys.argv[1]    # first command line arg is the
 keyphrase]
 
@@ -931,27 +931,27 @@ could just use [sys.argv[1]] everywhere
 
 Make your program look like the following:
 
-#! python3\
-\# mclip.py - A multi-clipboard program.\
-\
-TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",\
+#! python3
+\# mclip.py - A multi-clipboard program.
+
+TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",
         'busy': """Sorry, can we do this later this week or next
-week?""",\
+week?""",
         'upsell': """Would you consider making this a monthly
-donation?"""}\
-\
-import sys[,] [pyperclip]\
-if len(sys.argv) < 2:\
-    print('Usage: py mclip.py [keyphrase] - copy phrase text')\
-    sys.exit()\
-\
-keyphrase = sys.argv[1]    # first command line arg is the keyphrase\
-\
-[if keyphrase in TEXT:]\
-[    pyperclip.copy(TEXT[keyphrase])]\
+donation?"""}
+
+import sys[,] [pyperclip]
+if len(sys.argv) < 2:
+    print('Usage: py mclip.py [keyphrase] - copy phrase text')
+    sys.exit()
+
+keyphrase = sys.argv[1]    # first command line arg is the keyphrase
+
+[if keyphrase in TEXT:]
+[    pyperclip.copy(TEXT[keyphrase])]
 [    print('Text for ' + keyphrase + ' copied to
-clipboard.')]\
-[else:]\
+clipboard.')]
+[else:]
 [    print('There is no text for ' + keyphrase)]
 
 This new code looks in the [TEXT] dictionary for the key
@@ -971,7 +971,7 @@ On Windows, you can create a batch file to run this program with the
 B](#calibre_link-35).) Enter the following into the file
 editor and save the file as *mclip.bat* in the *C:\\Windows* folder:
 
-\@py.exe C:\[path_to_file]\\mclip.py %\*\
+\@py.exe C:\[path_to_file]\\mclip.py %\*
 \@pause
 
 With this batch file created, running the multi-clipboard program on
@@ -991,17 +991,17 @@ add a star and space to the beginning of each line, and then paste this
 new text to the clipboard. For example, if I copied the following text
 (for the Wikipedia article "List of Lists of Lists") to the clipboard:
 
-Lists of animals\
-Lists of aquarium life\
-Lists of biologists by author abbreviation\
+Lists of animals
+Lists of aquarium life
+Lists of biologists by author abbreviation
 Lists of cultivars
 
 and then ran the *bulletPointAdder.py* program, the clipboard would then
 contain the following:
 
-\* Lists of animals\
-\* Lists of aquarium life\
-\* Lists of biologists by author abbreviation\
+\* Lists of animals
+\* Lists of aquarium life
+\* Lists of biologists by author abbreviation
 \* Lists of cultivars
 
 This star-prefixed text is ready to be pasted into a Wikipedia article
@@ -1021,15 +1021,15 @@ straightforward: they just involve the [pyperclip.copy()] and
 part of the program that covers steps 1 and 3. Enter the following,
 saving the program as *bulletPointAdder.py*:
 
-#! python3\
-\# bulletPointAdder.py - Adds Wikipedia bullet points to the start\
-\# of each line of text on the clipboard.\
-\
-import pyperclip\
-text = pyperclip.paste()\
-\
-\# TODO: Separate lines and add stars.\
-\
+#! python3
+\# bulletPointAdder.py - Adds Wikipedia bullet points to the start
+\# of each line of text on the clipboard.
+
+import pyperclip
+text = pyperclip.paste()
+
+\# TODO: Separate lines and add stars.
+
 pyperclip.copy(text)
 
 []{#calibre_link-1756 {http:="" www.idpf.org="" 2007=""
@@ -1044,7 +1044,7 @@ clipboard as one big string. If we used the "List of Lists of Lists"
 example, the string stored in [text] would look like this:
 
 'Lists of animals\\nLists of aquarium life\\nLists of biologists by
-author\
+author
 abbreviation\\nLists of cultivars'
 
 The [\\n] newline characters in this string cause it to be
@@ -1060,20 +1060,20 @@ star to the front of each string in the list.
 
 Make your program look like the following:
 
-#! python3\
-\# bulletPointAdder.py - Adds Wikipedia bullet points to the start\
-\# of each line of text on the clipboard.\
-\
-import pyperclip\
-text = pyperclip.paste()\
-\
-[\# Separate lines and add stars.]\
-[lines = text.split('\\n')]\
+#! python3
+\# bulletPointAdder.py - Adds Wikipedia bullet points to the start
+\# of each line of text on the clipboard.
+
+import pyperclip
+text = pyperclip.paste()
+
+[\# Separate lines and add stars.]
+[lines = text.split('\\n')]
 [for i in range(len(lines)):    # loop through all indexes in the
-"lines" list]\
+"lines" list]
 [    lines[i] = '\* ' + lines[i] \# add star to each string in
-"lines" list]\
-\
+"lines" list]
+
 pyperclip.copy(text)
 
 We split the text along its newlines to get a list in which each item is
@@ -1091,21 +1091,21 @@ value, pass [lines] into the [join()] method to get
 a single string joined from the list's strings. Make your program look
 like the following:
 
-#! python3\
-\# bulletPointAdder.py - Adds Wikipedia bullet points to the start\
+#! python3
+\# bulletPointAdder.py - Adds Wikipedia bullet points to the start
 []{#calibre_link-785 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\# of each line of text on the clipboard.\
-\
-import pyperclip\
-text = pyperclip.paste()\
-\
-\# Separate lines and add stars.\
-lines = text.split('\\n')\
+ops}type="pagebreak"}\# of each line of text on the clipboard.
+
+import pyperclip
+text = pyperclip.paste()
+
+\# Separate lines and add stars.
+lines = text.split('\\n')
 for i in range(len(lines)):    # loop through all indexes for "lines"
-list\
+list
     lines[i] = '\* ' + lines[i] \# add star to each string in
-"lines" list\
-[text = '\\n'.join(lines)]\
+"lines" list
+[text = '\\n'.join(lines)]
 pyperclip.copy(text)
 
 When this program is run, it replaces the text on the clipboard with
@@ -1128,8 +1128,8 @@ that consonant or cluster is moved to the end of the word followed by
 
 Let's write a Pig Latin program that will output something like this:
 
-Enter the English message to translate into Pig Latin:\
-[My name is AL SWEIGART and I am 4,000 years old.]\
+Enter the English message to translate into Pig Latin:
+[My name is AL SWEIGART and I am 4,000 years old.]
 Ymay amenay isyay ALYAY EIGARTSWAY andyay Iyay amyay 4,000 yearsyay
 oldyay.
 
@@ -1137,66 +1137,66 @@ This program works by altering a string using the methods introduced in
 this chapter. Type the following source code into the file editor, and
 save the file as *pigLat.py*:
 
-\# English to Pig Latin\
-print('Enter the English message to translate into Pig Latin:')\
-message = input()\
-\
-VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')\
-\
-pigLatin = [] \# A list of the words in Pig Latin.\
-for word in message.split():\
-    # Separate the non-letters at the start of this word:\
-    prefixNonLetters = ''\
-    while len(word) > 0 and not word[0].isalpha():\
-        prefixNonLetters += word[0]\
-        word = word[1:]\
+\# English to Pig Latin
+print('Enter the English message to translate into Pig Latin:')
+message = input()
+
+VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')
+
+pigLatin = [] \# A list of the words in Pig Latin.
+for word in message.split():
+    # Separate the non-letters at the start of this word:
+    prefixNonLetters = ''
+    while len(word) > 0 and not word[0].isalpha():
+        prefixNonLetters += word[0]
+        word = word[1:]
 []{#calibre_link-1757 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    if len(word) == 0:\
-        pigLatin.append(prefixNonLetters)\
-        continue\
-\
-    # Separate the non-letters at the end of this word:\
-    suffixNonLetters = ''\
-    while not word[-1].isalpha():\
-        suffixNonLetters += word[-1]\
-        word = word[:-1]\
-\
-    # Remember if the word was in uppercase or title case.\
-    wasUpper = word.isupper()\
-    wasTitle = word.istitle()\
-\
-    word = word.lower() \# Make the word lowercase for translation.\
-\
-    # Separate the consonants at the start of this word:\
-    prefixConsonants = ''\
-    while len(word) > 0 and not word[0] in VOWELS:\
-        prefixConsonants += word[0]\
-        word = word[1:]\
-\
-    # Add the Pig Latin ending to the word:\
-    if prefixConsonants != '':\
-        word += prefixConsonants + 'ay'\
-    else:\
-        word += 'yay'\
-\
-    # Set the word back to uppercase or title case:\
-    if wasUpper:\
-        word = word.upper()\
-    if wasTitle:\
-        word = word.title()\
-\
-    # Add the non-letters back to the start or end of the word.\
-    pigLatin.append(prefixNonLetters + word + suffixNonLetters)\
-\
-\# Join all the words back together into a single string:\
+ops}type="pagebreak"}    if len(word) == 0:
+        pigLatin.append(prefixNonLetters)
+        continue
+
+    # Separate the non-letters at the end of this word:
+    suffixNonLetters = ''
+    while not word[-1].isalpha():
+        suffixNonLetters += word[-1]
+        word = word[:-1]
+
+    # Remember if the word was in uppercase or title case.
+    wasUpper = word.isupper()
+    wasTitle = word.istitle()
+
+    word = word.lower() \# Make the word lowercase for translation.
+
+    # Separate the consonants at the start of this word:
+    prefixConsonants = ''
+    while len(word) > 0 and not word[0] in VOWELS:
+        prefixConsonants += word[0]
+        word = word[1:]
+
+    # Add the Pig Latin ending to the word:
+    if prefixConsonants != '':
+        word += prefixConsonants + 'ay'
+    else:
+        word += 'yay'
+
+    # Set the word back to uppercase or title case:
+    if wasUpper:
+        word = word.upper()
+    if wasTitle:
+        word = word.title()
+
+    # Add the non-letters back to the start or end of the word.
+    pigLatin.append(prefixNonLetters + word + suffixNonLetters)
+
+\# Join all the words back together into a single string:
 print(' '.join(pigLatin))
 
 Let's look at this code line by line, starting at the top:
 
-\# English to Pig Latin\
-print('Enter the English message to translate into Pig Latin:')\
-message = input()\
-\
+\# English to Pig Latin
+print('Enter the English message to translate into Pig Latin:')
+message = input()
+
 VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')
 
 First, we ask the user to enter the English text to translate into Pig
@@ -1209,15 +1209,15 @@ ops}type="pagebreak"}Next, we're going to create the
 [pigLatin] variable to store the words as we translate them
 into Pig Latin:
 
-pigLatin = [] \# A list of the words in Pig Latin.\
-for word in message.split():\
-    # Separate the non-letters at the start of this word:\
-    prefixNonLetters = ''\
-    while len(word) > 0 and not word[0].isalpha():\
-        prefixNonLetters += word[0]\
-        word = word[1:]\
-    if len(word) == 0:\
-        pigLatin.append(prefixNonLetters)\
+pigLatin = [] \# A list of the words in Pig Latin.
+for word in message.split():
+    # Separate the non-letters at the start of this word:
+    prefixNonLetters = ''
+    while len(word) > 0 and not word[0].isalpha():
+        prefixNonLetters += word[0]
+        word = word[1:]
+    if len(word) == 0:
+        pigLatin.append(prefixNonLetters)
         continue
 
 We need each word to be its own string, so we call
@@ -1232,10 +1232,10 @@ that strings like ['old.'] translate to
 ['oldyay.'] instead of ['old.yay']. We'll save
 these non-letters to a variable named [prefixNonLetters].
 
-    # Separate the non-letters at the end of this word:\
-    suffixNonLetters = ''\
-    while not word[-1].isalpha():\
-        suffixNonLetters += word[-1]\
+    # Separate the non-letters at the end of this word:
+    suffixNonLetters = ''
+    while not word[-1].isalpha():
+        suffixNonLetters += word[-1]
         word = word[:-1]
 
 A loop that calls [isalpha()] on the first character in the
@@ -1251,10 +1251,10 @@ Next, we'll make sure the program remembers if the word was in uppercase
 or title case so we can restore it after translating the word to Pig
 Latin:
 
-    # Remember if the word was in uppercase or title case.\
-    wasUpper = word.isupper()\
-    wasTitle = word.istitle()\
-\
+    # Remember if the word was in uppercase or title case.
+    wasUpper = word.isupper()
+    wasTitle = word.istitle()
+
     word = word.lower() \# Make the word lowercase for translation.
 
 For the rest of the code in the [for] loop, we'll work on a
@@ -1265,10 +1265,10 @@ ops}type="pagebreak"}To convert a word like *sweigart* to *eigart-sway*,
 we need to remove all of the consonants from the beginning of
 [word]:
 
-    # Separate the consonants at the start of this word:\
-    prefixConsonants = ''\
-    while len(word) > 0 and not word[0] in VOWELS:\
-        prefixConsonants += word[0]\
+    # Separate the consonants at the start of this word:
+    prefixConsonants = ''
+    while len(word) > 0 and not word[0] in VOWELS:
+        prefixConsonants += word[0]
         word = word[1:]
 
 We use a loop similar to the loop that removed the non-letters from the
@@ -1281,10 +1281,10 @@ the string ['ay'] to the end of [word]. Otherwise,
 we can assume [word] begins with a vowel and we only need to
 concatenate ['yay']:
 
-    # Add the Pig Latin ending to the word:\
-    if prefixConsonants != '':\
-        word += prefixConsonants + 'ay'\
-    else:\
+    # Add the Pig Latin ending to the word:
+    if prefixConsonants != '':
+        word += prefixConsonants + 'ay'
+    else:
         word += 'yay'
 
 Recall that we set word to its lowercase version with [word =
@@ -1292,20 +1292,20 @@ word.lower()]. If [word] was originally in uppercase
 or title case, this code will convert [word] back to its
 original case:
 
-    # Set the word back to uppercase or title case:\
-    if wasUpper:\
-        word = word.upper()\
-    if wasTitle:\
+    # Set the word back to uppercase or title case:
+    if wasUpper:
+        word = word.upper()
+    if wasTitle:
         word = word.title()
 
 At the end of the [for] loop, we append the word, along with
 any non-letter prefix or suffix it originally had, to the
 [pigLatin] list:
 
-    # Add the non-letters back to the start or end of the word.\
-    pigLatin.append(prefixNonLetters + word + suffixNonLetters)\
-\
-\# Join all the words back together into a single string:\
+    # Add the non-letters back to the start or end of the word.
+    pigLatin.append(prefixNonLetters + word + suffixNonLetters)
+
+\# Join all the words back together into a single string:
 print(' '.join(pigLatin))
 
 After this loop finishes, we combine the list of strings into a single
@@ -1415,15 +1415,15 @@ lists of strings and displays it in a well-organized table with each
 column right-justified. Assume that all the inner lists will contain the
 same number of strings. For example, the value could look like this:
 
-tableData = [['apples', 'oranges', 'cherries', 'banana'],\
-             ['Alice', 'Bob', 'Carol', 'David'],\
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
 
 Your [printTable()] function would print the following:
 
-   apples Alice  dogs\
-  oranges   Bob  cats\
- cherries Carol moose\
+   apples Alice  dogs
+  oranges   Bob  cats
+ cherries Carol moose
    banana David goose
 
 Hint: your code will first have to find the longest string in each of
@@ -1494,10 +1494,10 @@ by following the instructions in [Appendix
 A](#calibre_link-2). You can run a demo of the simulator with
 some pre-made bots by running the following in the interactive shell:
 
->>> [import zombiedice]\
->>> [zombiedice.demo()]\
-Zombie Dice Visualization is running. Open your browser to http://\
-localhost:51810 to view it.\
+>>> [import zombiedice]
+>>> [zombiedice.demo()]
+Zombie Dice Visualization is running. Open your browser to http://
+localhost:51810 to view it.
 Press Ctrl-C to quit.
 
 The program launches your web browser, which will look like [Figure
@@ -1522,55 +1522,55 @@ template. Inside this [turn()] method, you'll call the
 [zombiedice.roll()] function as often as you want your bot to
 roll the dice.
 
-import zombiedice\
-\
-class MyZombie:\
-    def \_\_init\_\_(self, name):\
-        # All zombies must have a name:\
-        self.name = name\
-\
-    def turn(self, gameState):\
+import zombiedice
+
+class MyZombie:
+    def \_\_init\_\_(self, name):
+        # All zombies must have a name:
+        self.name = name
+
+    def turn(self, gameState):
 []{#calibre_link-1763 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}        # gameState is a dict with info about the
-current state of the game.\
-        # You can choose to ignore it in your code.\
-\
-        diceRollResults = zombiedice.roll() \# first roll\
+current state of the game.
+        # You can choose to ignore it in your code.
+
+        diceRollResults = zombiedice.roll() \# first roll
         # roll() returns a dictionary with keys 'brains', 'shotgun',
-and\
-        # 'footsteps' with how many rolls of each type there were.\
-        # The 'rolls' key is a list of (color, icon) tuples with the\
-        # exact roll result information.\
-        # Example of a roll() return value:\
-        # {'brains': 1, 'footsteps': 1, 'shotgun': 1,\
+and
+        # 'footsteps' with how many rolls of each type there were.
+        # The 'rolls' key is a list of (color, icon) tuples with the
+        # exact roll result information.
+        # Example of a roll() return value:
+        # {'brains': 1, 'footsteps': 1, 'shotgun': 1,
         #  'rolls': [('yellow', 'brains'), ('red',
-'footsteps'),\
-        #            ('green', 'shotgun')]}\
-\
-        # REPLACE THIS ZOMBIE CODE WITH YOUR OWN:\
-        brains = 0\
-        while diceRollResults is not None:\
-            brains += diceRollResults['brains']\
-\
-            if brains < 2:\
-                diceRollResults = zombiedice.roll() \# roll again\
-            else:\
-                break\
-\
-zombies = (\
-    zombiedice.examples.RandomCoinFlipZombie(name='Random'),\
+'footsteps'),
+        #            ('green', 'shotgun')]}
+
+        # REPLACE THIS ZOMBIE CODE WITH YOUR OWN:
+        brains = 0
+        while diceRollResults is not None:
+            brains += diceRollResults['brains']
+
+            if brains < 2:
+                diceRollResults = zombiedice.roll() \# roll again
+            else:
+                break
+
+zombies = (
+    zombiedice.examples.RandomCoinFlipZombie(name='Random'),
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until
-Leading'),\
-    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2\
-Shotguns', minShotguns=2),\
-    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1\
-Shotgun', minShotguns=1),\
-    MyZombie(name='My Zombie Bot'),\
-    # Add any other zombie players here.\
-)\
-\
-\# Uncomment one of the following lines to run in CLI or Web GUI mode:\
-#zombiedice.runTournament(zombies=zombies, numGames=1000)\
+Leading'),
+    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 2
+Shotguns', minShotguns=2),
+    zombiedice.examples.MinNumShotgunsThenStopsZombie(name='Stop at 1
+Shotgun', minShotguns=1),
+    MyZombie(name='My Zombie Bot'),
+    # Add any other zombie players here.
+)
+
+\# Uncomment one of the following lines to run in CLI or Web GUI mode:
+#zombiedice.runTournament(zombies=zombies, numGames=1000)
 zombiedice.runWebGui(zombies=zombies, numGames=1000)
 
 The [turn()] method takes two parameters: [self] and

@@ -80,17 +80,17 @@ tuple.
 ops}type="pagebreak"}To see how this function works, enter the following
 into the interactive shell:
 
-[➊] >>> [from PIL import ImageColor]\
-[➋] >>> [ImageColor.getcolor('red', 'RGBA')]\
-   (255, 0, 0, 255)\
-[➌] >>> [ImageColor.getcolor('RED', 'RGBA')]\
-   (255, 0, 0, 255)\
-   >>> [ImageColor.getcolor('Black', 'RGBA')]\
-   (0, 0, 0, 255)\
-   >>> [ImageColor.getcolor('chocolate', 'RGBA')]\
-   (210, 105, 30, 255)\
+[➊] >>> [from PIL import ImageColor]
+[➋] >>> [ImageColor.getcolor('red', 'RGBA')]
+   (255, 0, 0, 255)
+[➌] >>> [ImageColor.getcolor('RED', 'RGBA')]
+   (255, 0, 0, 255)
+   >>> [ImageColor.getcolor('Black', 'RGBA')]
+   (0, 0, 0, 255)
+   >>> [ImageColor.getcolor('chocolate', 'RGBA')]
+   (210, 105, 30, 255)
    >>> [ImageColor.getcolor('CornflowerBlue',
-'RGBA')]\
+'RGBA')]
    (100, 149, 237, 255)
 
 First, you need to import the [ImageColor] module from PIL
@@ -170,7 +170,7 @@ Once you have the image file *zophie.png* in your current working
 directory, you'll be ready to load the image of Zophie into Python, like
 so:
 
->>> [from PIL import Image]\
+>>> [from PIL import Image]
 >>> [catIm = Image.open('zophie.png')]
 
 To load the image, import the [Image] module from Pillow and
@@ -197,7 +197,7 @@ If the image file isn't in the current working directory, change the
 working directory to the folder that contains the image file by calling
 the [os.chdir()] function.
 
->>> [import os]\
+>>> [import os]
 >>> [os.chdir('C:\\\\folder_with_image_file')]
 
 The [Image.open()] function returns a value of the
@@ -227,22 +227,22 @@ PNG).
 
 For example, enter the following into the interactive shell:
 
-   >>> [from PIL import Image]\
-   >>> [catIm = Image.open('zophie.png')]\
+   >>> [from PIL import Image]
+   >>> [catIm = Image.open('zophie.png')]
    []{#calibre_link-1052 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> [catIm.size]\
-[➊] (816, 1088)\
-[➋] >>> [width, height = catIm.size]\
-[➌] >>> [width]\
-   816\
-[➍] >>> [height]\
-   1088\
-   >>> [catIm.filename]\
-   'zophie.png'\
-   >>> [catIm.format]\
-   'PNG'\
-   >>> [catIm.format_description]\
-   'Portable network graphics'\
+ops}type="pagebreak"}>>> [catIm.size]
+[➊] (816, 1088)
+[➋] >>> [width, height = catIm.size]
+[➌] >>> [width]
+   816
+[➍] >>> [height]
+   1088
+   >>> [catIm.filename]
+   'zophie.png'
+   >>> [catIm.format]
+   'PNG'
+   >>> [catIm.format_description]
+   'Portable network graphics'
 [➎] >>> [catIm.save('zophie.jpg')]
 
 After making an [Image] object from *zophie.png* and storing
@@ -281,11 +281,11 @@ The arguments to [Image.new()] are as follows:
 
 For example, enter the following into the interactive shell:
 
-   >>> [from PIL import Image]\
+   >>> [from PIL import Image]
 [➊] >>> [im = Image.new('RGBA', (100, 200),
-'purple')]\
-   >>> [im.save('purpleImage.png')]\
-[➋] >>> [im2 = Image.new('RGBA', (20, 20))]\
+'purple')]
+   >>> [im.save('purpleImage.png')]
+[➋] >>> [im2 = Image.new('RGBA', (20, 20))]
    >>> [im2.save('transparentImage.png')]
 
 []{#calibre_link-880 {http:="" www.idpf.org="" 2007=""
@@ -314,9 +314,9 @@ bottom row of pixels.
 
 Enter the following into the interactive shell:
 
->>> [from PIL import Image]\
->>> [catIm = Image.open('zophie.png')]\
->>> [croppedIm = catIm.crop((335, 345, 565, 560))]\
+>>> [from PIL import Image]
+>>> [catIm = Image.open('zophie.png')]
+>>> [croppedIm = catIm.crop((335, 345, 565, 560))]
 >>> [croppedIm.save('cropped.png')]
 
 This makes a new [Image] object for the cropped image, stores
@@ -341,8 +341,8 @@ This is useful if you need to make changes to an image but also want to
 keep an untouched version of the original. For example, enter the
 following into the interactive shell:
 
->>> [from PIL import Image]\
->>> [catIm = Image.open('zophie.png')]\
+>>> [from PIL import Image]
+>>> [catIm = Image.open('zophie.png')]
 >>> [catCopyIm = catIm.copy()]
 
 The [catIm] and [catCopyIm] variables contain two
@@ -357,11 +357,11 @@ The [paste()] method is called on an [Image] object
 and pastes another image on top of it. Let's continue the shell example
 by pasting a smaller image onto [catCopyIm].
 
->>> [faceIm = catIm.crop((335, 345, 565, 560))]\
->>> [faceIm.size]\
-(230, 215)\
->>> [catCopyIm.paste(faceIm, (0, 0))]\
->>> [catCopyIm.paste(faceIm, (400, 500))]\
+>>> [faceIm = catIm.crop((335, 345, 565, 560))]
+>>> [faceIm.size]
+(230, 215)
+>>> [catCopyIm.paste(faceIm, (0, 0))]
+>>> [catCopyIm.paste(faceIm, (400, 500))]
 >>> [catCopyIm.save('pasted.png')]
 
 First we pass [crop()] a box tuple for the rectangular area in
@@ -408,26 +408,26 @@ Say you want to tile Zophie's head across the entire image, as in
 effect with just a couple [for] loops. Continue the
 interactive shell example by entering the following:
 
-   >>> [catImWidth, catImHeight = catIm.size]\
-   >>> [faceImWidth, faceImHeight = faceIm.size]\
-[➊] >>> [catCopyTwo = catIm.copy()]\
+   >>> [catImWidth, catImHeight = catIm.size]
+   >>> [faceImWidth, faceImHeight = faceIm.size]
+[➊] >>> [catCopyTwo = catIm.copy()]
 [➋] >>> [for left in range(0, catImWidth,
-faceImWidth):]\
+faceImWidth):]
         [➌] [for top in range(0, catImHeight,
-faceImHeight):]\
-               [print(left, top)]\
-               [catCopyTwo.paste(faceIm, (left, top))]\
-   0 0\
-   0 215\
-   0 430\
-   0 645\
-   0 860\
-   0 1075\
-   230 0\
-   230 215\
-   --[snip]--\
-   690 860\
-   690 1075\
+faceImHeight):]
+               [print(left, top)]
+               [catCopyTwo.paste(faceIm, (left, top))]
+   0 0
+   0 215
+   0 430
+   0 645
+   0 860
+   0 1075
+   230 0
+   230 215
+   --[snip]--
+   690 860
+   690 1075
    >>> [catCopyTwo.save('tiled.png')]
 
 
@@ -464,14 +464,14 @@ height. It accepts a two-integer tuple argument, representing the new
 width and height of the returned image. Enter the following into the
 interactive shell:
 
-   >>> [from PIL import Image]\
-   >>> [catIm = Image.open('zophie.png')]\
-[➊] >>> [width, height = catIm.size]\
+   >>> [from PIL import Image]
+   >>> [catIm = Image.open('zophie.png')]
+[➊] >>> [width, height = catIm.size]
 [➋] >>> [quartersizedIm = catIm.resize((int(width / 2),
-int(height / 2)))]\
-   >>> [quartersizedIm.save('quartersized.png')]\
+int(height / 2)))]
+   >>> [quartersizedIm.save('quartersized.png')]
 [➌] >>> [svelteIm = catIm.resize((width, height +
-300))]\
+300))]
    >>> [svelteIm.save('svelte.png')]
 
 Here we assign the two values in the [catIm.size] tuple to the
@@ -510,10 +510,10 @@ the original [Image] object unchanged. The argument to
 number of degrees to rotate the image counterclockwise. Enter the
 following into the interactive shell:
 
->>> [from PIL import Image]\
->>> [catIm = Image.open('zophie.png')]\
->>> [catIm.rotate(90).save('rotated90.png')]\
->>> [catIm.rotate(180).save('rotated180.png')]\
+>>> [from PIL import Image]
+>>> [catIm = Image.open('zophie.png')]
+>>> [catIm.rotate(90).save('rotated90.png')]
+>>> [catIm.rotate(180).save('rotated180.png')]
 >>> [catIm.rotate(270).save('rotated270.png')]
 
 Note how you can *chain* method calls by calling [save()]
@@ -546,7 +546,7 @@ keyword argument that can be set to [True] to enlarge the
 dimensions of the image to fit the entire rotated new image. For
 example, enter the following into the interactive shell:
 
->>> [catIm.rotate(6).save('rotated6.png')]\
+>>> [catIm.rotate(6).save('rotated6.png')]
 >>> [catIm.rotate(6,
 expand=True).save('rotated6_expanded.png')]
 
@@ -572,7 +572,7 @@ to the [transpose()] method. Enter the following into the
 interactive shell:
 
 >>>
-[catIm.transpose(Image.FLIP_LEFT_RIGHT).save('horizontal_flip.png')]\
+[catIm.transpose(Image.FLIP_LEFT_RIGHT).save('horizontal_flip.png')]
 >>>
 [catIm.transpose(Image.FLIP_TOP_BOTTOM).save('vertical_flip.png')]
 
@@ -602,24 +602,24 @@ argument for the color of the pixel. This color argument is a
 four-integer RGBA tuple or a three-integer RGB tuple. Enter the
 following into the interactive shell:
 
-   >>> [from PIL import Image]\
-[➊] >>> [im = Image.new('RGBA', (100, 100))]\
-[➋] >>> [im.getpixel((0, 0))]\
-   (0, 0, 0, 0)\
-[➌] >>> [for x in range(100):]\
-           [for y in range(50):]\
+   >>> [from PIL import Image]
+[➊] >>> [im = Image.new('RGBA', (100, 100))]
+[➋] >>> [im.getpixel((0, 0))]
+   (0, 0, 0, 0)
+[➌] >>> [for x in range(100):]
+           [for y in range(50):]
             [➍] [im.putpixel((x, y), (210, 210,
-210))]\
-\
-   >>> [from PIL import ImageColor]\
-[➎] >>> [for x in range(100):]\
-           [for y in range(50, 100):]\
+210))]
+
+   >>> [from PIL import ImageColor]
+[➎] >>> [for x in range(100):]
+           [for y in range(50, 100):]
             [➏] [im.putpixel((x, y),
-ImageColor.getcolor('darkgray', 'RGBA'))]\
-   >>> [im.getpixel((0, 0))]\
-   (210, 210, 210, 255)\
-   >>> [im.getpixel((0, 50))]\
-   (169, 169, 169, 255)\
+ImageColor.getcolor('darkgray', 'RGBA'))]
+   >>> [im.getpixel((0, 0))]
+   (210, 210, 210, 255)
+   >>> [im.getpixel((0, 50))]
+   (169, 169, 169, 255)
    >>> [im.save('putPixel.png')]
 
 At [➊] we make a new image that is a 100×100 transparent square.
@@ -705,31 +705,31 @@ This means the code will need to do the following:
 For this project, open a new file editor tab, enter the following code,
 and save it as *resizeAndAddLogo.py*:
 
-   #! python3\
+   #! python3
    # resizeAndAddLogo.py - Resizes all images in current working
-directory to fit\
+directory to fit
    # in a 300x300 square, and adds catlogo.png to the lower-right
-corner.\
-\
-   import os\
-   from PIL import Image\
-\
-[➊] SQUARE_FIT_SIZE = 300\
-[➋] LOGO_FILENAME = 'catlogo.png'\
-\
-[➌] logoIm = Image.open(LOGO_FILENAME)\
-[➍] logoWidth, logoHeight = logoIm.size\
-\
-   # TODO: Loop over all files in the working directory.\
-\
-   # TODO: Check if image needs to be resized.\
-\
-   # TODO: Calculate the new width and height to resize to.\
-\
-   # TODO: Resize the image.\
-\
-   # TODO: Add the logo.\
-\
+corner.
+
+   import os
+   from PIL import Image
+
+[➊] SQUARE_FIT_SIZE = 300
+[➋] LOGO_FILENAME = 'catlogo.png'
+
+[➌] logoIm = Image.open(LOGO_FILENAME)
+[➍] logoWidth, logoHeight = logoIm.size
+
+   # TODO: Loop over all files in the working directory.
+
+   # TODO: Check if image needs to be resized.
+
+   # TODO: Calculate the new width and height to resize to.
+
+   # TODO: Resize the image.
+
+   # TODO: Add the logo.
+
    # TODO: Save changes.
 
 []{#calibre_link-1862 {http:="" www.idpf.org="" 2007=""
@@ -763,29 +763,29 @@ image itself, so the program should skip any image with a filename
 that's the same as [LOGO_FILENAME]. Add the following to your
 code:
 
-   #! python3\
+   #! python3
    # resizeAndAddLogo.py - Resizes all images in current working
-directory to fit\
+directory to fit
    # in a 300x300 square, and adds catlogo.png to the lower-right
-corner.\
-\
-   import os\
-   from PIL import Image\
-\
-   --[snip]--\
-\
-   os.makedirs('withLogo', exist_ok=True)\
-   [\# Loop over all files in the working directory.]\
-[➊] [for filename in os.listdir('.'):]\
+corner.
+
+   import os
+   from PIL import Image
+
+   --[snip]--
+
+   os.makedirs('withLogo', exist_ok=True)
+   [\# Loop over all files in the working directory.]
+[➊] [for filename in os.listdir('.'):]
 [    ][➋] [if not (filename.endswith('.png') or
-filename.endswith('.jpg')) \]\
-   [       or filename == LOGO_FILENAME:]\
+filename.endswith('.jpg')) \]
+   [       or filename == LOGO_FILENAME:]
 [        ][➌] [continue    # skip non-image files
-and the logo file itself]\
-\
-[    ][➍] [im = Image.open(filename)]\
-   [    width, height = im.size]\
-\
+and the logo file itself]
+
+[    ][➍] [im = Image.open(filename)]
+   [    width, height = im.size]
+
    --[snip]--
 
 First, the [os.makedirs()] call creates a *withLogo* folder to
@@ -810,35 +810,35 @@ put all of the resizing code inside an [if] statement that
 checks the [width] and [height] variables. Add the
 following code to your program:
 
-#! python3\
+#! python3
 \# resizeAndAddLogo.py - Resizes all images in current working directory
-to fit\
-\# in a 300x300 square, and adds catlogo.png to the lower-right corner.\
-\
-import os\
-from PIL import Image\
-\
---[snip]--\
-\
-[     # Check if image needs to be resized.]\
+to fit
+\# in a 300x300 square, and adds catlogo.png to the lower-right corner.
+
+import os
+from PIL import Image
+
+--[snip]--
+
+[     # Check if image needs to be resized.]
 [     if width > SQUARE_FIT_SIZE and height >
-SQUARE_FIT_SIZE:]\
+SQUARE_FIT_SIZE:]
 [         # Calculate the new width and height to resize
-to.]\
-[         if width > height:]\
+to.]
+[         if width > height:]
 [            ][➊] [height = int((SQUARE_FIT_SIZE /
-width) \* height)]\
-   [            width = SQUARE_FIT_SIZE]\
-[         else:]\
+width) \* height)]
+   [            width = SQUARE_FIT_SIZE]
+[         else:]
 [            ][➋] [width = int((SQUARE_FIT_SIZE /
-height) \* width)]\
-  [             height = SQUARE_FIT_SIZE]\
-\
-   [        # Resize the image.]\
-   [        print('Resizing %s\...' % (filename))]\
+height) \* width)]
+  [             height = SQUARE_FIT_SIZE]
+
+   [        # Resize the image.]
+   [        print('Resizing %s\...' % (filename))]
 [        ][➌] [im = im.resize((width,
-height))]\
-\
+height))]
+
 --[snip]--
 
 If the image does need to be resized, you need to find out whether it is
@@ -884,26 +884,26 @@ width/height.*
 After your code pastes the logo into the image, it should save the
 modified [Image] object. Add the following to your program:
 
-#! python3\
+#! python3
 \# resizeAndAddLogo.py - Resizes all images in current working directory
-to fit\
-\# in a 300x300 square, and adds catlogo.png to the lower-right corner.\
-\
-import os\
-from PIL import Image\
-\
---[snip]--\
-\
-     # Check if image needs to be resized.\
-     --[snip]--\
-\
-[     # Add the logo.]\
+to fit
+\# in a 300x300 square, and adds catlogo.png to the lower-right corner.
+
+import os
+from PIL import Image
+
+--[snip]--
+
+     # Check if image needs to be resized.
+     --[snip]--
+
+[     # Add the logo.]
 [  ][➊] [print('Adding logo to %s\...' %
-(filename))]\
+(filename))]
 [  ][➋] [im.paste(logoIm, (width - logoWidth,
-height - logoHeight), logoIm)]\
-\
-[     # Save changes.]\
+height - logoHeight), logoIm)]
+
+[     # Save changes.]
 [  ][➌] [im.save(os.path.join('withLogo',
 filename))]
 
@@ -914,7 +914,7 @@ the *withLogo* directory [➌]. When you run this program with the
 *zophie.png* file as the only image in the working directory, the output
 will look like this:
 
-Resizing zophie.png\...\
+Resizing zophie.png\...
 Adding logo to zophie.png\...
 
 []{#calibre_link-783 {http:="" www.idpf.org="" 2007=""
@@ -953,8 +953,8 @@ If you need to draw lines, rectangles, circles, or other simple shapes
 on an image, use Pillow's [ImageDraw] module. Enter the
 following into the interactive shell:
 
->>> [from PIL import Image, ImageDraw]\
->>> [im = Image.new('RGBA', (200, 200), 'white')]\
+>>> [from PIL import Image, ImageDraw]
+>>> [im = Image.new('RGBA', (200, 200), 'white')]
 >>> [draw = ImageDraw.Draw(im)]
 
 []{#calibre_link-922 {http:="" www.idpf.org="" 2007=""
@@ -1042,23 +1042,23 @@ polygon's outline.
 
 Enter the following into the interactive shell:
 
-   >>> [from PIL import Image, ImageDraw]\
+   >>> [from PIL import Image, ImageDraw]
    >>> [im = Image.new('RGBA', (200, 200),
-'white')]\
-   >>> [draw = ImageDraw.Draw(im)]\
+'white')]
+   >>> [draw = ImageDraw.Draw(im)]
 [➊] >>> [draw.line([(0, 0), (199, 0), (199, 199), (0, 199),
-(0, 0)], fill='black')]\
+(0, 0)], fill='black')]
 [➋] >>> [draw.rectangle((20, 30, 60, 60),
-fill='blue')]\
+fill='blue')]
 [➌] >>> [draw.ellipse((120, 30, 160, 60),
-fill='red')]\
+fill='red')]
 [➍] >>> [draw.polygon(((57, 87), (79, 62), (94, 85), (120, 90),
-(103, 113)),]\
-   [fill='brown')]\
-[➎] >>> [for i in range(100, 200, 10):]\
+(103, 113)),]
+   [fill='brown')]
+[➎] >>> [for i in range(100, 200, 10):]
            [draw.line([(i, 0), (200, i - 100)],
-fill='green')]\
-\
+fill='green')]
+
    >>> [im.save('drawing.png')]
 
 After making an [Image] object for a 200×200 white image,
@@ -1147,20 +1147,20 @@ ops}type="pagebreak"}Enter the following into the interactive shell,
 replacing [FONT_FOLDER] with the actual folder name your
 operating system uses:
 
-   >>> [from PIL import Image, ImageDraw, ImageFont]\
-   >>> [import os]\
+   >>> [from PIL import Image, ImageDraw, ImageFont]
+   >>> [import os]
 [➊] >>> [im = Image.new('RGBA', (200, 200),
-'white')]\
-[➋] >>> [draw = ImageDraw.Draw(im)]\
+'white')]
+[➋] >>> [draw = ImageDraw.Draw(im)]
 [➌] >>> [draw.text((20, 150), 'Hello',
-fill='purple')]\
+fill='purple')]
    >>> [fontsFolder = 'FONT_FOLDER' \# e.g.
-'/Library/Fonts']\
+'/Library/Fonts']
 [➍] >>> [arialFont =
 ImageFont.truetype(os.path.join(fontsFolder, 'arial.ttf'),
-32)]\
+32)]
 [➎] >>> [draw.text((100, 150), 'Howdy', fill='gray',
-font=arialFont)]\
+font=arialFont)]
    >>> [im.save('text.png')]
 
 After importing [Image], [ImageDraw],
@@ -1304,32 +1304,32 @@ and height.
 
 As a hint, here's a rough skeleton of what this program might look like:
 
-#! python3\
-\# Import modules and write comments to describe this program.\
-\
-for foldername, subfolders, filenames in os.walk('C:\\\\'):\
-    numPhotoFiles = 0\
-    numNonPhotoFiles = 0\
-    for filename in filenames:\
-        # Check if file extension isn't .png or .jpg.\
+#! python3
+\# Import modules and write comments to describe this program.
+
+for foldername, subfolders, filenames in os.walk('C:\\\\'):
+    numPhotoFiles = 0
+    numNonPhotoFiles = 0
+    for filename in filenames:
+        # Check if file extension isn't .png or .jpg.
 []{#calibre_link-1873 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}        if TODO:\
-            numNonPhotoFiles += 1\
-            continue    # skip to next filename\
-\
-        # Open image file using Pillow.\
-\
-        # Check if width & height are larger than 500.\
-        if TODO:\
-            # Image is large enough to be considered a photo.\
-            numPhotoFiles += 1\
-        else:\
-            # Image is too small to be a photo.\
-            numNonPhotoFiles += 1\
-\
-    # If more than half of files were photos,\
-    # print the absolute path of the folder.\
-    if TODO:\
+ops}type="pagebreak"}        if TODO:
+            numNonPhotoFiles += 1
+            continue    # skip to next filename
+
+        # Open image file using Pillow.
+
+        # Check if width & height are larger than 500.
+        if TODO:
+            # Image is large enough to be considered a photo.
+            numPhotoFiles += 1
+        else:
+            # Image is too small to be a photo.
+            numNonPhotoFiles += 1
+
+    # If more than half of files were photos,
+    # print the absolute path of the folder.
+    if TODO:
         print(TODO)
 
 When the program runs, it should print the absolute path of any photo

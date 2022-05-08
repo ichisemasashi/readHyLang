@@ -14,13 +14,13 @@ within a program.
 To better understand how functions work, let's create one. Enter this
 program into the file editor and save it as *helloFunc.py*:
 
-[➊] def hello():\
-    [➋] print('Howdy!')\
-       print('Howdy!!!')\
-       print('Hello there.')\
-\
-[➌] hello()\
-   hello()\
+[➊] def hello():
+    [➋] print('Howdy!')
+       print('Howdy!!!')
+       print('Hello there.')
+
+[➌] hello()
+   hello()
    hello()
 
 []{#calibre_link-795 {http:="" www.idpf.org="" 2007=""
@@ -45,28 +45,28 @@ Since this program calls [hello()] three times, the code in
 the [hello()] function is executed three times. When you run
 this program, the output looks like this:
 
-Howdy!\
-Howdy!!!\
-Hello there.\
-Howdy!\
-Howdy!!!\
-Hello there.\
-Howdy!\
-Howdy!!!\
+Howdy!
+Howdy!!!
+Hello there.
+Howdy!
+Howdy!!!
+Hello there.
+Howdy!
+Howdy!!!
 Hello there.
 
 A major purpose of functions is to group code that gets executed
 multiple times. Without a function defined, you would have to copy and
 paste this code each time, and the program would look like this:
 
-print('Howdy!')\
-print('Howdy!!!')\
-print('Hello there.')\
-print('Howdy!')\
-print('Howdy!!!')\
-print('Hello there.')\
-print('Howdy!')\
-print('Howdy!!!')\
+print('Howdy!')
+print('Howdy!!!')
+print('Hello there.')
+print('Howdy!')
+print('Howdy!!!')
+print('Hello there.')
+print('Howdy!')
+print('Howdy!!!')
 print('Hello there.')
 
 In general, you always want to avoid duplicating code because if you
@@ -87,15 +87,15 @@ parentheses. You can also define your own functions that accept
 arguments. Type this example into the file editor and save it as
 *helloFunc2.py*:
 
-[➊] def hello(name):\
-    [➋] print('Hello, ' + name)\
-\
-[➌] hello('Alice')\
+[➊] def hello(name):
+    [➋] print('Hello, ' + name)
+
+[➌] hello('Alice')
    hello('Bob')
 
 When you run this program, the output looks like this:
 
-Hello, Alice\
+Hello, Alice
 Hello, Bob
 
 You can view the execution of this program at
@@ -128,8 +128,8 @@ chapter, when I discuss what a function's local scope is.
 The terms *define*, *call*, *pass*, *argument*, and *parameter* can be
 confusing. Let's look at a code example to review these terms:
 
-[➊] def sayHello(name):\
-       print('Hello, ' + name)\
+[➊] def sayHello(name):
+       print('Hello, ' + name)
 [➋] sayHello('Al')
 
 To *define* a function is to create it, just like an assignment
@@ -169,30 +169,30 @@ following program defines a function that returns a different string
 depending on what number it is passed as an argument. Enter this code
 into the file editor and save it as *magic8Ball.py*:
 
-[➊] import random\
-\
-[➋] def getAnswer(answerNumber):\
-    [➌] if answerNumber == 1:\
-           return 'It is certain'\
-       elif answerNumber == 2:\
-           return 'It is decidedly so'\
-       elif answerNumber == 3:\
-           return 'Yes'\
-       elif answerNumber == 4:\
-           return 'Reply hazy try again'\
-       elif answerNumber == 5:\
-           return 'Ask again later'\
-       elif answerNumber == 6:\
-           return 'Concentrate and ask again'\
-       elif answerNumber == 7:\
-           return 'My reply is no'\
-       elif answerNumber == 8:\
-           return 'Outlook not so good'\
-       elif answerNumber == 9:\
-           return 'Very doubtful'\
-\
-[➍] r = random.randint(1, 9)\
-[➎] fortune = getAnswer(r)\
+[➊] import random
+
+[➋] def getAnswer(answerNumber):
+    [➌] if answerNumber == 1:
+           return 'It is certain'
+       elif answerNumber == 2:
+           return 'It is decidedly so'
+       elif answerNumber == 3:
+           return 'Yes'
+       elif answerNumber == 4:
+           return 'Reply hazy try again'
+       elif answerNumber == 5:
+           return 'Ask again later'
+       elif answerNumber == 6:
+           return 'Concentrate and ask again'
+       elif answerNumber == 7:
+           return 'My reply is no'
+       elif answerNumber == 8:
+           return 'Outlook not so good'
+       elif answerNumber == 9:
+           return 'Very doubtful'
+
+[➍] r = random.randint(1, 9)
+[➎] fortune = getAnswer(r)
 [➏] print(fortune)
 
 []{#calibre_link-887 {http:="" www.idpf.org="" 2007=""
@@ -222,8 +222,8 @@ variable named [fortune], which then gets passed to a
 Note that since you can pass return values as an argument to another
 function call, you could shorten these three lines:
 
-r = random.randint(1, 9)\
-fortune = getAnswer(r)\
+r = random.randint(1, 9)
+fortune = getAnswer(r)
 print(fortune)
 
 to this single equivalent line:
@@ -254,9 +254,9 @@ calls need to evaluate to a return value, [print()] returns
 [None]. To see this in action, enter the following into the
 interactive shell:
 
->>> [spam = print('Hello!')]\
-Hello!\
->>> [None == spam]\
+>>> [spam = print('Hello!')]
+Hello!
+>>> [None == spam]
 True
 
 []{#calibre_link-796 {http:="" www.idpf.org="" 2007=""
@@ -287,12 +287,12 @@ arguments and between its arguments (separating them), respectively.
 
 If you ran a program with the following code:
 
-[print('Hello')]\
+[print('Hello')]
 [print('World')]
 
 the output would look like this:
 
-Hello\
+Hello
 World
 
 The two outputted strings appear on separate lines because the
@@ -301,7 +301,7 @@ the end of the string it is passed. However, you can set the
 [end] keyword argument to change the newline character to a
 different string. For example, if the code were this:
 
-[print('Hello', end='')]\
+[print('Hello', end='')]
 [print('World')]
 
 the output would look like this:
@@ -318,14 +318,14 @@ ops}type="pagebreak"}Similarly, when you pass multiple string values to
 [print()], the function will automatically separate them with
 a single space. Enter the following into the interactive shell:
 
->>> [print('cats', 'dogs', 'mice')]\
+>>> [print('cats', 'dogs', 'mice')]
 cats dogs mice
 
 But you could replace the default separating string by passing the
 [sep] keyword argument a different string. Enter the following
 into the interactive shell:
 
->>> [print('cats', 'dogs', 'mice', sep=',')]\
+>>> [print('cats', 'dogs', 'mice', sep=',')]
 cats,dogs,mice
 
 You can add keyword arguments to the functions you write as well, but
@@ -366,36 +366,36 @@ original function call.
 ops}type="pagebreak"}Open a file editor window and enter the following
 code, saving it as *abcdCallStack.py*:
 
-   def a():\
-       print('a() starts')\
-    [➊] b()\
-    [➋] d()\
-       print('a() returns')\
-\
-   def b():\
-       print('b() starts')\
-    [➌] c()\
-       print('b() returns')\
-\
-   def c():\
-    [➍] print('c() starts')\
-       print('c() returns')\
-\
-   def d():\
-       print('d() starts')\
-       print('d() returns')\
-\
+   def a():
+       print('a() starts')
+    [➊] b()
+    [➋] d()
+       print('a() returns')
+
+   def b():
+       print('b() starts')
+    [➌] c()
+       print('b() returns')
+
+   def c():
+    [➍] print('c() starts')
+       print('c() returns')
+
+   def d():
+       print('d() starts')
+       print('d() returns')
+
 [➎] a()
 
 If you run this program, the output will look like this:
 
-a() starts\
-b() starts\
-c() starts\
-c() returns\
-b() returns\
-d() starts\
-d() returns\
+a() starts
+b() starts
+c() starts
+c() returns
+b() returns
+d() starts
+d() returns
 a() returns
 
 You can view the execution of this program at
@@ -512,16 +512,16 @@ larger.
 
 Consider this program, which will cause an error when you run it:
 
-def spam():\
-[➊] eggs = 31337\
-spam()\
+def spam():
+[➊] eggs = 31337
+spam()
 print(eggs)
 
 If you run this program, the output will look like this:
 
-Traceback (most recent call last):\
-  File "C:/test1.py", line 4, in <module>\
-    print(eggs)\
+Traceback (most recent call last):
+  File "C:/test1.py", line 4, in <module>
+    print(eggs)
 NameError: name 'eggs' is not defined
 
 The error happens because the [eggs] variable exists only in
@@ -540,15 +540,15 @@ variables can be used in the global scope.
 A new local scope is created whenever a function is called, including
 when a function is called from another function. Consider this program:
 
-  def spam():\
-    [➊] eggs = 99\
-    [➋] bacon()\
-    [➌] print(eggs)\
-\
-   def bacon():\
-       ham = 101\
-    [➍] eggs = 0\
-\
+  def spam():
+    [➊] eggs = 99
+    [➋] bacon()
+    [➌] print(eggs)
+
+   def bacon():
+       ham = 101
+    [➍] eggs = 0
+
 [➎] spam()
 
 You can view the execution of this program at
@@ -578,10 +578,10 @@ separate from the local variables in another function.
 
 Consider the following program:
 
-def spam():\
-    print(eggs)\
-eggs = 42\
-spam()\
+def spam():
+    print(eggs)
+eggs = 42
+spam()
 print(eggs)
 
 You can view the execution of this program at
@@ -600,25 +600,25 @@ But, to simplify your life, avoid doing this. To see what happens, enter
 the following code into the file editor and save it as
 *localGlobalSameName.py*:
 
-   def spam():\
-    [➊] eggs = 'spam local'\
-       print(eggs)    # prints 'spam local'\
-\
-   def bacon():\
-    [➋] eggs = 'bacon local'\
-       print(eggs)    # prints 'bacon local'\
-       spam()\
-       print(eggs)    # prints 'bacon local'\
-\
-[➌] eggs = 'global'\
-   bacon()\
+   def spam():
+    [➊] eggs = 'spam local'
+       print(eggs)    # prints 'spam local'
+
+   def bacon():
+    [➋] eggs = 'bacon local'
+       print(eggs)    # prints 'bacon local'
+       spam()
+       print(eggs)    # prints 'bacon local'
+
+[➌] eggs = 'global'
+   bacon()
    print(eggs)        # prints 'global'
 
 When you run this program, it outputs the following:
 
-bacon local\
-spam local\
-bacon local\
+bacon local
+spam local
+bacon local
 global
 
 You can view the execution of this program at
@@ -650,13 +650,13 @@ function, [eggs] refers to the global variable, so don't
 create a local variable with this name." For example, enter the
 following code into the file editor and save it as *globalStatement.py*:
 
-def spam():\
-  [➊] global eggs\
-  [➋] eggs = 'spam'\
+def spam():
+  [➊] global eggs
+  [➋] eggs = 'spam'
 []{#calibre_link-1728 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\
-eggs = 'global'\
-spam()\
+ops}type="pagebreak"}
+eggs = 'global'
+spam()
 print(eggs)
 
 When you run this program, the final [print()] call will
@@ -687,18 +687,18 @@ To get a better feel for these rules, here's an example program. Enter
 the following code into the file editor and save it as
 *sameNameLocalGlobal.py*:
 
-def spam():\
-  [➊] global eggs\
-     eggs = 'spam' \# this is the global\
-\
-def bacon():\
-  [➋] eggs = 'bacon' \# this is a local\
-\
-def ham():\
-  [➌] print(eggs) \# this is the global\
-\
-eggs = 42 \# this is the global\
-spam()\
+def spam():
+  [➊] global eggs
+     eggs = 'spam' \# this is the global
+
+def bacon():
+  [➋] eggs = 'bacon' \# this is a local
+
+def ham():
+  [➌] print(eggs) \# this is the global
+
+eggs = 42 \# this is the global
+spam()
 print(eggs)
 
 In the [spam()] function, [eggs] is the global
@@ -734,20 +734,20 @@ value to it, as in the following program, Python will give you an error.
 To see this, enter the following into the file editor and save it as
 *sameNameError.py*:
 
-   def spam():\
-       print(eggs) \# ERROR!\
-    [➊] eggs = 'spam local'\
-\
-[➋] eggs = 'global'\
+   def spam():
+       print(eggs) \# ERROR!
+    [➊] eggs = 'spam local'
+
+[➋] eggs = 'global'
    spam()
 
 If you run the previous program, it produces an error message.
 
-Traceback (most recent call last):\
-  File "C:/sameNameError.py", line 6, in <module>\
-    spam()\
-  File "C:/sameNameError.py", line 2, in spam\
-    print(eggs) \# ERROR!\
+Traceback (most recent call last):
+  File "C:/sameNameError.py", line 6, in <module>
+    spam()
+  File "C:/sameNameError.py", line 2, in spam
+    print(eggs) \# ERROR!
 UnboundLocalError: local variable 'eggs' referenced before assignment
 
 You can view the execution of this program at
@@ -789,12 +789,12 @@ For example, consider the following program, which has a divide-by-zero
 error. Open a file editor window and enter the following code, saving it
 as *zeroDivide.py*:
 
-def spam(divideBy):\
-    return 42 / divideBy\
-\
-print(spam(2))\
-print(spam(12))\
-print(spam(0))\
+def spam(divideBy):
+    return 42 / divideBy
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
 print(spam(1))
 
 We've defined a function called [spam], given it a parameter,
@@ -802,13 +802,13 @@ and then printed the value of that function with various parameters to
 see what happens. This is the output you get when you run the previous
 code:
 
-21.0\
-3.5\
-Traceback (most recent call last):\
-  File "C:/zeroDivide.py", line 6, in <module>\
-    print(spam(0))\
-  File "C:/zeroDivide.py", line 2, in spam\
-    return 42 / divideBy\
+21.0
+3.5
+Traceback (most recent call last):
+  File "C:/zeroDivide.py", line 6, in <module>
+    print(spam(0))
+  File "C:/zeroDivide.py", line 2, in spam
+    return 42 / divideBy
 ZeroDivisionError: division by zero
 
 You can view the execution of this program at
@@ -827,15 +827,15 @@ You can put the previous divide-by-zero code in a [try] clause
 and have an [except] clause contain code to handle what
 happens when this error occurs.
 
-def spam(divideBy):\
-    try:\
-        return 42 / divideBy\
-    except ZeroDivisionError:\
-        print('Error: Invalid argument.')\
-\
-print(spam(2))\
-print(spam(12))\
-print(spam(0))\
+def spam(divideBy):
+    try:
+        return 42 / divideBy
+    except ZeroDivisionError:
+        print('Error: Invalid argument.')
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
 print(spam(1))
 
 []{#calibre_link-946 {http:="" www.idpf.org="" 2007=""
@@ -844,10 +844,10 @@ error, the program execution immediately moves to the code in the
 [except] clause. After running that code, the execution
 continues as normal. The output of the previous program is as follows:
 
-21.0\
-3.5\
-Error: Invalid argument.\
-None\
+21.0
+3.5
+Error: Invalid argument.
+None
 42.0
 
 You can view the execution of this program at
@@ -856,21 +856,21 @@ Note that any errors that occur in function calls in a [try]
 block will also be caught. Consider the following program, which instead
 has the [spam()] calls in the [try] block:
 
-def spam(divideBy):\
-    return 42 / divideBy\
-\
-try:\
-    print(spam(2))\
-    print(spam(12))\
-    print(spam(0))\
-    print(spam(1))\
-except ZeroDivisionError:\
+def spam(divideBy):
+    return 42 / divideBy
+
+try:
+    print(spam(2))
+    print(spam(12))
+    print(spam(0))
+    print(spam(1))
+except ZeroDivisionError:
     print('Error: Invalid argument.')
 
 When this program is run, the output looks like this:
 
-21.0\
-3.5\
+21.0
+3.5
 Error: Invalid argument.
 
 You can view the execution of this program at
@@ -888,51 +888,51 @@ zigzag pattern until the user stops it by pressing the Mu editor's Stop
 button or by pressing [CTRL-C]. When you run this program, the
 output will look something like this:
 
-    \*\*\*\*\*\*\*\*\
-   \*\*\*\*\*\*\*\*\
-  \*\*\*\*\*\*\*\*\
+    \*\*\*\*\*\*\*\*
+   \*\*\*\*\*\*\*\*
+  \*\*\*\*\*\*\*\*
 []{#calibre_link-1729 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"} \*\*\*\*\*\*\*\*\
-\*\*\*\*\*\*\*\*\
- \*\*\*\*\*\*\*\*\
-  \*\*\*\*\*\*\*\*\
-   \*\*\*\*\*\*\*\*\
+ops}type="pagebreak"} \*\*\*\*\*\*\*\*
+\*\*\*\*\*\*\*\*
+ \*\*\*\*\*\*\*\*
+  \*\*\*\*\*\*\*\*
+   \*\*\*\*\*\*\*\*
     \*\*\*\*\*\*\*\*
 
 Type the following source code into the file editor, and save the file
 as *zigzag.py*:
 
-import time, sys\
-indent = 0 \# How many spaces to indent.\
+import time, sys
+indent = 0 \# How many spaces to indent.
 indentIncreasing = True \# Whether the indentation is increasing or
-not.\
-\
-try:\
-    while True: \# The main program loop.\
-        print(' ' \* indent, end='')\
-        print('\*\*\*\*\*\*\*\*')\
-        time.sleep(0.1) \# Pause for 1/10 of a second.\
-\
-        if indentIncreasing:\
-            # Increase the number of spaces:\
-            indent = indent + 1\
-            if indent == 20:\
-                # Change direction:\
-                indentIncreasing = False\
-\
-        else:\
-            # Decrease the number of spaces:\
-            indent = indent - 1\
-            if indent == 0:\
-                # Change direction:\
-                indentIncreasing = True\
-except KeyboardInterrupt:\
+not.
+
+try:
+    while True: \# The main program loop.
+        print(' ' \* indent, end='')
+        print('\*\*\*\*\*\*\*\*')
+        time.sleep(0.1) \# Pause for 1/10 of a second.
+
+        if indentIncreasing:
+            # Increase the number of spaces:
+            indent = indent + 1
+            if indent == 20:
+                # Change direction:
+                indentIncreasing = False
+
+        else:
+            # Decrease the number of spaces:
+            indent = indent - 1
+            if indent == 0:
+                # Change direction:
+                indentIncreasing = True
+except KeyboardInterrupt:
     sys.exit()
 
 Let's look at this code line by line, starting at the top.
 
-import time, sys\
-indent = 0 \# How many spaces to indent.\
+import time, sys
+indent = 0 \# How many spaces to indent.
 indentIncreasing = True \# Whether the indentation is increasing or not.
 
 First, we'll import the [time] and [sys] modules.
@@ -941,10 +941,10 @@ track of how many spaces of indentation are before the band of eight
 asterisks and [indentIncreasing] contains a Boolean value to
 determine if the amount of indentation is increasing or decreasing.
 
-try:\
-    while True: \# The main program loop.\
-        print(' ' \* indent, end='')\
-        print('\*\*\*\*\*\*\*\*')\
+try:
+    while True: \# The main program loop.
+        print(' ' \* indent, end='')
+        print('\*\*\*\*\*\*\*\*')
         time.sleep(0.1) \# Pause for 1/10 of a second.
 
 []{#calibre_link-1070 {http:="" www.idpf.org="" 2007=""
@@ -968,10 +968,10 @@ automatically print a newline after these spaces, so we also pass
 it to say that it introduces a one-tenth-second pause in our program at
 this point.
 
-        if indentIncreasing:\
-            # Increase the number of spaces:\
-            indent = indent + 1\
-            if indent == 20:\
+        if indentIncreasing:
+            # Increase the number of spaces:
+            indent = indent + 1
+            if indent == 20:
                 indentIncreasing = False \# Change direction.
 
 Next, we want to adjust the amount of indentation for the next time we
@@ -979,10 +979,10 @@ print asterisks. If [indentIncreasing] is [True],
 then we want to add one to [indent]. But once indent reaches
 [20], we want the indentation to decrease.
 
-        else:\
-            # Decrease the number of spaces:\
-            indent = indent - 1\
-            if indent == 0:\
+        else:
+            # Decrease the number of spaces:
+            indent = indent - 1
+            if indent == 0:
                 indentIncreasing = True \# Change direction.
 
 Meanwhile, if [indentIncreasing] was [False], we
@@ -991,7 +991,7 @@ want to subtract one from [indent]. Once indent reaches
 way, the program execution will jump back to the start of the main
 program loop to print the asterisks again.
 
-except KeyboardInterrupt:\
+except KeyboardInterrupt:
     sys.exit()
 
 If the user presses [CTRL-C] at any point that the program
@@ -1098,14 +1098,14 @@ Hint: An integer [number] is even if [number % 2 ==
 
 The output of this program could look something like this:
 
-Enter number:\
-3\
-10\
-5\
-16\
-8\
-4\
-2\
+Enter number:
+3
+10
+5
+16
+8
+4
+2
 1
 
 #### ***Input Validation*** 

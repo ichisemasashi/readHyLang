@@ -16,26 +16,26 @@ San Francisco
 
 All rights reserved. No part of this work may be reproduced or transmitted in any form or by any means, electronic or mechanical, including photocopying, recording, or by any information storage or retrieval system, without the prior written permission of the copyright owner and the publisher.
 
-ISBN-10: 1-59327-992-2\
+ISBN-10: 1-59327-992-2
 ISBN-13: 978-1-59327-992-9
 
-Publisher: William Pollock\
-Production Editor: Laurel Chun\
-Cover Illustration: Josh Ellingson\
-Interior Design: Octopod Studios\
-Developmental Editors: Frances Saux and Jan Cash\
-Technical Reviewers: Ari Lacenski and Philip James\
-Copyeditors: Kim Wimpsett, Britt Bogan, and Paula L. Fleming\
-Compositors: Susan Glinert Stevens and Danielle Foster\
-Proofreaders: Lisa Devoto Farrell and Emelie Burnette\
+Publisher: William Pollock
+Production Editor: Laurel Chun
+Cover Illustration: Josh Ellingson
+Interior Design: Octopod Studios
+Developmental Editors: Frances Saux and Jan Cash
+Technical Reviewers: Ari Lacenski and Philip James
+Copyeditors: Kim Wimpsett, Britt Bogan, and Paula L. Fleming
+Compositors: Susan Glinert Stevens and Danielle Foster
+Proofreaders: Lisa Devoto Farrell and Emelie Burnette
 Indexer: BIM Indexing and Proofreading Services
 
 For information on distribution, translations, or bulk sales, please contact No Starch Press, Inc. directly:
 
-No Starch Press, Inc.\
-245 8th Street, San Francisco, CA 94103\
+No Starch Press, Inc.
+245 8th Street, San Francisco, CA 94103
 phone: 1.415.863.9900;
-[info@nostarch.com](mailto:info@nostarch.com)\
+[info@nostarch.com](mailto:info@nostarch.com)
 [www.nostarch.com](http://www.nostarch.com)
 
 The Library of Congress Control Number for the first edition is:
@@ -228,7 +228,7 @@ Windows、macOS、Ubuntu用のPythonは、*[https://python.org/downloads/](https
 
 - Windows では、**スタート** ▸ **コントロール パネル** ▸ **システム** を選択し、システムの種類に 64 ビットと 32 ビットのどちらが表示されているかを確認します。
 - macOSでは、Appleメニューから、**このMacについて** ▸ **詳細情報** ▸ **システムレポート** ▸ **ハードウェア** を選択し、プロセッサ名フィールドを確認します。Intel Core Solo または Intel Core Duo と表示されている場合は、32 ビット・マシンです。それ以外（Intel Core 2 Duoを含む）が表示されている場合は、64ビット・マシンを使用しています。
-- Ubuntu Linuxの場合、Terminalを開いて[uname -m]というコマンドを実行します。[i686]が32ビット、[x86_64]が64ビットを意味します。
+- Ubuntu Linuxの場合、Terminalを開いて`uname -m`というコマンドを実行します。`i686`が32ビット、`x86_64`が64ビットを意味します。
 
 Windowsの場合、Pythonのインストーラー（ファイル名の末尾が*.msi*）をダウンロードし、ダブルクリックします。インストーラが画面に表示する指示に従って、ここに記載されているようにPythonをインストールします。
 
@@ -258,9 +258,9 @@ WindowsとmacOSの場合、あなたのオペレーティングシステム用�
 
 インストールが完了したら、Muを起動させましょう。
 
-- Windows 7以降では、画面左下のスタートアイコンをクリックし、検索ボックスに[Mu]と入力し、選択します。
+- Windows 7以降では、画面左下のスタートアイコンをクリックし、検索ボックスに`Mu`と入力し、選択します。
 - macOSの場合、Finderウィンドウを開き、**アプリケーション**をクリックし、**mu-editor**をクリックします。
-- Ubuntuでは、**Applications** ▸ **Accessories** ▸ **Terminal**を選択し、[python3 --m mu]と入力してください。
+- Ubuntuでは、**Applications** ▸ **Accessories** ▸ **Terminal**を選択し、`python3 --m mu`と入力してください。
 
 Muを初めて起動すると、Adafruit CircuitPython、BBC micro:bit、Pygame Zero、Python 3をオプションとするSelect Modeウィンドウが表示されます。**Python 3**を選択します。エディタウィンドウの上部にあるModeボタンをクリックすれば、後でいつでもモードを変更することができます。
 
@@ -272,50 +272,56 @@ Muを初めて起動すると、Adafruit CircuitPython、BBC micro:bit、Pygame 
 
 ### **Starting IDLE** 
 
-This book uses Mu as an editor and interactive shell. However, you can use any number of editors for writing Python code. The *Integrated Development and Learning Environment (IDLE)* software installs along with Python, and it can serve as a second editor if for some reason you can't get Mu installed or working. Let's start IDLE now.
+本書では、エディタおよび対話型シェルとしてMuを使用しています。しかし、Pythonのコードを書くためのエディタはいくつでも使うことができます。IDLE（Integrated Development and Learning Environment）*ソフトウェアはPythonと一緒にインストールされ、何らかの理由でMuをインストールできない、または動作しない場合に2番目のエディタとして機能します。では、IDLEを起動してみましょう。
 
--   On Windows 7 or later, click the Start icon in the lower-left corner of your screen, enter [IDLE] in the search box, and select **IDLE (Python GUI)**.
--   On macOS, open the Finder window, click **Applications**, click **Python 3.8**, and then click the IDLE icon.
--   On Ubuntu, select **Applications** ▸ **Accessories** ▸ **Terminal** and then enter [idle3]. (You may also be able to click **Applications** at the top of the screen, select **Programming**, and then click **IDLE 3**.)
+- Windows 7以降では、画面左下のスタートアイコンをクリックし、検索ボックスに`IDLE`と入力し、**IDLE (Python GUI)**を選択します。
+- macOSでは、Finderウィンドウを開き、**アプリケーション**をクリックし、**Python 3.8**をクリックし、IDLEのアイコンをクリックします。
+- Ubuntuでは、**アプリケーション** ▸ **アクセサリ** ▸ **ターミナル** を選択し、`idle3`と入力します。(画面上部の **Applications** をクリックし、**Programming** を選択し、**IDLE 3** をクリックしてもよいでしょう)。
 
-### **The Interactive Shell** 
+### **対話型シェル** 
 
-When you run Mu, the window that appears is called the *file editor* window. You can open the *interactive shell* by clicking the REPL button. A shell is a program that lets you type instructions into the computer, much like the Terminal or Command Prompt on macOS and Windows, respectively. Python's interactive shell lets you enter instructions for the Python interpreter software to run. The computer reads the instructions you enter and runs them immediately.
+Muを実行したときに表示されるウィンドウは、*ファイルエディタ*ウィンドウと呼ばれます。REPLボタンをクリックすると、*インタラクティブシェル*を開くことができます。シェルとは、コンピュータに命令を入力するためのプログラムで、macOSのターミナルやWindowsのコマンドプロンプトのようなものです。Pythonのインタラクティブシェルでは、Pythonのインタプリタソフトを実行するための命令を入力することができます。コンピュータは入力された命令を読み込んで、すぐに実行します。
 
-In Mu, the interactive shell is a pane in the lower half of the window with the following text:
+Muでは、インタラクティブシェルはウィンドウの下半分にあるペインで、次のようなテキストが表示されます。
 
 ```
-Jupyter QtConsole 4.3.1\
-Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 18:11:49) [MSC v.1900 64 bit\
-(AMD64)]\
-Type 'copyright', 'credits' or 'license' for more information\
+Jupyter QtConsole 4.3.1
+Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 18:11:49) [MSC v.1900 64 bit
+(AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
 IPython 6.2.1 -- An enhanced Interactive Python.
-Type '?' for help.\
-\
+Type '?' for help.
+
 In [1]:
 ```
 
-If you run IDLE, the interactive shell is the window that first appears.  It should be mostly blank except for text that looks something like this:
+IDLEを実行すると、最初に表示されるウィンドウがインタラクティブシェルです。 以下のようなテキスト以外はほとんど空白のはずです。
 
+```
 Python 3.8.0b1 (tags/v3.8.0b1:3b5deb0116, Jun 4 2019, 19:52:55) [MSC
-v.1916\
-64 bit (AMD64)] on win32\
+v.1916
+64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more
-information.\
+information.
 >>>
+```
 
-[In [1]:] are called *prompts*. The examples in this book will use the [>>>] prompt for the interactive shell since it's more common. If you run Python from the Terminal or Command Prompt, they'll use the [>>>] prompt, as well. The [In [1]:] prompt was invented by Jupyter Notebook, another popular Python editor.
+`[1]:` を *prompts* と呼びます。本書の例では、対話型シェルでは `>>>` プロンプトが一般的なので、これを使用します。ターミナルやコマンドプロンプトから Python を実行する場合は、同様に `>>>` プロンプトを使用します。`In [1]:` プロンプトは、同じくPythonの人気エディタであるJupyter Notebookで考案されたものです。
 
-For example, enter the following into the interactive shell next to the prompt:
+例えば、プロンプトの横にある対話型シェルに次のように入力します。
 
+```
 >>> [print('Hello, world!')]
+```
 
-After you type that line and press [ENTER], the interactive shell should display this in response:
+この行を入力して `ENTER` を押すと、対話型シェルは次のような応答を表示するはずです。
 
->>> [print('Hello, world!')]\
+```
+>>> [print('Hello, world!')]
 Hello, world!
+```
 
-You've just given the computer an instruction, and it did what you told it to do!
+コンピュータに指示を出したら、そのとおりに動いてくれた！。
 
 ### **Installing Third-Party Modules** 
 
@@ -327,11 +333,11 @@ Programmers tend to learn by searching the internet for answers to their questio
 
 For example, let's cause an error on purpose: enter ['42' + 3] into the interactive shell. You don't need to know what this instruction means right now, but the result should look like this:
 
-   >>> ['42' + 3]\
-[➊] Traceback (most recent call last):\
-     File "<pyshell#0>", line 1, in <module>\
-       '42' + 3\
-[➋] TypeError: Can't convert 'int' object to str implicitly\
+   >>> ['42' + 3]
+[➊] Traceback (most recent call last):
+     File "<pyshell#0>", line 1, in <module>
+       '42' + 3
+[➋] TypeError: Can't convert 'int' object to str implicitly
    >>>
 
 The error message [➋] appears because Python couldn't understand your instruction. The traceback part [➊] of the error message shows the specific instruction and line number that Python had trouble with. If you're not sure what to make of a particular error message, search for it online. Enter **"TypeError: Can't convert 'int' object to str implicitly"** (including the quotes) into your favorite search engine, and you should see tons of links explaining what the error message means and what causes it, as shown in [Figure 0-2](#calibre_link-1612).

@@ -38,7 +38,7 @@ The [webbrowser] module's [open()] function can
 launch a new browser to a specified URL. Enter the following into the
 interactive shell:
 
->>> [import webbrowser]\
+>>> [import webbrowser]
 >>>
 [webbrowser.open('https://inventwithpython.com/')]
 
@@ -101,15 +101,15 @@ map).
 
 Make your code look like this:
 
-#! python3\
-\# mapIt.py - Launches a map in the browser using an address from the\
-\# command line or clipboard.\
-\
-import webbrowser, sys\
-if len(sys.argv) > 1:\
-    # Get address from command line.\
-    address = ' '.join(sys.argv[1:])\
-\
+#! python3
+\# mapIt.py - Launches a map in the browser using an address from the
+\# command line or clipboard.
+
+import webbrowser, sys
+if len(sys.argv) > 1:
+    # Get address from command line.
+    address = ' '.join(sys.argv[1:])
+
 \# TODO: Get address from clipboard.
 
 After the program's [#!] shebang line, you need to import the
@@ -146,17 +146,17 @@ St, San Francisco, CA 94110'].
 
 Make your code look like the following:
 
-#! python3\
-\# mapIt.py - Launches a map in the browser using an address from the\
-\# command line or clipboard.\
-import webbrowser, sys[,] [pyperclip]\
-if len(sys.argv) > 1:\
-    # Get address from command line.\
-    address = ' '.join(sys.argv[1:])\
-[else:]\
-[    # Get address from clipboard.]\
-[    address = pyperclip.paste()]\
-\
+#! python3
+\# mapIt.py - Launches a map in the browser using an address from the
+\# command line or clipboard.
+import webbrowser, sys[,] [pyperclip]
+if len(sys.argv) > 1:
+    # Get address from command line.
+    address = ' '.join(sys.argv[1:])
+[else:]
+[    # Get address from clipboard.]
+[    address = pyperclip.paste()]
+
 [webbrowser.open('https://www.google.com/maps/place/' +
 address)]
 
@@ -237,21 +237,21 @@ I'll explain the [Response] object in more detail later, but
 for now, enter the following into the interactive shell while your
 computer is connected to the internet:
 
-   >>> [import requests]\
+   >>> [import requests]
 [➊] >>> [res =
-requests.get('https://automatetheboringstuff.com/files/rj.txt')]\
-   >>> [type(res)]\
-   <class 'requests.models.Response'>\
-[➋] >>> [res.status_code == requests.codes.ok]\
-   True\
-   >>> [len(res.text)]\
-   178981\
-   >>> [print(res.text[:250])]\
+requests.get('https://automatetheboringstuff.com/files/rj.txt')]
+   >>> [type(res)]
+   <class 'requests.models.Response'>
+[➋] >>> [res.status_code == requests.codes.ok]
+   True
+   >>> [len(res.text)]
+   178981
+   >>> [print(res.text[:250])]
    The Project Gutenberg EBook of Romeo and Juliet, by William
-Shakespeare\
-\
-   This eBook is for the use of anyone anywhere at no cost and with\
-   almost no restrictions whatsoever.  You may copy it, give it away or\
+Shakespeare
+
+   This eBook is for the use of anyone anywhere at no cost and with
+   almost no restrictions whatsoever.  You may copy it, give it away or
    re-use it under the terms of the Proje
 
 The URL goes to a text web page for the entire play of *Romeo and
@@ -292,17 +292,17 @@ there was an error downloading the file and will do nothing if the
 download succeeded. Enter the following into the interactive shell:
 
 >>> [res =
-requests.get('https://inventwithpython.com/page_that_does_not_exist')]\
->>> [res.raise_for_status()]\
-Traceback (most recent call last):\
-  File "<stdin>", line 1, in <module>\
-\
+requests.get('https://inventwithpython.com/page_that_does_not_exist')]
+>>> [res.raise_for_status()]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+
   File
-"C:\\Users\\Al\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\requests\\models\
-.py", line 940, in raise_for_status\
-    raise HTTPError(http_error_msg, response=self)\
+"C:\\Users\\Al\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages\\requests\\models
+.py", line 940, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
 requests.exceptions.HTTPError: 404 Client Error: Not Found for url:
-https://inventwithpython\
+https://inventwithpython
 .com/page_that_does_not_exist.html
 
 The [raise_for_status()] method is a good way to ensure that a
@@ -313,18 +313,18 @@ the [raise_for_status()] line with [try] and
 [except] statements to handle this error case without
 crashing.
 
-import requests\
+import requests
 res =
-requests.get('https://inventwithpython.com/page_that_does_not_exist')\
-try:\
-    res.raise_for_status()\
-except Exception as exc:\
+requests.get('https://inventwithpython.com/page_that_does_not_exist')
+try:
+    res.raise_for_status()
+except Exception as exc:
     print('There was a problem: %s' % (exc))
 
 This [raise_for_status()] method call causes the program to
 output the following:
 
-There was a problem: 404 Client Error: Not Found for url: https://\
+There was a problem: 404 Client Error: Not Found for url: https://
 inventwithpython.com/page_that_does_not_exist.html
 
 []{#calibre_link-916 {http:="" www.idpf.org="" 2007=""
@@ -346,16 +346,16 @@ to write binary data instead of text data in order to maintain the
 To write the web page to a file, you can use a [for] loop with
 the [Response] object's [iter_content()] method.
 
->>> [import requests]\
+>>> [import requests]
 >>> [res =
-requests.get('https://automatetheboringstuff.com/files/rj.txt')]\
->>> [res.raise_for_status()]\
->>> [playFile = open('RomeoAndJuliet.txt', 'wb')]\
->>> [for chunk in res.iter_content(100000):]\
-[        playFile.write(chunk)]\
-\
-100000\
-78981\
+requests.get('https://automatetheboringstuff.com/files/rj.txt')]
+>>> [res.raise_for_status()]
+>>> [playFile = open('RomeoAndJuliet.txt', 'wb')]
+>>> [for chunk in res.iter_content(100000):]
+[        playFile.write(chunk)]
+
+100000
+78981
 >>> [playFile.close()]
 
 The [iter_content()] method returns "chunks" of the content on
@@ -626,15 +626,15 @@ a new file editor tab in Mu, enter the following, and save it as
 *example.html*. Alternatively, download it from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 
-<!-- This is the example.html example file. -->\
-\
-<html><head><title>The Website Title</title></head>\
-<body>\
+<!-- This is the example.html example file. -->
+
+<html><head><title>The Website Title</title></head>
+<body>
 <p>Download my <strong>Python</strong> book from <a
-href="https://\
-inventwithpython.com">my website</a>.</p>\
-<p class="slogan">Learn Python the easy way!</p>\
-<p>By <span id="author">Al Sweigart</span></p>\
+href="https://
+inventwithpython.com">my website</a>.</p>
+<p class="slogan">Learn Python the easy way!</p>
+<p>By <span id="author">Al Sweigart</span></p>
 </body></html>
 
 As you can see, even a simple HTML file involves many different tags and
@@ -649,12 +649,12 @@ string containing the HTML it will parse. The
 [BeautifulSoup] object. Enter the following into the
 interactive shell while your computer is connected to the internet:
 
->>> [import requests, bs4]\
->>> [res = requests.get('https://nostarch.com')]\
->>> [res.raise_for_status()]\
+>>> [import requests, bs4]
+>>> [res = requests.get('https://nostarch.com')]
+>>> [res.raise_for_status()]
 >>> [noStarchSoup = bs4.BeautifulSoup(res.text,
-'html.parser')]\
->>> [type(noStarchSoup)]\
+'html.parser')]
+>>> [type(noStarchSoup)]
 <class 'bs4.BeautifulSoup'>
 
 This code uses [requests.get()] to download the main page from
@@ -671,10 +671,10 @@ the HTML.
 Enter the following into the interactive shell (after making sure the
 *example.html* file is in the working directory):
 
->>> [exampleFile = open('example.html')]\
+>>> [exampleFile = open('example.html')]
 >>> [exampleSoup = bs4.BeautifulSoup(exampleFile,
-'html.parser')]\
->>> [type(exampleSoup)]\
+'html.parser')]
+>>> [type(exampleSoup)]
 <class 'bs4.BeautifulSoup'>
 
 The ['html.parser'] parser used here comes with Python.
@@ -735,22 +735,22 @@ values also have an [attrs] attribute that shows all the HTML
 attributes of the tag as a dictionary. Using the *example.html* file
 from earlier, enter the following into the interactive shell:
 
->>> [import bs4]\
->>> [exampleFile = open('example.html')]\
+>>> [import bs4]
+>>> [exampleFile = open('example.html')]
 >>> [exampleSoup = bs4.BeautifulSoup(exampleFile.read(),
-'html.parser')]\
->>> [elems = exampleSoup.select('#author')]\
->>> [type(elems)] \# elems is a list of Tag objects.\
-<class 'list'>\
->>> [len(elems)]\
-1\
->>> [type(elems[0])]\
-<class 'bs4.element.Tag'>\
->>> [str(elems[0])] \# The Tag object as a string.\
-'<span id="author">Al Sweigart</span>'\
->>> [elems[0].getText()]\
-'Al Sweigart'\
->>> [elems[0].attrs]\
+'html.parser')]
+>>> [elems = exampleSoup.select('#author')]
+>>> [type(elems)] \# elems is a list of Tag objects.
+<class 'list'>
+>>> [len(elems)]
+1
+>>> [type(elems[0])]
+<class 'bs4.element.Tag'>
+>>> [str(elems[0])] \# The Tag object as a string.
+'<span id="author">Al Sweigart</span>'
+>>> [elems[0].getText()]
+'Al Sweigart'
+>>> [elems[0].attrs]
 {'id': 'author'}
 
 []{#calibre_link-826 {http:="" www.idpf.org="" 2007=""
@@ -774,20 +774,20 @@ starting and closing tags and the element's text. Finally,
 You can also pull all the [<p>] elements from the
 [BeautifulSoup] object. Enter this into the interactive shell:
 
->>> [pElems = exampleSoup.select('p')]\
->>> [str(pElems[0])]\
+>>> [pElems = exampleSoup.select('p')]
+>>> [str(pElems[0])]
 '<p>Download my <strong>Python</strong> book from <a
-href="https://\
-inventwithpython.com">my website</a>.</p>'\
->>> [pElems[0].getText()]\
-'Download my Python book from my website.'\
->>> [str(pElems[1])]\
-'<p class="slogan">Learn Python the easy way!</p>'\
->>> [pElems[1].getText()]\
-'Learn Python the easy way!'\
->>> [str(pElems[2])]\
-'<p>By <span id="author">Al Sweigart</span></p>'\
->>> [pElems[2].getText()]\
+href="https://
+inventwithpython.com">my website</a>.</p>'
+>>> [pElems[0].getText()]
+'Download my Python book from my website.'
+>>> [str(pElems[1])]
+'<p class="slogan">Learn Python the easy way!</p>'
+>>> [pElems[1].getText()]
+'Learn Python the easy way!'
+>>> [str(pElems[2])]
+'<p>By <span id="author">Al Sweigart</span></p>'
+>>> [pElems[2].getText()]
 'By Al Sweigart'
 
 This time, [select()] gives us a list of three matches, which
@@ -803,17 +803,17 @@ to access attribute values from an element. The method is passed a
 string of an attribute name and returns that attribute's value. Using
 *example.html*, enter the following into the interactive shell:
 
->>> [import bs4]\
+>>> [import bs4]
 >>> [soup = bs4.BeautifulSoup(open('example.html'),
-'html.parser')]\
->>> [spanElem = soup.select('span')[0]]\
->>> [str(spanElem)]\
-'<span id="author">Al Sweigart</span>'\
->>> [spanElem.get('id')]\
-'author'\
->>> [spanElem.get('some_nonexistent_addr') == None]\
-True\
->>> [spanElem.attrs]\
+'html.parser')]
+>>> [spanElem = soup.select('span')[0]]
+>>> [str(spanElem)]
+'<span id="author">Al Sweigart</span>'
+>>> [spanElem.get('id')]
+'author'
+>>> [spanElem.get('some_nonexistent_addr') == None]
+True
+>>> [spanElem.attrs]
 {'id': 'author'}
 
 []{#calibre_link-1091 {http:="" www.idpf.org="" 2007=""
@@ -869,20 +869,20 @@ browser tabs.
 
 Make your code look like the following:
 
-#! python3\
-\# searchpypi.py  - Opens several search results.\
-\
-import requests, sys, webbrowser, bs4\
+#! python3
+\# searchpypi.py  - Opens several search results.
+
+import requests, sys, webbrowser, bs4
 []{#calibre_link-1803 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}print('Searching\...')    # display text while
-downloading the search result page\
+downloading the search result page
 res = requests.get('https://google.com/search?q='
-'https://pypi.org/search/?q='\
-+ ' '.join(sys.argv[1:]))\
-res.raise_for_status()\
-\
-\# TODO: Retrieve top search result links.\
-\
+'https://pypi.org/search/?q='
++ ' '.join(sys.argv[1:]))
+res.raise_for_status()
+
+\# TODO: Retrieve top search result links.
+
 \# TODO: Open a browser tab for each result.
 
 The user will specify the search terms using command line arguments when
@@ -910,13 +910,13 @@ just need to find the pattern that all the search result links have.
 
 Make your code look like the following:
 
-#! python3\
-\# searchpypi.py - Opens several google results.\
-import requests, sys, webbrowser, bs4\
---[snip]--\
-[\# Retrieve top search result links.]\
-[soup = bs4.BeautifulSoup(res.text, 'html.parser')]\
-[\# Open a browser tab for each result.]\
+#! python3
+\# searchpypi.py - Opens several google results.
+import requests, sys, webbrowser, bs4
+--[snip]--
+[\# Retrieve top search result links.]
+[soup = bs4.BeautifulSoup(res.text, 'html.parser')]
+[\# Open a browser tab for each result.]
 [linkElems = soup.select('.package-snippet')]
 
 If you look at the [<a>] elements, though, the search result
@@ -939,17 +939,17 @@ program will still be up to date.
 Finally, we'll tell the program to open web browser tabs for our
 results. Add the following to the end of your program:
 
-#! python3\
-\# searchpypi.py - Opens several search results.\
-import requests, sys, webbrowser, bs4\
---[snip]--\
-\# Open a browser tab for each result.\
-linkElems = soup.select('.package-snippet')\
-[numOpen = min(5, len(linkElems))]\
-[for i in range(numOpen):]\
+#! python3
+\# searchpypi.py - Opens several search results.
+import requests, sys, webbrowser, bs4
+--[snip]--
+\# Open a browser tab for each result.
+linkElems = soup.select('.package-snippet')
+[numOpen = min(5, len(linkElems))]
+[for i in range(numOpen):]
 [    urlToOpen = 'https://pypi.org' +
-linkElems[i].get('href')]\
-[    print('Opening', urlToOpen)]\
+linkElems[i].get('href')]
+[    print('Opening', urlToOpen)]
 [    webbrowser.open(urlToOpen)]
 
 By default, you open the first five search results in new tabs using the
@@ -1051,24 +1051,24 @@ the page, you'll find the following:
 
 Make your code look like the following:
 
-#! python3\
-\# downloadXkcd.py - Downloads every single XKCD comic.\
-\
-import requests, os, bs4\
-\
-url = 'https://xkcd.com'               # starting url\
-os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd\
-while not url.endswith('#'):\
-    # TODO: Download the page.\
-\
-    # TODO: Find the URL of the comic image.\
-\
-    # TODO: Download the image.\
-\
-    # TODO: Save the image to ./xkcd.\
-\
-    # TODO: Get the Prev button's url.\
-\
+#! python3
+\# downloadXkcd.py - Downloads every single XKCD comic.
+
+import requests, os, bs4
+
+url = 'https://xkcd.com'               # starting url
+os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd
+while not url.endswith('#'):
+    # TODO: Download the page.
+
+    # TODO: Find the URL of the comic image.
+
+    # TODO: Download the image.
+
+    # TODO: Save the image to ./xkcd.
+
+    # TODO: Get the Prev button's url.
+
 print('Done.')
 
 You'll have a [url] variable that starts with the value
@@ -1091,29 +1091,29 @@ outline the rest of your program.
 Let's implement the code for downloading the page. Make your code look
 like the following:
 
-#! python3\
-\# downloadXkcd.py - Downloads every single XKCD comic.\
-\
-import requests, os, bs4\
-\
-url = 'https://xkcd.com'               # starting url\
-os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd\
-while not url.endswith('#'):\
-    [\# Download the page.]\
-[    print('Downloading page %s\...' % url)]\
-[    res = requests.get(url)]\
-[    res.raise_for_status()]\
-\
- [   soup = bs4.BeautifulSoup(res.text, 'html.parser')]\
-\
-    # TODO: Find the URL of the comic image.\
-\
-    # TODO: Download the image.\
-\
-    # TODO: Save the image to ./xkcd.\
-\
-    # TODO: Get the Prev button's url.\
-\
+#! python3
+\# downloadXkcd.py - Downloads every single XKCD comic.
+
+import requests, os, bs4
+
+url = 'https://xkcd.com'               # starting url
+os.makedirs('xkcd', exist_ok=True)    # store comics in ./xkcd
+while not url.endswith('#'):
+    [\# Download the page.]
+[    print('Downloading page %s\...' % url)]
+[    res = requests.get(url)]
+[    res.raise_for_status()]
+
+ [   soup = bs4.BeautifulSoup(res.text, 'html.parser')]
+
+    # TODO: Find the URL of the comic image.
+
+    # TODO: Download the image.
+
+    # TODO: Save the image to ./xkcd.
+
+    # TODO: Get the Prev button's url.
+
 print('Done.')
 
 First, print [url] so that the user knows which URL the
@@ -1128,31 +1128,31 @@ a [BeautifulSoup] object from the text of the downloaded page.
 
 Make your code look like the following:
 
-#! python3\
-\# downloadXkcd.py - Downloads every single XKCD comic.\
-\
-import requests, os, bs4\
-\
---[snip]--\
-\
-[    # Find the URL of the comic image.]\
-[    comicElem = soup.select('#comic img')]\
+#! python3
+\# downloadXkcd.py - Downloads every single XKCD comic.
+
+import requests, os, bs4
+
+--[snip]--
+
+[    # Find the URL of the comic image.]
+[    comicElem = soup.select('#comic img')]
 []{#calibre_link-1093 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[    if comicElem == []:]\
-[        print('Could not find comic image.')]\
-[    else:]\
+ops}type="pagebreak"}[    if comicElem == []:]
+[        print('Could not find comic image.')]
+[    else:]
 [        comicUrl = 'https:' +
-comicElem[0].get('src')]\
-[        # Download the image.]\
+comicElem[0].get('src')]
+[        # Download the image.]
 [        print('Downloading image %s\...' %
-(comicUrl))]\
-[        res = requests.get(comicUrl)]\
-[        res.raise_for_status()]\
-\
-    # TODO: Save the image to ./xkcd.\
-\
-    # TODO: Get the Prev button's url.\
-\
+(comicUrl))]
+[        res = requests.get(comicUrl)]
+[        res.raise_for_status()]
+
+    # TODO: Save the image to ./xkcd.
+
+    # TODO: Get the Prev button's url.
+
 print('Done.')
 
 From inspecting the XKCD home page with your developer tools, you know
@@ -1177,25 +1177,25 @@ from this [<img>] element and pass it to
 
 Make your code look like the following:
 
-#! python3\
-\# downloadXkcd.py - Downloads every single XKCD comic.\
-\
-import requests, os, bs4\
-\
---[snip]--\
-\
- [       # Save the image to ./xkcd.]\
+#! python3
+\# downloadXkcd.py - Downloads every single XKCD comic.
+
+import requests, os, bs4
+
+--[snip]--
+
+ [       # Save the image to ./xkcd.]
 [        imageFile = open(os.path.join('xkcd',
-os.path.basename(comicUrl)),]\
-['wb')]\
-[        for chunk in res.iter_content(100000):]\
-[            imageFile.write(chunk)]\
-[        imageFile.close()]\
-\
-[    # Get the Prev button's url.]\
-[    prevLink = soup.select('a[rel="prev"]')[0]]\
-[    url = 'https://xkcd.com' + prevLink.get('href')]\
-\
+os.path.basename(comicUrl)),]
+['wb')]
+[        for chunk in res.iter_content(100000):]
+[            imageFile.write(chunk)]
+[        imageFile.close()]
+
+[    # Get the Prev button's url.]
+[    prevLink = soup.select('a[rel="prev"]')[0]]
+[    url = 'https://xkcd.com' + prevLink.get('href')]
+
 print('Done.')
 
 []{#calibre_link-1806 {http:="" www.idpf.org="" 2007=""
@@ -1234,20 +1234,20 @@ entire download process again for this comic.
 
 The output of this program will look like this:
 
-Downloading page https://xkcd.com\...\
-Downloading image https://imgs.xkcd.com/comics/phone_alarm.png\...\
-Downloading page https://xkcd.com/1358/\...\
-Downloading image https://imgs.xkcd.com/comics/nro.png\...\
-Downloading page https://xkcd.com/1357/\...\
-Downloading image https://imgs.xkcd.com/comics/free_speech.png\...\
-Downloading page https://xkcd.com/1356/\...\
+Downloading page https://xkcd.com\...
+Downloading image https://imgs.xkcd.com/comics/phone_alarm.png\...
+Downloading page https://xkcd.com/1358/\...
+Downloading image https://imgs.xkcd.com/comics/nro.png\...
+Downloading page https://xkcd.com/1357/\...
+Downloading image https://imgs.xkcd.com/comics/free_speech.png\...
+Downloading page https://xkcd.com/1356/\...
 Downloading image
-https://imgs.xkcd.com/comics/orbital_mechanics.png\...\
-Downloading page https://xkcd.com/1355/\...\
-Downloading image https://imgs.xkcd.com/comics/airplane_message.png\...\
-Downloading page https://xkcd.com/1354/\...\
+https://imgs.xkcd.com/comics/orbital_mechanics.png\...
+Downloading page https://xkcd.com/1355/\...
+Downloading image https://imgs.xkcd.com/comics/airplane_message.png\...
+Downloading page https://xkcd.com/1354/\...
 Downloading image
-https://imgs.xkcd.com/comics/heartbleed_explanation.png\...\
+https://imgs.xkcd.com/comics/heartbleed_explanation.png\...
 --[snip]--
 
 This project is a good example of a program that can automatically
@@ -1329,10 +1329,10 @@ this book.) []{#calibre_link-972 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}After that, you can launch the Firefox browser with
 [selenium]. Enter the following into the interactive shell:
 
->>> [from selenium import webdriver]\
->>> [browser = webdriver.Firefox()]\
->>> [type(browser)]\
-<class 'selenium.webdriver.firefox.webdriver.WebDriver'>\
+>>> [from selenium import webdriver]
+>>> [browser = webdriver.Firefox()]
+>>> [type(browser)]
+<class 'selenium.webdriver.firefox.webdriver.WebDriver'>
 >>> [browser.get('https://inventwithpython.com')]
 
 You'll notice when [webdriver.Firefox()] is called, the
@@ -1501,14 +1501,14 @@ about it by reading the attributes or calling the methods in [Table
 
 For example, open a new file editor tab and enter the following program:
 
-from selenium import webdriver\
-browser = webdriver.Firefox()\
-browser.get('https://inventwithpython.com')\
-try:\
-    elem = browser.find_element_by_class_name(' cover-thumb')\
+from selenium import webdriver
+browser = webdriver.Firefox()
+browser.get('https://inventwithpython.com')
+try:
+    elem = browser.find_element_by_class_name(' cover-thumb')
     print('Found <%s> element with that class name!' %
-(elem.tag_name))\
-except:\
+(elem.tag_name))
+except:
     print('Was not able to find an element with that name.')
 
 Here we open Firefox and direct it to a URL. On this page, we try to
@@ -1534,13 +1534,13 @@ radio button, click a Submit button, or trigger whatever else might
 happen when the element is clicked by the mouse. For example, enter the
 following into the interactive shell:
 
->>> [from selenium import webdriver]\
->>> [browser = webdriver.Firefox()]\
->>> [browser.get('https://inventwithpython.com')]\
+>>> [from selenium import webdriver]
+>>> [browser = webdriver.Firefox()]
+>>> [browser.get('https://inventwithpython.com')]
 >>> [linkElem = browser.find_element_by_link_text('Read Online for
-Free')]\
->>> [type(linkElem)]\
-<class 'selenium.webdriver.remote.webelement.FirefoxWebElement'>\
+Free')]
+>>> [type(linkElem)]
+<class 'selenium.webdriver.remote.webelement.FirefoxWebElement'>
 >>> [linkElem.click()] \# follows the "Read Online for
 Free" link
 
@@ -1558,19 +1558,19 @@ the [<input>] or [<textarea>] element for that
 text field and then calling the [send_keys()]method. For
 example, enter the following into the interactive shell:
 
->>> [from selenium import webdriver]\
->>> [browser = webdriver.Firefox()]\
->>> [browser.get('https://login.metafilter.com')]\
+>>> [from selenium import webdriver]
+>>> [browser = webdriver.Firefox()]
+>>> [browser.get('https://login.metafilter.com')]
 >>> [userElem =
-browser.find_element_by_id('user_name)]\
+browser.find_element_by_id('user_name)]
 >>>
-[userElem.send_keys('][[your_real_username_here]][')]\
-\
-\
+[userElem.send_keys('][[your_real_username_here]][')]
+
+
 >>> [passwordElem =
-browser.find_element_by_id('user_pass')]\
+browser.find_element_by_id('user_pass')]
 >>>
-[passwordElem.send_keys('][[your_real_password_here]][')]\
+[passwordElem.send_keys('][[your_real_password_here]][')]
 >>> [passwordElem.submit()]
 
 As long as login page for MetaFilter hasn't changed the [id]
@@ -1625,14 +1625,14 @@ top and bottom of the page, respectively. Enter the following into the
 interactive shell, and notice how the [send_keys()] calls
 scroll the page:
 
->>> [from selenium import webdriver]\
->>> [from selenium.webdriver.common.keys import Keys]\
->>> [browser = webdriver.Firefox()]\
->>> [browser.get('https://nostarch.com')]\
+>>> [from selenium import webdriver]
+>>> [from selenium.webdriver.common.keys import Keys]
+>>> [browser = webdriver.Firefox()]
+>>> [browser.get('https://nostarch.com')]
 >>> [htmlElem =
-browser.find_element_by_tag_name('html')]\
+browser.find_element_by_tag_name('html')]
 >>> [htmlElem.send_keys(Keys.END)]     # scrolls to
-bottom\
+bottom
 >>> [htmlElem.send_keys(Keys.HOME)]    # scrolls to top
 
 The [<html]> tag is the base tag in HTML files: the full

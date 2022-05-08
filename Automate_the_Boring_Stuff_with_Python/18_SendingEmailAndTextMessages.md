@@ -79,9 +79,9 @@ as your Gmail password and not share with anyone else.
 
 Then, in the interactive shell, enter the following code:
 
->>> [import ezgmail, os]\
+>>> [import ezgmail, os]
 >>>
-[os.chdir(r'C:\\path\\to\\credentials_json_file')]\
+[os.chdir(r'C:\\path\\to\\credentials_json_file')]
 >>> [ezgmail.init()]
 
 Make sure you set your current working directory to the same folder that
@@ -109,7 +109,7 @@ your Gmail password in your source code.
 Once you have a *token.json* file, the EZGmail module should be able to
 send email with a single function call:
 
->>> [import ezgmail]\
+>>> [import ezgmail]
 >>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
 of the email')]
 
@@ -117,7 +117,7 @@ If you want to attach files to your email, you can provide an extra list
 argument to the [send()] function:
 
 >>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
-of the email',]\
+of the email',]
 [['attachment1.jpg', 'attachment2.mp3'])]
 
 Note that as part of its security and anti-spam features, Gmail might
@@ -128,9 +128,9 @@ likely spam) or emails that contain *.exe* or *.zip* file attachments
 You can also supply the optional keyword arguments [cc] and
 [bcc] to send carbon copies and blind carbon copies:
 
->>> [import ezgmail]\
+>>> [import ezgmail]
 >>> [ezgmail.send('recipient@example.com', 'Subject line', 'Body
-of the email',]\
+of the email',]
 [cc='friend@example.com',
 bcc='otherfriend@example.com,someoneelse@example.com')]
 
@@ -139,9 +139,9 @@ configured for, you can examine [ezgmail.EMAIL_ADDRESS]. Note
 that this variable is populated only after [ezgmail.init()] or
 any other EZGmail function is called:
 
->>> [import ezgmail]\
->>> [ezgmail.init()]\
->>> [ezgmail.EMAIL_ADDRESS]\
+>>> [import ezgmail]
+>>> [ezgmail.init()]
+>>> [ezgmail.EMAIL_ADDRESS]
 'example@gmail.com'
 
 Be sure to treat the *token.json* file the same as your password. If
@@ -170,11 +170,11 @@ objects for all unread emails, which can then be passed to
 [ezgmail.summary()] to print a summary of the conversation
 threads in that list:
 
->>> [import ezgmail]\
+>>> [import ezgmail]
 >>> [unreadThreads = ezgmail.unread() \# List of GmailThread
-objects.]\
->>> [ezgmail.summary(unreadThreads)]\
-Al, Jon - Do you want to watch RoboCop this weekend? - Dec 09\
+objects.]
+>>> [ezgmail.summary(unreadThreads)]
+Al, Jon - Do you want to watch RoboCop this weekend? - Dec 09
 Jon - Thanks for stopping me from buying Bitcoin. - Dec 09
 
 The [summary()] function is handy for displaying a quick
@@ -186,29 +186,29 @@ make up the thread, and these have [subject],
 [body], [timestamp], [sender], and
 [recipient] attributes that describe the email:
 
->>> [len(unreadThreads)]\
-2\
->>> [str(unreadThreads[0])]\
+>>> [len(unreadThreads)]
+2
+>>> [str(unreadThreads[0])]
 "<GmailThread len=2 snippet= Do you want to watch RoboCop this
-weekend?'>"\
->>> [len(unreadThreads[0].messages)]\
-2\
->>> [str(unreadThreads[0].messages[0])]\
+weekend?'>"
+>>> [len(unreadThreads[0].messages)]
+2
+>>> [str(unreadThreads[0].messages[0])]
 "<GmailMessage from='Al Sweigart <al@inventwithpython.com>'
-to='Jon Doe\
+to='Jon Doe
 <example@gmail.com>' timestamp=datetime.datetime(2018, 12, 9, 13, 28,
-48)\
+48)
 subject='RoboCop' snippet='Do you want to watch RoboCop this
-weekend?'>"\
->>> [unreadThreads[0].messages[0].subject]\
-'RoboCop'\
->>> [unreadThreads[0].messages[0].body]\
-'Do you want to watch RoboCop this weekend?\\r\\n'\
->>> [unreadThreads[0].messages[0].timestamp]\
-datetime.datetime(2018, 12, 9, 13, 28, 48)\
->>> [unreadThreads[0].messages[0].sender]\
-'Al Sweigart <al@inventwithpython.com>'\
->>> [unreadThreads[0].messages[0].recipient]\
+weekend?'>"
+>>> [unreadThreads[0].messages[0].subject]
+'RoboCop'
+>>> [unreadThreads[0].messages[0].body]
+'Do you want to watch RoboCop this weekend?\\r\\n'
+>>> [unreadThreads[0].messages[0].timestamp]
+datetime.datetime(2018, 12, 9, 13, 28, 48)
+>>> [unreadThreads[0].messages[0].sender]
+'Al Sweigart <al@inventwithpython.com>'
+>>> [unreadThreads[0].messages[0].recipient]
 'Jon Doe <example@gmail.com>'
 
 []{#calibre_link-954 {http:="" www.idpf.org="" 2007=""
@@ -217,11 +217,11 @@ function, the [ezgmail.recent()] function will return the 25
 most recent threads in your Gmail account. You can pass an optional
 [maxResults] keyword argument to change this limit:
 
->>> [recentThreads = ezgmail.recent()]\
->>> [len(recentThreads)]\
-25\
->>> [recentThreads = ezgmail.recent(maxResults=100)]\
->>> [len(recentThreads)]\
+>>> [recentThreads = ezgmail.recent()]
+>>> [len(recentThreads)]
+25
+>>> [recentThreads = ezgmail.recent(maxResults=100)]
+>>> [len(recentThreads)]
 46
 
 #### ***Searching Mail from a Gmail Account*** 
@@ -232,10 +232,10 @@ same way you would if you entered queries into the
 *[https://gmail.com/](https://gmail.com/)* search box, by
 calling [ezgmail.search()]:
 
->>> [resultThreads = ezgmail.search('RoboCop')]\
->>> [len(resultThreads)]\
-1\
->>> [ezgmail.summary(resultThreads)]\
+>>> [resultThreads = ezgmail.search('RoboCop')]
+>>> [len(resultThreads)]
+1
+>>> [ezgmail.summary(resultThreads)]
 Al, Jon - Do you want to watch RoboCop this weekend? - Dec 09
 
 The previous [search()] call should yield the same results as
@@ -281,15 +281,15 @@ additional [downloadFolder] keyword argument to
 [downloadAttachment()] and
 [downloadAllAttachments()] as well. For example:
 
->>> [import ezgmail]\
->>> [threads = ezgmail.search('vacation photos')]\
->>> [threads[0].messages[0].attachments]\
-['tulips.jpg', 'canal.jpg', 'bicycles.jpg']\
+>>> [import ezgmail]
+>>> [threads = ezgmail.search('vacation photos')]
+>>> [threads[0].messages[0].attachments]
+['tulips.jpg', 'canal.jpg', 'bicycles.jpg']
 >>>
-[threads[0].messages[0].downloadAttachment('tulips.jpg')]\
+[threads[0].messages[0].downloadAttachment('tulips.jpg')]
 >>>
-[threads[0].messages[0].downloadAllAttachments(downloadFolder='vacat]\
-[ion2019')]\
+[threads[0].messages[0].downloadAllAttachments(downloadFolder='vacat]
+[ion2019')]
 ['tulips.jpg', 'canal.jpg', 'bicycles.jpg']
 
 If a file already exists with the attachment's filename, the downloaded
@@ -344,24 +344,24 @@ placeholders. This code is just an overview of the process of sending
 email with Python.*
 
 
->>> [import smtplib]\
+>>> [import smtplib]
 >>> [smtpObj = smtplib.SMTP('smtp.example.com',
-587)]\
->>> [smtpObj.ehlo()]\
+587)]
+>>> [smtpObj.ehlo()]
 (250, b'mx.example.com at your service, [216.172.148.131]\\nSIZE
-35882577\\\
-n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING')\
->>> [smtpObj.starttls()]\
-(220, b'2.0.0 Ready to start TLS')\
+35882577\\
+n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING')
+>>> [smtpObj.starttls()]
+(220, b'2.0.0 Ready to start TLS')
 >>> [smtpObj.login('bob@example.com',
-'][[MY_SECRET_PASSWORD]][')]\
-(235, b'2.7.0 Accepted')\
+'][[MY_SECRET_PASSWORD]][')]
+(235, b'2.7.0 Accepted')
 >>> [smtpObj.sendmail('bob@example.com', 'alice@example.com',
-'Subject: So]\
+'Subject: So]
 [long.\\nDear Alice, so long and thanks for all the fish. Sincerely,
-Bob')]\
-{}\
->>> [smtpObj.quit()]\
+Bob')]
+{}
+>>> [smtpObj.quit()]
 (221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
 
 In the following sections, we'll go through each step, replacing the
@@ -406,8 +406,8 @@ creates an [SMTP] object for connecting to an imaginary email
 server:
 
 >>> [smtpObj = smtplib.SMTP('smtp.example.com',
-587)]\
->>> [type(smtpObj)]\
+587)]
+>>> [type(smtpObj)]
 <class 'smtplib.SMTP'>
 
 Entering [type(smtpObj)] shows you that there's an
@@ -447,9 +447,9 @@ thing after getting the [SMTP] object or else the later method
 calls will result in errors. The following is an example of an
 [ehlo()] call and its return value:
 
->>> [smtpObj.ehlo()]\
+>>> [smtpObj.ehlo()]
 (250, b'mx.example.com at your service, [216.172.148.131]\\nSIZE
-35882577\\\
+35882577\\
 n8BITMIME\\nSTARTTLS\\nENHANCEDSTATUSCODES\\nCHUNKING')
 
 If the first item in the returned tuple is the integer [250]
@@ -466,7 +466,7 @@ encryption is already set up, and you should skip this step.
 
 Here's an example of the [starttls()] method call:
 
->>> [smtpObj.starttls()]\
+>>> [smtpObj.starttls()]
 (220, b'2.0.0 Ready to start TLS')
 
 The [starttls()] method puts your SMTP connection in TLS mode.
@@ -481,7 +481,7 @@ calling the [login()] method.
 
 >>>
 [smtpObj.login('][[my_email_address@example.com]][',
-'][[MY_SECRET_PASSWORD]][')]\
+'][[MY_SECRET_PASSWORD]][')]
 (235, b'2.7.0 Accepted')
 
 Pass a string of your email address as the first argument and a string
@@ -509,12 +509,12 @@ call the [sendmail()] method to actually send the email. The
 [sendmail()] method call looks like this:
 
 >>>
-[smtpObj.sendmail('][[my_email_address@example.com]]\
+[smtpObj.sendmail('][[my_email_address@example.com]]
 [',
 '][[recipient@example.com]][',
 'Subject: So long.\\nDear Alice, so long and thanks for all the
-fish.]\
-[Sincerely, Bob')]\
+fish.]
+[Sincerely, Bob')]
 {}
 
 The [sendmail()] method requires three arguments:
@@ -540,7 +540,7 @@ email delivery *failed*. An empty dictionary means all recipients were
 Be sure to call the [quit()] method when you are done sending
 emails. This will disconnect your program from the SMTP server.
 
->>> [smtpObj.quit()]\
+>>> [smtpObj.quit()]
 (221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
 
 The [221] in the return value means the session is ending.
@@ -582,47 +582,47 @@ third-party modules. Just to give you an overview, here's a full example
 of logging in to an IMAP server, searching for emails, fetching them,
 and then extracting the text of the email messages from them.
 
->>> [import imapclient]\
+>>> [import imapclient]
 >>> [imapObj = imapclient.IMAPClient('imap.example.com',
-ssl=True)]\
+ssl=True)]
 >>>
 [imapObj.login('][[my_email_address@example.com]][',
-'][[MY_SECRET_PASSWORD]][')]\
+'][[MY_SECRET_PASSWORD]][')]
 []{#calibre_link-962 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}'my_email_address@example.com Jane Doe
-authenticated (Success)'\
->>> [imapObj.select_folder('INBOX', readonly=True)]\
->>> [UIDs = imapObj.search(['SINCE 05-Jul-2019'])]\
->>> [UIDs]\
+authenticated (Success)'
+>>> [imapObj.select_folder('INBOX', readonly=True)]
+>>> [UIDs = imapObj.search(['SINCE 05-Jul-2019'])]
+>>> [UIDs]
 [40032, 40033, 40034, 40035, 40036, 40037, 40038, 40039, 40040,
-40041]\
+40041]
 >>> [rawMessages = imapObj.fetch([40041], ['BODY[]',
-'FLAGS'])]\
->>> [import pyzmail]\
+'FLAGS'])]
+>>> [import pyzmail]
 >>> [message =
-pyzmail.PyzMessage.factory(rawMessages[40041][b'BODY[]'])]\
->>> [message.get_subject()]\
-'Hello!'\
->>> [message.get_addresses('from')]\
-[('Edward Snowden', 'esnowden@nsa.gov')]\
->>> [message.get_addresses('to')]\
-[('Jane Doe', 'jdoe@example.com')]\
->>> [message.get_addresses('cc')]\
-[]\
->>> [message.get_addresses('bcc')]\
-[]\
->>> [message.text_part != None]\
-True\
+pyzmail.PyzMessage.factory(rawMessages[40041][b'BODY[]'])]
+>>> [message.get_subject()]
+'Hello!'
+>>> [message.get_addresses('from')]
+[('Edward Snowden', 'esnowden@nsa.gov')]
+>>> [message.get_addresses('to')]
+[('Jane Doe', 'jdoe@example.com')]
+>>> [message.get_addresses('cc')]
+[]
+>>> [message.get_addresses('bcc')]
+[]
+>>> [message.text_part != None]
+True
 >>>
-[message.text_part.get_payload().decode(message.text_part.charset)]\
-'Follow the money.\\r\\n\\r\\n-Ed\\r\\n'\
->>> [message.html_part != None]\
-True\
+[message.text_part.get_payload().decode(message.text_part.charset)]
+'Follow the money.\\r\\n\\r\\n-Ed\\r\\n'
+>>> [message.html_part != None]
+True
 >>>
-[message.html_part.get_payload().decode(message.html_part.charset)]\
+[message.html_part.get_payload().decode(message.html_part.charset)]
 '<div dir="ltr"><div>So long, and thanks for all the
-fish!<br><br></div>-\
-Al<br></div>\\r\\n'\
+fish!<br><br></div>-
+Al<br></div>\\r\\n'
 >>> [imapObj.logout()]
 
 You don't have to memorize these steps. After we go through each step in
@@ -658,7 +658,7 @@ encryption, so pass the [ssl=True] keyword argument. Enter the
 following into the interactive shell (using your provider's domain
 name):
 
->>> [import imapclient]\
+>>> [import imapclient]
 >>> [imapObj = imapclient.IMAPClient('imap.example.com',
 ssl=True)]
 
@@ -675,7 +675,7 @@ your email address) and password as strings.
 
 >>>
 [imapObj.login('][[my_email_address@example.com]][',
-'][[MY_SECRET_PASSWORD]][')]\
+'][[MY_SECRET_PASSWORD]][')]
 'my_email_address@example.com Jane Doe authenticated (Success)'
 
 
@@ -705,15 +705,15 @@ object's [list_folders()] method. This returns a list of
 tuples. Each tuple contains information about a single folder. Continue
 the interactive shell example by entering the following:
 
->>> [import pprint]\
->>> [pprint.pprint(imapObj.list_folders())]\
-[(('\\\\HasNoChildren',), '/', 'Drafts'),\
+>>> [import pprint]
+>>> [pprint.pprint(imapObj.list_folders())]
+[(('\\\\HasNoChildren',), '/', 'Drafts'),
 []{#calibre_link-1006 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"} (('\\\\HasNoChildren',), '/', 'Filler'),\
- (('\\\\HasNoChildren',), '/', 'INBOX'),\
- (('\\\\HasNoChildren',), '/', 'Sent'),\
---[snip]--\
- (('\\\\HasNoChildren', '\\\\Flagged'), '/', 'Starred'),\
+ops}type="pagebreak"} (('\\\\HasNoChildren',), '/', 'Filler'),
+ (('\\\\HasNoChildren',), '/', 'INBOX'),
+ (('\\\\HasNoChildren',), '/', 'Sent'),
+--[snip]--
+ (('\\\\HasNoChildren', '\\\\Flagged'), '/', 'Starred'),
  (('\\\\HasNoChildren', '\\\\Trash'), '/', 'Trash')]
 
 The three values in each of the tuples---for example,
@@ -820,8 +820,8 @@ content.
 
 Continue the interactive shell example by entering the following:
 
->>> [UIDs = imapObj.search(['SINCE 05-Jul-2019'])]\
->>> [UIDs]\
+>>> [UIDs = imapObj.search(['SINCE 05-Jul-2019'])]
+>>> [UIDs]
 [40032, 40033, 40034, 40035, 40036, 40037, 40038, 40039, 40040, 40041]
 
 Here, the list of message IDs (for messages received July 5 onward)
@@ -844,7 +844,7 @@ programs from eating up too much memory. Unfortunately, the default size
 limit is often too small. You can change this limit from 10,000 bytes to
 10,000,000 bytes by running this code:
 
->>> [import imaplib]\
+>>> [import imaplib]
 >>> [imaplib.\_MAXLINE = 10000000]
 
 This should prevent this error message from coming up again. You may
@@ -863,15 +863,15 @@ emails specified in your UID list.
 Let's continue our interactive shell example.
 
 >>> [rawMessages = imapObj.fetch(UIDs,
-['BODY[]'])]\
->>> [import pprint]\
->>> [pprint.pprint(rawMessages)]\
+['BODY[]'])]
+>>> [import pprint]
+>>> [pprint.pprint(rawMessages)]
 {40040: {'BODY[]': 'Delivered-To:
-my_email_address@example.com\\r\\n'\
-                   'Received: by 10.76.71.167 with SMTP id '\
---[snip]--\
-                   '\\r\\n'\
-                   '------=\_Part_6000970_707736290.1404819487066--\\r\\n',\
+my_email_address@example.com\\r\\n'
+                   'Received: by 10.76.71.167 with SMTP id '
+--[snip]--
+                   '\\r\\n'
+                   '------=\_Part_6000970_707736290.1404819487066--\\r\\n',
          'SEQ': 5430}}
 
 Import [pprint] and pass the return value from
@@ -915,7 +915,7 @@ to your Python code.
 Continue the interactive shell example with the following (using UIDs
 from your own email account, not the ones shown here):
 
->>> [import pyzmail]\
+>>> [import pyzmail]
 >>> [message =
 pyzmail.PyzMessage.factory(rawMessages[40041][b'BODY[]'])]
 
@@ -934,15 +934,15 @@ subject as a simple string value. The [get_addresses()] method
 returns a list of addresses for the field you pass it. For example, the
 method calls might look like this:
 
->>> [message.get_subject()]\
-'Hello!'\
->>> [message.get_addresses('from')]\
-[('Edward Snowden', 'esnowden@nsa.gov')]\
->>> [message.get_addresses('to')]\
-[('Jane Doe', 'my_email_address@example.com')]\
->>> [message.get_addresses('cc')]\
-[]\
->>> [message.get_addresses('bcc')]\
+>>> [message.get_subject()]
+'Hello!'
+>>> [message.get_addresses('from')]
+[('Edward Snowden', 'esnowden@nsa.gov')]
+>>> [message.get_addresses('to')]
+[('Jane Doe', 'my_email_address@example.com')]
+>>> [message.get_addresses('cc')]
+[]
+>>> [message.get_addresses('bcc')]
 []
 
 Notice that the argument for [get_addresses()] is
@@ -979,18 +979,18 @@ attribute. This, finally, will return the string of the email's body.
 
 Continue the interactive shell example by entering the following:
 
-[➊] >>> [message.text_part != None]\
-   True\
+[➊] >>> [message.text_part != None]
+   True
    >>>
-[message.text_part.get_payload().decode(message.text_part.charset)]\
+[message.text_part.get_payload().decode(message.text_part.charset)]
 [➋] 'So long, and thanks for all the
-fish!\\r\\n\\r\\n-Al\\r\\n'\
-[➌] >>> [message.html_part != None]\
-   True\
+fish!\\r\\n\\r\\n-Al\\r\\n'
+[➌] >>> [message.html_part != None]
+   True
 [➍] >>>
-[message.html_part.get_payload().decode(message.html_part.charset)]\
+[message.html_part.get_payload().decode(message.html_part.charset)]
    '<div dir="ltr"><div>So long, and thanks for all the
-fish!<br><br></div>-Al\
+fish!<br><br></div>-Al
    <br></div>\\r\\n'
 
 The email we're working with has both plaintext and HTML content, so the
@@ -1013,14 +1013,14 @@ This marks the emails with the *\\Deleted* flag. Calling the
 interactive shell example:
 
 [➊] >>> [imapObj.select_folder('INBOX',
-readonly=False)]\
+readonly=False)]
 [➋] >>> [UIDs = imapObj.search(['ON
-09-Jul-2019'])]\
-   >>> [UIDs]\
-   [40066]\
-   >>> [imapObj.delete_messages(UIDs)]\
-[➌] {40066: ('\\\\Seen', '\\\\Deleted')}\
-   >>> [imapObj.expunge()]\
+09-Jul-2019'])]
+   >>> [UIDs]
+   [40066]
+   >>> [imapObj.delete_messages(UIDs)]
+[➌] {40066: ('\\\\Seen', '\\\\Deleted')}
+   >>> [imapObj.expunge()]
    ('Success', [(5452, 'EXISTS')])
 
 Here we select the inbox by calling [select_folder()] on the
@@ -1054,7 +1054,7 @@ call your program makes on the [IMAPClient] object should
 raise an exception like the following:
 
 imaplib.abort: socket error: [WinError 10054] An existing connection
-was\
+was
 forcibly closed by the remote host
 
 In this event, your program will have to call
@@ -1122,24 +1122,24 @@ for more information on accessing cells in Excel spreadsheet files with
 the [openpyxl] module.) Enter the following code into the file
 editor tab:
 
-   #! python3\
+   #! python3
    # sendDuesReminders.py - Sends emails based on payment status in
-spreadsheet.\
-\
-   import openpyxl, smtplib, sys\
-\
-   # Open the spreadsheet and get the latest dues status.\
-\
-[➊] wb = openpyxl.load_workbook('duesRecords.xlsx')\
-[➋] sheet = wb.get_sheet_by_name('Sheet1')\
+spreadsheet.
+
+   import openpyxl, smtplib, sys
+
+   # Open the spreadsheet and get the latest dues status.
+
+[➊] wb = openpyxl.load_workbook('duesRecords.xlsx')
+[➋] sheet = wb.get_sheet_by_name('Sheet1')
 []{#calibre_link-1853 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➌] lastCol = sheet.max_column\
-[➍] latestMonth = sheet.cell(row=1, column=lastCol).value\
-\
-   # TODO: Check each member's payment status.\
-\
-   # TODO: Log in to email account.\
-\
+ops}type="pagebreak"}[➌] lastCol = sheet.max_column
+[➍] latestMonth = sheet.cell(row=1, column=lastCol).value
+
+   # TODO: Check each member's payment status.
+
+   # TODO: Log in to email account.
+
    # TODO: Send out reminder emails.
 
 After importing the [openpyxl], [smtplib], and
@@ -1165,22 +1165,22 @@ respectively. This information will go into the
 haven't paid in the most recent month. Add the following code to
 *sendDuesReminder.py*.
 
-   #! python3\
+   #! python3
    # sendDuesReminders.py - Sends emails based on payment status in
-spreadsheet.\
-\
-   --[snip]--\
-\
-   [\# Check each member's payment status.]\
-   [unpaidMembers = {}]\
-[➊] [for r in range(2, sheet.max_row + 1):]\
+spreadsheet.
+
+   --[snip]--
+
+   [\# Check each member's payment status.]
+   [unpaidMembers = {}]
+[➊] [for r in range(2, sheet.max_row + 1):]
 [    ][➋] [payment = sheet.cell(row=r,
-column=lastCol).value]\
-   [    if payment != 'paid':]\
+column=lastCol).value]
+   [    if payment != 'paid':]
 [        ][➌] [name = sheet.cell(row=r,
-column=1).value]\
+column=1).value]
 [        ][➍] [email = sheet.cell(row=r,
-column=2).value]\
+column=2).value]
 [        ][➎] [unpaidMembers[name] =
 email]
 
@@ -1199,16 +1199,16 @@ Once you have a list of all unpaid members, it's time to send them email
 reminders. Add the following code to your program, except with your real
 email address and provider information:
 
-#! python3\
+#! python3
 \# sendDuesReminders.py - Sends emails based on payment status in
-spreadsheet.\
-\
---[snip]--\
-\
-[\# Log in to email account.]\
-[smtpObj = smtplib.SMTP('smtp.example.com', 587)]\
-[smtpObj.ehlo()]\
-[smtpObj.starttls()]\
+spreadsheet.
+
+--[snip]--
+
+[\# Log in to email account.]
+[smtpObj = smtplib.SMTP('smtp.example.com', 587)]
+[smtpObj.ehlo()]
+[smtpObj.starttls()]
 [smtpObj.login('][[my_email_address@example.com]][',
 sys.argv[1])]
 
@@ -1225,30 +1225,30 @@ through the [unpaidMembers] dictionary and send a personalized
 email to each member's email address. Add the following to
 *sendDuesReminders.py*:
 
-   #! python3\
+   #! python3
    # sendDuesReminders.py - Sends emails based on payment status in
-spreadsheet.\
-\
-   --[snip]--\
-\
-   [\# Send out reminder emails.]\
-   [for name, email in unpaidMembers.items():]\
+spreadsheet.
+
+   --[snip]--
+
+   [\# Send out reminder emails.]
+   [for name, email in unpaidMembers.items():]
   [  ][➊] [body = "Subject: %s dues unpaid.\\nDear
-%s,\\nRecords show that you have not]\
+%s,\\nRecords show that you have not]
    [paid dues for %s. Please make this payment as soon as possible.
-Thank you!'" %]\
-   [(latestMonth, name, latestMonth)]\
+Thank you!'" %]
+   [(latestMonth, name, latestMonth)]
   [  ][➋] [print('Sending email to %s\...' %
-email)]\
+email)]
   [  ][➌] [sendmailStatus =
 smtpObj.sendmail('][[my_email_address@example.com]][',
-email,]\
-[body)]\
-\
-  [  ][➍] [if sendmailStatus != {}:]\
+email,]
+[body)]
+
+  [  ][➍] [if sendmailStatus != {}:]
    [        print('There was a problem sending email to %s: %s' %
-(email,]\
-   [        sendmailStatus))]\
+(email,]
+   [        sendmailStatus))]
    [smtpObj.quit()]
 
 This code loops through the names and emails in
@@ -1273,8 +1273,8 @@ method is called to disconnect from the SMTP server.
 
 When you run the program, the output will look something like this:
 
-Sending email to alice@example.com\...\
-Sending email to bob@example.com\...\
+Sending email to alice@example.com\...
+Sending email to bob@example.com\...
 Sending email to eve@example.com\...
 
 The recipients will receive an email about their missed payments that
@@ -1414,18 +1414,18 @@ following into the interactive shell, replacing the
 [myTwilioNumber], and [myCellPhone] variable values
 with your real information:
 
-[➊] >>> [from twilio.rest import Client]\
+[➊] >>> [from twilio.rest import Client]
    >>> [accountSID =]
-['][[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']\
+['][[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']
    >>> [authToken  =]
-['][[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']\
+['][[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]][']
 [➋] >>> [twilioCli = Client(accountSID,
-authToken)]\
-   >>> [myTwilioNumber = '+14955551234']\
-   >>> [myCellPhone = '+14955558888']\
+authToken)]
+   >>> [myTwilioNumber = '+14955551234']
+   >>> [myCellPhone = '+14955558888']
 [➌] >>> [message =
 twilioCli.messages.create][(body='Mr. Watson - Come
-here - I want]\
+here - I want]
    [to see you.', from\_=myTwilioNumber, to=myCellPhone)]
 
 A few moments after typing the last line, you should receive a text
@@ -1454,11 +1454,11 @@ The [Message] object returned from the [create()]
 method will have information about the text message that was sent.
 Continue the interactive shell example by entering the following:
 
->>> [message.to]\
-'+14955558888'\
->>> [message.from]\_\
-'+14955551234'\
->>> [message.body]\
+>>> [message.to]
+'+14955558888'
+>>> [message.from]\_
+'+14955551234'
+>>> [message.body]
 'Mr. Watson - Come here - I want to see you.'
 
 The [to], [from\_], and [body] attributes
@@ -1472,11 +1472,11 @@ Python (you've seen it used in the [from]
 attribute name. Continue the interactive shell example with the
 following:
 
->>> [message.status]\
-'queued'\
->>> [message.date_created]\
-datetime.datetime(2019, 7, 8, 1, 36, 18)\
->>> [message.date_sent == None]\
+>>> [message.status]
+'queued'
+>>> [message.date_created]
+datetime.datetime(2019, 7, 8, 1, 36, 18)
+>>> [message.date_sent == None]
 True
 
 The [status] attribute should give you a string. The
@@ -1493,14 +1493,14 @@ Twilio message has a unique string ID (SID) that can be used to fetch
 the latest update of the [Message] object. Continue the
 inter­active shell example by entering the following:
 
-   >>> [message.sid]\
-   'SM09520de7639ba3af137c6fcb7c5f4b51'\
+   >>> [message.sid]
+   'SM09520de7639ba3af137c6fcb7c5f4b51'
 []{#calibre_link-1023 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[➊] >>> [updatedMessage =
-twilioCli.messages.get(message.sid)]\
-   >>> [updatedMessage.status]\
-   'delivered'\
-   >>> [updatedMessage.date_sent]\
+twilioCli.messages.get(message.sid)]
+   >>> [updatedMessage.status]
+   'delivered'
+   >>> [updatedMessage.date_sent]
    datetime.datetime(2019, 7, 8, 1, 36, 18)
 
 Entering [message.sid] shows you this message's long SID. By
@@ -1543,21 +1543,21 @@ string argument. Open a new file editor tab and enter the following
 code, replacing the account SID, auth token, and phone numbers with your
 own information. Save it as *textMyself.py*.
 
-   #! python3\
+   #! python3
    # textMyself.py - Defines the textmyself() function that texts a
-message\
-   # passed to it as a string.\
-\
-   # Preset values:\
-   accountSID = '[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'\
-   authToken  = '[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'\
-   myNumber = '+15559998888'\
-   twilioNumber = '+15552225678'\
+message
+   # passed to it as a string.
+
+   # Preset values:
+   accountSID = '[ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'
+   authToken  = '[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]'
+   myNumber = '+15559998888'
+   twilioNumber = '+15552225678'
    []{#calibre_link-1024 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}from twilio.rest import Client\
-\
-[➊] def textmyself(message):\
-    [➋] twilioCli = Client(accountSID, authToken)\
+ops}type="pagebreak"}from twilio.rest import Client
+
+[➊] def textmyself(message):
+    [➋] twilioCli = Client(accountSID, authToken)
     [➌] twilioCli.messages.create(body=message,
 from\_=twilioNumber, to=myNumber)
 
@@ -1571,7 +1571,7 @@ your other programs, simply place the *textMyself.py* file in the same
 folder as your Python script. Whenever you want one of your programs to
 text you, just add the following:
 
-import textmyself\
+import textmyself
 textmyself.textmyself('The boring task is finished.')
 
 You need to sign up for Twilio and write the texting code only once.
@@ -1673,8 +1673,8 @@ Here's a hint: if you pass a list to the [random.choice()]
 function, it will return a randomly selected item from the list. Part of
 your code could look like this:
 
-chores = ['dishes', 'bathroom', 'vacuum', 'walk dog']\
-randomChore = random.choice(chores)\
+chores = ['dishes', 'bathroom', 'vacuum', 'walk dog']
+randomChore = random.choice(chores)
 chores.remove(randomChore)    # this chore is now taken, so remove it
 
 #### []***Umbrella Reminder*** 
@@ -1728,7 +1728,7 @@ example, the following call would launch the qBittorrent program, along
 with a torrent file:
 
 qbProcess = subprocess.Popen(['C:\\\\Program Files
-(x86)\\\\qBittorrent\\\\\
+(x86)\\\\qBittorrent\\\\
 qbittorrent.exe', 'shakespeare_complete_works.torrent'])
 
 Of course, you'll want the program to make sure the emails come from

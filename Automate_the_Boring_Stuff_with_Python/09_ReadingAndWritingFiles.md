@@ -72,13 +72,13 @@ individual file and folder names in your path, [Path()] will
 return a string with a file path using the correct path separators.
 Enter the following into the interactive shell:
 
->>> [from pathlib import Path]\
->>> [Path('spam', 'bacon', 'eggs')]\
-\
-WindowsPath('spam/bacon/eggs')\
+>>> [from pathlib import Path]
+>>> [Path('spam', 'bacon', 'eggs')]
+
+WindowsPath('spam/bacon/eggs')
 []{#calibre_link-761 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}>>> [str(Path('spam', 'bacon',
-'eggs'))]\
+'eggs'))]
 'spam\\\\bacon\\\\eggs'
 
 Note that the convention for importing [pathlib] is to run
@@ -111,13 +111,13 @@ be passed to several of the file-related functions introduced in this
 chapter. For example, the following code joins names from a list of
 filenames to the end of a folder's name:
 
->>> [from pathlib import Path]\
+>>> [from pathlib import Path]
 >>> [myFiles = ['accounts.txt', 'details.csv',
-'invite.docx']]\
->>> [for filename in myFiles:]\
-        [print(Path(r'C:\\Users\\Al', filename))]\
-C:\\Users\\Al\\accounts.txt\
-C:\\Users\\Al\\details.csv\
+'invite.docx']]
+>>> [for filename in myFiles:]
+        [print(Path(r'C:\\Users\\Al', filename))]
+C:\\Users\\Al\\accounts.txt
+C:\\Users\\Al\\details.csv
 C:\\Users\\Al\\invite.docx
 
 On Windows, the backslash separates directories, so you can't use it in
@@ -156,12 +156,12 @@ operator that we normally use for division can also combine
 
 For example, enter the following into the interactive shell:
 
->>> [from pathlib import Path]\
->>> [Path('spam') / 'bacon' / 'eggs']\
-WindowsPath('spam/bacon/eggs')\
->>> [Path('spam') / Path('bacon/eggs')]\
-WindowsPath('spam/bacon/eggs')\
->>> [Path('spam') / Path('bacon', 'eggs')]\
+>>> [from pathlib import Path]
+>>> [Path('spam') / 'bacon' / 'eggs']
+WindowsPath('spam/bacon/eggs')
+>>> [Path('spam') / Path('bacon/eggs')]
+WindowsPath('spam/bacon/eggs')
+>>> [Path('spam') / Path('bacon', 'eggs')]
 WindowsPath('spam/bacon/eggs')
 
 Using the [/] operator with [Path] objects makes
@@ -169,11 +169,11 @@ joining paths just as easy as string concatenation. It's also safer than
 using string concatenation or the [join()] method, like we do
 in this example:
 
->>> [homeFolder = r'C:\\Users\\Al']\
->>> [subFolder = 'spam']\
->>> [homeFolder + '\\\\' + subFolder]\
-'C:\\\\Users\\\\Al\\\\spam'\
->>> ['\\\\'.join([homeFolder, subFolder])]\
+>>> [homeFolder = r'C:\\Users\\Al']
+>>> [subFolder = 'spam']
+>>> [homeFolder + '\\\\' + subFolder]
+'C:\\\\Users\\\\Al\\\\spam'
+>>> ['\\\\'.join([homeFolder, subFolder])]
 'C:\\\\Users\\\\Al\\\\spam'
 
 A script that uses this code isn't safe, because its backslashes would
@@ -188,11 +188,11 @@ The [pathlib] module solves these problems by reusing the
 what operating system your code is running on. The following example
 uses this strategy to join the same paths as in the previous example:
 
->>> [homeFolder = Path('C:/Users/Al')]\
->>> [subFolder = Path('spam')]\
->>> [homeFolder / subFolder]\
-WindowsPath('C:/Users/Al/spam')\
->>> [str(homeFolder / subFolder)]\
+>>> [homeFolder = Path('C:/Users/Al')]
+>>> [subFolder = Path('spam')]
+>>> [homeFolder / subFolder]
+WindowsPath('C:/Users/Al/spam')
+>>> [str(homeFolder / subFolder)]
 'C:\\\\Users\\\\Al\\\\spam'
 
 The only thing you need to keep in mind when using the [/]
@@ -201,9 +201,9 @@ operator for joining paths is that one of the first two values must be a
 2007="" ops}type="pagebreak"}Python will give you an error if you try
 entering the following into the interactive shell:
 
->>> ['spam' / 'bacon' / 'eggs']\
-Traceback (most recent call last):\
-  File "<stdin>", line 1, in <module>\
+>>> ['spam' / 'bacon' / 'eggs']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for /: 'str' and 'str'
 
 Python evaluates the [/] operator from left to right and
@@ -243,12 +243,12 @@ You can get the current working directory as a string value with the
 [Path.cwd()] function and change it using
 [os.chdir()]. Enter the following into the interactive shell:
 
->>> [from pathlib import Path]\
->>> [import os]\
->>> [Path.cwd()]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')'\
->>> [os.chdir('C:\\\\Windows\\\\System32')]\
->>> [Path.cwd()]\
+>>> [from pathlib import Path]
+>>> [import os]
+>>> [Path.cwd()]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')'
+>>> [os.chdir('C:\\\\Windows\\\\System32')]
+>>> [Path.cwd()]
 WindowsPath('C:/Windows/System32')
 
 []{#calibre_link-756 {http:="" www.idpf.org="" 2007=""
@@ -263,11 +263,11 @@ the filename *project.docx* is interpreted as
 Python will display an error if you try to change to a directory that
 does not exist.
 
->>> [os.chdir('C:/ThisFolderDoesNotExist')]\
-Traceback (most recent call last):\
-  File "<stdin>", line 1, in <module>\
+>>> [os.chdir('C:/ThisFolderDoesNotExist')]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 FileNotFoundError: [WinError 2] The system cannot find the file
-specified:\
+specified:
 'C:/ThisFolderDoesNotExist'
 
 There is no [pathlib] function for changing the working
@@ -283,7 +283,7 @@ All users have a folder for their own files on the computer called the
 *home directory* or *home folder*. You can get a [Path] object
 of the home folder by calling [Path.home()]:
 
->>> [Path.home()]\
+>>> [Path.home()]
 WindowsPath('C:/Users/Al')
 
 The home directories are located in a set place depending on your
@@ -334,7 +334,7 @@ Your programs can create new folders (directories) with the
 [os.makedirs()] function. Enter the following into the
 interactive shell:
 
->>> [import os]\
+>>> [import os]
 >>>
 [os.makedirs('C:\\\\delicious\\\\walnut\\\\waffles')]
 
@@ -358,7 +358,7 @@ ops}type="pagebreak"}To make a directory from a [Path] object,
 call the [mkdir()] method. For example, this code will create
 a *spam* folder under the home folder on my computer:
 
->>> [from pathlib import Path]\
+>>> [from pathlib import Path]
 >>> [Path(r'C:\\Users\\Al\\spam').mkdir()]
 
 Note that [mkdir()] can only make one directory at a time; it
@@ -377,11 +377,11 @@ object will return [True] if it represents an absolute path or
 the following into the interactive shell, using your own files and
 folders instead of the exact ones listed here:
 
->>> [Path.cwd()]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')\
->>> [Path.cwd().is_absolute()]\
-True\
->>> [Path('spam/bacon/eggs').is_absolute()]\
+>>> [Path.cwd()]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')
+>>> [Path.cwd().is_absolute()]
+True
+>>> [Path('spam/bacon/eggs').is_absolute()]
 False
 
 To get an absolute path from a relative path, you can put [Path.cwd()
@@ -390,10 +390,10 @@ all, when we say "relative path," we almost always mean a path that is
 relative to the current working directory. Enter the following into the
 interactive shell:
 
->>> [Path('my/relative/path')]\
-WindowsPath('my/relative/path')\
->>> [Path.cwd() / Path('my/relative/path')]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37/my/relative/\
+>>> [Path('my/relative/path')]
+WindowsPath('my/relative/path')
+>>> [Path.cwd() / Path('my/relative/path')]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37/my/relative/
 path')
 
 If your relative path is relative to another path besides the current
@@ -401,9 +401,9 @@ working directory, just replace [Path.cwd()] with that other
 path instead. The following example gets an absolute path using the home
 directory instead of the current working directory:
 
->>> [Path('my/relative/path')]\
-WindowsPath('my/relative/path')\
->>> [Path.home() / Path('my/relative/path')]\
+>>> [Path('my/relative/path')]
+WindowsPath('my/relative/path')
+>>> [Path.home() / Path('my/relative/path')]
 WindowsPath('C:/Users/Al/my/relative/path')
 
 []{#calibre_link-774 {http:="" www.idpf.org="" 2007=""
@@ -424,14 +424,14 @@ functions related to absolute and relative paths:
 
 Try these functions in the interactive shell:
 
->>> [os.path.abspath('.')]\
-\
-'C:\\\\Users\\\\Al\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python37'\
->>> [os.path.abspath('.\\\\Scripts')]\
-'C:\\\\Users\\\\Al\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python37\\\\Scripts'\
->>> [os.path.isabs('.')]\
-False\
->>> [os.path.isabs(os.path.abspath('.'))]\
+>>> [os.path.abspath('.')]
+
+'C:\\\\Users\\\\Al\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python37'
+>>> [os.path.abspath('.\\\\Scripts')]
+'C:\\\\Users\\\\Al\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python37\\\\Scripts'
+>>> [os.path.isabs('.')]
+False
+>>> [os.path.isabs(os.path.abspath('.'))]
 True
 
 Since *C:\\Users\\Al\\AppData\\Local\\Programs\\Python\\Python37* was
@@ -442,10 +442,10 @@ the working directory when [os.path.abspath()] was called, the
 Enter the following calls to [os.path.relpath()] into the
 interactive shell:
 
->>> [os.path.relpath('C:\\\\Windows', 'C:\\\\')]\
-'Windows'\
+>>> [os.path.relpath('C:\\\\Windows', 'C:\\\\')]
+'Windows'
 >>> [os.path.relpath('C:\\\\Windows',
-'C:\\\\spam\\\\eggs')]\
+'C:\\\\spam\\\\eggs')]
 '..\\\\..\\\\Windows'
 
 When the relative path is within the same parent folder as the path, but
@@ -486,18 +486,18 @@ attribute, but macOS and Linux [Path] objects don't. The
 To extract each attribute from the file path, enter the following into
 the interactive shell:
 
->>> [p = Path('C:/Users/Al/spam.txt')]\
->>> [p.anchor]\
-'C:\\\\'\
->>> [p.parent] \# This is a Path object, not a string.\
-WindowsPath('C:/Users/Al')\
->>> [p.name]\
-'spam.txt'\
->>> [p.stem]\
-'spam'\
->>> [p.suffix]\
-'.txt'\
->>> [p.drive]\
+>>> [p = Path('C:/Users/Al/spam.txt')]
+>>> [p.anchor]
+'C:\\\\'
+>>> [p.parent] \# This is a Path object, not a string.
+WindowsPath('C:/Users/Al')
+>>> [p.name]
+'spam.txt'
+>>> [p.stem]
+'spam'
+>>> [p.suffix]
+'.txt'
+>>> [p.drive]
 'C:'
 
 These attributes evaluate to simple string values, except for
@@ -508,21 +508,21 @@ ops}type="pagebreak"}The [parents] attribute (which is
 different from the [parent] attribute) evaluates to the
 ancestor folders of a [Path] object with an integer index:
 
->>> [Path.cwd()]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')\
->>> [Path.cwd().parents[0]]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs/Python')\
->>> [Path.cwd().parents[1]]\
-WindowsPath('C:/Users/Al/AppData/Local/Programs')\
->>> [Path.cwd().parents[2]]\
-WindowsPath('C:/Users/Al/AppData/Local')\
->>> [Path.cwd().parents[3]]\
-WindowsPath('C:/Users/Al/AppData')\
->>> [Path.cwd().parents[4]]\
-WindowsPath('C:/Users/Al')\
->>> [Path.cwd().parents[5]]\
-WindowsPath('C:/Users')\
->>> [Path.cwd().parents[6]]\
+>>> [Path.cwd()]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')
+>>> [Path.cwd().parents[0]]
+WindowsPath('C:/Users/Al/AppData/Local/Programs/Python')
+>>> [Path.cwd().parents[1]]
+WindowsPath('C:/Users/Al/AppData/Local/Programs')
+>>> [Path.cwd().parents[2]]
+WindowsPath('C:/Users/Al/AppData/Local')
+>>> [Path.cwd().parents[3]]
+WindowsPath('C:/Users/Al/AppData')
+>>> [Path.cwd().parents[4]]
+WindowsPath('C:/Users/Al')
+>>> [Path.cwd().parents[5]]
+WindowsPath('C:/Users')
+>>> [Path.cwd().parents[6]]
 WindowsPath('C:/')
 
 The older [os.path] module also has similar functions for
@@ -546,10 +546,10 @@ same as the filename. The dir name is everything before the last slash.*
 For example, enter the following into the interactive shell:
 
 >>> [calcFilePath =
-'C:\\\\Windows\\\\System32\\\\calc.exe']\
->>> [os.path.basename(calcFilePath)]\
-'calc.exe'\
->>> [os.path.dirname(calcFilePath)]\
+'C:\\\\Windows\\\\System32\\\\calc.exe']
+>>> [os.path.basename(calcFilePath)]
+'calc.exe'
+>>> [os.path.dirname(calcFilePath)]
 'C:\\\\Windows\\\\System32'
 
 If you need a path's dir name and base name together, you can just call
@@ -557,8 +557,8 @@ If you need a path's dir name and base name together, you can just call
 like so:
 
 >>> [calcFilePath =
-'C:\\\\Windows\\\\System32\\\\calc.exe']\
->>> [os.path.split(calcFilePath)]\
+'C:\\\\Windows\\\\System32\\\\calc.exe']
+>>> [os.path.split(calcFilePath)]
 ('C:\\\\Windows\\\\System32', 'calc.exe')
 
 []{#calibre_link-810 {http:="" www.idpf.org="" 2007=""
@@ -567,7 +567,7 @@ calling [os.path.dirname()] and [os.path.basename()]
 and placing their return values in a tuple:
 
 >>> [(os.path.dirname(calcFilePath),
-os.path.basename(calcFilePath))]\
+os.path.basename(calcFilePath))]
 ('C:\\\\Windows\\\\System32', 'calc.exe')
 
 But [os.path.split()] is a nice shortcut if you need both
@@ -584,7 +584,7 @@ Linux, and splitting on it will return a list of the individual folders.
 
 For example, enter the following into the interactive shell:
 
->>> [calcFilePath.split(os.sep)]\
+>>> [calcFilePath.split(os.sep)]
 ['C:', 'Windows', 'System32', 'calc.exe']
 
 This returns all the parts of the path as strings.
@@ -592,7 +592,7 @@ This returns all the parts of the path as strings.
 On macOS and Linux systems, the returned list of folders will begin with
 a blank string, like this:
 
->>> ['/usr/bin'.split(os. sep)]\
+>>> ['/usr/bin'.split(os. sep)]
 ['', 'usr', 'bin']
 
 The [split()] string method will work to return a list of each
@@ -616,12 +616,12 @@ the files and folders inside a given folder.
 Here's what I get when I try these functions in the interactive shell:
 
 >>>
-[os.path.getsize('C:\\\\Windows\\\\System32\\\\calc.exe')]\
-27648\
->>> [os.listdir('C:\\\\Windows\\\\System32')]\
+[os.path.getsize('C:\\\\Windows\\\\System32\\\\calc.exe')]
+27648
+>>> [os.listdir('C:\\\\Windows\\\\System32')]
 ['0409', '12520437.cpx', '12520850.cpx', '5U877.ax',
-'aaclient.dll',\
---[snip]--\
+'aaclient.dll',
+--[snip]--
 'xwtpdui.dll', 'xwtpw32.dll', 'zh-CN', 'zh-HK', 'zh-TW',
 'zipfldr.dll']
 
@@ -632,13 +632,13 @@ computer is 27,648 bytes in size, and I have a lot of files in
 files in this directory, I can use [os.path.getsize()] and
 [os.listdir()] together.
 
->>> [totalSize = 0]\
+>>> [totalSize = 0]
 >>> [for filename in
-os.listdir('C:\\\\Windows\\\\System32'):]\
+os.listdir('C:\\\\Windows\\\\System32'):]
       [totalSize = totalSize +
 os.path.getsize(os.path.join('C:\\\\Windows\\\\System32',
-filename))]\
->>> [print(totalSize)]\
+filename))]
+>>> [print(totalSize)]
 2559970473
 
 As I loop over each filename in the *C:\\Windows\\System32* folder, the
@@ -661,15 +661,15 @@ method returns a generator object (which are beyond the scope of this
 book) that you'll need to pass to [list()] to easily view in
 the interactive shell:
 
->>> [p = Path('C:/Users/Al/Desktop')]\
->>> [p.glob('\*')]\
-<generator object Path.glob at 0x000002A6E389DED0>\
+>>> [p = Path('C:/Users/Al/Desktop')]
+>>> [p.glob('\*')]
+<generator object Path.glob at 0x000002A6E389DED0>
 >>> [list(p.glob('\*'))] \# Make a list from the
-generator.\
+generator.
 [WindowsPath('C:/Users/Al/Desktop/1.png'),
-WindowsPath('C:/Users/Al/\
-Desktop/22-ap.pdf'), WindowsPath('C:/Users/Al/Desktop/cat.jpg'),\
-  [--snip--]\
+WindowsPath('C:/Users/Al/
+Desktop/22-ap.pdf'), WindowsPath('C:/Users/Al/Desktop/cat.jpg'),
+  [--snip--]
 WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The asterisk ([\*]) stands for "multiple of any characters,"
@@ -678,9 +678,9 @@ path stored in [p].
 
 Like with regexes, you can create complex expressions:
 
->>> [list(p.glob('\*.txt')] \# Lists all text files.\
-[WindowsPath('C:/Users/Al/Desktop/foo.txt'),\
-[  --snip--]\
+>>> [list(p.glob('\*.txt')] \# Lists all text files.
+[WindowsPath('C:/Users/Al/Desktop/foo.txt'),
+[  --snip--]
 WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The glob pattern ['\*.txt'] will return files that start
@@ -691,11 +691,11 @@ with any combination of characters as long as it ends with the string
 ops}type="pagebreak"}In contrast with the asterisk, the question mark
 ([?]) stands for any single character:
 
->>> [list(p.glob('project?.docx')]\
+>>> [list(p.glob('project?.docx')]
 [WindowsPath('C:/Users/Al/Desktop/project1.docx'),
-WindowsPath('C:/Users/Al/\
-Desktop/project2.docx'),\
-[  --snip--]\
+WindowsPath('C:/Users/Al/
+Desktop/project2.docx'),
+[  --snip--]
 WindowsPath('C:/Users/Al/Desktop/project9.docx')]
 
 The glob expression ['project?.docx'] will return
@@ -707,11 +707,11 @@ two-character string ['10'].
 Finally, you can also combine the asterisk and question mark to create
 even more complex glob expressions, like this:
 
->>> [list(p.glob('\*.?x?')]\
+>>> [list(p.glob('\*.?x?')]
 [WindowsPath('C:/Users/Al/Desktop/calc.exe'),
-WindowsPath('C:/Users/Al/\
-Desktop/foo.txt'),\
-[  --snip--]\
+WindowsPath('C:/Users/Al/
+Desktop/foo.txt'),
+[  --snip--]
 WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The glob expression ['\*.?x?'] will return files with any
@@ -723,15 +723,15 @@ method lets you easily specify the files in a directory you want to
 perform some operation on. You can use a [for] loop to iterate
 over the generator that [glob()] returns:
 
->>> [p = Path('C:/Users/Al/Desktop')]\
->>> [for textFilePathObj in p.glob('\*.txt'):]\
+>>> [p = Path('C:/Users/Al/Desktop')]
+>>> [for textFilePathObj in p.glob('\*.txt'):]
 \...     [print(textFilePathObj)] [[\# Prints the Path
-object as a string.]]\
+object as a string.]]
 \...     [[\# Do something with the text
-file.]]\
-\...\
-C:\\Users\\Al\\Desktop\\foo.txt\
-C:\\Users\\Al\\Desktop\\spam.txt\
+file.]]
+\...
+C:\\Users\\Al\\Desktop\\foo.txt
+C:\\Users\\Al\\Desktop\\spam.txt
 C:\\Users\\Al\\Desktop\\zzz.txt
 
 If you want to perform some operation on every file in a directory, you
@@ -757,20 +757,20 @@ you could expect the following:
 On my computer, here's what I get when I try these methods in the
 interactive shell:
 
->>> [winDir = Path('C:/Windows')]\
+>>> [winDir = Path('C:/Windows')]
 >>> [notExistsDir =
-Path('C:/This/Folder/Does/Not/Exist')]\
->>> [calcFile = Path('C:/Windows]\
-[/System32/calc.exe')]\
->>> [winDir.exists()]\
-True\
->>> [winDir.is_dir()]\
-True\
->>> [notExistsDir.exists()]\
-False\
->>> [calcFile.is_file()]\
-True\
->>> [calcFile.is_dir()]\
+Path('C:/This/Folder/Does/Not/Exist')]
+>>> [calcFile = Path('C:/Windows]
+[/System32/calc.exe')]
+>>> [winDir.exists()]
+True
+>>> [winDir.is_dir()]
+True
+>>> [notExistsDir.exists()]
+False
+>>> [calcFile.is_file()]
+True
+>>> [calcFile.is_dir()]
 False
 
 You can determine whether there is a DVD or flash drive currently
@@ -779,8 +779,8 @@ attached to the computer by checking for it with the
 flash drive with the volume named *D:\\* on my Windows computer, I could
 do that with the following:
 
->>> [dDrive = Path('D:/')]\
->>> [dDrive.exists()]\
+>>> [dDrive = Path('D:/')]
+>>> [dDrive.exists()]
 False
 
 Oops! It looks like I forgot to plug in my flash drive.
@@ -829,11 +829,11 @@ a text file. Its [write_text()] method creates a new text file
 (or overwrites an existing one) with the string passed to it. Enter the
 following into the interactive shell:
 
->>> [from pathlib import Path]\
->>> [p = Path('spam.txt')]\
->>> [p.write_text('Hello, world!')]\
-13\
->>> [p.read_text()]\
+>>> [from pathlib import Path]
+>>> [p = Path('spam.txt')]
+>>> [p.write_text('Hello, world!')]
+13
+>>> [p.read_text()]
 'Hello, world!'
 
 These method calls create a *spam.txt* file with the content ['Hello,
@@ -916,8 +916,8 @@ use the [File] object's [read()] method. Let's
 continue with the *hello.txt* [File] object you stored in
 [helloFile]. Enter the following into the interactive shell:
 
->>> [helloContent = helloFile.read()]\
->>> [helloContent]\
+>>> [helloContent = helloFile.read()]
+>>> [helloContent]
 'Hello, world!'
 
 []{#calibre_link-970 {http:="" www.idpf.org="" 2007=""
@@ -930,21 +930,21 @@ Alternatively, you can use the [readlines()] method to get a
 For example, create a file named *sonnet29.txt* in the same directory as
 *hello.txt* and write the following text in it:
 
-When, in disgrace with fortune and men's eyes,\
-I all alone beweep my outcast state,\
-And trouble deaf heaven with my bootless cries,\
+When, in disgrace with fortune and men's eyes,
+I all alone beweep my outcast state,
+And trouble deaf heaven with my bootless cries,
 And look upon myself and curse my fate,
 
 Make sure to separate the four lines with line breaks. Then enter the
 following into the interactive shell:
 
 >>> [sonnetFile = open(Path.home() /
-'sonnet29.txt')]\
->>> [sonnetFile.readlines()]\
+'sonnet29.txt')]
+>>> [sonnetFile.readlines()]
 [When, in disgrace with fortune and men's eyes,\\n', ' I all alone
-beweep my\
+beweep my
 outcast state,\\n', And trouble deaf heaven with my bootless
-cries,\\n', And\
+cries,\\n', And
 look upon myself and curse my fate,']
 
 Note that, except for the last line of the file, each of the string
@@ -976,20 +976,20 @@ again.
 Let's put these concepts together. Enter the following into the
 interactive shell:
 
->>> [baconFile = open('bacon.txt', 'w')   ]\
->>> [baconFile.write('Hello, world!\\n')]\
-13\
->>> [baconFile.close()]\
->>> [baconFile = open('bacon.txt', 'a')]\
->>> [baconFile.write('Bacon is not a vegetable.')]\
+>>> [baconFile = open('bacon.txt', 'w')   ]
+>>> [baconFile.write('Hello, world!\\n')]
+13
+>>> [baconFile.close()]
+>>> [baconFile = open('bacon.txt', 'a')]
+>>> [baconFile.write('Bacon is not a vegetable.')]
 []{#calibre_link-968 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}25\
->>> [baconFile.close()]\
->>> [baconFile = open('bacon.txt')]\
->>> [content = baconFile.read()]\
->>> [baconFile.close()]\
->>> [print(content)]\
-Hello, world!\
+ops}type="pagebreak"}25
+>>> [baconFile.close()]
+>>> [baconFile = open('bacon.txt')]
+>>> [content = baconFile.read()]
+>>> [baconFile.close()]
+>>> [print(content)]
+Hello, world!
 Bacon is not a vegetable.
 
 First, we open *bacon.txt* in write mode. Since there isn't a
@@ -1026,10 +1026,10 @@ the next time it is run.
 
 Enter the following into the interactive shell:
 
->>> [import shelve]\
->>> [shelfFile = shelve.open('mydata')]\
->>> [cats = ['Zophie', 'Pooka', 'Simon']]\
->>> [shelfFile['cats'] = cats]\
+>>> [import shelve]
+>>> [shelfFile = shelve.open('mydata')]
+>>> [cats = ['Zophie', 'Pooka', 'Simon']]
+>>> [shelfFile['cats'] = cats]
 >>> [shelfFile.close()]
 
 To read and write data using the [shelve] module, you first
@@ -1060,11 +1060,11 @@ retrieve the data from these shelf files. Shelf values don't have to be
 opened in read or write mode---they can do both once opened. Enter the
 following into the interactive shell:
 
->>> [shelfFile = shelve.open('mydata')]\
->>> [type(shelfFile)]\
-<class 'shelve.DbfilenameShelf'>\
->>> [shelfFile['cats']]\
-['Zophie', 'Pooka', 'Simon']\
+>>> [shelfFile = shelve.open('mydata')]
+>>> [type(shelfFile)]
+<class 'shelve.DbfilenameShelf'>
+>>> [shelfFile['cats']]
+['Zophie', 'Pooka', 'Simon']
 >>> [shelfFile.close()]
 
 Here, we open the shelf files to check that our data was stored
@@ -1079,11 +1079,11 @@ values instead of true lists, you should pass them to the
 [list()] function to get them in list form. Enter the
 following into the interactive shell:
 
->>> [shelfFile = shelve.open('mydata')]\
->>> [list(shelfFile.keys())]\
-['cats']\
->>> [list(shelfFile.values())]\
-[['Zophie', 'Pooka', 'Simon']]\
+>>> [shelfFile = shelve.open('mydata')]
+>>> [list(shelfFile.keys())]
+['cats']
+>>> [list(shelfFile.values())]
+[['Zophie', 'Pooka', 'Simon']]
 >>> [shelfFile.close()]
 
 Plaintext is useful for creating files that you'll read in a text editor
@@ -1108,16 +1108,16 @@ in it.
 
 For example, enter the following into the interactive shell:
 
->>> [import pprint]\
+>>> [import pprint]
 >>> [cats = [{'name': 'Zophie', 'desc': 'chubby'},
-{'name': 'Pooka', 'desc': 'fluffy'}]]\
->>> [pprint.pformat(cats)]\
+{'name': 'Pooka', 'desc': 'fluffy'}]]
+>>> [pprint.pformat(cats)]
 "[{'desc': 'chubby', 'name': 'Zophie'}, {'desc': 'fluffy',
-'name': 'Pooka'}]"\
->>> [fileObj = open('myCats.py', 'w')]\
+'name': 'Pooka'}]"
+>>> [fileObj = open('myCats.py', 'w')]
 >>> [fileObj.write('cats = ' + pprint.pformat(cats) +
-'\\n')]\
-83\
+'\\n')]
+83
 >>> [fileObj.close()]
 
 Here, we import [pprint] to let us use
@@ -1137,13 +1137,13 @@ And since Python scripts are themselves just text files with the *.py*
 file extension, your Python programs can even generate other Python
 programs. You can then import these files into scripts.
 
->>> [import myCats]\
->>> [myCats.cats]\
+>>> [import myCats]
+>>> [myCats.cats]
 [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka',
-'desc': 'fluffy'}]\
->>> [myCats.cats[0]]\
-{'name': 'Zophie', 'desc': 'chubby'}\
->>> [myCats.cats[0]['name']]\
+'desc': 'fluffy'}]
+>>> [myCats.cats[0]]
+{'name': 'Zophie', 'desc': 'chubby'}
+>>> [myCats.cats[0]['name']]
 'Zophie'
 
 The benefit of creating a *.py* file (as opposed to saving variables
@@ -1189,55 +1189,55 @@ The first step is to create a skeleton script and fill it with your quiz
 data. Create a file named *randomQuizGenerator.py*, and make it look
 like the following:
 
-   #! python3\
+   #! python3
    # randomQuizGenerator.py - Creates quizzes with questions and answers
-in\
-   # random order, along with the answer key.\
-[➊] import random\
-   # The quiz data. Keys are states and values are their capitals.\
+in
+   # random order, along with the answer key.
+[➊] import random
+   # The quiz data. Keys are states and values are their capitals.
 [➋] capitals = {'Alabama': 'Montgomery', 'Alaska':
-'Juneau', 'Arizona': 'Phoenix',\
+'Juneau', 'Arizona': 'Phoenix',
    'Arkansas': 'Little Rock', 'California': 'Sacramento',
-'Colorado': 'Denver',\
+'Colorado': 'Denver',
    'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida':
-'Tallahassee',\
+'Tallahassee',
    'Georgia': 'Atlanta', 'Hawaii': 'Honolulu', 'Idaho':
-'Boise', 'Illinois':\
+'Boise', 'Illinois':
    'Springfield', 'Indiana': 'Indianapolis', 'Iowa': 'Des
-Moines', 'Kansas':\
+Moines', 'Kansas':
    'Topeka', 'Kentucky': 'Frankfort', 'Louisiana': 'Baton
-Rouge', 'Maine':\
+Rouge', 'Maine':
    'Augusta', 'Maryland': 'Annapolis', 'Massachusetts':
-'Boston', 'Michigan':\
+'Boston', 'Michigan':
    'Lansing', 'Minnesota': 'Saint Paul', 'Mississippi':
-'Jackson', 'Missouri':\
+'Jackson', 'Missouri':
    'Jefferson City', 'Montana': 'Helena', 'Nebraska':
-'Lincoln', 'Nevada':\
+'Lincoln', 'Nevada':
    'Carson City', 'New Hampshire': 'Concord', 'New Jersey':
-'Trenton', 'New\
-   Mexico': 'Santa Fe', 'New York': 'Albany',\
+'Trenton', 'New
+   Mexico': 'Santa Fe', 'New York': 'Albany',
    'North Carolina': 'Raleigh', 'North Dakota': 'Bismarck',
-'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',\
+'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
    'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg', 'Rhode
-Island': 'Providence',\
+Island': 'Providence',
    'South Carolina': 'Columbia', 'South Dakota': 'Pierre',
-'Tennessee':\
+'Tennessee':
    'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City',
-'Vermont':\
+'Vermont':
    'Montpelier', 'Virginia': 'Richmond', 'Washington':
-'Olympia', 'West\
+'Olympia', 'West
    Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming':
-'Cheyenne'}\
-\
-   # Generate 35 quiz files.\
+'Cheyenne'}
+
+   # Generate 35 quiz files.
 []{#calibre_link-1784 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[➌] for quizNum in range(35):\
-       # TODO: Create the quiz and answer key files.\
-\
-       # TODO: Write out the header for the quiz.\
-\
-       # TODO: Shuffle the order of the states.\
-\
+ops}type="pagebreak"}[➌] for quizNum in range(35):
+       # TODO: Create the quiz and answer key files.
+
+       # TODO: Write out the header for the quiz.
+
+       # TODO: Shuffle the order of the states.
+
        # TODO: Loop through all 50 states, making a question for each.
 
 Since this program will be randomly ordering the questions and answers,
@@ -1264,31 +1264,31 @@ create the questions and answers for the quiz.
 
 Add the following lines of code to *randomQuizGenerator.py*:
 
-#! python3\
+#! python3
 \# randomQuizGenerator.py - Creates quizzes with questions and answers
-in\
-\# random order, along with the answer key.\
-\
---[snip]--\
-\
-\# Generate 35 quiz files.\
-for quizNum in range(35):\
-    [\# Create the quiz and answer key files.]\
+in
+\# random order, along with the answer key.
+
+--[snip]--
+
+\# Generate 35 quiz files.
+for quizNum in range(35):
+    [\# Create the quiz and answer key files.]
 [  ][➊] [quizFile = open(f'capitalsquiz{quizNum +
-1}.txt', 'w')]\
+1}.txt', 'w')]
 [  ][➋] [answerKeyFile =
-open(f'capitalsquiz_answers{quizNum + 1}.txt', 'w')]\
-     [\# Write out the header for the quiz.]\
+open(f'capitalsquiz_answers{quizNum + 1}.txt', 'w')]
+     [\# Write out the header for the quiz.]
 [  ][➌]
-[quizFile.write('Name:\\n\\nDate:\\n\\nPeriod:\\n\\n')]\
+[quizFile.write('Name:\\n\\nDate:\\n\\nPeriod:\\n\\n')]
 [     quizFile.write((' ' \* 20) + f'State Capitals Quiz
-(Form{quizNum + 1})')]\
-[     quizFile.write('\\n\\n')]\
-\
-     [\# Shuffle the order of the states.]\
-[     states = list(capitals.keys())]\
-[  ][➍] [random.shuffle(states)]\
-\
+(Form{quizNum + 1})')]
+[     quizFile.write('\\n\\n')]
+
+     [\# Shuffle the order of the states.]
+[     states = list(capitals.keys())]
+[  ][➍] [random.shuffle(states)]
+
      # TODO: Loop through all 50 states, making a question for each.
 
 []{#calibre_link-1053 {http:="" www.idpf.org="" 2007=""
@@ -1320,34 +1320,34 @@ will be multiple choice from A to D. You'll need to create another
 loop nested inside to generate the multiple-choice options for each
 question. Make your code look like the following:
 
-#! python3\
+#! python3
 \# randomQuizGenerator.py - Creates quizzes with questions and answers
-in\
-\# random order, along with the answer key.\
-\
---[snip]--\
-\
+in
+\# random order, along with the answer key.
+
+--[snip]--
+
     [\# Loop through all 50 states, making a question for
-each.]\
-[    for questionNum in range(50):]\
-\
-[         # Get right and wrong answers.]\
+each.]
+[    for questionNum in range(50):]
+
+[         # Get right and wrong answers.]
 [      ][➊] [correctAnswer =
-capitals[states[questionNum]]]\
+capitals[states[questionNum]]]
 [      ][➋] [wrongAnswers =
-list(capitals.values())]\
+list(capitals.values())]
 [      ][➌] [del
-wrongAnswers[wrongAnswers.index(correctAnswer)]]\
+wrongAnswers[wrongAnswers.index(correctAnswer)]]
 [      ][➍] [wrongAnswers =
-random.sample(wrongAnswers, 3)]\
+random.sample(wrongAnswers, 3)]
 [      ][➎] [answerOptions = wrongAnswers +
-[correctAnswer]]\
+[correctAnswer]]
 [      ][➏]
-[random.shuffle(answerOptions)]\
-\
+[random.shuffle(answerOptions)]
+
 [         # TODO: Write the question and answer options to the quiz
-file.]\
-\
+file.]
+
 [         # TODO: Write the answer key to a file.]
 
 The correct answer is easy to get---it's stored as a value in the
@@ -1374,33 +1374,33 @@ the correct response isn't always choice D.
 All that is left is to write the question to the quiz file and the
 answer to the answer key file. Make your code look like the following:
 
-#! python3\
+#! python3
 \# randomQuizGenerator.py - Creates quizzes with questions and answers
-in\
-\# random order, along with the answer key.\
-\
---[snip]--\
-\
-    # Loop through all 50 states, making a question for each.\
-    for questionNum in range(50):\
-        --[snip]--\
-\
+in
+\# random order, along with the answer key.
+
+--[snip]--
+
+    # Loop through all 50 states, making a question for each.
+    for questionNum in range(50):
+        --[snip]--
+
         [\# Write the question and the answer options to the quiz
-file.]\
+file.]
 [        quizFile.write(f'{questionNum + 1}. What is the capital
-of]\
-[{states[questionNum]}?\\n')]\
-[      ][➊] [for i in range(4):]\
+of]
+[{states[questionNum]}?\\n')]
+[      ][➊] [for i in range(4):]
 [          ][➋]
 [quizFile.write(f"    {'ABCD'[i]}. {
-answerOptions[i]}\\n")]\
-[         quizFile.write('\\n')]\
-\
-[         # Write the answer key to a file.]\
+answerOptions[i]}\\n")]
+[         quizFile.write('\\n')]
+
+[         # Write the answer key to a file.]
 [      ][➌] [answerKeyFile.write(f"{questionNum +
-1}.]\
-[{'ABCD'[answerOptions.index(correctAnswer)]}")]\
-[     quizFile.close()]\
+1}.]
+[{'ABCD'[answerOptions.index(correctAnswer)]}")]
+[     quizFile.close()]
 [     answerKeyFile.close()]
 
 A [for] loop that goes through integers [0] to
@@ -1422,36 +1422,36 @@ will look, though of course your questions and answer options may be
 different from those shown here, depending on the outcome of your
 [random.shuffle()] calls:
 
-Name:\
-\
-Date:\
-\
-Period:\
-\
-                    State Capitals Quiz (Form 1)\
-\
+Name:
+
+Date:
+
+Period:
+
+                    State Capitals Quiz (Form 1)
+
 []{#calibre_link-980 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}1. What is the capital of West Virginia?\
-    A. Hartford\
-    B. Santa Fe\
-    C. Harrisburg\
-    D. Charleston\
-\
-2. What is the capital of Colorado?\
-    A. Raleigh\
-    B. Harrisburg\
-    C. Denver\
-    D. Lincoln\
-\
+ops}type="pagebreak"}1. What is the capital of West Virginia?
+    A. Hartford
+    B. Santa Fe
+    C. Harrisburg
+    D. Charleston
+
+2. What is the capital of Colorado?
+    A. Raleigh
+    B. Harrisburg
+    C. Denver
+    D. Lincoln
+
 --[snip]--
 
 The corresponding *capitalsquiz_answers1.txt* text file will look like
 this:
 
-1\. D\
-2. C\
-3. A\
-4. C\
+1\. D
+2. C
+3. A
+4. C
 --[snip]--
 
 ### **Project: Updatable Multi-Clipboard** 
@@ -1500,21 +1500,21 @@ the following content:
 Let's start by making a skeleton script with some comments and basic
 setup. Make your code look like the following:
 
-   #! python3\
-   # mcb.pyw - Saves and loads pieces of text to the clipboard.\
+   #! python3
+   # mcb.pyw - Saves and loads pieces of text to the clipboard.
 [➊] \# Usage: py.exe mcb.pyw save <keyword> - Saves clipboard to
-keyword.\
-   #        py.exe mcb.pyw <keyword> - Loads keyword to clipboard.\
-   #        py.exe mcb.pyw list - Loads all keywords to clipboard.\
-\
-[➋] import shelve, pyperclip, sys\
-\
-[➌] mcbShelf = shelve.open('mcb')\
-\
-   # TODO: Save clipboard content.\
-\
-   # TODO: List keywords and load content.\
-\
+keyword.
+   #        py.exe mcb.pyw <keyword> - Loads keyword to clipboard.
+   #        py.exe mcb.pyw list - Loads all keywords to clipboard.
+
+[➋] import shelve, pyperclip, sys
+
+[➌] mcbShelf = shelve.open('mcb')
+
+   # TODO: Save clipboard content.
+
+   # TODO: List keywords and load content.
+
    mcbShelf.close()
 
 It's common practice to put general usage information in comments at the
@@ -1536,20 +1536,20 @@ save text to a keyword, load text into the clipboard, or list all the
 existing keywords. Let's deal with that first case. Make your code look
 like the following:
 
-   #! python3\
-   # mcb.pyw - Saves and loads pieces of text to the clipboard.\
-   --[snip]--\
-\
-   [\# Save clipboard content.]\
+   #! python3
+   # mcb.pyw - Saves and loads pieces of text to the clipboard.
+   --[snip]--
+
+   [\# Save clipboard content.]
 [➊] [if len(sys.argv) == 3 and sys.argv[1].lower() ==
-'save':]\
+'save':]
 [         ][➋] [mcbShelf[sys.argv[2]] =
-pyperclip.paste()]\
-   [elif len(sys.argv) == 2:]\
+pyperclip.paste()]
+   [elif len(sys.argv) == 2:]
 []{#calibre_link-1046 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   [➌] \# TODO: List keywords and load
-content.\
-\
+content.
+
 mcbShelf.close()
 
 If the first command line argument (which will always be at index
@@ -1570,23 +1570,23 @@ Finally, let's implement the two remaining cases: the user wants to load
 clipboard text in from a keyword, or they want a list of all available
 keywords. Make your code look like the following:
 
-#! python3\
-\# mcb.pyw - Saves and loads pieces of text to the clipboard.\
---[snip]--\
-\
-\# Save clipboard content.\
-if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':\
-        mcbShelf[sys.argv[2]] = pyperclip.paste()\
-elif len(sys.argv) == 2:\
-[     # List keywords and load content.]\
+#! python3
+\# mcb.pyw - Saves and loads pieces of text to the clipboard.
+--[snip]--
+
+\# Save clipboard content.
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+        mcbShelf[sys.argv[2]] = pyperclip.paste()
+elif len(sys.argv) == 2:
+[     # List keywords and load content.]
 [  ][➊] [if sys.argv[1].lower() ==
-'list':]\
+'list':]
 [      ][➋]
-[pyperclip.copy(str(list(mcbShelf.keys())))]\
-[     elif sys.argv[1] in mcbShelf:]\
+[pyperclip.copy(str(list(mcbShelf.keys())))]
+[     elif sys.argv[1] in mcbShelf:]
 [      ][➌]
-[pyperclip.copy(mcbShelf[sys.argv[1]])]\
-\
+[pyperclip.copy(mcbShelf[sys.argv[1]])]
+
 mcbShelf.close()
 
 If there is only one command line argument, first let's check whether
@@ -1694,25 +1694,25 @@ their own text anywhere the word *ADJECTIVE*, *NOUN*, *ADVERB*, or
 *VERB* appears in the text file. For example, a text file may look like
 this:
 
-The ADJECTIVE panda walked to the NOUN and then VERB. A nearby NOUN was\
+The ADJECTIVE panda walked to the NOUN and then VERB. A nearby NOUN was
 unaffected by these events.
 
 The program would find these occurrences and prompt the user to replace
 them.
 
-Enter an adjective:\
-[silly]\
-Enter a noun:\
-[chandelier]\
-Enter a verb:\
-[screamed]\
-Enter a noun:\
+Enter an adjective:
+[silly]
+Enter a noun:
+[chandelier]
+Enter a verb:
+[screamed]
+Enter a noun:
 [pickup truck]
 
 The following text file would then be created:
 
 The silly panda walked to the chandelier and then screamed. A nearby
-pickup\
+pickup
 truck was unaffected by these events.
 
 The results should be printed to the screen and saved to a new text

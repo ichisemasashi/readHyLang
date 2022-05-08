@@ -65,24 +65,24 @@ ops}type="pagebreak"}Download this PDF from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*
 and enter the following into the interactive shell:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [pdfFileObj = open('meetingminutes.pdf',
-'rb')]\
-   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]\
-[➊] >>> [pdfReader.numPages]\
-   19\
-[➋] >>> [pageObj = pdfReader.getPage(0)]\
-[➌] >>> [pageObj.extractText()]\
-   'OOFFFFIICCIIAALL  BBOOAARRDD  MMIINNUUTTEESS   Meeting of March 7,\
+'rb')]
+   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]
+[➊] >>> [pdfReader.numPages]
+   19
+[➋] >>> [pageObj = pdfReader.getPage(0)]
+[➌] >>> [pageObj.extractText()]
+   'OOFFFFIICCIIAALL  BBOOAARRDD  MMIINNUUTTEESS   Meeting of March 7,
    2015        \\n     The Board of Elementary and Secondary Education
-shall\
+shall
    provide leadership and create policies for education that expand
-opportunities\
+opportunities
    for children, empower families and communities, and advance Louisiana
-in an\
+in an
    increasingly competitive global market. BOARD  of ELEMENTARY
-and  SECONDARY\
-   EDUCATION  '\
+and  SECONDARY
+   EDUCATION  '
    >>> [pdfFileObj.close()]
 
 First, import the [PyPDF2] module. Then open
@@ -128,26 +128,26 @@ being read until whoever is opening the document provides a password.
 Enter the following into the interactive shell with the PDF you
 downloaded, which has been encrypted with the password *rosebud*:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [pdfReader = PyPDF2.PdfFileReader(open('encrypted.pdf',
-'rb'))]\
+'rb'))]
 []{#calibre_link-902 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[➊] >>>
-[pdfReader.isEncrypted]\
-   True\
-   >>> [pdfReader.getPage(0)]\
-[➋] Traceback (most recent call last):\
-     File "<pyshell#173>", line 1, in <module>\
-       pdfReader.getPage()\
-     --[snip]--\
+[pdfReader.isEncrypted]
+   True
+   >>> [pdfReader.getPage(0)]
+[➋] Traceback (most recent call last):
+     File "<pyshell#173>", line 1, in <module>
+       pdfReader.getPage()
+     --[snip]--
      File "C:\\Python34\\lib\\site-packages\\PyPDF2\\pdf.py", line
-1173, in getObject\
-       raise utils.PdfReadError("file has not been decrypted")\
-   PyPDF2.utils.PdfReadError: file has not been decrypted\
+1173, in getObject
+       raise utils.PdfReadError("file has not been decrypted")
+   PyPDF2.utils.PdfReadError: file has not been decrypted
 >>> [pdfReader = PyPDF2.PdfFileReader(open('encrypted.pdf',
-'rb'))]\
-[➌] >>> [pdfReader.decrypt('rosebud')]\
-   1\
+'rb'))]
+[➌] >>> [pdfReader.decrypt('rosebud')]
+   1
    >>> [pageObj = pdfReader.getPage(0)]
 
 All [PdfFileReader] objects have an [isEncrypted]
@@ -226,32 +226,32 @@ Download *meetingminutes.pdf* and *meetingminutes2.pdf* from
 and place the PDFs in the current working directory. Enter the following
 into the interactive shell:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [pdf1File = open('meetingminutes.pdf',
-'rb')]\
+'rb')]
    >>> [pdf2File = open('meetingminutes2.pdf',
-'rb')]\
+'rb')]
 [➊] >>> [pdf1Reader =
-PyPDF2.PdfFileReader(pdf1File)]\
+PyPDF2.PdfFileReader(pdf1File)]
 [➋] >>> [pdf2Reader =
-PyPDF2.PdfFileReader(pdf2File)]\
-[➌] >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
-\
-   >>> [for pageNum in range(pdf1Reader.numPages):]\
+PyPDF2.PdfFileReader(pdf2File)]
+[➌] >>> [pdfWriter = PyPDF2.PdfFileWriter()]
+
+   >>> [for pageNum in range(pdf1Reader.numPages):]
          [➍] [pageObj =
-pdf1Reader.getPage(pageNum)]\
-         [➎] [pdfWriter.addPage(pageObj)]\
-\
-   >>> [for pageNum in range(pdf2Reader.numPages):]\
+pdf1Reader.getPage(pageNum)]
+         [➎] [pdfWriter.addPage(pageObj)]
+
+   >>> [for pageNum in range(pdf2Reader.numPages):]
          [➍] [pageObj =
-pdf2Reader.getPage(pageNum)]\
-         [➎] [pdfWriter.addPage(pageObj)]\
-\
+pdf2Reader.getPage(pageNum)]
+         [➎] [pdfWriter.addPage(pageObj)]
+
 [➏] >>> [pdfOutputFile = open('combinedminutes.pdf',
-'wb')]\
-   >>> [pdfWriter.write(pdfOutputFile)]\
-   >>> [pdfOutputFile.close()]\
-   >>> [pdf1File.close()]\
+'wb')]
+   >>> [pdfWriter.write(pdfOutputFile)]
+   >>> [pdfOutputFile.close()]
+   >>> [pdf1File.close()]
    >>> [pdf2File.close()]
 
 Open both PDF files in read binary mode and store the two resulting
@@ -302,21 +302,21 @@ methods. Pass one of the integers [90], [180], or
 interactive shell, with the *meetingminutes.pdf* file in the current
 working directory:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [minutesFile =] [open('meetingminutes.pdf',
-'rb')]\
-   >>> [pdfReader = PyPDF2.PdfFileReader(minutesFile)]\
-[➊] >>> [page = pdfReader.getPage(0)]\
-[➋] >>> [page.rotateClockwise(90)]\
-   {'/Contents': [IndirectObject(961, 0), IndirectObject(962, 0),\
-   --[snip]--\
-   }\
-   >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
-   >>> [pdfWriter.addPage(page)]\
+'rb')]
+   >>> [pdfReader = PyPDF2.PdfFileReader(minutesFile)]
+[➊] >>> [page = pdfReader.getPage(0)]
+[➋] >>> [page.rotateClockwise(90)]
+   {'/Contents': [IndirectObject(961, 0), IndirectObject(962, 0),
+   --[snip]--
+   }
+   >>> [pdfWriter = PyPDF2.PdfFileWriter()]
+   >>> [pdfWriter.addPage(page)]
 [➌] >>> [resultPdfFile = open('rotatedPage.pdf',
-'wb')]\
-   >>> [pdfWriter.write(resultPdfFile)]\
-   >>> [resultPdfFile.close()]\
+'wb')]
+   >>> [pdfWriter.write(resultPdfFile)]
+   >>> [resultPdfFile.close()]
    >>> [minutesFile.close()]
 
 Here we use [getPage(0)] to select the first page of the PDF
@@ -352,29 +352,29 @@ and place the PDF in the current working directory along with
 *meetingminutes.pdf*. Then enter the following into the interactive
 shell:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [minutesFile = open('meetingminutes.pdf',
-'rb')]\
+'rb')]
 [➊] >>> [pdfReader =
-PyPDF2.PdfFileReader(minutesFile)]\
+PyPDF2.PdfFileReader(minutesFile)]
 [➋] >>> [minutesFirstPage =
-pdfReader.getPage(0)]\
+pdfReader.getPage(0)]
 [➌] >>> [pdfWatermarkReader =
-PyPDF2.PdfFileReader(open('watermark.pdf', 'rb'))]\
+PyPDF2.PdfFileReader(open('watermark.pdf', 'rb'))]
 [➍] >>>
-[minutesFirstPage.mergePage(pdfWatermarkReader.getPage(0))]\
-[➎] >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
-[➏] >>> [pdfWriter.addPage(minutesFirstPage)]\
-\
+[minutesFirstPage.mergePage(pdfWatermarkReader.getPage(0))]
+[➎] >>> [pdfWriter = PyPDF2.PdfFileWriter()]
+[➏] >>> [pdfWriter.addPage(minutesFirstPage)]
+
 [➐] >>> [for pageNum in range(1,
-pdfReader.numPages):]\
-           [pageObj = pdfReader.getPage(pageNum)]\
-           [pdfWriter.addPage(pageObj)]\
-\
+pdfReader.numPages):]
+           [pageObj = pdfReader.getPage(pageNum)]
+           [pdfWriter.addPage(pageObj)]
+
    >>> [resultPdfFile = open('watermarkedCover.pdf',
-'wb')]\
-   >>> [pdfWriter.write(resultPdfFile)]\
-   >>> [minutesFile.close()]\
+'wb')]
+   >>> [pdfWriter.write(resultPdfFile)]
+   >>> [minutesFile.close()]
    >>> [resultPdfFile.close()]
 
 []{#calibre_link-1056 {http:="" www.idpf.org="" 2007=""
@@ -412,18 +412,18 @@ the merged PDF (right)*
 A [PdfFileWriter] object can also add encryption to a PDF
 document. Enter the following into the interactive shell:
 
-   >>> [import PyPDF2]\
+   >>> [import PyPDF2]
    >>> [pdfFile = open('meetingminutes.pdf',
-'rb')]\
-   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFile)]\
-   >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
-   >>> [for pageNum in range(pdfReader.numPages):]\
-           [pdfWriter.addPage(pdfReader.getPage(pageNum))]\
-\
-[➊] >>> [pdfWriter.encrypt('swordfish')]\
+'rb')]
+   >>> [pdfReader = PyPDF2.PdfFileReader(pdfFile)]
+   >>> [pdfWriter = PyPDF2.PdfFileWriter()]
+   >>> [for pageNum in range(pdfReader.numPages):]
+           [pdfWriter.addPage(pdfReader.getPage(pageNum))]
+
+[➊] >>> [pdfWriter.encrypt('swordfish')]
    >>> [resultPdf = open('encryptedminutes.pdf',
-'wb')]\
-   >>> [pdfWriter.write(resultPdf)]\
+'wb')]
+   >>> [pdfWriter.write(resultPdf)]
    >>> [resultPdf.close()]
 
 Before calling the [write()] method to save to a file, call
@@ -484,26 +484,26 @@ First, your program needs to get a list of all files with the *.pdf*
 extension in the current working directory and sort them. Make your code
 look like the following:
 
-   #! python3\
+   #! python3
    # combinePdfs.py - Combines all the PDFs in the current working
-directory into\
-   # into a single PDF.\
-\
-[➊] import PyPDF2, os\
+directory into
+   # into a single PDF.
+
+[➊] import PyPDF2, os
 []{#calibre_link-1832 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}   # Get all the PDF filenames.\
-   pdfFiles = []\
-   for filename in os.listdir('.'):\
-       if filename.endswith('.pdf'):\
-         [➋] pdfFiles.append(filename)\
-[➌] pdfFiles.sort(key = str.lower)\
-\
-[➍] pdfWriter = PyPDF2.PdfFileWriter()\
-\
-   # TODO: Loop through all the PDF files.\
-\
-   # TODO: Loop through all the pages (except the first) and add them.\
-\
+ops}type="pagebreak"}   # Get all the PDF filenames.
+   pdfFiles = []
+   for filename in os.listdir('.'):
+       if filename.endswith('.pdf'):
+         [➋] pdfFiles.append(filename)
+[➌] pdfFiles.sort(key = str.lower)
+
+[➍] pdfWriter = PyPDF2.PdfFileWriter()
+
+   # TODO: Loop through all the PDF files.
+
+   # TODO: Loop through all the pages (except the first) and add them.
+
    # TODO: Save the resulting PDF to a file.
 
 After the shebang line and the descriptive comment about what the
@@ -524,23 +524,23 @@ program.
 Now the program must read each PDF file in [pdfFiles]. Add the
 following to your program:
 
-#! python3\
+#! python3
 \# combinePdfs.py - Combines all the PDFs in the current working
-directory into\
-\# a single PDF.\
-\
-import PyPDF2, os\
-\
-\# Get all the PDF filenames.\
-pdfFiles = []\
---[snip]--\
-\
-[\# Loop through all the PDF files.]\
-[for filename in pdfFiles:]\
-    [pdfFileObj = open(filename, 'rb')]\
-    [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]\
-    # TODO: Loop through all the pages (except the first) and add them.\
-\
+directory into
+\# a single PDF.
+
+import PyPDF2, os
+
+\# Get all the PDF filenames.
+pdfFiles = []
+--[snip]--
+
+[\# Loop through all the PDF files.]
+[for filename in pdfFiles:]
+    [pdfFileObj = open(filename, 'rb')]
+    [pdfReader = PyPDF2.PdfFileReader(pdfFileObj)]
+    # TODO: Loop through all the pages (except the first) and add them.
+
 \# TODO: Save the resulting PDF to a file.
 
 For each PDF, the loop opens a filename in read-binary mode by calling
@@ -554,25 +554,25 @@ passed to [PyPDF2.PdfFileReader()] to create a
 For each PDF, you'll want to loop over every page except the first. Add
 this code to your program:
 
-#! python3\
+#! python3
 \# combinePdfs.py - Combines all the PDFs in the current working
-directory into\
-\# a single PDF.\
-\
-import PyPDF2, os\
-\
---[snip]--\
-\
-\# Loop through all the PDF files.\
-for filename in pdfFiles:\
---[snip]--\
+directory into
+\# a single PDF.
+
+import PyPDF2, os
+
+--[snip]--
+
+\# Loop through all the PDF files.
+for filename in pdfFiles:
+--[snip]--
      [\# Loop through all the pages (except the first) and add
-them.]\
+them.]
   [➊] [for pageNum in range(1,
-pdfReader.numPages):]\
-         [pageObj = pdfReader.getPage(pageNum)]\
-         [pdfWriter.addPage(pageObj)]\
-\
+pdfReader.numPages):]
+         [pageObj = pdfReader.getPage(pageNum)]
+         [pdfWriter.addPage(pageObj)]
+
 \# TODO: Save the resulting PDF to a file.
 
 The code inside the [for] loop copies each [Page]
@@ -590,26 +590,26 @@ object with the pages for all the PDFs combined. The last step is to
 write this content to a file on the hard drive. Add this code to your
 program:
 
-#! python3\
+#! python3
 \# combinePdfs.py - Combines all the PDFs in the current working
-directory into\
-\# a single PDF.\
-\
-import PyPDF2, os\
-\
---[snip]--\
-\
-\# Loop through all the PDF files.\
-for filename in pdfFiles:\
---[snip]--\
-    # Loop through all the pages (except the first) and add them.\
-    for pageNum in range(1, pdfReader.numPages):\
-    --[snip]--\
-\
-[\# Save the resulting PDF to a file.]\
-[pdfOutput = open('allminutes.pdf', 'wb')]\
+directory into
+\# a single PDF.
+
+import PyPDF2, os
+
+--[snip]--
+
+\# Loop through all the PDF files.
+for filename in pdfFiles:
+--[snip]--
+    # Loop through all the pages (except the first) and add them.
+    for pageNum in range(1, pdfReader.numPages):
+    --[snip]--
+
+[\# Save the resulting PDF to a file.]
+[pdfOutput = open('allminutes.pdf', 'wb')]
 []{#calibre_link-853 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[pdfWriter.write(pdfOutput)]\
+ops}type="pagebreak"}[pdfWriter.write(pdfOutput)]
 [pdfOutput.close()]
 
 Passing ['wb'] to [open()] opens the output PDF
@@ -691,23 +691,23 @@ from
 and save the document to the working directory. Then enter the following
 into the interactive shell:
 
-   >>> [import docx]\
-[➊] >>> [doc = docx.Document('demo.docx')]\
-[➋] >>> [len(doc.paragraphs)]\
-   7\
-[➌] >>> [doc.paragraphs[0].text]\
-   'Document Title'\
-[➍] >>> [doc.paragraphs[1].text]\
-   'A plain paragraph with some bold and some italic'\
-[➎] >>> [len(doc.paragraphs[1].runs)]\
-   4\
-[➏] >>> [doc.paragraphs[1].runs[0].text]\
-   'A plain paragraph with some '\
-[➐] >>> [doc.paragraphs[1].runs[1].text]\
-   'bold'\
-[➑] >>> [doc.paragraphs[1].runs[2].text]\
-   ' and some '\
-[➒] >>> [doc.paragraphs[1].runs[3].text]\
+   >>> [import docx]
+[➊] >>> [doc = docx.Document('demo.docx')]
+[➋] >>> [len(doc.paragraphs)]
+   7
+[➌] >>> [doc.paragraphs[0].text]
+   'Document Title'
+[➍] >>> [doc.paragraphs[1].text]
+   'A plain paragraph with some bold and some italic'
+[➎] >>> [len(doc.paragraphs[1].runs)]
+   4
+[➏] >>> [doc.paragraphs[1].runs[0].text]
+   'A plain paragraph with some '
+[➐] >>> [doc.paragraphs[1].runs[1].text]
+   'bold'
+[➑] >>> [doc.paragraphs[1].runs[2].text]
+   ' and some '
+[➒] >>> [doc.paragraphs[1].runs[3].text]
    'italic'
 
 At [➊], we open a *.docx* file in Python, call
@@ -750,15 +750,15 @@ accepts a filename of a *.docx* file and returns a single string value
 of its text. Open a new file editor tab and enter the following code,
 saving it as *readDocx.py*:
 
-#! python3\
-\
-import docx\
-\
-def getText(filename):\
-    doc = docx.Document(filename)\
-    fullText = []\
-    for para in doc.paragraphs:\
-        fullText.append(para.text)\
+#! python3
+
+import docx
+
+def getText(filename):
+    doc = docx.Document(filename)
+    fullText = []
+    for para in doc.paragraphs:
+        fullText.append(para.text)
     return '\\n'.join(fullText)
 
 The [getText()] function opens the Word document, loops over
@@ -771,13 +771,13 @@ The *readDocx.py* program can be imported like any other module. Now if
 you just need the text from a Word document, you can enter the
 following:
 
->>> [import readDocx]\
->>> [print(readDocx.getText('demo.docx'))]\
-Document Title\
-A plain paragraph with some bold and some italic\
-Heading, level 1\
-Intense quote\
-first item in unordered list\
+>>> [import readDocx]
+>>> [print(readDocx.getText('demo.docx'))]
+Document Title
+A plain paragraph with some bold and some italic
+Heading, level 1
+Intense quote
+first item in unordered list
 first item in ordered list
 
 You can also adjust [getText()] to modify the string before
@@ -931,26 +931,26 @@ ops}type="pagebreak"}**Table 15-1:** [Run] Object
 For example, to change the styles of *demo.docx*, enter the following
 into the interactive shell:
 
->>> [import docx]\
->>> [doc = docx.Document('demo.docx')]\
->>> [doc.paragraphs[0].text]\
-'Document Title'\
+>>> [import docx]
+>>> [doc = docx.Document('demo.docx')]
+>>> [doc.paragraphs[0].text]
+'Document Title'
 >>> [doc.paragraphs[0].style \# The exact id may be
-different:]\
-\_ParagraphStyle('Title') id: 3095631007984\
->>> [doc.paragraphs[0].style = 'Normal']\
->>> [doc.paragraphs[1].text]\
-'A plain paragraph with some bold and some italic'\
+different:]
+\_ParagraphStyle('Title') id: 3095631007984
+>>> [doc.paragraphs[0].style = 'Normal']
+>>> [doc.paragraphs[1].text]
+'A plain paragraph with some bold and some italic'
 >>> [(doc.paragraphs[1].runs[0].text,
-doc.paragraphs[1].runs[1].text, doc.\
+doc.paragraphs[1].runs[1].text, doc.
 paragraphs[1].runs[2].text,
-doc.paragraphs[1].runs[3].text)]\
+doc.paragraphs[1].runs[3].text)]
 ('A plain paragraph with some ', 'bold', ' and some ',
-'italic')\
+'italic')
 >>> [doc.paragraphs[1].runs[0].style =
-'QuoteChar']\
->>> [doc.paragraphs[1].runs[1].underline = True]\
->>> [doc.paragraphs[1].runs[3].underline = True]\
+'QuoteChar']
+>>> [doc.paragraphs[1].runs[1].underline = True]
+>>> [doc.paragraphs[1].runs[3].underline = True]
 >>> [doc.save('restyled.docx')]
 
 Here, we use the [text] and [style] attributes to
@@ -982,10 +982,10 @@ at *https://python-docx.readthedocs.io/en/latest/user/styles.html*.
 
 Enter the following into the interactive shell:
 
->>> [import docx]\
->>> [doc = docx.Document()]\
->>> [doc.add_paragraph('Hello, world!')]\
-<docx.text.Paragraph object at 0x0000000003B56F60>\
+>>> [import docx]
+>>> [doc = docx.Document()]
+>>> [doc.add_paragraph('Hello, world!')]
+<docx.text.Paragraph object at 0x0000000003B56F60>
 >>> [doc.save('helloworld.docx')]
 
 To create your own *.docx* file, call [docx.Document()] to
@@ -1014,17 +1014,17 @@ Or to add text to the end of an existing paragraph, you can call the
 paragraph's [add_run()] method and pass it a string. Enter the
 following into the interactive shell:
 
->>> [import docx]\
->>> [doc = docx.Document()]\
->>> [doc.add_paragraph('Hello world!')]\
-<docx.text.Paragraph object at 0x000000000366AD30>\
+>>> [import docx]
+>>> [doc = docx.Document()]
+>>> [doc.add_paragraph('Hello world!')]
+<docx.text.Paragraph object at 0x000000000366AD30>
 >>> [paraObj1 = doc.add_paragraph('This is a second
-paragraph.')]\
+paragraph.')]
 >>> [paraObj2 = doc.add_paragraph('This is a yet another
-paragraph.')]\
+paragraph.')]
 >>> [paraObj1.add_run(' This text is being added to the second
-paragraph.')]\
-<docx.text.Run object at 0x0000000003A2C860>\
+paragraph.')]
+<docx.text.Run object at 0x0000000003A2C860>
 >>> [doc.save('multipleParagraphs.docx')]
 
 The resulting document will look like [Figure
@@ -1065,17 +1065,17 @@ style.
 Calling [add_heading()] adds a paragraph with one of the
 heading styles. Enter the following into the interactive shell:
 
->>> [doc = docx.Document()]\
->>> [doc.add_heading('Header 0', 0)]\
-<docx.text.Paragraph object at 0x00000000036CB3C8>\
->>> [doc.add_heading('Header 1', 1)]\
-<docx.text.Paragraph object at 0x00000000036CB630>\
->>> [doc.add_heading('Header 2', 2)]\
-<docx.text.Paragraph object at 0x00000000036CB828>\
->>> [doc.add_heading('Header 3', 3)]\
-<docx.text.Paragraph object at 0x00000000036CB2E8>\
->>> [doc.add_heading('Header 4', 4)]\
-<docx.text.Paragraph object at 0x00000000036CB3C8>\
+>>> [doc = docx.Document()]
+>>> [doc.add_heading('Header 0', 0)]
+<docx.text.Paragraph object at 0x00000000036CB3C8>
+>>> [doc.add_heading('Header 1', 1)]
+<docx.text.Paragraph object at 0x00000000036CB630>
+>>> [doc.add_heading('Header 2', 2)]
+<docx.text.Paragraph object at 0x00000000036CB828>
+>>> [doc.add_heading('Header 3', 3)]
+<docx.text.Paragraph object at 0x00000000036CB2E8>
+>>> [doc.add_heading('Header 4', 4)]
+<docx.text.Paragraph object at 0x00000000036CB3C8>
 >>> [doc.save('headings.docx')]
 
 The arguments to [add_heading()] are a string of the heading
@@ -1106,15 +1106,15 @@ page break instead, you need to pass the value
 [add_break()], as is done in the middle of the following
 example:
 
-   >>> [doc = docx.Document()]\
+   >>> [doc = docx.Document()]
    >>> [doc.add_paragraph('This is on the first
-page!')]\
-   <docx.text.Paragraph object at 0x0000000003785518>\
+page!')]
+   <docx.text.Paragraph object at 0x0000000003785518>
 [➊] >>>
-[doc.paragraphs[0].runs[0].add_break(docx.enum.text.WD_BREAK.PAGE)]\
+[doc.paragraphs[0].runs[0].add_break(docx.enum.text.WD_BREAK.PAGE)]
    >>> [doc.add_paragraph('This is on the second
-page!')]\
-   <docx.text.Paragraph object at 0x00000000037855F8>\
+page!')]
+   <docx.text.Paragraph object at 0x00000000037855F8>
    >>> [doc.save('twoPage.docx')]
 
 []{#calibre_link-781 {http:="" www.idpf.org="" 2007=""
@@ -1135,8 +1135,8 @@ height of 4 centimeters (Word can use both imperial and metric units) by
 entering the following:
 
 >>> [doc.add_picture('zophie.png',
-width=docx.shared.Inches(1),]\
-[height=docx.shared.Cm(4))]\
+width=docx.shared.Inches(1),]
+[height=docx.shared.Cm(4))]
 <docx.shape.InlineShape object at 0x00000000036C7D30>
 
 The first argument is a string of the image's filename. The optional
@@ -1162,23 +1162,23 @@ then convert them to PDFs with the following script.
 Open a new file editor tab, enter the following code, and save it as
 *convertWordToPDF.py*:
 
-\# This script runs on Windows only, and you must have Word installed.\
-import win32com.client \# install with "pip install pywin32==224"\
-import docx\
-wordFilename = '[your_word_document].docx'\
-pdfFilename = '[your_pdf_filename].pdf'\
-\
-doc = docx.Document()\
-\# Code to create Word document goes here.\
-doc.save(wordFilename)\
-\
-wdFormatPDF = 17 \# Word's numeric code for PDFs.\
-wordObj = win32com.client.Dispatch('Word.Application')\
-\
+\# This script runs on Windows only, and you must have Word installed.
+import win32com.client \# install with "pip install pywin32==224"
+import docx
+wordFilename = '[your_word_document].docx'
+pdfFilename = '[your_pdf_filename].pdf'
+
+doc = docx.Document()
+\# Code to create Word document goes here.
+doc.save(wordFilename)
+
+wdFormatPDF = 17 \# Word's numeric code for PDFs.
+wordObj = win32com.client.Dispatch('Word.Application')
+
 []{#calibre_link-1836 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}docObj = wordObj.Documents.Open(wordFilename)\
-docObj.SaveAs(pdfFilename, FileFormat=wdFormatPDF)\
-docObj.Close()\
+ops}type="pagebreak"}docObj = wordObj.Documents.Open(wordFilename)
+docObj.SaveAs(pdfFilename, FileFormat=wdFormatPDF)
+docObj.Close()
 wordObj.Quit()
 
 To write a program that produces PDFs with your own content, you must
@@ -1298,10 +1298,10 @@ message to the user and continue to the next PDF.
 Say you have a text file of guest names. This *guests.txt* file has one
 name per line, as follows:
 
-Prof. Plum\
-Miss Scarlet\
-Col. Mustard\
-Al Sweigart\
+Prof. Plum
+Miss Scarlet
+Col. Mustard
+Al Sweigart
 RoboCop
 
 Write a program that would generate a Word document with custom

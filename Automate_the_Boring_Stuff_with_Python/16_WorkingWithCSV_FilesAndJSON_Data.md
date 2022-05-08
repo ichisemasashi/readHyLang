@@ -32,12 +32,12 @@ separate the cells in the row. For example, the spreadsheet
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*
 would look like this in a CSV file:
 
-4/5/2015 13:34,Apples,73\
-4/5/2015 3:41,Cherries,85\
-4/6/2015 12:46,Pears,14\
-4/8/2015 8:59,Oranges,52\
-4/10/2015 2:07,Apples,152\
-4/10/2015 18:10,Bananas,23\
+4/5/2015 13:34,Apples,73
+4/5/2015 3:41,Cherries,85
+4/6/2015 12:46,Pears,14
+4/8/2015 8:59,Oranges,52
+4/10/2015 2:07,Apples,152
+4/10/2015 18:10,Bananas,23
 4/10/2015 2:40,Strawberries,98
 
 I will use this file for this chapter's interactive shell examples. You
@@ -81,18 +81,18 @@ to create a [reader] object. A [reader] object lets
 you iterate over lines in the CSV file. Enter the following into the
 interactive shell, with *example.csv* in the current working directory:
 
-[➊] >>> [import csv]\
-[➋] >>> [exampleFile = open('example.csv')]\
+[➊] >>> [import csv]
+[➋] >>> [exampleFile = open('example.csv')]
 [➌] >>> [exampleReader =
-csv.reader(exampleFile)]\
-[➍] >>> [exampleData = list(exampleReader)]\
-[➎] >>> [exampleData]\
+csv.reader(exampleFile)]
+[➍] >>> [exampleData = list(exampleReader)]
+[➎] >>> [exampleData]
    [['4/5/2015 13:34', 'Apples', '73'], ['4/5/2015 3:41',
-'Cherries', '85'],\
+'Cherries', '85'],
    ['4/6/2015 12:46', 'Pears', '14'], ['4/8/2015 8:59',
-'Oranges', '52'],\
+'Oranges', '52'],
    ['4/10/2015 2:07', 'Apples', '152'], ['4/10/2015 18:10',
-'Bananas', '23'],\
+'Bananas', '23'],
    ['4/10/2015 2:40', 'Strawberries', '98']]
 
 The [csv] module comes with Python, so we can import it
@@ -122,15 +122,15 @@ index of one of the lists in [exampleData], and
 [col] is the index of the item you want from that list. Enter
 the following into the interactive shell:
 
->>> [exampleData[0][0]]\
-'4/5/2015 13:34'\
->>> [exampleData[0][1]]\
-'Apples'\
->>> [exampleData[0][2]]\
-'73'\
->>> [exampleData[1][1]]\
-'Cherries'\
->>> [exampleData[6][1]]\
+>>> [exampleData[0][0]]
+'4/5/2015 13:34'
+>>> [exampleData[0][1]]
+'Apples'
+>>> [exampleData[0][2]]
+'73'
+>>> [exampleData[1][1]]
+'Cherries'
+>>> [exampleData[6][1]]
 'Strawberries'
 
 As you can see from the output, [exampleData[0][0]] goes
@@ -144,19 +144,19 @@ For large CSV files, you'll want to use the [reader] object in
 a [for] loop. This avoids loading the entire file into memory
 at once. For example, enter the following into the interactive shell:
 
->>> [import csv]\
->>> [exampleFile = open('example.csv')]\
->>> [exampleReader = csv.reader(exampleFile)]\
->>> [for row in exampleReader:]\
+>>> [import csv]
+>>> [exampleFile = open('example.csv')]
+>>> [exampleReader = csv.reader(exampleFile)]
+>>> [for row in exampleReader:]
         [print('Row #' + str(exampleReader.line_num) + ' ' +
-str(row))]\
-\
-Row #1 ['4/5/2015 13:34', 'Apples', '73']\
-Row #2 ['4/5/2015 3:41', 'Cherries', '85']\
-Row #3 ['4/6/2015 12:46', 'Pears', '14']\
-Row #4 ['4/8/2015 8:59', 'Oranges', '52']\
-Row #5 ['4/10/2015 2:07', 'Apples', '152']\
-Row #6 ['4/10/2015 18:10', 'Bananas', '23']\
+str(row))]
+
+Row #1 ['4/5/2015 13:34', 'Apples', '73']
+Row #2 ['4/5/2015 3:41', 'Cherries', '85']
+Row #3 ['4/6/2015 12:46', 'Pears', '14']
+Row #4 ['4/8/2015 8:59', 'Oranges', '52']
+Row #5 ['4/10/2015 2:07', 'Apples', '152']
+Row #6 ['4/10/2015 18:10', 'Bananas', '23']
 Row #7 ['4/10/2015 2:40', 'Strawberries', '98']
 
 After you import the [csv] module and make a
@@ -179,18 +179,18 @@ A [writer] object lets you write data to a CSV file. To create
 a [writer] object, you use the [csv.writer()]
 function. Enter the following into the interactive shell:
 
-   >>> [import csv]\
+   >>> [import csv]
 [➊] >>> [outputFile = open('output.csv', 'w',
-newline='')]\
-[➋] >>> [outputWriter = csv.writer(outputFile)]\
+newline='')]
+[➋] >>> [outputWriter = csv.writer(outputFile)]
    >>> [outputWriter.writerow(['spam', 'eggs', 'bacon',
-'ham'])]\
-   21\
+'ham'])]
+   21
    >>> [outputWriter.writerow(['Hello, world!', 'eggs',
-'bacon', 'ham'])]\
-   32\
-   >>> [outputWriter.writerow([1, 2, 3.141592, 4])]\
-   16\
+'bacon', 'ham'])]
+   32
+   >>> [outputWriter.writerow([1, 2, 3.141592, 4])]
+   16
    >>> [outputFile.close()]
 
 First, call [open()] and pass it ['w'] to open a
@@ -221,8 +221,8 @@ characters).
 
 This code produces an *output.csv* file that looks like this:
 
-spam,eggs,bacon,ham\
-"Hello, world!",eggs,bacon,ham\
+spam,eggs,bacon,ham
+"Hello, world!",eggs,bacon,ham
 1,2,3.141592,4
 
 Notice how the [writer] object automatically escapes the comma
@@ -236,20 +236,20 @@ Say you want to separate cells with a tab character instead of a comma
 and you want the rows to be double-spaced. You could enter something
 like the following into the interactive shell:
 
-   >>> [import csv]\
+   >>> [import csv]
    >>> [csvFile = open('example.tsv', 'w',
-newline='')]\
+newline='')]
 [➊] >>> [csvWriter = csv.writer(csvFile, delimiter='\\t',
-lineterminator='\\n\\n')]\
+lineterminator='\\n\\n')]
    >>> [csvWriter.writerow(['apples', 'oranges',
-'grapes'])]\
-   24\
+'grapes'])]
+   24
    >>> [csvWriter.writerow(['eggs', 'bacon',
-'ham'])]\
-   17\
+'ham'])]
+   17
    >>> [csvWriter.writerow(['spam', 'spam', 'spam', 'spam',
-'spam', 'spam'])]\
-   32\
+'spam', 'spam'])]
+   32
    >>> [csvFile.close()]
 
 This changes the delimiter and line terminator characters in your file.
@@ -269,10 +269,10 @@ We then call [writerow()] three times to give us three rows.
 
 This produces a file named *example.tsv* with the following contents:
 
-apples  oranges grapes\
-\
-eggs    bacon   ham\
-\
+apples  oranges grapes
+
+eggs    bacon   ham
+
 spam    spam    spam    spam    spam    spam    
 
 Now that our cells are separated by tabs, we're using the file extension
@@ -298,19 +298,19 @@ headers in the first row.
 
 To read the file, enter the following into the interactive shell:
 
->>> [import csv]\
->>> [exampleFile = open('exampleWithHeader.csv')]\
->>> [exampleDictReader = csv.DictReader(exampleFile)]\
->>> [for row in exampleDictReader:]\
+>>> [import csv]
+>>> [exampleFile = open('exampleWithHeader.csv')]
+>>> [exampleDictReader = csv.DictReader(exampleFile)]
+>>> [for row in exampleDictReader:]
 \...     [print(row['Timestamp'], row['Fruit'],
-row['Quantity'])]\
-\...\
-4/5/2015 13:34 Apples 73\
-4/5/2015 3:41 Cherries 85\
-4/6/2015 12:46 Pears 14\
-4/8/2015 8:59 Oranges 52\
-4/10/2015 2:07 Apples 152\
-4/10/2015 18:10 Bananas 23\
+row['Quantity'])]
+\...
+4/5/2015 13:34 Apples 73
+4/5/2015 3:41 Cherries 85
+4/6/2015 12:46 Pears 14
+4/8/2015 8:59 Oranges 52
+4/10/2015 2:07 Apples 152
+4/10/2015 18:10 Bananas 23
 4/10/2015 2:40 Strawberries 98
 
 Inside the loop, [DictReader] object sets [row] to a
@@ -331,21 +331,21 @@ the dictionary keys. To avoid this, you can supply the
 [DictReader()] function with a second argument containing
 made-up header names:
 
->>> [import csv]\
->>> [exampleFile = open('example.csv')]\
+>>> [import csv]
+>>> [exampleFile = open('example.csv')]
 >>> [exampleDictReader = csv.DictReader(exampleFile, ['time',
-'name',]\
-['amount'])]\
->>> [for row in exampleDictReader:]\
+'name',]
+['amount'])]
+>>> [for row in exampleDictReader:]
 \...     [print(row['time'], row['name'],
-row['amount'])]\
-\...\
-4/5/2015 13:34 Apples 73\
-4/5/2015 3:41 Cherries 85\
-4/6/2015 12:46 Pears 14\
-4/8/2015 8:59 Oranges 52\
-4/10/2015 2:07 Apples 152\
-4/10/2015 18:10 Bananas 23\
+row['amount'])]
+\...
+4/5/2015 13:34 Apples 73
+4/5/2015 3:41 Cherries 85
+4/6/2015 12:46 Pears 14
+4/8/2015 8:59 Oranges 52
+4/10/2015 2:07 Apples 152
+4/10/2015 18:10 Bananas 23
 4/10/2015 2:40 Strawberries 98
 
 Because *example.csv*'s first row doesn't have any text for the heading
@@ -354,23 +354,23 @@ of each column, we created our own: ['time'],
 
 [DictWriter] objects use dictionaries to create CSV files.
 
->>> [import csv]\
+>>> [import csv]
 >>> [outputFile = open('output.csv', 'w',
-newline='')]\
+newline='')]
 >>> [outputDictWriter = csv.DictWriter(outputFile, ['Name',
-'Pet', 'Phone'])]\
->>> [outputDictWriter.writeheader()]\
+'Pet', 'Phone'])]
+>>> [outputDictWriter.writeheader()]
 >>> [outputDictWriter.writerow({'Name': 'Alice', 'Pet':
-'cat', 'Phone': '555-]\
-[1234'})]\
-20\
+'cat', 'Phone': '555-]
+[1234'})]
+20
 >>> [outputDictWriter.writerow({'Name': 'Bob', 'Phone':
-'555-9999'})]\
-15\
+'555-9999'})]
+15
 >>> [outputDictWriter.writerow({'Phone': '555-5555', 'Name':
-'Carol', 'Pet':]\
-['dog'})]\
-20\
+'Carol', 'Pet':]
+['dog'})]
+20
 >>> [outputFile.close()]
 
 If you want your file to contain a header row, write that row by calling
@@ -382,9 +382,9 @@ the data to write to the file.
 
 The *output.csv* file this code creates looks like this:
 
-Name,Pet,Phone\
-Alice,cat,555-1234\
-Bob,,555-9999\
+Name,Pet,Phone
+Alice,cat,555-1234
+Bob,,555-9999
 Carol,dog,555-5555
 
 []{#calibre_link-1064 {http:="" www.idpf.org="" 2007=""
@@ -449,26 +449,26 @@ The first thing your program needs to do is loop over a list of all CSV
 filenames for the current working directory. Make your
 *removeCsvHeader.py* look like this:
 
-#! python3\
+#! python3
 \# removeCsvHeader.py - Removes the header from all CSV files in the
-current\
-\
+current
+
 []{#calibre_link-1075 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\# working directory.\
-\
-import csv, os\
-\
-os.makedirs('headerRemoved', exist_ok=True)\
-\
-\# Loop through every file in the current working directory.\
-for csvFilename in os.listdir('.'):\
-     if not csvFilename.endswith('.csv'):\
-      [➊] continue    # skip non-csv files\
-\
-     print('Removing header from ' + csvFilename + '\...')\
-\
-     # TODO: Read the CSV file in (skipping first row).\
-\
+ops}type="pagebreak"}\# working directory.
+
+import csv, os
+
+os.makedirs('headerRemoved', exist_ok=True)
+
+\# Loop through every file in the current working directory.
+for csvFilename in os.listdir('.'):
+     if not csvFilename.endswith('.csv'):
+      [➊] continue    # skip non-csv files
+
+     print('Removing header from ' + csvFilename + '\...')
+
+     # TODO: Read the CSV file in (skipping first row).
+
      # TODO: Write out the CSV file.
 
 The [os.makedirs()] call will create a
@@ -494,23 +494,23 @@ overwrite the original.
 The program will need a way to track whether it is currently looping on
 the first row. Add the following to *removeCsvHeader.py*.
 
-#! python3\
+#! python3
 \# removeCsvHeader.py - Removes the header from all CSV files in the
-current\
-\# working directory.\
-\
---[snip]--\
-\
-[    # Read the CSV file in (skipping first row).]\
-    [csvRows = []]\
-    [csvFileObj = open(csvFilename)]\
-[    readerObj = csv.reader(csvFileObj)]\
-    [for row in readerObj:]\
-        [if readerObj.line_num == 1:]\
-            [continue    # skip first row]\
-        [csvRows.append(row)]\
-    [csvFileObj.close()]\
-\
+current
+\# working directory.
+
+--[snip]--
+
+[    # Read the CSV file in (skipping first row).]
+    [csvRows = []]
+    [csvFileObj = open(csvFilename)]
+[    readerObj = csv.reader(csvFileObj)]
+    [for row in readerObj:]
+        [if readerObj.line_num == 1:]
+            [continue    # skip first row]
+        [csvRows.append(row)]
+    [csvFileObj.close()]
+
     # TODO: Write out the CSV file.
 
 []{#calibre_link-1841 {http:="" www.idpf.org="" 2007=""
@@ -533,27 +533,27 @@ Now that [csvRows] contains all rows but the first row, the
 list needs to be written out to a CSV file in the *headerRemoved*
 folder. Add the following to *removeCsvHeader.py*:
 
-   #! python3\
+   #! python3
    # removeCsvHeader.py - Removes the header from all CSV files in the
-current\
-   # working directory.\
-\
-   --[snip]--\
-\
-   # Loop through every file in the current working directory.\
-[➊] for csvFilename in os.listdir('.'):\
-       if not csvFilename.endswith('.csv'):\
-           continue    # skip non-CSV files\
-\
-       --[snip]--\
-\
-[       # Write out the CSV file.]\
+current
+   # working directory.
+
+   --[snip]--
+
+   # Loop through every file in the current working directory.
+[➊] for csvFilename in os.listdir('.'):
+       if not csvFilename.endswith('.csv'):
+           continue    # skip non-CSV files
+
+       --[snip]--
+
+[       # Write out the CSV file.]
        [csvFileObj = open(os.path.join('headerRemoved', csvFilename),
-'w',]\
-[                    newline='')]\
-       [csvWriter = csv.writer(csvFileObj)]\
-       [for row in csvRows:]\
-           [csvWriter.writerow(row)]\
+'w',]
+[                    newline='')]
+       [csvWriter = csv.writer(csvFileObj)]
+       [for row in csvRows:]
+           [csvWriter.writerow(row)]
        [csvFileObj.close()]
 
 The CSV [writer] object will write the list to a CSV file in
@@ -572,11 +572,11 @@ To test your program, download *removeCsvHeader.zip* from
 and unzip it to a folder. Run the *removeCsvHeader.py* program in that
 folder. The output will look like this:
 
-Removing header from NAICS_data_1048.csv\...\
-Removing header from NAICS_data_1218.csv\...\
---[snip]--\
+Removing header from NAICS_data_1048.csv\...
+Removing header from NAICS_data_1218.csv\...
+--[snip]--
 []{#calibre_link-791 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Removing header from NAICS_data_9834.csv\...\
+ops}type="pagebreak"}Removing header from NAICS_data_9834.csv\...
 Removing header from NAICS_data_9986.csv\...
 
 This program should print a filename each time it strips the first line
@@ -605,8 +605,8 @@ JavaScript in order to work with JSON-formatted data.
 
 Here's an example of data formatted as JSON:
 
-{"name": "Zophie", "isCat": true,\
- "miceCaught": 0, "napsTaken": 37.5,\
+{"name": "Zophie", "isCat": true,
+ "miceCaught": 0, "napsTaken": 37.5,
  "felineIQ": null}
 
 JSON is useful to know, because many websites offer JSON content as a
@@ -671,12 +671,12 @@ to the [json.loads()] function. (The name means "load string,"
 not "loads.") Enter the following into the interactive shell:
 
 >>> [stringOfJsonData = '{"name": "Zophie", "isCat": true,
-"miceCaught": 0,]\
-["felineIQ": null}']\
->>> [import json]\
+"miceCaught": 0,]
+["felineIQ": null}']
+>>> [import json]
 >>> [jsonDataAsPythonValue =
-json.loads(stringOfJsonData)]\
->>> [jsonDataAsPythonValue]\
+json.loads(stringOfJsonData)]
+>>> [jsonDataAsPythonValue]
 {'isCat': True, 'miceCaught': 0, 'name': 'Zophie', 'felineIQ':
 None}
 
@@ -695,11 +695,11 @@ The [json.dumps()] function (which means "dump string," not
 data. Enter the following into the interactive shell:
 
 >>> [pythonValue = {'isCat': True, 'miceCaught': 0, 'name':
-'Zophie',]\
-['felineIQ': None}]\
->>> [import json]\
->>> [stringOfJsonData = json.dumps(pythonValue)]\
->>> [stringOfJsonData]\
+'Zophie',]
+['felineIQ': None}]
+>>> [import json]
+>>> [stringOfJsonData = json.dumps(pythonValue)]
+>>> [stringOfJsonData]
 '{"isCat": true, "felineIQ": null, "miceCaught": 0, "name":
 "Zophie" }'
 
@@ -751,23 +751,23 @@ scripts that use your account's usage quota.
 The input for this program will come from the command line. Make
 *getOpenWeather.py* look like this:
 
-#! python3\
+#! python3
 \# getOpenWeather.py - Prints the weather for a location from the
-command line.\
-\
-APPID = 'YOUR_APPID_HERE'\
-\
-import json, requests, sys\
-\
-\# Compute location from command line arguments.\
-if len(sys.argv) < 2:\
+command line.
+
+APPID = 'YOUR_APPID_HERE'
+
+import json, requests, sys
+
+\# Compute location from command line arguments.
+if len(sys.argv) < 2:
     print('Usage: getOpenWeather.py city_name,
-2-letter_country_code')\
-    sys.exit()\
-location = ' '.join(sys.argv[1:])\
-\
-\# TODO: Download the JSON data from OpenWeatherMap.org's API.\
-\
+2-letter_country_code')
+    sys.exit()
+location = ' '.join(sys.argv[1:])
+
+\# TODO: Download the JSON data from OpenWeatherMap.org's API.
+
 \# TODO: Load JSON data into a Python variable.
 
 In Python, command line arguments are stored in the [sys.argv]
@@ -810,24 +810,24 @@ where *<Location>* is the name of the city whose weather you want and
 *<API key>* is your personal API key. Add the following to
 *getOpenWeather.py*.
 
-#! python3\
+#! python3
 \# getOpenWeather.py - Prints the weather for a location from the
-command line.\
-\
---[snip]--\
-\
+command line.
+
+--[snip]--
+
 [\# Download the JSON data from OpenWeatherMap.org's
-API.]\
+API.]
 [url
 ='https://api.openweathermap.org/data/2.5/forecast/daily?q=%s&cnt=3&APPID=%s
-' % (location,]\
-[APPID)]\
-[response = requests.get(url)]\
-[response.raise_for_status()]\
-\
-[\# Uncomment to see the raw JSON text:]\
-[#print(response.text)    ]\
-\
+' % (location,]
+[APPID)]
+[response = requests.get(url)]
+[response.raise_for_status()]
+
+[\# Uncomment to see the raw JSON text:]
+[#print(response.text)    ]
+
 \# TODO: Load JSON data into a Python variable.
 
 We have [location] from our command line arguments. To make
@@ -847,28 +847,28 @@ JSON-formatted data. To convert this to a Python value, call the
 [json.loads()] function. The JSON data will look something
 like this:
 
-{'city': {'coord': {'lat': 37.7771, 'lon': -122.42},\
-          'country': 'United States of America',\
-          'id': '5391959',\
-          'name': 'San Francisco',\
-          'population': 0},\
- 'cnt': 3,\
- 'cod': '200',\
- 'list': [{'clouds': 0,\
-           'deg': 233,\
-           'dt': 1402344000,\
-           'humidity': 58,\
-           'pressure': 1012.23,\
+{'city': {'coord': {'lat': 37.7771, 'lon': -122.42},
+          'country': 'United States of America',
+          'id': '5391959',
+          'name': 'San Francisco',
+          'population': 0},
+ 'cnt': 3,
+ 'cod': '200',
+ 'list': [{'clouds': 0,
+           'deg': 233,
+           'dt': 1402344000,
+           'humidity': 58,
+           'pressure': 1012.23,
 []{#calibre_link-1842 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}           'speed': 1.96,\
-           'temp': {'day': 302.29,\
-                    'eve': 296.46,\
-                    'max': 302.29,\
-                    'min': 289.77,\
-                    'morn': 294.59,\
-                    'night': 289.77},\
-           'weather': [{'description': 'sky is clear',\
-                        'icon': '01d',\
+ops}type="pagebreak"}           'speed': 1.96,
+           'temp': {'day': 302.29,
+                    'eve': 296.46,
+                    'max': 302.29,
+                    'min': 289.77,
+                    'morn': 294.59,
+                    'night': 289.77},
+           'weather': [{'description': 'sky is clear',
+                        'icon': '01d',
 --[snip]--
 
 You can see this data by passing [weatherData] to
@@ -883,26 +883,26 @@ The weather descriptions you want are after ['main'] and
 ['description']. To neatly print them out, add the following
 to *getOpenWeather.py*.
 
-   ! python3\
+   ! python3
    # getOpenWeather.py - Prints the weather for a location from the
-command line.\
-\
-   --[snip]--\
-\
-   [\# Load JSON data into a Python variable.]\
-   [weatherData = json.loads(response.text)]\
-\
-   [\# Print weather descriptions.]\
-[➊] [w = weatherData['list']]\
-   [print('Current weather in %s:' % (location))]\
+command line.
+
+   --[snip]--
+
+   [\# Load JSON data into a Python variable.]
+   [weatherData = json.loads(response.text)]
+
+   [\# Print weather descriptions.]
+[➊] [w = weatherData['list']]
+   [print('Current weather in %s:' % (location))]
    [print(w[0]['weather'][0]['main'], '-',
-w[0]['weather'][0]['description'])]\
-   [print()]\
-   [print('Tomorrow:')]\
+w[0]['weather'][0]['description'])]
+   [print()]
+   [print('Tomorrow:')]
    [print(w[1]['weather'][0]['main'], '-',
-w[1]['weather'][0]['description'])]\
-   [print()]\
-   [print('Day after tomorrow:')]\
+w[1]['weather'][0]['description'])]
+   [print()]
+   [print('Day after tomorrow:')]
    [print(w[2]['weather'][0]['main'], '-',
 w[2]['weather'][0]['description'])]
 
@@ -921,14 +921,14 @@ When this program is run with the command line argument
 [getOpenWeather.py San Francisco, CA], the output looks
 something like this:
 
-Current weather in San Francisco, CA:\
-Clear - sky is clear\
-\
+Current weather in San Francisco, CA:
+Clear - sky is clear
+
 []{#calibre_link-964 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Tomorrow:\
-Clouds - few clouds\
-\
-Day after tomorrow:\
+ops}type="pagebreak"}Tomorrow:
+Clouds - few clouds
+
+Day after tomorrow:
 Clear - sky is clear
 
 (The weather is one of the reasons I like living in San Francisco!)
@@ -1019,25 +1019,25 @@ the filename of the Excel file without the file extension (for example,
 This program will involve many nested [for] loops. The
 skeleton of the program will look something like this:
 
-for excelFile in os.listdir('.'):\
-    # Skip non-xlsx files, load the workbook object.\
-    for sheetName in wb.get_sheet_names():\
-        # Loop through every sheet in the workbook.\
-        sheet = wb.get_sheet_by_name(sheetName)\
-\
+for excelFile in os.listdir('.'):
+    # Skip non-xlsx files, load the workbook object.
+    for sheetName in wb.get_sheet_names():
+        # Loop through every sheet in the workbook.
+        sheet = wb.get_sheet_by_name(sheetName)
+
         # Create the CSV filename from the Excel filename and sheet
-title.\
-        # Create the csv.writer object for this CSV file.\
-\
-        # Loop through every row in the sheet.\
-        for rowNum in range(1, sheet.max_row + 1):\
-            rowData = []    # append each cell to this list\
-            # Loop through each cell in the row.\
-            for colNum in range(1, sheet.max_column + 1):\
-                # Append each cell's data to rowData.\
-\
-            # Write the rowData list to the CSV file.\
-\
+title.
+        # Create the csv.writer object for this CSV file.
+
+        # Loop through every row in the sheet.
+        for rowNum in range(1, sheet.max_row + 1):
+            rowData = []    # append each cell to this list
+            # Loop through each cell in the row.
+            for colNum in range(1, sheet.max_column + 1):
+                # Append each cell's data to rowData.
+
+            # Write the rowData list to the CSV file.
+
         csvFile.close()
 
 Download the ZIP file *excelSpreadsheets.zip* from

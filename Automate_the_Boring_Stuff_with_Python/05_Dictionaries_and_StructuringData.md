@@ -32,9 +32,9 @@ these keys are ['fat'], ['gray'], and
 ['loud'], respectively. You can access these values through
 their keys:
 
->>> [myCat['size']]\
-'fat'\
->>> ['My cat has ' + myCat['color'] + ' fur.']\
+>>> [myCat['size']]
+'fat'
+>>> ['My cat has ' + myCat['color'] + ' fur.']
 'My cat has gray fur.'
 
 Dictionaries can still use integer values as keys, just like lists use
@@ -53,15 +53,15 @@ determining whether two lists are the same, it does not matter in what
 order the key-value pairs are typed in a dictionary. Enter the following
 into the interactive shell:
 
->>> [spam = ['cats', 'dogs', 'moose']]\
->>> [bacon = ['dogs', 'moose', 'cats']]\
->>> [spam == bacon]\
-False\
+>>> [spam = ['cats', 'dogs', 'moose']]
+>>> [bacon = ['dogs', 'moose', 'cats']]
+>>> [spam == bacon]
+False
 >>> [eggs = {'name': 'Zophie', 'species': 'cat', 'age':
-'8'}]\
+'8'}]
 >>> [ham = {'species': 'cat', 'age': '8', 'name':
-'Zophie'}]\
->>> [eggs == ham]\
+'Zophie'}]
+>>> [eggs == ham]
 True
 
 Because dictionaries are not ordered, they can't be sliced like lists.
@@ -72,11 +72,11 @@ in a [KeyError] error message, much like a list's
 into the interactive shell, and notice the error message that shows up
 because there is no ['color'] key:
 
->>> [spam = {'name': 'Zophie', 'age': 7}]\
->>> [spam['color']]\
-Traceback (most recent call last):\
-  File "<pyshell#1>", line 1, in <module>\
-    spam['color']\
+>>> [spam = {'name': 'Zophie', 'age': 7}]
+>>> [spam['color']]
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    spam['color']
 KeyError: 'color'
 
 []{#calibre_link-1742 {http:="" www.idpf.org="" 2007=""
@@ -88,22 +88,22 @@ and the birthdays as values. Open a new file editor window and enter the
 following code. Save it as *birthdays.py*.
 
 [➊] birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12',
-'Carol': 'Mar 4'}\
-\
-   while True:\
-       print('Enter a name: (blank to quit)')\
-       name = input()\
-       if name == '':\
-           break\
-\
-    [➋] if name in birthdays:\
+'Carol': 'Mar 4'}
+
+   while True:
+       print('Enter a name: (blank to quit)')
+       name = input()
+       if name == '':
+           break
+
+    [➋] if name in birthdays:
         [➌] print(birthdays[name] + ' is the birthday of ' +
-name)\
-       else:\
-           print('I do not have birthday information for ' + name)\
-           print('What is their birthday?')\
-           bday = input()\
-        [➍] birthdays[name] = bday\
+name)
+       else:
+           print('I do not have birthday information for ' + name)
+           print('What is their birthday?')
+           bday = input()
+        [➍] birthdays[name] = bday
            print('Birthday database updated.')
 
 You can view the execution of this program at
@@ -118,18 +118,18 @@ same square bracket syntax combined with the assignment operator
 
 When you run this program, it will look like this:
 
-Enter a name: (blank to quit)\
-[Alice]\
-Apr 1 is the birthday of Alice\
-Enter a name: (blank to quit)\
-[Eve]\
-I do not have birthday information for Eve\
-What is their birthday?\
-[Dec 5]\
-Birthday database updated.\
-Enter a name: (blank to quit)\
-[Eve]\
-Dec 5 is the birthday of Eve\
+Enter a name: (blank to quit)
+[Alice]
+Apr 1 is the birthday of Alice
+Enter a name: (blank to quit)
+[Eve]
+I do not have birthday information for Eve
+What is their birthday?
+[Dec 5]
+Birthday database updated.
+Enter a name: (blank to quit)
+[Eve]
+Dec 5 is the birthday of Eve
 Enter a name: (blank to quit)
 
 Of course, all the data you enter in this program is forgotten when the
@@ -147,12 +147,12 @@ example, notice the order of items in the lists made from the
 which they were entered:
 
 >>> [eggs = {'name': 'Zophie', 'species': 'cat', 'age':
-'8'}]\
->>> [list(eggs)]\
-['name', 'species', 'age']\
+'8'}]
+>>> [list(eggs)]
+['name', 'species', 'age']
 >>> [ham = {'species': 'cat', 'age': '8', 'name':
-'Zophie'}]\
->>> [list(ham)]\
+'Zophie'}]
+>>> [list(ham)]
 ['species', 'age', 'name']
 
 The dictionaries are still unordered, as you can't access items in them
@@ -163,11 +163,11 @@ order of key-value pairs. For example, notice how the list doesn't match
 the insertion order of the dictionary's key-value pairs when I run this
 code in Python 3.5:
 
->>> [spam = {}]\
->>> [spam['first key'] = 'value']\
->>> [spam['second key'] = 'value']\
->>> [spam['third key'] = 'value']\
->>> [list(spam)]\
+>>> [spam = {}]
+>>> [spam['first key'] = 'value']
+>>> [spam['second key'] = 'value']
+>>> [spam['third key'] = 'value']
+>>> [list(spam)]
 ['first key', 'third key', 'second key']
 
 
@@ -183,11 +183,11 @@ types ([dict_keys], [dict_values], and
 loops. To see how these methods work, enter the following into the
 interactive shell:
 
->>> [spam = {'color': 'red', 'age': 42}]\
->>> [for v in spam.values():]\
-\...     [print(v)]\
-\
-red\
+>>> [spam = {'color': 'red', 'age': 42}]
+>>> [for v in spam.values():]
+\...     [print(v)]
+
+red
 42
 
 []{#calibre_link-1033 {http:="" www.idpf.org="" 2007=""
@@ -195,15 +195,15 @@ ops}type="pagebreak"}Here, a [for] loop iterates over each of
 the values in the [spam] dictionary. A [for] loop
 can also iterate over the keys or both keys and values:
 
->>> [for k in spam.keys():]\
-\...     [print(k)]\
-\
-color\
-age\
->>> [for i in spam.items():]\
-\...     [print(i)]\
-\
-('color', 'red')\
+>>> [for k in spam.keys():]
+\...     [print(k)]
+
+color
+age
+>>> [for i in spam.items():]
+\...     [print(i)]
+
+('color', 'red')
 ('age', 42)
 
 When you use the [keys()], [values()], and
@@ -216,10 +216,10 @@ If you want a true list from one of these methods, pass its list-like
 return value to the [list()] function. Enter the following
 into the interactive shell:
 
->>> [spam = {'color': 'red', 'age': 42}]\
->>> [spam.keys()]\
-dict_keys(['color', 'age'])\
->>> [list(spam.keys())]\
+>>> [spam = {'color': 'red', 'age': 42}]
+>>> [spam.keys()]
+dict_keys(['color', 'age'])
+>>> [list(spam.keys())]
 ['color', 'age']
 
 The [list(spam.keys())] line takes the [dict_keys]
@@ -231,11 +231,11 @@ You can also use the multiple assignment trick in a [for] loop
 to assign the key and value to separate variables. Enter the following
 into the interactive shell:
 
->>> [spam = {'color': 'red', 'age': 42}]\
->>> [for k, v in spam.items():]\
-[\...     print('Key: ' + k + ' Value: ' + str(v))]\
-\
-Key: age Value: 42\
+>>> [spam = {'color': 'red', 'age': 42}]
+>>> [for k, v in spam.items():]
+[\...     print('Key: ' + k + ' Value: ' + str(v))]
+
+Key: age Value: 42
 Key: color Value: red
 
 #### ***Checking Whether a Key or Value Exists in a Dictionary*** !
@@ -245,17 +245,17 @@ in] operators can check whether a value exists in a list. You
 can also use these operators to see whether a certain key or value
 exists in a dictionary. Enter the following into the interactive shell:
 
->>> [spam = {'name': 'Zophie', 'age': 7}]\
->>> ['name' in spam.keys()]\
-True\
+>>> [spam = {'name': 'Zophie', 'age': 7}]
+>>> ['name' in spam.keys()]
+True
 []{#calibre_link-909 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> ['Zophie' in spam.values()]\
-True\
->>> ['color' in spam.keys()]\
-False\
->>> ['color' not in spam.keys()]\
-True\
->>> ['color' in spam]\
+ops}type="pagebreak"}>>> ['Zophie' in spam.values()]
+True
+>>> ['color' in spam.keys()]
+False
+>>> ['color' not in spam.keys()]
+True
+>>> ['color' in spam]
 False
 
 In the previous example, notice that ['color' in spam] is
@@ -274,12 +274,12 @@ to retrieve and a fallback value to return if that key does not exist.
 
 Enter the following into the interactive shell:
 
->>> [picnicItems = {'apples': 5, 'cups': 2}]\
+>>> [picnicItems = {'apples': 5, 'cups': 2}]
 >>> ['I am bringing ' + str(picnicItems.get('cups', 0)) + '
-cups.']\
-'I am bringing 2 cups.'\
+cups.']
+'I am bringing 2 cups.'
 >>> ['I am bringing ' + str(picnicItems.get('eggs', 0)) + '
-eggs.']\
+eggs.']
 'I am bringing 0 eggs.'
 
 Because there is no ['eggs'] key in the
@@ -288,12 +288,12 @@ returned by the [get()] method. Without using
 [get()], the code would have caused an error message, such as
 in the following example:
 
->>> [picnicItems = {'apples': 5, 'cups': 2}]\
+>>> [picnicItems = {'apples': 5, 'cups': 2}]
 >>> ['I am bringing ' + str(picnicItems['eggs']) + '
-eggs.']\
-Traceback (most recent call last):\
-  File "<pyshell#34>", line 1, in <module>\
-    'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'\
+eggs.']
+Traceback (most recent call last):
+  File "<pyshell#34>", line 1, in <module>
+    'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'
 KeyError: 'eggs'
 
 #### ***The setdefault() Method*** !
@@ -302,8 +302,8 @@ You'll often have to set a value in a dictionary for a certain key only
 if that key does not already have a value. The code looks something like
 this:
 
-spam = {'name': 'Pooka', 'age': 5}\
-if 'color' not in spam:\
+spam = {'name': 'Pooka', 'age': 5}
+if 'color' not in spam:
     spam['color'] = 'black'
 
 []{#calibre_link-1041 {http:="" www.idpf.org="" 2007=""
@@ -314,14 +314,14 @@ that key if the key does not exist. If the key does exist, the
 [setdefault()] method returns the key's value. Enter the
 following into the interactive shell:
 
->>> [spam = {'name': 'Pooka', 'age': 5}]\
->>> [spam.setdefault('color', 'black')]\
-'black'\
->>> [spam]\
-{'color': 'black', 'age': 5, 'name': 'Pooka'}\
->>> [spam.setdefault('color', 'white')]\
-'black'\
->>> [spam]\
+>>> [spam = {'name': 'Pooka', 'age': 5}]
+>>> [spam.setdefault('color', 'black')]
+'black'
+>>> [spam]
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+>>> [spam.setdefault('color', 'white')]
+'black'
+>>> [spam]
 {'color': 'black', 'age': 5, 'name': 'Pooka'}
 
 The first time [setdefault()] is called, the dictionary in
@@ -339,14 +339,14 @@ occurrences of each letter in a string. Open the file editor window and
 enter the following code, saving it as *characterCount.py*:
 
 message = 'It was a bright cold day in April, and the clocks were
-striking\
-thirteen.'\
-count = {}\
-\
-for character in message:\
-[➊] count.setdefault(character, 0)\
-[➋] count[character] = count[character] + 1\
-\
+striking
+thirteen.'
+count = {}
+
+for character in message:
+[➊] count.setdefault(character, 0)
+[➋] count[character] = count[character] + 1
+
 print(count)    
 
 You can view the execution of this program at
@@ -360,7 +360,7 @@ when [count[character] = count[character] + 1] is executed
 [➋]. When you run this program, the output will look like this:
 
 {' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3,
-'b': 1, 'e': 5, 'd': 3, 'g': 2,\
+'b': 1, 'e': 5, 'd': 3, 'g': 2,
 'i': 6, 'h': 3, 'k': 2, 'l': 3, 'o': 2, 'n': 4, 'p': 1,
 's': 3, 'r': 5, 't': 6, 'w': 2, 'y': 1}
 
@@ -380,16 +380,16 @@ helpful when you want a cleaner display of the items in a dictionary
 than what [print()] provides. Modify the previous
 *characterCount.py* program and save it as *prettyCharacterCount.py*.
 
-[import pprint]\
+[import pprint]
 message = 'It was a bright cold day in April, and the clocks were
-striking\
-thirteen.'\
-count = {}\
-\
-for character in message:\
-    count.setdefault(character, 0)\
-    count[character] = count[character] + 1\
-\
+striking
+thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
 [pprint.pprint](count)
 
 You can view the execution of this program at
@@ -397,14 +397,14 @@ You can view the execution of this program at
 This time, when the program is run, the output looks much cleaner, with
 the keys sorted.
 
-{' ': 13,\
- ',': 1,\
- '.': 1,\
- 'A': 1,\
- 'I': 1,\
- [--snip--]\
- 't': 6,\
- 'w': 2,\
+{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ [--snip--]
+ 't': 6,
+ 'w': 2,
  'y': 1}
 
 The [pprint.pprint()] function is especially helpful when the
@@ -414,7 +414,7 @@ If you want to obtain the prettified text as a string value instead of
 displaying it on the screen, call [pprint.pformat()] instead.
 These two lines are equivalent to each other:
 
-pprint.pprint(someDictionaryValue)\
+pprint.pprint(someDictionaryValue)
 print(pprint.pformat(someDictionaryValue))
 
 ### []**Using Data Structures to Model Real-World Things** !
@@ -506,8 +506,8 @@ a tic-tac-toe board. Store this board-as-a-dictionary in a variable
 named [theBoard]. Open a new file editor window, and enter the
 following source code, saving it as *ticTacToe.py*:
 
-theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',\
-            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',\
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
             'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 
 The data structure stored in the [theBoard] variable
@@ -526,8 +526,8 @@ string, this dictionary represents a completely clear board. If player X
 went first and chose the middle space, you could represent that board
 with this dictionary:
 
-theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',\
-            'mid-L': ' ', 'mid-M': 'X', 'mid-R': ' ',\
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': 'X', 'mid-R': ' ',
             'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 
 The data structure in [theBoard] now represents the
@@ -544,8 +544,8 @@ tic-tac-toe board in [Figure 5-5](#calibre_link-1132).
 ops}type="pagebreak"}A board where player O has won by placing *O*s
 across the top might look like this:
 
-theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',\
-            'mid-L': 'X', 'mid-M': 'X', 'mid-R': ' ',\
+theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
+            'mid-L': 'X', 'mid-M': 'X', 'mid-R': ' ',
             'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}
 
 The data structure in [theBoard] now represents the
@@ -563,18 +563,18 @@ contents of variables. Let's create a function to print the board
 dictionary onto the screen. Make the following addition to
 *ticTacToe.py* (new code is in bold):
 
-theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',\
-            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',\
-            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}\
-[def printBoard(board):]\
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+[def printBoard(board):]
 [    print(board['top-L'] + '\|' + board['top-M'] + '\|' +
-board['top-R'])]\
-[    print('-+-+-')]\
+board['top-R'])]
+[    print('-+-+-')]
 [    print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
-board['mid-R'])]\
-[    print('-+-+-')]\
+board['mid-R'])]
+[    print('-+-+-')]
 [    print(board['low-L'] + '\|' + board['low-M'] + '\|' +
-board['low-R'])]\
+board['low-R'])]
 [printBoard(theBoard)]
 
 You can view the execution of this program at
@@ -582,10 +582,10 @@ You can view the execution of this program at
 When you run this program, [printBoard()] will print out a
 blank tic-tac-toe board.
 
- \| \|\
--+-+-\
- \| \|\
--+-+-\
+ \| \|
+-+-+-
+ \| \|
+-+-+-
  \| \|
 
 []{#calibre_link-1745 {http:="" www.idpf.org="" 2007=""
@@ -594,19 +594,19 @@ any tic-tac-toe data structure you pass it. Try changing the code to the
 following:
 
 theBoard = [{'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
-'mid-L': 'X', 'mid-M':]\
+'mid-L': 'X', 'mid-M':]
 ['X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R':
-'X'}]\
-\
-def printBoard(board):\
+'X'}]
+
+def printBoard(board):
     print(board['top-L'] + '\|' + board['top-M'] + '\|' +
-board['top-R'])\
-    print('-+-+-')\
+board['top-R'])
+    print('-+-+-')
     print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
-board['mid-R'])\
-    print('-+-+-')\
+board['mid-R'])
+    print('-+-+-')
     print(board['low-L'] + '\|' + board['low-M'] + '\|' +
-board['low-R'])\
+board['low-R'])
 printBoard(theBoard)
 
 You can view the execution of this program at
@@ -614,10 +614,10 @@ You can view the execution of this program at
 Now when you run this program, the new board will be printed to the
 screen.
 
-O\|O\|O\
--+-+-\
-X\|X\|  \
--+-+-\
+O\|O\|O
+-+-+-
+X\|X\|  
+-+-+-
  \| \|X
 
 Because you created a data structure to represent a tic-tac-toe board
@@ -633,45 +633,45 @@ tic-tac-toe data structure to be a dictionary with keys for all nine
 slots. If the dictionary you passed was missing, say, the
 ['mid-L'] key, your program would no longer work.
 
-O\|O\|O\
--+-+-\
-Traceback (most recent call last):\
-  File "ticTacToe.py", line 10, in <module>\
-    printBoard(theBoard)\
-  File "ticTacToe.py", line 6, in printBoard\
+O\|O\|O
+-+-+-
+Traceback (most recent call last):
+  File "ticTacToe.py", line 10, in <module>
+    printBoard(theBoard)
+  File "ticTacToe.py", line 6, in printBoard
     print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
-board['mid-R'])\
+board['mid-R'])
 KeyError: 'mid-L'
 
 Now let's add code that allows the players to enter their moves. Modify
 the *ticTacToe.py* program to look like this:
 
 theBoard = [{'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-'mid-L': ' ', 'mid-M':]\
+'mid-L': ' ', 'mid-M':]
 [' ', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R':
-' '}]\
-\
-def printBoard(board):\
+' '}]
+
+def printBoard(board):
     print(board['top-L'] + '\|' + board['top-M'] + '\|' +
-board['top-R'])\
-    print('-+-+-')\
+board['top-R'])
+    print('-+-+-')
 []{#calibre_link-1746 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    print(board['mid-L'] + '\|' +
-board['mid-M'] + '\|' + board['mid-R'])\
-    print('-+-+-')\
+board['mid-M'] + '\|' + board['mid-R'])
+    print('-+-+-')
     print(board['low-L'] + '\|' + board['low-M'] + '\|' +
-board['low-R'])\
-[turn = 'X']\
-[for i in range(9):]\
-  [➊] [printBoard(theBoard)]\
+board['low-R'])
+[turn = 'X']
+[for i in range(9):]
+  [➊] [printBoard(theBoard)]
      [print('Turn for ' + turn + '. Move on which
-space?')]\
-  [➋] [move = input()]\
-  [➌] [theBoard[move] = turn]\
-  [➍] [if turn == 'X':]\
- [        turn = 'O']\
- [    else:]\
- [        turn = 'X']\
+space?')]
+  [➋] [move = input()]
+  [➌] [theBoard[move] = turn]
+  [➍] [if turn == 'X':]
+ [        turn = 'O']
+ [    else:]
+ [        turn = 'X']
  printBoard(theBoard)
 
 You can view the execution of this program at
@@ -683,32 +683,32 @@ before moving on to the next turn.
 
 When you run this program, it will look something like this:
 
- \| \|\
--+-+-\
- \| \|\
--+-+-\
- \| \|\
-Turn for X. Move on which space?\
-[mid-M]\
- \| \|\
--+-+-\
- \|X\|  \
--+-+-\
- \| \|\
-\
-[--snip--]\
-\
-O\|O\|X\
--+-+-\
-X\|X\|O\
--+-+-\
-O\| \|X\
-Turn for X. Move on which space?\
-[low-M]\
-O\|O\|X\
--+-+-\
-X\|X\|O\
--+-+-\
+ \| \|
+-+-+-
+ \| \|
+-+-+-
+ \| \|
+Turn for X. Move on which space?
+[mid-M]
+ \| \|
+-+-+-
+ \|X\|  
+-+-+-
+ \| \|
+
+[--snip--]
+
+O\|O\|X
+-+-+-
+X\|X\|O
+-+-+-
+O\| \|X
+Turn for X. Move on which space?
+[low-M]
+O\|O\|X
+-+-+-
+X\|X\|O
+-+-+-
 O\|X\|X
 
 This isn't a complete tic-tac-toe game---for instance, it doesn't ever
@@ -737,23 +737,23 @@ picnic. The [totalBrought()] function can read this data
 structure and calculate the total number of an item being brought by all
 the guests.
 
-allGuests = {'Alice': {'apples': 5, 'pretzels': 12},\
-             'Bob': {'ham sandwiches': 3, 'apples': 2},\
-             'Carol': {'cups': 3, 'apple pies': 1}}\
-\
-def totalBrought(guests, item):\
-    numBrought = 0\
-  [➊] for k, v in guests.items():\
-      [➋] numBrought = numBrought + v.get(item, 0)\
-     return numBrought\
-\
-print('Number of things being brought:')\
+allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
+             'Bob': {'ham sandwiches': 3, 'apples': 2},
+             'Carol': {'cups': 3, 'apple pies': 1}}
+
+def totalBrought(guests, item):
+    numBrought = 0
+  [➊] for k, v in guests.items():
+      [➋] numBrought = numBrought + v.get(item, 0)
+     return numBrought
+
+print('Number of things being brought:')
 print(' - Apples         ' + str(totalBrought(allGuests,
-'apples')))\
-print(' - Cups           ' + str(totalBrought(allGuests, 'cups')))\
-print(' - Cakes          ' + str(totalBrought(allGuests, 'cakes')))\
+'apples')))
+print(' - Cups           ' + str(totalBrought(allGuests, 'cups')))
+print(' - Cakes          ' + str(totalBrought(allGuests, 'cakes')))
 print(' - Ham Sandwiches ' + str(totalBrought(allGuests, 'ham
-sandwiches')))\
+sandwiches')))
 print(' - Apple Pies     ' + str(totalBrought(allGuests, 'apple
 pies')))
 
@@ -770,11 +770,11 @@ returns [0] to be added to [numBrought].
 
 The output of this program looks like this:
 
- Number of things being brought:\
- - Apples 7\
- - Cups 3\
- - Cakes 0\
- - Ham Sandwiches 3\
+ Number of things being brought:
+ - Apples 7
+ - Cups 3
+ - Cakes 0
+ - Ham Sandwiches 3
  - Apple Pies 1
 
 This may seem like such a simple thing to model that you wouldn't need
@@ -835,7 +835,7 @@ spam.values()]?
 [7](#calibre_link-1140)!. What is a
 shortcut for the following code?
 
-if 'color' not in spam:\
+if 'color' not in spam:
     spam['color'] = 'black'
 
 [8](#calibre_link-1141)!. What module and
@@ -878,28 +878,28 @@ torches, 42 gold coins, and so on.
 Write a function named [displayInventory()] that would take
 any possible "inventory" and display it like the following:
 
-Inventory:\
-12 arrow\
-42 gold coin\
-1 rope\
-6 torch\
-1 dagger\
+Inventory:
+12 arrow
+42 gold coin
+1 rope
+6 torch
+1 dagger
 Total number of items: 62
 
 Hint: You can use a [for] loop to loop through all the keys in
 a dictionary.
 
-\# inventory.py\
+\# inventory.py
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1,
-'arrow': 12}\
-\
-def displayInventory(inventory):\
-    print("Inventory:")\
-    item_total = 0\
-    for k, v in inventory.items():\
-        # FILL THIS PART IN\
-    print("Total number of items: " + str(item_total))\
-\
+'arrow': 12}
+
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+    for k, v in inventory.items():
+        # FILL THIS PART IN
+    print("Total number of items: " + str(item_total))
+
 displayInventory(stuff)
 
 #### []***List to Dictionary Function for Fantasy Game Inventory*** !
@@ -919,23 +919,23 @@ return a dictionary that represents the updated inventory. Note that the
 [addedItems] list can contain multiples of the same item. Your
 code could look something like this:
 
-def addToInventory(inventory, addedItems):\
-    # your code goes here\
-\
-inv = {'gold coin': 42, 'rope': 1}\
+def addToInventory(inventory, addedItems):
+    # your code goes here
+
+inv = {'gold coin': 42, 'rope': 1}
 dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin',
-'ruby']\
-inv = addToInventory(inv, dragonLoot)\
+'ruby']
+inv = addToInventory(inv, dragonLoot)
 displayInventory(inv)
 
 The previous program (with your [displayInventory()] function
 from the previous project) would output the following:
 
-Inventory:\
-45 gold coin\
-1 rope\
-1 ruby\
-1 dagger\
-\
+Inventory:
+45 gold coin
+1 rope
+1 ruby
+1 dagger
+
 Total number of items: 48
 

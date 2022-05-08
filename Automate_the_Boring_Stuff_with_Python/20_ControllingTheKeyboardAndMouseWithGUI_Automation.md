@@ -154,14 +154,14 @@ The [pyautogui.size()] function returns a two-integer tuple of
 the screen's width and height in pixels. Enter the following into the
 interactive shell:
 
->>> [import pyautogui]\
+>>> [import pyautogui]
 >>> [wh =] [pyautogui.size()] \# Obtain
-the screen resolution.\
->>> [wh]\
-Size(width=1920, height=1080)\
->>> [wh[0]]\
-1920\
->>> [wh.width]\
+the screen resolution.
+>>> [wh]
+Size(width=1920, height=1080)
+>>> [wh[0]]
+1920
+>>> [wh.width]
 1920
 
 The [pyautogui.size()] function returns [(1920,
@@ -187,11 +187,11 @@ mouse to the destination. If you leave it out, the default is
 [duration] keyword arguments in PyAutoGUI functions are
 optional.) Enter the following into the interactive shell:
 
->>> [import pyautogui]\
->>> [for i in range(10):] \# Move mouse in a square.\
-[\...       pyautogui.moveTo(100, 100, duration=0.25)]\
-[\...       pyautogui.moveTo(200, 100, duration=0.25)]\
-[\...       pyautogui.moveTo(200, 200, duration=0.25)]\
+>>> [import pyautogui]
+>>> [for i in range(10):] \# Move mouse in a square.
+[\...       pyautogui.moveTo(100, 100, duration=0.25)]
+[\...       pyautogui.moveTo(200, 100, duration=0.25)]
+[\...       pyautogui.moveTo(200, 200, duration=0.25)]
 [\...       pyautogui.moveTo(100, 200, duration=0.25)]
 
 This example moves the mouse cursor clockwise in a square pattern among
@@ -207,14 +207,14 @@ mouse in the same square pattern, except it begins the square from
 wherever the mouse happens to be on the screen when the code starts
 running:
 
->>> [import pyautogui]\
->>> [for i in range(10):]\
+>>> [import pyautogui]
+>>> [for i in range(10):]
 [\...       pyautogui.move(100, 0, duration=0.25)   ]\#
-right\
+right
 [\...       pyautogui.move(0, 100, duration=0.25)   ]\#
-down\
+down
 [\...       pyautogui.move(-100, 0, duration=0.25)  ]\#
-left\
+left
 [\...       pyautogui.move(0, -100, duration=0.25)  ]\# up
 
 The [pyautogui.move()] function also takes three arguments:
@@ -232,20 +232,20 @@ positions at the time of the function call. Enter the following into the
 interactive shell, moving the mouse around after each call:
 
 >>> [pyautogui.position()] \# Get current mouse
-position.\
-Point(x=311, y=622)\
+position.
+Point(x=311, y=622)
 []{#calibre_link-844 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}>>> [pyautogui.position()] \# Get
-current mouse position again.\
-Point(x=377, y=481)\
+current mouse position again.
+Point(x=377, y=481)
 >>> [p =] [pyautogui.position()] \# And
-again.\
->>> [p]\
-Point(x=1536, y=637)\
->>> [p[0]] \# The x-coordinate is at index 0.\
-1536\
+again.
+>>> [p]
+Point(x=1536, y=637)
+>>> [p[0]] \# The x-coordinate is at index 0.
+1536
 >>> [p.x] \# The x-coordinate is also in the x
-attribute.\
+attribute.
 1536
 
 Of course, your return values will vary depending on where your mouse
@@ -275,7 +275,7 @@ right-click at (200, 250).
 
 Enter the following into the interactive shell:
 
->>> [import pyautogui]\
+>>> [import pyautogui]
 >>> [pyautogui.click(10, 5)] \# Move mouse to (10, 5)
 and click.
 
@@ -321,17 +321,17 @@ With the mouse cursor over the drawing application's canvas and the
 Pencil or Brush tool selected, enter the following into a new file
 editor window and save it as *spiralDraw.py*:
 
-   import pyautogui, time\
-[?] time.sleep(5)\
-[?] pyautogui.click()    # Click to make the window active.\
-   distance = 300\
-   change = 20\
-   while distance > 0:\
-    [?] pyautogui.drag(distance, 0, duration=0.2)   # Move right.\
-    [?] distance = distance -- change\
-    [?] pyautogui.drag(0, distance, duration=0.2)   # Move down.\
-    [?] pyautogui.drag(-distance, 0, duration=0.2)  # Move left.\
-       distance = distance -- change\
+   import pyautogui, time
+[?] time.sleep(5)
+[?] pyautogui.click()    # Click to make the window active.
+   distance = 300
+   change = 20
+   while distance > 0:
+    [?] pyautogui.drag(distance, 0, duration=0.2)   # Move right.
+    [?] distance = distance -- change
+    [?] pyautogui.drag(0, distance, duration=0.2)   # Move down.
+    [?] pyautogui.drag(-distance, 0, duration=0.2)  # Move left.
+       distance = distance -- change
        pyautogui.drag(0, -distance, duration=0.2)  # Move up.
 
 When you run this program, there will be a five-second delay [?]
@@ -432,7 +432,7 @@ PyAutoGUI. The window for the application looks like [Figure
 
 Enter the following into the interactive shell:
 
->>> import pyautogui\
+>>> import pyautogui
 >>> pyautogui.mouseInfo()
 
 This makes the MouseInfo window appear. This window gives you
@@ -489,7 +489,7 @@ To take screenshots in Python, call the
 [pyautogui.screenshot()] function. Enter the following into
 the interactive shell:
 
->>> [import pyautogui]\
+>>> [import pyautogui]
 >>> [im = pyautogui.screenshot()]
 
 The [im] variable will contain the [Image] object of
@@ -514,10 +514,10 @@ You can obtain the RGB color value of a particular pixel on the screen
 with the [pixel()] function. Enter the following into the
 interactive shell:
 
->>> [import pyautogui]\
->>> [pyautogui.pixel((0, 0))]\
-(176, 176, 175)\
->>> [pyautogui.pixel((50, 200))]\
+>>> [import pyautogui]
+>>> [pyautogui.pixel((0, 0))]
+(176, 176, 175)
+>>> [pyautogui.pixel((50, 200))]
 (130, 135, 144)
 
 Pass [pixel()] a tuple of coordinates, like (0, 0) or (50,
@@ -534,14 +534,14 @@ integers for the x- and y-coordinates, and the third argument is a tuple
 of three integers for the RGB color the screen pixel must match. Enter
 the following into the interactive shell:
 
-   >>> [import pyautogui]\
-[?] >>> [pyautogui.pixel((50, 200))]\
-   (130, 135, 144)\
+   >>> [import pyautogui]
+[?] >>> [pyautogui.pixel((50, 200))]
+   (130, 135, 144)
 [?] >>> [pyautogui.pixelMatchesColor(50, 200, (130, 135,
-144))]\
-   True\
+144))]
+   True
 [?] >>> [pyautogui.pixelMatchesColor(50, 200, (255, 135,
-144))]\
+144))]
    False
 
 After using [pixel()] to get an RGB tuple for the color of a
@@ -570,13 +570,13 @@ taking a screenshot of a small area on your screen; then save the image
 and enter the following into the interactive shell, replacing
 ['submit.png'] with the filename of your screenshot:
 
->>> [import pyautogui]\
->>> [b = pyautogui.locateOnScreen('submit.png')]\
->>> [b]\
-Box(left=643, top=745, width=70, height=29)\
->>> [b[0]]\
-643\
->>> [b.left]\
+>>> [import pyautogui]
+>>> [b = pyautogui.locateOnScreen('submit.png')]
+>>> [b]
+Box(left=643, top=745, width=70, height=29)
+>>> [b[0]]
+643
+>>> [b.left]
 643
 
 The [Box] object is a named tuple that
@@ -615,7 +615,7 @@ the interactive shell example by entering the following (and replacing
 ['submit.png'] with your own image filename):
 
 >>>
-[list(pyautogui.locateAllOnScreen('submit.png'))]\
+[list(pyautogui.locateAllOnScreen('submit.png'))]
 [(643, 745, 70, 29), (1007, 801, 70, 29)]
 
 Each of the four-integer tuples represents an area on the screen. In the
@@ -640,9 +640,9 @@ image filename arguments. Remember [locateOnScreen()] raises
 an exception if it can't find the image on the screen, so you should
 call it from inside a [try] statement:
 
-try:\
-    location = pyautogui.locateOnScreen('submit.png')\
-except:\
+try:
+    location = pyautogui.locateOnScreen('submit.png')
+except:
     print('Image could not be found.')
 
 Without the [try] and [except] statements, the
@@ -716,24 +716,24 @@ To get the window's position, size, and title information from the
 [window] object, for example, enter the following into the
 interactive shell:
 
->>> [import pyautogui]\
->>> [fw = pyautogui.getActiveWindow()]\
->>> [fw]\
-Win32Window(hWnd=2034368)\
->>> [str(fw)]\
+>>> [import pyautogui]
+>>> [fw = pyautogui.getActiveWindow()]
+>>> [fw]
+Win32Window(hWnd=2034368)
+>>> [str(fw)]
 '<Win32Window left="500", top="300", width="2070",
-height="1208", title="Mu 1.0.1 -- test1.py">'\
->>> [fw.title]\
-'Mu 1.0.1 -- test1.py'\
->>> [fw.size]\
-(2070, 1208)\
->>> [fw.left, fw.top, fw.right, fw.bottom]\
-(500, 300, 2070, 1208)\
->>> [fw.topleft]\
-(256, 144)\
+height="1208", title="Mu 1.0.1 -- test1.py">'
+>>> [fw.title]
+'Mu 1.0.1 -- test1.py'
+>>> [fw.size]
+(2070, 1208)
+>>> [fw.left, fw.top, fw.right, fw.bottom]
+(500, 300, 2070, 1208)
+>>> [fw.topleft]
+(256, 144)
 []{#calibre_link-981 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> [fw.area]\
-2500560\
+ops}type="pagebreak"}>>> [fw.area]
+2500560
 >>> [pyautogui.click(fw.left + 10, fw.top + 20)]
 
 You can now use these attributes to calculate precise coordinates within
@@ -781,15 +781,15 @@ Windows attributes can do more than just tell you the size and position
 of the window. You can also set their values in order to resize or move
 the window. For example, enter the following into the interactive shell:
 
-   >>> [import pyautogui]\
-   >>> [fw = pyautogui.getActiveWindow()]\
+   >>> [import pyautogui]
+   >>> [fw = pyautogui.getActiveWindow()]
 [?] >>> [fw.width] \# Gets the current width of
-the window.\
-   1669\
+the window.
+   1669
 [?] >>> [fw.topleft] \# Gets the current position
-of the window.\
-   (174, 153)\
-[?] >>> [fw.width = 1000] \# Resizes the width.\
+of the window.
+   (174, 153)
+[?] >>> [fw.width = 1000] \# Resizes the width.
 [?] >>> [fw.topleft = (800, 400)] \# Moves the
 window.
 
@@ -811,27 +811,27 @@ the [Window] object attributes to move and resize it*
 You can also find out and change the window's minimized, maximized, and
 activated states. Try entering the following into the interactive shell:
 
-   >>> [import pyautogui]\
-   >>> [fw = pyautogui.getActiveWindow()]\
+   >>> [import pyautogui]
+   >>> [fw = pyautogui.getActiveWindow()]
 [?] >>> [fw.isMaximized] \# Returns True if
-window is maximized.\
-   False\
+window is maximized.
+   False
 [?] >>> [fw.isMinimized] \# Returns True if
-window is minimized.\
+window is minimized.
    []{#calibre_link-775 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}False\
+ops}type="pagebreak"}False
 [?] >>> [fw.isActive] \# Returns True if window
-is the active window.\
-   True\
-[?] >>> [fw.maximize()] \# Maximizes the window.\
-   >>> [fw.isMaximized]\
-   True\
+is the active window.
+   True
+[?] >>> [fw.maximize()] \# Maximizes the window.
+   >>> [fw.isMaximized]
+   True
 [?] >>> [fw.restore()] \# Undoes a
-minimize/maximize action.\
-[?] >>> [fw.minimize()] \# Minimizes the window.\
-   >>> [import time]\
-   >>> \# Wait 5 seconds while you activate a different window:\
-[?] >>> [time.sleep(5); fw.activate()]\
+minimize/maximize action.
+[?] >>> [fw.minimize()] \# Minimizes the window.
+   >>> [import time]
+   >>> \# Wait 5 seconds while you activate a different window:
+[?] >>> [time.sleep(5); fw.activate()]
 [?] >>> [fw.close()] \# This will close the
 window you're typing in.
 
@@ -1005,9 +1005,9 @@ releases the C and [CTRL] keys. To do this with PyAutoGUI's
 [keyDown()] and [keyUp()] functions, you would have
 to enter the following:
 
-pyautogui.keyDown('ctrl')\
-pyautogui.keyDown('c')\
-pyautogui.keyUp('c')\
+pyautogui.keyDown('ctrl')
+pyautogui.keyDown('c')
+pyautogui.keyUp('c')
 pyautogui.keyUp('ctrl')
 
 This is rather complicated. Instead, use the
@@ -1069,14 +1069,14 @@ user can set up the window the script will click on. PyAutoGUI has a
 give the user a visual indication that the script will continue soon.
 Enter the following into the interactive shell:
 
->>> [import pyautogui]\
+>>> [import pyautogui]
 >>> [pyautogui.sleep(3)] \# Pauses the program for 3
-seconds.\
+seconds.
 >>> [pyautogui.countdown(10)] \# Counts down over 10
-seconds.\
-10 9 8 7 6 5 4 3 2 1\
+seconds.
+10 9 8 7 6 5 4 3 2 1
 >>> [print('Starting in ', end='');
-pyautogui.countdown(3)]\
+pyautogui.countdown(3)]
 Starting in 3 2 1
 
 These tips can help make your GUI automation scripts easier to use and
@@ -1275,29 +1275,29 @@ Load the example form you downloaded ([Figure
 
 Make your source code look like the following:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
-import pyautogui, time\
-\
-\# TODO: Give the user a chance to kill the script.\
-\
-\# TODO: Wait until the form page has loaded.\
-\
-\# TODO: Fill out the Name Field.\
-\
-\# TODO: Fill out the Greatest Fear(s) field.\
-\
-\# TODO: Fill out the Source of Wizard Powers field.\
-\
-\# TODO: Fill out the RoboCop field.\
-\
-\# TODO: Fill out the Additional Comments field.\
-\
-\# TODO: Click Submit.\
-\
-\# TODO: Wait until form page has loaded.\
-\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+import pyautogui, time
+
+\# TODO: Give the user a chance to kill the script.
+
+\# TODO: Wait until the form page has loaded.
+
+\# TODO: Fill out the Name Field.
+
+\# TODO: Fill out the Greatest Fear(s) field.
+
+\# TODO: Fill out the Source of Wizard Powers field.
+
+\# TODO: Fill out the RoboCop field.
+
+\# TODO: Fill out the Additional Comments field.
+
+\# TODO: Click Submit.
+
+\# TODO: Wait until form page has loaded.
+
 \# TODO: Click the Submit another response link.
 
 Now you need the data you actually want to enter into this form. In the
@@ -1306,31 +1306,31 @@ or a website, and it would require additional code to load into the
 program. But for this project, you'll just hardcode all this data in a
 variable. Add the following to your program:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
---[snip]--\
-\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+--[snip]--
+
 [formData = [{'name': 'Alice', 'fear': 'eavesdroppers',
-'source': 'wand',]\
+'source': 'wand',]
 [            'robocop': 4, 'comments': 'Tell Bob I said
-hi.'},]\
+hi.'},]
 [            {'name': 'Bob', 'fear': 'bees', 'source':
-'amulet', 'robocop': 4,]\
-[            'comments': 'n/a'},]\
+'amulet', 'robocop': 4,]
+[            'comments': 'n/a'},]
           [  {'name': 'Carol', 'fear': 'puppets', 'source':
-'crystal ball',]\
+'crystal ball',]
 [            'robocop': 1, 'comments': 'Please take the puppets out
-of the]\
-[            break room.'},]\
+of the]
+[            break room.'},]
 []{#calibre_link-1054 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[            {'name': 'Alex Murphy', 'fear':
-'ED-209', 'source': 'money',]\
+'ED-209', 'source': 'money',]
 [            'robocop': 5, 'comments': 'Protect the innocent. Serve
-the public]\
-[            trust. Uphold the law.'},]\
-[           ]]\
-\
+the public]
+[            trust. Uphold the law.'},]
+[           ]]
+
 --[snip]--
 
 The [formData] list contains four dictionaries for four
@@ -1341,7 +1341,7 @@ call. Also, remind the user to click on the browser to make it the
 active window. Add the following to your program after the
 [formData] assignment statement:
 
-pyautogui.PAUSE = 0.5\
+pyautogui.PAUSE = 0.5
 print('Ensure that the browser window is active and the form is
 loaded!')
 
@@ -1353,17 +1353,17 @@ PyAutoGUI functions that will virtually type in the text fields.
 
 Add the following code to your program:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
---[snip]--\
-\
-[for person in formData:]\
-[    # Give the user a chance to kill the script.]\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+--[snip]--
+
+[for person in formData:]
+[    # Give the user a chance to kill the script.]
 [    print('>>> 5-SECOND PAUSE TO LET USER PRESS CTRL-C
-<<<')]\
-[  ][?] [time.sleep(5)]\
-\
+<<<')]
+[  ][?] [time.sleep(5)]
+
 --[snip]--
 
 As a small safety feature, the script has a five-second pause [?]
@@ -1373,25 +1373,25 @@ cursor to the upper-left corner of the screen to raise the
 case it's doing something unexpected. After the code that waits to give
 the page time to load, add the following:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
---[snip]--\
-\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+--[snip]--
+
 [  ][?] [print('Entering %s info\...' %
-(person['name']))]\
+(person['name']))]
 [  ][?] [pyautogui.write(['\\t',
-'\\t'])]\
-\
-[     # Fill out the Name field.]\
+'\\t'])]
+
+[     # Fill out the Name field.]
 []{#calibre_link-1879 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[  ][?]
-[pyautogui.write(person['name'] + '\\t')]\
-\
-[     # Fill out the Greatest Fear(s) field.]\
+[pyautogui.write(person['name'] + '\\t')]
+
+[     # Fill out the Greatest Fear(s) field.]
 [  ][?] [pyautogui.write(person['fear'] +
-'\\t')]\
-\
+'\\t')]
+
 --[snip]--
 
 We add an occasional [print()] call to display the program's
@@ -1419,44 +1419,44 @@ the keyboard arrow keys to make a selection instead.
 
 Add the following to your program:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
---[snip]--\
-\
-     [\# Fill out the Source of Wizard Powers field.]\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+--[snip]--
+
+     [\# Fill out the Source of Wizard Powers field.]
 [  ][?] [if person['source'] ==
-'wand':]\
+'wand':]
 [      ][?] [pyautogui.write(['down',
-'\\t']] [, 0.5)]\
-     [elif person['source'] == 'amulet':]\
+'\\t']] [, 0.5)]
+     [elif person['source'] == 'amulet':]
 [         pyautogui.write(['down', 'down', '\\t']]
-[, 0.5)]\
-[     elif person['source'] == 'crystal ball':]\
+[, 0.5)]
+[     elif person['source'] == 'crystal ball':]
 [         pyautogui.write(['down', 'down', 'down',
-'\\t']] [, 0.5)]\
-[     elif person['source'] == 'money':]\
+'\\t']] [, 0.5)]
+[     elif person['source'] == 'money':]
 [         pyautogui.write(['down', 'down', 'down', 'down',
-'\\t']] [, 0.5)]\
-\
-[     # Fill out the RoboCop field.]\
+'\\t']] [, 0.5)]
+
+[     # Fill out the RoboCop field.]
 [  ][?] [if person['robocop'] ==
-1:]\
+1:]
 [      ][?] [pyautogui.write([' ',
-'\\t']] [, 0.5)]\
-[     elif person['robocop'] == 2:]\
+'\\t']] [, 0.5)]
+[     elif person['robocop'] == 2:]
 [         pyautogui.write(['right', '\\t']] [,
-0.5)]\
-[     elif person['robocop'] == 3:]\
+0.5)]
+[     elif person['robocop'] == 3:]
 [         pyautogui.write(['right', 'right',
-'\\t']] [, 0.5)]\
-[     elif person['robocop'] == 4:]\
+'\\t']] [, 0.5)]
+[     elif person['robocop'] == 4:]
 [         pyautogui.write(['right', 'right', 'right',
-'\\t']] [, 0.5)]\
-[     elif person['robocop'] == 5:]\
+'\\t']] [, 0.5)]
+[     elif person['robocop'] == 5:]
 [         pyautogui.write(['right', 'right', 'right', 'right',
-'\\t']] [, 0.5)]\
-\
+'\\t']] [, 0.5)]
+
 --[snip]--
 
 Once the drop-down menu has focus (remember that you wrote code to
@@ -1503,23 +1503,23 @@ information into the form.
 
 Complete your program by adding the following code:
 
-#! python3\
-\# formFiller.py - Automatically fills in the form.\
-\
---[snip]--\
-\
-    [\# Fill out the Additional Comments field.]\
-[    pyautogui.write(person['comments'] + '\\t')]\
-\
-[    # "Click" Submit button by pressing Enter.]\
-[    time.sleep(0.5) \# Wait for the button to activate.]\
-[    pyautogui.press('enter')]\
-\
-[    # Wait until form page has loaded.]\
-[    print('Submitted form.')]\
-[    time.sleep(5)]\
-\
-[    # Click the Submit another response link.]\
+#! python3
+\# formFiller.py - Automatically fills in the form.
+
+--[snip]--
+
+    [\# Fill out the Additional Comments field.]
+[    pyautogui.write(person['comments'] + '\\t')]
+
+[    # "Click" Submit button by pressing Enter.]
+[    time.sleep(0.5) \# Wait for the button to activate.]
+[    pyautogui.press('enter')]
+
+[    # Wait until form page has loaded.]
+[    print('Submitted form.')]
+[    time.sleep(5)]
+
+[    # Click the Submit another response link.]
 [    pyautogui.click(submitAnotherLink[0],
 submitAnotherLink[1])]
 
@@ -1565,16 +1565,16 @@ The functions won't return until the user has clicked a button on them,
 so they can also be used to introduce pauses into your PyAutoGUI
 programs. Enter the following into the interactive shell:
 
->>> [import pyautogui]\
+>>> [import pyautogui]
 >>> [pyautogui.alert('This is a message.',
-'Important')]\
-'OK'\
+'Important')]
+'OK'
 >>> [pyautogui.confirm('Do you want to continue?')]
-\# Click Cancel\
-'Cancel'\
->>> [pyautogui.prompt("What is your cat's name?")]\
-'Zophie'\
->>> [pyautogui.password('What is the password?')]\
+\# Click Cancel
+'Cancel'
+>>> [pyautogui.prompt("What is your cat's name?")]
+'Zophie'
+>>> [pyautogui.password('What is the password?')]
 'hunter2'
 
 The pop-up message boxes that these lines produce look like [Figure

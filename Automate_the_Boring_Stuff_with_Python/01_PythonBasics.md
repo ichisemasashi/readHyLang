@@ -39,8 +39,8 @@ see a [>>>] prompt in the interactive shell.
 Enter [2 + 2] at the prompt to have Python do some simple
 math. The Mu window should now look like this:
 
->>> [2 + 2]\
-4\
+>>> [2 + 2]
+4
 >>>
 
 In Python, [2 + 2] is called an *expression*, which is the
@@ -55,7 +55,7 @@ value, [4]. A single value with no operators is also
 considered an expression, though it evaluates only to itself, as shown
 here:
 
->>> [2]\
+>>> [2]
 2
 
 
@@ -102,23 +102,23 @@ operators and values doesn't matter for Python (except for the
 indentation at the beginning of the line), but a single space is
 convention. Enter the following expressions into the interactive shell:
 
->>> [2 + 3 \* 6]\
-20\
->>> [(2 + 3) \* 6]\
-30\
->>> [48565878 \* 578453]\
-28093077826734\
->>> [2 \*\* 8]\
-256\
->>> [23 / 7]\
-3.2857142857142856\
->>> [23 // 7]\
-3\
->>> [23 % 7]\
-2\
->>> [2      +           2]\
-4\
->>> [(5 - 1) \* ((7 + 1) / (3 - 1))]\
+>>> [2 + 3 \* 6]
+20
+>>> [(2 + 3) \* 6]
+30
+>>> [48565878 \* 578453]
+28093077826734
+>>> [2 \*\* 8]
+256
+>>> [23 / 7]
+3.2857142857142856
+>>> [23 // 7]
+3
+>>> [23 % 7]
+2
+>>> [2      +           2]
+4
+>>> [(5 - 1) \* ((7 + 1) / (3 - 1))]
 16.0
 
 []{#calibre_link-1083 {http:="" www.idpf.org="" 2007=""
@@ -144,15 +144,15 @@ rules of English. Similarly, if you enter a bad Python instruction,
 Python won't be able to understand it and will display a
 [SyntaxError] error message, as shown here:
 
->>> [5 +]\
-  File "<stdin>", line 1\
-    5 +\
-      \^\
-SyntaxError: invalid syntax\
->>> [42 + 5 + \* 2]\
-  File "<stdin>", line 1\
-    42 + 5 + \* 2\
-             \^\
+>>> [5 +]
+  File "<stdin>", line 1
+    5 +
+      \^
+SyntaxError: invalid syntax
+>>> [42 + 5 + \* 2]
+  File "<stdin>", line 1
+    42 + 5 + \* 2
+             \^
 SyntaxError: invalid syntax
 
 You can always test to see whether an instruction works by entering it
@@ -196,7 +196,7 @@ If you ever see the error message [SyntaxError: EOL while scanning
 string literal], you probably forgot the final single quote
 character at the end of the string, such as in this example:
 
->>> ['Hello, world!]\
+>>> ['Hello, world!]
 SyntaxError: EOL while scanning string literal
 
 ### **String Concatenation and Replication** 
@@ -208,7 +208,7 @@ when it operates on two integers or floating-point values. However, when
 *string concatenation* operator. Enter the following into the
 interactive shell:
 
->>> ['Alice' + 'Bob']\
+>>> ['Alice' + 'Bob']
 'AliceBob'
 
 []{#calibre_link-1039 {http:="" www.idpf.org="" 2007=""
@@ -218,10 +218,10 @@ try to use the [+] operator on a string and an integer value,
 Python will not know how to handle this, and it will display an error
 message.
 
->>> ['Alice' + 42]\
-Traceback (most recent call last):\
-  File "<pyshell#0>", line 1, in <module>\
-    'Alice' + 42\
+>>> ['Alice' + 42]
+Traceback (most recent call last):
+  File "<pyshell#0>", line 1, in <module>
+    'Alice' + 42
 TypeError: can only concatenate str (not "int") to str
 
 The error message [can only concatenate str (not "int") to
@@ -240,7 +240,7 @@ and one integer value, it becomes the *string replication* operator.
 Enter a string multiplied by a number into the interactive shell to see
 this in action.
 
->>> ['Alice' \* 5]\
+>>> ['Alice' \* 5]
 'AliceAliceAliceAliceAlice'
 
 The expression evaluates down to a single string value that repeats the
@@ -253,15 +253,15 @@ The [\*] operator can be used with only two numeric values
 string replication). Otherwise, Python will just display an error
 message, like the following:
 
->>> ['Alice' \* 'Bob']\
-Traceback (most recent call last):\
-  File "<pyshell#32>", line 1, in <module>\
-    'Alice' \* 'Bob'\
-TypeError: can't multiply sequence by non-int of type 'str'\
->>> ['Alice' \* 5.0]\
-Traceback (most recent call last):\
-  File "<pyshell#33>", line 1, in <module>\
-    'Alice' \* 5.0\
+>>> ['Alice' \* 'Bob']
+Traceback (most recent call last):
+  File "<pyshell#32>", line 1, in <module>
+    'Alice' \* 'Bob'
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> ['Alice' \* 5.0]
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    'Alice' \* 5.0
 TypeError: can't multiply sequence by non-int of type 'float'
 
 It makes sense that Python wouldn't understand these expressions: you
@@ -297,16 +297,16 @@ it."*
 
 For example, enter the following into the interactive shell:
 
-[➊] >>> [spam = 40]\
-   >>> [spam]\
-   40\
-   >>> [eggs = 2]\
-[➋] >>> [spam + eggs]\
-   42\
-   >>> [spam + eggs + spam]\
-   82\
-[➌] >>> [spam = spam + 2]\
-   >>> [spam]\
+[➊] >>> [spam = 40]
+   >>> [spam]
+   40
+   >>> [eggs = 2]
+[➋] >>> [spam + eggs]
+   42
+   >>> [spam + eggs + spam]
+   82
+[➌] >>> [spam = spam + 2]
+   >>> [spam]
    42
 
 []{#calibre_link-1044 {http:="" www.idpf.org="" 2007=""
@@ -319,11 +319,11 @@ why [spam] evaluated to [42] instead of
 the variable. Enter the following code into the interactive shell to try
 overwriting a string:
 
->>> [spam = 'Hello']\
->>> [spam]\
-'Hello'\
->>> [spam = 'Goodbye']\
->>> [spam]\
+>>> [spam = 'Hello']
+>>> [spam]
+'Hello'
+>>> [spam = 'Goodbye']
+>>> [spam]
 'Goodbye'
 
 Just like the box in [Figure 1-2](#calibre_link-1655), the
@@ -412,16 +412,16 @@ program. Here's how you can tell the difference between the two:
 Now it's time to create your first program! When the file editor window
 opens, enter the following into it:
 
-[➊] \# This program says hello and asks for my name.\
-\
-[➋] print('Hello, world!')\
-   print('What is your name?')    # ask for their name\
-[➌] myName = input()\
-[➍] print('It is good to meet you, ' + myName)\
-[➎] print('The length of your name is:')\
-   print(len(myName))\
-[➏] print('What is your age?')    # ask for their age\
-   myAge = input()\
+[➊] \# This program says hello and asks for my name.
+
+[➋] print('Hello, world!')
+   print('What is your name?')    # ask for their name
+[➌] myName = input()
+[➍] print('It is good to meet you, ' + myName)
+[➎] print('The length of your name is:')
+   print(len(myName))
+[➏] print('What is your age?')    # ask for their age
+   myAge = input()
    print('You will be ' + str(int(myAge) + 1) + ' in a year.')
 
 Once you've entered your source code, save it so that you won't have to
@@ -441,21 +441,21 @@ window. Enter your name when your program asks for it. The program's
 output in the interactive shell should look something like this:
 
 Python 3.7.0b4 (v3.7.0b4:eb96c37699, May  2 2018, 19:02:22) [MSC v.1913
-64 bit\
-(AMD64)] on win32\
-Type "copyright", "credits" or "license()" for more information.\
+64 bit
+(AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
 >>> ================================ RESTART
-================================\
->>>\
-Hello, world!\
-What is your name?\
-[Al]\
-It is good to meet you, Al\
-The length of your name is:\
-2\
-What is your age?\
-[4]\
-You will be 5 in a year.\
+================================
+>>>
+Hello, world!
+What is your name?
+[Al]
+It is good to meet you, Al
+The length of your name is:
+2
+What is your age?
+[4]
+You will be 5 in a year.
 >>>
 
 []{#calibre_link-762 {http:="" www.idpf.org="" 2007=""
@@ -509,7 +509,7 @@ easier to read, like paragraphs in a book.
 The [print()] function displays the string value inside its
 parentheses on the screen.
 
-[➋] print('Hello, world!')\
+[➋] print('Hello, world!')
    print('What is your name?') \# ask for their name
 
 The line [print('Hello, world!')] means "Print out the text
@@ -574,19 +574,19 @@ You can pass the [len()] function a string value (or a
 variable containing a string), and the function evaluates to the integer
 value of the number of characters in that string.
 
-[➎] print('The length of your name is:')\
+[➎] print('The length of your name is:')
    print(len(myName))
 
 []{#calibre_link-973 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Enter the following into the interactive shell to
 try this:
 
->>> [len('hello')]\
-5\
+>>> [len('hello')]
+5
 >>> [len('My very energetic monster just scarfed
-nachos.')]\
-46\
->>> [len('')]\
+nachos.')]
+46
+>>> [len('')]
 0
 
 Just like those examples, [len(myName)] evaluates to an
@@ -595,10 +595,10 @@ screen. The [print()] function allows you to pass it either
 integer values or string values, but notice the error that shows up when
 you type the following into the interactive shell:
 
- >>> [print('I am ' + 29 + ' years old.')]\
-Traceback (most recent call last):\
-  File "<pyshell#6>", line 1, in <module>\
-    print('I am ' + 29 + ' years old.')\
+ >>> [print('I am ' + 29 + ' years old.')]
+Traceback (most recent call last):
+  File "<pyshell#6>", line 1, in <module>
+    print('I am ' + 29 + ' years old.')
 TypeError: can only concatenate str (not "int") to str
 
 The [print()] function isn't causing that error, but rather
@@ -606,10 +606,10 @@ it's the expression you tried to pass to [print()]. You get
 the same error message if you type the expression into the interactive
 shell on its own.
 
->>> ['I am ' + 29 + ' years old.']\
-Traceback (most recent call last):\
-  File "<pyshell#7>", line 1, in <module>\
-    'I am ' + 29 + ' years old.'\
+>>> ['I am ' + 29 + ' years old.']
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    'I am ' + 29 + ' years old.'
 TypeError: can only concatenate str (not "int") to str
 
 Python gives an error because the [+] operator can only be
@@ -626,9 +626,9 @@ string to pass to [print()], you'll need to get the value
 [str()] function can be passed an integer value and will
 evaluate to a string value version of the integer, as follows:
 
->>> [str(29)]\
-'29'\
->>> [print('I am ' + str(29) + ' years old.')]\
+>>> [str(29)]
+'29'
+>>> [print('I am ' + str(29) + ' years old.')]
 I am 29 years old.
 
 []{#calibre_link-1707 {http:="" www.idpf.org="" 2007=""
@@ -644,21 +644,21 @@ functions will evaluate to the string, integer, and floating-point forms
 of the value you pass, respectively. Try converting some values in the
 interactive shell with these functions and watch what happens.
 
->>> [str(0)]\
-'0'\
->>> [str(-3.14)]\
-'-3.14'\
->>> [int('42')]\
-42\
->>> [int('-99')]\
--99\
->>> [int(1.25)]\
-1\
->>> [int(1.99)]\
-1\
->>> [float('3.14')]\
-3.14\
->>> [float(10)]\
+>>> [str(0)]
+'0'
+>>> [str(-3.14)]
+'-3.14'
+>>> [int('42')]
+42
+>>> [int('-99')]
+-99
+>>> [int(1.25)]
+1
+>>> [int(1.99)]
+1
+>>> [float('3.14')]
+3.14
+>>> [float(10)]
 10.0
 
 The previous examples call the [str()], [int()], and
@@ -674,9 +674,9 @@ function always returns a string, even if the user enters a number.
 Enter [spam = input()] into the interactive shell and enter
 [101] when it waits for your text.
 
->>> [spam = input()]\
-[101]\
->>> [spam]\
+>>> [spam = input()]
+[101]
+>>> [spam]
 '101'
 
 The value stored inside [spam] isn't the integer
@@ -685,45 +685,45 @@ math using the value in [spam], use the [int()]
 function to get the integer form of [spam] and then store this
 as the new value in [spam].
 
->>> [spam = int(spam)]\
->>> [spam]\
+>>> [spam = int(spam)]
+>>> [spam]
 101
 
 Now you should be able to treat the [spam] variable as an
 integer instead of a string.
 
 []{#calibre_link-974 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> [spam \* 10 / 5]\
+ops}type="pagebreak"}>>> [spam \* 10 / 5]
 202.0
 
 Note that if you pass a value to [int()] that it cannot
 evaluate as an integer, Python will display an error message.
 
->>> [int('99.99')]\
-Traceback (most recent call last):\
-  File "<pyshell#18>", line 1, in <module>\
-    int('99.99')\
-ValueError: invalid literal for int() with base 10: '99.99'\
->>> [int('twelve')]\
-Traceback (most recent call last):\
-  File "<pyshell#19>", line 1, in <module>\
-    int('twelve')\
+>>> [int('99.99')]
+Traceback (most recent call last):
+  File "<pyshell#18>", line 1, in <module>
+    int('99.99')
+ValueError: invalid literal for int() with base 10: '99.99'
+>>> [int('twelve')]
+Traceback (most recent call last):
+  File "<pyshell#19>", line 1, in <module>
+    int('twelve')
 ValueError: invalid literal for int() with base 10: 'twelve'
 
 The [int()] function is also useful if you need to round a
 floating-point number down.
 
->>> [int(7.7)]\
-7\
->>> [int(7.7) + 1]\
+>>> [int(7.7)]
+7
+>>> [int(7.7) + 1]
 8
 
 You used the [int()] and [str()] functions in the
 last three lines of your program to get a value of the appropriate data
 type for the code.
 
-[➏] print('What is your age?') \# ask for their age\
-   myAge = input()\
+[➏] print('What is your age?') \# ask for their age
+   myAge = input()
    print('You will be ' + str(int(myAge) + 1) + ' in a year.')
 
 
@@ -733,11 +733,11 @@ Although the string value of a number is considered a completely
 different value from the integer or floating-point version, an integer
 can be equal to a floating point.
 
->>> [42 == '42']\
-False\
->>> [42 == 42.0]\
-True\
->>> [42.0 == 0042.000]\
+>>> [42 == '42']
+False
+>>> [42 == 42.0]
+True
+>>> [42.0 == 0042.000]
 True
 
 Python makes this distinction because strings are text, while integers
@@ -808,18 +808,18 @@ intelligent decisions.
 [1](#calibre_link-1657). Which of the
 following are operators, and which are values?
 
-\*\
-'hello'\
--88.8\
--\
-/\
-+\
+\*
+'hello'
+-88.8
+-
+/
++
 5
 
 [2](#calibre_link-1658). Which of the
 following is a variable, and which is a string?
 
-spam\
+spam
 'spam'
 
 [3](#calibre_link-1659). Name three data
@@ -835,13 +835,13 @@ the difference between an expression and a statement?
 [6](#calibre_link-1662). What does the
 variable [bacon] contain after the following code runs?
 
-bacon = 20\
+bacon = 20
 bacon + 1
 
 [7](#calibre_link-1663). What should the
 following two expressions evaluate to?
 
-'spam' + 'spamspam'\
+'spam' + 'spamspam'
 'spam' \* 3
 
 [8](#calibre_link-1664). Why is
