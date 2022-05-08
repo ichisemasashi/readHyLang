@@ -81,36 +81,36 @@ Hy Languageの公式ロゴはタコです。
 
 普段、LeanPubの本の表紙は自分で撮った写真を使っています。私は13歳からSCUBAダイビングをしていますが、悲しいかな、自分で撮ったタコの写真は持っていません。しかし、Wikimediaで気に入ったパブリックドメインの写真（この本の表紙です）を見つけました。**表紙クレジット**。ウィキメディア・ユーザーのPseudopanaxが、この表紙画像をパブリックドメインに置いてくれたことに感謝します。
 
-### A Request from the Author
+### 著者からのお願い
 
-I spent time writing this book to help you, dear reader. I release this book under the Creative Commons "share and share alike, no modifications, no commercial reuse" license and set the minimum purchase price to \$5.00 in order to reach the most readers. Under this license you can share a PDF version of this book with your friends and coworkers. If you found this book on the web (or it was given to you) and if it provides value to you then please consider doing one of the following to support my future writing efforts and also to support future updates to this book:
+本書は、読者の皆様のお役に立ちたいと思い、時間をかけて書き上げました。私は、多くの読者に読んでいただくために、本書をクリエイティブ・コモンズの「共有・共用、改変禁止、商用利用禁止」ライセンスで公開し、最低購入価格を5ドルに設定しました。このライセンスのもとでは、本書のPDF版を友人や同僚と共有することができます。もし、あなたがこの本をウェブで見つけて（あるいは、もらって）、それがあなたにとって価値あるものであれば、私の今後の執筆活動や、この本の今後の更新をサポートするために、以下のいずれかを行うことを検討してください。
 
--   Purchase a copy of this book or any other of my leanpub books at <https://leanpub.com/u/markwatson>
--   [Hire me as a consultant](https://markwatson.com/)
+-   本書やその他のリーンパブブックを購入する場合は、<https://leanpub.com/u/markwatson>までご連絡ください。
+-   [コンサルタントとして雇用する](https://markwatson.com/)
 
-I enjoy writing and your support helps me write new editions and updates for my books and to develop new book projects. Thank you!
+私は書くことを楽しんでおり、皆様のご支援は、私の本の新しい版や更新を書いたり、新しい本のプロジェクトを開発するのに役立っています。ありがとうございました。
 
-### Acknowledgements
+### 謝辞
 
-I thank my wife Carol for editing this manuscript, finding typos, and suggesting improvements.
+この原稿を編集し、誤字脱字を見つけ、改善点を提案してくれた妻キャロルに感謝する。
 
-I would like to thank Pascal (Reddit user chuchana) for corrections and suggestions. I would like to thank Carlos Ungil for catching a typo and reporting it. I would like to thank Jud Taylor for finding several typo errors.
+修正と提案をいただいたパスカル（Redditユーザー chuchana）に感謝したい。誤字を発見し報告してくれたCarlos Ungilに感謝したい。いくつかの誤字を発見してくれたJud Taylorに感謝したい。
 
-## Introduction to the Hy Language
+## Hy言語入門
 
-The [Hy programming language](http://docs.hylang.org/en/stable/) is a Lisp language that inter-operates smoothly with Python. We start with a few interactive examples that I encourage you to experiment with as you read. Then we will look at Hy data types and commonly used built-in functions that are used in the remainder of this book.
+[Hyプログラミング言語](http://docs.hylang.org/en/stable/)は、Pythonとスムーズに相互運用できるLisp言語です。まず、いくつかの対話的な例から始めますので、読みながら実験することをお勧めします。その後、本書の残りの部分で使用されるHyデータ型とよく使われる組み込み関数について見ていきます。
 
-I assume that you know at least a little Python and more importantly the Python ecosystem and general tools like **pip**.
+私は、あなたが少なくとも少しのPythonと、さらに重要なPythonエコシステムと**pip**のような一般的なツールを知っていると仮定しています。
 
-Please start by installing Hy in your current Python environment:
+あなたの現在のPython環境にHyをインストールすることから始めてください。
 
 
     pip install git+https://github.com/hylang/hy.git
 
 
-### We Will Often Use the Contributed **let** Macro in Book Example Code
+### 書籍のサンプルコードでは、寄稿された**let**マクロをしばしば使用します。
 
-In Scheme, Clojure, and Common Lisp languages the **let** special form is used to define blocks of code with local variables and functions. I will require (or import) the contributed **let** macro, that substitutes for a built-in special form in most examples in this book, but I might not include the **require** in short code listings. Always assume that the following lines start each example:
+Scheme、Clojure、Common Lispの各言語では、ローカル変数や関数を含むコードブロックの定義に **let** という特殊な形式が使われます。この本のほとんどの例では、組み込みの特別な形式を代替する寄稿された**let**マクロを要求(またはインポート)しますが、短いコードのリストでは**require**を含めないかもしれません。各例題の冒頭には必ず次のような行があると仮定してください。
 
 
     1 #!/usr/bin/env hy
@@ -118,7 +118,7 @@ In Scheme, Clojure, and Common Lisp languages the **let** special form is used t
     3 (require [hy.contrib.walk [let]])
 
 
-Line 1 is similar to how we make Python scripts into runnable programs.  Here we run **hy** instead of **python**. Line 3 imports the **let** macro. We will occasionally use **let** for code blocks with local variable and function definitions and also for using closures (I will cover closures at the end of this chapter):
+1行目は、Pythonスクリプトを実行可能なプログラムにする方法と同様です。 ここでは、**python**の代わりに**hy**を実行します。3行目は**let**マクロをインポートしています。ローカル変数や関数を定義したコードブロックやクロージャを使用する際に **let** を使用することがあります（クロージャについては本章の最後で説明します）。
 
 
      1 #!/usr/bin/env hy
@@ -134,7 +134,7 @@ Line 1 is similar to how we make Python scripts into runnable programs.  Here we
     11   (print x))
 
 
-The output is:
+出力は以下となります。
 
 
     1
@@ -143,13 +143,13 @@ The output is:
     1
 
 
-Notice that setting a new value for **x** in the inner **let** expression does not change the value bound to the variable **x** in the outer **let** expression.
+内側の**let**式で**x**に新しい値を設定しても、外側の**let**式で変数**x**に束縛された値は変更されないことに注意してください。
 
-### Using Python Libraries
+### Pythonライブラリの利用
 
-Using Python libraries like TensorFlow, Keras, BeautifulSoup, etc. are the reason I use the Hy language. Importing Python code and libraries and calling out to Python is simple and here we look at sufficient examples so that you will understand example code that we will look at later.
+TensorFlow、Keras、BeautifulSoupなどのPythonのライブラリを使うことが、私がHy言語を使う理由です。PythonのコードやライブラリをインポートしてPythonに呼び出すのは簡単で、ここでは十分な例を見て、後で見るサンプルコードを理解するようにします。
 
-For example, in the chapter **Responsible Web Scraping** we will use the BeautifulSoup library. We will look at some Python code snippets and the corresponding Hy language versions of these snippets. Let's first look at a Python example that we will then convert to Hy:
+例えば、**Responsible Web Scraping**の章では、BeautifulSoupライブラリを使用します。いくつかのPythonのコード・スニペットと、これらのスニペットに対応するHy言語版を見ていきます。まず、Pythonの例を見て、それをHyに変換してみましょう。
 
 
     1 from bs4 import BeautifulSoup
@@ -160,7 +160,7 @@ For example, in the chapter **Responsible Web Scraping** we will use the Beautif
     6 print("a tags:", a_tags)
 
 
-In the following listing notice how we import other code and libraries in Hy. The special form **setv** is used to define variables in a local context. Since the **setv** statements in lines 3, 5, and 6 are used at the top level, they are global in the Python/Hy module named after the root name of the source file.
+次のリストでは、Hyで他のコードやライブラリをどのようにインポートしているかに注目してください。特殊な形式である **setv** はローカルな文脈で変数を定義するために使われます。行目、5行目、6行目の**setv**文はトップレベルで使用されているので、ソースファイルのルート名と同じ名前のPython/Hyモジュールではグローバルです。
 
 
      1 $ hy
@@ -185,11 +185,11 @@ In the following listing notice how we import other code and libraries in Hy. Th
     20 , 'remove', 'reverse', 'sort', 'source']
 
 
-Notice in lines 3 and 6 that we can have "-" characters inside of variable and function names (**raw-data** and **find-all** in this case) in the Hy language where we might use "\_" underscore characters in Python. Like Python, we can use **type** get get the type of a value and **dir** to see what symbols are available for a object.
+3行目と6行目では、Pythonではアンダースコア" \_"を使うところを、Hy言語では変数名や関数名の中に"-"を使うことができます（この例では**raw-data**と**find-all**です）。Pythonと同様、**type**で値の型を、**dir**でオブジェクトに利用可能なシンボルを得ることができます。
 
 ### Global vs. Local Variables
 
-Although I don't generally recommend it, sometimes it is convenient to export local variables defined with **setv** or in a **let** macro expansion to be global variables in the context of the current module (that is defined by the current source file). As an example:
+一般的にはお勧めしませんが、**setv** や **let** マクロ展開で定義されたローカル変数を、現在のモジュールのコンテキストでグローバル変数としてエクスポートすると便利な場合があります（現在のソースファイルで定義されている）。例として
 
 
      1 Marks-MacBook:deeplearning $ hy
@@ -205,11 +205,11 @@ Although I don't generally recommend it, sometimes it is convenient to export lo
     11 => 
 
 
-Before executing function **foo** the global variable **x** is undefined (unless you coincidentally already defined somewhere else). When function **foo** is called, a global variable **x** is defined and then it equal to the value 1.
+関数**foo**を実行する前は、グローバル変数**x**は未定義です（偶然にすでにどこかで定義されている場合を除く）。関数 **foo** が呼ばれると、グローバル変数 **x** が定義され、値 1 に等しくなります。
 
-### Using Python Code in Hy Programs
+### HyプログラムでのPythonコードの使用
 
-If there is a Python source file, named for example, *test.py* in the same directory as a Hy language file:
+Hy言語ファイルと同じディレクトリに、例えば *test.py* という名前のPythonのソース・ファイルがある場合。
 
 
     1 def factorial (n):
@@ -218,7 +218,7 @@ If there is a Python source file, named for example, *test.py* in the same direc
     4   return n * factorial(n - 1)
 
 
-This code will be in a module named **test** because that is the root source code file name. We might import the Python code using the following in Python:
+このコードは、ルートソースコードファイル名であるため、**test**という名前のモジュールに含まれることになります。PythonのコードをPythonで次のようにインポートすることもできます。
 
 
     1 import test
@@ -226,7 +226,7 @@ This code will be in a module named **test** because that is the root source cod
     3 print(test.factorial(5))
 
 
-and we can use the following in Hy to import the Python module **test** (defined in *test.py*):
+で、Pythonモジュールの**test**（*test.py*で定義）をインポートするためにHyで以下を使用することができます。
 
 
     1 (import test)
@@ -234,7 +234,7 @@ and we can use the following in Hy to import the Python module **test** (defined
     3 (print (test.factorial 5))
 
 
-Running this interactively in Hy:
+これをHyで対話的に実行する。
 
 
     1 $ hy
@@ -246,15 +246,15 @@ Running this interactively in Hy:
     7 120
 
 
-If we only wanted to import **BeautifulSoup** from the Python BeautifulSoup library **bs4** we can specify this in the **import** form:
+PythonのBeautifulSoupライブラリ **bs4** から **BeautifulSoup** をインポートしたいだけなら、**import** 形式で指定すればよいのです。
 
 
     1 (import [bs4 [BeautifulSoup]])
 
 
-### Using Hy Libraries in Python Programs
+### PythonプログラムでのHyライブラリの使用
 
-There is nothing special about importing and using Hy library code or your own Hy scripts in Python programs. The directory **hy-lisp-python/use_hy_in_python** in the [git repository for this book https://github.com/mark-watson/hy-lisp-python](https://github.com/mark-watson/hy-lisp-python) contains an example Hy script **get_web_page.hy** that is a slightly modified version of code we will explain and use in the later chapter on web scraping and a short Python script **use_hy_stuff.py** that uses a function defined in Hy:
+Pythonのプログラムの中でHyライブラリのコードや自作のHyスクリプトをインポートして使うことについては、特別なことは何もありません。[この本のgitリポジトリ https://github.com/mark-watson/hy-lisp-python](https://github.com/mark-watson/hy-lisp-python) にある **hy-lisp-python/use_hy_in_python** というディレクトリには、後のウェブスクレイピングの章で説明・使用するコードを少し修正したサンプルHyスクリプト **get_web_page.hy** と Hy で定義されている関数を使用した短い Python スクリプト **use_hy_stuff.py** があります。
 
 **get_web_page.hy:**
 
@@ -273,9 +273,9 @@ There is nothing special about importing and using Hy library code or your own H
     12   (print (get-raw-data-from-web "http://markwatson.com")))
 
 
-We define two functions here. Notice the optional argument **anAgent** defined in lines 4-5 where we provide a default value in case the calling code does not provide a value. In the next Python listing we import the file in the last listing and call the Hy function **main** on line 4 using the Python calling syntax.
+ここでは、2つの関数を定義しています。4-5行目で定義されているオプションの引数**anAgent**に注目してください。ここでは呼び出し側のコードが値を提供しない場合に備えてデフォルト値を提供しています。次のPythonのリストでは、最後のリストのファイルをインポートし、Pythonの呼び出し構文を使って4行目でHy関数 **main** を呼び出しています。
 
-Hy is the same as Python once it is compiled to an abstract syntax tree (AST).
+Hyはいったん抽象構文木（AST）にコンパイルされるとPythonと同じになります。
 
 **hy-lisp-python/use_in_python:**
 
@@ -286,11 +286,11 @@ Hy is the same as Python once it is compiled to an abstract syntax tree (AST).
     4 main_hy()
 
 
-What I want you to understand and develop a feeling for is that Hy and Python are really the same but with a different syntax and that both languages can easily be used side by side.
+HyとPythonは本当に同じものですが、構文が違うだけで、どちらの言語も簡単に並べて使えるということを理解し、感覚を養ってほしいのです。
 
-### Replacing the Python slice (cut) Notation with the Hy Functional Form
+### Pythonのslice(cut)記法をHy関数型に置き換える
 
-In Python we use a special notation for extracting sub-sequences from lists or strings:
+Pythonでは、リストや文字列から部分列を抽出するために特別な記法を使います。
 
 
     $ python
@@ -305,7 +305,7 @@ In Python we use a special notation for extracting sub-sequences from lists or s
     >>> 
 
 
-In Hy this would be:
+Hyではこうなる。
 
 
     $ hy
@@ -320,7 +320,7 @@ In Hy this would be:
     => 
 
 
-It also works to use **cut** with **setv** to destructively change a list; for example:
+また、**cut** と **setv** を使って、リストを破壊的に変更することも可能です。
 
 
     => (setv x [0 1 2 3 4 5 6 7 8])
@@ -333,9 +333,9 @@ It also works to use **cut** with **setv** to destructively change a list; for e
     [0, 1, 22, 33, 4, 5, 6, 7, 8]
 
 
-### Iterating Through a List With Index of Each Element
+### 各要素のインデックスを持つリストの反復処理
 
-We will use **lfor** as a form of Python list comprehension; for example:
+ここでは、Pythonのリスト内包の一形態として**lfor**を使用することにします。
 
 
      1 => (setv sentence "The ball rolled")
@@ -366,9 +366,9 @@ We will use **lfor** as a form of Python list comprehension; for example:
     26 => 
 
 
-On line 2, the expression **(enumerate sentence)** generates one character at a time from a string. **enumerate** operating on a list will generate one list element at a time.
+2行目の**(enumerate sentence)**という式は、文字列から一文字ずつ生成しています。リストを操作する**enumerate**は、一度に1つのリスト要素を生成する。
 
-Line 9 shows an example of *destructuring*: the values in the list **vv** are tuples (tuples are like lists but are immutable, that is, once a tuple is constructed the values it holds can not be changed) with two values. The values in each tuple are copied into binding variables in the list **\[a b\]**. We could have used the following code instead but it is more verbose:
+9行目は*destructuring*の例である。リスト**vv**の値は2つの値を持つタプル（タプルはリストに似ているが不変である、つまり、一度タプルが構築されるとそれが持つ値を変更することはできない）である。各タプルの値は、リスト **[a b]** のバインディング変数にコピーされます。代わりに以下のコードを使用することもできますが、より冗長です。
 
 
     => (for [x vv]
@@ -386,9 +386,9 @@ Line 9 shows an example of *destructuring*: the values in the list **vv** are tu
     => 
 
 
-### Formatted Output
+### フォーマットされた出力
 
-I suggest using the Python **format** method when you need to format output. In the following repl listing, you can see a few formatting options: insert any Hy data into a string (line 3), print values with a specific width and right justified (in line 5 the width for both values is 15 characters), print values with a specific width and left justified (in line 7), and limiting the number of characters values can be expressed as (in line 9 the object "cat" is expressed as just the first two characters and the value 3.14159 is expressed as just three numbers, the period not counting).
+出力をフォーマットする必要があるときは、Pythonの**format**メソッドを使用することをお勧めします。次のリプライリストでは、いくつかのフォーマットオプションを見ることができます：任意のHyデータを文字列に挿入する（3行目）、特定の幅で右寄せで値を表示する（5行目では両方の値の幅は15文字です）、特定の幅で左寄せで値を表示する（7行目）、値が表現できる文字数を制限する（9行目でオブジェクト "cat" は最初の2文字だけ、値 3.14159 は3つの数字だけで表されピリオは含まれません）。
 
 
     $ hy
@@ -404,11 +404,11 @@ I suggest using the Python **format** method when you need to format output. In 
     => 
 
 
-Notice the calling **.format** here returns a string value rather than writing to an output stream.
+ここで **.format** を呼び出すと、出力ストリームに書き込むのではなく、文字列の値が返されることに注意してください。
 
-### Importing Libraries from Different Directories on Your Laptop
+### ラップトップ上の異なるディレクトリからライブラリをインポートする
 
-I usually write applications by first implementing simpler low-level utility libraries that are often not in the same directory path as the application that I am working on. Let's look at a simple example of accessing the library **nlp_lib.hy** in the directory **hy-lisp-python/nlp** from the directory **hy-lisp-python/webscraping**:
+私は通常、作業中のアプリケーションと同じディレクトリパスにないことが多い、より単純な低レベルユーティリティライブラリを最初に実装することによって、アプリケーションを書きます。ここでは、**hy-lisp-python/nlp** というディレクトリにある **nlp_lib.hy** というライブラリに **hy-lisp-python/webscraping** というディレクトリからアクセスする簡単な例を見てみましょう。
 
 
      1 Marks-MacBook:hy-lisp-python $ pwd
@@ -430,13 +430,13 @@ I usually write applications by first implementing simpler low-level utility lib
     17 => 
 
 
-Here I did not install the library **nlp_lib.hy** using Python setuptools (which I don't cover in this book, you can [read the documentation](https://setuptools.readthedocs.io)) as a library on the system. I rely on relative paths between the library directory and the application code that uses the library.
+ここでは、Python setuptools (この本では扱いません。[ドキュメントを読む](https://setuptools.readthedocs.io)) を使ってライブラリ **nlp_lib.hy** をシステム上にライブラリとしてインストールしなかったのです。私は、ライブラリディレクトリとライブラリを使用するアプリケーションコードとの間の相対パスを頼りにしています。
 
-On line 6 I am inserting the library directory into the Python system load path so the import statement on line 8 can find the **nlp-lib** library and on line 13 can find the **coref-nlp-lib** library.
+6行目でPythonのシステムロードパスにライブラリディレクトリを挿入し、8行目のimport文が**nlp-lib**ライブラリを、13行目が**coref-nlp-lib**ライブラリを見つけることができるようにしています。
 
-### Using Closures
+### クロージャの使用
 
-Function definitions can capture values defined outside of a function and even change the captured value as seen in this example (file **closure_example.hy** in the directory **hy-lisp-python/misc**):
+関数定義は、関数の外側で定義された値を捕捉することができ、この例で見られるように、捕捉した値を変更することもできます（ディレクトリ **hy-lisp-python/misc** のファイル **closure_example.hy**）．
 
 
      1 #!/usr/bin/env hy
@@ -453,7 +453,7 @@ Function definitions can capture values defined outside of a function and even c
     12 (print (increment))
 
 
-That produces:
+それが生み出すもの。
 
 
     2
@@ -461,25 +461,25 @@ That produces:
     4
 
 
-Using closures is often a good alternative to object oriented programming for maintaining private state that only one or a few functions (that are defined inside the closure) are allowed to access and modify. In the last example the **let** statement could have defined more than one variable with initial values and many functions could have been defined to perform various calculations with the values of these captured variables and/or change the values of captured variables. This effectively hides the variables defined in the **let** statement from code outside of the let statement but the functions are accessible from outside the **let** statement.
+クロージャを使うことは、オブジェクト指向プログラミングの代わりに、（クロージャの内部で定義された）1つまたはいくつかの関数だけがアクセスや変更を許されるプライベートな状態を維持するのに適していることが多いのです。この例では、**let**文は初期値を持つ複数の変数を定義することができ、これらの変数の値を用いて様々な計算を実行したり、定義した変数の値を変更するための多くの関数が定義されています。これにより、**let**文で定義された変数はlet文の外側のコードから効果的に隠蔽されますが、関数は**let**文の外側からアクセスできるようになります。
 
-### Hy Looks Like Clojure: How Similar Are They?
+### HyはClojureに似ている。どのように似ていますか？
 
-[Clojure](https://clojure.org/) is a dynamic general purpose Lisp language for the JVM. One of the great Clojure features is support of immutable data (read only after creation) that makes multi-threaded code easier to write and maintain.
+[Clojure](https://clojure.org/)は、JVMのための動的汎用Lisp言語です。Clojureの大きな特徴の1つは、マルチスレッドコードの記述と保守を容易にするイミュータブルデータ（作成後は読み込みのみ可能）のサポートです。
 
-Unfortunately, Clojure's immutable data structures cannot be easily implemented efficiently in Python so the Hy language does not support immutable data, except for tuples. Otherwise the syntax for defining functions, using maps/hash tables/dictionaries, etc. is similar between the two languages.
+残念ながら、Clojureのイミュータブルなデータ構造はPythonでは簡単に効率的に実装できないので、Hy言語はタプルを除いてイミュータブルなデータをサポートしません。それ以外は、関数の定義、マップ/ハッシュテーブル/辞書の使用などの構文は、2つの言語で類似しています。
 
-The original Hy language developer Paul Tagliamonte was clearly inspired by Clojure.
+Hy言語の開発者であるPaul Tagliamonteは、明らかにClojureに触発されました。
 
-The book **Serious Python** by Julien Danjou has an entire chapter (chapter 9) on the Python AST (abstract syntax tree), an introduction to Hy, and an interview with Paul Tagliamonte. Recommended!
+Julien Danjou著の**Serious Python**という本には、Python AST（抽象構文木）についての章（第9章）、Hyの紹介、Paul Tagliamonteのインタビューが掲載されています。おすすめです
 
-[This podcast](https://www.pythonpodcast.com/episode-23-hylang-core-developers/) in 2015 interviews Hy developers Paul Tagliamonte, Tuukka Turto, and Morten Linderud. You can see the [current Hy contributer list on github](https://github.com/hylang/hy/graphs/contributors).
+[2015年の【このポッドキャスト】(https://www.pythonpodcast.com/episode-23-hylang-core-developers/)では、Hy開発者のPaul Tagliamonte、Tuukka Turto、Morten Linderudにインタビューしています。[githubの現在のHy contributer list](https://github.com/hylang/hy/graphs/contributors)を見ることができます。
 
-### Plotting Data Using the Numpy and the Matplotlib Libraries
+### Numpy と Matplotlib ライブラリを使ったデータのプロット
 
-Data visualization is a common task when working with numeric data. In a later chapter on Deep Learning we will use two functions, the **relu** and **sigmoid** functions. Here we will use a few simple Hy language scripts to plot these functions.
+データの可視化は数値データを扱う際によく行われる作業です。後のディープラーニングの章では、**relu**と**sigmoid**という2つの関数を使うことになります。ここでは、いくつかの簡単なHy言語スクリプトを使って、これらの関数をプロットしてみましょう。
 
-The Numpy library supports what is called "broadcasting" in Python. In the function **sigmoid** that we define in the following REPL, we can pass either a single floating point number or a Numpy array as an argument. When we pass a Numpy array, then the function **sigmoid** is applied to each element of the Numpy array:
+Numpyライブラリは、Pythonでいうところの「ブロードキャスト」をサポートしています。以下のREPLで定義している関数**sigmoid**では、引数として単一の浮動小数点数かNumpy配列のどちらかを渡すことができます。Numpy配列を渡した場合、関数**sigmoid**はNumpy配列の各要素に適用されます。
 
 
      1 $ hy
@@ -500,7 +500,7 @@ The Numpy library supports what is called "broadcasting" in Python. In the funct
     16 => 
 
 
-The git repository directory **hy-lisp-python/matplotlib** contains two similar scripts for plotting the **sigmoid** and **relu** functions.  Here is the script to plot the **sigmoid** function:
+gitリポジトリのディレクトリ **hy-lisp-python/matplotlib** には、**sigmoid** と **relu** 関数をプロットするための2つの類似したスクリプトが含まれています。 以下は、**sigmoid**関数をプロットするスクリプトです。
 
 
      1 (import [numpy :as np])
@@ -518,77 +518,77 @@ The git repository directory **hy-lisp-python/matplotlib** contains two similar 
     13 (plt.show)
 
 
-The generated plot looks like this on macOS (Matplotlib is portable and also works on Windows and Linux):
+生成されたプロットはmacOSでは以下のようになります（Matplotlibは移植可能で、WindowsやLinuxでも動作します）。
 
 
 ![Sigmoid Function](/site_images1/hy-lisp-python/sigmoid.png)
 
 
-### Bonus Points: Configuration for macOS and ITerm2 for Generating Plots Inline in a Hy REPL and Shell
+### ボーナスポイント Hy REPLとシェルでインラインにプロットを生成するためのmacOSとITerm2用の設定
 
-On the macOS ITerm2 terminal app and on most Linux terminal apps, it is possible to get inline matplotlib plots in a shell (bash, zsh, etc.), in Emacs, etc. This will take some setup work but it is well worth it especially if you work on remote servers via SSH or tmux. Here is the setup for macOS:
+macOSのITerm2ターミナルアプリやほとんどのLinuxターミナルアプリでは、シェル（bash、zshなど）やEmacsなどでインラインでmatplotlibのプロットを取得することが可能です。これはいくつかのセットアップ作業が必要ですが、特にSSHやtmuxでリモートサーバーで作業する場合は、その価値は十分にあります。以下は、macOSでの設定です。
 
 
     1   pip3 install itermplot
 
 
-The add the following to your .profile, .bash_profile, or .zshrc (depending on your shell setup):
+.profile、.bash_profile、または .zshrc (シェルの設定による) に以下を追加してください。
 
 
     1   export MPLBACKEND="module://itermplot"
 
 
-Here we run an example from the last section in a zsh shell (bash, etc.  also should work):
+ここでは、前節の例をzshシェルで実行してみます（bash等でも可能です）。
 
 
-![Inline matplotlib use in zsh shell in an ITerm on macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib.png)
+![macOSのITermのzshシェルでmatplotlibをインラインで使用する](/site_images1/hy-lisp-python/mac-inline-matplotlib.png)
 
 
-The best part of generating inline plots is during interactive REPL-based coding sessions:
+インラインプロット生成の醍醐味は、REPLを使ったインタラクティブなコーディングセッションの時に発揮されます。
 
 
-![Inline matplotlib use in a Hy REPL on macOS](/site_images1/hy-lisp-python/mac-inline-matplotlib2.png)
+![macOS上のHy REPLでmatplotlibをインラインで使用する](/site_images1/hy-lisp-python/mac-inline-matplotlib2.png)
 
 
-If you use a Mac laptop to SSH into a remote Linux server you need to install **itermplot** and set the environment variable **MPLBACKEND** on the remote server.
+Macラップトップを使用してリモートのLinuxサーバーにSSH接続する場合、リモートサーバーに**itermplot**をインストールし、環境変数**MPLBACKEND**を設定する必要があります。
 
-## Why Lisp?
+## なぜLispなのか？
 
-Now that we have learned the basics of the Hy Lisp language in the last chapter, I would like to move our conversation to a broader question of why we would want to use Lisp. I want to start with my personal history of why I turned to Lisp languages in the late 1970s for almost all of my creative and research oriented development and later transitioned to also using Lisp languages in production.
+前章でHy Lisp言語の基本を学んだところで、なぜLispを使おうと思ったのかという、より広い問いかけに話を移したいと思っています。まず、私が1970年代後半に創作・研究開発のほとんどをLisp言語で行うようになり、その後、生産現場でもLisp言語を使用するようになったという個人的な経緯から始めたいと思います。
 
-### I Hated the Waterfall Method in the 1970s but Learned to Love a Bottom-Up Programming Style
+### 1970年代はウォーターフォール方式が嫌いだったが、ボトムアップ型のプログラミングスタイルが好きになった
 
-I graduated UCSB in the mid 1970s with a degree in Physics and took a job as a scientific programmer in the 100% employee owned company SAIC.  My manager had a PhD in Computer Science and our team and the organization we were in used what is known as the waterfall method where systems were designed carefully from the top down, carefully planned mostly in their entirety, and then coded up. We, and the whole industry I would guess, wasted a lot of time with early planning and design work that had to be discarded or heavily modified after some experience implementing the system.
+私は1970年代半ばにUCSBで物理学の学位を取得し、100％従業員所有の会社SAICで科学プログラマーとして就職しました。 私の上司はコンピューターサイエンスの博士号を持ち、私たちのチームと所属していた組織は、トップダウンで慎重にシステムを設計し、慎重に全体像を計画し、それからコーディングする、いわゆるウォーターフォール方式を採用していました。私たち、そして業界全体が、初期の計画や設計作業で多くの時間を浪費し、システムの実装をある程度経験した後で破棄するか、大きく修正しなければならなかったのでしょう。
 
-What would be better? I grew to love bottom-up programming. When I was given a new project I would start by writing and testing small procedures for low level operations, things I was sure I would need. I then aggregated the functionality into higher levels of control logic, access to data, etc. Finally I would write the high level application.
+何がいいんだろう？私はボトムアッププログラミングが大好きになりました。新しいプロジェクトを任されたとき、私はまず低レベルの操作、つまり必要だと確信できるものに対して小さなプロシージャを書いてテストしました。そして、その機能を制御ロジックやデータへのアクセスなど、より高度なレベルに集約していきました。そして最後に、高レベルのアプリケーションを書きました。
 
-I mostly did this for a while writing code in FORTRAN at SAIC and using Algol for weekend consulting work Salk Institute, working on hooking up lab equipment to minicomputers in Roger Guillemin's lab (he won a Nobel Prize during that time, which was exciting). Learning Algol, a very different language than FORTRAN, helped broaden my perspectives.
+SAICではFORTRANでコードを書き、週末のコンサルティングではAlgolを使い、Roger Guilleminの研究室で研究機器をミニコンピュータに接続する作業をしていました（彼はこの間にノーベル賞を受賞し、とてもエキサイティングでした）。FORTRANとは全く異なる言語であるAlgolを学んだことで、視野が広がりました。
 
-I wanted a better programming language! I also wanted a more productive way to do my job both as a programmer and to make the best use of the few free hours a week that I had for my own research and learning about artificial intelligence (AI). I found my "better way" of development by adopting a bottom-up style that involves first writing low level libraries and utilities and then layering complete programs on top of well tested low level code.
+「もっといいプログラミング言語が欲しい！」。また、プログラマーとしての仕事と、週に数回ある自由時間を自分の研究や人工知能（AI）学習のために有効に使うために、より生産的な方法が欲しいと思っていました。まず低レベルのライブラリやユーティリティを書き、十分にテストされた低レベルのコードの上に完全なプログラムを重ねるというボトムアップのスタイルを採用し、「より良い開発方法」を見いだしたのです。
 
-### First Introduction to Lisp
+### 最初のLisp入門
 
-In the late 1970s I discovered a Lisp implementation on my company's DECsystem-10 timesharing computer. I had heard of Lisp in reading Bertram Raphael's book "THE THINKING COMPUTER. Mind Inside Matter" and I learned Lisp on my own time and then, during lunch hour, taught a one day a week class to anyone at work who wanted to learn Lisp. After a few months of Lisp experience I received permission to teach an informal lunch time class to teach anyone working in my building who wanted to to learn Lisp on our DECsystem-10.
+1970年代後半、会社のタイムシェアリング・コンピュータDECsystem-10にLispの実装があるのを発見しました。Lispのことは、Bertram Raphaelの著書「THE THINKING COMPUTER」を読んで知っていました。そして、昼休みの時間を利用して、会社でLispを学びたい人に週に1日だけ教える教室を開いていました。数ヶ月のLispの経験の後、私は自分のビルで働いている人でLispを学びたい人に、我々のDECsystem-10で非公式にランチタイムクラスを教える許可を得ました。
 
-Lisp is the perfect language to support the type of bottom-up iterative programming style that I like.
+Lispは、私が好きなボトムアップ型の反復プログラミングをサポートするのに最適な言語です。
 
-### Commercial Product Development and Deployment Using Lisp
+### Lispを使った商用製品の開発と展開
 
-My company, SAIC, identified AI as an important technology in the early 1980s. Two friends at work (Bob Beyster who founded SAIC and Joe Walkush who was our corporate treasurer and who liked Lisp from his engineering studies at MIT) arranged for the company to buy a hardware Lisp Machine, a Xerox 1108 for me. I ported Charles Forgy's expert system development language OPS5 to run on InterLisp-D on the Xerox Lisp Machines and we successfully sold this as a product. When Coral Common Lisp was released for the Apple Macintosh in 1984, I switched my research and development to the Mac and released ExperOPS5, which also sold well, and used Common Lisp to write the first prototypes for SAIC's ANSim neural network library. I converted my code to C++ to productize it. We also continued to use Lisp for IR&D projects and while working on the DARPA NMRD project.
+私の会社SAICは、1980年代初頭にAIを重要な技術として認識しました。SAICの創業者であるボブ・ベイスターと、MITで学んだLispが好きで会計を担当していたジョー・ウォークシュの2人の友人が、会社にハードウェアLispマシン（Xerox 1108）を購入するよう手配し、私はそのうちの1台を購入してもらいました。私はCharles Forgyのエキスパートシステム開発言語OPS5をXerox Lisp Machine上のInterLisp-Dで動くように移植し、これを製品として販売することに成功しました。1984年にApple Macintosh用のCoral Common Lispがリリースされると、研究開発をMacに切り替え、ExperOPS5をリリースし、これも売れました。また、Common Lispを使ってSAICのANSimニューラルネットライブラリの最初のプロトタイプを書き上げました。そのコードを製品化するためにC++に変換しました。また、IR&DプロジェクトやDARPAのNMRDプロジェクトに取り組んでいる間もLispを使い続けました。
 
-Even though I proceeded to use C++ for much of my development, as well as writing C++ books for McGraw-Hill and J. Riley publishers, Lisp remained my "thinking and research" language.
+その後、多くの開発でC++を使うようになり、McGraw-Hill社やJ. Riley社のC++の本も書きましたが、Lispは私の「思考と研究」のための言語として残りました。
 
-### Hy Macros Let You Extend the Hy Language in Your Programs
+### HyマクロでHy言語をプログラム中に拡張する
 
-In my work I seldom use macros since I mostly write application type programs. Macros are useful for extending the syntax allowed for programs written in Lisp languages.
+私の仕事では、アプリケーションタイプのプログラムを書くことが多いので、マクロを使うことはあまりありません。マクロは、Lisp言語で書かれたプログラムに許される構文を拡張するのに便利です。
 
-My most common use of macros is flexibly handling arguments without evaluating them. In the following example I want to write a macro **all-to-string** that takes a list of objects that can include undefined symbols. For example, if the variable **x** is undefined, then trying to evaluate **(print x 1)** will throw an error like:
+私が最もよく使うマクロは、引数を評価せずに柔軟に処理することです。次の例では、未定義のシンボルを含むオブジェクトのリストを受け取るマクロ **all-to-string** を書きたいと思います。例えば、変数 **x** が未定義である場合、 **(print x 1)** を評価しようとすると、次のようなエラーが発生する。
 
 
     1     NameError: name 'x' is not defined
 
 
-The following listing shows my experiments in a Hy REPL to write the macro **all-to-string**:
+以下のリストは、Hy REPLでマクロ **all-to-string** を記述する実験を行ったものです。
 
 
      1 $ hy
@@ -617,29 +617,29 @@ The following listing shows my experiments in a Hy REPL to write the macro **all
     24 => 
 
 
-My first try in line 7 did not work, the macro just returning a function that echos the arguments but throws an error (line 50) when one of the arguments is a symbol with no definition. The second try on line 16 works as intended because we are mapping the function **str** (which coerces any argument into a string) over the argument list.
+マクロは引数をエコーする関数を返すだけですが、引数の1つが定義されていないシンボルである場合にエラー(15行目)を投げます。16行目の2回目の試行では、関数 **str** (あらゆる引数を文字列に変換する) を引数リストにマッピングしているので、意図したとおりに動作します。
 
-### Performing Bottom Up Development Inside a REPL is a Lifestyle Choice
+### REPL内部でボトムアップ開発を行うことはライフスタイルの選択である
 
-It is my personal choice to prefer a bottom up style of coding, effectively extending the Hy (or other Lisp) language to look like something that looks custom designed and built to solve a specific problem. This is possible in Lisp languages because once a function or macro is defined, it is for our purposes part of the Hy language. If, for example, you are writing a web application that uses a database then I believe that it makes sense to first write low level functions to perform operations that you know you will need, for example, for creating and updating customer data from the database, utility functions used in a web application (which we cover in the next chapter), etc. For the rest of your application, you use these new low level functions as if they were built into the language.
+Hy（あるいは他のLisp）言語を、特定の問題を解決するためにカスタム設計され構築されたもののように効果的に拡張する、ボトムアップスタイルのコーディングを好むのは、私の個人的な選択です。Lisp言語では、一旦関数やマクロが定義されると、我々の目的のためにそれはHy言語の一部となるため、これが可能なのです。例えば、データベースを利用するWebアプリケーションを書くのであれば、まず、データベースからの顧客データの作成と更新、Webアプリケーションで使用するユーティリティ関数（次の章で取り上げます）等、必要だと分かっている操作を行う低レベル関数を書くことが理にかなっていると私は思います。アプリケーションの残りの部分では、これらの新しい低レベル関数を、あたかも言語に組み込まれているように使用します。
 
-When I need to write a new low-level function, I start in a REPL and define variables (with test values) for what the function arguments will be. I then write the code for the function one line at a time using these "arguments" in expressions that will later be copied to a Hy source file. Immediately seeing results in a REPL helps me catch mistakes early, often a misunderstanding of the type or values of intermediate calculations. This style of coding works for me and I hope you like it also.
+新しい低レベルの関数を書く必要があるとき、私はREPLで始めて、関数の引数が何になるかを変数（テスト値付き）で定義します。そして、この「引数」を使って一度に一行ずつ関数のコードを書き、後でHyソース・ファイルにコピーします。REPLで結果をすぐに見ることができるので、間違いを早期に発見することができます。多くの場合、中間計算の型や値に対する誤解が原因です。このコーディングスタイルは私に合っていますし、皆さんにも気に入っていただけると思います。
 
-## Writing Web Applications
+## Webアプリケーションを書く
 
-Python has good libraries and frameworks for building web applications and here we will use the **Flask** library and framework "under the hood" and write two simple Hy Language web applications. We will start with a simple "Hello World" example in Python, see how to reformulate it in Hy, and then proceed with more complex examples that will show how to use HTML generating templates, sessions, and cookies to store user data for the next time they visit your web site. In a later chapter we will cover use of the SQLite and PostgreSQL databases which are commonly used to persist data for users in web applications. This pattern involves letting a user login and store a unique token for the user in a web browser cookie. In principle, you can do the same with web browser cookies but if a user visits your web site with a different browser or device then they will not have access to the data stored in cookies on a previous visit.
+PythonはWebアプリケーションを構築するための優れたライブラリとフレームワークを持っています。ここでは、**Flask**ライブラリとフレームワークを「ボンネットの中で」使い、2つの簡単なHy言語Webアプリケーションを書きます。Pythonでの単純な「Hello World」の例から始めて、それをHyでどのように再定式化するかを見ていきます。そして、HTML生成テンプレート、セッション、クッキーを使って、次にあなたのWebサイトを訪れたときのためにユーザーのデータを保存する方法を示す、より複雑な例へと進んでいきます。後の章では、Webアプリケーションでユーザーのデータを保持するために一般的に使用されるSQLiteとPostgreSQLデータベースの使用について説明します。このパターンでは、ユーザーをログインさせ、そのユーザーに固有のトークンをウェブブラウザーのクッキーに保存します。原理的には、Web ブラウザのクッキーでも同じことができますが、ユーザーが別のブラウザやデバイスで Web サイトを訪れた場合、以前の訪問でクッキーに保存されたデータにアクセスすることはできません。
 
-I like lightweight web frameworks. In Ruby I use Sinatra, in Haskell I use Spock, and when I built Java web apps I liked lightweight tools like JSP. Flask is simple but capable and using it from Hy is productive and fun. In addition to using lightweight frameworks I like to deploy web apps in the simplest way possible. We will close this chapter by discussing how to use the Heroku and Google Cloud Platform AppEngine platforms.
+私は軽量のウェブフレームワークが好きです。RubyではSinatraを、HaskellではSpockを、そしてJavaのWebアプリケーションを作るときはJSPのような軽量なツールを好んで使っていました。Flaskはシンプルだけど高機能で、Hyから使うのは生産的で楽しいです。軽量なフレームワークを使うことに加えて、私はできるだけシンプルな方法でWebアプリをデプロイするのが好きです。HerokuとGoogle Cloud PlatformのAppEngineプラットフォームの使い方を説明して、この章を締めくくります。
 
-### Getting Started With Flask: Using Python Decorators in Hy
+### Flask入門：HyでPythonのデコレータを使おう
 
-You will need to install Flask using:
+まず、Flaskをインストールする必要があります。
 
 
     pip install flask
 
 
-We will use the Hy macro **with-decorator** to replace Python code with annotations. Here the decorator **\@app.route** is used to map a URI pattern with a Python callback function. In the following case we define the behavior when the index page of a web app is accessed:
+Pythonのコードをアノテーションに置き換えるために、Hyマクロ **with-decorator** を使用します。ここでは **@app.route** というデコレータを使って、URIパターンとPythonのコールバック関数を対応させています。以下のケースでは、Webアプリのインデックスページにアクセスしたときの振る舞いを定義しています。
 
 
     1 from flask import Flask
@@ -651,7 +651,7 @@ We will use the Hy macro **with-decorator** to replace Python code with annotati
     7 app.run()
 
 
-I first used Flask with the Hy language after seeing a post of code from HN user "volent", seen in the file **flask_test.hy** in the directory **hy-lisp-python/webapp** that is functionally equivalent to the above Python code snippet:
+私が初めてFlaskをHy言語で使ったのは、HNユーザーの「volent」さんが投稿した、上記のPythonコードと機能的に同等な、ディレクトリ **hy-lisp-python/webapp** 内のファイル **flask_test.hy** を見たのがきっかけです。
 
 
      1 #!/usr/bin/env hy
@@ -667,9 +667,9 @@ I first used Flask with the Hy language after seeing a post of code from HN user
     11 (app.run)
 
 
-The Hy macro **with-decorator** macro is used to use Python style decorators in Hy applications.
+Hyのマクロ **with-decorator** は、HyアプリケーションでPythonスタイルのデコレータを使用するために使われます。
 
-I liked this example and after experimenting with the code, I then started using Hy and Flask. Please try running this example to make sure you are setup properly with Flask:
+私はこの例が好きで、このコードを試した後、HyとFlaskを使い始めました。この例を実行して、Flaskで正しくセットアップされていることを確認してみてください。
 
 
     (base) Marks-MacBook:webapp $ ./flask_test.hy 
@@ -681,17 +681,17 @@ I liked this example and after experimenting with the code, I then started using
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
 
-Open <http://127.0.0.1:5000/> in your web browser:
+ウェブブラウザで<http://127.0.0.1:5000/>を開きます。
 
 
 ![Hello world Flask web app](/site_images1/hy-lisp-python/flask1.jpg)
 
 
-### Using Jinja2 Templates To Generate HTML
+### Jinja2 Templates を使って HTML を生成する
 
-[Jinja2](https://pypi.org/project/Jinja2/) is a templating system that allows HTML markup to be supplemented with Python variable references and simple Python loops, etc. The values of application variables can be stored in a context and the HTML template has the variables values substituted with current values before returning a HTML response to the user's web browser.
+[Jinja2](https://pypi.org/project/Jinja2/)は、HTMLのマークアップにPythonの変数参照や簡単なPythonループなどを付加できるテンプレート・システムです。アプリケーション変数の値はコンテキストに格納することができ、HTMLテンプレートは、ユーザーのWebブラウザにHTML応答を返す前に、変数の値が現在の値に置き換えられます。
 
-By default Jinja2 templates are stored in a subdirectory named **templates**. The template for this example can be found in the file **hy-lisp-python/webapp/templates/template1.j2** that is shown here:
+デフォルトでは、Jinja2 テンプレートは **templates** という名前のサブディレクトリに保存されます。この例のテンプレートは、ここに示すファイル **hy-lisp-python/webapp/templates/template1.j2** の中にあります。
 
 
      1 <html>
@@ -713,26 +713,23 @@ By default Jinja2 templates are stored in a subdirectory named **templates**. Th
     17 </html>
 
 
-Note that in line 6 we are using a Python **if** expression to check if the variable **name** is defined in the current app execution context.
+6行目では、変数 **name** が現在のアプリの実行コンテキストで定義されているかどうかをチェックするために Python の **if** 式を使用していることに注意してください。
 
-In the context of a running Flask app, the following will render the above template with the variable **name** defined as **None**:
+実行中のFlaskアプリのコンテキストでは、以下のようにすると、変数 **name** が **None** として定義された状態で上記のテンプレートがレンダリングされます。
 
 
     1 (render_template "template1.j2")
 
 
-We can set values as named parameters for variables used in the template, for example:
+テンプレート内で使用される変数に対して、名前付きパラメータとして値を設定することができる、といった具合です。
 
 
     1 (render_template "template1.j2" :name "Mark")
 
 
-I am assuming that you understand the basics or HTML and also GET and
-POST operations in HTTP requests.
+私は、あなたがHTMLの基礎やHTTPリクエストにおけるGETとPOSTの操作を理解していると仮定しています。
 
-The following Flask web app defines behavior for rendering the template
-without the variable **name** set and also a HTML POST handler to pass
-the name entered on the HTML form back to the POST response handler:
+以下のFlask Webアプリでは、変数 **name** を設定せずにテンプレートをレンダリングする動作と、HTMLフォームに入力された名前をPOSTレスポンスハンドラに渡すHTML POSTハンドラを定義しています。
 
 
      1 #!/usr/bin/env hy
@@ -754,9 +751,9 @@ the name entered on the HTML form back to the POST response handler:
     17 (app.run)
 
 
-Please note that there is nothing special about the names inside the **with-decorator** code blocks: the functions **index** and **response** could have arbitrary names like **a123** an **b17**. I used the function names **index** and **response** because they help describe what the functions do.
+関数 **index** と **response** は **a123** や **b17** のような任意の名前を持つことができます。関数名**index**と**response**は、関数が何を行うかを説明するのに役立つので、私はこの関数名を使いました。
 
-Open <http://127.0.0.1:5000/> in your web browser:
+ウェブブラウザで<http://127.0.0.1:5000/>を開いてください。
 
 
 ![Flask web app using a Jinja2 Template](/site_images1/hy-lisp-python/flask2.jpg)
@@ -766,9 +763,9 @@ Open <http://127.0.0.1:5000/> in your web browser:
 ![Flask web app using a Jinja2 Template after entering my name and submitting the HTML input form](/site_images1/hy-lisp-python/flask3.jpg)
 
 
-### Handling HTTP Sessions and Cookies
+### HTTP セッションとクッキーの扱い
 
-There is a special variable **session** that Flask maintains for each client of a Flask web app. Different people using a web app will have independent sessions. In a web app, we can set a session value by treating the session for a given user as a dictionary:
+Flask は Flask の Web アプリの各クライアントに対して、特別な変数 **session** を保持しています。Webアプリを利用する異なる人々は、独立したセッションを持つことになります。Webアプリでは、与えられたユーザーのセッションを辞書として扱うことで、セッションの値を設定することができます。
 
 
     => (setv (get session "name") "Mark")
@@ -776,19 +773,19 @@ There is a special variable **session** that Flask maintains for each client of 
     {'name': 'Mark'}
 
 
-Inside a Jinja2 template you can use a simple Python expression to place a session variable's value into the HTML generated from a template:
+Jinja2のテンプレート内部では、テンプレートから生成されるHTMLにセッション変数の値を配置するために、簡単なPython式を使用することができます。
 
 
     {{ session['name'] }}
 
 
-In a web app you can access the session using:
+ウェブアプリでは、次の方法でセッションにアクセスできます。
 
 
     (get session "name")
 
 
-In order to set the value of a named cookie, we can:
+名前付きクッキーの値を設定するためには、次のようにします。
 
 
     1 (import [flask [Flask render_template request make_response]])
@@ -801,13 +798,13 @@ In order to set the value of a named cookie, we can:
     8     resp))
 
 
-Values of named cookies can be retrieved using:
+名前付きCookieの値は、以下の方法で取得することができます。
 
 
     (request.cookies.get "name")
 
 
-inside of a **with-decorator** form. The value for **request** is defined in the execution context by Flask when handling HTTP requests.  Here is a complete example of handling cookies in the file *cookie_test.hy*:
+内側で、**with-decorator** フォームを使用します。HTTPリクエストを処理するとき、**request**の値はFlaskによって実行コンテキストで定義されます。 以下は、*cookie_test.hy* というファイルにあるクッキーを扱う完全な例です。
 
 
      1 #!/usr/bin/env hy
@@ -834,15 +831,15 @@ inside of a **with-decorator** form. The value for **request** is defined in the
     22 (app.run)
 
 
-I suggest that you not only try running this example as-is but also try changing the template, and generally experiment with the code. Making even simple code changes helps to understand the code better.
+このサンプルをそのまま実行するだけでなく、テンプレートを変更してみたり、一般的にコードを実験してみることをお勧めします。簡単なコード変更であっても、コードをより深く理解するのに役立ちます。
 
-### Deploying Hy Language Flask Apps to Google Cloud Platform AppEngine
+### Hy言語FlaskアプリをGoogle Cloud Platform AppEngineにデプロイする
 
-The example for this section is in a [separate github repository](https://github.com/mark-watson/hy-lisp-gcp-starter-project) that you should clone or copy to a new project for a starter project if you intend to deploy to AppEngine.
+このセクションの例は[別のgithubリポジトリ](https://github.com/mark-watson/hy-lisp-gcp-starter-project)にあります。AppEngineにデプロイするつもりなら、スタータープロジェクトとしてクローンするか、新しいプロジェクトにコピーすべきです。
 
-This AppEngine example is very similar to that in the last section except that it also serves a static asset and has a small Python stub main program to load the Hy language library and import the Hy language code.
+このAppEngineの例は、静的アセットを提供することと、Hy言語ライブラリをロードしてHy言語コードをインポートするための小さなPythonスタブメインプログラムを持っていること以外は、前節の例と非常によく似ています。
 
-Here is the Python stub main program:
+以下はそのPythonスタブ・メイン・プログラムです。
 
 
     1 import hy
@@ -855,7 +852,7 @@ Here is the Python stub main program:
     8     app.run(host='localhost', port=9090, debug=True)
 
 
-The Hy app is slightly different than we saw in the last section. On line 6 we specify the location of static assets and we do not call the **run()** method on the **app** object.
+Hyアプリは、前のセクションで見たのとは少し違います。6行目で静的アセットの場所を指定していますし、**app**オブジェクトの**run()**メソッドを呼び出してはいません。
 
 
      1 (import [flask [Flask render_template request]])
@@ -875,12 +872,12 @@ The Hy app is slightly different than we saw in the last section. On line 6 we s
     15     (render_template "template1.j2" :name name)))
 
 
-I assume that you have some experience with GCP and have the following:
+GCPの使用経験があり、以下をお持ちの方を想定しています。
 
--   GCP command line tools installed.
--   You have created a new project on the GCP AppEngine console named something like hy-gcp-test (if you choose a name already in use, you wil get a warning).
+- GCPコマンドラインツールがインストールされている。
+- GCPのAppEngineコンソールで、hy-gcp-testのような名前の新しいプロジェクトを作成しました（すでに使われている名前を選ぶと、警告が出ます）。
 
-After cloning or otherwise copying this project, you use the command line tools to deploy and test your Flask app:
+このプロジェクトをクローンするなどしてコピーした後、コマンドラインツールを使ってFlaskアプリをデプロイしてテストします。
 
 
     gcloud auth login
@@ -889,39 +886,39 @@ After cloning or otherwise copying this project, you use the command line tools 
     gcloud app browse
 
 
-If you have problems, look at your logs:
+問題が発生した場合は、ログを見てください。
 
 
     gcloud app logs tail -s default
 
 
-You can edit changes locally and test locally using:
+ローカルで変更を編集し、ローカルでテストすることができます。
 
 
     python main.py
 
 
-Any changes can be tested by deploying again:
+変更があれば、再度デプロイしてテストすることができます。
 
 
     gcloud app deploy
 
 
-Please note that everytime you deploy, a new instance is created. You will want to use the GCP AppEngine console to remove old instances, and remove all instances when you are done.
+デプロイするたびに、新しいインスタンスが作成されることに注意してください。GCP AppEngineコンソールを使って古いインスタンスを削除し、終了したらすべてのインスタンスを削除することをお勧めします。
 
-#### Going forward
+#### 今後の展開
 
-You can make a copy of this example, create a github repo, and follow the above directions as a first step to creating Hy language application on AppEngine. The Google Cloud Platform has many services that you can use in your app (using the Python APIs, called from your Hy program), including:
+この例のコピーを作り、github repoを作成し、AppEngine上でHy言語アプリケーションを作成する第一歩として、上記の指示に従えばよいでしょう。Google Cloud Platformには、アプリで使える（Hyプログラムから呼び出されるPython APIを使う）以下のようなサービスがたくさんあります。
 
--   Storage and Databases.
--   Big Data.
--   Machine Learning.
+- ストレージとデータベース。
+- ビッグデータ
+- 機械学習
 
-### Deploying Hy Language Flask Apps to the Heroku Platform
+### Hy言語FlaskアプリをHerokuプラットフォームへデプロイする
 
-The example for this section is in a [separate github repository](https://github.com/mark-watson/hy-lisp-heroku-starter-project) that you should clone or otherwise use as starter project if you intend to deploy to the Heroku platform.
+このセクションのサンプルは[別のgithubリポジトリ](https://github.com/mark-watson/hy-lisp-heroku-starter-project)にあります。Herokuプラットフォームにデプロイするつもりなら、cloneするか他の方法でスタータープロジェクトとして使用すべきです。
 
-We use a Python stub program **wsgi.python** to make our Flask app work with the WSGI interface that Heroku uses:
+Python のスタブプログラム **wsgi.python** を使って、Flask アプリが Heroku が使っている WSGI インターフェースで動作するようにします。
 
 
     import hy
@@ -929,15 +926,15 @@ We use a Python stub program **wsgi.python** to make our Flask app work with the
     from flask_test import app
 
 
-The Heroku platform will call the **run()** method on the imported **app** object because of the settings in the Heroku **Proc** file for this project:
+Herokuプラットフォームは、このプロジェクトのHeroku **Proc** ファイルの設定により、インポートされた **app** オブジェクトの **run()** メソッドを呼び出すでしょう。
 
 
     web: gunicorn 'wsgi:app' --log-file -
 
 
-Here we are stating to the Heroku platform that we want the production-friendly **gunicorn** server to call the **run()** method on the **app** object that is defined in the **wsgi** module (here the module name is the prefix name of the Python WSGI handler file).
+ここでは、本番環境に適した **gunicorn** サーバーが、 **wsgi** モジュール（ここではモジュール名は Python WSGI ハンドラファイルのプレフィックス名）で定義されている **app** オブジェクトの **run()** メソッドを呼び出すように Heroku プラットフォームに指定しています。
 
-The Hy Flask app has a few changes from earlier examples. All changes are in line 3:
+Hy Flaskアプリは、以前の例から少し変更されています。すべての変更は3行目にあります。
 
 
      1 (import [flask [Flask render_template request]])
@@ -955,11 +952,11 @@ The Hy Flask app has a few changes from earlier examples. All changes are in lin
     13     (render_template "template1.j2" :name name)))
 
 
-You need to install the Heroku command line tools:
+Herokuのコマンドラインツールをインストールする必要があります。
 
 <https://devcenter.heroku.com/categories/command-line>
 
-After checking out this repo, do the following from this directory:
+このレポをチェックアウトした後、このディレクトリから以下を実行します。
 
 
     heroku login
@@ -967,58 +964,58 @@ After checking out this repo, do the following from this directory:
     git push heroku master
 
 
-If you have your Heroku account setup these commands will deploy this example.
+Heroku アカウントを設定していれば、これらのコマンドでこのサンプルをデプロイできます。
 
-You can look at the Heroku log files for your application using:
+アプリケーションのHerokuログファイルを見るには、次のコマンドを使います。
 
 
     heroku logs --tail
 
 
-You can open this Hello World app in your default web browser using:
+このHello Worldアプリは、デフォルトのWebブラウザーを使って開くことができます。
 
 
     heroku open
 
 
-By default, your Hello World app will run on the free Heroku mode. You should still remove it when you are done:
+デフォルトでは、Hello Worldアプリは無料のHerokuモードで実行されます。それでも終了したら削除する必要があります。
 
--   login to: https://dashboard.heroku.com/apps
--   click on your application name
--   click on the Settings tab
--   scroll to the bottom of the page and use the option to delete the app
+- ログイン先: https://dashboard.heroku.com/apps
+- アプリケーション名をクリックします。
+- 設定タブをクリックします。
+- ページの一番下までスクロールして、アプリを削除するオプションを使用します。
 
-#### Going forward
+#### 今後について
 
-You can make a copy of this example, create a github repo, and follow the above directions.
+この例のコピーを作成し、github リポジトリを作成し、上記の指示に従うことができます。
 
-To test your Heroku setup locally or for development, you can use:
+Herokuのセットアップをローカルでテストしたり、開発用に使うには
 
 
     heroku local
 
 
-The Heroku platform has a wide variety of supported services, including many third party services like [data services](https://www.heroku.com/managed-data-services) and [Heroku and third party addons](https://elements.heroku.com/addons).
+Herokuプラットフォームは、サポートするサービスが多岐にわたり、[データサービス](https://www.heroku.com/managed-data-services) や [Heroku and third party addons](https://elements.heroku.com/addons) などの多くのサードパーティ製サービスも含まれています。
 
-### Wrap-up
+### まとめ
 
-I like to be able to implement simple things simply, without a lot of ceremony. Once you work through these examples I hope you feel that you can generate Hy and Flask based web apps quickly and with very little code required.
+私は、シンプルなものをシンプルに、多くの儀式なしに実装できることが好きです。これらの例を通して作業すれば、HyやFlaskベースのWebアプリを素早く、必要最低限のコードで生成できることを実感してもらえると思います。
 
-To return to the theme of bottom-up programming, I find that starting with short low level utility functions and placing them in a separate file makes reuse simple and makes future similar projects even easier.  For each language I work with, I collect snippets of useful code and short utilities kept in separate files. When writing code I start looking in my snippets directory for the language I am using to implement low level functionality even before doing a web search. When I work in Common Lisp I keep all low level code that I have written in small libraries contained a single Quicklisp source root directory and for Python and Hy I use Python's **setuptools** library to generate libraries that are installed globally on my laptop for easy reuse. It is worth some effort to organize your work for future reuse.
+ボトムアップ・プログラミングのテーマに戻ると、短い低レベルのユーティリティ関数から始めて、それらを別のファイルに配置することで、再利用が簡単になり、将来の同様のプロジェクトがさらに容易になることがわかります。 私は、それぞれの言語について、有用なコードの断片や短いユーティリティを集め、別のファイルに保存しています。コードを書くときは、Webで検索する前に、低レベルの機能を実装するために使用している言語のsnippetsディレクトリを探し始めます。Common Lispで作業するときは、小さなライブラリに書いた低レベルのコードをすべてQuicklispのソースルートディレクトリに格納し、PythonとHyではPythonの**setuptools**ライブラリを使ってライブラリを生成し、ラップトップにグローバルインストールし、簡単に再利用できるようにしています。将来の再利用のために自分の仕事を整理することは、多少の努力に値します。
 
-## Responsible Web Scraping
+## 責任あるウェブスクレイピング
 
-I put the word "Responsible" in the chapter title to remind you that just because it is easy (as we will soon see) to pull data from web sites, it is important to respect the property rights of web site owners and abide by their terms and conditions for use. This [Wikipedia article on Fair Use](https://en.wikipedia.org/wiki/Fair_use) provides a good overview of using copyright material.
+この章のタイトルに「責任ある」という言葉を入れたのは、（すぐに分かるように）Webサイトからデータを引き出すのが簡単だからといって、Webサイトの所有者の財産権を尊重し、その使用条件を守ることが重要であることを思い出してほしいからです。この[Wikipediaのフェアユースに関する記事](https://en.wikipedia.org/wiki/Fair_use)は、著作権物の使用に関する良い概要を提供しています。
 
-The web scraping code we develop here uses the Python BeautifulSoup and URI libraries.
+ここで開発するWebスクレイピングコードは、PythonのBeautifulSoupとURIライブラリを使用しています。
 
-For my work and research, I have been most interested in using web scraping to collect text data for natural language processing but other common applications include writing AI news collection and summarization assistants, trying to predict stock prices based on comments in social media which is what we did at Webmind Corporation in 2000 and 2001, etc.
+私の仕事や研究では、自然言語処理のためのテキストデータを収集するためにWebスクレイピングを使用することに最も興味を持っていますが、他の一般的なアプリケーションには、AIニュース収集や要約アシスタントを書いたり、2000年と2001年に株式会社ウェブマインドで行った、ソーシャルメディア上のコメントに基づいて株価を予測しようとしたり、などということがあります。
 
-### Using the Python BeautifulSoup Library in the Hy Language
+### Hy言語でのPython BeautifulSoupライブラリの使用
 
-There are many good libraries for parsing HTML text and extracting both structure (headings, what is in bold font, etc.) and embedded raw text.  I particularly like the Python Beautiful Soup library and we will use it here.
+HTMLテキストを解析して、構造（見出し、太字のものなど）と埋め込まれた生のテキストの両方を抽出するための良いライブラリがたくさんあります。 私はPythonのBeautiful Soupライブラリが特に好きなので、ここでそれを使うことにします。
 
-In line 4 for the following listing of file **get_web_page.hy**, I am setting the default user agent to a descriptive string "HyLangBook" but for some web sites you might need to set this to appear as a Firefox or Chrome browser (iOS, Android, Windows, Linux, or macOS). The function **get-raw-data** gets the entire contents of a web site as a single string value.
+ファイル **get_web_page.hy** の以下のリストの4行目では、デフォルトのユーザーエージェントを説明的な文字列 "HyLangBook" に設定していますが、いくつかのWebサイトでは、FirefoxやChromeブラウザ（iOS、Android、Windows、Linux、macOS）として表示するようにこれを設定する必要があるかもしれません。関数 **get-raw-data** は、Webサイトの全コンテンツを1つの文字列値として取得します。
 
 
     1 (import [urllib.request [Request urlopen]])
@@ -1031,7 +1028,7 @@ In line 4 for the following listing of file **get_web_page.hy**, I am setting th
     8   data)
 
 
-Let's test this function in a REPL:
+この関数をREPLでテストしてみましょう。
 
 
      1 $ hy
@@ -1049,13 +1046,13 @@ Let's test this function in a REPL:
     13 => 
 
 
-This REPL session shows the the function **get-raw-data-from-web** defined in the previous listing returns a web page as a string. In line 9 we use a function **get-page-html-elements** to find all elements in a string containing HTML. This function is defined in the next listing and shows how to parse and process the string contents of a web pages. Note: you will need to install the **lxml** library for this example (using pip or pip3 depending on your Python configuration):
+このREPLセッションでは、前のリストで定義した関数 **get-raw-data-from-web** がウェブページを文字列として返すことを示しています。9行目では、関数 **get-page-html-elements** を使用して、HTMLを含む文字列内のすべての要素を検索しています。この関数は次のリストで定義されており、ウェブページの文字列コンテンツをパースして処理する方法を示しています。注意：この例では、**lxml**ライブラリをインストールする必要があります（Pythonの構成に応じてpipまたはpip3を使用します）。
 
 
     1 pip install lxml
 
 
-The following listing of file **get_page_data.hy** uses the Beautiful Soup library to parse the string data for HTML text from a web site. The function **get-page-html-elements** returns names and associated data with each element in HTML represented as a string (the extra code on lines 20-24 is just debug example code):
+次のファイル **get_page_data.hy** のリストは、Beautiful Soup ライブラリを使用して、Web サイトから HTML テキストの文字列データをパースしています。関数 **get-page-html-elements** は、文字列として表された HTML の各要素の名前と関連データを返します (20-24 行目の余分なコードは単なるデバッグ用のサンプルコードです)。
 
 
      1 (import [get_web_page [get-raw-data-from-web]])
@@ -1084,9 +1081,9 @@ The following listing of file **get_page_data.hy** uses the Beautiful Soup libra
     24 (for [ta (get elements "a")] (print (get-element-data ta)))
 
 
-The function **get-element-data** defined in lines 5-9 accepts as an argument an HTML element object (as defined in the Beautiful soup library) and extracts data, if available, for text, name, class, and href values. The function **get-page-html-elements** defied in lines 11-18 accepts as an argument a string containing a URI and returns a dictionary (or map, or hashtable) containing lists of all **a**, **h1**, **h2**, and **title** elements in the web page pointed to by the input URI. You can modify **get-page-html-elements** to add additional HTML element types, as needed.
+5-9行目で定義されている関数 **get-element-data** は、引数として (Beautiful soup library で定義されているような) HTML 要素オブジェクトを受け取り、もし利用可能なら text, name, class, および href 値のデータを抽出します。11-18行目で定義された関数 **get-page-html-elements** は、URIを含む文字列を引数として受け取り、入力URIによって指されるWebページ内のすべての **a**, **h1**, **h2**, **title** 要素のリストを含む辞書（またはマップ、またはハッシュテーブル）を返します。必要に応じて、追加のHTML要素タイプを追加するために**get-page-html-elements**を修正することができます。
 
-Here is the output (with many lines removed for brevity):
+以下はその出力である（簡潔にするために多くの行を削除してある）。
 
 
      1 {'text': 'Mark Watson artificial intelligence consultant and author',
@@ -1102,22 +1099,22 @@ Here is the output (with many lines removed for brevity):
     11 iki/Q18670263'}
 
 
-### Getting HTML Links from the DemocracyNow.org News Web Site
+### DemocracyNow.orgニュースのWebサイトからHTMLリンクを取得する
 
-I financially support and rely on both NPR.org and DemocracyNow.org news as my main sources of news so I will use their news sites for examples here and in the next section. Web sites differ so much in format that it is often necessary to build highly customized web scrapers for individual web sites and to maintain the web scraping code as the format of the site changes in time.
+私はNPR.orgとDemocracyNow.orgのニュースを主なニュース源として財政的に支援し、信頼しているので、ここと次の節でそのニュースサイトを例に挙げて説明します。Webサイトの形式は実にさまざまなので、個々のWebサイト用に高度にカスタマイズしたWebスクレイパーを作成し、サイトの形式が変わってもWebスクレイピングコードを維持する必要があることがよくあります。
 
-Before working through this example and/or the example in the next section use the file **Makefile** to fetch data:
+この例や次のセクションの例で作業する前に、データを取得するために **Makefile** ファイルを使用してください。
 
 
     make data
 
 
-This should copy the home pages for both web sites to the files:
+これで、両方のウェブサイトのホームページがファイルにコピーされるはずです。
 
--   democracynow_home_page.html (used here)
--   npr_home_page.html (used for the example in the next section)
+- democracynow_home_page.html (ここで使用)
+- npr_home_page.html (次のセクションの例で使用します)
 
-The following listing shows **democracynow_front_page.hy**
+次のリストは、**democracynow_front_page.hy**を示しています。
 
 
      1 #!/usr/bin/env hy
@@ -1140,9 +1137,9 @@ The following listing shows **democracynow_front_page.hy**
     18     (print uri ":" text)))
 
 
-This simply prints our URIs and text (separated with the string ":") for each link on the home page. On line 13 we discard any anchor elements that do not contain text. On line 14 the comma character at the start of the return list indicates that we are constructing a tuple. Lines 16-18 define a main function that is used when running this file art the command line. This is similar to how main functions can be defined in Python to allow a library file to also be run as a command line tool.
+これは、ホームページの各リンクの URI とテキスト (文字列 ":" で区切られています) を表示するだけです。13行目では、テキストを含まないアンカー要素をすべて破棄しています。14行目では、戻り値のリストの最初にあるカンマ文字が、タプルを構築していることを表しています。16-18行目では、このファイルをコマンドラインで実行するときに使用されるメイン関数を定義しています。これは、Pythonでライブラリファイルをコマンドラインツールとして実行するためにメイン関数を定義する方法と似ています。
 
-A few lines of output from today's front page is:
+今日のフロントページの出力は数行です。
 
 
     /2020/1/7/the_great_hack_cambridge_analytica : Meet Brittany Kaiser, Cambridge Analy\
@@ -1159,13 +1156,13 @@ A few lines of output from today's front page is:
     oem About Luis Garden Acosta, Young Lord & Community Activist
 
 
-The URIs are relative to the root URI https://www.democracynow.org/.
+URIはルートURI（https://www.democracynow.org/）からの相対値です。
 
-### Getting Summaries of Front Page from the NPR.org News Web Site
+### NPR.orgのニュースウェブサイトからフロントページの要約を取得する
 
-This example is similar to the example in the last section except that text from home page links is formatted to provide a daily news summary.  I am assuming that you ran the example in the last section so the web site home pages have been copied to local files.
+この例は、ホームページのリンクからのテキストが毎日のニュースの要約を提供するためにフォーマットされていることを除いて、最後のセクションの例と似ています。 最後のセクションの例を実行したため、Webサイトのホームページがローカルファイルにコピーされていることを想定しています。
 
-The following listing shows **npr_front_page_summary.hy**
+次のリストは、**npr_front_page_summary.hy** を示しています。
 
 
      1 #!/usr/bin/env hy
@@ -1195,7 +1192,7 @@ The following listing shows **npr_front_page_summary.hy**
     25   (print (create-npr-summary)))
 
 
-In lines 12-15 we are filtering out (or removing) all anchor HTML elements that do not contain text. The following shows a few lines of the generated output for data collected today:
+12～15行目では、テキストを含まないすべてのアンカーHTML要素をフィルタリングしています（または削除しています）。以下は、今日収集したデータに対して生成された出力の数行を示しています。
 
 
     January 16, 2020  Birds change the shape of their wings far more than
@@ -1223,25 +1220,25 @@ In lines 12-15 we are filtering out (or removing) all anchor HTML elements that 
     TSA Says It Seized A Record Number Of Firearms At U.S. Airports Last Year
 
 
-The examples seen here are simple but should be sufficient to get you started gathering text data from the web.
+ここで見た例は簡単なものですが、ウェブからテキストデータを収集するのに十分なものでしょう。
 
-## Using the Microsoft Bing Search APIs
+## Microsoft Bing Search API の使用方法
 
-You will need to register with Microsoft's Azure search service to use the material in this chapter. It is likely that you view search as a manual human-centered activity. I hope to expand your thinking to considering applications that automate search, finding information on the web, and automatically organizing information.
+この章の資料を使用するには、Microsoft の Azure 検索サービスに登録する必要があります。皆さんは、検索を人間中心の手作業と捉えているのではないでしょうか。検索を自動化するアプリケーション、Web上の情報を見つけるアプリケーション、情報を自動的に整理するアプリケーションを検討することで、考えを広げていただければと思います。
 
-### Getting an Access Key for Microsoft Bing Search APIs
+### Microsoft Bing Search APIs のアクセスキーの取得について
 
-You will need an Azure account. I use the Bing search APIs fairly often for research but I have never spent more than about a dollar a month and usually I get no bill at all. For personal use it is an inexpensive service.
+Azureのアカウントが必要です。私はBing検索APIを研究でかなり頻繁に使っていますが、月に1ドル程度以上使ったことはなく、通常は全く請求が来ません。個人で使う分には、安価なサービスだと思います。
 
-Get started by going to the web page <https://azure.microsoft.com/en-us/try/cognitive-services/> and sign up for an access key. The Search APIs signup is currently in the fourth tab in this web form. When you navigate to the Search APIs tab, select the option Bing Search APIs v7. You will get an API key that you need to store in an environment variable that you will soon need:
+ウェブページ<https://azure.microsoft.com/en-us/try/cognitive-services/>にアクセスし、アクセスキーにサインアップすることで始められます。Search APIsのサインアップは、現在このウェブフォームの4番目のタブにあります。Search APIsタブに移動したら、Bing Search APIs v7というオプションを選択します。 APIキーが発行されるので、すぐに必要となる環境変数に保存します。
 
 
     export BING_SEARCH_V7_SUBSCRIPTION_KEY=4e97234341d9891191c772b7371ad5b1
 
 
-That is not my real subscription key!
+これは私の本当のサブスクリプションキーではありません!
 
-After adding this to your **.profile** file (or **.zshrc**, or **.bashrc**, or etc.), open a new terminal window and make sure the following works for you:
+これを **.profile** ファイル (または **.zshrc** や **.bashrc** など) に追加した後、新しいターミナル ウィンドウを開き、次のように動作することを確認してください。
 
 
     $ hy
@@ -1252,9 +1249,9 @@ After adding this to your **.profile** file (or **.zshrc**, or **.bashrc**, or e
     => 
 
 
-### Example Search Script
+### 検索スクリプトの例
 
-It takes very little Hy code to access the Bing search APIs. We will look at a long example script that expects a single command line argument that is a string containing search terms. The following example script shows you how to make a search query that requests search results in JSON format. We also look at parsing the returned JSON data. I formatted this listing to fit the page width:
+Bing検索APIにアクセスするために必要なHyコードはごくわずかです。ここでは、検索語を含む文字列である単一のコマンドライン引数を期待する、長いスクリプト例を見ていきます。次のサンプル・スクリプトは、JSON形式の検索結果を要求する検索クエリを作る方法を示しています。また、返されたJSONデータの構文解析についても見ています。このリストは、ページの幅に合うようにフォーマットしています。
 
 
     #!/usr/bin/env hy
@@ -1318,13 +1315,13 @@ It takes very little Hy code to access the Bing search APIs. We will look at a l
             (get first-result "name"))))
 
 
-You can use search hints like "site:wikidata.org" to only search specific web sites. In the following example I use the search query:
+「site:wikidata.org」のような検索ヒントを使用すると、特定のWebサイトのみを検索することができます。次の例では、検索クエリを使用しています。
 
 
     1 "site:wikidata.org Sedona Arizona"
 
 
-This example generates 364 lines of output so I only show a few selected lines here:
+この例では364行の出力を生成しているので、ここでは選択された数行のみを表示します。
 
 
     $ ./bing.hy "site:wikidata.org Sedona Arizona" | wc -l
@@ -1354,81 +1351,81 @@ This example generates 364 lines of output so I only show a few selected lines h
      key: name             :   Sedona - Wikidata
 
 
-### Wrap-up
+### まとめ
 
-In addition to using automated web scraping to get data for my personal research, I often use automated web search. I find the Microsoft's Azure Bing search APIs are the most convenient to use and I like paying for services that I use. The search engine Duck Duck Go also provides free search APIs but even though I use Duck Duck Go for 90% of my manual web searches, when I build automated systems I prefer to rely on services that I pay for.
+個人的な研究のためにデータを取得するために自動化されたウェブスクレイピングを使うことに加えて、私は自動化されたウェブ検索をよく利用します。MicrosoftのAzure Bingの検索APIが一番使い勝手がよく、自分が使うサービスにはお金を払うのが好きなんです。検索エンジンのDuck Duck Goも無料の検索APIを提供していますが、手動でのウェブ検索の90%はDuck Duck Goを使っていますが、自動化システムを構築するときは、お金を払うサービスに依存する方が好きなんです。
 
-## Deep Learning
+## ディープラーニング
 
-Most of my professional career since 2014 has involved Deep Learning, mostly with TensorFlow using the Keras APIs. In the late 1980s I was on a DARPA neural network technology advisory panel for a year, I wrote the first prototype of the SAIC ANSim neural network library commercial product, and I wrote the neural network prediction code for a bomb detector my company designed and built for the FAA for deployment in airports. More recently I have used GAN (generative adversarial networks) models for synthesizing numeric spreadsheet data and LSTM (long short term memory) models to synthesize highly structured text data like nested JSON and for NLP (natural language processing). I have 55 USA and several European patents using neural network and Deep Learning technology.
+2014年以降の私の専門的なキャリアのほとんどは、Keras APIを使用したTensorFlowによるDeep Learningに関係しています。1980年代後半には、DARPAのニューラルネットワーク技術諮問委員会に1年間参加し、SAIC ANSimニューラルネットワークライブラリの商用製品の最初のプロトタイプを書き、私の会社がFAAのために設計・製作した空港に配備する爆弾検知器のためのニューラルネットワーク予測コードを書きました。最近では、GAN（generative adversarial networks）モデルを表計算データの合成に、LSTM（long short term memory）モデルをネストしたJSONなどの高度な構造化テキストデータの合成やNLP（自然言語処理）に使用しています。私は、ニューラルネットワークやディープラーニングの技術を用いた米国特許を55件、欧州特許を数件保有しています。
 
-The Hy language utilities and example programs we develop here all use TensorFlow and Keras "under the hood" to do the heavy lifting. Keras is a simpler to use API for TensorFlow and I usually use Keras rather than the lower level TensorFlow APIs.
+ここで開発しているHy言語ユーティリティやサンプルプログラムは、すべてTensorFlowとKerasを「ボンネットの中」で使って、重い仕事をこなしています。KerasはTensorFlowのAPIとしてよりシンプルに使えるので、私は通常、低レベルのTensorFlow APIではなくKerasを使用しています。
 
-There are other libraries and frameworks that might interest you in addition to TensorFlow and Keras. I particularly like the Flux library for the Julia programming language. Currently Python has the most comprehensive libraries for Deep Learning but other languages that support differential computing (more on this later) like Julia and Swift may gain popularity in the future.
+TensorFlowやKeras以外にも、興味を引くようなライブラリやフレームワークがあります。私は特にプログラミング言語JuliaのFluxライブラリが好きです。現在、PythonはDeep Learningのための最も包括的なライブラリを持っていますが、JuliaやSwiftのような微分計算（これについては後述）をサポートする他の言語が将来的に人気を博すかもしれません。
 
-Here we will learn a vocabulary for discussing Deep Learning neural network models, look at possible architectures, and show two Hy language examples that should be sufficient to get you used to using Keras with the Hy language. If you already have Deep Learning application development experience you might want to skip the following review material and skip to the Hy language examples.
+ここでは、Deep Learningのニューラルネットワークモデルを議論するための語彙を学び、可能なアーキテクチャを見て、KerasをHy言語で使用することに慣れるのに十分な2つのHy言語の例を紹介します。すでにDeep Learningアプリケーションの開発経験がある場合は、以下の復習資料をスキップして、Hy言語の例題に飛ぶとよいでしょう。
 
-If you want to use Deep Learning professionally, there are two specific online resources that I recommend: Andrew Ng leads the efforts at [deeplearning.ai](https://www.deeplearning.ai/) and Jeremy Howard leads the efforts at [fast.ai](https://www.fast.ai/). Here I will show you how to use a few useful techniques. Andrew and Jeremy will teach you skills that may lead a professional level of expertise if you take their courses.
+Deep Learningを専門的に使用したい場合、私が推奨する2つの特定のオンラインリソースがあります。Andrew Ngは[deeplearning.ai](https://www.deeplearning.ai/)で、Jeremy Howardは[fast.ai](https://www.fast.ai/)で活動をリードしている。ここでは、いくつかの便利なテクニックの使い方を紹介します。AndrewとJeremyは、彼らのコースを受講すれば、プロフェッショナルなレベルにつながるかもしれないスキルを教えてくれるでしょう。
 
-There are many Deep Learning neural architectures in current practical use; a few types that I use are:
+現在実用化されているDeep Learningのニューラルアーキテクチャはたくさんありますが、私が使っているのは数種類です。
 
--   Multi-layer perceptron networks with many fully connected layers. An input layer contains placeholders for input data. Each element in the input layer is connected by a two-dimensional weight matrix to each element in the first hidden layer. We can use any number of fully connected hidden layers, with the last hidden layer connected to an output layer.
--   Convolutional networks for image processing and text classification.  Convolutions, or filters, are small windows that can process input images (filters are two-dimensional) or sequences like text (filters are one-dimensional). Each filter uses a single set of learned weights independent of where the filter is applied in an input image or input sequence.
--   Autoencoders have the same number of input layer and output layer elements with one or more hidden fully connected layers.  Autoencoders are trained to produce the same output as training input values using a relatively small number of hidden layer elements. Autoencoders are capable of removing noise in input data.
--   LSTM (long short term memory) process elements in a sequence in order and are capable of remembering patterns that they have seen earlier in the sequence.
--   GAN (generative adversarial networks) models comprise two different and competing neural models, the generator and the discriminator.  GANs are often trained on input images (although in my work I have applied GANs to two-dimensional numeric spreadsheet data). The generator model takes as input a "latent input vector" (this is just a vector of specific size with random values) and generates a random output image. The weights of the generator model are trained to produce random images that are similar to how training images look.  The discriminator model is trained to recognize if an arbitrary output image is original training data or an image created by the generator model. The generator and discriminator models are trained together.
+- 多くの完全連結層を持つ多層パーセプトロンネットワーク。入力層は入力データのプレースホルダーを含む。入力層の各要素は2次元の重み行列によって第1隠れ層の各要素に接続される。任意の数の完全連結隠れ層を使用することができ、最後の隠れ層は出力層に接続される。
+- 画像処理とテキスト分類のための畳み込みネットワーク。 畳み込み、またはフィルタは、入力画像（フィルタは2次元）またはテキストなどのシーケンス（フィルタは1次元）を処理できる小さなウィンドウである。各フィルターは、入力画像や入力シーケンスのどこにフィルターを適用するかに関係なく、1組の学習された重みを使用する。
+- オートエンコーダーは同じ数の入力層と出力層の要素を持ち、1つ以上の隠れ完全連結層がある。 オートエンコーダーは、比較的少数の隠れ層要素を用いて、学習用入力値と同じ出力を生成するように学習される。オートエンコーダーは、入力データに含まれるノイズを除去することができる。
+- LSTM（long short term memory）は、配列内の要素を順番に処理し、配列の中で先に見たパターンを記憶することができる。
+-   GAN (Generative adversarial networks) モデルは、生成器と識別器という2つの異なる競合するニューラル・モデルから構成される。 GANは多くの場合、入力画像に対して学習される（ただし、私の仕事では、GANを2次元の数値スプレッドシートデータに適用したことがある）。生成器モデルは「潜在的な入力ベクトル」（これはランダムな値を持つ特定の大きさのベクトルである）を入力とし、ランダムな出力画像を生成する。生成器モデルの重みは、学習画像の見え方に近いランダムな画像を生成するように学習される。 識別器モデルは、任意の出力画像が元の学習データなのか、生成器モデルによって生成された画像なのかを認識するように学習させる。生成器モデルと識別器モデルは一緒に学習される。
 
-The core functionality of libraries like TensorFlow are written in C++ and take advantage of special hardware like GPUs, custom ASICs, and devices like Google's TPUs. Most people who work with Deep Learning models don't need to even be aware of the low level optimizations used to make training and using Deep Learning models more efficient. That said, in the following section I am going to show you how simple neural networks are trained and used.
+TensorFlowのようなライブラリの中核機能はC++で書かれており、GPU、カスタムASIC、GoogleのTPUのようなデバイスといった特殊なハードウェアを活用する。Deep Learningモデルを扱うほとんどの人は、Deep Learningモデルの学習と使用をより効率的にするために使用される低レベルの最適化について意識する必要すらありません。とはいえ、次のセクションでは、シンプルなニューラルネットワークがどのようにトレーニングされ、使用されているかを紹介するつもりです。
 
-### Simple Multi-layer Perceptron Neural Networks
+### 簡単な多層パーセプトロンのニューラルネットワーク
 
-I use the terms Multi-layer perceptron neural networks, backpropagation neural networks and delta-rule networks interchangeably. Backpropagation refers to the model training process of calculating the output errors when training inputs are passed in the forward direction from input layer, to hidden layers, and then to the output layer. There will be an error which is the difference between the calculated outputs and the training outputs. This error can be used to adjust the weights from the last hidden layer to the output layer to reduce the error. The error is then backprogated backwards through the hidden layers, updating all weights in the model. I have detailed example code in any of my older artificial intelligence books. Here I am satisfied to give you an intuition to how simple neural networks are trained.
+私は、多層パーセプトロンネットワーク、バックプロパゲーションニューラルネットワーク、デルタルールネットワークという言葉を使い分けしています。バックプロパゲーションとは、入力層→隠れ層→出力層と順方向に学習入力を渡していく際に、出力誤差を計算するモデル学習のことを言います。このとき、計算された出力と学習出力の差である誤差が発生する。この誤差を利用して、最後の隠れ層から出力層までの重みを調整することで、誤差を小さくすることができる。この誤差は隠れ層を通してバックプロゲートされ、モデル内のすべての重みが更新されます。私の古い人工知能の本のどれかに詳しいコード例が載っている。ここでは、単純なニューラルネットワークがどのように学習されるのか、直感的に理解できるようになれば満足です。
 
-The basic idea is that we start with a network initialized with random weights and for each training case we propagate the inputs through the network towards the output neurons, calculate the output errors, and back-up the errors from the output neurons back towards the input neurons in order to make small changes to the weights to lower the error for the current training example. We repeat this process by cycling through the training examples many times.
+基本的な考え方は、ランダムな重みで初期化されたネットワークからスタートし、各トレーニングケースについて、入力をネットワークを通して出力ニューロンへ伝搬し、出力エラーを計算し、出力ニューロンからのエラーを入力ニューロンへバックアップし、現在のトレーニング例の誤差を小さくするために重みを変更することである。このプロセスを何度も繰り返して、学習例を循環させる。
 
-The following figure shows a simple backpropagation network with one hidden layer. Neurons in adjacent layers are connected by floating point connection strength weights. These weights start out as small random values that change as the network is trained. Weights are represented in the following figure by arrows; in the code the weights connecting the input to the output neurons are represented as a two-dimensional array.
+次の図は、隠れ層が1つの単純なバックプロパゲーションネットワークである。隣接する層のニューロンは浮動小数点数の接続強度の重みで接続されている。これらの重みは最初は小さなランダムな値であり、ネットワークの学習とともに変化する。下図では重みは矢印で表されているが、コードでは入力と出力ニューロンを結ぶ重みは2次元の配列として表されている。
 
 
 ![Example Backpropagation network with One Hidden Layer](/site_images1/hy-lisp-python/nn_backprop2d.png)
 
 
-Each non-input neuron has an activation value that is calculated from the activation values of connected neurons feeding into it, gated (adjusted) by the connection weights. For example, in the above figure, the value of Output 1 neuron is calculated by summing the activation of Input 1 times weight W1,1 and Input 2 activation times weight W2,1 and applying a "squashing function" like Sigmoid or Relu (see figures below) to this sum to get the final value for Output 1's activation value. We want to flatten activation values to a relatively small range but still maintain relative values. To do this flattening we use the Sigmoid function that is seen in the next figure, along with the derivative of the Sigmoid function which we will use in the code for training a network by adjusting the weights.
+各非入力ニューロンは、そこに入力する接続ニューロンの活性化値から、接続重みでゲートをかけて（調整して）計算した活性化値を持っている。例えば上図では、出力1ニューロンの値は、入力1の活性化×重みW1,1と入力2の活性化×重みW2,1を合計し、この合計にSigmoidやRelu（下図参照）などの「スカッシング関数」を適用して出力1の活性化値の最終値を得ることによって算出される。活性値を比較的小さな範囲に平坦化したいが、相対的な値は維持したい。この平坦化のために、次の図に示すようなシグモイド関数と、シグモイド関数の微分を使用します。シグモイド関数は、重みを調整してネットワークを学習させるコードで使用する予定です。
 
 
 ![Sigmoid Function and Derivative of Sigmoid Function (SigmoidP)](/site_images1/hy-lisp-python/nn_sigmoid.png)
 
 
-Simple neural network architectures with just one or two hidden layers are easy to train using backpropagation and I have from scratch code for this several of my previous books. You can see Java and Common Lisp from-scratch implementations in two of my books that you can read online: [Practical Artificial Intelligence Programming With Java](https://leanpub.com/javaai) and [Loving Common Lisp, or the Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp). However, here we are using Hy to write models using the TensorFlow framework which has the huge advantage that small models you experiment with on your laptop can be scaled to more parameters (usually this means more neurons in hidden layers which increases the number of weights in a model) and run in the cloud using multiple GPUs.
+隠れ層が1つか2つの単純なニューラルネットワークは、バックプロパゲーションを使って簡単に学習することができます。JavaとCommon Lispのゼロからの実装は、オンラインで読める私の2冊の本、[Practical Artificial Intelligence Programming With Java](https://leanpub.com/javaai) と [Loving Common Lisp, or the Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp) で見ることができます。しかし、ここではHyを使ってTensorFlowフレームワークを使ってモデルを書いています。このフレームワークは、ラップトップで実験している小さなモデルを、より多くのパラメータ（通常これは隠れ層のニューロンの数を増やして、モデルの重みの数を増やすことを意味します）に拡張でき、複数のGPUを使ってクラウドで実行できるという大きな利点を備えています。
 
-Except for pendantic purposes, I now never write neural network code from scratch, instead I take advantage of the many person-years of engineering work put into the development of frameworks like TensorFlow, PyTorch, mxnet, etc. We now move on to two examples built with TensorFlow.
+私は現在、ペンダント的な目的を除いて、ニューラルネットワークのコードをゼロから書くことはなく、TensorFlow、PyTorch、mxnetなどのフレームワークの開発に費やされた何人年分ものエンジニアリングワークを利用しています。次に、TensorFlowで構築された2つの例を紹介します。
 
 ### Deep Learning
 
-Deep Learning models are generally understood to have many more hidden layers than simple multi-layer perceptron neural networks and often comprise multiple simple models combined together in series or in parallel. Complex architectures can be iteratively developed by manually adjusting the size of model components, changing the components, etc.  Alternatively, model architecture search can be automated. At Capital One I used Google's [AdaNet project](https://github.com/tensorflow/adanet) that efficiently searches for effective model architectures inside a single TensorFlow session.  The model architecture used here is simple: one input layer representing the input values in a sample of University of Wisconsin cancer data, one hidden layer, and an output layer consisting of one neuron whose activation value will be interpreted as a prediction of benign or malignant.
+ディープラーニングモデルは、一般に単純な多層パーセプトロンニューラルネットワークよりも多くの隠れ層を持ち、多くの場合、複数の単純なモデルを直列または並列に組み合わせたもので構成されると理解されている。複雑なアーキテクチャは、モデルの構成要素の大きさを手動で調整し、構成要素を変更するなどして、繰り返し開発することができる。 また、モデル・アーキテクチャの検索を自動化することもできます。Capital Oneでは、1つのTensorFlowセッション内で効果的なモデルアーキテクチャを効率的に検索するGoogleの[AdaNetプロジェクト](https://github.com/tensorflow/adanet)を使いました。 ここで使用したモデルアーキテクチャは単純で、ウィスコンシン大学の癌データのサンプルの入力値を表す1つの入力層、1つの隠れ層、そして活性化値が良性または悪性の予測と解釈される1つのニューロンからなる出力層である。
 
-The material in this chapter is intended to serve two purposes:
+本章の資料は2つの目的を果たすことを意図している。
 
--   If you are already familiar with Deep Learning and TensorFlow then the examples here will serve to show you how to call the TensorFlow APIs from Hy.
--   If you have little or no exposure with Deep Learning then the short Hy language examples will provide you with concise code to experiment with and you can then decide to study further.
+- もしあなたが既にDeep LearningとTensorFlowに精通しているなら、ここにある例はHyからTensorFlowのAPIを呼び出す方法を示すのに役立つでしょう。
+- もしあなたがDeep Learningにほとんど、あるいは全く触れていないのであれば、短いHy言語の例は、実験するための簡潔なコードを提供し、その後さらに勉強するかどうかを決めることができます。
 
-Once again, I recommend that you consider taking two online Deep Learning course sequences. For no cost, Jeremy Howard provides lessons at [fast.ai](https://fast.ai) that are very good and the later classes use PyTorch which is a framework that is similar to TensorFlow. For a modest cost Andrew Ng provides classes at [deeplearning.ai](https://www.deeplearning.ai/) that use TensorFlow. I have been working in the field of machine learning since the 1980s, but I still take Andrew's online classes to stay up-to-date. In the last eight years I have taken his Stanford University machine learning class twice and also his complete course sequence using TensorFlow. I have also worked through much of Jeremy's material. I recommend both course sequences without reservation.
+もう一度言いますが、2つのオンラインDeep Learningコースシーケンスを受講することを検討することをお勧めします。Jeremy Howardは[fast.ai](https://fast.ai)で非常に優れたレッスンを無料で提供しており、後半のクラスではTensorFlowに類似したフレームワークであるPyTorchを使用しています。Andrew Ngは[deeplearning.ai](https://www.deeplearning.ai/)でTensorFlowを使った授業を安価で提供しています。私は1980年代から機械学習の分野で仕事をしていますが、最新の情報を得るために、今でもAndrewのオンラインクラスを受講しています。この8年間で、スタンフォード大学の機械学習のクラスを2回受講し、TensorFlowを使った一連のコースもすべて受講しています。また、Jeremyの教材の多くも勉強しました。私は、この2つのコースシリーズを自信を持ってお勧めします。
 
-### Using Keras and TensorFlow to Model The Wisconsin Cancer Data Set
+### KerasとTensorFlowを使ってWisconsin Cancer Data Setをモデル化する
 
-The University of Wisconsin cancer database has 646 samples. Each sample has 9 input values and one output value, the target output class (0 for benign, 1 for cancer):
+ウィスコンシン大学の癌データベースには646のサンプルがある。各サンプルは9つの入力値と1つの出力値、ターゲット出力クラス（良性は0、癌は1）を持つ。
 
--   0 Clump Thickness 1 - 10
--   1 Uniformity of Cell Size 1 - 10
--   2 Uniformity of Cell Shape 1 - 10
--   3 Marginal Adhesion 1 - 10
--   4 Single Epithelial Cell Size 1 - 10
--   5 Bare Nuclei 1 - 10
--   6 Bland Chromatin 1 - 10
--   7 Normal Nucleoli 1 - 10
--   8 Mitoses 1 - 10
--   9 Class (0 for benign, 1 for malignant)
+- 0 クランプの厚さ 1～10
+- 1 セルサイズの均一性 1～10
+- 2 細胞の形状の均一性 1 - 10
+- 3 辺縁部付着性 1 - 10
+- 4 単一上皮細胞サイズ 1 - 10
+- 5 むき出しの核 1 - 10
+- 6 ブランドクロマチン 1 - 10
+- 7 正常な核小体 1 - 10
+- 8 有糸分裂 1 - 10
+- 9 クラス（良性は0、悪性は1）
 
-We will use separate training and test files **hy-lisp-python/deeplearning/train.csv** and **hy-lisp-python/deeplearning/test.csv**. Here are a few samples from the training file:
+ここでは、学習用とテスト用の別々のファイル **hy-lisp-python/deeplearning/train.csv** と **hy-lisp-python/deeplearning/test.csv** を使用することにします。以下は学習ファイルからのサンプルです。
 
 
     6,2,1,1,1,1,7,1,1,0
@@ -1441,23 +1438,23 @@ We will use separate training and test files **hy-lisp-python/deeplearning/train
     1,1,1,1,2,1,2,1,1,0
 
 
-After you look at this data, if you did not have much experience with machine learning then it might not be obvious how to build a model to accept a sample for a patient like we see in the Wisconsin data set and then predict if the sample implies benign or cancerous outcome for the patient. Using TensorFlow with a simple neural network model, we will implement a model in about 40 lines of Hy code to implement this example.
+このデータを見た後、もしあなたが機械学習の経験があまりないのであれば、ウィスコンシン州のデータセットに見られるような患者のサンプルを受け入れ、そのサンプルが患者の良性または癌の結果を暗示するかどうかを予測するモデルを構築する方法は明らかではないかもしれません。TensorFlowとシンプルなニューラルネットワークモデルを使って、この例を実装するために約40行のHyコードでモデルを実装します。
 
-Since there are nine input values we will need nine input neurons that will represent the input values for a sample in either training or separate test data. These nine input neurons (created in lines 9-10 in the following listing) will be completely connected to twelve neurons in a hidden layer. Here, completely connected means that each of the nine input neurons is connected via a weight to each hidden layer neuron.  There are 9 \* 12 = 108 weights between the input and hidden layers.  There is a single output layer neuron that is connected to each hidden layer neuron.
+入力値が9つあるので、トレーニングデータまたは別のテストデータのどちらかのサンプルの入力値を表す9つの入力ニューロンが必要になります。これらの9つの入力ニューロン（以下のリストの9-10行目で作成）は、隠れ層の12個のニューロンに完全に接続されます。ここで、完全に接続されているとは、9つの入力ニューロンのそれぞれが、隠れ層の各ニューロンにウェイトを介して接続されていることを意味します。 入力層と隠れ層の間には、9 \* 12 = 108 個の重みがある。 各隠れ層のニューロンには、1つの出力層ニューロンが接続されています。
 
-Notice that in lines 12 and 14 in the following listing that we specify a **relu** activation function while the activation function connecting the hidden layer to the output layer uses the **sigmoid** activation function that we saw plotted earlier.
+以下のリストの12行目と14行目では、隠れ層と出力層をつなぐ活性化関数が先にプロットした**sigmoid**活性化関数を使用しながら、**relu**活性化関数を指定していることに注意してください。
 
-There is an example in the git example repo directory **hy-lisp-python/matplotlib** in the file **plot_relu.hy** that generated the following figure:
+git example repo ディレクトリ **hy-lisp-python/matplotlib** にあるファイル **plot_relu.hy** で以下の図を生成する例があります。
 
 
 ![Relu Function](/site_images1/hy-lisp-python/relu.png)
 
 
-The following listing shows the use of the Keras TensorFlow APIs to build a model (lines 9-19) with one input layer, two hidden layers, and an output layer with just one neuron. After we build the model, we define two utility functions **train** (lines 21-23) to train a model given training inputs (**x** argument**) and corresponding training outputs (**y\*\* argument), and we also define **predict** (lines 25-26) using a trained model to make a cancer or benign prediction given test input values (**x-data** argument).
+以下のリストでは、Keras TensorFlow APIを使用して、1つの入力層、2つの隠れ層、および1つのニューロンだけを持つ出力層でモデルを構築しています（9～19行目）。モデルを構築した後、トレーニング入力（**x**引数）と対応するトレーニング出力（**y**引数）を与えてモデルをトレーニングする2つのユーティリティ関数 **train**（21-23 行）と、テスト入力値（**x-data**引数）を与えて癌または良性予測を行うトレーニングしたモデルを使用する **predict**（25-26 行）を定義しています。
 
-Lines 28-33 show a utility function **load-data** that loads a University of Wisconsin cancer data set CSV file, scales the input and output values to the range \[0.0, 1.0\] and returns a list containing input (**x-data**) and target output data (**y-data**). You may want to load this example in a REPL and evaluate **load-data** on one of the CSV files.
+28～33行目はユーティリティ関数 **load-data** で、University of Wisconsin の癌データセット CSV ファイルをロードし、入出力値を範囲 \[0.0, 1.0] にスケールし、入力データ (**x-data**) とターゲット出力データ (**y-data**) を含むリストを返しています。この例をREPLで読み込んで、CSVファイルの1つに対して**load-data**を評価するとよいでしょう。
 
-The function **main** (lines 35-45) loads training and test (evaluation of model accuracy on data not used for training), trains a model, and then tests the accuracy of the model on the test (evaluation) data:
+関数**main**（35～45行目）では、学習とテスト（学習に使用しなかったデータに対するモデルの精度の評価）をロードし、モデルを学習し、テスト（評価）データでモデルの精度をテストしています。
 
 
      1 #!/usr/bin/env hy
@@ -1509,7 +1506,7 @@ The function **main** (lines 35-45) loads training and test (evaluation of model
     47 (main)
 
 
-The following listing shows the output:
+次のリストは、その出力を示しています。
 
 
     1 $ hy wisconsin.hy 
@@ -1519,13 +1516,13 @@ The following listing shows the output:
     5 (0.21845636, 0), (0.99662805, 1), (0.08626339, 0), (0.045683343, 0), (0.9992156, 1)]
 
 
-Let's look at the first test case: the "real" output from the training data is a value of 1 and the calculated predicted value (using the trained model) is 0.9759052. In making predictions, we can choose a cutoff value, 0.5 for example, and interpret any calculated prediction value less than the cutoff as a Boolean *false* prediction and calculated prediction value greater to or equal to the cutoff value is a Boolean *true* prediction.
+最初のテストケースを見てみましょう。学習データからの「実際の」出力は値1であり、計算された予測値（学習済みモデルを使用）は0.9759052です。予測を行う際、カットオフ値、例えば0.5を選び、計算された予測値がカットオフ値より小さい場合はブール値の*false*予測、カットオフ値以上の場合はブール値の*true*予測として解釈することが可能です。
 
-### Using a LSTM Recurrent Neural Network to Generate English Text Similar to the Philosopher Nietzsche's writing
+### LSTMリカレントニューラルネットワークを使って、哲学者ニーチェの文章に似た英文を生成してみる
 
-We will translate a Python example program from Google's [Keras documentation (listing of LSTM.py that is included with the example Hy code)](https://keras.io/examples/lstm_text_generation/) to Hy. This is a moderately long example and you can use the original Python and the translated Hy code as a general guide for converting other models implemented in Python using Keras that you want use in Hy. I have, in most cases, kept the same variable names to make it easier to compare the Python and Hy code.
+Googleの[Kerasドキュメント（Hyのサンプルコードに含まれるLSTM.pyのリスト）](https://keras.io/examples/lstm_text_generation/)にあるPythonのサンプルプログラムをHyに翻訳してみます。これは中程度の長さの例で、Kerasを使ってPythonで実装された他のモデルをHyで使いたい場合の変換の一般的なガイドとして、元のPythonと翻訳したHyコードを使用することができます。PythonとHyのコードを比較しやすいように、ほとんどの場合、同じ変数名にしています。
 
-Note that using the nietzsche.txt data set requires a fair amount of memory. If your computer has less than 16G of RAM, you might want to reduce the size of the training text by first running the following example until you see the printout "Create sentences and next_chars data..." then kill the program. The first time you run this program, the training data is fetched from the web and stored locally. You can manually edit the file **\~/.keras/datasets/nietzsche.txt** to remove 75% of the data by:
+nietzsche.txtのデータセットを使用するには、かなりの量のメモリを必要とすることに注意してください。もしあなたのコンピュータのRAMが16G以下なら、まず以下の例を "Create sentences and next_chars data... "というプリントが出るまで実行して、学習用テキストのサイズを小さくしてから、プログラムを終了させるとよいでしょう。このプログラムを初めて実行したとき、学習データはウェブから取得され、ローカルに保存されます。ファイル **~/.keras/datasets/nietzsche.txt** を手動で編集することで、75%のデータを削除することができます。
 
 
     1     pushd ~/.keras/datasets/
@@ -1534,11 +1531,11 @@ Note that using the nietzsche.txt data set requires a fair amount of memory. If 
     4     popd
 
 
-The next time you run the example, the Keras example data loading utilities will notice a local copy and even though the file now is much smaller, the data loading utilities will not download a new copy.
+次にサンプルを実行するとき、Kerasサンプルデータローディングユーティリティはローカルコピーに気付き、ファイルがはるかに小さくなっても、データローディングユーティリティは新しいコピーをダウンロードしません。
 
-When I start training a new Deep Learning model I like to monitor system resources using the **top** command line activity, watching for page faults when training on a CPU which might indicate that I am trying to train too large of a model for my system memory. If you are using CUDA and a GPU then use the CUDA command line utilities for monitoring the state of the GPU utilization. It is beyond the scope of this introductory tutorial, but the tool [TensorBoard](https://www.tensorflow.org/tensorboard/) is very useful for monitoring the state of model training.
+私は新しいDeep Learningモデルのトレーニングを開始するとき、**top**コマンドラインアクティビティを使用してシステムリソースを監視し、CPU上でトレーニングするときにページフォルトを監視したいのですが、これは私がシステムメモリに対して大きすぎるモデルをトレーニングしようとしていることを示す可能性があります。CUDAとGPUを使用している場合、GPUの使用状況を監視するためにCUDAコマンドラインユーティリティを使用します。この入門チュートリアルの範囲を超えていますが、[TensorBoard](https://www.tensorflow.org/tensorboard/)というツールはモデルの学習状態を監視するのに非常に便利です。
 
-There are a few things that make the following example code more complex than the example using the University of Wisconsin cancer data set. We need to convert each character in the training data to a one-hot encoding which is a vector of all 0.0 values except for a single value of 1.0. I am going to show you a short REPL session so that you understand how this works and then we will look at the complete Hy code example.
+以下のコード例では、ウィスコンシン大学のがんデータセットを用いた例よりも複雑な点がいくつかあります。学習データの各文字を、1.0という単一の値を除くすべての0.0の値のベクトルであるワンホットエンコーディングに変換する必要があるのです。これから短いREPLセッションをお見せして、これがどのように働くかを理解していただき、その後完全なHyコードの例を見ていただくことにします。
 
 
      1 $ hy
@@ -1598,11 +1595,11 @@ There are a few things that make the following example code more complex than th
     55 => 
 
 
-For lines 48-54, each line represents a single character one-hot encoded. Notice how the third character shown on line 50 has a value of "1." at index 2, which corresponds to the one-hot encoding of the letter "!".
+48-54行目については、各行が1文字のワンホットエンコーディングを表しています。50行目の3番目の文字のインデックス2が "1. "であることに注目してください。
 
-Now that you have a feeling for how one-hot encoding works, hopefully the following example will make sense to you. We will further discuss one-hot-encoding after the next code listing. For training, we take 40 characters (the value of the variable **maxlen**) at a time, and using one one-hot encode a character at a time as input and the target output will be the one-hot encoding of the following character in the input sequence. We are iterating on training the model for a while and then given a few characters of text, predict a likely next character - and keep repeating this process. The generated text is then used as input to the model to generate yet more text. You can repeat this process until you have generated sufficient text.
+これでワンホットエンコーディングの仕組みがわかったと思いますので、次の例を読んで納得してください。ワンホットエンコーディングについては、次のコード一覧の後でさらに説明します。学習用に、一度に40文字（変数**maxlen**の値）を取り、一度に1文字ずつワンホットエンコーディングを使って入力とし、目標出力は入力列の次の文字のワンホットエンコーディングになります。しばらくはモデルの学習を繰り返し、数文字のテキストが与えられたら、次の文字を予測する--このプロセスを繰り返す。生成されたテキストは、さらに多くのテキストを生成するためのモデルの入力として使用されます。十分な量のテキストが生成されるまで、このプロセスを繰り返すことができる。
 
-This is a powerful technique that I used to model JSON with complex deeply nested schemas and then generate synthetic JSON in the same schema as the training data. Here, training a model to mimic the philosopher Nietzsche's writing is much easier than learning highly structured data like JSON:
+これは、複雑なスキーマが深く入れ子になっているJSONをモデル化し、学習データと同じスキーマの合成JSONを生成するのに使った強力なテクニックです。ここでは、哲学者ニーチェの文章を模倣するモデルの学習は、JSONのような高度に構造化されたデータの学習よりずっと簡単です。
 
 
      1 #!/usr/bin/env hy
@@ -1699,15 +1696,15 @@ This is a powerful technique that I used to model JSON with complex deeply neste
     92 (model.fit x y :batch_size 128 :epochs 60 :callbacks [print_callback])
 
 
-In lines 52-54 we defined a model using the Keras APIs and in lines 56-57 compiled the model using a [categorical crossentropy loss function with an RMSprop optimizer](https://keras.io/optimizers/).
+52～54行目でKerasのAPIを使ってモデルを定義し、56～57行目で[categorical crossentropy loss function with an RMSprop optimizer](https://keras.io/optimizers/) を使ってモデルをコンパイルしています。
 
-In lines 59-65 we define a function **sample** that takes a first required argument **preds** which is a one-hot predicted encoded character that might look like (maxlen or 40 values):
+59-65行目では、最初の必須引数**preds**を取る関数**sample**を定義しており、これは（maxlenまたは40個の値）のように見えるかもしれないワンショット予測符号化された文字です。
 
 \[2.80193929e-02 6.78635418e-01 7.85831537e-04 4.92034527e-03 . . .  6.62320468e-04 9.14627407e-03 2.31375365e-04\]
 
-Now, here the predicted one hot encoding values are not strictly 0 or 1, rather they are small floating point numbers of a single number much larger than the others. The largest number is 6.78635418e-01 at index 1 which corresponds to a one-hot encoding for a " " space character.
+さて、ここで予測されるワンホットエンコーディングの値は厳密には0や1ではなく、むしろ他よりもはるかに大きな1つの数値の小さな浮動小数点数になっています。最大の数値はインデックス1の6.78635418e-01で、これはスペース文字" "のワンホットエンコーディングに相当します。
 
-If we print out the number of characters in text and the unique list of characters (variable **chars**) in the training text file nietzsche.txt we see:
+学習用テキストファイルnietzsche.txtのテキスト中の文字数と文字の固有リスト（変数**chars**）を出力してみると、以下のようになります。
 
 
     corpus length: 600893
@@ -1719,9 +1716,9 @@ If we print out the number of characters in text and the unique list of characte
     ]
 
 
-**A review of one-hot encoding:**
+**ワンホットエンコーディングの復習:**。
 
-Let's review our earlier discussion of one-hot encoding with a simpler case. It is important to understand how we one-hot encode input text to inputs for the model and decode back one-hot vectors to text when we use a trained model to generate text. It will help to see the dictionaries for converting characters to indices and then reverse indices to original characters as we saw earlier, some output removed:
+先ほどのワンホットエンコーディングの話を、より単純なケースでおさらいしてみましょう。入力テキストをどのようにしてモデルの入力にワンホットエンコードし、学習済みモデルを使ってテキストを生成するときにワンホットベクトルをテキストにデコードバックするのかを理解することが重要です。文字からインデックスに変換し、さらにインデックスを元の文字に逆変換するための辞書を、先ほど見たように、いくつかの出力を削除して見ることが助けになるでしょう。
 
 
     char_indices:
@@ -1741,7 +1738,7 @@ Let's review our earlier discussion of one-hot encoding with a simpler case. It 
     ', 77: 'y', 78: 'z', 79: 'Æ', 80: 'ä', 81: 'æ', 82: 'é', 83: 'ë'}
 
 
-We prepare the input and target output data in lines 43-48 in the last code listing. Using a short string, let's look in the next REPL session listing at how these input and output training examples are extracted for an input string:
+前回のコードリストの43行目から48行目で入力データとターゲット出力データを用意しました。短い文字列を使って、入力文字列に対してこれらの入力と出力の学習例がどのように抽出されるか、次のREPLセッションのリストで見てみましょう。
 
 
      1 Marks-MacBook:deeplearning $ hy
@@ -1761,9 +1758,9 @@ We prepare the input and target output data in lines 43-48 in the last code list
     15 => 
 
 
-So the input training sentences are each **maxlen** characters long and the **next-chars** target outputs each start with the character after the last character in the corresponding input training sentence.
+入力訓練文はそれぞれ**maxlen**文字で、**next-chars**ターゲット出力はそれぞれ対応する入力訓練文の最後の文字の後の文字から始まる。
 
-This script pauses during each training epoc to generate text given diversity values of 0.2, 0.5, 1.0, and 1.2. The smaller the diversity value the more closely the generated text matches the training text. The generated text is more realistic after many training epocs. In the following, I list a highly edited copy of running through several training epochs. I only show generated text for diversity equal to 0.2:
+このスクリプトは各訓練エポックの間に一時停止し、0.2, 0.5, 1.0, 1.2の多様性値でテキストを生成する。多様性の値が小さいほど、生成されるテキストはより訓練テキストに近くなる。何度も学習用エポックを繰り返すと、生成されるテキストはより現実的なものになる。以下では、数回の学習エポックを実行したものを高度に編集してリストアップしている。生成されたテキストは多様性が0.2の場合のみ表示する。
 
 
      1 ----- Generating text after Epoch: 0
@@ -1809,37 +1806,37 @@ This script pauses during each training epoc to generate text given diversity va
     41 an to the same man
 
 
-Here we trained on examples, translated to English, of the philosopher Nietzsche. I have used similar code to this example to train on highly structured JSON data and the resulting LSTM bsed model was usually able to generate similarly structured JSON. I have seen other examples where the training data was code in C++.
+ここでは哲学者Nietzscheの英語に翻訳された例で学習しました。この例と似たようなコードを使って、高度に構造化されたJSONデータで学習したことがあります。その結果、LSTMをベースとしたモデルは、通常、同じような構造のJSONを生成することができました。私は、学習データがC++のコードである他の例を見たことがあります。
 
-How is this example working? The model learns what combinations of characters tend to appear together and in what order.
+この例はどのように動作しているのでしょうか？このモデルはどのような文字の組み合わせがどのような順序で一緒に現れる傾向があるかを学習しています。
 
-In the next chapter we will use pre-trained Deep Learning models for natural language processing (NLP).
+次の章では、自然言語処理（NLP）のために事前に学習されたDeep Learningモデルを使用します。
 
-## Natural Language Processing
+## 自然言語処理
 
-I have been working in the field of Natural Language Processing (NLP) since 1985 so I 'lived through' the revolutionary change in NLP that has occurred since 2014: deep learning results out-classed results from previous symbolic methods.
+私は1985年から自然言語処理（NLP）の分野で仕事をしているので、2014年以降に起きたNLPの革命的な変化を「生きて」きました：深層学習の結果がそれまでの記号的手法の結果を凌駕したのです。
 
-I will not cover older symbolic methods of NLP here, rather I refer you to my previous books [Practical Artificial Intelligence Programming With Java](https://leanpub.com/javaai), \[Loving Common Lisp, [The Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp), and [Haskell Tutorial and Cookbook](https://leanpub.com/haskell-cookbook) for examples. We get better results using Deep Learning (DL) for NLP and the library **spaCy** ([https://spacy.io](https://spacy.io/)) that we use in this chapter provides near state of the art performance. The authors of **spaCy** frequently update it to use the latest breakthroughs in the field.
+ここでは古い記号的なNLPの手法は取り上げず、拙著[Javaで実践する人工知能プログラミング](https://leanpub.com/javaai)、[Loving Common Lisp, The Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp)、[Haskell Tutorial and Cookbook](https://leanpub.com/haskell-cookbook)を参考にしていただければと思います。NLPにDeep Learning（DL）を使うとより良い結果が得られ、本章で使用するライブラリ**spaCy**（[https://spacy.io](https://spacy.io/)）は、ほぼ最先端の性能を提供しています。spaCy**の作者は、この分野の最新のブレークスルーを利用するために頻繁に更新しています。
 
-You will learn how to apply both DL and NLP by using the state-of-the-art full-feature library [spaCy](https://spacy.io/). This chapter concentrates on how to use spaCy in the Hy language for solutions to a few selected problems in NLP that I use in my own work. I urge you to also review the "Guides" section of the [spaCy documentation](https://spacy.io/usage) where examples are in Python but after experimenting with the examples in this chapter you should have no difficulty in translating any spaCy Python examples to the Hy language.
+最先端のフルフィーチャライブラリ[spaCy](https://spacy.io/)を使って、DLとNLPの両方を適用する方法を学びます。この章では、私が自分の仕事で使っているNLPの厳選されたいくつかの問題を解決するために、Hy言語でのspaCyの使い方に焦点を当てます。私は、[spaCy documentation](https://spacy.io/usage) の "Guides" セクションを見直すことを強く勧めます。そこでは、例はPythonで書かれていますが、この章の例で実験した後、spaCy Pythonの例をHy言語に翻訳することに何の困難もないはずです。
 
-If you have not already done so install the **spaCy** library and the full English language model:
+まだインストールしていない場合は、**spaCy**ライブラリと完全英語版モデルをインストールしてください。
 
 
     pip install spacy
     python -m spacy download en
 
 
-You can use a smaller model (which requires loading "en_core_web_sm" instead of "en" in the following examples):
+より小さなモデルを使用することができます（以下の例では、"en "の代わりに "en_core_web_sm "を読み込む必要があります）。
 
 
     pip install spacy
     python -m spacy download en_core_web_sm
 
 
-### Exploring the spaCy Library
+### spaCyライブラリの探索
 
-We will use the Hy REPL to experiment with spaCy, Lisp style. The following REPL listings are all from the same session, split into separate listings so that I can talk you through the examples:
+私たちはLispスタイルでspaCyを実験するためにHy REPLを使用します。以下のREPLリストはすべて同じセッションからのもので、私が例を通して話すことができるように別々のリストに分割されています。
 
 
      1 Marks-MacBook:nlp $ hy
@@ -1866,9 +1863,9 @@ We will use the Hy REPL to experiment with spaCy, Lisp style. The following REPL
     22 token_hooks', 'vector', 'vector_norm', 'vocab']
 
 
-In lines 3-6 we import the spaCy library, load the English language model, and create a document from input text. What is a spaCy document?  In line 9 we use the standard Python function **dir** to look at all names and functions defined for the object **doc** returned from applying a spaCy model to a string containing text. The value printed shows many built in "dunder" (double underscore attributes), and we can remove these:
+3-6行目でspaCyライブラリをインポートし、英語モデルをロードし、入力テキストからドキュメントを作成しています。spaCyドキュメントとは何でしょうか？ 9行目では、Pythonの標準関数**dir**を使って、テキストを含む文字列にspaCyモデルを適用して得られたオブジェクト**doc**に対して定義されたすべての名前と関数を調べています。出力された値には多くの「ダンダー」（ダブルアンダースコアの属性）が組み込まれており、これらを削除することができます。
 
-In lines 23-26 we use the **dir** function again to see the attributes and methods for this class, but filter out any attributes containing the characters "\_\_":
+23-26行目では、再び**dir**関数を使ってこのクラスの属性とメソッドを表示していますが、"absolute "の文字が含まれる属性はすべて取り除いています。
 
 
     23 => (lfor
@@ -1886,7 +1883,7 @@ In lines 23-26 we use the **dir** function again to see the attributes and metho
     35 =>
 
 
-The **to_json** method looks promising so we will import the Python pretty print library and look at the pretty printed result of calling the **to_json** method on our document stored in **doc**:
+**to_json**メソッドは期待できそうなので、Python pretty printライブラリをインポートして、**doc**に格納されているドキュメントに対して**to_json**メソッドを呼び出した結果を、きれいに印刷して見てみましょう。
 
 
      36 => (import [pprint [pprint]])
@@ -1989,13 +1986,13 @@ The **to_json** method looks promising so we will import the Python pretty print
     133 => 
 
 
-The JSON data is nested dictionaries. In a later chapter on Knowledge Graphs, we will want to get the named entities like people, organizations, etc., from text and use this information to automatically generate data for Knowledge Graphs. The values for the key **ents** (stands for "entities") will be useful. Notice that the words in the original text are specified by beginning and ending text token indices (values of **head** and **end** in lines 52 to 142).
+JSONデータはネストした辞書になっています。後のナレッジグラフの章では、人、組織などの名前付きエンティティをテキストから取得し、この情報を使ってナレッジグラフ用のデータを自動生成したいと思います。その際、キーである **ents** (entityの略) の値が役に立ちます。原文の単語は、開始と終了のテキストトークンインデックス（52～142行目の**head**と**end**の値）で指定されていることに注目しよう。
 
-The values for the key **tokens** listed on lines 42-132 contains the head (or starting index, ending index, the token number (**id**), and the part of speech (**pos**). We will list what the parts of speech mean later.
+42行目から132行目に記載されているキー**tokens**の値には、先頭（または開始インデックス、終了インデックス）、トークン番号（**id**）、品詞（**pos**）が含まれています。品詞が何を意味するかは後で列挙する。
 
-We would like the words for each entity to be concatenated into a single string for each entity and we do this here in lines 136-137 and see the results in lines 138-139.
+各エンティティの単語を連結して、各エンティティの単一の文字列にしたいのですが、ここでは136～137行目でこれを行い、138～139行目でその結果を見ています。
 
-I like to add the entity name strings back into the dictionary representing a document and line 140 shows the use of **lfor** to create a list of lists where the sublists contain the entity name as a single string and the type of entity. We list the entity types supported by spaCy in the next section.
+エンティティ名の文字列を文書を表す辞書に戻すのが好きで、140行目では**lfor**を使用して、エンティティ名を単一の文字列として含むリストのサブリストと、エンティティのタイプを作成することを示しています。次節では、spaCyがサポートするエンティティタイプを列挙します。
 
 
     134 => doc.ents
@@ -2009,7 +2006,7 @@ I like to add the entity name strings back into the dictionary representing a do
     142 => 
 
 
-We can also access each sentence as a separate string. In this example the original text used to create our sample document had only a single sentence so the **sents** property returns a list containing a single string:
+また、各文章を個別の文字列としてアクセスすることもできます。この例では、サンプル文書を作成するために使用した元のテキストには1つの文しかなかったので、**sents** プロパティは1つの文字列を含むリストを返します。
 
 
     147 => (list doc.sents)
@@ -2017,7 +2014,7 @@ We can also access each sentence as a separate string. In this example the origi
     149 => 
 
 
-The last example showing how to use a spaCy document object is listing each word with its part of speech:
+最後に、spaCy文書オブジェクトの使い方を示す例として、各単語とその品詞をリストアップします。
 
 
     150 => (for [word doc]
@@ -2038,49 +2035,49 @@ The last example showing how to use a spaCy document object is listing each word
     165 => 
 
 
-The following list shows the definitions for the part of speech (POS) tags:
+品詞タグの定義を以下に示す。
 
--   ADJ: adjective
--   ADP: adposition
--   ADV: adverb
--   AUX: auxiliary verb
--   CONJ: coordinating conjunction
--   DET: determiner
--   INTJ: interjection
--   NOUN: noun
--   NUM: numeral
--   PART: particle
--   PRON: pronoun
--   PROPN: proper noun
--   PUNCT: punctuation
--   SCONJ: subordinating conjunction
--   SYM: symbol
--   VERB: verb
--   X: other
+- ADJ：形容詞
+- ADP：アドポジション
+- ADV：副詞
+- AUX：助動詞
+- CONJ：調整用接続詞
+- DET: 決定詞
+- INTJ：間投詞
+- NOUN: 名詞
+- NUM: 数値
+- PART: 助詞
+- PRON: 代名詞
+- PROPN: 固有名詞
+- PUNCT: 句読点
+- SCONJ: 従属接続詞
+- SYM: 記号
+- VERB: 動詞
+- X: その他
 
-### Implementing a HyNLP Wrapper for the Python spaCy Library
+### Python spaCyライブラリのためのHyNLPラッパーの実装
 
-We will generate two libraries (in files **nlp_lib.hy** and **coref_nlp_lib.hy**). The first is a general NLP library and the second specifically solves the anaphora resolution, or coreference, problem.  There are test programs for each library in the files **nlp_example.hy** and **coref_example.hy**.
+我々は2つのライブラリ（ファイル **nlp_lib.hy** と **coref_nlp_lib.hy** ）を生成します。一つは一般的な自然言語処理ライブラリで、もう一つは特にアナフォーラ解決、または共参照の問題を解決するものです。 各ライブラリのテストプログラムが **nlp_example.hy** と **coref_example.hy** というファイルにあります。
 
-For an example in a later chapter, we will use the library developed here to automatically generate Knowledge Graphs from text data. We will need the ability to find person, company, location, etc. names in text.  We use spaCy here to do this. The types of named entities on which spaCy is pre-trained includes:
+後の章の例では，ここで開発したライブラリを使って，テキストデータから知識グラフを自動生成することにする。テキスト中の人名、会社名、地名などを検索する機能が必要になる。 ここではspaCyを使ってこれを行う。spaCyが事前に学習している名前付きエンティティの種類は以下の通りです。
 
--   CARDINAL: any number that is not identified as a more specific type, like money, time, etc.
+-   CARDINAL：お金や時間など、より具体的な種類として特定されていないあらゆる数字。
 -   DATE
--   FAC: facilities like highways, bridges, airports, etc.
--   GPE: Countries, states (or provinces), and cities
--   LOC: any non-GPE location
+-   FAC：高速道路、橋梁、空港などの施設。
+-   GPE：国、州（または県）、および都市
+-   LOC：GPE以外の任意の場所
 -   PRODUCT
 -   EVENT
--   LANGUAGE: any named language
--   MONEY: any monetary value or unit of money
--   NORP: nationalities or religious groups
--   ORG: any organization like a company, non-profit, school, etc.
--   PERCENT: any number in \[0, 100\] followed by the percent % character
+-   LANGUAGE：名前のついた任意の言語
+-   MONEY: あらゆる貨幣価値または貨幣の単位
+-   NORP: 国籍または宗教団体
+-   ORG：企業、非営利団体、学校などあらゆる組織。
+-   PERCENT: 数値の後にパーセント文字 % が続く。
 -   PERSON
--   ORDINAL: any number spelled out, like "one", "two", etc.
+-   ORDINAL："1"、"2 "などのように綴られた任意の数字。
 -   TIME
 
-Listing for hy-lisp-python/nlp/nlp_lib.hy:
+hy-lisp-python/nlp/nlp_lib.hyのリスト。
 
 
      1 (import spacy)
@@ -2095,7 +2092,7 @@ Listing for hy-lisp-python/nlp/nlp_lib.hy:
     10   j)
 
 
-Listing for hy-lisp-python/nlp/nlp_example.hy:
+hy-lisp-python/nlp/nlp_example.hyのリストです。
 
 
     1 #!/usr/bin/env hy
@@ -2118,11 +2115,11 @@ Listing for hy-lisp-python/nlp/nlp_example.hy:
     6   ..LOTS OF OUTPUT NOT SHOWN..
 
 
-### Coreference (Anaphora Resolution)
+### 共参照 (アナフォーラ解決)
 
-Another common NLP task is coreference (or anaphora resolution) which is the process of resolving pronouns in text (e.g., he, she, it, etc.) with preceding proper nouns that pronouns refer to. A simple example would be translating "John ran fast and he fell" to "John ran fast and John fell." This is an easy example, but often proper nouns that pronouns refer to are in previous sentences and resolving coreference can be ambiguous and require knowledge of common word use and grammar. This problem is now handled by deep learning transfer models like [BERT](https://github.com/google-research/bert).
+もう一つの一般的な NLP タスクは、テキスト内の代名詞（彼、彼女、それなど）を、代名詞が参照する先行固有名詞と解決するプロセスである共参照（またはアナフォラ解決）です。簡単な例では、"John ran fast and he fell" を "John ran fast and John fell" と訳すことができます。これは簡単な例ですが、代名詞が参照する固有名詞は前の文にあることが多く、共参照の解決は曖昧で、一般的な単語の使い方や文法の知識が必要になる場合があります。この問題は、現在では[BERT](https://github.com/google-research/bert)のような深層学習による転移モデルで処理されています。
 
-In addition to installing **spaCy** you also need the library **neuralcoref**. Only specific versions of **spaCy** and **neuralcoref** are compatible with each other. As of July 31, 2020 the following works to get dependencies and run the example for this section:
+**spaCy**のインストールに加え、**neuralcoref**というライブラリが必要です。特定のバージョンの**spaCy**と**neuralcoref**のみ、互換性があります。2020年7月31日現在、依存関係を取得し、このセクションのサンプルを実行するには、次のように動作します。
 
 
     pip uninstall spacy neuralcoref
@@ -2132,9 +2129,9 @@ In addition to installing **spaCy** you also need the library **neuralcoref**. O
     ./coref_example.hy 
 
 
-Please note that version 2.1.3 of **spaCy** is older than the default version that pip installs. You might want to create a new Python virtual environment for this example or if you use Anaconda then use separate Anaconda environment.
+**spaCy**のバージョン2.1.3はpipがインストールするデフォルトのバージョンより古いことに注意してください。この例のために新しいPython仮想環境を作成するか、Anacondaを使用している場合は別のAnaconda環境を使用するとよいでしょう。
 
-Listing of coref_nlp_lib.hy contains a wrapper for spaCy's coreference model:
+coref_nlp_lib.hyのリストには、spaCyの共参照モデルのラッパーが含まれています。
 
 
      1 (import argparse os)
@@ -2150,7 +2147,7 @@ Listing of coref_nlp_lib.hy contains a wrapper for spaCy's coreference model:
     11     "scores" doc._.coref_scores})
 
 
-Listing of **coref_example.hy** shows code to test the Hy spaCy and coreference wrapper:
+**coref_example.hy** のリストは、Hy spaCy と coreference のラッパーをテストするためのコードを示しています。
 
 
     1 #!/usr/bin/env hy
@@ -2163,7 +2160,7 @@ Listing of **coref_example.hy** shows code to test the Hy spaCy and coreference 
     8 (print (coref-nlp "Lucy threw a ball to Bill and he caught it"))
 
 
-The output will look like:
+このように出力されます。
 
 
      1 Marks-MacBook:nlp $ ./coref_example.hy 
@@ -2187,33 +2184,33 @@ The output will look like:
     19 294434, Bill: -2.5343685150146484, he: -3.6687228679656982}}}
 
 
-Anaphora resolution, also called coreference, refers to two or more words or phrases in an input text refer to the same noun. This analysis usually entails identifying which noun phrases that pronouns refer to.
+アナフォラの解決は、共参照とも呼ばれ、入力テキスト内の2つ以上の単語またはフレーズが同じ名詞を参照することを指します。この分析には、通常、代名詞がどの名詞句を参照しているかを特定することが含まれます。
 
-### Wrap-up
+### まとめ
 
-I spent several years of development time during the period from 1984 through 2015 working on natural language processing technology and as a personal side project I sold commercial NLP libraries that I wrote on my own time in Ruby and Common Lisp. The state-of-the-art of Deep Learning enhanced NLP is very good and the open source spaCy library makes excellent use of both conventional NLP technology and pre-trained Deep Learning models. I no longer spend very much time writing my own NLP libraries and instead use spaCy.
+私は1984年から2015年までの数年間、自然言語処理技術に開発時間を費やし、個人のサイドプロジェクトとして、RubyとCommon Lispで自作した商用NLPライブラリの販売をしていました。Deep Learningで強化されたNLPの最先端技術は非常に優れており、オープンソースのspaCyライブラリは、従来のNLP技術と事前に学習されたDeep Learningモデルの両方をうまく利用しています。私はもはや自分のNLPライブラリを書くのにあまり時間をかけず、代わりにspaCyを使用しています。
 
-I urge you to read through the [spaCy documentation](https://spacy.io/api/doc) because we covered just basic functionality here that we will also need in the later chapter on automatically generating data for Knowledge Graphs. After working through the interactive REPL sessions and the examples in this chapter, you should be able to translate any Python API example code to Hy.
+この章では、ナレッジグラフのデータを自動生成するために必要な基本的な機能のみをカバーしましたので、[spaCy documentation](https://spacy.io/api/doc) に目を通しておくことを強くお勧めします。対話的なREPLセッションとこの章の例を通して作業した後、あなたはどんなPython APIサンプルコードもHyに翻訳することができるはずです。
 
-## Datastores
+## データストア
 
-I use flat files and the PostgreSQL relational database for most data storage and processing needs in my consulting business over the last twenty years. For work on large data projects at Compass Labs and Google I used Hadoop and Big Table. I will not cover big data datastores here, rather I will concentrate on what I think of as "laptop development" requirements: a modest amount of data and optimizing speed of development and ease of infrastructure setup. We will cover three datastores:
+私は過去20年以上、コンサルティング業務において、ほとんどのデータの保存と処理にフラットファイルとPostgreSQLリレーショナルデータベースを使用してきました。Compass LabsやGoogleでの大規模データプロジェクトでは、HadoopとBig Tableを使った。ここでは、ビッグデータのデータストアは取り上げず、むしろ私が考える「ラップトップ開発」の要件、つまり適度なデータ量と開発スピードの最適化、インフラのセットアップのしやすさに焦点を当てたいと考えています。3つのデータストアを取り上げます。
 
--   Sqlite single-file-based relational database
--   PostgreSQL relational database
--   RDF library **rdflib** that is useful for semantic web and linked data applications
+- Sqlite シングルファイルベースリレーショナルデータベース
+- PostgreSQLリレーショナルデータベース
+- RDFライブラリ **rdflib** - セマンティックウェブやリンクデータのアプリケーションに便利です。
 
-For graph data we will stick with RDF because it is a fairly widely used standard. Google, Microsoft, Yahoo and Yandex support [schema.org](https://schema.org/) for defining schemas for structured data on the web. In the next chapter we will go into more details on RDF, here we look at the "plumbing" for using the **rdflib** library to manipulate and query RDF data and how to export RDF data in several formats. Then in a later chapter, we will develop tools to automatically generate RDF data from raw text as a tool for developing customized Knowledge Graphs.
+グラフデータについては、RDFがかなり広く使われている標準であるため、RDFにこだわることにする。Google、Microsoft、Yahoo、Yandexは、Web上の構造化データのスキーマを定義するための[schema.org](https://schema.org/)をサポートしています。次の章では、RDFについてさらに詳しく説明します。ここでは、RDFデータを操作して問い合わせるための**rdflib**ライブラリの「配管」と、RDFデータをいくつかのフォーマットでエクスポートする方法について見ていきます。さらに後の章では、カスタマイズされたナレッジグラフを開発するためのツールとして、生のテキストからRDFデータを自動的に生成するツールを開発する予定です。
 
-In one of my previous previous books [Loving Common Lisp, or the Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp) I also covered the general purpose graph database Neo4j which I like to use for some use cases, but for the purposes of this book we stick with RDF.
+私の以前の著書[Loving Common Lisp, or the Savvy Programmer's Secret Weapon](https://leanpub.com/lovinglisp) では、汎用グラフデータベースNeo4jも取り上げ、いくつかのユースケースで愛用していますが、この本の目的ではRDFにこだわります。
 
 ### Sqlite
 
-We will cover two relational databases: Sqlite and PostgreSQL. Sqlite is an embedded database. There are Sqlite libraries for many programming languages and here we use the Python library.
+ここでは、2つのリレーショナルデータベースを取り上げます。SqliteとPostgreSQLです。Sqliteは組み込み型のデータベースです。多くのプログラミング言語用のSqliteライブラリがありますが、ここではPythonのライブラリを使用します。
 
-The following examples are simple but sufficient to show you how to open a single file Sqlite database, add data, modify data, query data, and delete data. I assume that you have some familiarity with relational databases, especially concepts like data columns and rows, and SQL queries.
+以下の例は単純ですが、単一ファイルのSqliteデータベースを開き、データを追加し、データを変更し、データを照会し、データを削除する方法を示すのに十分です。リレーショナルデータベース、特にデータの列や行、SQLクエリなどの概念にある程度慣れていることを前提にしています。
 
-Let's start with putting common code for using Sqlite into a reusable library in the file **sqlite_lib.hy**:
+まず、Sqlite を使用するための共通のコードを再利用可能なライブラリとして **sqlite_lib.hy** というファイルにまとめるところから始めましょう。
 
 
      1 (import [sqlite3 [connect version Error ]])
@@ -2234,9 +2231,9 @@ Let's start with putting common code for using Sqlite into a reusable library in
     16   (cur.fetchall))
 
 
-The function **create-db** in lines 3-6 creates a database from a file path if it does not already exist. The function **connection** (lines 8-9) creates a persistent connection to a database defined by a file path to the single file used for a Sqlite database. This connection can be reused. The function **query** (lines 11-16) requires a connection object and a SQL query represented as a string, makes a database query, and returns all matching data in nested lists.
+3-6行目の関数 **create-db** は、データベースがまだ存在しない場合、ファイルパスからデータベースを作成します。関数 **connection** (8-9行目) は、Sqliteデータベースに使用される単一ファイルへのファイルパスで定義されるデータベースへの持続的な接続を作成します。この接続は再利用することができます。関数 **query** (11-16行目) は、接続オブジェクトと文字列として表されるSQLクエリを必要とし、データベースへの問い合わせを行い、一致するすべてのデータを入れ子リストで返します。
 
-The following listing of file **sqlite_example.hy**shows how to use this simple library:
+以下のファイル **sqlite_example.hy** のリストは、この単純なライブラリの使い方を示している。
 
 
      1 #!/usr/bin/env hy
@@ -2268,11 +2265,11 @@ The following listing of file **sqlite_example.hy**shows how to use this simple 
     27 (test_sqlite-lib)
 
 
-We opened an in-memory database in lines 7 and 8 but we could have also created a persistent database on disk using, for example, "test_database.db" instead of **:memory**. In line 9 we create a database table with just two columns, each column holding string values.
+7行目と8行目でインメモリデータベースを開いていますが、**:memory** の代わりに例えば "test_database.db" を使ってディスク上に永続データベースを作成することも可能です。9行目では、2つのカラムだけを持つデータベーステーブルを作成し、各カラムには文字列の値を格納しています。
 
-In lines 15, 20, and 24 we are using a wild card query using the asterisk character to return all column values for each matched row in the database.
+15、20、24行目では、アスタリスク文字を使用したワイルドカードクエリを使用して、データベース内の一致した各行に対してすべての列の値を返しています。
 
-Running the example program produces the following output:
+このサンプルプログラムを実行すると、次のような出力が得られます。
 
 
     1 $ ./sqlite_example.hy
@@ -2286,9 +2283,9 @@ Running the example program produces the following output:
     9 [('Mark Watson', 'mark@markwatson.com')]
 
 
-Line 2 shows the version of SQlist we are using. The lists in lines 1-2, 4, and 6 are empty because the functions to create a table, insert data into a table, update a row in a table, and delete rows do not return values.
+2行目は、使用しているSQlistのバージョンを示しています。テーブルの作成、テーブルへのデータの挿入、テーブルの行の更新、行の削除を行う関数が値を返さないため、1-2、4、6行目のリストは空になっています。
 
-In the next section we will see how PostgreSQL treats JSON data as a native data type. For sqlite, you can store JSON data as a "dumped" string value but you can't query by key/value pairs in the data. You can encode JSON as a string and then decode it back to JSON (or as a dictionary) using:
+次の節では、PostgreSQLがJSONデータをネイティブなデータ型としてどのように扱うかを見ていきます。sqliteでは、JSONデータを "ダンプされた "文字列値として格納することができますが、データ内のキーと値のペアで問い合わせを行うことはできません。JSONを文字列としてエンコードし、それをデコードしてJSONに戻す（あるいは辞書として戻す）には、以下を使用します。
 
 
     1 (import [json [dumps loads]])
@@ -2300,23 +2297,23 @@ In the next section we will see how PostgreSQL treats JSON data as a native data
 
 ### PostgreSQL
 
-We just saw use cases for the Sqlite embedded database. Now we look at my favorite general purpose database, PostgreSQL. The PostgreSQL database server is available as a managed service on most cloud providers and it is easy to also run a PostgreSQL server on your laptop or on a VPS or server.
+Sqlite組み込みデータベースの使用例を見たばかりです。今度は、私のお気に入りの汎用データベースであるPostgreSQLを見てみましょう。PostgreSQLデータベースサーバーは、ほとんどのクラウドプロバイダーでマネージドサービスとして提供されていますし、ラップトップやVPS、サーバー上でPostgreSQLサーバーを実行することも簡単です。
 
-We will use the [psycopg](http://initd.org/psycopg/) PostgreSQL adapter that is compatible with CPython and can be installed using:
+ここでは、CPythonと互換性のある[psycopg](http://initd.org/psycopg/) PostgreSQLアダプタを使用し、それを使用してインストールすることができます。
 
 
     1     pip install psycopg2
 
 
-The following material is self-contained but before using PostgreSQL and psycopg in your own applications I recommend that you reference the psycopg documentation.
+以下の資料は自己完結していますが、あなた自身のアプリケーションでPostgreSQLとpsycopgを使用する前に、psycopgのドキュメントを参照することをお勧めします。
 
-#### Notes for Using PostgreSQL and Setting Up an Example Database "hybook" on macOS and Linux
+#### macOSとLinuxでPostgreSQLを使い、サンプルデータベース "hybook "をセットアップするための注意事項
 
-The following two sections may help you get PostgreSQL set up on macOS and Linux.
+以下の2つのセクションは、macOSとLinuxでPostgreSQLをセットアップする際に役立つと思います。
 
 ##### macOS
 
-For macOS we use the PostgreSQL application and we will start by using the **postgres** command line utility to create a new database and table in this database. Using **postgres** account, create a new database **hybook**:
+macOSではPostgreSQLアプリケーションを使用しますが、まずは**postgres**コマンドラインユーティリティを使用して、新しいデータベースとこのデータベース内のテーブルを作成するところから始めます。**postgres**アカウントを使用して、新しいデータベース**hybook**を作成します。
 
 
      1 Marks-MacBook:datastores $ psql -d "postgres"
@@ -2331,7 +2328,7 @@ For macOS we use the PostgreSQL application and we will start by using the **pos
     10 Marks-MacBook:datastores $ 
 
 
-Create a table **news** in database **hybook**:
+データベース **hybook** に **news** テーブルを作成します。
 
 
     1 markw $ psql -d "hybook"
@@ -2346,23 +2343,23 @@ Create a table **news** in database **hybook**:
 
 ##### Linux
 
-For **Ubuntu** **Linux** first install PostgreSQL and then use **sudo** to use the account **postgres**:
+**Ubuntu** **Linux** の場合、まず PostgreSQL をインストールし、**sudo** を使って **postgres** というアカウントを使用します。
 
-To start a local server:
+ローカルサーバーを起動する。
 
 
     1 sudo su - postgres
     2 /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
 
 
-and to stop the server:
+そして、サーバーを停止させることができます。
 
 
     1 sudo su - postgres
     2 /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile stop
 
 
-When the PostgreSQL server is running we can use the **psql** command line program:
+PostgreSQLサーバーが起動しているときは、**psql**コマンドライン・プログラムを使用することができます。
 
 
      1 sudo su - postgres
@@ -2383,9 +2380,9 @@ When the PostgreSQL server is running we can use the **psql** command line progr
     16 (1 row)
 
 
-#### Using Hy with PostgreSQL
+#### HyとPostgreSQLを使う
 
-When using Hy (or any other Lisp language and also for Haskell), I usually start both coding and experimenting with new libraries and APIs in a REPL. Let's do that here to see from a high level how we can use psycopg on the table **news** in the database **hybook** that we created in the last section:
+Hy（あるいは他のLisp言語やHaskellの場合も）を使うとき、私は通常REPLでコーディングと新しいライブラリやAPIの実験の両方を始めます。ここでは、最後のセクションで作成したデータベース**hybook**のテーブル**news**に対してpsycopgをどのように使用できるかを高いレベルで見てみましょう。
 
 
      1 Marks-MacBook:datastores $ hy
@@ -2413,11 +2410,11 @@ When using Hy (or any other Lisp language and also for Haskell), I usually start
     23 => 
 
 
-In lines 6-8 and 13-14 you notice that I am using PostgreSQL's native JSON support.
+6-8行目と13-14行目で、PostgreSQLのネイティブなJSONサポートを使用していることにお気づきでしょう。
 
-As with most of the material in this book, I hope that you have a Hy REPL open and are experimenting with the APIs and code in the book's interactive REPL examples.
+この本のほとんどの資料と同様に、Hy REPLを開いて、この本の対話式REPLの例にあるAPIとコードを実験していることを望みます。
 
-The file **postgres_lib.hy** wraps commonly used functionality for accessing a database, adding, modifying, and querying data in a short reusable library:
+ファイル **postgres_lib.hy** は、データベースへのアクセス、データの追加、変更、および問い合わせのためによく使われる機能を、短い再利用可能なライブラリでラップしています。
 
 
      1 (import [psycopg2 [connect]])
@@ -2433,9 +2430,9 @@ The file **postgres_lib.hy** wraps commonly used functionality for accessing a d
     11     (cursor.execute sql)))
 
 
-The function **query** in lines 8-11 executes any SQL comands so in addition to querying a database, it can also be used with appropriate SQL commands to delete rows, update rows, and create and destroy tables.
+8-11行目の関数**query**は任意のSQLコマンドを実行するため，データベースへの問い合わせだけでなく，適切なSQLコマンドを使用して行の削除，行の更新，テーブルの作成と削除を行うことができます．
 
-The following file **postgres_example.hy** contains examples for using the library we just defined:
+次のファイル **postgres_example.hy** は，今定義したライブラリの使用例である．
 
 
      1 #!/usr/bin/env hy
@@ -2465,7 +2462,7 @@ The following file **postgres_example.hy** contains examples for using the libra
     25 (test-postgres-lib)
 
 
-Here is the output from this example Hy script:
+以下は、この例のHyスクリプトの出力です。
 
 
     1 Marks-MacBook:datastores $ ./postgres_example.hy
@@ -2474,17 +2471,17 @@ Here is the output from this example Hy script:
     4 [('Mark Watson', 'mark@markwatson.com')]
 
 
-I use PostgreSQL more than any other datastore and taking the time to learn how to manage PostgreSQL servers and write application software will save you time and effort when you are prototyping new ideas or developing data oriented product at work. I love using PostgreSQL and personally, I only use Sqlite for very small database tasks or applications.
+私は他のどのデータストアよりもPostgreSQLを使用しています。PostgreSQLサーバの管理方法とアプリケーションソフトウェアの書き方を学ぶために時間を取ることは、仕事で新しいアイデアを試作したりデータ指向の製品を開発したりする際に時間と労力を節約することができます。私はPostgreSQLを使うのが大好きで、個人的には、非常に小さなデータベース作業やアプリケーションにのみSqliteを使用しています。
 
-### RDF Data Using the "rdflib" Library
+### 「rdflib」ライブラリを使用したRDFデータ
 
-While the last two sections on Sqlite and PostgreSQL provided examples that you are likely to use in your own work, we will now turn to something more esoteric but still useful, the RDF notations for using data schema and RDF triple graph data in semantic web and linked data applications. I used graph databases working with Google's Knowledge Graph when I worked there and I have had several consulting projects using linked data. You will need to understand the material in this section for the two chapters that take a deeper dive into the semantic web and linked data and also develop an example that automatically creates Knowledge Graphs.
+SqliteとPostgreSQLに関する最後の2つのセクションでは、あなた自身の仕事で使う可能性が高い例を提供しましたが、ここでは、より難解ではありますが、セマンティックWebやリンクデータのアプリケーションでデータスキーマとRDFトリプルグラフデータを使用するためのRDF表記法について説明します。私は、GoogleのKnowledge Graphと連携したグラフデータベースを勤務時代に使っていましたし、リンクデータを使ったコンサルティングプロジェクトも何件か経験しています。セマンティックウェブやリンクデータについて深く掘り下げ、ナレッジグラフを自動的に作成する例も開発する2章では、このセクションの資料を理解する必要があります。
 
-In my work I use RDF as a notation for graph data, RDFS (RDF Schema) to define formally data types and relationship types in RDF data, and occasionally OWL (Web Ontology Language) for reasoning about RDF data and inferring new graph triple data from data explicitly defined. Here we will only cover RDF since it is the most practical linked data tool and I refer you to my other semantic web books for deeper coverage of RDF as well as RDFS and OWL.
+私の仕事では、グラフデータの表記法としてRDFを、RDFデータにおけるデータ型や関係性の型を正式に定義するためにRDFS（RDF Schema）を、そして時にはRDFデータに関する推論や明示的に定義したデータから新しいグラフトリプルデータを推測するためにOWL（Web Ontology Language）を使用しています。RDFは最も実用的なリンクデータ・ツールなので、ここではRDFだけを取り上げます。RDFやRDFS、OWLについてより深く知りたい方は、私の他のセマンティックウェブに関する本を参照してください。
 
-We will go into some detail on using semantic web and linked data resources in the next chapter. Here we will study the use of library **rdflib** as a data store, reading RDF data from disk and from web resources, adding RDF statements (which are triples containing a subject, predicate, and object) and for serializing an in-memory graph to a file in one of the standard RDF XML, turtle, or NT formats.
+次の章では、セマンティックウェブとリンクされたデータリソースの使用について、もう少し詳しく説明します。ここでは、データストアとしての**rdflib**ライブラリの使用、ディスクやWebリソースからのRDFデータの読み込み、RDF文（主語、述語、目的語を含むトリプル）の追加、インメモリグラフを標準RDF XML、Turtle、NT形式のいずれかのファイルにシリアライズすることについて学習する。
 
-The following REPL session shows importing the **rdflib** library, fetching RDF (in XML format) from my personal web site, printing out the triples in the graph in NT format, and showing how the graph can be queried. I added most of this RDF to my web site in 2005, with a few updates since then. The following REPL session is split up into several listings (with some long output removed) so I can explain how the **rdflib** is being used. In the first REPL listing I load an RDF file in XML format from my web site and print it in NT format. NT format can have either subject/predicate/object all on one line separated by spaces and terminated by a period or as shown below, the subject is on one line with predicate and objects printed indented on two additional lines. In both cases a period character "." is used to terminate search RDF NT statement. The statements are displayed in arbitrary order.
+次のREPLセッションでは、**rdflib**ライブラリのインポート、私の個人ウェブサイトからのRDF（XML形式）のフェッチ、グラフ内のトリプルのNT形式でのプリントアウト、グラフのクエリ方法を示しています。この RDF の大部分は 2005 年に私の Web サイトに追加されましたが、その後、いくつかの更新が行われました。以下の REPL セッションは、**rdflib** がどのように使用されているかを説明するために、いくつかのリストに分割されています (一部の長い出力は削除されています)。最初の REPL リストでは、私の Web サイトから XML 形式の RDF ファイルをロードし、NT 形式で出力しています。NT形式では、主語・述語・目的語をすべて空白で区切って1行にし、ピリオドで終了させるか、下図のように、主語を1行に、述語と目的語をさらに2行にインデントして印刷することができます。どちらの場合も、ピリオド文字". "が検索RDF NT文の終了に使用されます。文は任意の順序で表示される。
 
 
      1 Marks-MacBook:datastores $ hy
@@ -2572,7 +2569,7 @@ The following REPL session shows importing the **rdflib** library, fetching RDF 
     83 => 
 
 
-We will cover the SPARQL query language in more detail in the next chapter but for now, notice that SPARQL is similar to SQL queries.  SPARQL queries can find triples in a graph matching simple patterns, match complex patterns, and update and delete triples in a graph. The following simple SPARQL query finds all triples with the predicate equal to <http://www.w3.org/2000/10/swap/pim/contact#company> and prints out the subject and object of any matching triples:
+SPARQL クエリ言語については次の章で詳しく説明しますが、今のところ、SPARQL は SQL クエリに似ていることに注意してください。 SPARQL クエリーは、単純なパターンに一致するグラフ内のトリプルの検索、複雑なパターンのマッチング、グラフ内のトリプルの更新と削除を行うことができます。次の単純な SPARQL クエリは、述語が <http://www.w3.org/2000/10/swap/pim/contact#company> と等しいすべてのトリプルを見つけ、一致するトリプルのサブジェクトとオブジェクトを出力します。
 
 
     84 => (for [[subject object
@@ -2584,9 +2581,9 @@ We will cover the SPARQL query language in more detail in the next chapter but f
     90   contact company:  Mark Watson Consulting Services
 
 
-We will see more examples of the SPARQL query language in the next chapter. For now, notice that the general form of a **select** query statement is a list of query variables (names beginning with a question mark) and a **where** clause in curly brackets that contains matching patterns. This SPARQL query is simple, but like SQL queries, SPARQL queries can get very complex. I only lightly cover SPARQL in this book.  You can get PDF copies of my two older semantic web books for free: [Practical Semantic Web and Linked Data Applications, Java, Scala, Clojure, and JRuby Edition](https://markwatson.com/opencontentdata/book_java.pdf) and [Practical Semantic Web and Linked Data Applications, Common Lisp Edition](https://markwatson.com/opencontentdata/book_lisp.pdf). There are links to relevant git repos and other information on my [book web page](https://markwatson.com/books/).
+次の章では、SPARQL クエリ言語の例をさらに見ていきます。今のところ、**select** クエリー文の一般的な形式は、クエリー変数のリスト（クエスチョンマークで始まる名前）と、中括弧内の **where** 節で、マッチングパターンを含んでいることに注目してください。このSPARQLクエリーは単純ですが、SQLクエリーと同様に、SPARQLクエリーは非常に複雑になる可能性があります。本書ではSPARQLについて軽く触れるにとどめています。 私が以前に書いた2冊のセマンティックウェブに関する本のPDF版を無料で入手することができます。[実践セマンティックウェブとリンクされたデータアプリケーション、Java、Scala、Clojure、JRuby版](https://markwatson.com/opencontentdata/book_java.pdf) と [実践セマンティックウェブとリンクされたデータアプリケーション、Common Lisp版](https://markwatson.com/opencontentdata/book_lisp.pdf)です。私の[book web page](https://markwatson.com/books/)に関連するgit repos等へのリンクがあります。
 
-As I mentioned, the RDF data on my web site has been essentially unchanged since 2005. What if I wanted to update it noting that more recently I worked as a contractor at Google and as a Deep Learning engineering manager at Capital One? In the following listing, continuing the same REPL session, I will add two RDF statements indicating additional jobs and show how to serialize the new updated graph in three formats: XML, turtle (my favorite RDF notation) and NT:
+先ほども述べたように、私のウェブサイトのRDFデータは2005年以来、基本的に変更されていません。最近、Googleで契約社員として働き、Capital OneでDeep Learningエンジニアリング・マネージャーとして働いていたことを示すために更新したい場合はどうすればよいでしょうか。次のリストでは、同じREPLセッションを続けながら、追加の仕事を示す2つのRDFステートメントを追加し、新しく更新されたグラフを3つのフォーマットでシリアライズする方法を説明します。XML、turtle (私のお気に入りの RDF 表記法)、NT の 3 つの形式で、更新された新しいグラフをシリアライズする方法を示します。
 
 
      89 => (import rdflib)
@@ -2620,7 +2617,7 @@ As I mentioned, the RDF data on my web site has been essentially unchanged since
     117 </rdf:Description>\n</rdf:RDF>
 
 
-I like Turtle RDF notation better than the XML notation because Turtle is easier to read and understand. Here, on line 118 we serialize the graph (with new nodes added above in lines 90 to 96) to Turtle:
+私は、XML表記よりもTurtle RDF表記の方が読みやすく、理解しやすいので好きです。ここでは、118行目でグラフ（90～96行目で新しいノードを追加したもの）をTurtleに直列化しています。
 
 
     118 => (graph.serialize :format "turtle")
@@ -2666,7 +2663,7 @@ I like Turtle RDF notation better than the XML notation because Turtle is easier
     158                 contact:motherTongue "en" .
 
 
-In addition to the Turtle format I also use the simpler NT format that puts URI prefixes inline and unlike Turtle does not use prefix abrieviations. Here in line 159 we serialize to NT format:
+Turtle形式に加えて、私はよりシンプルなNT形式も使っています。これはURIプレフィックスをインラインで配置し、Turtleと違ってプレフィックス検索を使いません。ここでは、159行目でNT形式にシリアライズしています。
 
 
     159 => (graph.serialize :format "nt")
@@ -2706,43 +2703,43 @@ In addition to the Turtle format I also use the simpler NT format that puts URI 
     193 => 
 
 
-#### Using Relational Database as a Backend for rdflib
+#### rdflib のバックエンドとしてリレーショナルデータベースを使用する
 
-I am not going to cover using a non-default rdflib backend, but if you want to be able to load large RDF data sets and persist the data then you can use the SQLAlchemy plugin extension.
+デフォルトでない rdflib のバックエンドを使うことは取り上げませんが、もし大きな RDF データセットをロードしてデータを持続させたいなら、SQLAlchemy プラグイン拡張を使うことができます。
 
-First, install the Python SQLAlchemy RDF library:
+まず、Python の SQLAlchemy RDF ライブラリをインストールします。
 
 
     1     pip install rdflib_sqlalchemy
 
 
-Then, follow the test examples at the [rdflib-sqlalchemy](https://github.com/RDFLib/rdflib-sqlalchemy) github repository.
+そして、[rdflib-sqlalchemy](https://github.com/RDFLib/rdflib-sqlalchemy) github リポジトリにあるテスト例に従ってください。
 
-If I need to use large RDF data sets I prefer to not use rdflib and instead use SPARQL to access a free or open source standalone RDF data store like [OpenLink Virtuoso](https://en.wikipedia.org/wiki/Virtuoso_Universal_Server) or [GraphDB™ Free Edition](https://www.ontotext.com/products/graphdb/graphdb-free/). I also like and recommend the commercial AllegroGraph and Stardog RDF server products.
+もし大きなRDFデータセットを使う必要があるなら、rdflibを使わずに、SPARQLを使って[OpenLink Virtuoso](https://en.wikipedia.org/wiki/Virtuoso_Universal_Server) や [GraphDB™ Free Edition](https://www.ontotext.com/products/graphdb/graphdb-free/) などのフリーまたはオープンソースのスタンドアロンRDFデータストアにアクセスするのがいいと思います。また、商用のAllegroGraphやStardog RDFサーバー製品も好きで、おすすめです。
 
-### Wrap-up
+### まとめ
 
-We will go into much more detail on practical uses of RDF and SPARQL in the next chapter. I hope that you worked through the REPL examples in this section because if you understand the basics of using the **rdflib** then you will have an easier time understanding the more abstract material in the next chapter.
+次の章では、RDF と SPARQL の実用的な使用方法について、より詳しく説明します。このセクションのREPLの例を通して、**rdflib**の使い方の基本を理解すれば、次の章のより抽象的な内容をより簡単に理解できるようになるからです。
 
-## Linked Data and the Semantic Web
+## リンクトデータとセマンティックウェブ
 
-Tim Berners Lee, James Hendler, and Ora Lassila wrote in 2001 an article for Scientific American where they introduced the term Semantic Web.  Here I do not capitalize semantic web and use the similar term linked data somewhat interchangeably with semantic web.
+Tim Berners Lee、James Hendler、Ora Lassilaは2001年にScientific American誌に記事を書き、セマンティックウェブという言葉を紹介した。 ここでは、セマンティックウェブを大文字で書かず、セマンティックウェブと似たような用語であるリンクデータを多少互換的に使用することにする。
 
-I assume that you read the section [RDF Data Using the "rdflib" Library](#rdflibintro) in the last chapter.
+前章の[「rdflib」ライブラリを使ったRDFデータ](#rdflibintro)の項を読まれたことと思います。
 
-In the same way that the web allows links between related web pages, linked data supports linking associated data on the web together. I view linked data as a relatively simple way to specify relationships between data sources on the web while the semantic web has a much larger vision: the semantic web has the potential to be the entirety of human knowledge represented as data on the web in a form that software agents can work with to answer questions, perform research, and to infer new data from existing data.
+ウェブが関連するウェブページ間のリンクを可能にするのと同じように、リンクデータはウェブ上の関連するデータを一緒にリンクすることをサポートします。セマンティックウェブは、人間の知識のすべてをウェブ上のデータとして表現し、ソフトウェアエージェントが質問に答えたり、研究を行ったり、既存のデータから新しいデータを推測したりできるような形になる可能性を秘めています。
 
-While the "web" describes information for human readers, the semantic web is meant to provide structured data for ingestion by software agents. This distinction will be clear as we compare WikiPedia, made for human readers, with DBPedia which uses the info boxes on WikiPedia topics to automatically extract RDF data describing WikiPedia topics.  Let's look at the WikiPedia topic for the town I live in, Sedona Arizona, and show how the info box on the English version of the [WikiPedia topic page for Sedona https://en.wikipedia.org/wiki/Sedona,\_Arizona](https://en.wikipedia.org/wiki/Sedona,_Arizona) maps to the [DBPedia page http://dbpedia.org/page/Sedona,\_Arizona](http://dbpedia.org/page/Sedona,_Arizona).  Please open both of these WikiPedia and DBPedia URIs in two browser tabs and keep them open for reference.
+「ウェブ」が人間の読者のために情報を記述するのに対し、セマンティックウェブはソフトウェアエージェントが取り込むための構造化されたデータを提供することを目的としています。この違いは、人間の読者のために作られたWikiPediaと、WikiPediaトピックの情報ボックスを利用してWikiPediaトピックを記述するRDFデータを自動的に抽出するDBPediaを比較すれば明らかであろう。 私が住んでいる町、アリゾナ州セドナのWikiPediaトピックを見てみましょう。英語版の[WikiPedia topic page for Sedona https://en.wikipedia.org/wiki/Sedona,\_Arizona](https://en.wikipedia.org/wiki/Sedona,_Arizona) の情報ボックスが[DBPedia page http://dbpedia.org/page/Sedona,\_Arizona](http://dbpedia.org/page/Sedona,_Arizona) にどうマッピングされているかを示しています。 これらのWikiPediaとDBPediaのURIは、2つのブラウザのタブで開き、参照できるようにしておいてください。
 
-I assume that the format of the WikiPedia page is familiar so let's look at the DBPedia page for Sedona that in human readable form shows the RDF statements with Sedona Arizona as the subject. RDF is used to model and represent data. RDF is defined by three values so an instance of an RDF statement is called a *triple* with three parts:
+WikiPediaのページのフォーマットはよく知られていると思うので、アリゾナ州セドナを主題とするRDF文を人間が読める形で示したセドナのDBPediaのページを見てみよう。RDFは、データのモデル化と表現に用いられる。RDFは3つの値で定義されるので、RDF文のインスタンスは3つの部分を持つ*triple*と呼ばれる。
 
--   subject: a URI (also referred to as a "Resource")
--   property: a URI (also referred to as a "Resource")
--   value: a URI (also referred to as a "Resource") or a literal value (like a string)
+- subject：URI（以下、リソースと呼ぶ）。
+- property: URI (リソース)。
+- value: URI（リソース）またはリテラル値（文字列など）。
 
-The subject for each Sedona related triple is the above URI for the DBPedia human readable page. The subject and property references in an RDF triple will almost always be a URI that can ground an entity to information on the web. The human readable page for Sedona lists several properties and the values of these properties. One of the properties is "dbo:areaCode" where "dbo" is a name space reference (in this case for a [DatatypeProperty](http://www.w3.org/2002/07/owl#DatatypeProperty)).
+Sedona関連の各トリプルのサブジェクトは、上記のDBPedia human readableページのURIです。RDFトリプルのサブジェクトとプロパティの参照は、ほとんどの場合、ウェブ上の情報に対して実体を基づかせることができるURIになります。Sedonaのhuman readableページには、いくつかのプロパティとその値が記載されています。プロパティの1つは「dbo:areaCode」で、「dbo」は名前空間参照（この場合、[DatatypeProperty](http://www.w3.org/2002/07/owl#DatatypeProperty)）である。
 
-The following two figures show an abstract representation of linked data and then a sample of linked data with actual web URIs for resources and properties:
+次の2つの図は、リンクデータの抽象的な表現と、リソースとプロパティに実際のWeb URIを使用したリンクデータのサンプルである。
 
 
 ![Abstract RDF representation with 2 Resources, 2 literal values, and 3 Properties](/site_images1/hy-lisp-python/rdf1.png)
@@ -2752,7 +2749,7 @@ The following two figures show an abstract representation of linked data and the
 ![Concrete example using RDF seen in last chapter showing the RDF representation with 2 Resources, 2 literal values, and 3 Properties](/site_images1/hy-lisp-python/rdf2.png)
 
 
-We saw a SPARQL Query (SPARQL for RDF data is similar to SQL for relational database queries) in the last chapter. Let's look at another example using the RDF in the last figure:
+前章でSPARQLクエリ（RDFデータのSPARQLはリレーショナルデータベースのクエリのSQLに似ています）を見てきました。最後の図にあるRDFを使った別の例を見てみましょう。
 
 
     1     select ?v where {  <http://markwatson.com/index.rdf#Sun_ONE>
@@ -2760,7 +2757,7 @@ We saw a SPARQL Query (SPARQL for RDF data is similar to SQL for relational data
     3                        ?v }
 
 
-This query should return the result "Sun ONE Services - J2EE". If you wanted to query for all URI resources that are books with the literal value of their titles, then you can use:
+このクエリでは、"Sun ONE Services - J2EE "という結果が返されるはずです。もし、書籍であるすべてのURIリソースを、タイトルのリテラル値でクエリしたい場合は
 
 
     1     select ?s ?v where {  ?s
@@ -2768,7 +2765,7 @@ This query should return the result "Sun ONE Services - J2EE". If you wanted to 
     3                           ?v }
 
 
-Note that **?s** and **?v** are arbitrary query variable names, here standing for "subject" and "value". You can use more descriptive variable names like:
+s** と **?v** は任意のクエリ変数名で、ここでは "subject" と "value" を表していることに注意してください。もっと説明的な変数名を使うこともできます。
 
 
     1     select ?bookURI ?bookTitle where 
@@ -2777,7 +2774,7 @@ Note that **?s** and **?v** are arbitrary query variable names, here standing fo
     4           ?bookTitle }
 
 
-We will be diving a little deeper into RDF examples in the next chapter when we write a tool for generating RDF data from raw text input. For now I want you to understand the idea of RDF statements represented as triples, that web URIs represent things, properties, and sometimes values, and that URIs can be followed manually (often called "dereferencing") to see what they reference in human readable form.
+次の章では、生のテキスト入力からRDFデータを生成するツールを書くので、RDFの例についてもう少し深く掘り下げることになります。今のところは、RDFステートメントがトリプルとして表されること、Web URIがモノやプロパティ、時には値を表すこと、URIを手動でたどって（しばしば「デリフェレンス」と呼ばれます）、その参照先を人間が読める形で確認できること、などを理解していただきたいと考えています。
 
 ### Understanding the Resource Description Framework (RDF)
 
