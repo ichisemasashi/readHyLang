@@ -1,6 +1,6 @@
 # The Hy Manual
 
-![Hy](_static/hy-logo-small.png){.align-left}
+![Hy](_static/hy-logo-small.png)
 
 PyPI :   <https://pypi.python.org/pypi/hy>
 
