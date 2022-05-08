@@ -1,55 +1,27 @@
-# Why Hy?
+# なぜHyなのか？
 
-Hy (named after the insect order Hymenoptera, since Paul Tagliamonte was
-studying swarm behavior when he created the language) is a
-multi-paradigm general-purpose programming language in the [Lisp
-family](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
-It\'s implemented as a kind of alternative syntax for Python. Compared
-to Python, Hy offers a variety of extra features, generalizations, and
-syntactic simplifications, as would be expected of a Lisp. Compared to
-other Lisps, Hy provides direct access to Python\'s built-ins and
-third-party Python libraries, while allowing you to freely mix
-imperative, functional, and object-oriented styles of programming.
+Hy (昆虫目 Hymenoptera にちなんで名付けられた。Paul Tagliamonte がこの言語を作ったとき、群行動を研究していたから) は [Lisp 系](https://en.wikipedia.org/wiki/Lisp_(programming_language)) に属するマルチパラダイム汎用プログラミング言語です ． Pythonの代替構文のようなものとして実装されている。Pythonと比較して、HyはLispに期待されるような様々な追加機能、一般化、構文の簡略化を提供します。他のLispと比較して、HyはPythonの組み込み関数やサードパーティのPythonライブラリに直接アクセスでき、命令型、関数型、オブジェクト指向型のプログラミングを自由に混在させることが可能です。
 
-## Hy versus Python
+## HyとPythonの比較
 
-The first thing a Python programmer will notice about Hy is that it has
-Lisp\'s traditional parenthesis-heavy prefix syntax in place of
-Python\'s C-like infix syntax. For example,
-`print("The answer is", 2 + object.method(arg))` could be written
-`(print "The answer is" (+ 2 (.method object arg)))` in Hy.
-Consequently, Hy is free-form: structure is indicated by parentheses
-rather than whitespace, making it convenient for command-line use.
+PythonプログラマがHyで最初に気がつくことは、PythonのCライクなinfix構文の代わりに、Lispの伝統的な括弧を多用したprefix構文を持っていることでしょう。例えば、`print("The answer is", 2 + object.method(arg))` はHyでは `(print "The answer is" (+ 2 (.method object arg)))` と書くことができます。 その結果、Hyは自由形式です：構造は空白ではなく括弧で示され、コマンドラインでの使用に便利です。
 
-As in other Lisps, the value of a simplistic syntax is that it
-facilitates Lisp\'s signature feature:
-[metaprogramming](https://en.wikipedia.org/wiki/Metaprogramming) through
-macros, which are functions that manipulate code objects at compile time
-to produce new code objects, which are then executed as if they had been
-part of the original code. In fact, Hy allows arbitrary computation at
-compile-time. For example, here\'s a simple macro that implements a
-C-style do-while loop, which executes its body for as long as the
-condition is true, but at least once.
+他のLispと同様、単純化された構文はLispの特徴的な機能である[メタプログラミング](https://en.wikipedia.org/wiki/Metaprogramming) を容易にする。[マクロとは、コンパイル時にコードオブジェクトを操作して新しいコードオブジェクトを生成し、それがあたかも元のコードの一部であったかのように実行される関数である。実際、Hyではコンパイル時に任意の計算を行うことができます。例えば、C言語風のdo-whileループを実装した簡単なマクロは、条件が真である限り、少なくとも一度は本体を実行する。
 
-::: {#do-while}
-    (defmacro do-while [condition #* body]
-      `(do
-        ~body
-        (while ~condition
-          ~body)))
+```
+(defmacro do-while [condition #* body]
+  `(do
+    ~body
+    (while ~condition
+      ~body)))
+(setv x 0)
+(do-while x
+  (print "This line is executed once."))
+```
 
-    (setv x 0)
-    (do-while x
-      (print "This line is executed once."))
-:::
+Hyはまた、Pythonの式と文の混在に関する制限を取り除き、より直接的で機能的なコードを可能にします。例えば、Pythonは `with` ブロックが、リソースを使い終わったら閉じる、値を返すことを許しません。これらは一連のステートメントを実行するだけです。
 
-Hy also removes Python\'s restrictions on mixing expressions and
-statements, allowing for more direct and functional code. For example,
-Python doesn\'t allow `with <py:with>`{.interpreted-text role="ref"}
-blocks, which close a resource once you\'re done using it, to return
-values. They can only execute a set of statements:
-
-``` python
+```
 with open("foo") as o:
    f1 = o.read()
 with open("bar") as o:
@@ -57,93 +29,51 @@ with open("bar") as o:
 print(len(f1) + len(f2))
 ```
 
-In Hy, `with`{.interpreted-text role="ref"} returns the value of its
-last body form, so you can use it like an ordinary function call:
+Hyでは、`with`は最後のボディフォームの値を返すので、普通の関数呼び出しのように使うことができます。
 
-    (print (+
-      (len (with [o (open "foo")] (.read o)))
-      (len (with [o (open "bar")] (.read o)))))
+```
+(print (+
+  (len (with [o (open "foo")] (.read o)))
+  (len (with [o (open "bar")] (.read o)))))
+```
 
-To be even more concise, you can put a `with` form in a
-:hy`gfor <gfor>`{.interpreted-text role="func"}:
+さらに簡潔に言うと、 :hy`gfor` の中に `with` フォームを入れることができます。
 
-    (print (sum (gfor
-      filename ["foo" "bar"]
-      (len (with [o (open filename)] (.read o))))))
+```
+(print (sum (gfor
+  filename ["foo" "bar"]
+  (len (with [o (open filename)] (.read o))))))
+```
 
-Finally, Hy offers several generalizations to Python\'s binary
-operators. Operators can be given more than two arguments (e.g.,
-`(+ 1 2 3)`), including augmented assignment operators (e.g.,
-`(+= x 1 2 3)`). They are also provided as ordinary first-class
-functions of the same name, allowing them to be passed to higher-order
-functions: `(sum xs)` could be written `(reduce + xs)`, after importing
-the function `+` from the module `hy.pyops`.
+最後に、HyはPythonの二項演算子に対していくつかの一般化を提供しています。演算子は2つ以上の引数を与えることができ(例えば `(+ 1 2 3)`) 、拡張された代入演算子(例えば `(+= x 1 2 3)`) も与えることができます。また、これらは同名の通常のファーストクラス関数として提供されるので、高階の関数に渡すことができます。`(sum xs)` は、モジュール `hy.pyops` から関数 `+` をインポートした後、 `(reduce + xs)` と書くことができます。
 
-The Hy compiler works by reading Hy source code into Hy model objects
-and compiling the Hy model objects into Python abstract syntax tree
-(:py`ast`{.interpreted-text role="mod"}) objects. Python AST objects can
-then be compiled and run by Python itself, byte-compiled for faster
-execution later, or rendered into Python source code. You can even
-`mix Python and Hy code in the same project, or even the same
-file,<interop>`{.interpreted-text role="ref"} which can be a good way to
-get your feet wet in Hy.
+Hyコンパイラは、HyソースコードをHyモデルオブジェクトに読み込み、HyモデルオブジェクトをPython抽象構文木(:py`ast`)オブジェクトにコンパイルすることで動作します。Python ASTオブジェクトはその後、Python自身によってコンパイルされ実行されたり、後で速く実行するためにバイトコンパイルされたり、Pythonのソースコードにレンダリングされたりします。PythonとHyのコードを同じプロジェクト、あるいは同じファイルに混在させることも可能です。
 
-## Hy versus other Lisps
+## Hyと他のLispsの比較
 
-At run-time, Hy is essentially Python code. Thus, while Hy\'s design
-owes a lot to [Clojure](https://clojure.org), it is more tightly coupled
-to Python than Clojure is to Java; a better analogy is
-[CoffeeScript\'s](https://coffeescript.org) relationship to JavaScript.
-Python\'s built-in `functions <py:built-in-funcs>`{.interpreted-text
-role="ref"} and `data structures
-<py:bltin-types>`{.interpreted-text role="ref"} are directly available:
+実行時、Hyは本質的にPythonのコードです。したがって、Hyのデザインは[Clojure](https://clojure.org)に多くを負っていますが、ClojureがJavaに依存しているよりもPythonに緊密に結合しています。より良いアナロジーは[CoffeeScript](https://coffeescript.org)とJavaScriptの関係です。 Pythonの組み込み`関数 <py:built-in-funcs>` と `データ構造 <py:bltin-types>` は直接利用することができます。
 
-    (print (int "deadbeef" :base 16))  ; 3735928559
-    (print (len [1 10 100]))           ; 3
+```
+(print (int "deadbeef" :base 16))  ; 3735928559
+(print (len [1 10 100]))           ; 3
+```
 
-The same goes for third-party Python libraries from
-[PyPI](https://pypi.org) and elsewhere. Here\'s a tiny
-[CherryPy](https://cherrypy.dev) web application in Hy:
+[PyPI](https://pypi.org)などにあるサードパーティのPythonライブラリについても同じことが言えます。ここにHyの小さな[CherryPy](https://cherrypy.dev)ウェブ・アプリケーションがあります。
 
-    (import cherrypy)
+```
+(import cherrypy)
 
-    (defclass HelloWorld []
-      #@(cherrypy.expose (defn index [self]
-        "Hello World!")))
+(defclass HelloWorld []
+  #@(cherrypy.expose (defn index [self]
+    "Hello World!")))
 
-    (cherrypy.quickstart (HelloWorld))
+(cherrypy.quickstart (HelloWorld))
+```
 
-You can even run Hy on [PyPy](https://pypy.org) for a particularly
-speedy Lisp.
+Hyを[PyPy](https://pypy.org)上で走らせれば、特に高速なLispを実現することも可能です。
 
-Like all Lisps, Hy is
-[homoiconic](https://en.wikipedia.org/wiki/Homoiconicity). Its syntax is
-represented not with cons cells or with Python\'s basic data structures,
-but with simple subclasses of Python\'s basic data structures called
-`models <models>`{.interpreted-text role="ref"}. Using models in place
-of plain `list`s, `set`s, and so on has two purposes: models can keep
-track of their line and column numbers for the benefit of error
-messages, and models can represent syntactic features that the
-corresponding primitive type can\'t, such as the order in which elements
-appear in a set literal. However, models can be concatenated and indexed
-just like plain lists, and you can return ordinary Python types from a
-macro or give them to `hy.eval` and Hy will automatically promote them
-to models.
+すべてのLispsと同様に、Hyは[homoiconic](https://en.wikipedia.org/wiki/Homoiconicity)です。Hyのシンタックスは、コンセルやPythonの基本的なデータ構造ではなく、`モデル`と呼ばれるPythonの基本的なデータ構造の単純なサブクラスで表現されています。モデルは、エラーメッセージのために行番号や列番号を追跡することができます。また、モデルは、セットリテラルに現れる要素の順序など、対応するプリミティブ型では表現できない構文的な特徴を表現することができます。しかし、モデルは普通のリストと同じように連結したりインデックスを付けることができます。また、マクロから普通のPythonの型を返したり、`hy.eval`に型を渡せば、Hyはそれらを自動的にモデルに昇格させることができます。
 
-Hy takes much of its semantics from Python. For example, Hy is a Lisp-1
-because Python functions use the same namespace as objects that aren\'t
-functions. In general, any Python code should be possible to literally
-translate to Hy. At the same time, Hy goes to some lengths to allow you
-to do typical Lisp things that aren\'t straightforward in Python. For
-example, Hy provides the aforementioned mixing of statements and
-expressions, `name mangling
-<mangling>`{.interpreted-text role="ref"} that transparently converts
-symbols with names like `valid?` to Python-legal identifiers, and a
-:hy`let`{.interpreted-text role="func"} macro to provide block-level
-scoping in place of Python\'s usual function-level scoping.
+Hyはそのセマンティクスの多くをPythonから得ています。例えば、Pythonの関数は関数でないオブジェクトと同じ名前空間を使うので、HyはLisp-1となります。一般に、どんなPythonのコードもHyに文字通り翻訳することが可能であるはずです。同時に、HyはPythonでは簡単でない典型的なLispのことをできるようにするために、ある種の長所を備えています。例えば、Hyは前述のステートメントと式の混合、`valid?`のような名前のシンボルを透過的にPythonで正当な識別子に変換する `name mangling`、Pythonの通常の関数レベルのスコープに代わってブロックレベルのスコープを提供する :hy`let` マクロを提供します。
 
-Overall, Hy, like Common Lisp, is intended to be an unopinionated
-big-tent language that lets you do what you want. If you\'re interested
-in a more small-and-beautiful approach to Lisp, in the style of Scheme,
-check out [Hissp](https://github.com/gilch/hissp), another Lisp embedded
-in Python that was created by a Hy developer.
+全体として、HyはCommon Lispと同様、独断と偏見に満ちた大きなテント型の言語であることを意図しており、やりたいことができるようになっています。Schemeのような、より小さく美しいLispのアプローチに興味があれば、Hyの開発者が作ったPythonに埋め込まれたもう一つのLisp、[Hissp](https://github.com/gilch/hissp)をチェックしてみてください。
