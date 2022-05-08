@@ -2,31 +2,15 @@
 
 ![Hy](_static/hy-logo-small.png){.align-left}
 
-PyPI
+PyPI :   <https://pypi.python.org/pypi/hy>
 
-:   <https://pypi.python.org/pypi/hy>
+Source :   <https://github.com/hylang/hy>
 
-Source
+Discussions :   <https://github.com/hylang/hy/discussions>
 
-:   <https://github.com/hylang/hy>
+Stack Overflow :   [The \[hy\] tag](https://stackoverflow.com/questions/tagged/hy)
 
-Discussions
+HyはPythonに埋め込まれたLispの方言です。HyはLispのコードをPythonの抽象構文木(AST)オブジェクトに変換するので、Pythonの美しい世界全体がLispの形であなたの指先にあるのです。
 
-:   <https://github.com/hylang/hy/discussions>
+Hyの最新のアルファ版をインストールするには、`pip3 install --pre --user hy`というコマンドを使ってください。それから、コマンド `hy` で対話的な read-eval-print ループ (REPL) を開始したり、`hy myprogram.hy` で Hy プログラムを実行したりすることができます。
 
-Stack Overflow
-
-:   [The \[hy\] tag](https://stackoverflow.com/questions/tagged/hy)
-
-Hy is a Lisp dialect that\'s embedded in Python. Since Hy transforms its
-Lisp code into Python abstract syntax tree (AST) objects, you have the
-whole beautiful world of Python at your fingertips, in Lisp form.
-
-To install the latest alpha of Hy, just use the command
-`pip3 install --pre --user hy`. Then you can start an interactive
-read-eval-print loop (REPL) with the command `hy`, or run a Hy program
-with `hy myprogram.hy`.
-
-::: {.toctree maxdepth="3"}
-whyhy tutorial style-guide language/index cheatsheet api hacking
-:::
