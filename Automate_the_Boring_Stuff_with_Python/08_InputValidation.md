@@ -74,7 +74,7 @@ respond within a time limit.
 []{#calibre_link-1011 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}PyInputPlus is not a part of the Python Standard
 Library, so you must install it separately using Pip. To install
-PyInputPlus, run [pip install \--user pyinputplus] from the
+PyInputPlus, run [pip install --user pyinputplus] from the
 command line. [Appendix A](#calibre_link-2) has complete
 instructions for installing third-party modules. To check if PyInputPlus
 installed correctly, import it in the interactive shell:
@@ -250,14 +250,14 @@ following into the interactive shell:
 Enter num: [number]\
 'number' is not a number.\
 Traceback (most recent call last):\
-    [\--snip\--]\
+    [--snip--]\
 pyinputplus.RetryLimitException\
 >>> [response = pyip.inputNum(timeout=10)]\
 [42] [(entered after 10 seconds of
 waiting)]\
 []{#calibre_link-1776 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Traceback (most recent call last):\
-    [\--snip\--]\
+    [--snip--]\
 pyinputplus.TimeoutException
 
 When you use these keyword arguments and also pass a [default]
@@ -289,14 +289,14 @@ Roman numerals in addition to the usual numbers:
 
 >>> [import pyinputplus as pyip]\
 >>> [response =
-pyip.inputNum(allowRegexes=\[r'(I\|V\|X\|L\|C\|D\|M)+',
-r'zero'\])]\
+pyip.inputNum(allowRegexes=[r'(I\|V\|X\|L\|C\|D\|M)+',
+r'zero'])]\
 [XLII]\
 >>> [response]\
 'XLII'\
 >>> [response =
-pyip.inputNum(allowRegexes=\[r'(i\|v\|x\|l\|c\|d\|m)+',
-r'zero'\])]\
+pyip.inputNum(allowRegexes=[r'(i\|v\|x\|l\|c\|d\|m)+',
+r'zero'])]\
 [xlii]\
 >>> [response]\
 'xlii'
@@ -315,7 +315,7 @@ keyword argument. Enter the following into the interactive shell so that
 
 >>> [import pyinputplus as pyip]\
 >>> [response =
-pyip.inputNum(blockRegexes=\[r'\[02468\]\$'\])]\
+pyip.inputNum(blockRegexes=[r'[02468]\$'])]\
 [42]\
 This response is invalid.\
 []{#calibre_link-1012 {http:="" www.idpf.org="" 2007=""
@@ -332,9 +332,9 @@ allows ['caterpillar'] and ['category'] but
 blocks anything else that has the word ['cat'] in it:
 
 >>> [import pyinputplus as pyip]\
->>> [response = pyip.inputStr(allowRegexes=\[r'caterpillar',
-'category'\],]\
-[blockRegexes=\[r'cat'\])]\
+>>> [response = pyip.inputStr(allowRegexes=[r'caterpillar',
+'category'],]\
+[blockRegexes=[r'cat'])]\
 [cat]\
 This response is invalid.\
 [catastrophe]\
@@ -377,7 +377,7 @@ not calling [addsUpToTen()] and passing its return value.
 []{#calibre_link-1001 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}\...   [numbersList = list(numbers)]\
 \...   [for i, digit in enumerate(numbersList):]\
-\...     [numbersList\[i\] = int(digit)]\
+\...     [numbersList[i] = int(digit)]\
 \...   [if sum(numbersList) != 10:]\
 \...     [raise Exception('The digits must add up to 10, not %s.'
 %]\
@@ -556,11 +556,11 @@ tries to provide a correct answer:
         # Right answers are handled by allowRegexes.\
         # Wrong answers are handled by blockRegexes, with a custom
 message.\
-        pyip.inputStr(prompt, allowRegexes=\['\^%s\$' % (num1 \*
-num2)\],\
+        pyip.inputStr(prompt, allowRegexes=['\^%s\$' % (num1 \*
+num2)],\
 []{#calibre_link-1048 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}                              blockRegexes=\[('.\*',
-'Incorrect!')\],\
+ops}type="pagebreak"}                              blockRegexes=[('.\*',
+'Incorrect!')],\
                               timeout=8, limit=3)
 
 If the user answers after the 8-second timeout has expired, even if they

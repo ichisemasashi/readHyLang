@@ -87,13 +87,13 @@ interactive shell, with *example.csv* in the current working directory:
 csv.reader(exampleFile)]\
 [➍] >>> [exampleData = list(exampleReader)]\
 [➎] >>> [exampleData]\
-   \[\['4/5/2015 13:34', 'Apples', '73'\], \['4/5/2015 3:41',
-'Cherries', '85'\],\
-   \['4/6/2015 12:46', 'Pears', '14'\], \['4/8/2015 8:59',
-'Oranges', '52'\],\
-   \['4/10/2015 2:07', 'Apples', '152'\], \['4/10/2015 18:10',
-'Bananas', '23'\],\
-   \['4/10/2015 2:40', 'Strawberries', '98'\]\]
+   [['4/5/2015 13:34', 'Apples', '73'], ['4/5/2015 3:41',
+'Cherries', '85'],\
+   ['4/6/2015 12:46', 'Pears', '14'], ['4/8/2015 8:59',
+'Oranges', '52'],\
+   ['4/10/2015 2:07', 'Apples', '152'], ['4/10/2015 18:10',
+'Bananas', '23'],\
+   ['4/10/2015 2:40', 'Strawberries', '98']]
 
 The [csv] module comes with Python, so we can import it
 [➊] without having to install it first.
@@ -117,25 +117,25 @@ in a variable like [exampleData]. Entering
 
 Now that you have the CSV file as a list of lists, you can access the
 value at a particular row and column with the expression
-[exampleData\[row\]\[col\]], where [row] is the
+[exampleData[row][col]], where [row] is the
 index of one of the lists in [exampleData], and
 [col] is the index of the item you want from that list. Enter
 the following into the interactive shell:
 
->>> [exampleData\[0\]\[0\]]\
+>>> [exampleData[0][0]]\
 '4/5/2015 13:34'\
->>> [exampleData\[0\]\[1\]]\
+>>> [exampleData[0][1]]\
 'Apples'\
->>> [exampleData\[0\]\[2\]]\
+>>> [exampleData[0][2]]\
 '73'\
->>> [exampleData\[1\]\[1\]]\
+>>> [exampleData[1][1]]\
 'Cherries'\
->>> [exampleData\[6\]\[1\]]\
+>>> [exampleData[6][1]]\
 'Strawberries'
 
-As you can see from the output, [exampleData\[0\]\[0\]] goes
+As you can see from the output, [exampleData[0][0]] goes
 into the first list and gives us the first string,
-[exampleData\[0\]\[2\]] goes into the first list and gives us
+[exampleData[0][2]] goes into the first list and gives us
 the third string, and so on.
 
 #### []***Reading Data from reader Objects in a for Loop*** 
@@ -151,13 +151,13 @@ at once. For example, enter the following into the interactive shell:
         [print('Row #' + str(exampleReader.line_num) + ' ' +
 str(row))]\
 \
-Row #1 \['4/5/2015 13:34', 'Apples', '73'\]\
-Row #2 \['4/5/2015 3:41', 'Cherries', '85'\]\
-Row #3 \['4/6/2015 12:46', 'Pears', '14'\]\
-Row #4 \['4/8/2015 8:59', 'Oranges', '52'\]\
-Row #5 \['4/10/2015 2:07', 'Apples', '152'\]\
-Row #6 \['4/10/2015 18:10', 'Bananas', '23'\]\
-Row #7 \['4/10/2015 2:40', 'Strawberries', '98'\]
+Row #1 ['4/5/2015 13:34', 'Apples', '73']\
+Row #2 ['4/5/2015 3:41', 'Cherries', '85']\
+Row #3 ['4/6/2015 12:46', 'Pears', '14']\
+Row #4 ['4/8/2015 8:59', 'Oranges', '52']\
+Row #5 ['4/10/2015 2:07', 'Apples', '152']\
+Row #6 ['4/10/2015 18:10', 'Bananas', '23']\
+Row #7 ['4/10/2015 2:40', 'Strawberries', '98']
 
 After you import the [csv] module and make a
 [reader] object from the CSV file, you can loop through the
@@ -183,13 +183,13 @@ function. Enter the following into the interactive shell:
 [➊] >>> [outputFile = open('output.csv', 'w',
 newline='')]\
 [➋] >>> [outputWriter = csv.writer(outputFile)]\
-   >>> [outputWriter.writerow(\['spam', 'eggs', 'bacon',
-'ham'\])]\
+   >>> [outputWriter.writerow(['spam', 'eggs', 'bacon',
+'ham'])]\
    21\
-   >>> [outputWriter.writerow(\['Hello, world!', 'eggs',
-'bacon', 'ham'\])]\
+   >>> [outputWriter.writerow(['Hello, world!', 'eggs',
+'bacon', 'ham'])]\
    32\
-   >>> [outputWriter.writerow(\[1, 2, 3.141592, 4\])]\
+   >>> [outputWriter.writerow([1, 2, 3.141592, 4])]\
    16\
    >>> [outputFile.close()]
 
@@ -241,14 +241,14 @@ like the following into the interactive shell:
 newline='')]\
 [➊] >>> [csvWriter = csv.writer(csvFile, delimiter='\\t',
 lineterminator='\\n\\n')]\
-   >>> [csvWriter.writerow(\['apples', 'oranges',
-'grapes'\])]\
+   >>> [csvWriter.writerow(['apples', 'oranges',
+'grapes'])]\
    24\
-   >>> [csvWriter.writerow(\['eggs', 'bacon',
-'ham'\])]\
+   >>> [csvWriter.writerow(['eggs', 'bacon',
+'ham'])]\
    17\
-   >>> [csvWriter.writerow(\['spam', 'spam', 'spam', 'spam',
-'spam', 'spam'\])]\
+   >>> [csvWriter.writerow(['spam', 'spam', 'spam', 'spam',
+'spam', 'spam'])]\
    32\
    >>> [csvFile.close()]
 
@@ -302,8 +302,8 @@ To read the file, enter the following into the interactive shell:
 >>> [exampleFile = open('exampleWithHeader.csv')]\
 >>> [exampleDictReader = csv.DictReader(exampleFile)]\
 >>> [for row in exampleDictReader:]\
-\...     [print(row\['Timestamp'\], row\['Fruit'\],
-row\['Quantity'\])]\
+\...     [print(row['Timestamp'], row['Fruit'],
+row['Quantity'])]\
 \...\
 4/5/2015 13:34 Apples 73\
 4/5/2015 3:41 Cherries 85\
@@ -333,12 +333,12 @@ made-up header names:
 
 >>> [import csv]\
 >>> [exampleFile = open('example.csv')]\
->>> [exampleDictReader = csv.DictReader(exampleFile, \['time',
+>>> [exampleDictReader = csv.DictReader(exampleFile, ['time',
 'name',]\
-['amount'\])]\
+['amount'])]\
 >>> [for row in exampleDictReader:]\
-\...     [print(row\['time'\], row\['name'\],
-row\['amount'\])]\
+\...     [print(row['time'], row['name'],
+row['amount'])]\
 \...\
 4/5/2015 13:34 Apples 73\
 4/5/2015 3:41 Cherries 85\
@@ -357,8 +357,8 @@ of each column, we created our own: ['time'],
 >>> [import csv]\
 >>> [outputFile = open('output.csv', 'w',
 newline='')]\
->>> [outputDictWriter = csv.DictWriter(outputFile, \['Name',
-'Pet', 'Phone'\])]\
+>>> [outputDictWriter = csv.DictWriter(outputFile, ['Name',
+'Pet', 'Phone'])]\
 >>> [outputDictWriter.writeheader()]\
 >>> [outputDictWriter.writerow({'Name': 'Alice', 'Pet':
 'cat', 'Phone': '555-]\
@@ -499,10 +499,10 @@ the first row. Add the following to *removeCsvHeader.py*.
 current\
 \# working directory.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [    # Read the CSV file in (skipping first row).]\
-    [csvRows = \[\]]\
+    [csvRows = []]\
     [csvFileObj = open(csvFilename)]\
 [    readerObj = csv.reader(csvFileObj)]\
     [for row in readerObj:]\
@@ -538,14 +538,14 @@ folder. Add the following to *removeCsvHeader.py*:
 current\
    # working directory.\
 \
-   \--[snip]\--\
+   --[snip]--\
 \
    # Loop through every file in the current working directory.\
 [➊] for csvFilename in os.listdir('.'):\
        if not csvFilename.endswith('.csv'):\
            continue    # skip non-CSV files\
 \
-       \--[snip]\--\
+       --[snip]--\
 \
 [       # Write out the CSV file.]\
        [csvFileObj = open(os.path.join('headerRemoved', csvFilename),
@@ -574,7 +574,7 @@ folder. The output will look like this:
 
 Removing header from NAICS_data_1048.csv\...\
 Removing header from NAICS_data_1218.csv\...\
-\--[snip]\--\
+--[snip]--\
 []{#calibre_link-791 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Removing header from NAICS_data_9834.csv\...\
 Removing header from NAICS_data_9986.csv\...
@@ -764,7 +764,7 @@ if len(sys.argv) < 2:\
     print('Usage: getOpenWeather.py city_name,
 2-letter_country_code')\
     sys.exit()\
-location = ' '.join(sys.argv\[1:\])\
+location = ' '.join(sys.argv[1:])\
 \
 \# TODO: Download the JSON data from OpenWeatherMap.org's API.\
 \
@@ -776,7 +776,7 @@ your account. Without this key, your requests to the weather service
 will fail. After the [#!] shebang line and [import]
 statements, the program will check that there is more than one command
 line argument. (Recall that [sys.argv] will always have at
-least one element, [sys.argv\[0\]], which contains the Python
+least one element, [sys.argv[0]], which contains the Python
 script's filename.) If there is only one element in the list, then the
 user didn't provide a location on the command line, and a "usage"
 message will be provided to the user before the program ends.
@@ -793,7 +793,7 @@ differentiate between the cities.
 
 Command line arguments are split on spaces. The command line argument
 [San Francisco, US] would make [sys.argv] hold
-[\['getOpenWeather.py', 'San', 'Francisco,', 'US'\]].
+[['getOpenWeather.py', 'San', 'Francisco,', 'US']].
 Therefore, call the [join()] method to join all the strings
 except for the first in [sys.argv]. Store this joined string
 in a variable named [location].
@@ -814,7 +814,7 @@ where *<Location>* is the name of the city whose weather you want and
 \# getOpenWeather.py - Prints the weather for a location from the
 command line.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [\# Download the JSON data from OpenWeatherMap.org's
 API.]\
@@ -854,7 +854,7 @@ like this:
           'population': 0},\
  'cnt': 3,\
  'cod': '200',\
- 'list': \[{'clouds': 0,\
+ 'list': [{'clouds': 0,\
            'deg': 233,\
            'dt': 1402344000,\
            'humidity': 58,\
@@ -867,9 +867,9 @@ ops}type="pagebreak"}           'speed': 1.96,\
                     'min': 289.77,\
                     'morn': 294.59,\
                     'night': 289.77},\
-           'weather': \[{'description': 'sky is clear',\
+           'weather': [{'description': 'sky is clear',\
                         'icon': '01d',\
-\--[snip]\--
+--[snip]--
 
 You can see this data by passing [weatherData] to
 [pprint.pprint()]. You may want to check
@@ -887,28 +887,28 @@ to *getOpenWeather.py*.
    # getOpenWeather.py - Prints the weather for a location from the
 command line.\
 \
-   \--[snip]\--\
+   --[snip]--\
 \
    [\# Load JSON data into a Python variable.]\
    [weatherData = json.loads(response.text)]\
 \
    [\# Print weather descriptions.]\
-[➊] [w = weatherData\['list'\]]\
+[➊] [w = weatherData['list']]\
    [print('Current weather in %s:' % (location))]\
-   [print(w\[0\]\['weather'\]\[0\]\['main'\], '-',
-w\[0\]\['weather'\]\[0\]\['description'\])]\
+   [print(w[0]['weather'][0]['main'], '-',
+w[0]['weather'][0]['description'])]\
    [print()]\
    [print('Tomorrow:')]\
-   [print(w\[1\]\['weather'\]\[0\]\['main'\], '-',
-w\[1\]\['weather'\]\[0\]\['description'\])]\
+   [print(w[1]['weather'][0]['main'], '-',
+w[1]['weather'][0]['description'])]\
    [print()]\
    [print('Day after tomorrow:')]\
-   [print(w\[2\]\['weather'\]\[0\]\['main'\], '-',
-w\[2\]\['weather'\]\[0\]\['description'\])]
+   [print(w[2]['weather'][0]['main'], '-',
+w[2]['weather'][0]['description'])]
 
-Notice how the code stores [weatherData\['list'\]] in the
+Notice how the code stores [weatherData['list']] in the
 variable [w] to save you some typing [➊]. You use
-[w\[0\]], [w\[1\]], and [w\[2\]] to
+[w[0]], [w[1]], and [w[2]] to
 retrieve the dictionaries for today, tomorrow, and the day after
 tomorrow's weather, respectively. Each of these dictionaries has a
 ['weather'] key, which contains a list value. You're
@@ -1031,7 +1031,7 @@ title.\
 \
         # Loop through every row in the sheet.\
         for rowNum in range(1, sheet.max_row + 1):\
-            rowData = \[\]    # append each cell to this list\
+            rowData = []    # append each cell to this list\
             # Loop through each cell in the row.\
             for colNum in range(1, sheet.max_column + 1):\
                 # Append each cell's data to rowData.\

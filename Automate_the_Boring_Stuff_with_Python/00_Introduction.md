@@ -284,25 +284,27 @@ When you run Mu, the window that appears is called the *file editor* window. You
 
 In Mu, the interactive shell is a pane in the lower half of the window with the following text:
 
+```
 Jupyter QtConsole 4.3.1\
-Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 18:11:49) \[MSC v.1900 64 bit\
-(AMD64)\]\
+Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 18:11:49) [MSC v.1900 64 bit\
+(AMD64)]\
 Type 'copyright', 'credits' or 'license' for more information\
-IPython 6.2.1 \-- An enhanced Interactive Python.
+IPython 6.2.1 -- An enhanced Interactive Python.
 Type '?' for help.\
 \
-In \[1\]:
+In [1]:
+```
 
 If you run IDLE, the interactive shell is the window that first appears.  It should be mostly blank except for text that looks something like this:
 
-Python 3.8.0b1 (tags/v3.8.0b1:3b5deb0116, Jun 4 2019, 19:52:55) \[MSC
+Python 3.8.0b1 (tags/v3.8.0b1:3b5deb0116, Jun 4 2019, 19:52:55) [MSC
 v.1916\
-64 bit (AMD64)\] on win32\
+64 bit (AMD64)] on win32\
 Type "help", "copyright", "credits" or "license" for more
 information.\
 >>>
 
-[In \[1\]:] are called *prompts*. The examples in this book will use the [>>>] prompt for the interactive shell since it's more common. If you run Python from the Terminal or Command Prompt, they'll use the [>>>] prompt, as well. The [In \[1\]:] prompt was invented by Jupyter Notebook, another popular Python editor.
+[In [1]:] are called *prompts*. The examples in this book will use the [>>>] prompt for the interactive shell since it's more common. If you run Python from the Terminal or Command Prompt, they'll use the [>>>] prompt, as well. The [In [1]:] prompt was invented by Jupyter Notebook, another popular Python editor.
 
 For example, enter the following into the interactive shell next to the prompt:
 

@@ -32,9 +32,9 @@ these keys are ['fat'], ['gray'], and
 ['loud'], respectively. You can access these values through
 their keys:
 
->>> [myCat\['size'\]]\
+>>> [myCat['size']]\
 'fat'\
->>> ['My cat has ' + myCat\['color'\] + ' fur.']\
+>>> ['My cat has ' + myCat['color'] + ' fur.']\
 'My cat has gray fur.'
 
 Dictionaries can still use integer values as keys, just like lists use
@@ -47,14 +47,14 @@ Answer'}]
 #### ***Dictionaries vs. Lists*** !
 
 Unlike lists, items in dictionaries are unordered. The first item in a
-list named [spam] would be [spam\[0\]]. But there is
+list named [spam] would be [spam[0]]. But there is
 no "first" item in a dictionary. While the order of items matters for
 determining whether two lists are the same, it does not matter in what
 order the key-value pairs are typed in a dictionary. Enter the following
 into the interactive shell:
 
->>> [spam = \['cats', 'dogs', 'moose'\]]\
->>> [bacon = \['dogs', 'moose', 'cats'\]]\
+>>> [spam = ['cats', 'dogs', 'moose']]\
+>>> [bacon = ['dogs', 'moose', 'cats']]\
 >>> [spam == bacon]\
 False\
 >>> [eggs = {'name': 'Zophie', 'species': 'cat', 'age':
@@ -73,10 +73,10 @@ into the interactive shell, and notice the error message that shows up
 because there is no ['color'] key:
 
 >>> [spam = {'name': 'Zophie', 'age': 7}]\
->>> [spam\['color'\]]\
+>>> [spam['color']]\
 Traceback (most recent call last):\
   File "<pyshell#1>", line 1, in <module>\
-    spam\['color'\]\
+    spam['color']\
 KeyError: 'color'
 
 []{#calibre_link-1742 {http:="" www.idpf.org="" 2007=""
@@ -97,13 +97,13 @@ following code. Save it as *birthdays.py*.
            break\
 \
     [➋] if name in birthdays:\
-        [➌] print(birthdays\[name\] + ' is the birthday of ' +
+        [➌] print(birthdays[name] + ' is the birthday of ' +
 name)\
        else:\
            print('I do not have birthday information for ' + name)\
            print('What is their birthday?')\
            bday = input()\
-        [➍] birthdays\[name\] = bday\
+        [➍] birthdays[name] = bday\
            print('Birthday database updated.')
 
 You can view the execution of this program at
@@ -149,26 +149,26 @@ which they were entered:
 >>> [eggs = {'name': 'Zophie', 'species': 'cat', 'age':
 '8'}]\
 >>> [list(eggs)]\
-\['name', 'species', 'age'\]\
+['name', 'species', 'age']\
 >>> [ham = {'species': 'cat', 'age': '8', 'name':
 'Zophie'}]\
 >>> [list(ham)]\
-\['species', 'age', 'name'\]
+['species', 'age', 'name']
 
 The dictionaries are still unordered, as you can't access items in them
-using integer indexes like [eggs\[0\]] or
-[ham\[2\]]. You shouldn't rely on this behavior, as
+using integer indexes like [eggs[0]] or
+[ham[2]]. You shouldn't rely on this behavior, as
 dictionaries in older versions of Python don't remember the insertion
 order of key-value pairs. For example, notice how the list doesn't match
 the insertion order of the dictionary's key-value pairs when I run this
 code in Python 3.5:
 
 >>> [spam = {}]\
->>> [spam\['first key'\] = 'value']\
->>> [spam\['second key'\] = 'value']\
->>> [spam\['third key'\] = 'value']\
+>>> [spam['first key'] = 'value']\
+>>> [spam['second key'] = 'value']\
+>>> [spam['third key'] = 'value']\
 >>> [list(spam)]\
-\['first key', 'third key', 'second key'\]
+['first key', 'third key', 'second key']
 
 
 #### []***The keys(), values(), and items() Methods*** !
@@ -218,14 +218,14 @@ into the interactive shell:
 
 >>> [spam = {'color': 'red', 'age': 42}]\
 >>> [spam.keys()]\
-dict_keys(\['color', 'age'\])\
+dict_keys(['color', 'age'])\
 >>> [list(spam.keys())]\
-\['color', 'age'\]
+['color', 'age']
 
 The [list(spam.keys())] line takes the [dict_keys]
 value returned from [keys()] and passes it to
-[list()], which then returns a list value of [\['color',
-'age'\]].
+[list()], which then returns a list value of [['color',
+'age']].
 
 You can also use the multiple assignment trick in a [for] loop
 to assign the key and value to separate variables. Enter the following
@@ -289,11 +289,11 @@ returned by the [get()] method. Without using
 in the following example:
 
 >>> [picnicItems = {'apples': 5, 'cups': 2}]\
->>> ['I am bringing ' + str(picnicItems\['eggs'\]) + '
+>>> ['I am bringing ' + str(picnicItems['eggs']) + '
 eggs.']\
 Traceback (most recent call last):\
   File "<pyshell#34>", line 1, in <module>\
-    'I am bringing ' + str(picnicItems\['eggs'\]) + ' eggs.'\
+    'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'\
 KeyError: 'eggs'
 
 #### ***The setdefault() Method*** !
@@ -304,7 +304,7 @@ this:
 
 spam = {'name': 'Pooka', 'age': 5}\
 if 'color' not in spam:\
-    spam\['color'\] = 'black'
+    spam['color'] = 'black'
 
 []{#calibre_link-1041 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The [setdefault()] method offers a way to
@@ -345,7 +345,7 @@ count = {}\
 \
 for character in message:\
 [➊] count.setdefault(character, 0)\
-[➋] count\[character\] = count\[character\] + 1\
+[➋] count[character] = count[character] + 1\
 \
 print(count)    
 
@@ -356,7 +356,7 @@ variable's string, counting how often each character appears. The
 [setdefault()] method call [➊] ensures that the key is
 in the [count] dictionary (with a default value of
 [0]) so the program doesn't throw a [KeyError] error
-when [count\[character\] = count\[character\] + 1] is executed
+when [count[character] = count[character] + 1] is executed
 [➋]. When you run this program, the output will look like this:
 
 {' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3,
@@ -388,7 +388,7 @@ count = {}\
 \
 for character in message:\
     count.setdefault(character, 0)\
-    count\[character\] = count\[character\] + 1\
+    count[character] = count[character] + 1\
 \
 [pprint.pprint](count)
 
@@ -402,7 +402,7 @@ the keys sorted.
  '.': 1,\
  'A': 1,\
  'I': 1,\
- [\--snip\--]\
+ [--snip--]\
  't': 6,\
  'w': 2,\
  'y': 1}
@@ -567,14 +567,14 @@ theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',\
             'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',\
             'low-L': ' ', 'low-M': ' ', 'low-R': ' '}\
 [def printBoard(board):]\
-[    print(board\['top-L'\] + '\|' + board\['top-M'\] + '\|' +
-board\['top-R'\])]\
+[    print(board['top-L'] + '\|' + board['top-M'] + '\|' +
+board['top-R'])]\
 [    print('-+-+-')]\
-[    print(board\['mid-L'\] + '\|' + board\['mid-M'\] + '\|' +
-board\['mid-R'\])]\
+[    print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
+board['mid-R'])]\
 [    print('-+-+-')]\
-[    print(board\['low-L'\] + '\|' + board\['low-M'\] + '\|' +
-board\['low-R'\])]\
+[    print(board['low-L'] + '\|' + board['low-M'] + '\|' +
+board['low-R'])]\
 [printBoard(theBoard)]
 
 You can view the execution of this program at
@@ -599,14 +599,14 @@ theBoard = [{'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
 'X'}]\
 \
 def printBoard(board):\
-    print(board\['top-L'\] + '\|' + board\['top-M'\] + '\|' +
-board\['top-R'\])\
+    print(board['top-L'] + '\|' + board['top-M'] + '\|' +
+board['top-R'])\
     print('-+-+-')\
-    print(board\['mid-L'\] + '\|' + board\['mid-M'\] + '\|' +
-board\['mid-R'\])\
+    print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
+board['mid-R'])\
     print('-+-+-')\
-    print(board\['low-L'\] + '\|' + board\['low-M'\] + '\|' +
-board\['low-R'\])\
+    print(board['low-L'] + '\|' + board['low-M'] + '\|' +
+board['low-R'])\
 printBoard(theBoard)
 
 You can view the execution of this program at
@@ -639,8 +639,8 @@ Traceback (most recent call last):\
   File "ticTacToe.py", line 10, in <module>\
     printBoard(theBoard)\
   File "ticTacToe.py", line 6, in printBoard\
-    print(board\['mid-L'\] + '\|' + board\['mid-M'\] + '\|' +
-board\['mid-R'\])\
+    print(board['mid-L'] + '\|' + board['mid-M'] + '\|' +
+board['mid-R'])\
 KeyError: 'mid-L'
 
 Now let's add code that allows the players to enter their moves. Modify
@@ -652,22 +652,22 @@ theBoard = [{'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
 ' '}]\
 \
 def printBoard(board):\
-    print(board\['top-L'\] + '\|' + board\['top-M'\] + '\|' +
-board\['top-R'\])\
+    print(board['top-L'] + '\|' + board['top-M'] + '\|' +
+board['top-R'])\
     print('-+-+-')\
 []{#calibre_link-1746 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}    print(board\['mid-L'\] + '\|' +
-board\['mid-M'\] + '\|' + board\['mid-R'\])\
+ops}type="pagebreak"}    print(board['mid-L'] + '\|' +
+board['mid-M'] + '\|' + board['mid-R'])\
     print('-+-+-')\
-    print(board\['low-L'\] + '\|' + board\['low-M'\] + '\|' +
-board\['low-R'\])\
+    print(board['low-L'] + '\|' + board['low-M'] + '\|' +
+board['low-R'])\
 [turn = 'X']\
 [for i in range(9):]\
   [➊] [printBoard(theBoard)]\
      [print('Turn for ' + turn + '. Move on which
 space?')]\
   [➋] [move = input()]\
-  [➌] [theBoard\[move\] = turn]\
+  [➌] [theBoard[move] = turn]\
   [➍] [if turn == 'X':]\
  [        turn = 'O']\
  [    else:]\
@@ -696,7 +696,7 @@ Turn for X. Move on which space?\
 -+-+-\
  \| \|\
 \
-[\--snip\--]\
+[--snip--]\
 \
 O\|O\|X\
 -+-+-\
@@ -819,7 +819,7 @@ dictionary value with a key ['foo'] and a value
 difference between a dictionary and a list?
 
 [4](#calibre_link-1137)!. What happens if
-you try to access [spam\['foo'\]] if [spam] is
+you try to access [spam['foo']] if [spam] is
 [{'bar': 100}]?
 
 [5](#calibre_link-1138)!. If a dictionary
@@ -836,7 +836,7 @@ spam.values()]?
 shortcut for the following code?
 
 if 'color' not in spam:\
-    spam\['color'\] = 'black'
+    spam['color'] = 'black'
 
 [8](#calibre_link-1141)!. What module and
 function can be used to "pretty print" dictionary values?
@@ -907,8 +907,8 @@ displayInventory(stuff)
 Imagine that a vanquished dragon's loot is represented as a list of
 strings like this:
 
-dragonLoot = \['gold coin', 'dagger', 'gold coin', 'gold coin',
-'ruby'\]
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin',
+'ruby']
 
 Write a function named [addToInventory(inventory,
 addedItems)], where the [inventory] parameter is a
@@ -923,8 +923,8 @@ def addToInventory(inventory, addedItems):\
     # your code goes here\
 \
 inv = {'gold coin': 42, 'rope': 1}\
-dragonLoot = \['gold coin', 'dagger', 'gold coin', 'gold coin',
-'ruby'\]\
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin',
+'ruby']\
 inv = addToInventory(inv, dragonLoot)\
 displayInventory(inv)
 

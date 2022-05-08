@@ -17,7 +17,7 @@ image files. The module has several functions that make it easy to crop,
 resize, and edit the content of an image. With the power to manipulate
 images the same way you would with software such as Microsoft Paint or
 Adobe Photoshop, Python can automatically edit hundreds or thousands of
-images with ease. You can install Pillow by running [pip install \--user
+images with ease. You can install Pillow by running [pip install --user
 -U pillow==6.0.0]. [Appendix A](#calibre_link-2)
 has more details on installing modules.
 
@@ -425,7 +425,7 @@ faceImHeight):]\
    0 1075\
    230 0\
    230 215\
-   \--[snip]\--\
+   --[snip]--\
    690 860\
    690 1075\
    >>> [catCopyTwo.save('tiled.png')]
@@ -477,7 +477,7 @@ int(height / 2)))]\
 Here we assign the two values in the [catIm.size] tuple to the
 variables [width] and [height] [➊]. Using
 [width] and [height] instead of
-[catIm.size\[0\]] and [catIm.size\[1\]] makes the
+[catIm.size[0]] and [catIm.size[1]] makes the
 rest of the code more readable.
 
 []{#calibre_link-835 {http:="" www.idpf.org="" 2007=""
@@ -772,13 +772,13 @@ corner.\
    import os\
    from PIL import Image\
 \
-   \--[snip]\--\
+   --[snip]--\
 \
    os.makedirs('withLogo', exist_ok=True)\
    [\# Loop over all files in the working directory.]\
 [➊] [for filename in os.listdir('.'):]\
 [    ][➋] [if not (filename.endswith('.png') or
-filename.endswith('.jpg')) \\]\
+filename.endswith('.jpg')) \]\
    [       or filename == LOGO_FILENAME:]\
 [        ][➌] [continue    # skip non-image files
 and the logo file itself]\
@@ -786,7 +786,7 @@ and the logo file itself]\
 [    ][➍] [im = Image.open(filename)]\
    [    width, height = im.size]\
 \
-   \--[snip]\--
+   --[snip]--
 
 First, the [os.makedirs()] call creates a *withLogo* folder to
 store the finished images with logos, instead of overwriting the
@@ -818,7 +818,7 @@ to fit\
 import os\
 from PIL import Image\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [     # Check if image needs to be resized.]\
 [     if width > SQUARE_FIT_SIZE and height >
@@ -839,7 +839,7 @@ height) \* width)]\
 [        ][➌] [im = im.resize((width,
 height))]\
 \
-\--[snip]\--
+--[snip]--
 
 If the image does need to be resized, you need to find out whether it is
 a wide or tall image. If [width] is greater than
@@ -892,10 +892,10 @@ to fit\
 import os\
 from PIL import Image\
 \
-\--[snip]\--\
+--[snip]--\
 \
      # Check if image needs to be resized.\
-     \--[snip]\--\
+     --[snip]--\
 \
 [     # Add the logo.]\
 [  ][➊] [print('Adding logo to %s\...' %
@@ -980,8 +980,8 @@ The [point(][xy][,]
 [fill][)] method draws individual pixels. The
 [xy] argument represents a list of the points you want to
 draw. The list can be a list of x- and y-coordinate tuples, such as
-[\[(x, y), (x, y), \...\]], or a list of x- and y-coordinates
-without tuples, such as [\[x1, y1, x2, y2, \...\]]. The
+[[(x, y), (x, y), \...]], or a list of x- and y-coordinates
+without tuples, such as [[x1, y1, x2, y2, \...]]. The
 [fill] argument is the color of the points and is either an
 RGBA tuple or a string of a color name, such as ['red']. The
 [fill] argument is optional.
@@ -991,8 +991,8 @@ RGBA tuple or a string of a color name, such as ['red']. The
 The [line(][xy][,]
 [fill][,] [width][)]
 method draws a line or series of lines. [xy] is either a
-list of tuples, such as [\[(x, y), (x, y), \...\]], or a list
-of integers, such as [\[x1, y1, x2, y2, \...\]]. Each point is
+list of tuples, such as [[(x, y), (x, y), \...]], or a list
+of integers, such as [[x1, y1, x2, y2, \...]]. Each point is
 one of the connecting points on the lines you're drawing. The optional
 [fill] argument is the color of the lines, as an RGBA tuple
 or color name. The optional [width] argument is the width
@@ -1030,8 +1030,8 @@ argument is the color of the inside of the ellipse, and the optional
 The [polygon(][xy][,]
 [fill][,] [outline][)]
 method draws an arbitrary polygon. The [xy] argument is a
-list of tuples, such as [\[(x, y), (x, y), \...\]], or
-integers, such as [\[x1, y1, x2, y2, \...\]], representing the
+list of tuples, such as [[(x, y), (x, y), \...]], or
+integers, such as [[x1, y1, x2, y2, \...]], representing the
 connecting points of the polygon's sides. The last pair of coordinates
 will be automatically connected to the first pair. The optional
 [fill] argument is the color of the inside of the polygon,
@@ -1046,8 +1046,8 @@ Enter the following into the interactive shell:
    >>> [im = Image.new('RGBA', (200, 200),
 'white')]\
    >>> [draw = ImageDraw.Draw(im)]\
-[➊] >>> [draw.line(\[(0, 0), (199, 0), (199, 199), (0, 199),
-(0, 0)\], fill='black')]\
+[➊] >>> [draw.line([(0, 0), (199, 0), (199, 199), (0, 199),
+(0, 0)], fill='black')]\
 [➋] >>> [draw.rectangle((20, 30, 60, 60),
 fill='blue')]\
 [➌] >>> [draw.ellipse((120, 30, 160, 60),
@@ -1056,7 +1056,7 @@ fill='red')]\
 (103, 113)),]\
    [fill='brown')]\
 [➎] >>> [for i in range(100, 200, 10):]\
-           [draw.line(\[(i, 0), (200, i - 100)\],
+           [draw.line([(i, 0), (200, i - 100)],
 fill='green')]\
 \
    >>> [im.save('drawing.png')]

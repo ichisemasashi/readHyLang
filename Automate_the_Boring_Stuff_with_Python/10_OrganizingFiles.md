@@ -163,8 +163,8 @@ interactive shell:
 >>> [shutil.move('spam.txt',
 'c:\\\\does_not_exist\\\\eggs\\\\ham')]\
 Traceback (most recent call last):\
-  \--[snip]\--\
-FileNotFoundError: \[Errno 2\] No such file or directory:
+  --[snip]--\
+FileNotFoundError: [Errno 2] No such file or directory:
 'c:\\\\does_not_exist\\\\\
 eggs\\\\ham'
 
@@ -227,7 +227,7 @@ Since Python's built-in [shutil.rmtree()] function
 irreversibly deletes files and folders, it can be dangerous to use. A
 much better way to delete files and folders is with the third-party
 [send2trash] module. You can install this module by running
-[pip install \--user send2trash] from a Terminal window. (See
+[pip install --user send2trash] from a Terminal window. (See
 [Appendix A](#calibre_link-2) for a more in-depth explanation
 of how to install third-party modules.)
 
@@ -386,8 +386,8 @@ For example, enter the following into the interactive shell:
    >>> [exampleZip = zipfile.ZipFile(p /
 'example.zip')]\
    >>> [exampleZip.namelist()]\
-   \['spam.txt', 'cats/', 'cats/catnames.txt',
-'cats/zophie.jpg'\]\
+   ['spam.txt', 'cats/', 'cats/catnames.txt',
+'cats/zophie.jpg']\
    >>> [spamInfo = exampleZip.getinfo('spam.txt')]\
    >>> [spamInfo.file_size]\
    13908\
@@ -609,7 +609,7 @@ with the following code:
 format\
 \# to European DD-MM-YYYY.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [\# Loop over the files in the working directory.]\
 [for amerFilename in os.listdir('.'):]\
@@ -629,7 +629,7 @@ filename.]\
 [    yearPart   = mo.group(6)]\
 [    afterPart  = mo.group(8)]\
 \
-\--[snip]\--
+--[snip]--
 
 If the [Match] object returned from the [search()]
 method is [None] [➊], then the filename in
@@ -677,7 +677,7 @@ with the following code:
 \# renameDates.py - Renames filenames with American MM-DD-YYYY date
 format \# to European DD-MM-YYYY.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 []{#calibre_link-806 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   [  # Form the European-style
@@ -812,7 +812,7 @@ following:
 \# backupToZip.py - Copies an entire folder and its contents into\
 \# a ZIP file whose filename increments.\
 \
-\--[snip]\--\
+--[snip]--\
     while True:\
         zipFilename = os.path.basename(folder) + '\_' + str(number) +
 '.zip'\
@@ -847,7 +847,7 @@ look like the following:
 \# backupToZip.py - Copies an entire folder and its contents into\
 \# a ZIP file whose filename increments.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [     # Walk the entire folder tree and compress the files in each
 folder.]\

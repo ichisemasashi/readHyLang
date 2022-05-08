@@ -440,9 +440,9 @@ to press **F5** from the file editor window, not the interactive shell
 window. Enter your name when your program asks for it. The program's
 output in the interactive shell should look something like this:
 
-Python 3.7.0b4 (v3.7.0b4:eb96c37699, May  2 2018, 19:02:22) \[MSC v.1913
+Python 3.7.0b4 (v3.7.0b4:eb96c37699, May  2 2018, 19:02:22) [MSC v.1913
 64 bit\
-(AMD64)\] on win32\
+(AMD64)] on win32\
 Type "copyright", "credits" or "license()" for more information.\
 >>> ================================ RESTART
 ================================\

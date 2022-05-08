@@ -51,7 +51,7 @@ in the string, you'll need to use escape characters.
 
 An *escape character* lets you use characters that are otherwise
 impossible to put into a string. An escape character consists of a
-backslash ([\\]) followed by the character you want to add to
+backslash ([\]) followed by the character you want to add to
 the string. (Despite consisting of two characters, it is commonly
 referred to as a singular escape character.) For example, the escape
 character for a single quote is [\\']. You can use this
@@ -77,7 +77,7 @@ ops}type="pagebreak"}**Table 6-1:** Escape Characters
   [\\"]       Double quote
   [\\t]        Tab
   [\\n]        Newline (line break)
-  [\\\\]       Backslash
+  [\\\]       Backslash
 
 Enter the following into the interactive shell:
 
@@ -179,26 +179,26 @@ at index 0 to [!] at index 12.
 ops}type="pagebreak"}Enter the following into the interactive shell:
 
 >>> [spam = 'Hello, world!']\
->>> [spam\[0\]]\
+>>> [spam[0]]\
 'H'\
->>> [spam\[4\]]\
+>>> [spam[4]]\
 'o'\
->>> [spam\[-1\]]\
+>>> [spam[-1]]\
 '!'\
->>> [spam\[0:5\]]\
+>>> [spam[0:5]]\
 'Hello'\
->>> [spam\[:5\]]\
+>>> [spam[:5]]\
 'Hello'\
->>> [spam\[7:\]]\
+>>> [spam[7:]]\
 'world!'
 
 If you specify an index, you'll get the character at that position in
 the string. If you specify a range from one index to another, the
 starting index is included and the ending index is not. That's why, if
 [spam] is ['Hello, world!'],
-[spam\[0:5\]] is ['Hello']. The substring you get
-from [spam\[0:5\]] will include everything from
-[spam\[0\]] to [spam\[4\]], leaving out the comma at
+[spam[0:5]] is ['Hello']. The substring you get
+from [spam[0:5]] will include everything from
+[spam[0]] to [spam[4]], leaving out the comma at
 index 5 and the space at index 6. This is similar to how
 [range(5)] will cause a [for] loop to iterate up to,
 but not including, [5].
@@ -208,7 +208,7 @@ capture a slice from one variable in a separate variable. Try entering
 the following into the interactive shell:
 
 >>> [spam = 'Hello, world!']\
->>> [fizz = spam\[0:5\]]\
+>>> [fizz = spam[0:5]]\
 >>> [fizz]\
 'Hello'
 
@@ -514,18 +514,18 @@ strings, and returns a string. The returned string is the
 concatenation of each string in the passed-in list. For example, enter
 the following into the interactive shell:
 
->>> [', '.join(\['cats', 'rats', 'bats'\])]\
+>>> [', '.join(['cats', 'rats', 'bats'])]\
 'cats, rats, bats'\
->>> [' '.join(\['My', 'name', 'is',
-'Simon'\])]\
+>>> [' '.join(['My', 'name', 'is',
+'Simon'])]\
 'My name is Simon'\
->>> ['ABC'.join(\['My', 'name', 'is',
-'Simon'\])]\
+>>> ['ABC'.join(['My', 'name', 'is',
+'Simon'])]\
 'MyABCnameABCisABCSimon'
 
 Notice that the string [join()] calls on is inserted between
-each string of the list argument. For example, when [join(\['cats',
-'rats', 'bats'\])] is called on the [', ']
+each string of the list argument. For example, when [join(['cats',
+'rats', 'bats'])] is called on the [', ']
 string, the returned string is ['cats, rats, bats'].
 
 Remember that [join()] is called on a string value and is
@@ -535,7 +535,7 @@ on a string value and returns a list of strings. Enter the following
 into the interactive shell:
 
 >>> ['My name is Simon'.split()]\
-\['My', 'name', 'is', 'Simon'\]
+['My', 'name', 'is', 'Simon']
 
 By default, the string ['My name is Simon'] is split
 wherever whitespace characters such as the space, tab, or newline
@@ -545,9 +545,9 @@ the strings in the returned list. You can pass a delimiter string to the
 For example, enter the following into the interactive shell:
 
 >>> ['MyABCnameABCisABCSimon'.split('ABC')]\
-\['My', 'name', 'is', 'Simon'\]\
+['My', 'name', 'is', 'Simon']\
 >>> ['My name is Simon'.split('m')]\
-\['My na', 'e is Si', 'on'\]
+['My na', 'e is Si', 'on']
 
 A common use of [split()] is to split a multiline string along
 the newline characters. Enter the following into the interactive shell:
@@ -561,11 +561,11 @@ the newline characters. Enter the following into the interactive shell:
 [Sincerely,]\
 [Bob''']\
 >>> [spam.split('\\n')]\
-\['Dear Alice,', 'How have you been? I am fine.', 'There is a
+['Dear Alice,', 'How have you been? I am fine.', 'There is a
 container in the\
 fridge', 'that is labeled "Milk Experiment."', '', 'Please do
 not drink it.',\
-'Sincerely,', 'Bob'\]
+'Sincerely,', 'Bob']
 
 Passing [split()] the argument ['\\n'] lets us
 split the multiline string stored in [spam] along the newlines
@@ -644,7 +644,7 @@ character. Enter the following into the interactive shell:
 >>> ['Hello'.rjust(20, '\*')]\
 '\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*Hello'\
 >>> ['Hello'.ljust(20, '-')]\
-'Hello\-\-\-\-\-\-\-\-\-\-\-\-\-\--'
+'Hello---------------'
 
 The [center()] string method works like [ljust()]
 and [rjust()] but centers the text rather than justifying it
@@ -704,12 +704,12 @@ first time the left column is 12 characters wide, and the right column
 is 5 characters wide. The second time they are 20 and 6 characters wide,
 respectively.
 
-\-\--PICNIC ITEMS\--\
+---PICNIC ITEMS--\
 sandwiches..    4\
 apples\...\...   12\
 cups\...\.....    4\
 cookies\..... 8000\
-\-\-\-\-\-\--PICNIC ITEMS\-\-\-\-\-\--\
+-------PICNIC ITEMS-------\
 sandwiches\...\...\....     4\
 apples\...\...\...\.....    12\
 cups\...\...\...\...\....     4\
@@ -909,11 +909,11 @@ donation?"""}\
 \
 [i][mport sys]\
 [if len(sys.argv) < 2:]\
-[    print('Usage: python mclip.py \[keyphrase\] - copy phrase
+[    print('Usage: python mclip.py [keyphrase] - copy phrase
 text')]\
 [    sys.exit()]\
 \
-[keyphrase = sys.argv\[1\]    # first command line arg is the
+[keyphrase = sys.argv[1]    # first command line arg is the
 keyphrase]
 
 #### []***Step 3: Copy the Right Phrase*** !
@@ -924,10 +924,10 @@ Now that the key phrase is stored as a string in the variable
 value to the clipboard using [pyperclip.copy()]. (Since you're
 using the [pyperclip] module, you need to import it.) Note
 that you don't actually *need* the [keyphrase] variable; you
-could just use [sys.argv\[1\]] everywhere
+could just use [sys.argv[1]] everywhere
 [keyphrase] is used in this program. But a variable named
 [keyphrase] is much more readable than something cryptic like
-[sys.argv\[1\]].
+[sys.argv[1]].
 
 Make your program look like the following:
 
@@ -942,13 +942,13 @@ donation?"""}\
 \
 import sys[,] [pyperclip]\
 if len(sys.argv) < 2:\
-    print('Usage: py mclip.py \[keyphrase\] - copy phrase text')\
+    print('Usage: py mclip.py [keyphrase] - copy phrase text')\
     sys.exit()\
 \
-keyphrase = sys.argv\[1\]    # first command line arg is the keyphrase\
+keyphrase = sys.argv[1]    # first command line arg is the keyphrase\
 \
 [if keyphrase in TEXT:]\
-[    pyperclip.copy(TEXT\[keyphrase\])]\
+[    pyperclip.copy(TEXT[keyphrase])]\
 [    print('Text for ' + keyphrase + ' copied to
 clipboard.')]\
 [else:]\
@@ -971,7 +971,7 @@ On Windows, you can create a batch file to run this program with the
 B](#calibre_link-35).) Enter the following into the file
 editor and save the file as *mclip.bat* in the *C:\\Windows* folder:
 
-\@py.exe C:\\[path_to_file]\\mclip.py %\*\
+\@py.exe C:\[path_to_file]\\mclip.py %\*\
 \@pause
 
 With this batch file created, running the multi-clipboard program on
@@ -1071,7 +1071,7 @@ text = pyperclip.paste()\
 [lines = text.split('\\n')]\
 [for i in range(len(lines)):    # loop through all indexes in the
 "lines" list]\
-[    lines\[i\] = '\* ' + lines\[i\] \# add star to each string in
+[    lines[i] = '\* ' + lines[i] \# add star to each string in
 "lines" list]\
 \
 pyperclip.copy(text)
@@ -1103,7 +1103,7 @@ text = pyperclip.paste()\
 lines = text.split('\\n')\
 for i in range(len(lines)):    # loop through all indexes for "lines"
 list\
-    lines\[i\] = '\* ' + lines\[i\] \# add star to each string in
+    lines[i] = '\* ' + lines[i] \# add star to each string in
 "lines" list\
 [text = '\\n'.join(lines)]\
 pyperclip.copy(text)
@@ -1143,13 +1143,13 @@ message = input()\
 \
 VOWELS = ('a', 'e', 'i', 'o', 'u', 'y')\
 \
-pigLatin = \[\] \# A list of the words in Pig Latin.\
+pigLatin = [] \# A list of the words in Pig Latin.\
 for word in message.split():\
     # Separate the non-letters at the start of this word:\
     prefixNonLetters = ''\
-    while len(word) > 0 and not word\[0\].isalpha():\
-        prefixNonLetters += word\[0\]\
-        word = word\[1:\]\
+    while len(word) > 0 and not word[0].isalpha():\
+        prefixNonLetters += word[0]\
+        word = word[1:]\
 []{#calibre_link-1757 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    if len(word) == 0:\
         pigLatin.append(prefixNonLetters)\
@@ -1157,9 +1157,9 @@ ops}type="pagebreak"}    if len(word) == 0:\
 \
     # Separate the non-letters at the end of this word:\
     suffixNonLetters = ''\
-    while not word\[-1\].isalpha():\
-        suffixNonLetters += word\[-1\]\
-        word = word\[:-1\]\
+    while not word[-1].isalpha():\
+        suffixNonLetters += word[-1]\
+        word = word[:-1]\
 \
     # Remember if the word was in uppercase or title case.\
     wasUpper = word.isupper()\
@@ -1169,9 +1169,9 @@ ops}type="pagebreak"}    if len(word) == 0:\
 \
     # Separate the consonants at the start of this word:\
     prefixConsonants = ''\
-    while len(word) > 0 and not word\[0\] in VOWELS:\
-        prefixConsonants += word\[0\]\
-        word = word\[1:\]\
+    while len(word) > 0 and not word[0] in VOWELS:\
+        prefixConsonants += word[0]\
+        word = word[1:]\
 \
     # Add the Pig Latin ending to the word:\
     if prefixConsonants != '':\
@@ -1209,13 +1209,13 @@ ops}type="pagebreak"}Next, we're going to create the
 [pigLatin] variable to store the words as we translate them
 into Pig Latin:
 
-pigLatin = \[\] \# A list of the words in Pig Latin.\
+pigLatin = [] \# A list of the words in Pig Latin.\
 for word in message.split():\
     # Separate the non-letters at the start of this word:\
     prefixNonLetters = ''\
-    while len(word) > 0 and not word\[0\].isalpha():\
-        prefixNonLetters += word\[0\]\
-        word = word\[1:\]\
+    while len(word) > 0 and not word[0].isalpha():\
+        prefixNonLetters += word[0]\
+        word = word[1:]\
     if len(word) == 0:\
         pigLatin.append(prefixNonLetters)\
         continue
@@ -1223,9 +1223,9 @@ for word in message.split():\
 We need each word to be its own string, so we call
 [message.split()] to get a list of the words as separate
 strings. The string ['My name is AL SWEIGART and I am 4,000 years
-old.'] would cause [split()] to return [\['My',
+old.'] would cause [split()] to return [['My',
 'name', 'is', 'AL', 'SWEIGART', 'and', 'I', 'am',
-'4,000', 'years', 'old.'\]].
+'4,000', 'years', 'old.']].
 
 We need to remove any non-letters from the start and end of each word so
 that strings like ['old.'] translate to
@@ -1234,9 +1234,9 @@ these non-letters to a variable named [prefixNonLetters].
 
     # Separate the non-letters at the end of this word:\
     suffixNonLetters = ''\
-    while not word\[-1\].isalpha():\
-        suffixNonLetters += word\[-1\]\
-        word = word\[:-1\]
+    while not word[-1].isalpha():\
+        suffixNonLetters += word[-1]\
+        word = word[:-1]
 
 A loop that calls [isalpha()] on the first character in the
 word will determine if we should remove a character from a word and
@@ -1267,9 +1267,9 @@ we need to remove all of the consonants from the beginning of
 
     # Separate the consonants at the start of this word:\
     prefixConsonants = ''\
-    while len(word) > 0 and not word\[0\] in VOWELS:\
-        prefixConsonants += word\[0\]\
-        word = word\[1:\]
+    while len(word) > 0 and not word[0] in VOWELS:\
+        prefixConsonants += word[0]\
+        word = word[1:]
 
 We use a loop similar to the loop that removed the non-letters from the
 start of [word], except now we are pulling off consonants and
@@ -1365,7 +1365,7 @@ characters?
 [\\n] and [\\t] escape characters represent?
 
 [3](#calibre_link-1618)!. How can you put a
-[\\] backslash character in a string?
+[\] backslash character in a string?
 
 [4](#calibre_link-1619)!. The string value
 ["Howl's Moving Castle"] is a valid string. Why isn't it a
@@ -1380,10 +1380,10 @@ newlines in it?
 ops}type="pagebreak"}[6](#calibre_link-1621){#calibre_link-1318
 .calibre6}. What do the following expressions evaluate to?
 
--   ['Hello, world!'\[1\]]
--   ['Hello, world!'\[0:5\]]
--   ['Hello, world!'\[:5\]]
--   ['Hello, world!'\[3:\]]
+-   ['Hello, world!'[1]]
+-   ['Hello, world!'[0:5]]
+-   ['Hello, world!'[:5]]
+-   ['Hello, world!'[3:]]
 
 [7](#calibre_link-1622)!. What do the
 following expressions evaluate to?
@@ -1415,9 +1415,9 @@ lists of strings and displays it in a well-organized table with each
 column right-justified. Assume that all the inner lists will contain the
 same number of strings. For example, the value could look like this:
 
-tableData = \[\['apples', 'oranges', 'cherries', 'banana'\],\
-             \['Alice', 'Bob', 'Carol', 'David'\],\
-             \['dogs', 'cats', 'moose', 'goose'\]\]
+tableData = [['apples', 'oranges', 'cherries', 'banana'],\
+             ['Alice', 'Bob', 'Carol', 'David'],\
+             ['dogs', 'cats', 'moose', 'goose']]
 
 Your [printTable()] function would print the following:
 
@@ -1430,14 +1430,14 @@ Hint: your code will first have to find the longest string in each of
 the inner lists so that the whole column can be wide enough to fit all
 the strings. You can store the maximum width of each column as a list of
 integers. The [printTable()] function can begin with
-[colWidths = \[0\] \* len(tableData)], which will create a
+[colWidths = [0] \* len(tableData)], which will create a
 list containing the same number of [0] values as the number of
 inner lists in [tableData]. That way,
-[colWidths\[0\]] can store the width of the
+[colWidths[0]] can store the width of the
 []{#calibre_link-1761 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}longest string in [tableData\[0\]],
-[colWidths\[1\]] can store the width of the longest string in
-[tableData\[1\]], and so on. You can then find the largest
+ops}type="pagebreak"}longest string in [tableData[0]],
+[colWidths[1]] can store the width of the longest string in
+[tableData[1]], and so on. You can then find the largest
 value in the [colWidths] list to find out what integer width
 to pass to the [rjust()] string method.
 
@@ -1543,14 +1543,14 @@ and\
         # exact roll result information.\
         # Example of a roll() return value:\
         # {'brains': 1, 'footsteps': 1, 'shotgun': 1,\
-        #  'rolls': \[('yellow', 'brains'), ('red',
+        #  'rolls': [('yellow', 'brains'), ('red',
 'footsteps'),\
-        #            ('green', 'shotgun')\]}\
+        #            ('green', 'shotgun')]}\
 \
         # REPLACE THIS ZOMBIE CODE WITH YOUR OWN:\
         brains = 0\
         while diceRollResults is not None:\
-            brains += diceRollResults\['brains'\]\
+            brains += diceRollResults['brains']\
 \
             if brains < 2:\
                 diceRollResults = zombiedice.roll() \# roll again\

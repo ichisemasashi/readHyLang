@@ -233,13 +233,13 @@ the condition holds true, and if not, there is a bug somewhere, so
 immediately stop the program." For example, enter the following into the
 interactive shell:
 
->>> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
-73\]]\
+>>> [ages = [26, 57, 92, 54, 22, 15, 17, 80, 47,
+73]]\
 >>> [ages.sort()]\
 >>> [ages]\
-\[15, 17, 22, 26, 47, 54, 57, 73, 80, 92\]\
+[15, 17, 22, 26, 47, 54, 57, 73, 80, 92]\
 >>> [assert]\
-[ages\[0\] <= ages\[-1\]] \# Assert that the first age is
+[ages[0] <= ages[-1]] \# Assert that the first age is
 <= the last age.
 
 The [assert] statement here asserts that the first item in
@@ -247,7 +247,7 @@ The [assert] statement here asserts that the first item in
 sanity check; if the code in [sort()] is bug-free and did its
 job, then the assertion would be true.
 
-Because the [ages\[0\] <= ages\[-1\]] expression evaluates to
+Because the [ages[0] <= ages[-1]] expression evaluates to
 [True], the [assert] statement does nothing.
 
 However, let's pretend we had a bug in our code. Say we accidentally
@@ -256,12 +256,12 @@ called the [reverse()] list method instead of the
 interactive shell, the [assert] statement raises an
 [AssertionError]:
 
->>> [ages = \[26, 57, 92, 54, 22, 15, 17, 80, 47,
-73\]]\
+>>> [ages = [26, 57, 92, 54, 22, 15, 17, 80, 47,
+73]]\
 >>> [ages.reverse()]\
 >>> [ages]\
-\[73, 47, 80, 17, 15, 22, 54, 92, 57, 26\]\
->>> [assert ages\[0\] <= ages\[-1\]] \# Assert that
+[73, 47, 80, 17, 15, 22, 54, 92, 57, 26]\
+>>> [assert ages[0] <= ages[-1]] \# Assert that
 the first age is <= the last age.\
 []{#calibre_link-800 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Traceback (most recent call last):\
@@ -291,9 +291,9 @@ performance. (Though, in many cases, they'll leave assertions enabled
 even then.)
 
 Assertions also aren't a replacement for comprehensive testing. For
-instance, if the previous [ages] example was set to [\[10, 3,
-2, 1, 20\]], then the [assert ages\[0\] <=
-ages\[-1\]] assertion wouldn't notice that the list was
+instance, if the previous [ages] example was set to [[10, 3,
+2, 1, 20]], then the [assert ages[0] <=
+ages[-1]] assertion wouldn't notice that the list was
 unsorted, because it just happened to have a first age that was less
 than or equal to the last age, which is the only thing the assertion
 checked for.
@@ -326,12 +326,12 @@ code to implement this idea might look like this:
 def switchLights(stoplight):\
     for key in stoplight.keys():\
 []{#calibre_link-898 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}        if stoplight\[key\] == 'green':\
-            stoplight\[key\] = 'yellow'\
-        elif stoplight\[key\] == 'yellow':\
-            stoplight\[key\] = 'red'\
-        elif stoplight\[key\] == 'red':\
-            stoplight\[key\] = 'green'\
+ops}type="pagebreak"}        if stoplight[key] == 'green':\
+            stoplight[key] = 'yellow'\
+        elif stoplight[key] == 'yellow':\
+            stoplight[key] = 'red'\
+        elif stoplight[key] == 'red':\
+            stoplight[key] = 'green'\
 \
 switchLights(market_2nd)
 

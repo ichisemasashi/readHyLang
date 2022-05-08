@@ -244,7 +244,7 @@ the lap count for each new lap. Add the following code to your program:
 \
    import time\
 \
-   \--[snip]\--\
+   --[snip]--\
    []{#calibre_link-1068 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[\# Start tracking the lap times.]\
 [➊] [try:]\
@@ -694,7 +694,7 @@ while datetime.datetime.now() < startTime:\
     time.sleep(1)\
 \
 print('Program now starting on Halloween 2029')\
-\--[snip]\--
+--[snip]--
 
 This code designates a start time of October 31, 2029, and keeps calling
 [time.sleep(1)] until the start time arrives. Your program
@@ -809,15 +809,15 @@ a dictionary to the [kwargs] keyword argument in
 Enter the following into the interactive shell:
 
 >>> [import threading]\
->>> [threadObj = threading.Thread(target=print, args=\['Cats',
-'Dogs', 'Frogs'\],]\
+>>> [threadObj = threading.Thread(target=print, args=['Cats',
+'Dogs', 'Frogs'],]\
 [kwargs={'sep': ' & '})]\
 >>> [threadObj.start()]\
 Cats & Dogs & Frogs
 
 To make sure the arguments ['Cats'], ['Dogs'],
 and ['Frogs'] get passed to [print()] in the new
-thread, we pass [args=\['Cats', 'Dogs', 'Frogs'\]] to
+thread, we pass [args=['Cats', 'Dogs', 'Frogs']] to
 [threading.Thread()]. To make sure the keyword argument
 [sep=' & '] gets passed to [print()] in the new
 thread, we pass [kwargs={'sep': '& '}] to
@@ -927,10 +927,10 @@ threads.\
 \
            # Find the URL of the comic image.\
         [➏] comicElem = soup.select('#comic img')\
-           if comicElem == \[\]:\
+           if comicElem == []:\
                print('Could not find comic image.')\
            else:\
-            [➐] comicUrl = comicElem\[0\].get('src')\
+            [➐] comicUrl = comicElem[0].get('src')\
                # Download the image.\
                print('Downloading image %s\...' % (comicUrl))\
             [➑] res = requests.get('https:' + comicUrl)\
@@ -968,10 +968,10 @@ function definition:
 \# threadedDownloadXkcd.py - Downloads XKCD comics using multiple
 threads.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [\# Create and start the Thread objects.]\
-[downloadThreads = \[\]             # a list of all the Thread
+[downloadThreads = []             # a list of all the Thread
 objects]\
 [for i in range(0, 140, 10):    # loops 14 times, creates 14
 threads]\
@@ -1023,7 +1023,7 @@ following to the bottom of your program:
 threads.\
 \
 []{#calibre_link-1027 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\--[snip]\--\
+ops}type="pagebreak"}--[snip]--\
 \
 [\# Wait for all threads to end.]\
 [for downloadThread in downloadThreads:]\
@@ -1166,8 +1166,8 @@ when they start. For example, if you're using Windows, create a simple
 text file called *C:\\Users\\Al\\hello.txt* and then enter the following
 into the interactive shell:
 
->>> [subprocess.Popen(\['C:\\\\Windows\\\\notepad.exe',
-'C:\\\\Users\\Al\\\\hello.txt'\])]\
+>>> [subprocess.Popen(['C:\\\\Windows\\\\notepad.exe',
+'C:\\\\Users\\Al\\\\hello.txt'])]\
 <subprocess.Popen object at 0x00000000032DCEB8>
 
 This will not only launch the Notepad application but also have it
@@ -1206,9 +1206,9 @@ application. Simply pass the *python.exe* executable to
 as its argument. For example, the following would run the *hello.py*
 script from [Chapter 1](#calibre_link-89):
 
->>> [subprocess.Popen(\['C:\\\\Users\\\\<YOUR
-USERNAME>\\\\AppData\\\\Local\\\\Programs\\\\]\
-[Python\\\\Python38\\\\python.exe', 'hello.py'\])]\
+>>> [subprocess.Popen(['C:\\\\Users\\\\<YOUR
+USERNAME>\\\\AppData\\\\Local\\\\Programs\\\]\
+[Python\\\\Python38\\\\python.exe', 'hello.py'])]\
 <subprocess.Popen object at 0x000000000331CF28>
 
 Pass [Popen()] a list containing a string of the Python
@@ -1246,8 +1246,8 @@ depending on your system:
 >>> [fileObj.close()]\
 >>> [import subprocess]\
 >>>
-[subprocess.Popen(\['][[start]][',
-'hello.txt'\], shell=True)]
+[subprocess.Popen(['][[start]][',
+'hello.txt'], shell=True)]
 
 []{#calibre_link-873 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Here we write [Hello, world!] to a new
@@ -1262,8 +1262,8 @@ On macOS, the [open] program is used for opening both document
 files and programs. Enter the following into the interactive shell if
 you have a Mac:
 
->>> [subprocess.Popen(\['open',
-'/Applications/Calculator.app/'\])]\
+>>> [subprocess.Popen(['open',
+'/Applications/Calculator.app/'])]\
 <subprocess.Popen object at 0x10202ff98>
 
 The Calculator app should open.
@@ -1341,10 +1341,10 @@ Add the following to your code:
 \
 import time, subprocess\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [\# At the end of the countdown, play a sound file.]\
-[subprocess.Popen(\['start', 'alarm.wav'\],
+[subprocess.Popen(['start', 'alarm.wav'],
 shell=True)]
 
 After the [while] loop finishes, *alarm.wav* (or the sound

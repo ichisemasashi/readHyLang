@@ -108,7 +108,7 @@ Make your code look like this:
 import webbrowser, sys\
 if len(sys.argv) > 1:\
     # Get address from command line.\
-    address = ' '.join(sys.argv\[1:\])\
+    address = ' '.join(sys.argv[1:])\
 \
 \# TODO: Get address from clipboard.
 
@@ -126,7 +126,7 @@ case, you want to interpret all of the arguments as a single string.
 Since [sys.argv] is a list of strings, you can pass it to the
 [join()] method, which returns a single string value. You
 don't want the program name in this string, so instead of
-[sys.argv], you should pass [sys.argv\[1:\]] to chop
+[sys.argv], you should pass [sys.argv[1:]] to chop
 off the first element of the array. The final string that this
 expression evaluates to is stored in the [address] variable.
 
@@ -136,8 +136,8 @@ mapit 870 Valencia St, San Francisco, CA 94110
 
 . . . the [sys.argv] variable will contain this list value:
 
-\['mapIt.py', '870', 'Valencia', 'St, ', 'San', 'Francisco,
-', 'CA', '94110'\]
+['mapIt.py', '870', 'Valencia', 'St, ', 'San', 'Francisco,
+', 'CA', '94110']
 
 The [address] variable will contain the string ['870 Valencia
 St, San Francisco, CA 94110'].
@@ -152,7 +152,7 @@ Make your code look like the following:
 import webbrowser, sys[,] [pyperclip]\
 if len(sys.argv) > 1:\
     # Get address from command line.\
-    address = ' '.join(sys.argv\[1:\])\
+    address = ' '.join(sys.argv[1:])\
 [else:]\
 [    # Get address from clipboard.]\
 [    address = pyperclip.paste()]\
@@ -208,7 +208,7 @@ The [requests] module lets you easily download files from the
 web without having to worry about complicated issues such as network
 errors, connection problems, and data compression. The
 [requests] module doesn't come with Python, so you'll have to
-install it first. From the command line, run [pip install \--user
+install it first. From the command line, run [pip install --user
 requests]. ([Appendix A](#calibre_link-2) has
 additional details on how to install third-party modules.)
 
@@ -246,7 +246,7 @@ requests.get('https://automatetheboringstuff.com/files/rj.txt')]\
    True\
    >>> [len(res.text)]\
    178981\
-   >>> [print(res.text\[:250\])]\
+   >>> [print(res.text[:250])]\
    The Project Gutenberg EBook of Romeo and Juliet, by William
 Shakespeare\
 \
@@ -270,7 +270,7 @@ If the request succeeded, the downloaded web page is stored as a string
 in the [Response] object's [text] variable. This
 variable holds a large string of the entire play; the call to
 [len(res.text)] shows you that it is more than 178,000
-characters long. Finally, calling [print(res.text\[:250\])]
+characters long. Finally, calling [print(res.text[:250])]
 displays only the first 250 characters.
 
 If the request failed and displayed an error message, like "Failed to
@@ -613,7 +613,7 @@ Beautiful Soup module will help you find it in the string.
 Beautiful Soup is a module for extracting information from an HTML page
 (and is much better for this purpose than regular expressions). The
 Beautiful Soup module's name is [bs4] (for Beautiful Soup,
-version 4). To install it, you will need to run [pip install \--user
+version 4). To install it, you will need to run [pip install --user
 beautifulsoup4] from the command line. (Check out [Appendix
 A](#calibre_link-2) for instructions on installing
 third-party modules.) While [beautifulsoup4] is the name used
@@ -626,7 +626,7 @@ a new file editor tab in Mu, enter the following, and save it as
 *example.html*. Alternatively, download it from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*.
 
-<!\-- This is the example.html example file. \-->\
+<!-- This is the example.html example file. -->\
 \
 <html><head><title>The Website Title</title></head>\
 <body>\
@@ -681,7 +681,7 @@ The ['html.parser'] parser used here comes with Python.
 However, you can use the faster ['lxml'] parser if you
 install the third-party [lxml] module. Follow the instructions
 in [Appendix A](#calibre_link-2) to install this module by
-running [pip install \--user lxml]. Forgetting to include this
+running [pip install --user lxml]. Forgetting to include this
 second argument will result in a [UserWarning: No parser was explicitly
 specified] warning.
 
@@ -713,8 +713,8 @@ ops}type="pagebreak"}**Table 12-2:** Examples of CSS Selectors
   [soup.select('.notice')]                        All elements that use a CSS [class] attribute named [notice]
   [soup.select('div span')]                       All elements named [<span>] that are within an element named [<div>]
   [soup.select('div > span')]                    All elements named [<span>] that are *directly* within an element named [<div>], with no other element in between
-  [soup.select('input\[name\]')]                  All elements named [<input>] that have a [name] attribute with any value
-  [soup.select('input\[type="button"\]')]       All elements named [<input>] that have an attribute named [type] with value [button]
+  [soup.select('input[name]')]                  All elements named [<input>] that have a [name] attribute with any value
+  [soup.select('input[type="button"]')]       All elements named [<input>] that have an attribute named [type] with value [button]
 
 The various selector patterns can be combined to make sophisticated
 matches. For example, [soup.select('p #author')] will match
@@ -744,13 +744,13 @@ from earlier, enter the following into the interactive shell:
 <class 'list'>\
 >>> [len(elems)]\
 1\
->>> [type(elems\[0\])]\
+>>> [type(elems[0])]\
 <class 'bs4.element.Tag'>\
->>> [str(elems\[0\])] \# The Tag object as a string.\
+>>> [str(elems[0])] \# The Tag object as a string.\
 '<span id="author">Al Sweigart</span>'\
->>> [elems\[0\].getText()]\
+>>> [elems[0].getText()]\
 'Al Sweigart'\
->>> [elems\[0\].attrs]\
+>>> [elems[0].attrs]\
 {'id': 'author'}
 
 []{#calibre_link-826 {http:="" www.idpf.org="" 2007=""
@@ -775,25 +775,25 @@ You can also pull all the [<p>] elements from the
 [BeautifulSoup] object. Enter this into the interactive shell:
 
 >>> [pElems = exampleSoup.select('p')]\
->>> [str(pElems\[0\])]\
+>>> [str(pElems[0])]\
 '<p>Download my <strong>Python</strong> book from <a
 href="https://\
 inventwithpython.com">my website</a>.</p>'\
->>> [pElems\[0\].getText()]\
+>>> [pElems[0].getText()]\
 'Download my Python book from my website.'\
->>> [str(pElems\[1\])]\
+>>> [str(pElems[1])]\
 '<p class="slogan">Learn Python the easy way!</p>'\
->>> [pElems\[1\].getText()]\
+>>> [pElems[1].getText()]\
 'Learn Python the easy way!'\
->>> [str(pElems\[2\])]\
+>>> [str(pElems[2])]\
 '<p>By <span id="author">Al Sweigart</span></p>'\
->>> [pElems\[2\].getText()]\
+>>> [pElems[2].getText()]\
 'By Al Sweigart'
 
 This time, [select()] gives us a list of three matches, which
 we store in [pElems]. Using [str()] on
-[pElems\[0\]], [pElems\[1\]], and
-[pElems\[2\]] shows you each element as a string, and using
+[pElems[0]], [pElems[1]], and
+[pElems[2]] shows you each element as a string, and using
 [getText()] on each element shows you its text.
 
 #### ***Getting Data from an Element's Attributes*** 
@@ -806,7 +806,7 @@ string of an attribute name and returns that attribute's value. Using
 >>> [import bs4]\
 >>> [soup = bs4.BeautifulSoup(open('example.html'),
 'html.parser')]\
->>> [spanElem = soup.select('span')\[0\]]\
+>>> [spanElem = soup.select('span')[0]]\
 >>> [str(spanElem)]\
 '<span id="author">Al Sweigart</span>'\
 >>> [spanElem.get('id')]\
@@ -878,7 +878,7 @@ ops}type="pagebreak"}print('Searching\...')    # display text while
 downloading the search result page\
 res = requests.get('https://google.com/search?q='
 'https://pypi.org/search/?q='\
-+ ' '.join(sys.argv\[1:\]))\
++ ' '.join(sys.argv[1:]))\
 res.raise_for_status()\
 \
 \# TODO: Retrieve top search result links.\
@@ -913,7 +913,7 @@ Make your code look like the following:
 #! python3\
 \# searchpypi.py - Opens several google results.\
 import requests, sys, webbrowser, bs4\
-\--[snip]\--\
+--[snip]--\
 [\# Retrieve top search result links.]\
 [soup = bs4.BeautifulSoup(res.text, 'html.parser')]\
 [\# Open a browser tab for each result.]\
@@ -942,13 +942,13 @@ results. Add the following to the end of your program:
 #! python3\
 \# searchpypi.py - Opens several search results.\
 import requests, sys, webbrowser, bs4\
-\--[snip]\--\
+--[snip]--\
 \# Open a browser tab for each result.\
 linkElems = soup.select('.package-snippet')\
 [numOpen = min(5, len(linkElems))]\
 [for i in range(numOpen):]\
 [    urlToOpen = 'https://pypi.org' +
-linkElems\[i\].get('href')]\
+linkElems[i].get('href')]\
 [    print('Opening', urlToOpen)]\
 [    webbrowser.open(urlToOpen)]
 
@@ -1133,16 +1133,16 @@ Make your code look like the following:
 \
 import requests, os, bs4\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [    # Find the URL of the comic image.]\
 [    comicElem = soup.select('#comic img')]\
 []{#calibre_link-1093 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}[    if comicElem == \[\]:]\
+ops}type="pagebreak"}[    if comicElem == []:]\
 [        print('Could not find comic image.')]\
 [    else:]\
 [        comicUrl = 'https:' +
-comicElem\[0\].get('src')]\
+comicElem[0].get('src')]\
 [        # Download the image.]\
 [        print('Downloading image %s\...' %
 (comicUrl))]\
@@ -1182,7 +1182,7 @@ Make your code look like the following:
 \
 import requests, os, bs4\
 \
-\--[snip]\--\
+--[snip]--\
 \
  [       # Save the image to ./xkcd.]\
 [        imageFile = open(os.path.join('xkcd',
@@ -1193,7 +1193,7 @@ os.path.basename(comicUrl)),]\
 [        imageFile.close()]\
 \
 [    # Get the Prev button's url.]\
-[    prevLink = soup.select('a\[rel="prev"\]')\[0\]]\
+[    prevLink = soup.select('a[rel="prev"]')[0]]\
 [    url = 'https://xkcd.com' + prevLink.get('href')]\
 \
 print('Done.')
@@ -1213,7 +1213,7 @@ it will return just the last part of the URL,
 filename when saving the image to your hard drive. You join this name
 with the name of your [xkcd] folder using
 [os.path.join()] so that your program uses backslashes
-([\\]) on Windows and forward slashes ([/]) on macOS
+([\]) on Windows and forward slashes ([/]) on macOS
 and Linux. Now that you finally have the filename, you can call
 [open()] to open a new file in ['wb'] "write
 binary" mode.
@@ -1225,7 +1225,7 @@ value of the [iter_content()] method. The code in the
 100,000 bytes each) to the file and then you close the file. The image
 is now saved to your hard drive.
 
-Afterward, the selector ['a\[rel="prev"\]'] identifies the
+Afterward, the selector ['a[rel="prev"]'] identifies the
 [<a>] element with the [rel] attribute set to
 [prev], and you can use this [<a>] element's
 [href] attribute to get the previous comic's URL, which gets
@@ -1248,7 +1248,7 @@ Downloading image https://imgs.xkcd.com/comics/airplane_message.png\...\
 Downloading page https://xkcd.com/1354/\...\
 Downloading image
 https://imgs.xkcd.com/comics/heartbleed_explanation.png\...\
-\--[snip]\--
+--[snip]--
 
 This project is a good example of a program that can automatically
 follow links in order to scrape large amounts of data from the web. You
@@ -1317,7 +1317,7 @@ their pages.
 The following examples will show you how to control Firefox's web
 browser. If you don't already have Firefox, you can download it for free
 from *[https://getfirefox.com/](https://getfirefox.com/)*.
-You can install [selenium] by running [pip install \--user
+You can install [selenium] by running [pip install --user
 selenium] from a command line terminal. More information is
 available in [Appendix A](#calibre_link-2).
 
@@ -1394,7 +1394,7 @@ Unfortunately, the compatibility between versions of
 search the web for possible solutions. [Appendix
 A](#calibre_link-2) has more information about running pip to
 install a specific version of [selenium]. (For example, you
-might run [pip install \--user -U selenium==3.14.1].)
+might run [pip install --user -U selenium==3.14.1].)
 
 #### ***Finding Elements on the Page*** 
 

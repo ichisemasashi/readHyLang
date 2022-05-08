@@ -8,7 +8,7 @@ Source :   <https://github.com/hylang/hy>
 
 Discussions :   <https://github.com/hylang/hy/discussions>
 
-Stack Overflow :   [The \[hy\] tag](https://stackoverflow.com/questions/tagged/hy)
+Stack Overflow :   [The [hy] tag](https://stackoverflow.com/questions/tagged/hy)
 
 HyはPythonに埋め込まれたLispの方言です。HyはLispのコードをPythonの抽象構文木(AST)オブジェクトに変換するので、Pythonの美しい世界全体がLispの形であなたの指先にあるのです。
 

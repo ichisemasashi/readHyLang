@@ -60,7 +60,7 @@ Still, try to follow along using folders that exist on your computer.*
 
 #### ***Backslash on Windows and Forward Slash on macOS and Linux*** 
 
-On Windows, paths are written using backslashes ([\\]) as the
+On Windows, paths are written using backslashes ([\]) as the
 separator between folder names. The macOS and Linux operating systems,
 however, use the forward slash (*/*) as their path separator. If you
 want your programs to work on all operating systems, you will have to
@@ -112,8 +112,8 @@ chapter. For example, the following code joins names from a list of
 filenames to the end of a folder's name:
 
 >>> [from pathlib import Path]\
->>> [myFiles = \['accounts.txt', 'details.csv',
-'invite.docx'\]]\
+>>> [myFiles = ['accounts.txt', 'details.csv',
+'invite.docx']]\
 >>> [for filename in myFiles:]\
         [print(Path(r'C:\\Users\\Al', filename))]\
 C:\\Users\\Al\\accounts.txt\
@@ -173,7 +173,7 @@ in this example:
 >>> [subFolder = 'spam']\
 >>> [homeFolder + '\\\\' + subFolder]\
 'C:\\\\Users\\\\Al\\\\spam'\
->>> ['\\\\'.join(\[homeFolder, subFolder\])]\
+>>> ['\\\\'.join([homeFolder, subFolder])]\
 'C:\\\\Users\\\\Al\\\\spam'
 
 A script that uses this code isn't safe, because its backslashes would
@@ -266,7 +266,7 @@ does not exist.
 >>> [os.chdir('C:/ThisFolderDoesNotExist')]\
 Traceback (most recent call last):\
   File "<stdin>", line 1, in <module>\
-FileNotFoundError: \[WinError 2\] The system cannot find the file
+FileNotFoundError: [WinError 2] The system cannot find the file
 specified:\
 'C:/ThisFolderDoesNotExist'
 
@@ -510,19 +510,19 @@ ancestor folders of a [Path] object with an integer index:
 
 >>> [Path.cwd()]\
 WindowsPath('C:/Users/Al/AppData/Local/Programs/Python/Python37')\
->>> [Path.cwd().parents\[0\]]\
+>>> [Path.cwd().parents[0]]\
 WindowsPath('C:/Users/Al/AppData/Local/Programs/Python')\
->>> [Path.cwd().parents\[1\]]\
+>>> [Path.cwd().parents[1]]\
 WindowsPath('C:/Users/Al/AppData/Local/Programs')\
->>> [Path.cwd().parents\[2\]]\
+>>> [Path.cwd().parents[2]]\
 WindowsPath('C:/Users/Al/AppData/Local')\
->>> [Path.cwd().parents\[3\]]\
+>>> [Path.cwd().parents[3]]\
 WindowsPath('C:/Users/Al/AppData')\
->>> [Path.cwd().parents\[4\]]\
+>>> [Path.cwd().parents[4]]\
 WindowsPath('C:/Users/Al')\
->>> [Path.cwd().parents\[5\]]\
+>>> [Path.cwd().parents[5]]\
 WindowsPath('C:/Users')\
->>> [Path.cwd().parents\[6\]]\
+>>> [Path.cwd().parents[6]]\
 WindowsPath('C:/')
 
 The older [os.path] module also has similar functions for
@@ -585,7 +585,7 @@ Linux, and splitting on it will return a list of the individual folders.
 For example, enter the following into the interactive shell:
 
 >>> [calcFilePath.split(os.sep)]\
-\['C:', 'Windows', 'System32', 'calc.exe'\]
+['C:', 'Windows', 'System32', 'calc.exe']
 
 This returns all the parts of the path as strings.
 
@@ -593,7 +593,7 @@ On macOS and Linux systems, the returned list of folders will begin with
 a blank string, like this:
 
 >>> ['/usr/bin'.split(os. sep)]\
-\['', 'usr', 'bin'\]
+['', 'usr', 'bin']
 
 The [split()] string method will work to return a list of each
 part of the path.
@@ -619,11 +619,11 @@ Here's what I get when I try these functions in the interactive shell:
 [os.path.getsize('C:\\\\Windows\\\\System32\\\\calc.exe')]\
 27648\
 >>> [os.listdir('C:\\\\Windows\\\\System32')]\
-\['0409', '12520437.cpx', '12520850.cpx', '5U877.ax',
+['0409', '12520437.cpx', '12520850.cpx', '5U877.ax',
 'aaclient.dll',\
-\--[snip]\--\
+--[snip]--\
 'xwtpdui.dll', 'xwtpw32.dll', 'zh-CN', 'zh-HK', 'zh-TW',
-'zipfldr.dll'\]
+'zipfldr.dll']
 
 []{#calibre_link-1782 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}As you can see, the *calc.exe* program on my
@@ -666,11 +666,11 @@ the interactive shell:
 <generator object Path.glob at 0x000002A6E389DED0>\
 >>> [list(p.glob('\*'))] \# Make a list from the
 generator.\
-\[WindowsPath('C:/Users/Al/Desktop/1.png'),
+[WindowsPath('C:/Users/Al/Desktop/1.png'),
 WindowsPath('C:/Users/Al/\
 Desktop/22-ap.pdf'), WindowsPath('C:/Users/Al/Desktop/cat.jpg'),\
-  [\--snip\--]\
-WindowsPath('C:/Users/Al/Desktop/zzz.txt')\]
+  [--snip--]\
+WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The asterisk ([\*]) stands for "multiple of any characters,"
 so [p.glob('\*')] returns a generator of all files in the
@@ -679,9 +679,9 @@ path stored in [p].
 Like with regexes, you can create complex expressions:
 
 >>> [list(p.glob('\*.txt')] \# Lists all text files.\
-\[WindowsPath('C:/Users/Al/Desktop/foo.txt'),\
-[  \--snip\--]\
-WindowsPath('C:/Users/Al/Desktop/zzz.txt')\]
+[WindowsPath('C:/Users/Al/Desktop/foo.txt'),\
+[  --snip--]\
+WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The glob pattern ['\*.txt'] will return files that start
 with any combination of characters as long as it ends with the string
@@ -692,11 +692,11 @@ ops}type="pagebreak"}In contrast with the asterisk, the question mark
 ([?]) stands for any single character:
 
 >>> [list(p.glob('project?.docx')]\
-\[WindowsPath('C:/Users/Al/Desktop/project1.docx'),
+[WindowsPath('C:/Users/Al/Desktop/project1.docx'),
 WindowsPath('C:/Users/Al/\
 Desktop/project2.docx'),\
-[  \--snip\--]\
-WindowsPath('C:/Users/Al/Desktop/project9.docx')\]
+[  --snip--]\
+WindowsPath('C:/Users/Al/Desktop/project9.docx')]
 
 The glob expression ['project?.docx'] will return
 ['project1.docx'] or ['project5.docx'], but it
@@ -708,11 +708,11 @@ Finally, you can also combine the asterisk and question mark to create
 even more complex glob expressions, like this:
 
 >>> [list(p.glob('\*.?x?')]\
-\[WindowsPath('C:/Users/Al/Desktop/calc.exe'),
+[WindowsPath('C:/Users/Al/Desktop/calc.exe'),
 WindowsPath('C:/Users/Al/\
 Desktop/foo.txt'),\
-[  \--snip\--]\
-WindowsPath('C:/Users/Al/Desktop/zzz.txt')\]
+[  --snip--]\
+WindowsPath('C:/Users/Al/Desktop/zzz.txt')]
 
 The glob expression ['\*.?x?'] will return files with any
 name and any three-character extension where the middle character is an
@@ -875,7 +875,7 @@ The [open()] function can also accept strings. If you're using
 Windows, enter the following into the interactive shell:
 
 >>> [helloFile =
-open('C:\\\\Users\\\\][[your_home_folder]][\\\\hello.txt')]
+open('C:\\\\Users\\\][[your_home_folder]][\\\\hello.txt')]
 
 If you're using macOS, enter the following into the interactive shell
 instead:
@@ -941,11 +941,11 @@ following into the interactive shell:
 >>> [sonnetFile = open(Path.home() /
 'sonnet29.txt')]\
 >>> [sonnetFile.readlines()]\
-\[When, in disgrace with fortune and men's eyes,\\n', ' I all alone
+[When, in disgrace with fortune and men's eyes,\\n', ' I all alone
 beweep my\
 outcast state,\\n', And trouble deaf heaven with my bootless
 cries,\\n', And\
-look upon myself and curse my fate,'\]
+look upon myself and curse my fate,']
 
 Note that, except for the last line of the file, each of the string
 values ends with a newline character [\\n]. A list of strings
@@ -1028,8 +1028,8 @@ Enter the following into the interactive shell:
 
 >>> [import shelve]\
 >>> [shelfFile = shelve.open('mydata')]\
->>> [cats = \['Zophie', 'Pooka', 'Simon'\]]\
->>> [shelfFile\['cats'\] = cats]\
+>>> [cats = ['Zophie', 'Pooka', 'Simon']]\
+>>> [shelfFile['cats'] = cats]\
 >>> [shelfFile.close()]
 
 To read and write data using the [shelve] module, you first
@@ -1038,7 +1038,7 @@ filename, and then store the returned shelf value in a variable. You can
 make changes to the shelf value as if it were a dictionary. When you're
 done, call [close()] on the shelf value. Here, our shelf value
 is stored in [shelfFile]. We create a list [cats]
-and write [shelfFile\['cats'\] = cats] to store the list in
+and write [shelfFile['cats'] = cats] to store the list in
 [shelfFile] as a value associated with the key
 ['cats'] (like in a dictionary). Then we call
 [close()] on [shelfFile]. Note that as of Python
@@ -1063,12 +1063,12 @@ following into the interactive shell:
 >>> [shelfFile = shelve.open('mydata')]\
 >>> [type(shelfFile)]\
 <class 'shelve.DbfilenameShelf'>\
->>> [shelfFile\['cats'\]]\
-\['Zophie', 'Pooka', 'Simon'\]\
+>>> [shelfFile['cats']]\
+['Zophie', 'Pooka', 'Simon']\
 >>> [shelfFile.close()]
 
 Here, we open the shelf files to check that our data was stored
-correctly. Entering [shelfFile\['cats'\]] returns the same
+correctly. Entering [shelfFile['cats']] returns the same
 list that we stored earlier, so we know that the list is correctly
 stored, and we call [close()].
 
@@ -1081,9 +1081,9 @@ following into the interactive shell:
 
 >>> [shelfFile = shelve.open('mydata')]\
 >>> [list(shelfFile.keys())]\
-\['cats'\]\
+['cats']\
 >>> [list(shelfFile.values())]\
-\[\['Zophie', 'Pooka', 'Simon'\]\]\
+[['Zophie', 'Pooka', 'Simon']]\
 >>> [shelfFile.close()]
 
 Plaintext is useful for creating files that you'll read in a text editor
@@ -1109,11 +1109,11 @@ in it.
 For example, enter the following into the interactive shell:
 
 >>> [import pprint]\
->>> [cats = \[{'name': 'Zophie', 'desc': 'chubby'},
-{'name': 'Pooka', 'desc': 'fluffy'}\]]\
+>>> [cats = [{'name': 'Zophie', 'desc': 'chubby'},
+{'name': 'Pooka', 'desc': 'fluffy'}]]\
 >>> [pprint.pformat(cats)]\
-"\[{'desc': 'chubby', 'name': 'Zophie'}, {'desc': 'fluffy',
-'name': 'Pooka'}\]"\
+"[{'desc': 'chubby', 'name': 'Zophie'}, {'desc': 'fluffy',
+'name': 'Pooka'}]"\
 >>> [fileObj = open('myCats.py', 'w')]\
 >>> [fileObj.write('cats = ' + pprint.pformat(cats) +
 '\\n')]\
@@ -1139,11 +1139,11 @@ programs. You can then import these files into scripts.
 
 >>> [import myCats]\
 >>> [myCats.cats]\
-\[{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka',
-'desc': 'fluffy'}\]\
->>> [myCats.cats\[0\]]\
+[{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka',
+'desc': 'fluffy'}]\
+>>> [myCats.cats[0]]\
 {'name': 'Zophie', 'desc': 'chubby'}\
->>> [myCats.cats\[0\]\['name'\]]\
+>>> [myCats.cats[0]['name']]\
 'Zophie'
 
 The benefit of creating a *.py* file (as opposed to saving variables
@@ -1269,7 +1269,7 @@ Add the following lines of code to *randomQuizGenerator.py*:
 in\
 \# random order, along with the answer key.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 \# Generate 35 quiz files.\
 for quizNum in range(35):\
@@ -1325,7 +1325,7 @@ question. Make your code look like the following:
 in\
 \# random order, along with the answer key.\
 \
-\--[snip]\--\
+--[snip]--\
 \
     [\# Loop through all 50 states, making a question for
 each.]\
@@ -1333,15 +1333,15 @@ each.]\
 \
 [         # Get right and wrong answers.]\
 [      ][➊] [correctAnswer =
-capitals\[states\[questionNum\]\]]\
+capitals[states[questionNum]]]\
 [      ][➋] [wrongAnswers =
 list(capitals.values())]\
 [      ][➌] [del
-wrongAnswers\[wrongAnswers.index(correctAnswer)\]]\
+wrongAnswers[wrongAnswers.index(correctAnswer)]]\
 [      ][➍] [wrongAnswers =
 random.sample(wrongAnswers, 3)]\
 [      ][➎] [answerOptions = wrongAnswers +
-\[correctAnswer\]]\
+[correctAnswer]]\
 [      ][➏]
 [random.shuffle(answerOptions)]\
 \
@@ -1353,7 +1353,7 @@ file.]\
 The correct answer is easy to get---it's stored as a value in the
 [capitals] dictionary [➊]. This loop will loop through
 the states in the shuffled [states] list, from
-[states\[0\]] to [states\[49\]], find each state in
+[states[0]] to [states[49]], find each state in
 [capitals], and store that state's corresponding capital in
 [correctAnswer].
 
@@ -1379,34 +1379,34 @@ answer to the answer key file. Make your code look like the following:
 in\
 \# random order, along with the answer key.\
 \
-\--[snip]\--\
+--[snip]--\
 \
     # Loop through all 50 states, making a question for each.\
     for questionNum in range(50):\
-        \--[snip]\--\
+        --[snip]--\
 \
         [\# Write the question and the answer options to the quiz
 file.]\
 [        quizFile.write(f'{questionNum + 1}. What is the capital
 of]\
-[{states\[questionNum\]}?\\n')]\
+[{states[questionNum]}?\\n')]\
 [      ][➊] [for i in range(4):]\
 [          ][➋]
-[quizFile.write(f"    {'ABCD'\[i\]}. {
-answerOptions\[i\]}\\n")]\
+[quizFile.write(f"    {'ABCD'[i]}. {
+answerOptions[i]}\\n")]\
 [         quizFile.write('\\n')]\
 \
 [         # Write the answer key to a file.]\
 [      ][➌] [answerKeyFile.write(f"{questionNum +
 1}.]\
-[{'ABCD'\[answerOptions.index(correctAnswer)\]}")]\
+[{'ABCD'[answerOptions.index(correctAnswer)]}")]\
 [     quizFile.close()]\
 [     answerKeyFile.close()]
 
 A [for] loop that goes through integers [0] to
 [3] will write the answer options in the
 [answerOptions] list [➊]. The expression
-['ABCD'\[i\]] at [➋] treats the string
+['ABCD'[i]] at [➋] treats the string
 ['ABCD'] as an array and will evaluate to
 ['A'],['B'], ['C'], and then
 ['D'] on each respective iteration through the loop.
@@ -1414,7 +1414,7 @@ A [for] loop that goes through integers [0] to
 In the final line [➌], the expression
 [answerOptions.index(correctAnswer)] will find the integer
 index of the correct answer in the randomly ordered answer options, and
-['ABCD'\[answerOptions.index(correctAnswer)\]] will evaluate
+['ABCD'[answerOptions.index(correctAnswer)]] will evaluate
 to the correct answer's letter to be written to the answer key file.
 
 After you run the program, this is how your *capitalsquiz1.txt* file
@@ -1443,7 +1443,7 @@ ops}type="pagebreak"}1. What is the capital of West Virginia?\
     C. Denver\
     D. Lincoln\
 \
-\--[snip]\--
+--[snip]--
 
 The corresponding *capitalsquiz_answers1.txt* text file will look like
 this:
@@ -1452,7 +1452,7 @@ this:
 2. C\
 3. A\
 4. C\
-\--[snip]\--
+--[snip]--
 
 ### **Project: Updatable Multi-Clipboard** 
 
@@ -1538,12 +1538,12 @@ like the following:
 
    #! python3\
    # mcb.pyw - Saves and loads pieces of text to the clipboard.\
-   \--[snip]\--\
+   --[snip]--\
 \
    [\# Save clipboard content.]\
-[➊] [if len(sys.argv) == 3 and sys.argv\[1\].lower() ==
+[➊] [if len(sys.argv) == 3 and sys.argv[1].lower() ==
 'save':]\
-[         ][➋] [mcbShelf\[sys.argv\[2\]\] =
+[         ][➋] [mcbShelf[sys.argv[2]] =
 pyperclip.paste()]\
    [elif len(sys.argv) == 2:]\
 []{#calibre_link-1046 {http:="" www.idpf.org="" 2007=""
@@ -1572,20 +1572,20 @@ keywords. Make your code look like the following:
 
 #! python3\
 \# mcb.pyw - Saves and loads pieces of text to the clipboard.\
-\--[snip]\--\
+--[snip]--\
 \
 \# Save clipboard content.\
-if len(sys.argv) == 3 and sys.argv\[1\].lower() == 'save':\
-        mcbShelf\[sys.argv\[2\]\] = pyperclip.paste()\
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':\
+        mcbShelf[sys.argv[2]] = pyperclip.paste()\
 elif len(sys.argv) == 2:\
 [     # List keywords and load content.]\
-[  ][➊] [if sys.argv\[1\].lower() ==
+[  ][➊] [if sys.argv[1].lower() ==
 'list':]\
 [      ][➋]
 [pyperclip.copy(str(list(mcbShelf.keys())))]\
-[     elif sys.argv\[1\] in mcbShelf:]\
+[     elif sys.argv[1] in mcbShelf:]\
 [      ][➌]
-[pyperclip.copy(mcbShelf\[sys.argv\[1\]\])]\
+[pyperclip.copy(mcbShelf[sys.argv[1]])]\
 \
 mcbShelf.close()
 

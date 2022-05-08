@@ -44,7 +44,7 @@ and enter the following commands:
 -   [sudo apt-get install python3-tk]
 -   [sudo apt-get install python3-dev]
 
-To install PyAutoGUI, run [pip install \--user pyautogui].
+To install PyAutoGUI, run [pip install --user pyautogui].
 Don't use [sudo] with [pip]; you may install modules
 to the Python installation that the operating system uses, causing
 conflicts with any scripts that rely on its original configuration.
@@ -159,7 +159,7 @@ interactive shell:
 the screen resolution.\
 >>> [wh]\
 Size(width=1920, height=1080)\
->>> [wh\[0\]]\
+>>> [wh[0]]\
 1920\
 >>> [wh.width]\
 1920
@@ -169,7 +169,7 @@ The [pyautogui.size()] function returns [(1920,
 your screen's resolution, your return value may be different. The
 [Size] object returned by [size()] is a named tuple.
 *Named tuples* have numeric indexes, like regular tuples, and attribute
-names, like objects: both [wh\[0\]] and [wh.width]
+names, like objects: both [wh[0]] and [wh.width]
 evaluate to the width of the screen. (Named tuples are beyond the scope
 of this book. Just remember that you can use them the same way you use
 tuples.)
@@ -242,7 +242,7 @@ Point(x=377, y=481)\
 again.\
 >>> [p]\
 Point(x=1536, y=637)\
->>> [p\[0\]] \# The x-coordinate is at index 0.\
+>>> [p[0]] \# The x-coordinate is at index 0.\
 1536\
 >>> [p.x] \# The x-coordinate is also in the x
 attribute.\
@@ -574,7 +574,7 @@ and enter the following into the interactive shell, replacing
 >>> [b = pyautogui.locateOnScreen('submit.png')]\
 >>> [b]\
 Box(left=643, top=745, width=70, height=29)\
->>> [b\[0\]]\
+>>> [b[0]]\
 643\
 >>> [b.left]\
 643
@@ -616,7 +616,7 @@ the interactive shell example by entering the following (and replacing
 
 >>>
 [list(pyautogui.locateAllOnScreen('submit.png'))]\
-\[(643, 745, 70, 29), (1007, 801, 70, 29)\]
+[(643, 745, 70, 29), (1007, 801, 70, 29)]
 
 Each of the four-integer tuples represents an area on the screen. In the
 example above, the image appears in two locations. If your image is only
@@ -927,8 +927,8 @@ strings can be passed to [write()]. For example, the following
 call presses the A key, then the B key, then the left arrow key twice,
 and finally the X and Y keys:
 
->>> [pyautogui.write(\['a', 'b', 'left', 'left', 'X',
-'Y'\])]
+>>> [pyautogui.write(['a', 'b', 'left', 'left', 'X',
+'Y'])]
 
 []{#calibre_link-989 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Because pressing the left arrow key moves the
@@ -1133,9 +1133,9 @@ argument scrolls down.
 [write(][message][)] Types
 the characters in the given message string.
 
-[write(\[][key1][,]
+[write([][key1][,]
 [key2][,]
-[key3][\])] Types the given keyboard key
+[key3][])] Types the given keyboard key
 strings.
 
 [press(][key][)] Presses
@@ -1147,9 +1147,9 @@ Simulates pressing down the given keyboard key.
 [keyUp(][key][)] Simulates
 releasing the given keyboard key.
 
-[hotkey(\[][key1][,]
+[hotkey([][key1][,]
 [key2][,]
-[key3][\])] Simulates pressing the given
+[key3][])] Simulates pressing the given
 keyboard key strings down in order and then releasing them in reverse
 order.
 
@@ -1309,9 +1309,9 @@ variable. Add the following to your program:
 #! python3\
 \# formFiller.py - Automatically fills in the form.\
 \
-\--[snip]\--\
+--[snip]--\
 \
-[formData = \[{'name': 'Alice', 'fear': 'eavesdroppers',
+[formData = [{'name': 'Alice', 'fear': 'eavesdroppers',
 'source': 'wand',]\
 [            'robocop': 4, 'comments': 'Tell Bob I said
 hi.'},]\
@@ -1329,9 +1329,9 @@ ops}type="pagebreak"}[            {'name': 'Alex Murphy', 'fear':
 [            'robocop': 5, 'comments': 'Protect the innocent. Serve
 the public]\
 [            trust. Uphold the law.'},]\
-[           \]]\
+[           ]]\
 \
-\--[snip]\--
+--[snip]--
 
 The [formData] list contains four dictionaries for four
 different names. Each dictionary has names of text fields as keys and
@@ -1356,7 +1356,7 @@ Add the following code to your program:
 #! python3\
 \# formFiller.py - Automatically fills in the form.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [for person in formData:]\
 [    # Give the user a chance to kill the script.]\
@@ -1364,7 +1364,7 @@ Add the following code to your program:
 <<<')]\
 [  ][?] [time.sleep(5)]\
 \
-\--[snip]\--
+--[snip]--
 
 As a small safety feature, the script has a five-second pause [?]
 that gives the user a chance to hit [CTRL]-C (or move the mouse
@@ -1376,37 +1376,37 @@ the page time to load, add the following:
 #! python3\
 \# formFiller.py - Automatically fills in the form.\
 \
-\--[snip]\--\
+--[snip]--\
 \
 [  ][?] [print('Entering %s info\...' %
-(person\['name'\]))]\
-[  ][?] [pyautogui.write(\['\\t',
-'\\t'\])]\
+(person['name']))]\
+[  ][?] [pyautogui.write(['\\t',
+'\\t'])]\
 \
 [     # Fill out the Name field.]\
 []{#calibre_link-1879 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[  ][?]
-[pyautogui.write(person\['name'\] + '\\t')]\
+[pyautogui.write(person['name'] + '\\t')]\
 \
 [     # Fill out the Greatest Fear(s) field.]\
-[  ][?] [pyautogui.write(person\['fear'\] +
+[  ][?] [pyautogui.write(person['fear'] +
 '\\t')]\
 \
-\--[snip]\--
+--[snip]--
 
 We add an occasional [print()] call to display the program's
 status in its Terminal window to let the user know what's going on
 [?].
 
-Since the form has had time to load, call [pyautogui.write(\['\\t',
-'\\t'\])] to press [TAB] twice and put the Name
+Since the form has had time to load, call [pyautogui.write(['\\t',
+'\\t'])] to press [TAB] twice and put the Name
 field into focus [?]. Then call [write()] again to enter
-the string in [person\['name'\]] [?]. The
+the string in [person['name']] [?]. The
 ['\\t'] character is added to the end of the string passed
 to [write()] to simulate pressing [TAB], which moves
 the keyboard focus to the next field, Greatest Fear(s). Another call to
 [write()] will type the string in
-[person\['fear'\]] into this field and then tab to the next
+[person['fear']] into this field and then tab to the next
 field in the form [?].
 
 #### ***Step 4: Handle Select Lists and Radio Buttons*** 
@@ -1422,48 +1422,48 @@ Add the following to your program:
 #! python3\
 \# formFiller.py - Automatically fills in the form.\
 \
-\--[snip]\--\
+--[snip]--\
 \
      [\# Fill out the Source of Wizard Powers field.]\
-[  ][?] [if person\['source'\] ==
+[  ][?] [if person['source'] ==
 'wand':]\
-[      ][?] [pyautogui.write(\['down',
-'\\t'\]] [, 0.5)]\
-     [elif person\['source'\] == 'amulet':]\
-[         pyautogui.write(\['down', 'down', '\\t'\]]
+[      ][?] [pyautogui.write(['down',
+'\\t']] [, 0.5)]\
+     [elif person['source'] == 'amulet':]\
+[         pyautogui.write(['down', 'down', '\\t']]
 [, 0.5)]\
-[     elif person\['source'\] == 'crystal ball':]\
-[         pyautogui.write(\['down', 'down', 'down',
-'\\t'\]] [, 0.5)]\
-[     elif person\['source'\] == 'money':]\
-[         pyautogui.write(\['down', 'down', 'down', 'down',
-'\\t'\]] [, 0.5)]\
+[     elif person['source'] == 'crystal ball':]\
+[         pyautogui.write(['down', 'down', 'down',
+'\\t']] [, 0.5)]\
+[     elif person['source'] == 'money':]\
+[         pyautogui.write(['down', 'down', 'down', 'down',
+'\\t']] [, 0.5)]\
 \
 [     # Fill out the RoboCop field.]\
-[  ][?] [if person\['robocop'\] ==
+[  ][?] [if person['robocop'] ==
 1:]\
-[      ][?] [pyautogui.write(\[' ',
-'\\t'\]] [, 0.5)]\
-[     elif person\['robocop'\] == 2:]\
-[         pyautogui.write(\['right', '\\t'\]] [,
+[      ][?] [pyautogui.write([' ',
+'\\t']] [, 0.5)]\
+[     elif person['robocop'] == 2:]\
+[         pyautogui.write(['right', '\\t']] [,
 0.5)]\
-[     elif person\['robocop'\] == 3:]\
-[         pyautogui.write(\['right', 'right',
-'\\t'\]] [, 0.5)]\
-[     elif person\['robocop'\] == 4:]\
-[         pyautogui.write(\['right', 'right', 'right',
-'\\t'\]] [, 0.5)]\
-[     elif person\['robocop'\] == 5:]\
-[         pyautogui.write(\['right', 'right', 'right', 'right',
-'\\t'\]] [, 0.5)]\
+[     elif person['robocop'] == 3:]\
+[         pyautogui.write(['right', 'right',
+'\\t']] [, 0.5)]\
+[     elif person['robocop'] == 4:]\
+[         pyautogui.write(['right', 'right', 'right',
+'\\t']] [, 0.5)]\
+[     elif person['robocop'] == 5:]\
+[         pyautogui.write(['right', 'right', 'right', 'right',
+'\\t']] [, 0.5)]\
 \
-\--[snip]\--
+--[snip]--
 
 Once the drop-down menu has focus (remember that you wrote code to
 simulate pressing [TAB] after filling out the Greatest Fear(s)
 field), pressing the down arrow key will move to the next item in the
 selection list. Depending on the value in
-[person\['source'\]], your program should send a
+[person['source']], your program should send a
 []{#calibre_link-1880 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}number of down arrow keypresses before tabbing to
 the next field. If the value at the ['source'] key in this
@@ -1484,7 +1484,7 @@ by just pressing the spacebar [?].
 
 You can fill out the Additional Comments field with the
 [write()] function by passing
-[person\['comments'\]] as an argument. You can type an
+[person['comments']] as an argument. You can type an
 additional ['\\t'] to move the keyboard focus to the next
 field or the Submit button. Once the Submit button is in focus, calling
 [pyautogui.press('enter')] will simulate pressing the
@@ -1506,10 +1506,10 @@ Complete your program by adding the following code:
 #! python3\
 \# formFiller.py - Automatically fills in the form.\
 \
-\--[snip]\--\
+--[snip]--\
 \
     [\# Fill out the Additional Comments field.]\
-[    pyautogui.write(person\['comments'\] + '\\t')]\
+[    pyautogui.write(person['comments'] + '\\t')]\
 \
 [    # "Click" Submit button by pressing Enter.]\
 [    time.sleep(0.5) \# Wait for the button to activate.]\
@@ -1520,8 +1520,8 @@ Complete your program by adding the following code:
 [    time.sleep(5)]\
 \
 [    # Click the Submit another response link.]\
-[    pyautogui.click(submitAnotherLink\[0\],
-submitAnotherLink\[1\])]
+[    pyautogui.click(submitAnotherLink[0],
+submitAnotherLink[1])]
 
 []{#calibre_link-805 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Once the main [for] loop has finished,

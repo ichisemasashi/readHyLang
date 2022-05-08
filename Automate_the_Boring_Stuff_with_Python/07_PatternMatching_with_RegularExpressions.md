@@ -30,7 +30,7 @@ Regular expressions are huge time-savers, not just for software users
 but also for programmers. In fact, tech writer Cory Doctorow argues that
 we should be teaching regular expressions even before programming:
 
-Knowing \[regular expressions\] can mean the difference between solving
+Knowing [regular expressions] can mean the difference between solving
 a problem in 3 steps and solving it in 3,000 steps. When you're a nerd,
 you forget that the problems you solve with a couple keystrokes can take
 other people days of tedious, error-prone work to slog
@@ -60,18 +60,18 @@ def isPhoneNumber(text):\
   [➊] if len(text) != 12:\
          return False\
      for i in range(0, 3):\
-      [➋] if not text\[i\].isdecimal():\
+      [➋] if not text[i].isdecimal():\
              return False\
-  [➌] if text\[3\] != '-':\
+  [➌] if text[3] != '-':\
          return False\
      for i in range(4, 7):\
-      [➍] if not text\[i\].isdecimal():\
+      [➍] if not text[i].isdecimal():\
              return False\
-  [➎] if text\[7\] != '-':\
+  [➎] if text[7] != '-':\
          return False\
  []{#calibre_link-1767 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}    for i in range(8, 12):\
-      [➏] if not text\[i\].isdecimal():\
+      [➏] if not text[i].isdecimal():\
              return False\
   [➐] return True\
 \
@@ -114,7 +114,7 @@ the following:
 message = 'Call me at 415-555-1011 tomorrow. 415-555-9999 is my
 office.'\
 for i in range(len(message)):\
-  [➊] chunk = message\[i:i+12\]\
+  [➊] chunk = message[i:i+12]\
   [➋] if isPhoneNumber(chunk):\
           print('Phone number found: ' + chunk)\
 print('Done')
@@ -130,9 +130,9 @@ ops}type="pagebreak"}On each iteration of the [for] loop, a
 new chunk of 12 characters from [message] is assigned to the
 variable [chunk] [➊]. For example, on the first
 iteration, [i] is [0], and [chunk] is
-assigned [message\[0:12\]] (that is, the string ['Call me at
+assigned [message[0:12]] (that is, the string ['Call me at
 4']). On the next iteration, [i] is [1],
-and [chunk] is assigned [message\[1:13\]] (the
+and [chunk] is assigned [message[1:13]] (the
 string ['all me at 41']). In other words, on each iteration
 of the [for] loop, [chunk] takes on the following
 values:
@@ -351,12 +351,12 @@ string passed to [re.compile()] will match actual parenthesis
 characters. In regular expressions, the following characters have
 special meanings:
 
-.  \^  \$  \*  +  ?  {  }  \[  \]  \\  \|  (  )
+.  \^  \$  \*  +  ?  {  }  [  ]  \\  \|  (  )
 
 If you want to detect these characters as part of your text pattern, you
 need to escape them with a backslash:
 
-\\.  \\\^  \\\$  \\\*  \\+  \\?  \\{  \\}  \\\[  \\\]  \\\\  \\\|  \\(  \\)
+\\.  \\\^  \\\$  \\\*  \\+  \\?  \\{  \\}  \\[  \\]  \\\\  \\\|  \\(  \\)
 
 Make sure to double-check that you haven't mistaken escaped parentheses
 [\\(] and [\\)] for parentheses [(] and
@@ -367,7 +367,7 @@ example:
 
 >>> [re.compile(r'(\\(Parentheses\\)')]\
 Traceback (most recent call last):\
-    \--[snip]\--\
+    --[snip]--\
 re.error: missing ), unterminated subpattern at position 0
 
 The error message tells you that there is an opening parenthesis at
@@ -648,7 +648,7 @@ re.compile(r'\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d') \# has no
 groups]\
 >>> [phoneNumRegex.findall('Cell: 415-555-9999 Work:
 212-555-0000')]\
-\['415-555-9999', '212-555-0000'\]
+['415-555-9999', '212-555-0000']
 
 If there *are* groups in the regular expression, then
 [findall()] will return a list of tuples. Each tuple
@@ -662,7 +662,7 @@ re.compile(r'(\\d\\d\\d)-(\\d\\d\\d)-(\\d\\d\\d\\d)') \# has
 groups]\
 >>> [phoneNumRegex.findall('Cell: 415-555-9999 Work:
 212-555-0000')]\
-\[('415', '555', '9999'), ('212', '555', '0000')\]
+[('415', '555', '9999'), ('212', '555', '0000')]
 
 To summarize what the [findall()] method returns, remember the
 following:
@@ -670,12 +670,12 @@ following:
 -   When called on a regex with no groups, such as
     [\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d], the method
     [findall()] returns a list of string matches, such as
-    [\['415-555-9999', '212-555-0000'\]].
+    [['415-555-9999', '212-555-0000']].
 -   When called on a regex that has groups, such as
     [(\\d\\d\\d)-(\\d\\d\\d)-(\\d\\d\\d\\d)], the method
     [findall()] returns a list of tuples of strings (one
-    string for each group), such as [\[('415', '555', '9999'),
-    ('212', '555', '0000')\]].
+    string for each group), such as [[('415', '555', '9999'),
+    ('212', '555', '0000')]].
 
 ### **Character Classes** 
 
@@ -700,12 +700,12 @@ Classes
   [\\S]                 Any character that is *not* a space, tab, or newline.
 
 Character classes are nice for shortening regular expressions. The
-character class [\[0-5\]] will match only the numbers
+character class [[0-5]] will match only the numbers
 [0] to [5]; this is much shorter than typing
 [(0\|1\|2\|3\|4\|5)]. Note that while [\\d] matches
 digits and [\\w] matches digits, letters, and the underscore,
 there is no shorthand character class that matches only letters. (Though
-you can use the [\[a-zA-Z\]] character class, as explained
+you can use the [[a-zA-Z]] character class, as explained
 next.)
 
 For example, enter the following into the interactive shell:
@@ -715,10 +715,10 @@ For example, enter the following into the interactive shell:
 8 maids, 7]\
 [swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, 1
 partridge')]\
-\['12 drummers', '11 pipers', '10 lords', '9 ladies', '8
+['12 drummers', '11 pipers', '10 lords', '9 ladies', '8
 maids', '7 swans', '6\
 geese', '5 rings', '4 birds', '3 hens', '2 doves', '1
-partridge'\]
+partridge']
 
 The regular expression [\\d+\\s\\w+] will match text that has
 one or more numeric digits ([\\d+]), followed by a whitespace
@@ -733,28 +733,28 @@ There are times when you want to match a set of characters but the
 shorthand character classes ([\\d], [\\w],
 [\\s], and so on) are too broad. You can define your own
 character class using square brackets. For example, the character class
-[\[aeiouAEIOU\]] will match any vowel, both lowercase and
+[[aeiouAEIOU]] will match any vowel, both lowercase and
 uppercase. Enter the following into the interactive shell:
 
->>> [vowelRegex = re.compile(r'\[aeiouAEIOU\]')]\
+>>> [vowelRegex = re.compile(r'[aeiouAEIOU]')]\
 >>> [vowelRegex.findall('RoboCop eats baby food. BABY
 FOOD.')]\
-\['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O',
-'O'\]
+['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O',
+'O']
 
 []{#calibre_link-749 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You can also include ranges of letters or numbers
 by using a hyphen. For example, the character class
-[\[a-zA-Z0-9\]] will match all lowercase letters, uppercase
+[[a-zA-Z0-9]] will match all lowercase letters, uppercase
 letters, and numbers.
 
 Note that inside the square brackets, the normal regular expression
 symbols are not interpreted as such. This means you do not need to
 escape the [.], [\*], [?], or
 [()] characters with a preceding backslash. For example, the
-character class [\[0-5.\]] will match digits [0] to
+character class [[0-5.]] will match digits [0] to
 [5] and a period. You do not need to write it as
-[\[0-5\\.\]].
+[[0-5\\.]].
 
 By placing a caret character ([\^]) just after the character
 class's opening bracket, you can make a *negative character class*. A
@@ -763,12 +763,12 @@ the character class. For example, enter the following into the
 interactive shell:
 
 >>> [consonantRegex =
-re.compile(r'\[\^aeiouAEIOU\]')]\
+re.compile(r'[\^aeiouAEIOU]')]\
 >>> [consonantRegex.findall('RoboCop eats baby food. BABY
 FOOD.')]\
-\['R', 'b', 'C', 'p', ' ', 't', 's', ' ', 'b', 'b',
+['R', 'b', 'C', 'p', ' ', 't', 's', ' ', 'b', 'b',
 'y', ' ', 'f', 'd', '.', '\
-', 'B', 'B', 'Y', ' ', 'F', 'D', '.'\]
+', 'B', 'B', 'Y', ' ', 'F', 'D', '.']
 
 Now, instead of matching every vowel, we're matching every character
 that isn't a vowel.
@@ -837,7 +837,7 @@ example, enter the following into the interactive shell:
 >>> [atRegex = re.compile(r'.at')]\
 >>> [atRegex.findall('The cat in the hat sat on the flat
 mat.')]\
-\['cat', 'hat', 'sat', 'lat', 'mat'\]
+['cat', 'hat', 'sat', 'lat', 'mat']
 
 Remember that the dot character will match just one character, which is
 why the match for the text [flat] in the previous example
@@ -947,9 +947,9 @@ you learned about basic regular expression syntax:
     word, or space character, respectively.
 -   [\\D], [\\W], and [\\S] match anything
     except a digit, word, or space character, respectively.
--   [\[abc\]] matches any character between the brackets (such
+-   [[abc]] matches any character between the brackets (such
     as *a*, *b*, or *c*).
--   [\[\^abc\]] matches any character that isn't between the
+-   [[\^abc]] matches any character that isn't between the
     brackets.
 
 ### **Case-Insensitive Matching** 
@@ -1202,17 +1202,17 @@ clipboard.\
 import pyperclip, re\
 \
 phoneRegex = re.compile(r'''(\
-\--[snip]\--\
+--[snip]--\
 \
 [\# Create email regex.]\
 [emailRegex = re.compile(r'''(]\
-[  ][➊] [\[a-zA-Z0-9.\_%+-\]+      #
+[  ][➊] [[a-zA-Z0-9.\_%+-]+      #
 username]\
 [  ][➋] [@                      # @
 symbol]\
-[  ][➌] [\[a-zA-Z0-9.-\]+         # domain
+[  ][➌] [[a-zA-Z0-9.-]+         # domain
 name]\
-[    (\\.\[a-zA-Z\]{2,4})       # dot-something]\
+[    (\\.[a-zA-Z]{2,4})       # dot-something]\
 [    )''', re.VERBOSE)]\
 \
 \# TODO: Find matches in clipboard text.\
@@ -1223,12 +1223,12 @@ The username part of the email address [➊] is one or more
 characters that can be any of the following: lowercase and uppercase
 letters, numbers, a dot, an underscore, a percent sign, a plus sign, or
 a hyphen. You can put all of these into a character class:
-[\[a-zA-Z0-9.\_%+-\]].
+[[a-zA-Z0-9.\_%+-]].
 
 The domain and username are separated by an *@* symbol [➋]. The
 domain name [➌] has a slightly less permissive character class
 with only letters, numbers, periods, and hyphens:
-[\[a-zA-Z0-9.-\]]. And last will be the "dot-com"
+[[a-zA-Z0-9.-]]. And last will be the "dot-com"
 part (technically known as the *top-level domain*), which can really be
 dot-anything. This is between two and four characters.
 
@@ -1254,20 +1254,20 @@ clipboard.\
    import pyperclip, re\
 \
    phoneRegex = re.compile(r'''(\
-   \--[snip]\--\
+   --[snip]--\
 \
    [\# Find matches in clipboard text.]\
    [text = str(pyperclip.paste())]\
 \
-[➊] [matches = \[\]]\
+[➊] [matches = []]\
 [➋] [for groups in phoneRegex.findall(text):]\
-[       phoneNum = '-'.join(\[groups\[1\], groups\[3\],
-groups\[5\]\])]\
-[       if groups\[8\] != '':]\
-[           phoneNum += ' x' + groups\[8\]]\
+[       phoneNum = '-'.join([groups[1], groups[3],
+groups[5]])]\
+[       if groups[8] != '':]\
+[           phoneNum += ' x' + groups[8]]\
 [       matches.append(phoneNum)]\
 [➌] [for groups in emailRegex.findall(text):]\
-[       matches.append(groups\[0\])]\
+[       matches.append(groups[0])]\
 \
    # TODO: Copy results to the clipboard.
 
@@ -1306,9 +1306,9 @@ Make your program look like the following:
 \# phoneAndEmail.py - Finds phone numbers and email addresses on the
 clipboard.\
 \
-\--[snip]\--\
+--[snip]--\
 for groups in emailRegex.findall(text):\
-    matches.append(groups\[0\])\
+    matches.append(groups[0])\
 \
 [\# Copy results to the clipboard.]\
 [if len(matches) > 0:]\

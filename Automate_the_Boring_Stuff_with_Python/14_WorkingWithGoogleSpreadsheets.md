@@ -17,7 +17,7 @@ makes common spreadsheet tasks easy to perform.
 ### **Installing and Setting Up EZSheets** 
 
 You can install EZSheets by opening a new terminal window and running
-[pip install \--user ezsheets]. As part of this installation,
+[pip install --user ezsheets]. As part of this installation,
 EZSheets will also install the [google-api-python-client],
 [google-auth-httplib2], and []{#calibre_link-957 {http:=""
 www.idpf.org="" 2007=""
@@ -263,13 +263,13 @@ sheetId=1669384683, title='Classes', rowCount=1000, columnCount=26>,
 <Sheet\
 sheetId=151537240, title='Resources', rowCount=1000,
 columnCount=26>)\
->>> [ss\[0\]              ]\# The first Sheet object in
+>>> [ss[0]              ]\# The first Sheet object in
 this Spreadsheet.\
 <Sheet sheetId=0, title='Students', rowCount=1000, columnCount=26>\
->>> [ss\['Students'\]     ]\# Sheets can also be
+>>> [ss['Students']     ]\# Sheets can also be
 accessed by title.\
 <Sheet sheetId=0, title='Students', rowCount=1000, columnCount=26>\
->>> [del ss\[0\]          ]\# Delete the first Sheet
+>>> [del ss[0]          ]\# Delete the first Sheet
 object in this Spreadsheet.\
 >>> [ss.sheetTitles     ]\# The "Students" Sheet
 object has been deleted:\
@@ -386,11 +386,11 @@ ops}type="pagebreak"}(<Sheet sheetId=1669384683, title='Classes',
 rowCount=1000, columnCount=26>,\
 <Sheet sheetId=151537240, title='Resources', rowCount=1000,
 columnCount=26>)\
->>> [ss.sheets\[0\]] \# Gets the first Sheet object in
+>>> [ss.sheets[0]] \# Gets the first Sheet object in
 this Spreadsheet.\
 <Sheet sheetId=1669384683, title='Classes', rowCount=1000,
 columnCount=26>\
->>> [ss\[0\]        ]\# Also gets the first Sheet
+>>> [ss[0]        ]\# Also gets the first Sheet
 object in this Spreadsheet.\
 <Sheet sheetId=1669384683, title='Classes', rowCount=1000,
 columnCount=26>
@@ -404,7 +404,7 @@ shell:
 >>> [ss.sheetTitles] \# The titles of all the Sheet
 objects in this Spreadsheet.\
 ('Classes', 'Resources')\
->>> [ss\['Classes'\]] \# Sheets can also be accessed
+>>> [ss['Classes']] \# Sheets can also be accessed
 by title.\
 <Sheet sheetId=1669384683, title='Classes', rowCount=1000,
 columnCount=26>
@@ -424,26 +424,26 @@ shell:
 >>> [import ezsheets]\
 >>> [ss = ezsheets.createSpreadsheet('My
 Spreadsheet')]\
->>> [sheet = ss\[0\]] \# Get the first sheet in this
+>>> [sheet = ss[0]] \# Get the first sheet in this
 spreadsheet.\
 >>> [sheet.title]\
 'Sheet1'\
->>> [sheet = ss\[0\]]\
->>> [sheet\['A1'\] = 'Name'] \# Set the value in
+>>> [sheet = ss[0]]\
+>>> [sheet['A1'] = 'Name'] \# Set the value in
 cell A1.\
->>> [sheet\['B1'\] = 'Age']\
->>> [sheet\['C1'\] = 'Favorite Movie']\
->>> [sheet\['A1'\]] \# Read the value in cell A1.\
+>>> [sheet['B1'] = 'Age']\
+>>> [sheet['C1'] = 'Favorite Movie']\
+>>> [sheet['A1']] \# Read the value in cell A1.\
 'Name'\
->>> [sheet\['A2'\]] \# Empty cells return a blank
+>>> [sheet['A2']] \# Empty cells return a blank
 string.\
 ''\
->>> [sheet\[2, 1\]] \# Column 2, Row 1 is the same
+>>> [sheet[2, 1]] \# Column 2, Row 1 is the same
 address as B1.\
 'Age'\
->>> [sheet\['A2'\] = 'Alice']\
->>> [sheet\['B2'\] = 30]\
->>> [sheet\['C2'\] = 'RoboCop']
+>>> [sheet['A2'] = 'Alice']\
+>>> [sheet['B2'] = 30]\
+>>> [sheet['C2'] = 'RoboCop']
 
 These instructions should produce a Google Sheets spreadsheet that looks
 like [Figure 14-5](#calibre_link-1235).
@@ -539,35 +539,35 @@ shell:
 
 >>> [import ezsheets]\
 >>> [ss = ezsheets.upload('produceSales.xlsx')]\
->>> [sheet = ss\[0\]]\
+>>> [sheet = ss[0]]\
 >>> [sheet.getRow(1)] \# The first row is row 1, not
 row 0.\
-\['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
-''\]\
+['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
+'']\
 >>> [sheet.getRow(2)]\
-\['Potatoes', '0.86', '21.6', '18.58', '', ''\]\
+['Potatoes', '0.86', '21.6', '18.58', '', '']\
 >>> [columnOne = sheet.getColumn(1)]\
 >>> [sheet.getColumn(1)]\
-\['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
+['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
 'Garlic',\
-[\--snip\--]\
+[--snip--]\
 >>> [sheet.getColumn('A')] \# Same result as
 getColumn(1)\
-\['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
+['PRODUCE', 'Potatoes', 'Okra', 'Fava beans', 'Watermelon',
 'Garlic',\
-[\--snip\--]\
+[--snip--]\
 >>> [sheet.getRow(3)]\
 []{#calibre_link-960 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}\['Okra', '2.26', '38.6', '87.24', '',
-''\]\
->>> [sheet.updateRow(3, \['Pumpkin', '11.50', '20',
-'230'\])]\
+ops}type="pagebreak"}['Okra', '2.26', '38.6', '87.24', '',
+'']\
+>>> [sheet.updateRow(3, ['Pumpkin', '11.50', '20',
+'230'])]\
 >>> [sheet.getRow(3)]\
-\['Pumpkin', '11.50', '20', '230', '', ''\]\
+['Pumpkin', '11.50', '20', '230', '', '']\
 >>> [columnOne = sheet.getColumn(1)]\
 >>> [for i, value in enumerate(columnOne):]\
 \...     # Make the Python list contain uppercase strings:\
-\...     [columnOne\[i\] = value.upper()]\
+\...     [columnOne[i] = value.upper()]\
 \...\
 >>> [sheet.updateColumn(1, columnOne)] \# Update the
 entire column in one\
@@ -604,23 +604,23 @@ method by entering the following into the interactive shell:
 
 >>> [rows = sheet.getRows()] \# Get every row in the
 spreadsheet.\
->>> [rows\[0\]] \# Examine the values in the first
+>>> [rows[0]] \# Examine the values in the first
 row.\
-\['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
-''\]\
->>> [rows\[1\]]\
-\['POTATOES', '0.86', '21.6', '18.58', '', ''\]\
->>> [rows\[1\]\[0\] = 'PUMPKIN'] \# Change the
+['PRODUCE', 'COST PER POUND', 'POUNDS SOLD', 'TOTAL', '',
+'']\
+>>> [rows[1]]\
+['POTATOES', '0.86', '21.6', '18.58', '', '']\
+>>> [rows[1][0] = 'PUMPKIN'] \# Change the
 produce name.\
->>> [rows\[1\]]\
-\['PUMPKIN', '0.86', '21.6', '18.58', '', ''\]\
->>> [rows\[10\]]\
-\['OKRA', '2.26', '40', '90.4', '', ''\]\
->>> [rows\[10\]\[2\] = '400'] \# Change the pounds
+>>> [rows[1]]\
+['PUMPKIN', '0.86', '21.6', '18.58', '', '']\
+>>> [rows[10]]\
+['OKRA', '2.26', '40', '90.4', '', '']\
+>>> [rows[10][2] = '400'] \# Change the pounds
 sold.\
->>> [rows\[10\]\[3\] = '904'] \# Change the total.\
->>> [rows\[10\]]\
-\['OKRA', '2.26', '400', '904', '', ''\]\
+>>> [rows[10][3] = '904'] \# Change the total.\
+>>> [rows[10]]\
+['OKRA', '2.26', '400', '904', '', '']\
 >>> [sheet.updateRows(rows)] \# Update the online
 spreadsheet with the changes.
 
@@ -728,22 +728,22 @@ interactive shell:
 
 >>> [ss.sheetTitles]\
 ('Bacon', 'Sheet1', 'Spam', 'Eggs')\
->>> [ss\[0\].delete()      ]\# Delete the sheet at
+>>> [ss[0].delete()      ]\# Delete the sheet at
 index 0: the "Bacon" sheet.\
 >>> [ss.sheetTitles]\
 ('Sheet1', 'Spam', 'Eggs')\
 []{#calibre_link-870 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> [ss\['Spam'\].delete()] \#
+ops}type="pagebreak"}>>> [ss['Spam'].delete()] \#
 Delete the "Spam" sheet.\
 >>> [ss.sheetTitles]\
 ('Sheet1', 'Eggs')\
->>> [sheet = ss\['Eggs'\]  ]\# Assign a variable to
+>>> [sheet = ss['Eggs']  ]\# Assign a variable to
 the "Eggs" sheet.\
 >>> [sheet.delete()      ]\# Delete the "Eggs"
 sheet.\
 >>> [ss.sheetTitles]\
 ('Sheet1',)\
->>> [ss\[0\].clear()       ]\# Clear all the cells on
+>>> [ss[0].clear()       ]\# Clear all the cells on
 the "Sheet1" sheet.\
 >>> [ss.sheetTitles      ]\# The "Sheet1" sheet is
 empty but still exists.\
@@ -769,11 +769,11 @@ other sheet, enter the following into the interactive shell:
 Spreadsheet')]\
 >>> [ss2 = ezsheets.createSpreadsheet('Second
 Spreadsheet')]\
->>> [ss1\[0\]]\
+>>> [ss1[0]]\
 <Sheet sheetId=0, title='Sheet1', rowCount=1000, columnCount=26>\
->>> [ss1\[0\].updateRow(1, \['Some', 'data', 'in', 'the',
-'first', 'row'\])]\
->>> [ss1\[0\].copyTo(ss2)] \# Copy the ss1's Sheet1 to
+>>> [ss1[0].updateRow(1, ['Some', 'data', 'in', 'the',
+'first', 'row'])]\
+>>> [ss1[0].copyTo(ss2)] \# Copy the ss1's Sheet1 to
 the ss2 spreadsheet.\
 >>> [ss2.sheetTitles    ]\# ss2 now contains a copy of
 ss1's Sheet1.\
@@ -928,15 +928,15 @@ rows in this sheet. That's too many rows to check by hand. Luckily, you
 can write a script that checks the totals.
 
 As a hint, you can access the individual cells in a row with
-[ss][\[0\].getRow(][rowNum][)],
+[ss][[0].getRow(][rowNum][)],
 where [ss] is the [Spreadsheet] object and
 [rowNum] is the row number. Remember that row numbers in
 Google Sheets begin at 1, not 0. The cell values will be strings, so
 you'll need to convert them to integers so your program can work with
 them. The expression
-[int(][ss][\[0\].getRow(2)\[0\]) \*
-int(][ss][\[0\].getRow(2)\[1\]) ==
-int(][ss][\[0\].getRow(2)\[2\])]
+[int(][ss][[0].getRow(2)[0]) \*
+int(][ss][[0].getRow(2)[1]) ==
+int(][ss][[0].getRow(2)[2])]
 evaluates to [True] if the row has the correct total. Put this
 code in a loop to identify which row in the sheet has the incorrect
 total.

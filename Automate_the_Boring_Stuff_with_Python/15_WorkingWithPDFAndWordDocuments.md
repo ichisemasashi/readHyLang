@@ -26,7 +26,7 @@ content from PDFs and crafting new PDFs from existing documents.
 ops}type="pagebreak"}The module you'll use to work with PDFs is PyPDF2
 version 1.26.0. It's important that you install this version because
 future versions of PyPDF2 may be incompatible with the code. To install
-it, run [pip install \--user PyPDF2==1.26.0] from the command
+it, run [pip install --user PyPDF2==1.26.0] from the command
 line. This module name is case sensitive, so make sure the *y* is
 lowercase and everything else is uppercase. (Check out [Appendix
 A](#calibre_link-2) for full details about installing
@@ -139,7 +139,7 @@ ops}type="pagebreak"}[➊] >>>
 [➋] Traceback (most recent call last):\
      File "<pyshell#173>", line 1, in <module>\
        pdfReader.getPage()\
-     \--[snip]\--\
+     --[snip]--\
      File "C:\\Python34\\lib\\site-packages\\PyPDF2\\pdf.py", line
 1173, in getObject\
        raise utils.PdfReadError("file has not been decrypted")\
@@ -308,8 +308,8 @@ working directory:
    >>> [pdfReader = PyPDF2.PdfFileReader(minutesFile)]\
 [➊] >>> [page = pdfReader.getPage(0)]\
 [➋] >>> [page.rotateClockwise(90)]\
-   {'/Contents': \[IndirectObject(961, 0), IndirectObject(962, 0),\
-   \--[snip]\--\
+   {'/Contents': [IndirectObject(961, 0), IndirectObject(962, 0),\
+   --[snip]--\
    }\
    >>> [pdfWriter = PyPDF2.PdfFileWriter()]\
    >>> [pdfWriter.addPage(page)]\
@@ -492,7 +492,7 @@ directory into\
 [➊] import PyPDF2, os\
 []{#calibre_link-1832 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}   # Get all the PDF filenames.\
-   pdfFiles = \[\]\
+   pdfFiles = []\
    for filename in os.listdir('.'):\
        if filename.endswith('.pdf'):\
          [➋] pdfFiles.append(filename)\
@@ -532,8 +532,8 @@ directory into\
 import PyPDF2, os\
 \
 \# Get all the PDF filenames.\
-pdfFiles = \[\]\
-\--[snip]\--\
+pdfFiles = []\
+--[snip]--\
 \
 [\# Loop through all the PDF files.]\
 [for filename in pdfFiles:]\
@@ -561,11 +561,11 @@ directory into\
 \
 import PyPDF2, os\
 \
-\--[snip]\--\
+--[snip]--\
 \
 \# Loop through all the PDF files.\
 for filename in pdfFiles:\
-\--[snip]\--\
+--[snip]--\
      [\# Loop through all the pages (except the first) and add
 them.]\
   [➊] [for pageNum in range(1,
@@ -597,14 +597,14 @@ directory into\
 \
 import PyPDF2, os\
 \
-\--[snip]\--\
+--[snip]--\
 \
 \# Loop through all the PDF files.\
 for filename in pdfFiles:\
-\--[snip]\--\
+--[snip]--\
     # Loop through all the pages (except the first) and add them.\
     for pageNum in range(1, pdfReader.numPages):\
-    \--[snip]\--\
+    --[snip]--\
 \
 [\# Save the resulting PDF to a file.]\
 [pdfOutput = open('allminutes.pdf', 'wb')]\
@@ -632,7 +632,7 @@ programs that can do the following:
 
 Python can create and modify Word documents, which have the *.docx* file
 extension, with the [docx] module. You can install the module
-by running [pip install \--user -U python-docx==0.8.10].
+by running [pip install --user -U python-docx==0.8.10].
 ([Appendix A](#calibre_link-2) has full details on installing
 third-party modules.)
 
@@ -695,19 +695,19 @@ into the interactive shell:
 [➊] >>> [doc = docx.Document('demo.docx')]\
 [➋] >>> [len(doc.paragraphs)]\
    7\
-[➌] >>> [doc.paragraphs\[0\].text]\
+[➌] >>> [doc.paragraphs[0].text]\
    'Document Title'\
-[➍] >>> [doc.paragraphs\[1\].text]\
+[➍] >>> [doc.paragraphs[1].text]\
    'A plain paragraph with some bold and some italic'\
-[➎] >>> [len(doc.paragraphs\[1\].runs)]\
+[➎] >>> [len(doc.paragraphs[1].runs)]\
    4\
-[➏] >>> [doc.paragraphs\[1\].runs\[0\].text]\
+[➏] >>> [doc.paragraphs[1].runs[0].text]\
    'A plain paragraph with some '\
-[➐] >>> [doc.paragraphs\[1\].runs\[1\].text]\
+[➐] >>> [doc.paragraphs[1].runs[1].text]\
    'bold'\
-[➑] >>> [doc.paragraphs\[1\].runs\[2\].text]\
+[➑] >>> [doc.paragraphs[1].runs[2].text]\
    ' and some '\
-[➒] >>> [doc.paragraphs\[1\].runs\[3\].text]\
+[➒] >>> [doc.paragraphs[1].runs[3].text]\
    'italic'
 
 At [➊], we open a *.docx* file in Python, call
@@ -756,7 +756,7 @@ import docx\
 \
 def getText(filename):\
     doc = docx.Document(filename)\
-    fullText = \[\]\
+    fullText = []\
     for para in doc.paragraphs:\
         fullText.append(para.text)\
     return '\\n'.join(fullText)
@@ -933,24 +933,24 @@ into the interactive shell:
 
 >>> [import docx]\
 >>> [doc = docx.Document('demo.docx')]\
->>> [doc.paragraphs\[0\].text]\
+>>> [doc.paragraphs[0].text]\
 'Document Title'\
->>> [doc.paragraphs\[0\].style \# The exact id may be
+>>> [doc.paragraphs[0].style \# The exact id may be
 different:]\
 \_ParagraphStyle('Title') id: 3095631007984\
->>> [doc.paragraphs\[0\].style = 'Normal']\
->>> [doc.paragraphs\[1\].text]\
+>>> [doc.paragraphs[0].style = 'Normal']\
+>>> [doc.paragraphs[1].text]\
 'A plain paragraph with some bold and some italic'\
->>> [(doc.paragraphs\[1\].runs\[0\].text,
-doc.paragraphs\[1\].runs\[1\].text, doc.\
-paragraphs\[1\].runs\[2\].text,
-doc.paragraphs\[1\].runs\[3\].text)]\
+>>> [(doc.paragraphs[1].runs[0].text,
+doc.paragraphs[1].runs[1].text, doc.\
+paragraphs[1].runs[2].text,
+doc.paragraphs[1].runs[3].text)]\
 ('A plain paragraph with some ', 'bold', ' and some ',
 'italic')\
->>> [doc.paragraphs\[1\].runs\[0\].style =
+>>> [doc.paragraphs[1].runs[0].style =
 'QuoteChar']\
->>> [doc.paragraphs\[1\].runs\[1\].underline = True]\
->>> [doc.paragraphs\[1\].runs\[3\].underline = True]\
+>>> [doc.paragraphs[1].runs[1].underline = True]\
+>>> [doc.paragraphs[1].runs[3].underline = True]\
 >>> [doc.save('restyled.docx')]
 
 Here, we use the [text] and [style] attributes to
@@ -1111,7 +1111,7 @@ example:
 page!')]\
    <docx.text.Paragraph object at 0x0000000003785518>\
 [➊] >>>
-[doc.paragraphs\[0\].runs\[0\].add_break(docx.enum.text.WD_BREAK.PAGE)]\
+[doc.paragraphs[0].runs[0].add_break(docx.enum.text.WD_BREAK.PAGE)]\
    >>> [doc.add_paragraph('This is on the second
 page!')]\
    <docx.text.Paragraph object at 0x00000000037855F8>\
@@ -1155,7 +1155,7 @@ functions when you're specifying the [width] and
 The PyPDF2 module doesn't allow you to create PDF documents directly,
 but there's a way to generate PDF files with Python if you're on Windows
 and have Microsoft Word installed. You'll need to install the Pywin32
-package by running [pip install \--user -U pywin32==224]. With
+package by running [pip install --user -U pywin32==224]. With
 this and the [docx] module, you can create Word documents and
 then convert them to PDFs with the following script.
 
