@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **PATTERN MATCHING WITH REGULAR EXPRESSIONS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter6)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter8)
-
-</div>
-
-::: {#calibre_link-1142 .calibre}
-## []{#calibre_link-1076 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[7]{.big} PATTERN MATCHING WITH REGULAR EXPRESSIONS** {#calibre_link-238 .h2b}
-
-::: image
 ![Image](../images/000015.jpg){.calibre3}
-:::
+
 
 You may be familiar with searching for text by pressing [CTRL-]{.small}F
 and entering the words you're looking for. *Regular expressions* go one
@@ -214,14 +193,14 @@ Enter the following into the interactive shell to import this module:
 
 \>\>\> [import re]{.codestrong1}
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Most of the examples in this chapter will require the [re]{.codeitalic}
 module, so remember to import it at the beginning of any script you
 write or any time you restart Mu. Otherwise, you'll get a [NameError:
 name \'re\' is not defined]{.codeitalic} error message.*
-:::
+
 
 Passing a string value representing your regular expression to
 [re.compile()]{.literal} returns a [Regex]{.literal} pattern object (or
@@ -289,7 +268,7 @@ each step is fairly simple.
 4.  Call the [Match]{.literal} object's [group()]{.literal} method to
     return a string of the actual matched text.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *While I encourage you to enter the example code into the interactive
@@ -297,7 +276,7 @@ shell, you should also make use of web-based regular expression testers,
 which can show you exactly how a regex matches a piece of text that you
 enter. I recommend the tester at*
 [https://pythex.org/](https://pythex.org/){.calibre6}.
-:::
+
 
 ### **More Pattern Matching with Regular Expressions** {#calibre_link-244 .h1}
 
@@ -415,14 +394,14 @@ object. Enter the following into the interactive shell:
 \>\>\> [mo2.group()]{.codestrong1}\
 \'Tina Fey\'
 
-::: note
+
 **[NOTE]{.notes}**
 
 *You can find [all]{.codeitalic} matching occurrences with the
 [findall()]{.codeitalic} method that's discussed in "[The findall()
 Method](#calibre_link-252){.calibre6}" on [page
 171](#calibre_link-746){.calibre6}.*
-:::
+
 
 You can also use the pipe to match one of several patterns as part of
 your regex. For example, say you wanted to match any of the strings
@@ -1202,14 +1181,14 @@ followed by four digits. The last part is an optional extension made up
 of any number of spaces followed by [ext]{.literal}, [x]{.literal}, or
 [ext.]{.literal}, followed by two to five digits.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *It's easy to get mixed up with regular expressions that contain groups
 with parentheses [( )]{.literal} and escaped parentheses [\\(
 \\)]{.literal}. Remember to double-check that you're using the correct
 one if you get a "missing ), unterminated subpattern" error message.*
-:::
+
 
 #### ***Step 2: Create a Regex for Email Addresses*** {#calibre_link-266 .h2}
 
@@ -1563,44 +1542,4 @@ other than the string to strip, then whitespace characters will be
 removed from the beginning and end of the string. Otherwise, the
 characters specified in the second argument to the function will be
 removed from the string.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter6)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter8)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

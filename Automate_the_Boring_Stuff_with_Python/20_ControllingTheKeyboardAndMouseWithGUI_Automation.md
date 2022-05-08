@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **CONTROLLING THE KEYBOARD AND MOUSE WITH GUI AUTOMATION**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter19)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../appendixa)
-
-</div>
-
-::: {#calibre_link-1627 .calibre}
-## []{#calibre_link-995 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[20]{.big} CONTROLLING THE KEYBOARD AND MOUSE WITH GUI AUTOMATION** {#calibre_link-634 .h2b}
-
-::: image
 ![Image](../images/000071.jpg){.calibre3}
-:::
+
 
 Knowing various Python modules for editing spreadsheets, downloading
 files, and launching programs is useful, but sometimes there just aren't
@@ -77,14 +56,14 @@ installing third-party modules. To test whether PyAutoGUI has been
 installed correctly, run [import pyautogui]{.codestrong} from the
 interactive shell and check for any error messages.
 
-::: note
+
 **[WARNING]{.notes}**
 
 *Don't save your program as* pyautogui.py*. When you run [import
 pyautogui]{.codeitalic}, Python will import your program instead of the
 PyAutoGUI and you'll get error messages like [AttributeError: module
 \'pyautogui\' has no attribute \'click\']{.codeitalic}.*
-:::
+
 
 ### **Setting Up Accessibility Apps on macOS** {#calibre_link-636 .h1}
 
@@ -158,10 +137,10 @@ of the screen. The x-coordinates increase going to the right, and the
 y-coordinates increase going down. All coordinates are positive
 integers; there are no negative coordinates.
 
-::: image1
+
 []{#calibre_link-1628
 .calibre6}![image](../images/000125.jpg){.calibre3}
-:::
+
 
 *Figure 20-1: The coordinates of a computer screen with 1920×1080
 resolution*
@@ -375,11 +354,11 @@ fill bucket. You can preselect the brush settings yourself (or have your
 Python code select these settings) and then run the spiral-drawing
 program.
 
-::: image1
+
 []{#calibre_link-990 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1629
 .calibre6}![image](../images/000073.jpg){.calibre3}
-:::
+
 
 *Figure 20-2: The results from the [pyautogui.drag()]{.literal1}
 example, drawn with MS Paint's different brushes*
@@ -401,7 +380,7 @@ draw a square spiral.
 You could draw this spiral by hand (or rather, by mouse), but you'd have
 to work slowly to be so precise. PyAutoGUI can do it in a few seconds!
 
-::: note
+
 **[NOTE]{.notes}**
 
 *At the time of this writing, PyAutoGUI can't send mouse clicks or
@@ -411,7 +390,7 @@ use a different method of receiving mouse and keyboard input). You can
 check the online documentation at*
 [https://pyautogui.readthedocs.io/](https://pyautogui.readthedocs.io/){.calibre6}
 *to see if these features have been added.*
-:::
+
 
 #### ***Scrolling the Mouse*** {#calibre_link-646 .h2}
 
@@ -444,10 +423,10 @@ launches a small application named MouseInfo that's included with
 PyAutoGUI. The window for the application looks like [Figure
 20-3](#calibre_link-1630){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1630
 .calibre6}![image](../images/000019.jpg){.calibre3}
-:::
+
 
 *Figure 20-3: The MouseInfo application's window*
 
@@ -617,10 +596,10 @@ images on your current screen. You can change the scaling in the display
 settings of your operating system, as shown in [Figure
 20-4](#calibre_link-1631){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1631
 .calibre6}![image](../images/000113.jpg){.calibre3}
-:::
+
 
 *Figure 20-4: The scale display settings in Windows 10 (left) and macOS
 (right)*
@@ -680,13 +659,13 @@ single pixel is a different color, then
 to find where a particular window is on the screen, it's faster and more
 reliable to use PyAutoGUI's window features.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *As of version 0.9.46, PyAutoGUI's window features work only on Windows,
 not on macOS or Linux. These features come from PyAutoGUI's inclusion of
 the PyGetWindow module.*
-:::
+
 
 #### []{#calibre_link-1875 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Obtaining the Active Window*** {#calibre_link-653 .h2}
 
@@ -821,10 +800,10 @@ position [?]{.ent}. After calling these functions in Mu Editor, the
 window should move [?]{.ent} and become narrower [?]{.ent}, as in
 [Figure 20-5](#calibre_link-1632){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1632
 .calibre6}![image](../images/000058.jpg){.calibre3}
-:::
+
 
 *Figure 20-5: The Mu Editor window before (top) and after (bottom) using
 the [Window]{.literal1} object attributes to move and resize it*
@@ -914,10 +893,10 @@ window, making it look like [Figure
 20-6](#calibre_link-1633){.calibre6}. You now have code that can type
 for you!
 
-::: image1
+
 []{#calibre_link-1633
 .calibre6}![image](../images/000001.jpg){.calibre3}
-:::
+
 
 *Figure 20-6: Using PyAutogGUI to click the file editor window and type*
 Hello, world! *into it*
@@ -1186,7 +1165,7 @@ desktop.
 [getAllTitles()]{.codestrong} Returns a list of strings of the title bar
 text of every window on the desktop.
 
-::: sidebar
+
 **CAPTCHAS AND COMPUTER ETHICS**
 
 "Completely Automated Public Turing test to tell Computers and Humans
@@ -1207,7 +1186,7 @@ upon you, the programmer. There is nothing clever about circumventing
 systems to cause harm, invade privacy, or gain unfair advantage. I hope
 that my efforts in writing this book enable you to become your most
 productive self, rather than a mercenary one.
-:::
+
 
 ### []{#calibre_link-804 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**Project: Automatic Form Filler** {#calibre_link-663 .h1}
 
@@ -1226,10 +1205,10 @@ The form for this project is a Google Docs form that you can find at
 *[https://autbor.com/form](https://autbor.com/form){.calibre6}*. It
 looks like [Figure 20-7](#calibre_link-1635){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1635
 .calibre6}![image](../images/000096.jpg){.calibre3}
-:::
+
 
 *Figure 20-7: The form used for this project*
 
@@ -1601,11 +1580,11 @@ programs. Enter the following into the interactive shell:
 The pop-up message boxes that these lines produce look like [Figure
 20-8](#calibre_link-1636){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1881 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1636
 .calibre6}![image](../images/000043.jpg){.calibre3}
-:::
+
 
 *Figure 20-8: From top left to bottom right, the windows created by
 [alert()]{.literal1}, [confirm()]{.literal1}, [prompt()]{.literal1}, and
@@ -1760,12 +1739,12 @@ screen, or confirmation boxes that interrupt your messaging. Your
 program will have to take screenshots to guide its GUI interaction and
 adopt ways of detecting when its virtual keystrokes aren't being sent.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *You may want to set up some fake test accounts so that you don't
 accidentally spam your real friends while writing this program.*
-:::
+
 
 #### []{#calibre_link-1884 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Game-Playing Bot Tutorial*** {#calibre_link-676 .h2}
 
@@ -1784,44 +1763,4 @@ basic image recognition features. The source code for this bot is at
 and a video of the bot playing the game is at
 *[https://youtu.be/lfk_T6VKhTE](https://youtu.be/lfk_T6VKhTE){.calibre6}*.[]{#calibre_link-1885
 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter19)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../appendixa)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

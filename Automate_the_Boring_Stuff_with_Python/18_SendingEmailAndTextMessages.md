@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **SENDING EMAIL AND TEXT MESSAGES**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter17)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter19)
-
-</div>
-
-::: {#calibre_link-1105 .calibre}
-## []{#calibre_link-1848 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[18]{.big} SENDING EMAIL AND TEXT MESSAGES** {#calibre_link-567 .h2b}
-
-::: image
 ![Image](../images/000092.jpg){.calibre3}
-:::
+
 
 Checking and replying to email is a huge time sink. Of course, you can't
 just write a program to handle all your email for you, since each
@@ -51,7 +30,7 @@ ops}type="pagebreak"}This chapter features the EZGmail module, a simple
 way to send and read emails from Gmail accounts, as well as a Python
 module for using the standard SMTP and IMAP email protocols.
 
-::: note
+
 **[WARNING]{.notes}**
 
 *I highly recommend you set up a separate email account for any scripts
@@ -61,7 +40,7 @@ accidentally spamming your contacts, for example). It's a good idea to
 first do a dry run by commenting out the code that actually sends or
 deletes emails and replacing it with a temporary [print()]{.codeitalic}
 call. This way you can test your program before running it for real.*
-:::
+
 
 ### **Sending and Receiving Email with the Gmail API** {#calibre_link-568 .h1}
 
@@ -263,10 +242,10 @@ The previous [search()]{.literal} call should yield the same results as
 if you had entered "RoboCop" into the search box, as in [Figure
 18-1](#calibre_link-1106){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1106
 .calibre6}![image](../images/000038.jpg){.calibre3}
-:::
+
 
 *Figure 18-1: Searching for "RoboCop" emails at the Gmail website*
 
@@ -352,7 +331,7 @@ doesn't offer you a nice graphical user interface like those services.
 Instead, you call functions to perform each major step of SMTP, as shown
 in the following interactive shell example.
 
-::: note
+
 []{#calibre_link-925 .calibre1 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}**[NOTE]{.notes}**
 
@@ -363,7 +342,7 @@ MY_SECRET_PASSWORD, *and*
 [alice@example.com](mailto:alice@example.com){.calibre6} *are just
 placeholders. This code is just an overview of the process of sending
 email with Python.*
-:::
+
 
 \>\>\> [import smtplib]{.codestrong1}\
 \>\>\> [smtpObj = smtplib.SMTP(\'smtp.example.com\',
@@ -442,13 +421,13 @@ will need to create an [SMTP]{.literal} object using
 \>\>\> [smtpObj = smtplib.SMTP_SSL(\'smtp.example.com\',
 465)]{.codestrong1}
 
-::: note
+
 **[NOTE]{.notes}**
 
 *If you are not connected to the internet, Python will raise a
 [socket.gaierror: \[Errno 11004\] getaddrinfo failed]{.codeitalic} or
 similar exception.*
-:::
+
 
 For your programs, the differences between TLS and SSL aren't important.
 You only need to know which encryption standard your SMTP server uses so
@@ -511,7 +490,7 @@ return value means authentication was successful. Python raises an
 [smtplib.SMTPAuthenticationError]{.literal} exception for incorrect
 passwords.
 
-::: note
+
 **[WARNING]{.notes}**
 
 *Be careful about putting passwords in your source code. If anyone ever
@@ -521,7 +500,7 @@ password. It may be inconvenient to have to enter a password each time
 you run your program, but this approach prevents you from leaving your
 password in an unencrypted file on your computer where a hacker or
 laptop thief could easily get it.*
-:::
+
 
 #### ***Sending an Email*** {#calibre_link-580 .h2}
 
@@ -699,13 +678,13 @@ your email address) and password as strings.
 \']{.codestrong1}[[MY_SECRET_PASSWORD]{.codestrong1}]{.codeitalic1}[\')]{.codestrong1}\
 \'my_email_address@example.com Jane Doe authenticated (Success)\'
 
-::: note
+
 **[WARNING]{.notes}**
 
 *Remember to never write a password directly into your code! Instead,
 design your program to accept the password returned from
 [input()]{.codeitalic}.*
-:::
+
 
 If the IMAP server rejects this username/password combination, Python
 raises an [imaplib.error]{.literal} exception.
@@ -1125,10 +1104,10 @@ payments looks like [Figure 18-2](#calibre_link-1115){.calibre6} and is
 in a file named *duesRecords.xlsx*. You can download this file from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.
 
-::: image1
+
 []{#calibre_link-1115
 .calibre6}![image](../images/000130.jpg){.calibre3}
-:::
+
 
 *Figure 18-2: The spreadsheet for tracking member dues payments*
 
@@ -1392,7 +1371,7 @@ twilio]{.literal} on Windows (or use [pip3]{.literal} on macOS and
 Linux). [Appendix A](#calibre_link-2){.calibre6} has more details about
 installing third-party modules.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *This section is specific to the United States. Twilio does offer SMS
@@ -1400,7 +1379,7 @@ texting services for countries other than the United States; see*
 [https://twilio.com/](https://twilio.com/){.calibre6} *for more
 information. The [twilio]{.codeitalic} module and its functions will
 work the same outside the United States.*
-:::
+
 
 #### ***Signing Up for a Twilio Account*** {#calibre_link-598 .h2}
 
@@ -1538,7 +1517,7 @@ are self-explanatory, but for more precise details, take a look at the
 resources at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.
 
-::: sidebar
+
 **RECEIVING TEXT MESSAGES WITH PYTHON**
 
 Unfortunately, receiving text messages with Twilio is a bit more
@@ -1546,7 +1525,7 @@ complicated than sending them. Twilio requires that you have a website
 running its own web application. That's beyond the scope of these pages,
 but you can find more details in this book's online resources
 (*[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*).
-:::
+
 
 ### **Project: "Just Text Me" Module** {#calibre_link-600 .h1}
 
@@ -1778,44 +1757,4 @@ you get stuck, you can download an example implementation of this
 program from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.[]{#calibre_link-1858
 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter17)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter19)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

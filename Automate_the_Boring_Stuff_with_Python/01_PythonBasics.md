@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **PYTHON BASICS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter0)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter2)
-
-</div>
-
-::: {#calibre_link-1651 .calibre}
-## []{#calibre_link-1016 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[1]{.big} PYTHON BASICS** {#calibre_link-89 .h2b}
-
-::: image
 ![Image](../images/000085.jpg){.calibre3}
-:::
+
 
 The Python programming language has a wide range of syntactical
 constructions, standard library functions, and interactive development
@@ -79,7 +58,7 @@ here:
 \>\>\> [2]{.codestrong1}\
 2
 
-::: sidebar
+
 **ERRORS ARE OKAY!**
 
 Programs will crash if they contain code the computer can't understand,
@@ -92,7 +71,7 @@ error message text online for more information. You can also check out
 the resources at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*
 to see a list of common Python error messages and their meanings.
-:::
+
 
 []{#calibre_link-18 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You can use plenty of other operators in Python
@@ -148,9 +127,9 @@ expression, but Python does the hard part of evaluating it down to a
 single value. Python will keep evaluating parts of the expression until
 it becomes a single value, as shown here:
 
-::: imagec
+
 ![image](../images/000066.jpg){.calibre3}
-:::
+
 
 These rules for putting operators and values together to form
 expressions are a fundamental part of Python as a programming language,
@@ -307,10 +286,10 @@ it.
 Think of a variable as a labeled box that a value is placed in, as in
 [Figure 1-1](#calibre_link-1654){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1654
 .calibre6}![image](../images/000026.jpg){.calibre3}
-:::
+
 
 *Figure 1-1: [spam = 42]{.literal1} is like telling the program, "The
 variable [spam]{.literal1} now has the integer value [42]{.literal1} in
@@ -351,10 +330,10 @@ Just like the box in [Figure 1-2](#calibre_link-1655){.calibre6}, the
 [spam]{.literal} variable in this example stores [\'Hello\']{.literal}
 until you replace the string with [\'Goodbye\']{.literal}.
 
-::: image1
+
 []{#calibre_link-1655
 .calibre6}![image](../images/000097.jpg){.calibre3}
-:::
+
 
 *Figure 1-2: When a new value is assigned to a variable, the old one is
 forgotten.*
@@ -543,12 +522,12 @@ ops}type="pagebreak"}the quotes are not printed to the screen. They just
 mark where the string begins and ends; they are not part of the string
 value.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *You can also use this function to put a blank line on the screen; just
 call [print()]{.literal} with nothing in between the parentheses.*
-:::
+
 
 When you write a function name, the opening and closing parentheses at
 the end identify it as the name of a function. This is why in this book,
@@ -747,7 +726,7 @@ type for the code.
    myAge = input()\
    print(\'You will be \' + str(int(myAge) + 1) + \' in a year.\')
 
-::: sidebar
+
 **TEXT AND NUMBER EQUIVALENCE**
 
 Although the string value of a number is considered a completely
@@ -763,7 +742,7 @@ True
 
 Python makes this distinction because strings are text, while integers
 and floats are both numbers.
-:::
+
 
 []{#calibre_link-1708 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}The [myAge]{.literal} variable contains the value
@@ -788,9 +767,9 @@ can concatenate it with the second string, [\'in a year.\']{.literal},
 to create the final message. These evaluation steps would look something
 like the following:
 
-::: imagec
+
 ![image](../images/000017.jpg){.calibre3}
-:::
+
 
 ### **Summary** {#calibre_link-104 .h1}
 
@@ -884,44 +863,4 @@ you fix it?
 Functions." Skim the list of other functions Python has, look up what
 the [round()]{.literal} function does, and experiment with it in the
 interactive shell.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter0)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter2)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

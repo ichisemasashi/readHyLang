@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **INPUT VALIDATION**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter7)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter9)
-
-</div>
-
-::: {#calibre_link-1097 .calibre}
-## []{#calibre_link-1015 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[8]{.big} INPUT VALIDATION** {#calibre_link-47 .h2b}
-
-::: image
 ![Image](../images/000031.jpg){.calibre3}
-:::
+
 
 *Input validation* code checks that values entered by the user, such as
 text from the [input()]{.literal} function, are formatted correctly. For
@@ -739,44 +718,4 @@ Compare your code to the code using PyInputPlus in "[Project:
 Multiplication Quiz](#calibre_link-284){.calibre6}" on [page
 196](#calibre_link-1047){.calibre6}.[]{#calibre_link-1779 {http:=""
 www.idpf.org="" 2007="" ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter7)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter9)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

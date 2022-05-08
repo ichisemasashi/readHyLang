@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **LISTS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter3)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter5)
-
-</div>
-
-::: {#calibre_link-707 .calibre}
-## []{#calibre_link-1731 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[4]{.big} LISTS** {#calibre_link-152 .h2b}
-
-::: image
 ![Image](../images/000149.jpg){.calibre3}
-:::
+
 
 One more topic you'll need to understand before you can begin writing
 programs in earnest is the list data type and its cousin, the tuple.
@@ -85,9 +64,9 @@ to. Note that because the first index is [0]{.literal}, the last index
 is one less than the size of the list; a list of four items has
 [3]{.literal} as its last index.
 
-::: image1
+
 []{#calibre_link-708 .calibre6}![image](../images/000090.jpg){.calibre3}
-:::
+
 
 *Figure 4-1: A list value stored in the variable [spam]{.literal1},
 showing which value each index refers to*
@@ -835,7 +814,7 @@ interactive shell:
 \>\>\> [spam]{.codestrong1}\
 \[\'moose\', \'dog\', \'cat\'\]
 
-::: sidebar
+
 **EXCEPTIONS TO INDENTATION RULES IN PYTHON**
 
 In most cases, the amount of indentation for a line of code tells Python
@@ -867,7 +846,7 @@ print(\'Four score and seven \' + \\\
 
 These tricks are useful when you want to rearrange long lines of Python
 code to be a bit more readable.
-:::
+
 
 []{#calibre_link-744 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Like the [sort()]{.literal} list method,
@@ -1010,11 +989,11 @@ this:
 \>\>\> [eggs]{.codestrong1}\
 \[4, 5, 6\]
 
-::: image1
+
 []{#calibre_link-886 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-714
 .calibre6}![image](../images/000037.jpg){.calibre3}
-:::
+
 
 *Figure 4-2: When [eggs = \[4, 5, 6\]]{.literal1} is executed, the
 contents of [eggs]{.literal1} are replaced with a new list value.*
@@ -1025,9 +1004,9 @@ been changed, rather than overwritten. [Figure
 4-3](#calibre_link-715){.calibre6} depicts the seven changes made by the
 first seven lines in the previous interactive shell example.
 
-::: image1
+
 []{#calibre_link-715 .calibre6}![image](../images/000128.jpg){.calibre3}
-:::
+
 
 *Figure 4-3: The [del]{.literal1} statement and the
 [append()]{.literal1} method modify the same list value in place.*
@@ -1178,9 +1157,9 @@ that Python uses internally, but you can ignore them.) Using boxes as a
 metaphor for variables, [Figure 4-4](#calibre_link-717){.calibre6} shows
 what happens when a list is assigned to the [spam]{.literal} variable.
 
-::: image1
+
 []{#calibre_link-717 .calibre6}![image](../images/000041.jpg){.calibre3}
-:::
+
 
 *Figure 4-4: [spam = \[0, 1, 2, 3, 4, 5\]]{.literal1} stores a reference
 to a list, not the actual list.*
@@ -1190,9 +1169,9 @@ Then, in [Figure 4-5](#calibre_link-718){.calibre6}, the reference in
 was created and stored in [cheese]{.literal}, not a new list. Note how
 both references refer to the same list.
 
-::: image1
+
 []{#calibre_link-718 .calibre6}![image](../images/000132.jpg){.calibre3}
-:::
+
 
 *Figure 4-5: [spam = cheese]{.literal1} copies the reference, not the
 list.*
@@ -1203,9 +1182,9 @@ refers to, the list that [spam]{.literal} refers to is also changed,
 because both [cheese]{.literal} and [spam]{.literal} refer to the same
 list. You can see this in [Figure 4-6](#calibre_link-719){.calibre6}.
 
-::: image1
+
 []{#calibre_link-719 .calibre6}![image](../images/000077.jpg){.calibre3}
-:::
+
 
 *Figure 4-6: [cheese\[1\] = \'Hello!\']{.literal1} modifies the list
 that both variables refer to.*
@@ -1351,9 +1330,9 @@ can see in [Figure 4-7](#calibre_link-720){.calibre6}, the reference ID
 numbers are no longer the same for both variables because the variables
 refer to independent lists.
 
-::: image1
+
 []{#calibre_link-720 .calibre6}![image](../images/000025.jpg){.calibre3}
-:::
+
 
 *Figure 4-7: [cheese = copy.copy(spam)]{.literal1} creates a second list
 that can be modified independently of the first.*
@@ -1375,9 +1354,9 @@ alive on the next step. Every other square dies or remains dead on the
 next step. You can see an example of the progression of steps in [Figure
 4-8](#calibre_link-721){.calibre6}.
 
-::: image1
+
 []{#calibre_link-721 .calibre6}![image](../images/000117.jpg){.calibre3}
-:::
+
 
 *Figure 4-8: Four steps in a Conway's Game of Life simulation*
 
@@ -1812,44 +1791,4 @@ Also, remember to pass the [end]{.literal} keyword argument to
 [print()]{.literal} if you don't want a newline printed automatically
 after each [print()]{.literal} call.[]{#calibre_link-1741 {http:=""
 www.idpf.org="" 2007="" ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter3)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter5)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

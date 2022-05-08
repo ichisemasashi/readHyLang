@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **WEB SCRAPING**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter11)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter13)
-
-</div>
-
-::: {#calibre_link-33 .calibre}
-## []{#calibre_link-1094 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[12]{.big} WEB SCRAPING** {#calibre_link-372 .h2b}
-
-::: image
 ![Image](../images/000070.jpg){.calibre3}
-:::
+
 
 In those rare, terrifying moments when I'm without Wi-Fi, I realize just
 how much of what I do on the computer is really what I do on the
@@ -395,7 +374,7 @@ program. Even if you were to lose your internet []{#calibre_link-1003
 downloading the web page, all the page data would still be on your
 computer.
 
-::: sidebar
+
 **UNICODE ENCODINGS**
 
 Unicode encodings are beyond the scope of this book, but you can learn
@@ -407,7 +386,7 @@ more about them from these web pages:
     *[https://www.joelonsoftware.com/articles/Unicode.html](https://www.joelonsoftware.com/articles/Unicode.html){.calibre6}*
 -   Pragmatic Unicode:
     *[https://nedbatchelder.com/text/unipain.html](https://nedbatchelder.com/text/unipain.html){.calibre6}*
-:::
+
 
 The [write()]{.literal} method returns the number of bytes written to
 the file. In the previous example, there were 100,000 bytes in the first
@@ -470,9 +449,9 @@ in bold:
 ops}type="pagebreak"}This HTML will look like [Figure
 12-1](#calibre_link-37){.calibre6} in a browser.
 
-::: image1
+
 []{#calibre_link-37 .calibre6}![image](../images/000018.jpg){.calibre3}
-:::
+
 
 *Figure 12-1:* Hello, world! *rendered in the browser*
 
@@ -492,9 +471,9 @@ books\</a\>.
 This HTML will look like [Figure 12-2](#calibre_link-38){.calibre6} in a
 browser.
 
-::: image1
+
 []{#calibre_link-38 .calibre6}![image](../images/000111.jpg){.calibre3}
-:::
+
 
 *Figure 12-2: The link rendered in the browser*
 
@@ -514,11 +493,11 @@ the page (see [Figure 12-3](#calibre_link-39){.calibre6}). This is the
 text your browser actually receives. The browser knows how to display,
 or *render*, the web page from this HTML.
 
-::: image1
+
 []{#calibre_link-841 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-39
 .calibre6}![image](../images/000056.jpg){.calibre3}
-:::
+
 
 *Figure 12-3: Viewing the source of a web page*
 
@@ -541,11 +520,11 @@ Tools**. In macOS, pressing
 ![image](../images/000064.jpg){.calibre3}-[OPTION]{.small}-I will open
 Chrome's Developer Tools.
 
-::: image1
+
 []{#calibre_link-971 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-40
 .calibre6}![image](../images/000152.jpg){.calibre3}
-:::
+
 
 *Figure 12-4: The Developer Tools window in the Chrome browser*
 
@@ -565,7 +544,7 @@ from the context menu to bring up the HTML responsible for that part of
 the page. This will be helpful when you begin to parse HTML for your web
 scraping programs.
 
-::: sidebar
+
 **DON'T USE REGULAR EXPRESSIONS TO PARSE HTML**
 
 Locating a specific piece of HTML in a string seems like a perfect case
@@ -579,7 +558,7 @@ likely to result in bugs.
 You can find an extended argument for why you shouldn't parse HTML with
 regular expressions at
 *[https://stackoverflow.com/a/1732454/1893164/](https://stackoverflow.com/a/1732454/1893164/){.calibre6}*.
-:::
+
 
 #### []{#calibre_link-927 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Using the Developer Tools to Find HTML Elements*** {#calibre_link-387 .h2}
 
@@ -606,9 +585,9 @@ the *[https://weather.gov/](https://weather.gov/){.calibre6}* site
 changes the design of its web pages, you'll need to repeat this process
 to inspect the new elements.
 
-::: image1
+
 []{#calibre_link-41 .calibre6}![image](../images/000094.jpg){.calibre3}
-:::
+
 
 *Figure 12-5: Inspecting the element that holds forecast text with the
 developer tools*
@@ -1031,9 +1010,9 @@ that guides the user back through prior comics. Downloading each comic
 by hand would take forever, but you can write a script to do this in a
 couple of minutes.
 
-::: image1
+
 []{#calibre_link-43 .calibre6}![image](../images/000040.jpg){.calibre3}
-:::
+
 
 *Figure 12-6: XKCD, "a webcomic of romance, sarcasm, math, and
 language"*
@@ -1367,9 +1346,9 @@ browser to
 Your browser should look something like [Figure
 12-7](#calibre_link-44){.calibre6}.
 
-::: image1
+
 []{#calibre_link-44 .calibre6}![image](../images/000131.jpg){.calibre3}
-:::
+
 
 *Figure 12-7: After we call [webdriver.Firefox()]{.literal1} and
 [get()]{.literal1} in Mu, the Firefox browser appears.*
@@ -1605,7 +1584,7 @@ that element is in. (You could have just as easily called
 [emailElem.submit()]{.literal}, and the code would have done the same
 thing.)
 
-::: note
+
 **[WARNING]{.notes}**
 
 *Avoid putting your passwords in source code whenever possible. It's
@@ -1614,7 +1593,7 @@ unencrypted on your hard drive. If possible, have your program prompt
 users to enter their passwords from the keyboard using the*
 [pyinputplus.inputPassword()]{.literal} *function described in [Chapter
 8](#calibre_link-47){.calibre6}.*
-:::
+
 
 #### []{#calibre_link-1095 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***Sending Special Keys*** {#calibre_link-408 .h2}
 
@@ -1814,44 +1793,4 @@ download every linked page on the page. The program should flag any
 pages that have a 404 "Not Found" status code and print them out as
 broken links.[]{#calibre_link-1809 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter11)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter13)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

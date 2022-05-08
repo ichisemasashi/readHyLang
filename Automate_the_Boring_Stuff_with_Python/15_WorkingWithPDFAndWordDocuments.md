@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **WORKING WITH PDF AND WORD DOCUMENTS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter14)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter16)
-
-</div>
-
-::: {#calibre_link-1 .calibre}
-## []{#calibre_link-813 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[15]{.big} WORKING WITH PDF AND WORD DOCUMENTS** {#calibre_link-477 .h2b}
-
-::: image
 ![Image](../images/000059.jpg){.calibre3}
-:::
+
 
 PDF and Word documents are binary files, which makes them much more
 complex than plaintext files. In addition to text, they store lots of
@@ -55,7 +34,7 @@ third-party modules.) If the module was installed correctly, running
 [import PyPDF2]{.literal} in the interactive shell shouldn't display any
 errors.
 
-::: sidebar
+
 **THE PROBLEMATIC PDF FORMAT**
 
 While PDF files are great for laying out text in a way that's easy for
@@ -66,7 +45,7 @@ all. There isn't much you can do about this, unfortunately. PyPDF2 may
 simply be unable to work with some of your particular PDF files. That
 said, I haven't found any PDF files so far that can't be opened with
 PyPDF2.
-:::
+
 
 #### ***Extracting Text from PDFs*** {#calibre_link-479 .h2}
 
@@ -75,9 +54,9 @@ from PDF documents, but it can extract text and return it as a Python
 string. To start learning how PyPDF2 works, we'll use it on the example
 PDF shown in [Figure 15-1](#calibre_link-3){.calibre6}.
 
-::: image1
+
 []{#calibre_link-3 .calibre6}![image](../images/000002.jpg){.calibre3}
-:::
+
 
 *Figure 15-1: The PDF page that we will be extracting text from*
 
@@ -177,7 +156,7 @@ attribute that is [True]{.literal} if the PDF is encrypted and
 that reads the file before it has been decrypted with the correct
 password will result in an error [➋]{.ent}.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Due to a bug in PyPDF2 version 1.26.0, calling [getPage()]{.codeitalic}
@@ -186,7 +165,7 @@ future [getPage()]{.codeitalic} calls to fail with the following error:
 [IndexError: list index out of range]{.codeitalic}. This is why our
 example reopened the file with a new [PdfFileReader]{.codeitalic}
 object.*
-:::
+
 
 To read an encrypted PDF, call the [decrypt()]{.literal} function and
 pass the password as a string [➌]{.ent}. After you call
@@ -297,13 +276,13 @@ pages, write a new PDF called *combinedminutes.pdf* by passing a
 [File]{.literal} object to the PdfFileWriter's [write()]{.literal}
 method [➏]{.ent}.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *PyPDF2 cannot insert pages in the middle of a
 [PdfFileWriter]{.codeitalic} object; the [addPage()]{.codeitalic} method
 will only add pages to the end.*
-:::
+
 
 You have now created a new PDF file that combines the pages from
 *meetingminutes.pdf* and *meetingminutes2.pdf* into a single document.
@@ -351,11 +330,11 @@ from [rotateClockwise()]{.literal} and
 [rotateCounterClockwise()]{.literal} contain a lot of information that
 you can ignore.
 
-::: image1
+
 []{#calibre_link-1057 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-5
 .calibre6}![image](../images/000098.jpg){.calibre3}
-:::
+
 
 *Figure 15-2: The* rotatedPage.pdf *file with the page rotated 90
 degrees clockwise*
@@ -421,9 +400,9 @@ PdfFileWriter to the new PDF.
 PDF, *watermarkedCover.pdf*, has all the contents of the
 *meetingminutes.pdf*, and the first page is watermarked.
 
-::: image1
+
 []{#calibre_link-6 .calibre6}![image](../images/000044.jpg){.calibre3}
-:::
+
 
 *Figure 15-3: The original PDF (left), the watermark PDF (center), and
 the merged PDF (right)*
@@ -657,7 +636,7 @@ by running [pip install \--user -U python-docx==0.8.10]{.literal}.
 ([Appendix A](#calibre_link-2){.calibre6} has full details on installing
 third-party modules.)
 
-::: note
+
 **[NOTE]{.notes}**
 
 *When using pip to first install Python-Docx, be sure to install
@@ -666,7 +645,7 @@ third-party modules.)
 cover. However, when you are going to import the module from the
 [python-docx]{.codeitalic} package, you'll need to run [import
 docx]{.codeitalic}, not [import python-docx]{.codeitalic}.*
-:::
+
 
 If you don't have Word, LibreOffice Writer and OpenOffice Writer are
 free alternative applications for Windows, macOS, and Linux that can be
@@ -689,9 +668,9 @@ paragraph begins whenever the user presses [ENTER]{.small} or
 [Run]{.literal} objects. The single-sentence paragraph in [Figure
 15-4](#calibre_link-7){.calibre6} has four runs.
 
-::: image1
+
 []{#calibre_link-7 .calibre6}![image](../images/000138.jpg){.calibre3}
-:::
+
 
 *Figure 15-4: The [Run]{.literal1} objects identified in a
 [Paragraph]{.literal1} object*
@@ -824,9 +803,9 @@ pane, which looks like [Figure 15-5](#calibre_link-8){.calibre6}. On
 macOS, you can view the Styles pane by clicking the **View** ▸
 **Styles** menu item.
 
-::: image1
+
 []{#calibre_link-8 .calibre6}![image](../images/000081.jpg){.calibre3}
-:::
+
 
 *Figure 15-5: Display the Styles pane by pressing
 [CTRL-ALT-SHIFT]{.small}-S on Windows.*
@@ -912,9 +891,9 @@ open this blank Word document with [docx.Document()]{.literal}, using it
 as the base for your Word document. The name you gave this style will
 now be available to use with Python-Docx.
 
-::: image1
+
 []{#calibre_link-9 .calibre6}![image](../images/000029.jpg){.calibre3}
-:::
+
 
 *Figure 15-6: The New Style button (left) and the Create New Style from
 Formatting dialog (right)*
@@ -990,9 +969,9 @@ attributes set to [True]{.literal}. [Figure
 15-7](#calibre_link-11){.calibre6} shows how the styles of paragraphs
 and runs look in *restyled.docx*.
 
-::: image1
+
 []{#calibre_link-11 .calibre6}![image](../images/000120.jpg){.calibre3}
-:::
+
 
 *Figure 15-7: The* restyled.docx *file*
 
@@ -1021,9 +1000,9 @@ This will create a file named *helloworld.docx* in the current working
 directory that, when opened, looks like [Figure
 15-8](#calibre_link-12){.calibre6}.
 
-::: image1
+
 []{#calibre_link-12 .calibre6}![image](../images/000065.jpg){.calibre3}
-:::
+
 
 *Figure 15-8: The Word document created using [add_paragraph(\'Hello,
 world!\')]{.literal1}*
@@ -1065,9 +1044,9 @@ of a [Paragraph]{.literal} object.
 The [save()]{.literal} method can be [called]{.literal} again to save
 the additional changes you've made.
 
-::: image1
+
 []{#calibre_link-13 .calibre6}![image](../images/000103.jpg){.calibre3}
-:::
+
 
 *Figure 15-9: The document with multiple [Paragraph]{.literal1} and
 [Run]{.literal1} objects added*
@@ -1111,9 +1090,9 @@ extracting it from the [Document]{.literal} object as a separate step.
 The resulting *headings.docx* file will look like [Figure
 15-10](#calibre_link-14){.calibre6}.
 
-::: image1
+
 []{#calibre_link-14 .calibre6}![image](../images/000105.jpg){.calibre3}
-:::
+
 
 *Figure 15-10: The* headings.docx *document with headings 0 to 4*
 
@@ -1337,9 +1316,9 @@ ops}type="pagebreak"}per page in the resulting Word document, so call
 each invitation. This way, you will need to open only one Word document
 to print all of the invitations at once.
 
-::: image1
+
 []{#calibre_link-31 .calibre6}![image](../images/000069.jpg){.calibre3}
-:::
+
 
 *Figure 15-11: The Word document generated by your custom invite script*
 
@@ -1369,44 +1348,4 @@ password. You should try both the uppercase and lowercase form of each
 word. (On my laptop, going through all 88,000 uppercase and lowercase
 words from the dictionary file takes a couple of minutes. This is why
 you shouldn't use a simple English word for your passwords.)
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter14)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter16)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

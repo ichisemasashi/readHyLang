@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
-
-::: main
-::: {role="main"}
-<div>
-
-[![](/images/prev.png)](../chapter2)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter4)
-
-</div>
-
-::: {#calibre_link-1212 .calibre}
 ## []{#calibre_link-1726 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[3]{.big} FUNCTIONS** {#calibre_link-132 .h2b}
 
-::: image
+
 ![Image](../images/000014.jpg){.calibre3}
-:::
+
 
 You're already familiar with the [print()]{.literal},
 [input()]{.literal}, and [len()]{.literal} functions from the previous
@@ -369,10 +348,10 @@ story about Alice. Your conversation followed a *stack*-like structure,
 like in [Figure 3-1](#calibre_link-1213){.calibre6}. The conversation is
 stack-like because the current topic is always at the top of the stack.
 
-::: image1
+
 []{#calibre_link-1213
 .calibre6}![image](../images/000109.jpg){.calibre3}
-:::
+
 
 *Figure 3-1: Your meandering conversation stack*
 
@@ -457,10 +436,10 @@ stack and not from any other place. [Figure
 3-2](#calibre_link-1214){.calibre6} illustrates the state of the call
 stack in *abcdCallStack.py* as each function is called and returns.
 
-::: image1
+
 []{#calibre_link-1214
 .calibre6}![image](../images/000054.jpg){.calibre3}
-:::
+
 
 *Figure 3-2: The frame objects of the call stack as* abcdCallStack.py
 *calls and returns from functions*
@@ -743,13 +722,13 @@ local. The code in a function can't use a local variable named
 [eggs]{.literal} and then use the global [eggs]{.literal} variable later
 in that same function.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *If you ever want to modify the value stored in a global variable from
 in a function, you must use a [global]{.codeitalic} statement on that
 variable.*
-:::
+
 
 If you try to use a local variable in a function before you assign a
 value to it, as in the following program, Python will give you an error.
@@ -782,7 +761,7 @@ assigned anything, the local variable [eggs]{.literal} doesn't exist.
 Python will *not* fall back to using the global [eggs]{.literal}
 variable [➋]{.ent}.
 
-::: sidebar
+
 **FUNCTIONS AS "BLACK BOXES"**
 
 Often, all you need to know about a function are its inputs (the
@@ -798,7 +777,7 @@ curious, you don't need to know how these functions work in order to use
 them. And because writing functions without global variables is
 encouraged, you usually don't have to worry about the function's code
 interacting with the rest of your program.
-:::
+
 
 ### []{#calibre_link-945 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**Exception Handling** {#calibre_link-145 .h1}
 
@@ -1138,38 +1117,5 @@ Normally, the [int()]{.literal} function will raise a
 [ValueError]{.literal} error if it is passed a noninteger string, as in
 [int(\'puppy\')]{.literal}. In the [except]{.literal} clause, print a
 message to the user saying they must enter an integer.
-:::
-:::
 
-<div>
 
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

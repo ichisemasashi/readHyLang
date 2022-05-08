@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **KEEPING TIME, SCHEDULING TASKS, AND LAUNCHING PROGRAMS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter16)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter18)
-
-</div>
-
-::: {#calibre_link-1521 .calibre}
-## []{#calibre_link-1844 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[17]{.big} KEEPING TIME, SCHEDULING TASKS, AND LAUNCHING PROGRAMS** {#calibre_link-530 .h2b}
-
-::: image
 ![Image](../images/000055.jpg){.calibre3}
-:::
+
 
 Running programs while you're sitting at your computer is fine, but it's
 also useful to have programs run without your direct supervision. Your
@@ -103,7 +82,7 @@ output will look something like this:
 The result is 456569 digits long.\
 Took 2.844162940979004 seconds to calculate.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Another way to profile your code is to use the
@@ -111,7 +90,7 @@ Took 2.844162940979004 seconds to calculate.
 informative level of detail than the simple [time.time()]{.codeitalic}
 technique. The [cProfile.run()]{.codeitalic} function is explained at*
 [https://docs.python.org/3/library/profile.html](https://docs.python.org/3/library/profile.html){.calibre6}.
-:::
+
 
 The return value from [time.time()]{.literal} is useful, but not
 human-readable. The [time.ctime()]{.literal} function returns a string
@@ -880,12 +859,12 @@ variables. When you create a new [Thread]{.literal} object, make sure
 its target function uses only local variables in that function. This
 will avoid hard-to-debug concurrency issues in your programs.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *A beginner's tutorial on multithreaded programming is available at*
 [https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}.
-:::
+
 
 ### **Project: Multithreaded XKCD Downloader** {#calibre_link-548 .h1}
 
@@ -1070,10 +1049,10 @@ time, each of those windows is a different process of the web browser
 program. See [Figure 17-1](#calibre_link-1523){.calibre6} for an example
 of multiple calculator processes open at once.
 
-::: image1
+
 []{#calibre_link-1523
 .calibre6}![image](../images/000087.jpg){.calibre3}
-:::
+
 
 *Figure 17-1: Six running processes of the same calculator program*
 
@@ -1156,7 +1135,7 @@ terminated process [➌]{.ent}. Now [wait()]{.literal} and
 [poll()]{.literal}return [0]{.literal}, indicating that the process
 terminated without errors.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Unlike* mspaint.exe, *if you run* calc.exe *on Windows 10 using*
@@ -1167,7 +1146,7 @@ and then instantly closes itself. Windows' calculator program is a
 "Trusted Microsoft Store app," and its specifics are beyond the scope of
 this book. Suffice it to say, programs can run in many application- and
 operating system--specific ways.*
-:::
+
 
 #### ***Passing Command Line Arguments to the Popen() Function*** {#calibre_link-553 .h2}
 
@@ -1503,44 +1482,4 @@ you from having to check the website yourself to see whether it has
 updated. (A list of web comics is available at
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.)[]{#calibre_link-1847
 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter16)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter18)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

@@ -1,30 +1,8 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
+## **FLOW CONTROL**
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
 
-::: main
-::: {role="main"}
-<div>
-
-[![](/images/prev.png)](../chapter1)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter3)
-
-</div>
-
-::: {#calibre_link-1532 .calibre}
-## []{#calibre_link-1711 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[2]{.big} FLOW CONTROL** {#calibre_link-106 .h2b}
-
-::: image
 ![Image](../images/000137.jpg){.calibre3}
-:::
+
 
 So, you know the basics of individual instructions and that a program is
 just a series of instructions. But programming's real strength isn't
@@ -42,11 +20,11 @@ this chapter. [Figure 2-1](#calibre_link-1533){.calibre6} shows a
 flowchart for what to do if it's raining. Follow the path made by the
 arrows from Start to End.
 
-::: image1
+
 []{#calibre_link-819 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1533
 .calibre6}![image](../images/000039.jpg){.calibre3}
-:::
+
 
 *Figure 2-1: A flowchart to tell you what to do if it is raining*
 
@@ -166,7 +144,7 @@ floating-point values.
 [➋]{.ent} \>\>\> [myAge \>= 10]{.codestrong1}\
    True
 
-::: sidebar
+
 **THE DIFFERENCE BETWEEN THE == AND = OPERATORS**
 
 You might have noticed that the [==]{.literal1} operator (equal to) has
@@ -182,7 +160,7 @@ other. Just remember these points:
 To help remember which is which, notice that the [==]{.literal1}
 operator (equal to) consists of two characters, just like the
 [!=]{.literal1} operator (not equal to) consists of two characters.
-:::
+
 
 []{#calibre_link-790 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}You'll often use comparison operators to compare a
@@ -302,9 +280,9 @@ ops}type="pagebreak"}it will then evaluate the whole expression down to
 one Boolean value. You can think of the computer's evaluation process
 for [(4 \< 5) and (5 \< 6)]{.literal} as the following:
 
-::: imagec
+
 ![image](../images/000095.jpg){.calibre3}
-:::
+
 
 You can also use multiple Boolean operators in an expression, along with
 the comparison operators:
@@ -422,10 +400,10 @@ the block with [print(\'Hi, Alice.\')]{.literal}. [Figure
 2-2](#calibre_link-1538){.calibre6} shows what a flowchart of this code
 would look like.
 
-::: image1
+
 []{#calibre_link-1538
 .calibre6}![image](../images/000147.jpg){.calibre3}
-:::
+
 
 *Figure 2-2: The flowchart for an [if]{.literal1} statement*
 
@@ -457,10 +435,10 @@ else:\
 [Figure 2-3](#calibre_link-1539){.calibre6} shows what a flowchart of
 this code would look like.
 
-::: image1
+
 []{#calibre_link-1539
 .calibre6}![image](../images/000118.jpg){.calibre3}
-:::
+
 
 *Figure 2-3: The flowchart for an [else]{.literal1} statement*
 
@@ -494,10 +472,10 @@ This time, you check the person's age, and the program will tell them
 something different if they're younger than 12. You can see the
 flowchart for this in [Figure 2-4](#calibre_link-1540){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1540
 .calibre6}![image](../images/000145.jpg){.calibre3}
-:::
+
 
 *Figure 2-4: The flowchart for an [elif]{.literal1} statement*
 
@@ -532,10 +510,10 @@ checker greet a person with different answers based on [age]{.literal}.
 [Figure 2-5](#calibre_link-1541){.calibre6} shows the flowchart for
 this.
 
-::: image1
+
 []{#calibre_link-1541
 .calibre6}![image](../images/000080.jpg){.calibre3}
-:::
+
 
 *Figure 2-5: The flowchart for multiple [elif]{.literal1} statements in
 the* vampire.py *program*
@@ -610,21 +588,21 @@ statements you need should follow the [if]{.literal} statement. Second,
 if you want to be sure that at least one clause is executed, close the
 structure with an [else]{.literal} statement.
 
-::: image1
+
 []{#calibre_link-1542
 .calibre6}![image](../images/000136.jpg){.calibre3}
-:::
+
 
 *Figure 2-6: The flowchart for the* vampire2.py *program. The X path
 will logically never happen, because if [age]{.literal1} were greater
 than [2000]{.literal1}, it would have already been greater than
 [100]{.literal1}.*
 
-::: image1
+
 []{#calibre_link-752 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1543
 .calibre6}![image](../images/000032.jpg){.calibre3}
-:::
+
 
 *Figure 2-7: Flowchart for the previous* littleKid.py *program*
 
@@ -678,18 +656,18 @@ five times! Take a look at the flowcharts for these two pieces of code,
 [Figures 2-8](#calibre_link-1544){.calibre6} and
 [2-9](#calibre_link-1545){.calibre6}, to see why this happens.
 
-::: image1
+
 []{#calibre_link-1544
 .calibre6}![image](../images/000072.jpg){.calibre3}
-:::
+
 
 *Figure 2-8: The flowchart for the [if]{.literal1} statement code*
 
-::: image1
+
 []{#calibre_link-1018 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1545
 .calibre6}![image](../images/000112.jpg){.calibre3}
-:::
+
 
 *Figure 2-9: The flowchart for the [while]{.literal1} statement code*
 
@@ -746,10 +724,10 @@ continues running the rest of the program [➍]{.ent}. [Figure
 2-10](#calibre_link-1546){.calibre6} shows a flowchart for the
 *yourName.py* program.
 
-::: image1
+
 []{#calibre_link-1546
 .calibre6}![image](../images/000042.jpg){.calibre3}
-:::
+
 
 *Figure 2-10: A flowchart of the* yourName.py *program*
 
@@ -825,11 +803,11 @@ Run *yourName2.py*, and enter the same text you entered for
 *yourName.py*. The rewritten program should respond in the same way as
 the original.
 
-::: image1
+
 []{#calibre_link-863 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1547
 .calibre6}![image](../images/000134.jpg){.calibre3}
-:::
+
 
 *Figure 2-11: The flowchart for the* yourName2.py *program with an
 infinite loop. Note that the X path will logically never happen, because
@@ -848,7 +826,7 @@ Let's use [continue]{.literal} to write a program that asks for a name
 and password. Enter the following code into a new file editor window and
 save the program as *swordfish.py*.
 
-::: sidebar
+
 **TRAPPED IN AN INFINITE LOOP?**
 
 If you ever run a program that has a bug causing it to get stuck in an
@@ -866,7 +844,7 @@ the screen forever because the [while]{.literal1} statement's condition
 is always [True]{.literal1}. [CTRL]{.small}-C is also handy if you want
 to simply terminate your program immediately, even if it's not stuck in
 an infinite loop.
-:::
+
 
 []{#calibre_link-1025 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}  while True:\
@@ -894,16 +872,16 @@ out of the [while]{.literal} loop to print [Access granted]{.literal}
 loop. See [Figure 2-12](#calibre_link-1548){.calibre6} for this
 program's flowchart.
 
-::: image1
+
 []{#calibre_link-1719 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1548
 .calibre6}![image](../images/000078.jpg){.calibre3}
-:::
+
 
 *Figure 2-12: A flowchart for* swordfish.py. *The X path will logically
 never happen, because the loop condition is always [True]{.literal1}.*
 
-::: sidebar
+
 **"TRUTHY" AND "FALSEY" VALUES**
 
 Conditions will consider some values in other data types equivalent to
@@ -937,7 +915,7 @@ You could have entered [not name != \'\']{.literal1} instead of [not
 name]{.literal1}, and [numOfGuests != 0]{.literal1} instead of
 [numOfGuests]{.literal1}, but using the truthy and falsey values can
 make your code easier to read.
-:::
+
 
 []{#calibre_link-821 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}Run this program and give it some input. Until you
@@ -1013,7 +991,7 @@ Jimmy Five Times (2)\
 Jimmy Five Times (3)\
 Jimmy Five Times (4)
 
-::: note
+
 **[NOTE]{.notes}**
 
 *You can use [break]{.codeitalic} and [continue]{.codeitalic} statements
@@ -1024,13 +1002,13 @@ loop and returned to the start. In fact, you can use
 [continue]{.codeitalic} and [break]{.codeitalic} statements only inside
 [while]{.codeitalic} and [for]{.codeitalic} loops. If you try to use
 these statements elsewhere, Python will give you an error.*
-:::
 
-::: image1
+
+
 []{#calibre_link-978 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1549
 .calibre6}![image](../images/000027.jpg){.calibre3}
-:::
+
 
 *Figure 2-13: The flowchart for* fiveTimes.py
 
@@ -1166,7 +1144,7 @@ import random\
 for i in range(5):\
     print(random.randint(1, 10))
 
-::: sidebar
+
 **DON'T OVERWRITE MODULE NAMES**
 
 When you save your Python scripts, take care not to give them a name
@@ -1185,7 +1163,7 @@ Problems like these are uncommon, but can be tricky to solve. As you
 gain more programming experience, you'll become more aware of the
 standard names used by Python's modules and functions, and will run into
 these problems less frequently.
-:::
+
 
 []{#calibre_link-802 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}When you run this program, the output will look
@@ -1657,14 +1635,14 @@ function named [bacon()]{.literal} inside a module named
 **Extra credit:** Look up the [round()]{.literal} and [abs()]{.literal}
 functions on the internet, and find out what they do. Experiment with
 them in the interactive shell.
-:::
+
 
 <div>
 
 [![](/images/prev.png)](../chapter1)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter3)
 
 </div>
-:::
+
 
 <div>
 
@@ -1697,4 +1675,4 @@ thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 
 thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
 
 </div>
-:::
+

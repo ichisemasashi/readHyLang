@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **ORGANIZING FILES**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter9)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter11)
-
-</div>
-
-::: {#calibre_link-1513 .calibre}
-## []{#calibre_link-1789 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[10]{.big} ORGANIZING FILES** {#calibre_link-30 .h2b}
-
-::: image
 ![Image](../images/000060.jpg){.calibre3}
-:::
+
 
 In the previous chapter, you learned how to create and write to new
 files in Python. Your programs can also organize preexisting files on
@@ -289,11 +268,11 @@ this process for you.
 Let's look at the *C:\\delicious* folder with its contents, shown in
 [Figure 10-1](#calibre_link-1195){.calibre6}.
 
-::: image1
+
 []{#calibre_link-969 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1195
 .calibre6}![image](../images/000047.jpg){.calibre3}
-:::
+
 
 *Figure 10-1: An example folder that contains three folders and four
 files*
@@ -374,10 +353,10 @@ functions in the [zipfile]{.literal} module. Say you have a ZIP file
 named *example.zip* that has the contents shown in [Figure
 10-2](#calibre_link-1514){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1514
 .calibre6}![image](../images/000008.jpg){.calibre3}
-:::
+
 
 *Figure 10-2: The contents of* example.zip
 
@@ -1023,44 +1002,4 @@ later files to close this gap.
 
 As an added challenge, write another program that can insert gaps into
 numbered files so that a new file can be added.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter9)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter11)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

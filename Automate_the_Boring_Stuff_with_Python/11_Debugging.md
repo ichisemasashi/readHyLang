@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **DEBUGGING**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter10)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter12)
-
-</div>
-
-::: {#calibre_link-1192 .calibre}
-## []{#calibre_link-895 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[11]{.big} DEBUGGING** {#calibre_link-349 .h2b}
-
-::: image
 ![Image](../images/000102.jpg){.calibre3}
-:::
+
 
 Now that you know enough to write more complicated programs, you may
 start finding not-so-simple bugs in them. This chapter covers some tools
@@ -652,10 +631,10 @@ debugger has paused the execution of the program just before it would
 have run the first line of code. You can see this line highlighted in
 the file editor.
 
-::: image1
+
 []{#calibre_link-1194
 .calibre6}![image](../images/000049.jpg){.calibre3}
-:::
+
 
 *Figure 11-1: Mu running a program under the debugger*
 
@@ -745,10 +724,10 @@ line 2, and highlights line 2 in the file editor, as shown in [Figure
 11-2](#calibre_link-1196){.calibre6}. This shows you where the program
 execution currently is.
 
-::: image1
+
 []{#calibre_link-1196
 .calibre6}![image](../images/000144.jpg){.calibre3}
-:::
+
 
 *Figure 11-2: The Mu editor window after clicking Step Over*
 
@@ -763,11 +742,11 @@ Keep clicking **Step** **Over**, and enter [3]{.codestrong} and
 line 7, the final [print()]{.literal} call in the program, the Mu editor
 window should look like [Figure 11-3](#calibre_link-1197){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1800 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1197
 .calibre6}![image](../images/000086.jpg){.calibre3}
-:::
+
 
 *Figure 11-3: The Debug Inspector pane on the right side shows that the
 variables are set to strings instead of integers, causing the bug.*
@@ -820,10 +799,10 @@ To set a breakpoint, click the line number in the file editor to cause a
 red dot to appear, marking the breakpoint like in [Figure
 11-4](#calibre_link-1198){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1198
 .calibre6}![image](../images/000124.jpg){.calibre3}
-:::
+
 
 *Figure 11-4: Setting a breakpoint causes a red dot (circled) to appear
 next to the line number.*
@@ -949,44 +928,4 @@ else:\
         print(\'You got it!\')\
     else:\
         print(\'Nope. You are really bad at this game.\')
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter10)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter12)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

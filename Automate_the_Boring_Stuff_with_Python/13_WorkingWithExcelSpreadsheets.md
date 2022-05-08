@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **WORKING WITH EXCEL SPREADSHEETS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter12)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter14)
-
-</div>
-
-::: {#calibre_link-1574 .calibre}
-## []{#calibre_link-938 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[13]{.big} WORKING WITH EXCEL SPREADSHEETS** {#calibre_link-418 .h2b}
-
-::: image
 ![Image](../images/000076.jpg){.calibre3}
-:::
+
 
 Although we don't often think of spreadsheets as programming tools,
 almost everyone uses them to organize information into two-dimensional
@@ -105,10 +84,10 @@ ops}type="pagebreak"}tabs for the three default sheets named *Sheet1*,
 workbooks. (The number of default sheets created may vary between
 operating systems and spreadsheet programs.)
 
-::: image1
+
 []{#calibre_link-1575
 .calibre6}![image](../images/000024.jpg){.calibre3}
-:::
+
 
 *Figure 13-1: The tabs for a workbook's sheets are in the lower-left
 corner of Excel.*
@@ -458,10 +437,10 @@ spreadsheet file *censuspopdata.xlsx*, and you can download it from
 *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}*.
 Its contents look like [Figure 13-2](#calibre_link-1577){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1577
 .calibre6}![image](../images/000116.jpg){.calibre3}
-:::
+
 
 *Figure 13-2: The* censuspopdata.xlsx *spreadsheet*
 
@@ -844,10 +823,10 @@ spreadsheet from
 [Figure 13-3](#calibre_link-1578){.calibre6} shows what the spreadsheet
 looks like.
 
-::: image1
+
 []{#calibre_link-1578
 .calibre6}![image](../images/000062.jpg){.calibre3}
-:::
+
 
 *Figure 13-3: A spreadsheet of produce sales*
 
@@ -1082,10 +1061,10 @@ this code, the styles of the A1 and B3 cells in the spreadsheet will be
 set to custom font styles, as shown in [Figure
 13-4](#calibre_link-1580){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1580
 .calibre6}![image](../images/000007.jpg){.calibre3}
-:::
+
 
 *Figure 13-4: A spreadsheet with custom font styles*
 
@@ -1111,10 +1090,10 @@ B9. This sets the B9 cell to a formula that calculates the sum of values
 in cells B1 to B8. You can see this in action in [Figure
 13-5](#calibre_link-1581){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1581
 .calibre6}![image](../images/000100.jpg){.calibre3}
-:::
+
 
 *Figure 13-5: Cell B9 contains the formula* =SUM(B1:B8), *which adds the
 cells B1 to B8.*
@@ -1185,10 +1164,10 @@ the letter of the column (in this case, A or B).
 The *dimensions.xlsx* spreadsheet looks like [Figure
 13-6](#calibre_link-1582){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1582
 .calibre6}![image](../images/000046.jpg){.calibre3}
-:::
+
 
 *Figure 13-6: Row 1 and column B set to larger heights and widths*
 
@@ -1231,10 +1210,10 @@ of the merged group.
 When you run this code, *merged.xlsx* will look like [Figure
 13-7](#calibre_link-1583){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1583
 .calibre6}![image](../images/000140.jpg){.calibre3}
-:::
+
 
 *Figure 13-7: Merged cells in a spreadsheet*
 
@@ -1297,10 +1276,10 @@ row 1 will always be viewable, no matter where the user scrolls in the
 spreadsheet. You can see this in [Figure
 13-8](#calibre_link-1585){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1585
 .calibre6}![image](../images/000083.jpg){.calibre3}
-:::
+
 
 *Figure 13-8: With [freeze_panes]{.literal1} set to [\'A2\']{.literal1},
 row 1 is always visible, even as the user scrolls down.*
@@ -1338,10 +1317,10 @@ arguments:
 [Figure 13-9](#calibre_link-1586){.calibre6} shows some sample
 coordinate arguments.
 
-::: image1
+
 []{#calibre_link-1586
 .calibre6}![image](../images/000099.jpg){.calibre3}
-:::
+
 
 *Figure 13-9: From left to right: [(1, 1), (10, 1)]{.literal1}; [(3, 2),
 (6, 4)]{.literal1}; [(5, 3), (5, 3)]{.literal1}*
@@ -1373,10 +1352,10 @@ title=\'First series\')]{.codestrong1}\
 This produces a spreadsheet that looks like [Figure
 13-10](#calibre_link-1587){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1587
 .calibre6}![image](../images/000122.jpg){.calibre3}
-:::
+
 
 *Figure 13-10: A spreadsheet with a chart added*
 
@@ -1490,11 +1469,11 @@ py multiplicationTable.py 6
 . . . it should create a spreadsheet that looks like [Figure
 13-11](#calibre_link-1606){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1817 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1606
 .calibre6}![image](../images/000067.jpg){.calibre3}
-:::
+
 
 *Figure 13-11: A multiplication table generated in a spreadsheet*
 
@@ -1513,10 +1492,10 @@ python blankRowInserter.py 3 2 myProduce.xlsx
 . . . the "before" and "after" spreadsheets should look like [Figure
 13-12](#calibre_link-1607){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1607
 .calibre6}![image](../images/000013.jpg){.calibre3}
-:::
+
 
 *Figure 13-12: Before (left) and after (right) the two blank rows are
 inserted at row 3*
@@ -1534,11 +1513,11 @@ column 5 (and vice versa). This should be done for all cells in the
 spreadsheet. For example, the "before" and "after" spreadsheets would
 look something like [Figure 13-13](#calibre_link-1608){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1818 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1608
 .calibre6}![image](../images/000108.jpg){.calibre3}
-:::
+
 
 *Figure 13-13: The spreadsheet before (top) and after (bottom)
 inversion*
@@ -1571,44 +1550,4 @@ Write a program that performs the tasks of the previous program in
 reverse order: the program should open a spreadsheet and write the cells
 of column A into one text file, the cells of column B into another text
 file, and so on.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter12)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter14)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

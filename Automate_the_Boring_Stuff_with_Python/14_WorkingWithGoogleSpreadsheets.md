@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **WORKING WITH GOOGLE SHEETS**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter13)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter15)
-
-</div>
-
-::: {#calibre_link-1229 .calibre}
-## []{#calibre_link-1819 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[14]{.big} WORKING WITH GOOGLE SHEETS** {#calibre_link-457 .h2b}
-
-::: image
 ![Image](../images/000053.jpg){.calibre3}
-:::
+
 
 Google Sheets, the free, web-based spreadsheet application available to
 anyone with a Google account or Gmail address, has become a useful,
@@ -71,9 +50,9 @@ and click the blue **Enable the Google Sheets API** button, as shown in
 [Figure 14-1](#calibre_link-1230){.calibre6}. You'll need to log in to
 your Google account to view this page.
 
-::: {#calibre_link-1230 .image1}
+
 ![image](../images/000148.jpg){.calibre3}
-:::
+
 
 *Figure 14-1: Obtaining a* credentials.json *file.*
 
@@ -89,10 +68,10 @@ EZSheets module, it will open a new browser window for you to log in to
 your Google account. Click **Allow**, as shown in [Figure
 14-2](#calibre_link-1231){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1231
 .calibre6}![image](../images/000089.jpg){.calibre3}
-:::
+
 
 *Figure 14-2: Allowing Quickstart to access your Google account*
 
@@ -128,10 +107,10 @@ the **Credentials** link on the sidebar. Then click the trash can icon
 next to the credentials file you've accidentally shared, as shown in
 [Figure 14-3](#calibre_link-1232){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1232
 .calibre6}![image](../images/000036.jpg){.calibre3}
-:::
+
 
 *Figure 14-3: The Credentials page in the Google Cloud Platform
 developer's console*
@@ -156,11 +135,11 @@ titled "Education Data" containing three sheets titled "Students,"
 "Classes," and "Resources." The first column of each sheet is labeled A,
 and the first row is labeled 1.
 
-::: image1
+
 []{#calibre_link-1821 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1233
 .calibre6}![image](../images/000127.jpg){.calibre3}
-:::
+
 
 *Figure 14-4: A spreadsheet titled "Education Data" with three sheets*
 
@@ -181,7 +160,7 @@ located at the URL
 *https://docs.google.com/spreadsheets/d/1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU/edit#gid=151537240/*,
 so its ID is [1J-Jx6Ne2K_vqI9J2SO-TAXOFbxx_9tUjwnkPC22LjeU]{.literal}.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *The specific spreadsheet IDs used in this chapter are for my Google
@@ -190,7 +169,7 @@ interactive shell. Go to*
 [https://sheets.google.com/](https://sheets.google.com/){.calibre6} *to
 create spreadsheets under your account and then get the IDs from the
 address bar.*
-:::
+
 
 Pass your spreadsheet's ID as a string to the
 [ezsheets.Spreadsheet()]{.literal} function to obtain a
@@ -469,11 +448,11 @@ address as B1.\
 These instructions should produce a Google Sheets spreadsheet that looks
 like [Figure 14-5](#calibre_link-1235){.calibre6}.
 
-::: image1
+
 []{#calibre_link-864 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1235
 .calibre6}![image](../images/000074.jpg){.calibre3}
-:::
+
 
 *Figure 14-5: The spreadsheet created with the example instructions*
 
@@ -673,10 +652,10 @@ These instructions should delete the fifth and sixth columns of the
 "produceSales" spreadsheet, as shown in [Figure
 14-6](#calibre_link-1237){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1237
 .calibre6}![image](../images/000021.jpg){.calibre3}
-:::
+
 
 *Figure 14-6: The sheet before (left) and after (right) changing the
 column count to 4*
@@ -733,10 +712,10 @@ is similar to the behavior of the [insert()]{.literal} list method.
 You can see the new sheets on the tabs at the bottom of the screen, as
 shown in [Figure 14-7](#calibre_link-1238){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1238
 .calibre6}![image](../images/000114.jpg){.calibre3}
-:::
+
 
 *Figure 14-7: The "Multiple Sheets" spreadsheet after adding sheets
 "Spam," "Eggs," and "Bacon"*
@@ -961,44 +940,4 @@ int(]{.literal}[ss]{.codeitalic}[\[0\].getRow(2)\[2\])]{.literal}
 evaluates to [True]{.literal} if the row has the correct total. Put this
 code in a loop to identify which row in the sheet has the incorrect
 total.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter13)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter15)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

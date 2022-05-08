@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **DICTIONARIES AND STRUCTURING DATA**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter4)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter6)
-
-</div>
-
-::: {#calibre_link-1127 .calibre}
-## []{#calibre_link-745 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[5]{.big} DICTIONARIES AND STRUCTURING DATA** {#calibre_link-190 .h2b}
-
-::: image
 ![Image](../images/000063.jpg){.calibre3}
-:::
+
 
 In this chapter, I will cover the dictionary data type, which provides a
 flexible way to access and organize data. Then, combining dictionaries
@@ -157,7 +136,7 @@ Of course, all the data you enter in this program is forgotten when the
 program terminates. You'll learn how to save data to files on the hard
 drive in [Chapter 9](#calibre_link-32){.calibre6}.
 
-::: sidebar
+
 **ORDERED DICTIONARIES IN PYTHON 3.7**
 
 While they're still not ordered and have no "first" key-value pair,
@@ -190,7 +169,7 @@ code in Python 3.5:
 \>\>\> [spam\[\'third key\'\] = \'value\']{.codestrong1}\
 \>\>\> [list(spam)]{.codestrong1}\
 \[\'first key\', \'third key\', \'second key\'\]
-:::
+
 
 #### []{#calibre_link-793 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}***The keys(), values(), and items() Methods*** {#calibre_link-193 .h2}
 
@@ -450,10 +429,10 @@ In *algebraic chess notation*, the spaces on the chessboard are
 identified by a number and letter coordinate, as in [Figure
 5-1](#calibre_link-1128){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1128
 .calibre6}![image](../images/000006.jpg){.calibre3}
-:::
+
 
 *Figure 5-1: The coordinates of a chessboard in algebraic chess
 notation*
@@ -484,11 +463,11 @@ dictionary [{\'1h\': \'bking\', \'6c\': \'wqueen\', \'2g\': \'bbishop\',
 \'5h\': \'bqueen\', \'3e\': \'wking\'}]{.literal} could represent the
 chess board in [Figure 5-2](#calibre_link-1129){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1087 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1129
 .calibre6}![image](../images/000101.jpg){.calibre3}
-:::
+
 
 *Figure 5-2: A chess board modeled by the dictionary* \'1h\': \'bking\',
 \'6c\': \'wqueen\', \'2g\': \'bbishop\', \'5h\': \'bqueen\', \'3e\':
@@ -504,10 +483,10 @@ that can each contain an *X*, an *O*, or a blank. To represent the board
 with a dictionary, you can assign each slot a string-value key, as shown
 in [Figure 5-3](#calibre_link-1130){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1130
 .calibre6}![image](../images/000048.jpg){.calibre3}
-:::
+
 
 *Figure 5-3: The slots of a tic-tac-toe board with their corresponding
 keys*
@@ -535,10 +514,10 @@ The data structure stored in the [theBoard]{.literal} variable
 represents the tic-tac-toe board in [Figure
 5-4](#calibre_link-1131){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1131
 .calibre6}![image](../images/000141.jpg){.calibre3}
-:::
+
 
 *Figure 5-4: An empty tic-tac-toe board*
 
@@ -554,10 +533,10 @@ theBoard = {\'top-L\': \' \', \'top-M\': \' \', \'top-R\': \' \',\
 The data structure in [theBoard]{.literal} now represents the
 tic-tac-toe board in [Figure 5-5](#calibre_link-1132){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1132
 .calibre6}![image](../images/000084.jpg){.calibre3}
-:::
+
 
 *Figure 5-5: The first move*
 
@@ -572,10 +551,10 @@ theBoard = {\'top-L\': \'O\', \'top-M\': \'O\', \'top-R\': \'O\',\
 The data structure in [theBoard]{.literal} now represents the
 tic-tac-toe board in [Figure 5-6](#calibre_link-1133){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1133
 .calibre6}![image](../images/000020.jpg){.calibre3}
-:::
+
 
 *Figure 5-6: Player O wins.*
 
@@ -736,14 +715,14 @@ This isn't a complete tic-tac-toe game---for instance, it doesn't ever
 check whether a player has won---but it's enough to see how data
 structures can be used in programs.
 
-::: note
+
 []{#calibre_link-911 .calibre1 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}**[NOTE]{.notes}**
 
 *If you are curious, the source code for a complete tic-tac-toe program
 is described in the resources available from*
 [https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/){.calibre6}.
-:::
+
 
 #### ***Nested Dictionaries and Lists*** {#calibre_link-200 .h2}
 
@@ -959,44 +938,4 @@ Inventory:\
 1 dagger\
 \
 Total number of items: 48
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter4)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter6)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

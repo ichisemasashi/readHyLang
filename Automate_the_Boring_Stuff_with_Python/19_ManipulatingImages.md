@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **MANIPULATING IMAGES**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter18)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter20)
-
-</div>
-
-::: {#calibre_link-1486 .calibre}
-## []{#calibre_link-1859 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[19]{.big} MANIPULATING IMAGES** {#calibre_link-608 .h2b}
-
-::: image
 ![Image](../images/000075.jpg){.calibre3}
-:::
+
 
 If you have a digital camera or even if you just upload photos from your
 phone to Facebook, you probably cross paths with digital image files all
@@ -141,10 +120,10 @@ opposite of how you may remember y-coordinates being used in math class.
 [Figure 19-1](#calibre_link-1488){.calibre6} demonstrates how this
 coordinate system works.
 
-::: image1
+
 []{#calibre_link-1488
 .calibre6}![image](../images/000023.jpg){.calibre3}
-:::
+
 
 *Figure 19-1: The x- and y-coordinates of a 28×27 image of some sort of
 ancient data storage device*
@@ -170,10 +149,10 @@ but does not include the right and bottom coordinates. For example, the
 box tuple [(3, 1, 9, 6)]{.literal} represents all the pixels in the
 black box in [Figure 19-2](#calibre_link-1489){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1489
 .calibre6}![image](../images/000115.jpg){.calibre3}
-:::
+
 
 *Figure 19-2: The area represented by the box tuple [(3, 1, 9,
 6)]{.literal1}*
@@ -205,11 +184,11 @@ Image]{.literal}. Because of the way Pillow's creators set up the
 [from PIL import Image]{.literal}, rather than simply [import
 PIL]{.literal}.
 
-::: image1
+
 []{#calibre_link-839 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1490
 .calibre6}![image](../images/000061.jpg){.calibre3}
-:::
+
 
 *Figure 19-3: My cat, Zophie. The camera adds 10 pounds (which is a lot
 for a cat).*
@@ -346,10 +325,10 @@ on [croppedIm]{.literal} to save the cropped image in *cropped.png*. The
 new file *cropped.png* will be created from the original image, like in
 [Figure 19-4](#calibre_link-1491){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1491
 .calibre6}![image](../images/000003.jpg){.calibre3}
-:::
+
 
 *Figure 19-4: The new image will be just the cropped section of the
 original image.*
@@ -402,13 +381,13 @@ top-left corner of [faceIm]{.literal} at (0, 0) on
 [catCopyIm]{.literal} to *pasted.png*. The *pasted.png* image looks like
 [Figure 19-5](#calibre_link-1492){.calibre6}.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Despite their names, the [copy()]{.codeitalic} and
 [paste()]{.codeitalic} methods in Pillow do not use your computer's
 clipboard.*
-:::
+
 
 Note that the [paste()]{.literal} method modifies its [Image]{.literal}
 object *in place*; it does not return an [Image]{.literal} object with
@@ -416,11 +395,11 @@ the pasted image. If you want to call [paste()]{.literal} but also keep
 an untouched version of the original image around, you'll need to first
 copy the image and then call [paste()]{.literal} on that copy.
 
-::: image1
+
 []{#calibre_link-1860 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1492
 .calibre6}![image](../images/000093.jpg){.calibre3}
-:::
+
 
 *Figure 19-5: Zophie the cat, with her face pasted twice*
 
@@ -451,11 +430,11 @@ faceImHeight):]{.codestrong1}\
    690 1075\
    \>\>\> [catCopyTwo.save(\'tiled.png\')]{.codestrong1}
 
-::: image1
+
 []{#calibre_link-1005 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1493
 .calibre6}![image](../images/000045.jpg){.calibre3}
-:::
+
 
 *Figure 19-6: Nested [for]{.literal1} loops used with
 [paste()]{.literal1} to duplicate the cat's face (a dupli-cat, if you
@@ -546,10 +525,10 @@ the rotated image to *rotated90.png*. The second and third calls do the
 same, but with 180 degrees and 270 degrees. The results look like
 [Figure 19-7](#calibre_link-1494){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1494
 .calibre6}![image](../images/000139.jpg){.calibre3}
-:::
+
 
 *Figure 19-7: The original image (left) and the image rotated
 counterclockwise by 90, 180, and 270 degrees*
@@ -578,10 +557,10 @@ The first call rotates the image 6 degrees and saves it to *rotate6.png*
 to *rotate6_expanded.png* (see the image on the right of [Figure
 19-8](#calibre_link-1495){.calibre6}).
 
-::: image1
+
 []{#calibre_link-1495
 .calibre6}![image](../images/000082.jpg){.calibre3}
-:::
+
 
 *Figure 19-8: The image rotated 6 degrees normally (left) and with
 [expand=True]{.literal1} (right)*
@@ -604,11 +583,11 @@ to flip the image horizontally and then save the result to
 [Image.FLIP_TOP_BOTTOM]{.literal} and save to *vertical_flip.png*. The
 results look like [Figure 19-9](#calibre_link-1496){.calibre6}.
 
-::: image1
+
 []{#calibre_link-983 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1496
 .calibre6}![image](../images/000030.jpg){.calibre3}
-:::
+
 
 *Figure 19-9: The original image (left), horizontal flip (center), and
 vertical flip (right)*
@@ -667,10 +646,10 @@ call [getpixel()]{.literal} on some coordinates to confirm that the
 color at any given pixel is what you expect. Finally, save the image to
 *putPixel.png*.
 
-::: image1
+
 []{#calibre_link-1497
 .calibre6}![image](../images/000121.jpg){.calibre3}
-:::
+
 
 *Figure 19-10: The* putPixel.png *image*
 
@@ -691,10 +670,10 @@ Say that [Figure 19-11](#calibre_link-1498){.calibre6} is the logo you
 want to add to the bottom-right corner of each image: a black cat icon
 with a white border, with the rest of the image transparent.
 
-::: image1
+
 []{#calibre_link-1498
 .calibre6}![image](../images/000000.jpg){.calibre3}
-:::
+
 
 *Figure 19-11: The logo to be added to the image*
 
@@ -894,10 +873,10 @@ pasting position. The left coordinate for where to paste the logo will
 be the image width minus the logo width; the top coordinate for where to
 paste the logo will be the image height minus the logo height.
 
-::: image1
+
 []{#calibre_link-1499
 .calibre6}![image](../images/000011.jpg){.calibre3}
-:::
+
 
 *Figure 19-12: The left and top coordinates for placing the logo in the
 bottom-right corner should be the image width/height minus the logo
@@ -948,10 +927,10 @@ do not pass the [logoIm]{.literal} for the third argument as well. This
 program can automatically resize and "logo-ify" hundreds of images in
 just a couple minutes.
 
-::: image1
+
 []{#calibre_link-1500
 .calibre6}![image](../images/000106.jpg){.calibre3}
-:::
+
 
 *Figure 19-13: The image* zophie.png *resized and the logo added (left).
 If you forget the third argument, the transparent pixels in the logo
@@ -1095,10 +1074,10 @@ points [➍]{.ent}, and a pattern of green lines drawn with a
 [for]{.literal} loop [➎]{.ent}. The resulting *drawing.png* file will
 look like [Figure 19-14](#calibre_link-1501){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1501
 .calibre6}![image](../images/000051.jpg){.calibre3}
-:::
+
 
 *Figure 19-14: The resulting* drawing.png *image*
 
@@ -1206,10 +1185,10 @@ call at [➎]{.ent} draws *Howdy* at (100, 150) in gray in 32-point Arial.
 The resulting *text.png* file will look like [Figure
 19-15](#calibre_link-1502){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1502
 .calibre6}![image](../images/000146.jpg){.calibre3}
-:::
+
 
 *Figure 19-15: The resulting* text.png *image*
 
@@ -1299,10 +1278,10 @@ Modify *resizeAndAddLogo.py* so that the image must be at least twice
 the width and height of the logo image before the logo is pasted.
 Otherwise, it should skip adding the logo.
 
-::: image1
+
 []{#calibre_link-1512
 .calibre6}![image](../images/000005.jpg){.calibre3}
-:::
+
 
 *Figure 19-16: When the image isn't much larger than the logo, the
 results look ugly.*
@@ -1373,44 +1352,4 @@ on the edges of the invitation image so that when the image is printed
 out, there will be a guideline for cutting. The PNG files that Pillow
 produces are set to 72 pixels per inch, so a 4×5-inch card would require
 a 288×360-pixel image.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter18)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter20)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

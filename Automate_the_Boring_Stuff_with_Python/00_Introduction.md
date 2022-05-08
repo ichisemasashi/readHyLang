@@ -1,44 +1,18 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
-
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
-
-::: main
-::: {role="main"}
-<div>
-
-[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter1)
-
-</div>
-
-::: {#calibre_link-1519 .calibre}
-# []{#calibre_link-1670 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}[]{#calibre_link-1671 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}[]{#calibre_link-1672 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}AUTOMATE THE BORING STUFF WITH PYTHON {#calibre_link-1669 .h}
-
-2ND EDITION
+# AUTOMATE THE BORING STUFF WITH PYTHON 2ND EDITION
 
 Practical Programming for Total Beginners
 
 **by Al Sweigart**
 
-::: pub
+
 ![image](../images/000126.jpg){.calibre3}
-:::
+
 
 San Francisco
-:::
 
-::: {#calibre_link-1171 .calibre}
-[]{#calibre_link-1674 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}**AUTOMATE THE BORING STUFF WITH PYTHON, 2ND
-EDITION.** Copyright © 2020 by Al Sweigart.
+
+
+[]{#calibre_link-1674 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**AUTOMATE THE BORING STUFF WITH PYTHON, 2ND EDITION.** Copyright © 2020 by Al Sweigart.
 
 All rights reserved. No part of this work may be reproduced or
 transmitted in any form or by any means, electronic or mechanical,
@@ -92,9 +66,9 @@ a copy of this license, visit
 *[http://creativecommons.org/licenses/by-nc-sa/3.0/us/](http://creativecommons.org/licenses/by-nc-sa/3.0/us/){.calibre6}*
 or send a letter to Creative Commons, PO Box 1866, Mountain View, CA
 94042, USA.
-:::
 
-::: {#calibre_link-1609 .calibre}
+
+
 ## []{#calibre_link-1678 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**About the Author** {#calibre_link-1677 .h2a}
 
 Al Sweigart is a software developer and tech book author. Python is his
@@ -103,9 +77,9 @@ source modules for it. His other books are freely available under a
 Creative Commons license on his website
 *[https://inventwithpython.com/](https://inventwithpython.com/){.calibre6}*.
 His cat now weighs 11 pounds.
-:::
 
-::: {#calibre_link-67 .calibre}
+
+
 ## **About the Tech Reviewer** {#calibre_link-1679 .h2a}
 
 Philip James has been working in Python for over a decade and is a
@@ -113,14 +87,14 @@ frequent speaker in the Python community. He speaks on topics ranging
 from Unix fundamentals to open source social networks. Philip is a Core
 Contributor to the BeeWare project and lives in the San Francisco Bay
 Area with his partner Nic and her cat River.
-:::
 
-::: {#calibre_link-1610 .calibre}
+
+
 ## []{#calibre_link-1701 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**INTRODUCTION** {#calibre_link-70 .h2b}
 
-::: image
+
 ![Image](../images/000143.jpg){.calibre3}
-:::
+
 
 "You've just done in two hours what it takes the three of us two days to
 do." My college roommate was working at a retail electronics store in
@@ -276,10 +250,10 @@ or square will provide more clues to the rest of the puzzle, and as you
 fill in one group of numbers 1 to 9 and then another, you'll soon solve
 the entire grid.
 
-::: image1
+
 []{#calibre_link-1611
 .calibre6}![image](../images/000004.jpg){.calibre3}
-:::
+
 
 *Figure 0-1: A new Sudoku puzzle (left) and its solution (right).
 Despite using numbers, Sudoku doesn't involve much math. (Images ©
@@ -457,13 +431,13 @@ You can download Python for Windows, macOS, and Ubuntu for free at
 If you download the latest version from the website's download page, all
 of the programs in this book should work.
 
-::: note
+
 **[WARNING]{.notes}**
 
 *Be sure to download a version of Python 3 (such as 3.8.0). The programs
 in this book are written to run on Python 3 and may not run correctly,
 if at all, on Python 2.*
-:::
+
 
 On the download page, you'll find Python installers for 64-bit and
 32-bit computers for each operating system, so first figure out which
@@ -543,14 +517,14 @@ Adafruit CircuitPython, BBC micro:bit, Pygame Zero, and Python 3. Select
 **Python 3**. You can always change the mode later by clicking the Mode
 button at the top of the editor window.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *You'll need to download Mu version 1.10.0 or later in order to install
 the third-party modules featured in this book. As of this writing,
 1.10.0 is an alpha release and is listed on the download page as a
 separate link from the main download links.*
-:::
+
 
 ### **Starting IDLE** {#calibre_link-82 .h1}
 
@@ -671,10 +645,10 @@ engine, and you should see tons of links explaining what the error
 message means and what causes it, as shown in [Figure
 0-2](#calibre_link-1612){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1612
 .calibre6}![image](../images/000151.jpg){.calibre3}
-:::
+
 
 *Figure 0-2: The Google results for an error message can be very
 helpful.*
@@ -768,44 +742,4 @@ asking effective questions and knowing how to find answers are
 invaluable tools on your programming journey.
 
 Let's begin!
-:::
 
-<div>
-
-[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter1)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::

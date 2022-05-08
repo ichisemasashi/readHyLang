@@ -1,30 +1,9 @@
-::: top_header
-[Home](https://automatetheboringstuff.com/) \| [Buy Direct from
-Publisher](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2) \|
-[\@AlSweigart](https://twitter.com/AlSweigart) \| [Support on
-Patreon](https://www.patreon.com/AlSweigart) \| [Write a
-Review](https://www.amazon.com/review/create-review/?ie=UTF8&channel=glance-detail&asin=1593279922)
-\|
 
-![](https://www.paypal.com/en_US/i/scr/pixel.gif){border="0" width="1"
-height="1" hidden="" style="display: none !important;"}
-:::
+## **READING AND WRITING FILES**
 
-::: main
-::: {role="main"}
-<div>
 
-[![](/images/prev.png)](../chapter8)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter10)
-
-</div>
-
-::: {#calibre_link-1172 .calibre}
-## []{#calibre_link-952 .calibre1 {http:="" www.idpf.org="" 2007="" ops}type="pagebreak"}**[9]{.big} READING AND WRITING FILES** {#calibre_link-32 .h2b}
-
-::: image
 ![Image](../images/000133.jpg){.calibre3}
-:::
+
 
 Variables are a fine way to store data while your program is running,
 but if you want your data to persist even after your program has
@@ -49,10 +28,10 @@ the *Documents* folder, which is inside the *Al* folder, which is inside
 the *Users* folder. [Figure 9-1](#calibre_link-1173){.calibre6} shows
 this folder organization.
 
-::: image1
+
 []{#calibre_link-1173
 .calibre6}![image](../images/000009.jpg){.calibre3}
-:::
+
 
 *Figure 9-1: A file in a hierarchy of folders*
 
@@ -71,13 +50,13 @@ appear as new folders under the */mnt* ("mount") folder. Also note that
 while folder names and filenames are not case-sensitive on Windows and
 macOS, they are case-sensitive on Linux.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *Since your system probably has different files and folders on it than
 mine, you won't be able to follow every example in this chapter exactly.
 Still, try to follow along using folders that exist on your computer.*
-:::
+
 
 #### ***Backslash on Windows and Forward Slash on macOS and Linux*** {#calibre_link-291 .h2}
 
@@ -234,9 +213,9 @@ expression to evaluate to a [Path]{.literal} object. Here's how the
 [/]{.literal} operator and a [Path]{.literal} object evaluate to the
 final [Path]{.literal} object.
 
-::: image
+
 ![image](../images/000091.jpg){.calibre3}
-:::
+
 
 If you see the [TypeError: unsupported operand type(s) for /: \'str\'
 and \'str\']{.literal} error message shown previously, you need to put a
@@ -252,13 +231,13 @@ Every program that runs on your computer has a *current working
 directory*, or *cwd*. Any filenames or paths that do not begin with the
 root folder are assumed to be under the current working directory.
 
-::: note
+
 **[NOTE]{.notes}**
 
 *While* folder *is the more modern name for directory, note that*
 current working directory *(or just* working directory*) is the standard
 term, not "current working folder."*
-:::
+
 
 You can get the current working directory as a string value with the
 [Path.cwd()]{.literal} function and change it using
@@ -338,10 +317,10 @@ folders and files. When the current working directory is set to
 *C:\\bacon*, the relative paths for the other folders and files are set
 as they are in the figure.
 
-::: image1
+
 []{#calibre_link-1174
 .calibre6}![image](../images/000057.jpg){.calibre3}
-:::
+
 
 *Figure 9-2: The relative paths for folders and files in the working
 directory* C:\\bacon
@@ -366,10 +345,10 @@ any necessary intermediate folders in order to ensure that the full path
 exists. [Figure 9-3](#calibre_link-1175){.calibre6} shows this hierarchy
 of folders.
 
-::: image1
+
 []{#calibre_link-1175
 .calibre6}![image](../images/000129.jpg){.calibre3}
-:::
+
 
 *Figure 9-3: The result of
 [os.makedirs(\'C:\\\\delicious\\\\walnut\\\\waffles\')]{.literal1}*
@@ -482,11 +461,11 @@ attributes. These can be useful for constructing new file paths based on
 existing ones. The attributes are diagrammed in [Figure
 9-4](#calibre_link-1176){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1781 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}[]{#calibre_link-1176
 .calibre6}![image](../images/000033.jpg){.calibre3}
-:::
+
 
 *Figure 9-4: The parts of a Windows (top) and macOS/Linux (bottom) file
 path*
@@ -556,10 +535,10 @@ return a string of everything that comes after the last slash in the
 [path]{.literal} argument. The directory (or dir) name and base name of
 a path are outlined in [Figure 9-5](#calibre_link-1177){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1177
 .calibre6}![image](../images/000022.jpg){.calibre3}
-:::
+
 
 *Figure 9-5: The base name follows the last slash in a path and is the
 same as the filename. The dir name is everything before the last slash.*
@@ -832,10 +811,10 @@ open a binary []{#calibre_link-848 {http:="" www.idpf.org="" 2007=""
 ops}type="pagebreak"}file in Notepad or TextEdit, it will look like
 scrambled nonsense, like in [Figure 9-6](#calibre_link-1178){.calibre6}.
 
-::: image1
+
 []{#calibre_link-1178
 .calibre6}![image](../images/000150.jpg){.calibre3}
-:::
+
 
 *Figure 9-6: The Windows [calc.exe]{.literal1} program opened in
 Notepad*
@@ -1744,44 +1723,4 @@ file.
 Write a program that opens all .*txt* files in a folder and searches for
 any line that matches a user-supplied regular expression. The results
 should be printed to the screen.
-:::
 
-<div>
-
-[![](/images/prev.png)](../chapter8)[![](/images/toc.png)](/#toc)[![](/images/next.png)](../chapter10)
-
-</div>
-:::
-
-<div>
-
-\
-Read the author\'s other free programming books on
-[InventWithPython.com](https://inventwithpython.com). Support the author
-with a purchase: [Buy Direct from Publisher (Free
-Ebook!)](https://www.nostarch.com/automatestuff2) \| [Buy on
-Amazon](https://inventwithpython.com/amazon-automate2)
-
-</div>
-
-<div>
-
-[![Automate the Boring Stuff with Python book cover
-thumbnail](/images/cover_automate2_thumb.jpg){style="width: 120px"}](https://automatetheboringstuff.com)
-[![Big Book of Small Python Projects book cover
-thumbnail](/images/cover_bigbookpython_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/bigbookpython)
-[![Beyond the Basic Stuff with Python book cover
-thumbnail](/images/cover_beyond_thumb.jpg){style="width: 120px"}](https://inventwithpython.com/beyond)
-[![Coding with Minecraft book cover
-thumbnail](/images/cover_codingwithminecraft_thumb.png){style="width: 120px"}](https://turtleappstore.com/book)
-[![Cracking Codes with Python book cover
-thumbnail](/images/cover_crackingcodes_thumb.png){style="width: 120px"}](https://inventwithpython.com/cracking/)
-[![Invent with Python book cover
-thumbnail](/images/cover_invent4th_thumb.png){style="width: 120px"}](https://inventwithpython.com/invent4thed)
-[![Scratch 3 Programming Playground book cover
-thumbnail](/images/cover_scratch3programmingplayground_thumb.png){style="width: 120px"}](https://inventwithscratch.com/book3/)
-[![Making Games with Python and Pygame book cover
-thumbnail](/images/cover_makinggames_thumb.png){style="width: 120px"}](https://inventwithpython.com/pygame/)
-
-</div>
-:::
