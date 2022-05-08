@@ -1,36 +1,22 @@
-# Hy Style Guide
+# Hyスタイル・ガイド
 
-The Hy style guide intends to be a set of ground rules for the Hyve
-(yes, the Hy community prides itself in appending Hy to everything) to
-write idiomatic Hy code. Hy derives a lot from Clojure & Common Lisp,
-while always maintaining Python interoperability.
+Hyスタイル・ガイドは、Hyve（そう、Hyコミュニティは何にでもHyをつけることに誇りを持っています）が慣用的なHyコードを書くための基本ルールのセットになることを意図しています。HyはClojureとCommon Lispから多くのものを得ていますが、常にPythonの相互運用性を維持しています。
 
-## Layout & Indentation
+## レイアウトとインデント
 
-The #1 complaint about Lisp?
+Lispに対する不満の第1位は？
 
-> *It\'s too weird looking with all those parentheses! How do you even*
-> **read** *that?*
+> *括弧が多くて見づらいわ！どうやって読むんだ？*
 
-And, they\'re right! Lisp was originally much too hard to read. Then
-they figured out layout and indentation. And it was glorious.
+そして、その通りなのです。Lispはもともと読みにくかったんです。その後、レイアウトやインデントが見直されました。そして、それは見事に実現されたのです。
 
-### The Three Laws
+### 3つの法則
 
-Here\'s the secret: *Real Lispers don\'t count the brackets.* They fade
-into the background. When reading Lisp, disregard the trailing closing
-brackets\-\--those are for the computer, not the human. As in Python,
-read the code structure by indentation.
+本当のLisperは括弧を数えない。Lispを読むとき、末尾の閉じ括弧は無視する---それはコンピュータのためのもので、人間のためのものではありません。Pythonのように、インデントでコード構造を読みます。
 
-Lisp code is made of trees\-\--Abstract Syntax Trees\-\--not strings.
-S-expressions are very direct textual representation of AST. That\'s the
-level of *homoiconicity*\-\--the level Lisp macros operate on. It\'s not
-like the C-preprocessor or Python\'s interpolated eval-string tricks
-that see code as just letters. That\'s not how to think of Lisp code;
-think tree structure, not delimiters.
+Lispのコードは文字列ではなく、木---Abstract Syntax Trees---で構成されています。S式はASTを非常に直接的にテキストで表現したものです。これがLispのマクロが扱う*homoiconicity*のレベルなのです。CのプリプロセッサやPythonの補間されたeval-stringのような、コードをただの文字と見なすようなトリックとは違います。Lispのコードは、区切り文字ではなく、木構造だと考えてください。
 
-1.  Closing brackets must NEVER be left alone, sad and lonesome on their
-    own line.
+1.  〆括弧は、決して自分の線上に一人で、悲しく、寂しく放置してはならない。
 
 ``` clj
 ;; PREFERRED
@@ -38,10 +24,9 @@ think tree structure, not delimiters.
   (if (<= n 2)
       n
       (+ (fib (- n 1))
-         (fib (- n 2)))))  ; Lots of Irritating Superfluous Parentheses
-                                ; L.I.S.P. ;))
+         (fib (- n 2)))))  ; Lots of Irritating Superfluous Parentheses L.I.S.P.（イラッとするような余計な括弧がたくさん）。 ;))
 
-;; How the experienced Lisper sees it. Indented trees. Like Python.
+;; 経験豊富なリスパーはどう見るか。インデントされたツリー。Pythonのように。
 (defn fib [n
   (if (<= n 2
       n
@@ -49,8 +34,8 @@ think tree structure, not delimiters.
          (fib (- n 2
 
 ;; BAD
-;; We're trying to ignore them and you want to give them their own line?
-;; Hysterically ridiculous.
+;; 無視しようとしてるのに、独自路線にするのか？
+;; ヒステリックなほどバカバカしい。
 (defn fib [
     n
 ]  ; My eyes!
@@ -58,10 +43,10 @@ think tree structure, not delimiters.
     n
     (+ (fib (- n 1)) (fib (- n 2)))
   )
-)  ; GAH, BURN IT WITH FIRE!
+)  ; ガーッ、火で燃やせ！
 ```
 
-2.  New lines must ALWAYS be indented past their parent opening bracket.
+2.  改行した行は、必ず親側の開き括弧を越えてインデントしなければならない。
 
 ``` clj
 ;; PREFERRED
@@ -69,17 +54,17 @@ think tree structure, not delimiters.
        arg2))
 
 ;; BAD. And evil.
-;; Same bracket structure as above, but not enough indent.
+;; 上記と同じブラケット構造ですが、インデントが足りません。
 (foo #(arg1
   arg2))
 
-;; PREFERRED. Same indent as above, but now it matches the brackets.
+;; PREFERRED. 上と同じインデントですが、今度は括弧と一致します。
 (fn [arg]
   arg)
 
-;; Remember, when reading Lisp, you ignore the trailing brackets.
-;; Look at what happens if we remove them.
-;; Can you tell where they should go by the indentation?
+;; Lispを読むときは、末尾の括弧を無視することを忘れないでください。
+;; それを取り除くとどうなるかというと。
+;; インデントでどこに入れるかわかりますか？
 
 (foo #(arg1
        arg2
@@ -90,27 +75,27 @@ think tree structure, not delimiters.
 (fn [arg
   arg
 
-;; See how the structure of those last two became indistinguishable?
+;; 最後の2つの構造が見分けがつかなくなったのがわかりますか？
 
-;; Reconstruction of the bad example by indent.
-;; Not what we started with, is it?
+;; インデントによる悪例の再現。
+;; 私たちが始めたことではありませんね。
 (foo #(arg1)
   arg2)
 
-;; Beware of brackets with reader syntax.
-;; You still have to indent past them.
+;; リーダーシンタックスを持つブラケットに注意。
+;; それでも、それらを越えてインデントする必要があります。
 
 ;; BAD
 `#{(foo)
  ~@[(bar)
   1 2]}
 
-;; Above, no trail.
+;; 上、トレールなし。
 `#{(foo
  ~@[(bar
   1 2
 
-;; Reconstruction. Is. Wrong.
+;; 再構成する。です。間違っています。
 `#{(foo)}
  ~@[(bar)]
   1 2
@@ -122,17 +107,16 @@ think tree structure, not delimiters.
       2]}
 
 ;; OK
-;; A string is an atom, not a Sequence.
+;; 文字列はアトムであり、シークエンスではありません。
 (foo "abc
   xyz")
 
-;; Still readable without trailing brackets.
+;; 末尾の括弧がなくても読めます。
 (foo "abc
-  xyz"  ; Double-quote isn't a closing bracket. Don't ignore it.
+  xyz"  ; ダブルクオートは閉じ括弧ではありません。無視しないでください。
 ```
 
-3.  New lines must NEVER be indented past the previous element\'s
-    opening bracket.
+3.  新しい行は、前の要素の開始括弧を越えて決してインデントしてはいけません。
 
 ``` clj
 ;; BAD
@@ -140,12 +124,12 @@ think tree structure, not delimiters.
   x
   y)
 
-;; The above with trailing brackets removed. See the problem?
+;; 上記から末尾の括弧を削除したものです。問題がわかりましたか？
 ((get-fn q
   x
   y
 
-;; By indentation, this is where the brackets should go.
+;; インデントによって、ここに括弧が入るはずです。
 ((get-fn q
   x
   y))
@@ -154,84 +138,77 @@ think tree structure, not delimiters.
 ((get-fn q) x
             y)
 
-;; The above without trailing brackets. Still OK (for humans).
-((get-fn q) x  ; The ) on this line isn't trailing!
+;; 上記から末尾の括弧を除いたもの。それでも（人間には）OK。
+((get-fn q) x  ; この行の ) は、末尾に付いていません!
             y
 
-;; PREFERRED, since the ) should end the line.
+;; PREFERRED, ) は行を終了させる必要があるからです。
 ((get-fn q)
  x
  y)
 ```
 
-### Limits
+### 制限事項
 
-Follow PEP 8 rules for line limits, viz.
+PEP 8 の行数制限のルールに従ってください。
 
-> -   72 columns max for text (docstrings and comments).
-> -   79 columns max for other code, OR
-> -   99 for other code if primarily maintained by a team that can agree
->     to 99.
+> -   テキスト（docstringとコメント）は最大72カラムです。
+> -   その他のコードで最大79列、または
+> -   99に同意できるチームが主にメンテナンスしている場合、その他のコードには99。
 
-### Whitespace
+### 空白
 
-AVOID trailing spaces. They suck!
+最後のスペースは使わないでください。最悪です!
 
-AVOID tabs in code. Indent with spaces only.
+コード中のタブを避ける。インデントにはスペースのみを使用する。
 
-PREFER the `\t` escape sequence to literal tab characters in one-line
-string literals.
+1行の文字列リテラルに含まれるタブ文字に対して、`\t`エスケープシーケンスを優先します。
 
-> -   Literal tabs are OK inside multiline strings if you also add a
->     warning comment.
-> -   But `\t` is still PREFERRED in multiline strings.
-> -   The comment should PREFERABLY appear just before the string.
-> -   But a blanket warning at the top of a function, class, or file is
->     OK.
+> -   警告コメントも付ければ、複数行の文字列の中でもリテラルタブはOKです。
+> -   しかし、複数行の文字列では `\t` が優先されます。
+> -   コメントは、文字列の直前に表示することが望ましい。
+> -   しかし、関数、クラス、ファイルの先頭にある包括的な警告はOKです。
 
-### Alignment
+### 整列
 
-Line up arguments to function calls when splitting over multiple lines.
+複数行に分割された関数呼び出しの引数を整列させます。
 
-> -   The first argument PREFERABLY stays on the first line with the
->     function name,
-> -   but may instead start on the next line indented one space past its
->     parent bracket.
+> -   最初の引数は、関数名と一緒に最初の行に置かれることが望ましい。
+> -   代わりにその親ブラケットから1スペースインデントした次の行から始めることができます。
 
 ``` clj
-;; PREFERRED. All args aligned with first arg.
+;; PREFERRED. すべての引数は最初の引数で整列されます。
 (foofunction arg1
              (barfunction bararg1
                           bararg2
-                          bararg3)  ; Aligned with bararg1.
+                          bararg3)  ; bararg1と並んでいる。
              arg3)
 
 ;; BAD
 (foofunction arg1
              (barfunction bararg1
-               bararg2  ; Wrong. Looks like a macro body.
+               bararg2  ; 間違っている。マクロボディのようだ。
                     bararg3)  ; Why?!
              arg3)
 
-;; PREFERRED. Args can all go on one line if it fits.
+;; PREFERRED. Argsは適当であれば1行にまとめてもよい。
 (foofunction arg1
              (barfunction bararg1 bararg2 bararg3)
              arg3)
 
-;; OK. Args not on first line, but still aligned.
+;; OK. Argsが1行目にない場合でも、整列している。
 (foofunction
-  arg1  ; Indented one column past parent (
+  arg1  ; 親(から1列分インデントしている
   (barfunction
-    bararg1  ; Indent again.
-    bararg2  ; Aligned with bararg1.
+    bararg1  ; 再度インデントする。
+    bararg2  ; bararg1と並んでいる。
     bararg3)
-  arg3)  ; Aligned with arg1.
+  arg3)  ; arg1 と整列する。
 ```
 
-### Hold it Open
+### 開いたままにする
 
-If you need to separate a bracket trail use a `#_ /` comment to hold it
-open. This avoids violating law #1.
+もしブラケットトレイルを分離する必要がある場合は、`#_ /` のコメントを使用して、ブラケットを開いたままにします。これにより、法則その1への抵触を回避することができます。
 
 ``` clj
 ;; PREFERRED
@@ -239,20 +216,19 @@ open. This avoids violating law #1.
  (bar)
  (baz)]
 
-;; OK, especially if the list is long. (Not that three is long.)
-;; This is better for version control line diffs.
-[  ; Opening brackets can't be "trailing closing brackets" btw.
+;; OK, 特にリストが長い場合は。(3つが長いというわけではありませんが)
+;; バージョン管理用の行間差分にはこちらの方が適しています。
+[  ; 開き括弧が「末尾の閉じ括弧」になることはありませんよ。
  (foo)
  (bar)
  (baz)
- #_ /]  ; Nothing to see here. Move along.
+ #_ /]  ; 何もありません。移動してください。
 
-;; Examples of commenting out items at the end of a list follow.
-;; As with typing things in the REPL, these cases are less important
-;; if you're the only one that sees them. But even so, maintaining
-;; good style can help prevent errors.
+;; リストの末尾の項目をコメントアウトする例は次のとおりです。
+;; REPLでの入力と同様、このようなケースも、自分だけが見ているのであれば、それほど重要ではありません。
+;; しかし、たとえそうであっても、良いスタイルを維持することは、エラーを防ぐのに役立ちます。
 
-;; BAD and a syntax error. Lost a bracket.
+;; BAD and a syntax error. ブラケットを紛失
 [(foo)
  ;; (bar)
  ;; (baz)]
@@ -264,22 +240,22 @@ open. This avoids violating law #1.
  ]
 
 ;; PREFERRED
-;; The discard syntax respects code structure,
-;; so it's less likely to cause errors.
+;; 廃棄構文は、コード構造を尊重する。
+;; ので、エラーが発生しにくくなります。
 [(foo)
  #_(bar)
  #_(baz)]
 
-;; OK. Adding a final discarded element makes line comments safer.
+;; OK. 最後の捨て要素を追加することで、ラインコメントの安全性を高めています。
 [(foo)
  ;; (bar)
  ;; (baz)
  #_ /]
 ```
 
-### Snuggle
+### 添い寝
 
-Brackets like to snuggle, don\'t leave them out in the cold!
+ブラケットは寄り添うのが好きです。
 
 ``` clj
 ;; PREFERRED
@@ -295,88 +271,88 @@ Brackets like to snuggle, don\'t leave them out in the cold!
 (foo( bar 2) )
 ```
 
-### Grouping
+### グループ化
 
-Use whitespace to show implicit groups, but be consistent within a form.
+空白を使用して暗黙のグループを表示しますが、フォーム内では一貫性を保つようにしてください。
 
 ``` clj
-;; Older Lisps would typically wrap such groups in even more parentheses.
-;; (The Common Lisp LOOP macro was a notable exception.)
-;; But Hy takes after Clojure, which has a lighter touch.
+;; 古いLispsでは、このようなグループはさらに括弧でくくられるのが普通である。
+;; (Common LispのLOOPマクロは顕著な例外であった）。
+;; しかし、Hyは軽いタッチのClojureに倣っています。
 
-;; BAD. Can't tell key from value without counting
+;; BAD. カウントしないとキーと値を区別できない
 {1 9 2 8 3 7 4 6 5 5}
 
-;; PREFERRED. This can fit on one line. Clojure would have used commas
-;; here, but those aren't whitespace in Hy. Use extra spaces instead.
+;; PREFERRED. これは1行に収まります。Clojureはここでカンマを使ったでしょうが、
+;; それはHyでは空白ではありません。代わりに余分な空白を使いましょう。
 {1 9  2 8  3 7  4 6  5 5}
 
-;; OK. And preferred if it couldn't fit on one line.
+;; OK. And preferred 1行に収まらない場合は
 {1 9
  2 8
  3 7
  4 6
- 5 5}  ; Newlines show key-value pairs in dict.
+ 5 5}  ; 改行はdictのkey-valueペアを表示します。
 
 ;; BAD
-;; This grouping makes no sense.
+;; このグループ分けは意味がない。
 #{1 2
-  3 4}  ; It's a set, so why are there pairs?
+  3 4}  ; セットなのに、なぜペアがあるのですか？
 
 ;; BAD
-;; This grouping also makes no sense. But, it could be OK in a macro or
-;; something if this grouping was somehow meaningful there.
+;; このグループ分けも意味がない。でも、このグループ分けに何らかの意味があれば、
+;; マクロとかではOKかもしれませんね。
 [1
  1 2
- 1 2 3]  ; wHy do you like random patterns? [sic pun, sorry]
+ 1 2 3]  ; なぜランダムなパターンが好きなのですか？[sicのシャレです、すみません]
 
-;; Be consistent. Separate all groups the same way in a form.
+;; 一貫性を持たせる。フォームの中ですべてのグループを同じように区切る。
 
 ;; BAD
 {1 9  2 8
- 3 7  4 6  5 5}  ; Pick one or the other!
+ 3 7  4 6  5 5}  ; どちらか一方を選んでください
 
 ;; BAD
-{1 9  2 8 3 7  4 6  5 5}  ; You forgot something.
+{1 9  2 8 3 7  4 6  5 5}  ; 何か忘れてないか？
 
-;; Groups of one must also be consistent.
+;; グループ・オブ・ワンも一貫性が必要です。
 
 ;; PREFERRED
-(foo 1 2 3)  ; No need for extra spaces here.
+(foo 1 2 3)  ; ここに余分なスペースは必要ありません。
 
-;; OK, but you could have fit this on one line.
+;; OK, しかし、これを1行に収めることができたはずです。
 (foo 1
      2
      3)
 
-;; OK, but you still could have fit this on one line.
+;; OK, しかし、それでも1行で収まったはずです。
 [1
  2]
 
 ;; BAD
-(foo 1 2  ; This isn't a pair?
-     3)  ; Lines or spaces--pick one or the other!
+(foo 1 2  ; これってペアじゃないんですか？
+     3)  ; ラインかスペースか、どちらかを選んでください。
 
 ;; PREFERRRED
 (foofunction (make-arg)
              (get-arg)
-             #tag(do-stuff)  ; Tags belong with what they tag.
-             #* args  ; #* goes with what it unpacks.
+             #tag(do-stuff)  ; タグは、タグ付けされたものに属する。
+             #* args  ; #* は展開されたものと一緒になります。
              :foo spam
-             :bar eggs  ; Keyword args are also pairs. Group them.
+             :bar eggs  ; キーワードの引数もペアです。グループ化する。
              #** kwargs)
 
-;; PREFERRED. Spaces divide groups on one line.
+;; PREFERRED. スペースは1行のグループを分割する。
 (quux :foo spam  :bar eggs  #* with-spam)
 {:foo spam  :bar eggs}
 
-;; OK. The colon is still enough to indicate groups.
+;; OK. グループを示すには、やはりコロンで十分です。
 (quux :foo spam :bar eggs #* with-spam)
 {:foo spam :bar eggs}
 ;; OK.
 ("foo" spam "bar" eggs}
 
-;; BAD. Can't tell key from value.
+;; BAD. キーと値を区別できない。
 (quux :foo :spam :bar :eggs :baz :bacon)
 {:foo :spam :bar :eggs :baz :bacon}
 {"foo" "spam" "bar" "eggs" "baz" "bacon"}
@@ -386,14 +362,14 @@ Use whitespace to show implicit groups, but be consistent within a form.
 {:foo :spam  :bar :eggs  :baz :bacon}
 {"foo" "spam"  "bar" "eggs"  "baz" "bacon"}
 
-;; OK. Yep, those are pairs too.
+;; OK. そう、それもペアです。
 (setv x 1
       y 2)
 
-;; PREFERRED. This fits on one line.
+;; PREFERRED. これは1行に収まる。
 (setv x 1  y 2)
 
-;; BAD. Doesn't separate groups.
+;; BAD. グループを分けない。
 (print (if (< n 0.0)
            "negative"
            (= n 0.0)
@@ -402,7 +378,7 @@ Use whitespace to show implicit groups, but be consistent within a form.
            "positive"
            "not a number"))
 
-;; BAD. And evil. Broke law #3. Shows groups but args aren't aligned.
+;; BAD. And evil. 法則その3を破った。グループは表示されるが、引数は整列していない。
 (print (if (< n 0.0)
                "negative"
            (= n 0.0)
@@ -411,8 +387,8 @@ Use whitespace to show implicit groups, but be consistent within a form.
                "positive"
            "not a number"))
 
-;; BAD. Shows groups but args aren't aligned.
-;; If the then-parts weren't atoms, this would break law #3.
+;; BAD. グループを表示するが、引数が揃わない。
+;; もし、当時の部品がアトムでなかったら、これは法則の3番を破ることになる。
 (print (if (< n 0.0)
          "negative"
            (= n 0.0)
@@ -421,8 +397,8 @@ Use whitespace to show implicit groups, but be consistent within a form.
          "positive"
            "not a number"))
 
-;; OK. Redundant (do) forms allow extra indent to show groups
-;; without violating law #3.
+;; OK. 冗長な（do）フォームは、法則3に違反することなく、
+;; グループを表示するための余分なインデントを可能にします。
 (print (if (< n 0.0)
            (do
              "negative")
@@ -435,36 +411,33 @@ Use whitespace to show implicit groups, but be consistent within a form.
            "not a number"))
 ```
 
-Separate toplevel forms (including toplevel comments not about a
-particular form) with a single blank line, rather than two as in Python.
+Pythonのように2行ではなく、1行の空白行でトップレベルフォーム（特定のフォームに関するものではないトップレベルコメントを含む）を区切ります。
 
-> -   This can be omitted for tightly associated forms.
+> -   これは、緊密に関連するフォームでは省略可能です。
 
-Methods within a defclass need not be separated by blank line.
+defclass内のメソッドは、空白行で区切る必要はありません。
 
-### Special Arguments
+### 特殊な引数
 
-Macros and special forms are normally indented one space past the parent
-bracket, but can also have \"special\" arguments that are indented like
-function arguments.
+マクロや特殊な書式は通常、親カッコから1字下げられますが、関数の引数のように字下げされた「特殊」な引数を持つこともできます。
 
-> -   Macros with an `#* body` argument contain an implicit `do`.
-> -   The body is never special, but the arguments before it are.
+> -   `#* body` 引数を持つマクロは暗黙のうちに `do` を含んでいます。
+> -   本体は決して特別なものではありませんが、その前の引数は特別なものです。
 
 ``` clj
 ;; PREFERRED
-(assoc foo  ; foo is special
-  "x" 1  ; remaining args are not special. Indent 2 spaces.
+(assoc foo  ; fooは特別です
+  "x" 1  ; 残りの引数は特別なものではありません。スペース2つ分インデントしてください。
   "y" 2)
 
 ;; PREFERRED
-;; The do form has no special args. Indent like a function call.
+;; do形式は特別な引数を持たない。関数呼び出しのようにインデントしてください。
 (do (foo)
     (bar)
     (baz))
 
 ;; OK
-;; No special args to distinguish. This is also valid function indent.
+;; 区別するための特別な引数はありません。また、関数インデントも有効である。
 (do
   (foo)
   (bar)
@@ -479,17 +452,17 @@ function arguments.
 
 ;; OK
 (defn fib
-      [n]  ; name and argslist are special. Indent like function args.
-  ;; The defn body is not special. Indent 1 space past parent bracket.
+      [n]  ; nameとargslistは特別です。関数の引数のようにインデントする。
+  ;; defn 本体は特別なものではありません。親カッコから1字分インデントする。
   (if (<= n 2)
       n
-    (+ (fib (- n 1))  ; Emacs-style else indent.
+    (+ (fib (- n 1))  ; Emacs 風の else インデント。
        (fib (- n 2)))))
 ```
 
-### Removing Whitespace
+### ホワイトスペースの除去
 
-Removing whitespace can also make groups clearer.
+空白を削除することで、グループをより明確にすることができます。
 
 ``` clj
 ;; lookups
@@ -500,32 +473,32 @@ Removing whitespace can also make groups clearer.
 ;; PREFERRED
 (. foo["bar"])
 
-;; BAD. Doesn't show groups clearly.
+;; BAD. グループをはっきり表示しない。
 (import foo foo [spam :as sp eggs :as eg] bar bar [bacon])
 
-;; OK. Extra spaces show groups.
+;; OK. 余分なスペースはグループを示す。
 (import foo  foo [spam :as sp  eggs :as eg]  bar  bar [bacon])
 
-;; PREFERRED. Removing spaces is even clearer.
+;; PREFERRED. スペースを削除すると、さらに分かりやすくなります。
 (import foo foo[spam :as sp  eggs :as eg] bar bar[bacon])
 
-;; OK. Newlines show groups.
+;; OK. 改行はグループを示す。
 (import foo
         foo [spam :as sp
              eggs :as eg]
         bar
         bar [bacon])
 
-;; PREFERRED, It's more consistent with the preferred one-line version.
+;; PREFERRED, その方が、望ましい一行版との整合性が保たれます。
 (import foo
         foo[spam :as sp
             eggs :as eg]
         bar
         bar[bacon])
 
-;; Avoid whitespace after tags.
+;; タグの後の空白は避けてください。
 
-;; Note which shows groups better.
+;; どちらのグループがより良く表示されるかに注目してください。
 
 ;; BAD
 (foofunction #tag "foo" #tag (foo) #* (get-args))
@@ -537,104 +510,102 @@ Removing whitespace can also make groups clearer.
 (foofunction #tag"foo" #tag(foo) #*(get-args))
 
 ;; PREFERRED
-;; Can't group these by removing whitespace. Use extra spaces instead.
+;; 空白を削除してグループ化することはできません。代わりに余分なスペースを使用してください。
 (foofunction #x foo  #x bar  #* args)
 
 ;; OK
-;; Same idea, but this could have fit on one line.
+;; 同じ考えですが、これは1行で収まったかもしれませんね。
 (foofunction #x foo
              #x bar
              #* args)
 
-;; OK, but you don't need to separate function name from first arg.
+;; OK, しかし、関数名と最初の引数を分離する必要はありません。
 (foofunction  #x foo  #x bar  #* args)
 
-;; OK. But same idea.
-;; No need to separate the first group from the function name.
+;; OK. しかし、同じ考えです。
+;; 最初のグループと関数名を分ける必要はありません。
 (foofunction
   #x foo
   #x bar
   #* args)
 
-;; PREFERRED. It's still clear what this is tagging.
-;; And you don't have to re-indent.
+;; PREFERRED. これが何にタグ付けされているのかはまだ不明です。
+;; しかも、インデントし直す必要はない。
 #_
 (def foo []
   stuff)
 
-;; OK, but more work.
+;; OK, しかし、より多くの仕事があります。
 #_(def foo []
     stuff)
 
-;; BAD, you messed up the indent and broke law #2.
+;; BAD, インデントがうまくいかず、法則2を破ってしまいましたね。
 #_(def foo []
   stuff)
 
-;; BAD, keep the tag grouped with its argument.
+;; BAD, タグを引数でグループ化したままにしておきます。
 #_
 
 (def foo []
   stuff)
 ```
 
-### Close Bracket, Close Line
+### 閉じブラケット、行を閉じる
 
-A *single* closing bracket SHOULD end the line, unless it\'s in the
-middle of an implicit group.
+暗黙のグループの途中でない限り、1つの閉じ括弧で行を終了させるべきです。
 
-> -   If the forms are small and simple you can maybe leave them on one
->     line.
+> -   もしフォームが小さくてシンプルなら、1行に残すこともできます。
 
-A *train* of closing brackets MUST end the line.
+行末には必ず閉じ括弧を付けてください。
 
 ``` clj
-;; One-liners are overrated.
-;; Maybe OK if you're just typing into the REPL.
-;; But even then, maintaining good style can help prevent errors.
+;; ワンライナーは過大評価されている。
+;; REPLに打ち込むだけならOKかもしれない．
+;; しかし、その場合でも、良いスタイルを維持することは、エラーを防ぐのに役立ちます。
 
-;; BAD. One-liner is too hard to read.
+;; BAD. ワンライナーは読みにくすぎる。
 (defn fib [n] (if (<= n 2) n (+ (fib (- n 1)) (fib (- n 2)))))
 
-;; BAD. Getting better, but the first line is still too complex.
+;; BAD. 良くなってきているが、最初の行はまだ複雑すぎる。
 (defn fib [n] (if (<= n 2) n (+ (fib (- n 1))
                                 (fib (- n 2)))))
-;; OK. Barely.
+;; OK. かろうじて。
 (defn fib [n]
-  (if (<= n 2) n (+ (fib (- n 1))  ; This line is pushing it.
+  (if (<= n 2) n (+ (fib (- n 1))  ; このラインは無理してますね。
                     (fib (- n 2)))))
 
 ;; OK
-(defn fib [n]  ; Saw a "]", newline.
-  (if (<= n 2)  ; OK to break here, since there's only one pair.
+(defn fib [n]  ; "]”、改行を見て。
+  (if (<= n 2)  ; OK ワンペアしかないので、ここでブレイクします。
       n
-    (+ (fib (- n 1))  ; Whitespace separation (Emacs else-indent).
+    (+ (fib (- n 1))  ; 空白の区切り（Emacsのelse-indent）。
        (fib (- n 2)))))
 
 ;; OK
-(defn fib [n]  ; Saw a "]", end line. (Margin comments don't count.)
-  (if (<= n 2) n  ; Saw a ")", but it's in a pair starting in this line.
+(defn fib [n]  ; “]"、行末が表示されます。(マージンコメントはカウントされません）。
+  (if (<= n 2) n  ; “)”が表示されたが、この行から始まるペアの中にある。
       (+ (fib (- n 1))  ; Saw a "))" MUST end line.
          (fib (- n 2)))))
 
 ;; OK. Pairs.
-(print (if (< n 0.0) "negative"  ; Single ) inside group. No break.
+(print (if (< n 0.0) "negative"  ; グループ内のシングル）。ブレイクなし。
            (= n 0.0) "zero"
            (> n 0.0) "positive"
-           :else "not a number"))  ; :else is not magic; True works too.
+           :else "not a number"))  ; :elseは魔法ではなく、Trueも効きます。
 
-;; OK. Avoided line breaks at single ) to show pairs.
+;; OK. ペアを表示するため、single )で改行しないようにした。
 (print (if (< n 0.0) "negative"
            (= n 0.0) "zero"
-           (> n 0.0) (do (do-foo)  ; Single ) inside group. No break.
+           (> n 0.0) (do (do-foo)  ; グループ内のシングル）。ブレイクなし。
                          (do-bar)
                          "positive")
-           "not a number"))  ; Implicit else is PREFERRED.
+           "not a number"))  ; 暗黙のelseがあることが望ましい。
 
 ;; BAD
 (print (if (< n 0.0) "negative"
            (= n 0.0) "zero"
            (and (even? n)
-                (> n 0.0)) "even-positive"  ; Bad. "))" must break.
+                (> n 0.0)) "even-positive"  ; Bad. “))" がブレイクする必要があります。
            (> n 0.0) "positive"
            "not a number"))
 
@@ -648,7 +619,7 @@ A *train* of closing brackets MUST end the line.
            (> n 0.0) "positive"
            "not a number"))
 
-;; OK. Blank line separates multiline groups.
+;; OK. 空白行で複数行のグループを区切ります。
 (print (if (< n 0.0) "negative"
 
            (= n 0.0) "zero"
@@ -663,7 +634,7 @@ A *train* of closing brackets MUST end the line.
 
            "not a number"))
 
-;; BAD. Groups are not separated consistently.
+;; BAD. グループ分けが統一されていない。
 (print (if (< n 0.0) "negative"
            (= n 0.0) "zero"
 
@@ -673,11 +644,11 @@ A *train* of closing brackets MUST end the line.
 
            "not a number"))
 
-;; OK. Single )'s and forms are simple enough.
+;; OK. シングル ）とフォームがシンプルでいい。
 (with [f (open "names.txt")]
   (-> (.read f) .strip (.replace "\"" "") (.split ",") sorted)))
 
-;; PREFERRED. Even so, this version is much clearer.
+;; PREFERRED. それでも、このバージョンの方がより鮮明です。
 (with [f (open "names.txt")]
   (-> (.read f)
       .strip
@@ -686,83 +657,66 @@ A *train* of closing brackets MUST end the line.
       sorted)))
 ```
 
-### Comments
+### コメント
 
-Prefer docstrings to comments where applicable\-\--in `fn`, `defclass`,
-at the top of the module, and in any other macros derived from these
-that can take a docstring (e.g. `defmacro/g!`, `defn`).
+docstring はコメントよりも優先されます。モジュールの先頭の `fn`, `defclass` や、そこから派生した docstring を受け取ることのできるマクロ (例えば `defmacro/g!`, `defn` など) で利用できます。
 
-Docstrings contents follow the same conventions as Python.
+Docstringsの内容は、Pythonと同じ規約に従います。
 
-The `(comment)` macro is still subject to the three laws. If you\'re
-tempted to violate them, consider discarding a string instead with `#_`.
+`(comment)`マクロはまだ3つの法則に従います。もし違反したくなったら、代わりに `#_` で文字列を破棄することを検討してください。
 
-Semicolon comments always have one space between the semicolon and the
-start of the comment. Also, try to not comment the obvious.
+セミコロンコメントは、セミコロンとコメントの始まりの間に必ずスペースを1つ入れてください。また、当たり前のことをコメントしないように心がけましょう。
 
-Comments with more than a single word should start with a capital letter
-and use punctuation.
+一語以上のコメントは、大文字で始め、句読点を使用すること。
 
-Separate sentences with a single space.
+文章は半角スペースで区切ってください。
 
 ``` clj
-;; This commentary is not about a particular form.
-;; These can span multiple lines. Limit them to column 72, per PEP 8.
-;; Separate them from the next form or form comment with a blank line.
+;; この解説は、特定のフォームについてのものではありません。
+;; これらは複数の行にまたがることができます。PEP8に従って、72列目までに制限してください。
+;; 次のフォームやフォームのコメントとは空白行で区切る。
 
 ;; PREFERRED.
-(setv ind (dec x))  ; Indexing starts from 0,
-                                ; margin comment continues on new line.
+(setv ind (dec x))  ; インデックスは0から始まります。
+                                ; マージン・コメントは改行されます。
 
 ;; OK
-;; Style-compliant but just states the obvious.
-(setv ind (dec x))  ; Sets index to x-1.
+;; スタイルコンプライアントでありながら、当たり前のことを当たり前に述べるだけ。
+(setv ind (dec x))  ; インデックスをx-1にセットする。
 
 ;; BAD
-(setv ind (dec x));typing words for fun
+(setv ind (dec x));ことばあそび
 
-;; Comment about the whole foofunction call.
-;; These can also span multiple lines.
-(foofunction ;; Form comment about (get-arg1). Not a margin comment!
+;; foofunction関数コールの全体像についてコメントする。
+;; また、これらは複数のラインにまたがることも可能です。
+(foofunction ;; (get-arg1)についてのフォームコメントです。マージンコメントではありません
              (get-arg1)
-             ;; Form comment about arg2. The indent matches.
+             ;; arg2に関するフォームコメント。インデントが一致する。
              arg2)
 ```
 
-Indent form comments at the same level as the form they\'re commenting
-about; they must always start with exactly two semicolons `;;`. Form
-comments appear directly above what they\'re commenting on, never below.
+フォームコメントは、コメントするフォームと同じレベルで字下げします。コメントは常に2つのセミコロン `;;` で始めなければなりません。フォームコメントはコメントする対象の真上に表示され、決して下に表示されることはありません。
 
-General toplevel commentary is not indented; these must always start
-with exactly two semicolons `;;` and be separated from the next form
-with a blank line. For long commentary, consider using a `#_` applied to
-a string for this purpose instead.
+一般的なトップレベルコメントはインデントされません。これらは常に2つのセミコロン `;;` から始まり、次のフォームとは空白行で区切らなければなりません。長いコメントには、代わりに `#_` を文字列に適用して使うことを検討してください。
 
-Margin comments start two spaces from the end of the code; they must
-always start with a single semicolon `;`. Margin comments may be
-continued on the next line.
+マージンコメントはコードの最後から空白2文字分のところから始めます。マージンコメントは常にセミコロン `;` で始めなければなりません。マージンコメントは次の行に続けることができます。
 
-When commenting out entire forms, prefer the `#_` syntax. But if you do
-need line comments, use the more general double-colon form.
+フォーム全体をコメントアウトする場合は、`#_` シンタックスを使用します。しかし、行のコメントが必要な場合は、より一般的なダブルコロンフォームを使用します。
 
-## Coding Style
+## コーディングスタイル
 
-### Pythonic Names
+### Pythonicな名前
 
-Use Python\'s naming conventions where still applicable to Hy.
+Pythonの命名規則がHyに適用可能な場合は、Pythonの命名規則を使用してください。
 
-> -   The first parameter of a method is `self`,
-> -   of a classmethod is `cls`.
+> -   メソッドの最初のパラメータは `self` であり、クラスメソッドの最初のパラメータは `cls` である。
 
-### Threading Macros
+### スレッディングマクロ
 
-PREFER the threading macro or the threading tail macros when
-encountering deeply nested s-expressions. However, be judicious when
-using them. Do use them when clarity and readability improves; do not
-construct convoluted, hard to understand expressions.
+スレッディングマクロやスレッディングテイルマクロは、深いネストしたS式に遭遇したときに優先的に使用されます。しかし、それらを使用するときは慎重になります。わかりやすく、読みやすくするために使用するのであって、複雑で理解しにくい式を作らないようにしましょう。
 
 ``` clj
-;; BAD. Not wrong, but could be much clearer with a threading macro.
+;; BAD. 間違ってはいないが、スレッドマクロを使えばもっとクリアになるはず。
 (setv NAMES
   (with [f (open "names.txt")]
     (sorted (.split (.replace (.strip (.read f))
@@ -770,7 +724,7 @@ construct convoluted, hard to understand expressions.
                               "")
                     ","))))
 
-;; PREFERRED. This compiles exactly the same way as the above.
+;; PREFERRED. これは、上記と全く同じようにコンパイルします。
 (setv NAMES
   (with [f (open "names.txt")]
     (-> (.read f)
@@ -779,13 +733,13 @@ construct convoluted, hard to understand expressions.
         (.split ",")
         sorted)))
 
-;; BAD. Probably. The macro makes it less clear in this case.
+;; BAD. Probably. マクロでは、この場合、あまり明確にはなりません。
 (defn square? [x]
   (->> 2
        (pow (int (sqrt x)))
        (= x)))
 
-;; OK. Much clearer than the previous example above.
+;; OK. 上の前の例よりずっとわかりやすい。
 (defn square? [x]
   (-> x
       sqrt
@@ -793,21 +747,20 @@ construct convoluted, hard to understand expressions.
       (pow 2)
       (= x))
 
-;; PREFERRED. Judicious use.
-;; You don't have to thread everything if it improves clarity.
+;; PREFERRED. 使用上の注意
+;; わかりやすさを向上させるのであれば、すべてをスレッド化する必要はありません。
 (defn square? [x]
   (= x (-> x sqrt int (pow 2))))
 
-;; OK. Still clear enough with no threading macro this time.
+;; OK. 今回はスレッドマクロがないのでまだ十分クリア。
 (defn square? [x]
   (= x (pow (int (sqrt x))  ; saw a "))", break.
             2))  ; aligned with first arg to pow
 ```
 
-### Method Calls
+### メソッド呼び出し
 
-Clojure-style dot notation is PREFERRED over the direct call of the
-object\'s method, though both will continue to be supported.
+Clojureスタイルのドット表記は、オブジェクトのメソッドの直接呼び出しよりも優先されますが、両方とも引き続きサポートされます。
 
 ``` clj
 ;; PREFERRED
@@ -819,11 +772,9 @@ object\'s method, though both will continue to be supported.
   (print (fd.readlines)))
 ```
 
-### Use More Arguments
+### より多くの引数を使用する
 
-PREFER using multiple arguments to multiple forms. But judicious use of
-redundant forms can clarify intent. AVOID the separating blank line for
-toplevel forms in this case.
+複数の形式よりも複数の引数を使用することを優先する。しかし、冗長なフォームを適切に使用することで、意図を明確にすることができます。この場合、トップレベルフォームのための区切り空白行を避ける。
 
 ``` clj
 ;; BAD
@@ -850,20 +801,18 @@ toplevel forms in this case.
 
 ### Imports
 
-As in Python, group imports.
+Pythonのように、グループインポートを行う。
 
-> -   Standard library imports (including Hy\'s) first.
-> -   Then third-party modules,
-> -   and finally internal modules.
+> -   標準ライブラリのインポート(Hyのものを含む)が先。
+> -   次にサードパーティーモジュール、最後に内部モジュールです。
 
-PREFER one import form for each group.
+各グループに1つのインポートフォームを用意することをお勧めします。
 
-PREFER alphabetical order within groups.
+グループ内ではアルファベット順を優先する。
 
-Require macros before any imports and group them the same way.
+インポートの前にマクロを必須とし、グループ分けも同じようにする。
 
-But sometimes imports are conditional or must be ordered a certain way
-for programmatic reasons, which is OK.
+しかし、プログラム上の理由で、インポートが条件付きであったり、特定の順序で並べなければならないことがありますが、これは問題ありません。
 
 ``` clj
 ;; PREFERRED
@@ -877,57 +826,51 @@ for programmatic reasons, which is OK.
 (import mymodule1)
 ```
 
-### Underscores
+### アンダースコア
 
-Prefer hyphens when separating words.
+単語を区切るときは、ハイフンを優先します。
 
 -   PREFERRED `foo-bar`
 -   BAD `foo_bar`
 
-Don\'t use leading hyphens, except for \"operators\" or symbols meant to
-be read as including one, e.g. `-Inf`, `->foo`.
+演算子やハイフンを含むと解釈されるシンボル (例: `-Inf`, `->foo`) を除いて、先頭にハイフンを使用しないでください。
 
-Prefix private names with an underscore, not a dash. to avoid confusion
-with negated literals like `-Inf`, `-42` or `-4/2`.
+プライベート名のプレフィックスには、ダッシュではなくアンダースコアを使用します。これは `-Inf`, `-42`, `-4/2` のような反転したリテラルと混同しないようにするためです。
 
 -   PREFERRED `_x`
 -   BAD `-x`
 
-Write Python\'s magic \"dunder\" names the same as in Python. Like
-`__init__`, not `--init--` or otherwise, to be consistent with the
-private names rule above.
+Pythonの魔法の「dunder」名をPythonと同じように書きます。上記のプライベート名のルールと矛盾しないように、 `--init--` などではなく、 `__init__` のようにします。
 
-Private names should still separate words using dashes instead of
-underscores, to be consistent with non-private parameter names and such
-that need the same name sans prefix, like `foo-bar`, not `foo_bar`.
+プライベート名は、アンダースコアの代わりにダッシュで単語を区切らなければなりません。これは、プライベートでないパラメータ名など、プレフィックスなしで同じ名前を必要とするものと矛盾しないように、`foo_bar`ではなく、`foo-bar`のようにします。
 
 -   PREFERRED `_foo-bar`
 -   BAD `_foo_bar`
 
 ``` clj
 ;; BAD
-;; What are you doing?
-(_= spam 2)  ; Throwing it away?
+;; 何してるんですか？
+(_= spam 2)  ; 捨ててしまう？
 (_ 100 7)  ; i18n?
 
 ;; PREFERRED
-;; Clearly subtraction.
+;; 明らかに引き算。
 (-= spam 2)
 (- 100 7)
 
 ;; BAD
-;; This looks weird.
+;; これは変な感じですね。
 (_>> foo bar baz)
 
 ;; PREFERRED
-;; OH, it's an arrow!
+;; OH、それは矢だ!
 (->> foo bar baz)
 
 ;; Negative x?
-(setv -x 100)  ; BAD. Unless you really meant that?
+(setv -x 100)  ; BAD. 本気でそう思っているのでなければ？
 
 ;; PREFERRED
-;; Oh, it's just a module private.
+;; あ、モジュールのプライベートだけです。
 (setv _x 100)
 
 ;; BAD
@@ -943,24 +886,15 @@ that need the same name sans prefix, like `foo-bar`, not `foo_bar`.
 (class Foo []
   (defn __init__ [self] ...))
 
-;; OK, but would be module private. (No import *)
+;; OK, ただし、モジュールのプライベートとなる。(インポートなし *)
 (def ->dict [#* pairs]
   (dict (partition pairs)))
 ```
 
 ## Thanks
 
--   This guide is heavily inspired from
-    [\@paultag](https://github.com/paultag) \'s blog post [Hy Survival
-    Guide](https://notes.pault.ag/hy-survival-guide/)
--   The [Clojure Style
-    Guide](https://github.com/bbatsov/clojure-style-guide)
--   [Parinfer](https://shaunlebron.github.io/parinfer/) and
-    [Parlinter](https://github.com/shaunlebron/parlinter) (the three
-    laws)
--   The Community Scheme Wiki
-    [scheme-style](http://community.schemewiki.org/?scheme-style)
-    (ending bracket ends the line)
--   [Riastradh\'s Lisp Style
-    Rules](http://mumble.net/~campbell/scheme/style.txt) (Lisp
-    programmers do not \... Azathoth forbid, count brackets)
+-   このガイドは、[\@paultag](https://github.com/paultag) のブログ記事 [Hy Survival Guide](https://notes.pault.ag/hy-survival-guide/) から大いにインスピレーションを受けたものです。
+-   The [Clojure Style Guide](https://github.com/bbatsov/clojure-style-guide)
+-   [Parinfer](https://shaunlebron.github.io/parinfer/) and [Parlinter](https://github.com/shaunlebron/parlinter) (the three laws)
+-   The Community Scheme Wiki [scheme-style](http://community.schemewiki.org/?scheme-style) (ending bracket ends the line)
+-   [Riastradh\'s Lisp Style Rules](http://mumble.net/~campbell/scheme/style.txt) (Lisp programmers do not ... Azathoth forbid, count brackets)
