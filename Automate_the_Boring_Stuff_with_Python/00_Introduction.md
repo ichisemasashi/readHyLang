@@ -323,32 +323,34 @@ Hello, world!
 
 コンピュータに指示を出したら、そのとおりに動いてくれた！。
 
-### **Installing Third-Party Modules** 
+### **サードパーティ製モジュールのインストール** 
 
-Some Python code requires your program to import modules. Some of these modules come with Python, but others are third-party modules created by developers outside of the Python core dev team. [Appendix A](#calibre_link-2) has detailed instructions on how to use the [pip] program (on Windows) or [pip3] program (on macOS and Linux) to install third-party modules. Consult [Appendix A](#calibre_link-2) when this book instructs you to install a particular third-party module.
+Pythonのコードの中には、あなたのプログラムがモジュールをインポートする必要があるものがあります。これらのモジュールの中にはPythonに付属しているものもありますが、Pythonのコア開発チーム以外の開発者によって作成されたサードパーティモジュールもあります。[ Appendix A](#calibre_link-2) には、サードパーティーモジュールをインストールするための [pip] プログラム (Windows) や [pip3] プログラム (macOS と Linux) の使い方の詳細な説明があります。本書で特定のサードパーティーモジュールのインストールを指示されたときは、[Appendix A](#calibre_link-2) を参照してください。
 
-### **How to Find Help** 
+### **ヘルプの探し方** 
 
-Programmers tend to learn by searching the internet for answers to their questions. This is quite different from the way many people are accustomed to learning---through an in-person teacher who lectures and can answer questions. What's great about using the internet as a schoolroom is that there are whole communities of folks who can answer your questions. Indeed, your questions have probably already been answered, and the answers are waiting online for you to find them. If you encounter an error message or have trouble making your code work, you won't be the first person to have your problem, and finding a solution is easier than you might think.
+プログラマーは、自分の疑問に対する答えをインターネットで検索して学ぶ傾向があります。これは、多くの人が慣れ親しんでいる、講義をしたり質問に答えたりする先生を通して学ぶ方法とはかなり異なります。インターネットを教室として使うことの利点は、あなたの質問に答えてくれる人々のコミュニティーがまるごと存在することです。実際、あなたの疑問はすでに解決され、その答えがネット上で見つかるのを待っているのです。エラーメッセージに遭遇したり、コードがうまく動かない場合、その問題を抱えた人はあなただけではありませんし、解決策を見つけるのは案外簡単なのです。
 
-For example, let's cause an error on purpose: enter ['42' + 3] into the interactive shell. You don't need to know what this instruction means right now, but the result should look like this:
+例えば、わざとエラーを引き起こしてみましょう。対話型シェルに `'42' + 3` と入力します。この命令の意味を今すぐ知る必要はありませんが、結果はこのようになるはずです。
 
+```
    >>> ['42' + 3]
 [➊] Traceback (most recent call last):
      File "<pyshell#0>", line 1, in <module>
        '42' + 3
 [➋] TypeError: Can't convert 'int' object to str implicitly
    >>>
+```
 
-The error message [➋] appears because Python couldn't understand your instruction. The traceback part [➊] of the error message shows the specific instruction and line number that Python had trouble with. If you're not sure what to make of a particular error message, search for it online. Enter **"TypeError: Can't convert 'int' object to str implicitly"** (including the quotes) into your favorite search engine, and you should see tons of links explaining what the error message means and what causes it, as shown in [Figure 0-2](#calibre_link-1612).
+エラーメッセージ[➊]は、Pythonがあなたの命令を理解できなかったために表示されます。エラーメッセージのトレースバック部分[➊]は、Pythonが問題を起こした特定の命令と行番号を示しています。もし、特定のエラーメッセージについてよくわからない場合は、オンラインで検索してください。 **"TypeError: Can't convert 'int' object to str implicitly "**（引用符を含む）をお気に入りの検索エンジンに入力すると、［図0-2］（#calibre_link-1612）のようにエラーメッセージの意味や原因を説明するたくさんのリンクが表示されるはずです。
 
 
 ![image](../images/000151.jpg)
 
 
-*Figure 0-2: The Google results for an error message can be very helpful.*
+*図0-2：エラーメッセージのGoogle検索結果は非常に参考になる*。
 
-You'll often find that someone else had the same question as you and that some other helpful person has already answered it. No one person can know everything about programming, so an everyday part of any software developer's job is looking up answers to technical questions.
+あなたと同じ質問をした人がいて、他の親切な人がすでに回答していることがよくわかります。プログラミングのすべてを知っている人はいないので、ソフトウェア開発者の仕事の日常は、技術的な質問に対する答えを探すことなのです。
 
 ### **Asking Smart Programming Questions** 
 
