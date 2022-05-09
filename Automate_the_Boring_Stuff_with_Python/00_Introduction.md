@@ -352,39 +352,39 @@ Pythonのコードの中には、あなたのプログラムがモジュール�
 
 あなたと同じ質問をした人がいて、他の親切な人がすでに回答していることがよくわかります。プログラミングのすべてを知っている人はいないので、ソフトウェア開発者の仕事の日常は、技術的な質問に対する答えを探すことなのです。
 
-### **Asking Smart Programming Questions** 
+### **プログラミングに関する賢い質問** 
 
-If you can't find the answer by searching online, try asking people in a web forum such as Stack Overflow (*[https://stackoverflow.com/](https://stackoverflow.com/)*) or the "learn programming" subreddit at *[https://reddit.com/r/learnprogramming/](https://reddit.com/r/learnprogramming/)*.  But keep in mind there are smart ways to ask programming questions that help others help you. To begin with, be sure to read the FAQ sections at these websites about the proper way to post questions.
+オンラインで検索しても答えが見つからない場合は、Stack Overflow (*[https://stackoverflow.com/](https://stackoverflow.com/)*) や *[https://reddit.com/r/learnprogramming/](https://reddit.com/r/learnprogramming/)* の "learn programming" subreddit などのWebフォーラムで人に尋ねてみてください。 しかし、他の人があなたを助けるために、プログラミングの質問をする賢い方法があることを心に留めておいてください。まず最初に、これらのウェブサイトのFAQセクションを読んで、質問を投稿する適切な方法について確認してください。
 
-When asking programming questions, remember to do the following:
+プログラミングの質問をするときは、次のことを忘れないでください。
 
--   Explain what you are trying to do, not just what you did. This lets your helper know if you are on the wrong track.
+- やったことだけではなく、やろうとしていることを説明する。これによって、あなたが間違った方向に進んでいることをヘルパーに知らせることができます。
 
--   Specify the point at which the error happens. Does it occur at the very start of the program or only after you do a certain action?
+- エラーが発生するポイントを特定してください。プログラムの開始時に発生するのか、それともある動作をした後に発生するのか。
 
--   Copy and paste the *entire* error message and your code to *[https://pastebin.com/](https://pastebin.com/)* or *[https://gist.github.com/](https://gist.github.com/)*.
+- エラーメッセージとあなたのコードをコピーして、 *[https://pastebin.com/](https://pastebin.com/)* または *[https://gist.github.com/](https://gist.github.com/)* に貼り付けてください。
 
-    These websites make it easy to share large amounts of code with people online, without losing any text formatting. You can then put the URL of the posted code in your email or forum post. For example, here some pieces of code I've posted: *[https://pastebin.com/SzP2DbFx/](https://pastebin.com/SzP2DbFx/)* and *[https://gist.github.com/asweigart/6912168/](https://gist.github.com/asweigart/6912168/)*.
+    これらのウェブサイトでは、テキストの書式を失うことなく、大量のコードをオンラインで簡単に共有することができます。そして、投稿されたコードのURLを電子メールやフォーラムの投稿に記載することができます。例えば、私が投稿したコードの一部を以下に紹介します。*[https://pastebin.com/SzP2DbFx/](https://pastebin.com/SzP2DbFx/)* と *[https://gist.github.com/asweigart/6912168/](https://gist.github.com/asweigart/6912168/)* です。
 
--   Explain what you've already tried to do to solve your problem. This tells people you've already put in some work to figure things out on your own.
+- 問題を解決するために、あなたがすでに試したことを説明しましょう。これは、あなたがすでに自分自身で物事を解決するためにいくらかの仕事をしたことを伝えるものです。
 
--   List the version of Python you're using. (There are some key differences between version 2 Python interpreters and version 3 Python interpreters.) Also, say which operating system and version you're running.
+- 使用しているPythonのバージョンを記載します。(バージョン2のPythonインタプリタとバージョン3のPythonインタプリタには、いくつかの重要な違いがあります)。また、どのオペレーティングシステムとバージョンを使っているかも書いてください。
 
--   If the error came up after you made a change to your code, explain exactly what you changed.
+- もし、コードを変更した後にエラーが発生したのであれば、何を変更したのかを正確に説明してください。
 
--   Say whether you're able to reproduce the error every time you run the program or whether it happens only after you perform certain actions. If the latter, then explain what those actions are.
+- プログラムを実行するたびにエラーが再現されるのか、それとも特定の操作をしたときにのみ発生するのか、説明してください。後者の場合、その動作が何であるかを説明してください。
 
-Always follow good online etiquette as well. For example, don't post your questions in all caps or make unreasonable demands of the people trying to help you.
+ネット上でのエチケットも常に守りましょう。例えば、質問を全角で投稿したり、あなたを助けようとしている人に無理な要求をしたりしないことです。
 
-You can find more information on how to ask for programming help in the blog post at *[https://autbor.com/help/](https://autbor.com/help/)*. You can find a list of frequently asked questions about programming at *[https://www.reddit.com/r/learnprogramming/wiki/faq/](https://www.reddit.com/r/learnprogramming/wiki/faq/)* and a similar list about getting a job in software development at *[https://www.reddit.com/r/cscareerquestions/wiki/index/](https://www.reddit.com/r/cscareerquestions/wiki/index/)*.
+プログラミングのヘルプを求める方法については、*[https://autbor.com/help/](https://autbor.com/help/)*のブログ記事で詳しく説明されています。プログラミングに関するよくある質問のリストは *[https://www.reddit.com/r/learnprogramming/wiki/faq/](https://www.reddit.com/r/learnprogramming/wiki/faq/)* で、ソフトウェア開発の仕事を得ることに関する同様のリストは *[https://www.reddit.com/r/cscareerquestions/wiki/index/](https://www.reddit.com/r/cscareerquestions/wiki/index/)* で見つけることができます。
 
-I love helping people discover Python. I write programming tutorials on my blog at *[https://inventwithpython.com/blog/](https://inventwithpython.com/blog/)*, and you can contact me with questions at *[al@inventwithpython.com](mailto:al@inventwithpython.com)*.  Although, you may get a faster response by posting your questions to *[https://reddit.com/r/inventwithpython/](https://reddit.com/r/inventwithpython/)*.
+私は、人々がPythonを発見するのを助けるのが大好きです。私は *[https://inventwithpython.com/blog/](https://inventwithpython.com/blog/)* のブログでプログラミングのチュートリアルを書いていますし、質問があれば *[al@inventwithpython.com](mailto:al@inventwithpython.com)* で私に連絡できます。 しかし、質問を *[https://reddit.com/r/inventwithpython/](https://reddit.com/r/inventwithpython/)* に投稿すれば、より早い回答が得られるかもしれません。
 
-### **Summary** 
+### **まとめ** 
 
-For most people, their computer is just an appliance instead of a tool.  But by learning how to program, you'll gain access to one of the most powerful tools of the modern world, and you'll have fun along the way.  Programming isn't brain surgery---it's fine for amateurs to experiment and make mistakes.
+多くの人にとって、コンピュータは道具ではなく、単なる電化製品に過ぎません。 しかし、プログラミングを学ぶことで、現代社会で最も強力なツールの1つにアクセスできるようになり、その過程で楽しみながら学ぶことができるようになるのです。 プログラミングは脳の手術ではありません。アマチュアが実験し、間違いを犯すのは構いません。
 
-This book assumes you have zero programming knowledge and will teach you quite a bit, but you may have questions beyond its scope. Remember that asking effective questions and knowing how to find answers are invaluable tools on your programming journey.
+この本は、あなたがプログラミングの知識を全く持っていないことを前提に書かれていますが、その範囲を超えた質問があるかもしれません。効果的な質問をすること、そしてその答えを見つける方法を知ることは、プログラミングの旅において非常に貴重なツールになることを忘れないでください。
 
-Let's begin!
+さあ、はじめましょう
 
