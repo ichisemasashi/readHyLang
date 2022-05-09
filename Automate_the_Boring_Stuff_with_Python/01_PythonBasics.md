@@ -7,15 +7,15 @@
 
 プログラミング言語Pythonには、様々な構文、標準ライブラリ関数、対話型開発環境の機能などがあります。幸いなことに、それらのほとんどを無視することができます。あなたは、いくつかの便利な小さなプログラムを書くのに十分な量を学ぶ必要があるだけです。
 
-You will, however, have to learn some basic programming concepts before you can do anything. Like a wizard in training, you might think these concepts seem arcane and tedious, but with some knowledge and practice, you'll be able to command your computer like a magic wand and perform incredible feats.
+しかし、何かをする前にプログラミングの基本的な概念を学ぶ必要があります。修行中の魔法使いのように、これらの概念は難解で退屈に思えるかもしれませんが、いくつかの知識と練習を積めば、魔法の杖のようにコンピュータを操り、信じられないような偉業を成し遂げることができるようになります。
 
-This chapter has a few examples that encourage you to type into the *interactive shell*, also called the *REPL* (Read-Evaluate-Print Loop), which lets you run (or *execute*) Python instructions one at a time and instantly shows you the results. Using the interactive shell is great for learning what basic Python instructions do, so give it a try as you follow along. You'll remember the things you do much better than the things you only read.
+この章では、*REPL* (Read-Evaluate-Print Loop) とも呼ばれる *インタラクティブシェル* に入力するよう促すいくつかの例があります。これは、Python の命令を一度に一つずつ実行 (*execute*) し、結果を即座に表示することができるものです。対話型シェルを使うことは、Pythonの基本的な命令が何をするものなのかを学ぶのに最適な方法です。読むだけよりも、実行した方がずっと記憶に残りますよ。
 
-### **Entering Expressions into the Interactive Shell** 
+### **インタラクティブシェルに式を入力する** 
 
-You can run the interactive shell by launching the Mu editor, which you should have downloaded when going through the setup instructions in the Preface. On Windows, open the Start menu, type "Mu," and open the Mu app. On macOS, open your Applications folder and double-click **Mu**.  Click the **New** button and save an empty file as *blank.py*. When you run this blank file by clicking the **Run** button or pressing `F5`, it will open the interactive shell, which will open as a new pane that opens at the bottom of the Mu editor's window. You should see a `>>>` prompt in the interactive shell.
+対話型シェルを実行するには、「はじめに」のセットアップ手順の際にダウンロードしたはずのMuエディタを起動します。Windowsでは、スタートメニューを開き、"Mu "と入力し、Muアプリケーションを開きます。macOSの場合は、アプリケーションフォルダを開き、**Mu**をダブルクリックします。 **新規作成**ボタンをクリックし、空のファイルを*blank.py*として保存します。この空ファイルを**Run**ボタンをクリックするか、`F5`を押して実行すると、インタラクティブシェルが開かれ、Muエディタのウィンドウの下部に開く新しいペインとして表示されます。インタラクティブシェルでは、`>>` プロンプトが表示されるはずです。
 
-Enter `2 + 2` at the prompt to have Python do some simple math. The Mu window should now look like this:
+プロンプトで `2 + 2` と入力し、Pythonに簡単な計算をさせます。これで、Muのウィンドウは次のようになります。
 
 ```
 >>> 2 + 2
@@ -24,9 +24,9 @@ Enter `2 + 2` at the prompt to have Python do some simple math. The Mu window sh
 ```
 
 
-In Python, `2 + 2` is called an *expression*, which is the most basic kind of programming instruction in the language. Expressions consist of *values* (such as `2`) and *operators* (such as `+`), and they can always *evaluate* (that is, reduce) down to a single value. That means you can use expressions anywhere in Python code that you could also use a value.
+Python では、`2 + 2` は *式* と呼ばれ、この言語で最も基本的なプログラミング命令の一種である。式は値(`2`など)と演算子(`+`など)から構成され、常に1つの値に*評価*(つまり、削減)することができます。つまり、Pythonのコードの中で、値を使うことができる場所ならどこでも式を使うことができるのです。
 
-In the previous example, `2 + 2` is evaluated down to a single value, `4`. A single value with no operators is also considered an expression, though it evaluates only to itself, as shown here:
+先ほどの例では、`2 + 2` は評価されて、`4`という1つの値になります。演算子を含まない単一の値も式とみなされますが、このように自分自身に対してのみ評価されます。
 
 ```
 >>> 2
@@ -35,237 +35,237 @@ In the previous example, `2 + 2` is evaluated down to a single value, `4`. A sin
 
 **ERRORS ARE OKAY!**
 
-Programs will crash if they contain code the computer can't understand, which will cause Python to show an error message. An error message won't break your computer, though, so don't be afraid to make mistakes. A *crash* just means the program stopped running unexpectedly.
+プログラムは、コンピュータが理解できないコードを含んでいるとクラッシュし、Pythonはエラーメッセージを表示するようになります。エラーメッセージはあなたのコンピュータを壊すことはありません。間違いを恐れないでください。*クラッシュ*は、プログラムの実行が予期せず停止したことを意味するだけです。
 
-If you want to know more about an error, you can search for the exact error message text online for more information. You can also check out the resources at *[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)* to see a list of common Python error messages and their meanings.
+エラーについてもっと詳しく知りたい場合は、正確なエラーメッセージのテキストをオンラインで検索して、より詳しい情報を得ることができます。また、*[https://nostarch.com/automatestuff2/](https://nostarch.com/automatestuff2/)*にあるリソースで、よくあるPythonのエラーメッセージとその意味の一覧を確認することができます。
 
 
-You can use plenty of other operators in Python expressions, too. For example, [Table 1-1](#calibre_link-1652) lists all the math operators in Python.
+Pythonの式では、他の演算子もたくさん使うことができます。例えば、[Table 1-1](#calibre_link-1652) はPythonのすべての数学演算子をリストアップしています。
 
-**Table 1-1:** Math Operators from Highest to Lowest Precedence
+**Table 1-1:** 数学演算子の優先順位の高いものから低いものまで
 
-  **Operator**       **Operation**                       **Example**            **Evaluates to . . .**
+  **演算子**       **オペレーション**                       **例**            **に評価される。**
   ------------------ ----------------------------------- ---------------------- ------------------------
-  [**]   Exponent                            [2 ** 3]   [8]
-  [%]      Modulus/remainder                   [22 % 8]     [6]
-  [//]     Integer division/floored quotient   [22 // 8]    [2]
-  [/]      Division                            [22 / 8]     [2.75]
-  [*]     Multiplication                      [3 * 5]     [15]
-  [-]      Subtraction                         [5 - 2]      [3]
-  [+]      Addition                            [2 + 2]      [4]
+  `**`   Exponent                            `2 ** 3`   `8`
+  `%`      Modulus/remainder                   `22 % 8`     `6`
+  `//`     Integer division/floored quotient   `22 // 8`    `2`
+  `/`      Division                            `22 / 8`     `2.75`
+  `*`     Multiplication                      `3 * 5`     `15`
+  `-`      Subtraction                         `5 - 2`      `3`
+  `+`      Addition                            `2 + 2`      `4`
 
-The *order of operations* (also called *precedence*) of Python math operators is similar to that of mathematics. The [**] operator is evaluated first; the [*], [/], [//], and [%] operators are evaluated next, from left to right; and the [+] and [-] operators are evaluated last (also from left to right). You can use parentheses to override the usual precedence if you need to. Whitespace in between the operators and values doesn't matter for Python (except for the indentation at the beginning of the line), but a single space is convention. Enter the following expressions into the interactive shell:
+Pythonの演算子の*操作順序*（*優先順位*とも呼ばれます）は、数学のそれと似ています。演算子 `**` が最初に評価され、 `*`, `/`, `//`, `%` が左から右に評価され、 `+` と `-` が最後に評価されます（これも左から右へ評価されます）。必要であれば、括弧を使用して通常の優先順位を上書きすることができます。演算子と値の間の空白は Python では重要ではありません(行頭のインデントを除く)が、空白を1つ入れることは慣習となっています。次の式を対話型シェルに入力します。
 
 ```
->>> [2 + 3 \* 6]
+>>> 2 + 3 * 6
 20
->>> [(2 + 3) \* 6]
+>>> (2 + 3) * 6
 30
->>> [48565878 \* 578453]
+>>> 48565878 * 578453
 28093077826734
->>> [2 \*\* 8]
+>>> 2 ** 8
 256
->>> [23 / 7]
+>>> 23 / 7
 3.2857142857142856
->>> [23 // 7]
+>>> 23 // 7
 3
->>> [23 % 7]
+>>> 23 % 7
 2
->>> [2      +           2]
+>>> 2      +           2
 4
->>> [(5 - 1) \* ((7 + 1) / (3 - 1))]
+>>> (5 - 1) * ((7 + 1) / (3 - 1))
 16.0
 ```
 
-In each case, you as the programmer must enter the expression, but Python does the hard part of evaluating it down to a single value. Python will keep evaluating parts of the expression until it becomes a single value, as shown here:
+いずれの場合も、プログラマであるあなたは式を入力しなければなりませんが、Pythonはそれを1つの値に評価するという大変な作業を行います。Pythonはここに示すように、1つの値になるまで式の一部を評価しつづけます。
 
 
 ![image](../images/000066.jpg)
 
 
-These rules for putting operators and values together to form expressions are a fundamental part of Python as a programming language, just like the grammar rules that help us communicate. Here's an example:
+演算子や値を組み合わせて式を作るこれらのルールは、コミュニケーションを助ける文法ルールと同じように、プログラミング言語としてのPythonの基本的な部分なのです。以下はその例です。
 
-**This is a grammatically correct English sentence.**
+**これは文法的に正しい英文です。**
 
-**This grammatically is sentence not English correct a.**
+**これは文法的に正しい英語ではない文です。**
 
-The second line is difficult to parse because it doesn't follow the rules of English. Similarly, if you enter a bad Python instruction, Python won't be able to understand it and will display a [SyntaxError] error message, as shown here:
+2行目は英語のルールに従っていないため、解析が困難です。同様に、不正なPython命令を入力すると、Pythonはそれを理解できず、ここに示すように `SyntaxError` エラーメッセージが表示されます。
 
 ```
->>> [5 +]
+>>> 5 +
   File "<stdin>", line 1
     5 +
-      \^
+      ^
 SyntaxError: invalid syntax
->>> [42 + 5 + \* 2]
+>>> 42 + 5 + * 2
   File "<stdin>", line 1
-    42 + 5 + \* 2
-             \^
+    42 + 5 + * 2
+             ^
 SyntaxError: invalid syntax
 ```
 
-You can always test to see whether an instruction works by entering it into the interactive shell. Don't worry about breaking the computer: the worst that could happen is that Python responds with an error message.  Professional software developers get error messages while writing code all the time.
+命令が動作するかどうかは、いつでも対話型シェルに入力することでテストすることができます。コンピュータが壊れる心配はありません。起こりうる最悪の事態は、Pythonがエラーメッセージで応答することです。 プロのソフトウェア開発者は、コードを書いているときに常にエラーメッセージを受け取ります。
 
-### **The Integer, Floating-Point, and String Data Types** 
+### **整数型、浮動小数点型、文字列型** 
 
-Remember that expressions are just values combined with operators, and they always evaluate down to a single value. A *data type* is a category for values, and every value belongs to exactly one data type. The most common data types in Python are listed in [Table 1-2](#calibre_link-1653). The values [-2] and [30], for example, are said to be *integer* values. The integer (or *int*) data type indicates values that are whole numbers.  Numbers with a decimal point, such as [3.14], are called *floating-point numbers* (or *floats*). Note that even though the value [42] is an integer, the value [42.0] would be a floating-point number.
+式は単に値と演算子を組み合わせたものであり、常に1つの値として評価されることを覚えておいてください。*データ型*は値のカテゴリであり、すべての値は正確に1つのデータ型に属しています。Pythonで最も一般的なデータ型は[表1-2](#calibre_link-1653)にリストアップされています。例えば、`-2`と`30`という値は、*integer*値であると言われています。整数（または *int*）データ型は、整数である値を表します。 `3.14` のような小数点を持つ数値は *浮動小数点数* (または *floats*) と呼ばれます。`42` という値は整数ですが、`42.0` という値は浮動小数点数であることに注意してください。
 
-**Table 1-2:** Common Data Types
+**Table 1-2:** 一般的なデータ型
 
-  **Data type**            **Examples**
+  **データ型**            **例**
   ------------------------ ----------------------------------------------------------------------------------------------------------------------------
-  Integers                 [-2], [-1], [0], [1], [2], [3], [4], [5]
-  Floating-point numbers   [-1.25], [-1.0], [-0.5], [0.0], [0.5], [1.0], [1.25]
-  Strings                  ['a'], ['aa'], ['aaa'], ['Hello!'], ['11 cats']
+  Integers                 `-2`, `-1`, `0`, `1`, `2`, `3`, `4`, `5`
+  Floating-point numbers   `-1.25`, `-1.0`, `-0.5`, `0.0`, `0.5`, `1.0`, `1.25`
+  Strings                  `'a'`, `'aa'`, `'aaa'`, `'Hello!'`, `'11 cats'`
 
-Python programs can also have text values called *strings*, or *strs* (pronounced "stirs"). Always surround your string in single quote ([']) characters (as in ['Hello'] or ['Goodbye cruel world!']) so Python knows where the string begins and ends. You can even have a string with no characters in it, [''], called a *blank string* or an *empty string*. Strings are explained in greater detail in [Chapter 4](#calibre_link-152).
+Python プログラムは *string* または *strs* (「スターズ」と発音します) と呼ばれるテキスト値も持つことができます。文字列は常にシングルクォート (`'`) 文字で囲みます (`'Hello'` や `'Goodbye cruel world!'` のように) ので、Python は文字列がどこで始まり、どこで終わるかを知ることができます。文字列の中に何もない `''` という文字列もあり、これは *blank string* または *empty string* と呼ばれます。文字列については [第4章](#calibre_link-152) でより詳しく説明されています。
 
-If you ever see the error message [SyntaxError: EOL while scanning string literal], you probably forgot the final single quote character at the end of the string, such as in this example:
+もしあなたが、`SyntaxError: EOL while scanning string literal` というエラーメッセージを見た場合、おそらく次の例のように、文字列の最後にシングルクォート文字を忘れているのでしょう。
 
 ```
->>> ['Hello, world!]
+>>> 'Hello, world!
 SyntaxError: EOL while scanning string literal
 ```
 
 
-### **String Concatenation and Replication** 
+### **文字列の連結と複製** 
 
-The meaning of an operator may change based on the data types of the values next to it. For example, [+] is the addition operator when it operates on two integers or floating-point values. However, when [+] is used on two string values, it joins the strings as the *string concatenation* operator. Enter the following into the interactive shell:
+演算子の意味は、演算子の隣にある値のデータ型によって変わることがあります。たとえば、`+` は、2つの整数または浮動小数点数に対して操作する場合は加算演算子です。しかし、`+` が2つの文字列の値に対して使われるときは、*文字列連結* 演算子として文字列を連結することになります。対話型シェルに次のように入力します．
 
 ```
->>> ['Alice' + 'Bob']
+>>> 'Alice' + 'Bob'
 'AliceBob'
 ```
 
-The expression evaluates down to a single, new string value that combines the text of the two strings. However, if you try to use the [+] operator on a string and an integer value, Python will not know how to handle this, and it will display an error message.
+この式は、2つの文字列のテキストを結合した1つの新しい文字列の値として評価されます。しかし、文字列と整数値に対して `+` 演算子を使おうとすると、Python はこれをどのように扱えばよいのかわからず、エラーメッセージを表示します。
 
 ```
->>> ['Alice' + 42]
+>>> 'Alice' + 42
 Traceback (most recent call last):
   File "<pyshell#0>", line 1, in <module>
     'Alice' + 42
 TypeError: can only concatenate str (not "int") to str
 ```
 
-The error message [can only concatenate str (not "int") to str] means that Python thought you were trying to concatenate an integer to the string ['Alice']. Your code will have to explicitly convert the integer to a string because Python cannot do this automatically. (Converting data types will be explained in "[Dissecting Your Program](#calibre_link-97)" on [page 13](#calibre_link-762) when we talk about the [str()], [int()], and [float()] functions.)
+エラーメッセージ `can only concatenate str (not "int") to str` は、Python が `'Alice'` という文字列に整数を連結しようとしたと考えたことを意味します。Pythonはこれを自動的に行うことはできないので、あなたのコードは明示的に整数を文字列に変換しなければなりません。(データ型の変換については、"[Dissecting Your Program](#calibre_link-97)" [Page 13](#calibre_link-762) で `str()`, `int()`, `float()` 関数について説明しています)。
 
-The [*] operator multiplies two integer or floating-point values. But when the [*] operator is used on one string value and one integer value, it becomes the *string replication* operator.  Enter a string multiplied by a number into the interactive shell to see this in action.
+演算子 `*` は、2 つの整数値または浮動小数点値を掛け合わせます。しかし、`*` 演算子が1つの文字列値と1つの整数値に対して使われる場合、それは *文字列複製* 演算子となります。 対話型シェルに文字列と数値を掛け合わせたものを入力すると、この動作を見ることができます。
 
 ```
->>> ['Alice' \* 5]
+>>> 'Alice' * 5
 'AliceAliceAliceAliceAlice'
 ```
 
-The expression evaluates down to a single string value that repeats the original string a number of times equal to the integer value. String replication is a useful trick, but it's not used as often as string concatenation.
+この式は、元の文字列を整数値と同じ回数だけ繰り返した1つの文字列値として評価されます。文字列の複製は便利なトリックですが、文字列の連結ほど頻繁に使用されるものではありません。
 
-The [*] operator can be used with only two numeric values (for multiplication), or one string value and one integer value (for string replication). Otherwise, Python will just display an error message, like the following:
+演算子 `*` は、2つの数値（乗算の場合）、または1つの文字列値と1つの整数値（文字列の複製の場合）に対してのみ使用することができます。そうでない場合、Pythonは以下のようなエラーメッセージを表示するだけです。
 
 ```
->>> ['Alice' \* 'Bob']
+>>> 'Alice' * 'Bob'
 Traceback (most recent call last):
   File "<pyshell#32>", line 1, in <module>
-    'Alice' \* 'Bob'
+    'Alice' * 'Bob'
 TypeError: can't multiply sequence by non-int of type 'str'
->>> ['Alice' \* 5.0]
+>>> 'Alice' * 5.0
 Traceback (most recent call last):
   File "<pyshell#33>", line 1, in <module>
-    'Alice' \* 5.0
+    'Alice' * 5.0
 TypeError: can't multiply sequence by non-int of type 'float'
 ```
 
-It makes sense that Python wouldn't understand these expressions: you can't multiply two words, and it's hard to replicate an arbitrary string a fractional number of times.
+Pythonがこのような式を理解できないのは当然です。2つの単語を掛け合わせることはできませんし、任意の文字列を何度も複製することは困難です。
 
-### **Storing Values in Variables** 
+### **変数に値を格納する** 
 
-A *variable* is like a box in the computer's memory where you can store a single value. If you want to use the result of an evaluated expression later in your program, you can save it inside a variable.
+*変数*とは、コンピュータのメモリ内にある箱のようなもので、そこに一つの値を保存することができます。評価された式の結果をプログラムの後半で使用したい場合、変数内に保存することができます。
 
-#### ***Assignment Statements*** 
+#### ***割り当て文*** 
 
-You'll store values in variables with an *assignment statement*. An assignment statement consists of a variable name, an equal sign (called the *assignment operator*), and the value to be stored. If you enter the assignment statement [spam = 42], then a variable named [spam] will have the integer value [42] stored in it.
+変数に値を格納するには、*代入文*を使用します。代入文は、変数名、等号（*代入演算子*と呼ばれる）、格納する値から構成されます。もし、`spam = 42` という代入文を入力すると、`spam` という変数に `42` という整数の値が格納されます。
 
-Think of a variable as a labeled box that a value is placed in, as in [Figure 1-1](#calibre_link-1654).
+[図1-1](#calibre_link-1654)のように、変数は値を入れるラベルの付いた箱だと考えてください。
 
 
 ![image](../images/000026.jpg)
 
 
-*Figure 1-1: [spam = 42] is like telling the program, "The variable [spam] now has the integer value [42] in it."*
+*図1-1: `spam = 42` は、プログラムに "変数 `spam` には今整数値 `42` が入っていますよ" と言っているようなものです。*
 
-For example, enter the following into the interactive shell:
+例えば、対話型シェルに次のように入力します。
 
 ```
-[➊] >>> [spam = 40]
-   >>> [spam]
+[➊] >>> spam = 40
+   >>> spam
    40
-   >>> [eggs = 2]
-[➋] >>> [spam + eggs]
+   >>> eggs = 2
+[➋] >>> spam + eggs
    42
-   >>> [spam + eggs + spam]
+   >>> spam + eggs + spam
    82
-[➌] >>> [spam = spam + 2]
-   >>> [spam]
+[➌] >>> spam = spam + 2
+   >>> spam
    42
 ```
 
-A variable is *initialized* (or created) the first time a value is stored in it [➊]. After that, you can use it in expressions with other variables and values [➋]. When a variable is assigned a new value [➌], the old value is forgotten, which is why [spam] evaluated to [42] instead of [40] at the end of the example. This is called *overwriting* the variable. Enter the following code into the interactive shell to try overwriting a string:
+変数は、`➊`にて最初に値が格納されたときに*初期化*されます。その後、他の変数や値と一緒に式の中で使うことができるようになります`➋`。変数に新しい値が代入されると`➌`、古い値は忘れられます。このため、例の最後では `spam` の評価値が `40` ではなく `42` になっていました。これを変数の *上書き* と呼びます。対話型シェルに次のコードを入力して、文字列の上書きを試してみてください。
 
 ```
->>> [spam = 'Hello']
->>> [spam]
+>>> spam = 'Hello'
+>>> spam
 'Hello'
->>> [spam = 'Goodbye']
->>> [spam]
+>>> spam = 'Goodbye'
+>>> spam
 'Goodbye'
 ```
 
-Just like the box in [Figure 1-2](#calibre_link-1655), the [spam] variable in this example stores ['Hello'] until you replace the string with ['Goodbye'].
+[図 1-2](#calibre_link-1655) のボックスと同じように、この例では `spam` 変数に `'Hello'` という文字列を、 `'Goodbye'` に置き換えるまで格納しています。
 
 
 ![image](../images/000097.jpg)
 
 
-*Figure 1-2: When a new value is assigned to a variable, the old one is forgotten.*
+*図1-2: 変数に新しい値が代入されると、古い値は忘れ去られる。*
 
-#### ***Variable Names*** 
+#### ***変数名*** 
 
-A good variable name describes the data it contains. Imagine that you moved to a new house and labeled all of your moving boxes as *Stuff*.  You'd never find anything! Most of this book's examples (and Python's documentation) use generic variable names like [spam], [eggs], and [bacon], which come from the Monty Python "Spam" sketch. But in your programs, a descriptive name will help make your code more readable.
+良い変数名は、それが含むデータを説明するものです。新しい家に引っ越したとき、引っ越し用の箱をすべて*Stuff*とラベル付けしたと想像してください。 何も見つからないでしょう! この本のほとんどの例（そしてPythonのドキュメント）では、 `spam`, `eggs`, `bacon` のような一般的な変数名を使用していますが、これはMonty Pythonの "Spam" スケッチから由来しています。しかし、あなたのプログラムでは、説明的な名前を付けることで、コードをより読みやすくすることができます。
 
-Though you can name your variables almost anything, Python does have some naming restrictions. [Table 1-3](#calibre_link-1656) has examples of legal variable names. You can name a variable anything as long as it obeys the following three rules:
+変数の名前はほとんど何でもいいのですが、Pythonには命名上の制限があります。[表1-3](#calibre_link-1656)は、合法的な変数名の例を持っています。次の3つの規則に従う限り、変数にどんな名前を付けてもかまいません。
 
--   It can be only one word with no spaces.
--   It can use only letters, numbers, and the underscore ([\_]) character.
--   It can't begin with a number.
+- スペースなしの1単語のみ使用可能です。
+- 使用できる文字はアルファベット、数字、アンダースコア(`_`)のみです。
+- 数字で始めることはできません。
 
-**Table 1-3:** Valid and Invalid Variable Names
+**表1-3:** 有効な変数名と無効な変数名
 
-  **Valid variable names**      **Invalid variable names**
+  **有効な変数名**      **無効な変数名**
   ----------------------------- ----------------------------------------------------------------------------------
-  [current_balance]   [current-balance] (hyphens are not allowed)
-  [currentBalance]    [current balance] (spaces are not allowed)
-  [account4]          [4account] (can't begin with a number)
-  [\_42]              [42] (can't begin with a number)
-  [TOTAL_SUM]         [TOTAL\_\$UM] (special characters like [\$] are not allowed)
-  [hello]             ['hello'] (special characters like ['] are not allowed)
+  `current_balance`   `current-balance` (ハイフンは使用できません)
+  `currentBalance`    `current balance` (スペースは使用できません)
+  `account4`          `4account` (数字始まりは不可)
+   `_42`              `42` (数字始まりは不可)
+  `TOTAL_SUM`         `TOTAL_$UM` (`$`のような特殊文字は使用できません。)
+  `hello`             `'hello'` (`'` などの特殊文字は使用できません。)
 
-Variable names are case-sensitive, meaning that [spam], [SPAM], [Spam], and [sPaM] are four different variables. Though [Spam] is a valid variable you can use in a program, it is a Python convention to start your variables with a lowercase letter.
+変数名は大文字と小文字を区別します。つまり、 `spam`、`SPAM`、`Spam`、`sPaM` は4つの異なる変数ということになります。`spam` はプログラムの中で使える有効な変数ですが、変数を小文字で始めるのが Python の慣例です。
 
-This book uses *camelcase* for variable names instead of underscores; that is, variables [lookLikeThis] instead of [looking_like_this]. Some experienced programmers may point out that the official Python code style, PEP 8, says that underscores should be used. I unapologetically prefer camelcase and point to the "A Foolish Consistency Is the Hobgoblin of Little Minds" section in PEP 8 itself:
+この本では、アンダースコアの代わりに*キャメルケース*を変数名に使っています。つまり、変数 `look_like_this` の代わりに `lookLikeThis` を使っています。経験豊富なプログラマの中には、Pythonの公式コードスタイルであるPEP 8ではアンダースコアを使うべきだと指摘している人もいるかもしれません。私は堂々とキャメルケースを好みますし、PEP 8 自体の "A Foolish Consistency Is the Hobgoblin of Little Minds" というセクションを指摘しています。
 
-Consistency with the style guide is important. But most importantly: know when to be inconsistent---sometimes the style guide just doesn't apply. When in doubt, use your best judgment.
+スタイルガイドとの整合性は重要です。しかし、最も重要なことは、一貫性がないことを自覚することです---時には、スタイルガイドが適用されないこともあります。疑問があるときは、最善の判断を下すことです。
 
-### **Your First Program** 
+### **初めてのプログラム** 
 
-While the interactive shell is good for running Python instructions one at a time, to write entire Python programs, you'll type the instructions into the file editor. The *file editor* is similar to text editors such as Notepad or TextMate, but it has some features specifically for entering source code. To open a new file in Mu, click the **New** button on the top row.
+対話型シェルはPythonの命令を1つずつ実行するのに適していますが、Pythonのプログラム全体を書くには、ファイルエディタに命令を入力することになります。*ファイルエディタ*は、メモ帳やTextMateのようなテキストエディタに似ていますが、ソースコードを入力するための特別な機能を備えています。Muで新しいファイルを開くには、一番上の行にある**New**ボタンをクリックします。
 
-The window that appears should contain a cursor awaiting your input, but it's different from the interactive shell, which runs Python instructions as soon as you press [ENTER]. The file editor lets you type in many instructions, save the file, and run the program. Here's how you can tell the difference between the two:
+表示されたウィンドウには、入力を待つカーソルが表示されているはずですが、`ENTER`を押すとすぐにPythonの命令が実行されるインタラクティブシェルとは異なります。ファイルエディタでは、多くの命令を入力し、ファイルを保存し、プログラムを実行することができます。ここでは、この2つの違いを見分ける方法を説明します。
 
--   The interactive shell window will always be the one with the [>>>] prompt.
--   The file editor window will not have the [>>>] prompt.
+- 対話型シェルウィンドウは常に `>>>` プロンプトが表示されます。
+- ファイルエディタウィンドウには `>>>` プロンプトは表示されません。
 
-Now it's time to create your first program! When the file editor window opens, enter the following into it:
+さて、いよいよ最初のプログラムを作ってみましょう! ファイルエディタウィンドウが開いたら、次のように入力します。
 
 ```
-[➊] \# This program says hello and asks for my name.
+[➊] # This program says hello and asks for my name.
 
 [➋] print('Hello, world!')
    print('What is your name?')    # ask for their name
@@ -278,20 +278,13 @@ Now it's time to create your first program! When the file editor window opens, e
    print('You will be ' + str(int(myAge) + 1) + ' in a year.')
 ```
 
-Once you've entered your source code, save it so that you won't have to retype it each time you start Mu. Click the **Save** button, enter *hello.py* in the File Name field, and then click **Save**.
+ソースコードを入力したら、Muを起動するたびに入力し直さなくてもいいように保存しておきます。**Save**ボタンをクリックし、File Nameフィールドに*hello.py*を入力し、**Save**をクリックします。
 
-You should save your programs every once in a while as you type them.
-That way, if the computer crashes or you accidentally exit Mu, you won't
-lose the code. As a shortcut, you can press [CTRL]-S on Windows
-and Linux or ![image](../images/000064.jpg)-S on macOS to
-save your file.
+プログラムは、たまに入力しながら保存しておくとよいでしょう。 そうすれば、コンピュータがクラッシュしたり、誤ってMuを終了してしまっても、コードを失うことはないでしょう。ショートカットとして、WindowsとLinuxでは `CTRL`-S を、macOSでは ![image](../images/000064.jpg)-S を押してファイルを保存することができます。
 
-Once you've saved, let's run our program. Press the **F5** key. Your
-program should run in the interactive shell window. Remember, you have
-to press **F5** from the file editor window, not the interactive shell
-window. Enter your name when your program asks for it. The program's
-output in the interactive shell should look something like this:
+保存したら、プログラムを実行してみましょう。**F5**キーを押してください。対話型シェルウィンドウでプログラムが実行されるはずです。対話型シェルウィンドウではなく、ファイルエディタウィンドウから**F5**キーを押す必要があることを忘れないでください。プログラムが名前を聞いてきたら、あなたの名前を入力してください。対話型シェルでのプログラムの出力は、次のようになります。
 
+```
 Python 3.7.0b4 (v3.7.0b4:eb96c37699, May  2 2018, 19:02:22) [MSC v.1913
 64 bit
 (AMD64)] on win32
@@ -309,315 +302,231 @@ What is your age?
 [4]
 You will be 5 in a year.
 >>>
+```
 
-[]{#calibre_link-762 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}When there are no more lines of code to execute,
-the Python program *terminates*; that is, it stops running. (You can
-also say that the Python program *exits*.)
+実行するコード行がなくなると、Pythonプログラムは*終了*、つまり実行を停止します。(Pythonプログラムが終了するとも言えます）。
 
-You can close the file editor by clicking the X at the top of the
-window. To reload a saved program, select **File**▸**Open\...** from the
-menu. Do that now, and in the window that appears, choose ***hello.py***
-and click the **Open** button. Your previously saved *hello.py* program
-should open in the file editor window.
+ファイルエディタを閉じるには、ウィンドウの上部にあるXをクリックします。保存したプログラムを再読み込みするには、メニューから **File**▸**Open...** を選択します。表示されたウィンドウで ***hello.py*** を選択し、**Open** ボタンをクリックします。以前保存した *hello.py* プログラムがファイルエディター・ウィンドウに開くはずです。
 
-You can view the execution of a program using the Python Tutor
-visualization tool at
-*[http://pythontutor.com/](http://pythontutor.com/)*. You can
-see the execution of this particular program at
-*[https://autbor.com/hellopy/](https://autbor.com/hellopy/)*.
-Click the forward button to move through each step of the program's
-execution. You'll be able to see how the variables' values and the
-output change.
+Python Tutorの可視化ツールを使って、プログラムの実行を*[http://pythontutor.com/](http://pythontutor.com/)*で見ることができます。このプログラムの実行の様子は *[https://autbor.com/hellopy/](https://autbor.com/hellopy/)* で見ることができます。 プログラムの実行の各ステップを移動するには、forwardボタンをクリックします。変数の値や出力がどのように変化するかを見ることができます。
 
-### **Dissecting Your Program** 
+### **プログラムを分解する** 
 
-With your new program open in the file editor, let's take a quick tour
-of the Python instructions it uses by looking at what each line of code
-does.
+ファイルエディタで新しいプログラムを開き、そのプログラムが使用しているPythonの命令について、それぞれの行が何を行っているかを簡単に見てみましょう。
 
-#### ***Comments*** 
+#### ***コメント*** 
 
-The following line is called a *comment*.
+次の行は*コメント*と呼ばれます。
 
-[➊] \# This program says hello and asks for my name.
+```
+[➊] # This program says hello and asks for my name.
+```
 
-Python ignores comments, and you can use them to write notes or remind
-yourself what the code is trying to do. Any text for the rest of the
-line following a hash mark ([\#]) is part of a comment.
+Python はコメントを無視するので、メモを書いたり、コードが何をしようとしているのか思い出すのに使うことができます。ハッシュマーク(`#`)に続く残りの行のテキストはすべてコメントの一部です。
 
-Sometimes, programmers will put a [\#] in front of a line of
-code to temporarily remove it while testing a program. This is called
-*commenting out* code, and it can be useful when you're trying to figure
-out why a program isn't working. You can remove the [\#] later
-when you are ready to put the line back in.
+時々、プログラマーはプログラムのテスト中に、一時的にコードを削除するために `#` を行の前に置くことがあります。これは *コメントアウト* と呼ばれ、プログラムがなぜ動作しないかを調べるときに便利です。後で行を戻す準備ができたら `#` を削除すればよいのです。
 
-Python also ignores the blank line after the comment. You can add as
-many blank lines to your program as you want. This can make your code
-easier to read, like paragraphs in a book.
+Python はコメントの後の空白行も無視します。プログラムには好きなだけ空白行を追加することができます。こうすることで、本の段落のように、コードを読みやすくすることができます。
 
-#### ***The print() Function*** 
+#### ***print()関数*** 
 
-The [print()] function displays the string value inside its
-parentheses on the screen.
+`print()` 関数は、括弧の中にある文字列の値を画面に表示します。
 
+```
 [➋] print('Hello, world!')
-   print('What is your name?') \# ask for their name
+   print('What is your name?') # ask for their name
+```
 
-The line [print('Hello, world!')] means "Print out the text
-in the string ['Hello, world!']." When Python executes this
-line, you say that Python is *calling* the [print()] function
-and the string value is being *passed* to the function. A value that is
-passed to a function call is an *argument*. Notice that
-[]{#calibre_link-764 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}the quotes are not printed to the screen. They just
-mark where the string begins and ends; they are not part of the string
-value.
+`print('Hello, world!')` という行は、"文字列 `'Hello, world!'` のテキストをプリントアウトする" という意味です。Pythonがこの行を実行するとき、Pythonは `print()` 関数を *calling* しており、文字列の値が関数に *passed* されていると言うことになります。関数呼び出しに渡される値は *引数* です。引用符は画面に表示されないことに注意してください。引用符は文字列の始まりと終わりを示すだけで、文字列の値の一部ではありません。
 
 
 **[NOTE]**
 
-*You can also use this function to put a blank line on the screen; just
-call [print()] with nothing in between the parentheses.*
+*この関数は、画面に空白行を表示するのにも使うことができます。*
 
 
-When you write a function name, the opening and closing parentheses at
-the end identify it as the name of a function. This is why in this book,
-you'll see [print()] rather than [print]. [Chapter
-3](#calibre_link-132) describes functions in more detail.
+関数名を書くときは、最後の開閉括弧で関数名であることを識別します。このため、この本では `print` ではなく `print()` と表記しています。[第3章](#calibre_link-132)では、関数についてより詳しく説明しています。
 
-#### ***The input() Function*** 
+#### ***input()関数*** 
 
-The [input()] function waits for the user to type some text on
-the keyboard and press [ENTER].
+`input()` 関数は、ユーザーがキーボードにテキストを入力して `ENTER` を押すのを待ちます。
 
+```
 [➌] myName = input()
+```
 
-This function call evaluates to a string equal to the user's text, and
-the line of code assigns the [myName] variable to this string
-value.
+この関数呼び出しは、ユーザーのテキストと同じ文字列として評価され、このコードの行は `myName` 変数にこの文字列値を代入しています。
 
-You can think of the [input()] function call as an expression
-that evaluates to whatever string the user typed in. If the user entered
-['Al'], then the expression would evaluate to [myName =
-'Al'].
+`input()` 関数の呼び出しは、ユーザーが入力した文字列に対して評価される式と考えることができます。もし、ユーザーが `'Al'` と入力した場合、この式は `myName = 'Al'` と評価されます。
 
-If you call [input()] and see an error message, like
-[NameError: name 'Al' is not defined], the problem is that
-you're running the code with Python 2 instead of Python 3.
+もしあなたが `input()` を呼び出したときに `NameError: name 'Al' is not defined` のようなエラーメッセージが表示されたら、それは Python 3 ではなく Python 2 でコードを実行していることが問題なのです。
 
-#### ***Printing the User's Name*** 
+#### ***ユーザー名の印字*** 
 
-The following call to [print()] actually contains the
-expression ['It is good to meet you, ' + myName] between the
-parentheses.
+次の `print()` の呼び出しは、実際には括弧の間に `'It is good to meet you, ' + myName` という式を含んでいます。
 
+```
 [➍] print('It is good to meet you, ' + myName)
+```
 
-Remember that expressions can always evaluate to a single value. If
-['Al'] is the value stored in [myName] on line
-[➌], then this expression evaluates to ['It is good to meet you,
-Al']. This single string value is then passed to
-[print()], which prints it on the screen.
+式は常に1つの値に対して評価されることを覚えておいてください。もし `'Al'` がライン [➌] の `myName` に格納されている値であれば、この式は `'It is good to meet you, Al'` と評価されます。この単一の文字列の値は `print()` に渡され、スクリーンに表示されます。
 
-#### ***The len() Function*** 
+#### ***len()関数*** 
 
-You can pass the [len()] function a string value (or a
-variable containing a string), and the function evaluates to the integer
-value of the number of characters in that string.
+関数 `len()` に文字列の値（または文字列を含む変数）を渡すと、その文字列の文字数を表す整数値として評価されます。
 
+```
 [➎] print('The length of your name is:')
    print(len(myName))
+```
 
-[]{#calibre_link-973 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Enter the following into the interactive shell to
-try this:
+対話型シェルに以下を入力して試してみてください。
 
->>> [len('hello')]
+```
+>>> len('hello')
 5
->>> [len('My very energetic monster just scarfed
-nachos.')]
+>>> len('My very energetic monster just scarfed nachos.')
 46
->>> [len('')]
+>>> len('')
 0
+```
 
-Just like those examples, [len(myName)] evaluates to an
-integer. It is then passed to [print()] to be displayed on the
-screen. The [print()] function allows you to pass it either
-integer values or string values, but notice the error that shows up when
-you type the following into the interactive shell:
+これらの例と同じように、 `len(myName)` は整数として評価されます。そして、それを `print()` に渡して画面に表示させます。`print()` 関数には、整数値でも文字列でも渡すことができますが、対話型シェルに次のように入力すると、エラーが表示されることに注意してください。
 
- >>> [print('I am ' + 29 + ' years old.')]
+```
+ >>> print('I am ' + 29 + ' years old.')
 Traceback (most recent call last):
   File "<pyshell#6>", line 1, in <module>
     print('I am ' + 29 + ' years old.')
 TypeError: can only concatenate str (not "int") to str
+```
 
-The [print()] function isn't causing that error, but rather
-it's the expression you tried to pass to [print()]. You get
-the same error message if you type the expression into the interactive
-shell on its own.
+`print()` 関数がこのエラーを引き起こしているのではなく、 `print()` に渡そうとした式が原因なのです。この式を単独で対話型シェルに入力しても、同じエラーメッセージが表示されます。
 
->>> ['I am ' + 29 + ' years old.']
+```
+>>> 'I am ' + 29 + ' years old.'
 Traceback (most recent call last):
   File "<pyshell#7>", line 1, in <module>
     'I am ' + 29 + ' years old.'
 TypeError: can only concatenate str (not "int") to str
+```
 
-Python gives an error because the [+] operator can only be
-used to add two integers together or concatenate two strings. You can't
-add an integer to a string, because this is ungrammatical in Python. You
-can fix this by using a string version of the integer instead, as
-explained in the next section.
+Pythonはエラーを出します。なぜなら `+` 演算子は2つの整数を足すか、2つの文字列を連結するためにしか使えないからです。Pythonでは非文法的なので、整数を文字列に加えることはできません。次のセクションで説明するように、整数の文字列バージョンを使用することでこれを解決することができます。
 
-#### ***The str(), int(), and float() Functions*** 
+#### ***str()、int()、float() 関数*** 
 
-If you want to concatenate an integer such as [29] with a
-string to pass to [print()], you'll need to get the value
-['29'], which is the string form of [29]. The
-[str()] function can be passed an integer value and will
-evaluate to a string value version of the integer, as follows:
+もし `29` のような整数を文字列に連結して `print()` に渡したい場合は、 `29` の文字列形式である `'29'` という値を取得する必要があります。`str()` 関数には整数の値を渡すことができ、以下のように整数の文字列バージョンとして評価されます。
 
->>> [str(29)]
+```
+>>> str(29)
 '29'
->>> [print('I am ' + str(29) + ' years old.')]
+>>> print('I am ' + str(29) + ' years old.')
 I am 29 years old.
+```
 
-[]{#calibre_link-1707 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Because [str(29)] evaluates to
-['29'], the expression ['I am ' + str(29) + ' years
-old.'] evaluates to ['I am ' + '29' + ' years
-old.'], which in turn evaluates to ['I am 29 years
-old.']. This is the value that is passed to the
-[print()] function.
+`str(29)` は `'29'` と評価されるので、 `'I am ' + str(29) + ' years old.'` という式は `'I am ' + '29' + ' years old.'` と評価され、その結果 `'I am 29 years old.'` と評価されることになる。これは `print()` 関数に渡される値です。
 
-The [str()], [int()], and [float()]
-functions will evaluate to the string, integer, and floating-point forms
-of the value you pass, respectively. Try converting some values in the
-interactive shell with these functions and watch what happens.
+`str()`、`int()`、`float()` の各関数は、渡した値をそれぞれ文字列、整数、浮動小数点の形で評価します。対話型シェルでこれらの関数を使っていくつかの値を変換し、何が起こるか見てみましょう。
 
->>> [str(0)]
+```
+>>> str(0)
 '0'
->>> [str(-3.14)]
+>>> str(-3.14)
 '-3.14'
->>> [int('42')]
+>>> int('42')
 42
->>> [int('-99')]
+>>> int('-99')
 -99
->>> [int(1.25)]
+>>> int(1.25)
 1
->>> [int(1.99)]
+>>> int(1.99)
 1
->>> [float('3.14')]
+>>> float('3.14')
 3.14
->>> [float(10)]
+>>> float(10)
 10.0
+```
 
-The previous examples call the [str()], [int()], and
-[float()] functions and pass them values of the other data
-types to obtain a string, integer, or floating-point form of those
-values.
+これまでの例では、 `str()`, `int()`, `float()` 関数を呼び出して、他のデータ型の値を渡して、それらの値の文字列、整数、浮動小数点数の形式を取得することができました。
 
-The [str()] function is handy when you have an integer or
-float that you want to concatenate to a string. The [int()]
-function is also helpful if you have a number as a string value that you
-want to use in some mathematics. For example, the [input()]
-function always returns a string, even if the user enters a number.
-Enter [spam = input()] into the interactive shell and enter
-[101] when it waits for your text.
+`str()`関数は、整数や浮動小数点数を文字列に連結したいときに便利です。また、 `int()` 関数は、数値を文字列の値として持っていて、それを数学で使いたい場合にも役に立ちます。例えば、`input()`関数は、ユーザが数値を入力しても常に文字列を返します。 対話型シェルに `spam = input()` と入力し、文字列を待つ間に `101` と入力してみてください。
 
->>> [spam = input()]
-[101]
->>> [spam]
-'101'
-
-The value stored inside [spam] isn't the integer
-[101] but the string ['101']. If you want to do
-math using the value in [spam], use the [int()]
-function to get the integer form of [spam] and then store this
-as the new value in [spam].
-
->>> [spam = int(spam)]
->>> [spam]
+```
+>>> spam = input()
 101
+>>> spam
+'101'
+```
 
-Now you should be able to treat the [spam] variable as an
-integer instead of a string.
+`spam` の中に格納されている値は、整数の `101` ではなく、文字列の `'101'` です。もし、 `spam` の値を使って計算を行いたい場合は、 `int()` 関数を使って `spam` の整数型を取得し、これを `spam` に新しい値として格納します。
 
-[]{#calibre_link-974 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}>>> [spam \* 10 / 5]
+```
+>>> spam = int(spam)
+>>> spam
+101
+```
+
+これで、変数 `spam` を文字列ではなく、整数として扱えるようになりました。
+
+```
+>>> spam * 10 / 5
 202.0
+```
 
-Note that if you pass a value to [int()] that it cannot
-evaluate as an integer, Python will display an error message.
+`int()` に整数として評価できない値を渡すと、Python はエラーメッセージを表示することに注意してください。
 
->>> [int('99.99')]
+```
+>>> int('99.99')
 Traceback (most recent call last):
   File "<pyshell#18>", line 1, in <module>
     int('99.99')
 ValueError: invalid literal for int() with base 10: '99.99'
->>> [int('twelve')]
+>>> int('twelve')
 Traceback (most recent call last):
   File "<pyshell#19>", line 1, in <module>
     int('twelve')
 ValueError: invalid literal for int() with base 10: 'twelve'
+```
 
-The [int()] function is also useful if you need to round a
-floating-point number down.
+`int()`関数は、浮動小数点数を切り捨てる必要がある場合にも便利です。
 
->>> [int(7.7)]
+```
+>>> int(7.7)
 7
->>> [int(7.7) + 1]
+>>> int(7.7) + 1
 8
+```
 
-You used the [int()] and [str()] functions in the
-last three lines of your program to get a value of the appropriate data
-type for the code.
+あなたは、プログラムの最後の3行で`int()`と`str()`の関数を使い、コードに適したデータ型の値を取得しましたね。
 
+```
 [➏] print('What is your age?') \# ask for their age
    myAge = input()
    print('You will be ' + str(int(myAge) + 1) + ' in a year.')
+```
 
 
-**TEXT AND NUMBER EQUIVALENCE**
+**文章と数字の一致**
 
-Although the string value of a number is considered a completely
-different value from the integer or floating-point version, an integer
-can be equal to a floating point.
+数値の文字列値は、整数値や浮動小数点数とは全く別の値として扱われますが、整数は浮動小数点数と等しくなることがあります。
 
->>> [42 == '42']
+```
+>>> 42 == '42'
 False
->>> [42 == 42.0]
+>>> 42 == 42.0
 True
->>> [42.0 == 0042.000]
+>>> 42.0 == 0042.000
 True
+```
 
-Python makes this distinction because strings are text, while integers
-and floats are both numbers.
+Pythonでは、文字列はテキスト、整数と浮動小数点はともに数値であるため、このような区別をしています。
 
 
-[]{#calibre_link-1708 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The [myAge] variable contains the value
-returned from [input()]. Because the [input()]
-function always returns a string (even if the user typed in a number),
-you can use the [int(myAge)] code to return an integer value
-of the string in [myAge]. This integer value is then added to
-[1] in the expression [int(myAge) + 1].
+The `myAge` variable contains the value returned from `input()`. Because the `input()` function always returns a string (even if the user typed in a number), you can use the `int(myAge)` code to return an integer value of the string in `myAge`. This integer value is then added to `1` in the expression `int(myAge) + 1`.
 
-The result of this addition is passed to the [str()] function:
-[str(int(myAge) + 1)]. The string value returned is then
-concatenated with the strings ['You will be '] and [' in a
-year.'] to evaluate to one large string value. This large
-string is finally passed to [print()] to be displayed on the
-screen.
+The result of this addition is passed to the `str()` function: `str(int(myAge) + 1)`. The string value returned is then concatenated with the strings `'You will be '` and `' in a year.'` to evaluate to one large string value. This large string is finally passed to `print()` to be displayed on the screen.
 
-Let's say the user enters the string ['4'] for
-[myAge]. The string ['4'] is converted to an
-integer, so you can add one to it. The result is [5]. The
-[str()] function converts the result back to a string, so you
-can concatenate it with the second string, ['in a year.'],
-to create the final message. These evaluation steps would look something
-like the following:
+Let's say the user enters the string `'4'` for `myAge`. The string `'4'` is converted to an integer, so you can add one to it. The result is `5`. The `str()` function converts the result back to a string, so you can concatenate it with the second string, `'in a year.'`, to create the final message. These evaluation steps would look something like the following:
 
 
 ![image](../images/000017.jpg)
@@ -625,94 +534,64 @@ like the following:
 
 ### **Summary** 
 
-You can compute expressions with a calculator or enter string
-concatenations with a word processor. You can even do string replication
-easily by copying and pasting text. But expressions, and their component
-values---operators, variables, and function calls---are the basic
-building blocks that make programs. Once you know how to handle these
-elements, you will be able to instruct Python to operate on large
-amounts of data for you.
+You can compute expressions with a calculator or enter string concatenations with a word processor. You can even do string replication easily by copying and pasting text. But expressions, and their component values---operators, variables, and function calls---are the basic building blocks that make programs. Once you know how to handle these elements, you will be able to instruct Python to operate on large amounts of data for you.
 
-It is good to remember the different types of operators ([+],
-[-], [\*], [/], [//],
-[%], and [\*\*] for math operations, and
-[+] and [\*] for string operations) and the three
-data types (integers, floating-point numbers, and strings) introduced in
-this chapter.
+It is good to remember the different types of operators (`+`, `-`, `*`, `/`, `//`, `%`, and `**` for math operations, and `+` and `*` for string operations) and the three data types (integers, floating-point numbers, and strings) introduced in this chapter.
 
-I introduced a few different functions as well. The [print()]
-and [input()] functions handle simple text output (to the
-screen) and input (from the keyboard). The [len()] function
-takes a string and evaluates to an int of the number of characters in
-the string. The [str()], [int()], and
-[float()] functions will evaluate to the string, integer, or
-floating-point number form of the value they are passed.
+I introduced a few different functions as well. The `print()` and `input()` functions handle simple text output (to the screen) and input (from the keyboard). The `len()` function takes a string and evaluates to an int of the number of characters in the string. The `str()`, `int()`, and `float()` functions will evaluate to the string, integer, or floating-point number form of the value they are passed.
 
-[]{#calibre_link-1709 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}In the next chapter, you'll learn how to tell
-Python to make intelligent decisions about what code to run, what code
-to skip, and what code to repeat based on the values it has. This is
-known as *flow control*, and it allows you to write programs that make
-intelligent decisions.
+In the next chapter, you'll learn how to tell Python to make intelligent decisions about what code to run, what code to skip, and what code to repeat based on the values it has. This is known as *flow control*, and it allows you to write programs that make intelligent decisions.
 
 ### **Practice Questions** 
 
-[1](#calibre_link-1657). Which of the
-following are operators, and which are values?
+[1](#calibre_link-1657). Which of the following are operators, and which are values?
 
-\*
+```
+*
 'hello'
 -88.8
 -
 /
 +
 5
+```
 
-[2](#calibre_link-1658). Which of the
-following is a variable, and which is a string?
+[2](#calibre_link-1658). Which of the following is a variable, and which is a string?
 
+```
 spam
 'spam'
+```
 
-[3](#calibre_link-1659). Name three data
-types.
+[3](#calibre_link-1659). Name three data types.
 
-[4](#calibre_link-1660). What is an
-expression made up of? What do all expressions do?
+[4](#calibre_link-1660). What is an expression made up of? What do all expressions do?
 
-[5](#calibre_link-1661). This chapter
-introduced assignment statements, like [spam = 10]. What is
-the difference between an expression and a statement?
+[5](#calibre_link-1661). This chapter introduced assignment statements, like `spam = 10`. What is the difference between an expression and a statement?
 
-[6](#calibre_link-1662). What does the
-variable [bacon] contain after the following code runs?
+[6](#calibre_link-1662). What does the variable `bacon` contain after the following code runs?
 
+```
 bacon = 20
 bacon + 1
+```
 
-[7](#calibre_link-1663). What should the
-following two expressions evaluate to?
+[7](#calibre_link-1663). What should the following two expressions evaluate to?
 
+```
 'spam' + 'spamspam'
 'spam' \* 3
+```
 
-[8](#calibre_link-1664). Why is
-[eggs] a valid variable name while [100] is invalid?
+[8](#calibre_link-1664). Why is `eggs` a valid variable name while `100` is invalid?
 
-[9](#calibre_link-1665). What three
-functions can be used to get the integer, floating-point number, or
-string version of a value?
+[9](#calibre_link-1665). What three functions can be used to get the integer, floating-point number, or string version of a value?
 
-[10](#calibre_link-1666).
-[]{#calibre_link-1710 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}Why does this expression cause an error? How can
-you fix it?
+[10](#calibre_link-1666).  Why does this expression cause an error? How can you fix it?
 
+```
 'I have eaten ' + 99 + ' burritos.'
+```
 
-**Extra credit:** Search online for the Python documentation for the
-[len()] function. It will be on a web page titled "Built-in
-Functions." Skim the list of other functions Python has, look up what
-the [round()] function does, and experiment with it in the
-interactive shell.
+**Extra credit:** Search online for the Python documentation for the `len()` function. It will be on a web page titled "Built-in Functions." Skim the list of other functions Python has, look up what the `round()` function does, and experiment with it in the interactive shell.
 
