@@ -522,29 +522,29 @@ True
 Pythonでは、文字列はテキスト、整数と浮動小数点はともに数値であるため、このような区別をしています。
 
 
-The `myAge` variable contains the value returned from `input()`. Because the `input()` function always returns a string (even if the user typed in a number), you can use the `int(myAge)` code to return an integer value of the string in `myAge`. This integer value is then added to `1` in the expression `int(myAge) + 1`.
+変数 `myAge` には `input()` から返された値が格納されます。`input()` 関数は常に文字列を返すので（ユーザーが数字を入力した場合でも）、 `int(myAge)` コードを使って `myAge` の文字列を整数値で返すことができます。この整数値は次に `int(myAge) + 1` という式で `1` を足したものになります。
 
-The result of this addition is passed to the `str()` function: `str(int(myAge) + 1)`. The string value returned is then concatenated with the strings `'You will be '` and `' in a year.'` to evaluate to one large string value. This large string is finally passed to `print()` to be displayed on the screen.
+この足し算の結果が `str()` 関数に渡される: `str(int(myAge) + 1)`. 返された文字列は `'You will be '` と `' in a year.'` という文字列と連結され、一つの大きな文字列として評価されます。この大きな文字列は、最後に `print()` に渡され、画面に表示される。
 
-Let's say the user enters the string `'4'` for `myAge`. The string `'4'` is converted to an integer, so you can add one to it. The result is `5`. The `str()` function converts the result back to a string, so you can concatenate it with the second string, `'in a year.'`, to create the final message. These evaluation steps would look something like the following:
+例えば、ユーザが `myAge` に `'4'` という文字列を入力したとしましょう。文字列 `'4'` は整数に変換されるので、それに 1 を足すことができる。その結果は `5` です。`str()` 関数は結果を文字列に戻すので、2番目の文字列 `'in a year.'` と連結して、最後のメッセージを作成することができます。これらの評価ステップは次のようになります。
 
 
 ![image](../images/000017.jpg)
 
 
-### **Summary** 
+### **まとめ** 
 
-You can compute expressions with a calculator or enter string concatenations with a word processor. You can even do string replication easily by copying and pasting text. But expressions, and their component values---operators, variables, and function calls---are the basic building blocks that make programs. Once you know how to handle these elements, you will be able to instruct Python to operate on large amounts of data for you.
+電卓で式を計算したり、ワープロで文字列の連結を入力したりすることができます。文字列の複製もコピーアンドペーストで簡単にできる。しかし、式とその構成要素である演算子、変数、関数呼び出しは、プログラムを作るための基本的な構成要素である。これらを使いこなせば、Pythonに大量のデータを処理させることができるようになります。
 
-It is good to remember the different types of operators (`+`, `-`, `*`, `/`, `//`, `%`, and `**` for math operations, and `+` and `*` for string operations) and the three data types (integers, floating-point numbers, and strings) introduced in this chapter.
+この章で紹介した演算子の種類(数学演算では `+`, `-`, `*`, `/`, `//`, `%`, `**`, 文字列演算では `+`, `*`) と3つのデータ型（整数、浮動小数点数、文字列）は覚えておくとよいでしょう。
 
-I introduced a few different functions as well. The `print()` and `input()` functions handle simple text output (to the screen) and input (from the keyboard). The `len()` function takes a string and evaluates to an int of the number of characters in the string. The `str()`, `int()`, and `float()` functions will evaluate to the string, integer, or floating-point number form of the value they are passed.
+いくつかの異なる関数も紹介しました。`print()` と `input()` 関数は、単純なテキストの出力（画面への）と入力（キーボードからの）を扱います。`len()` 関数は文字列を受け取って、その文字列の文字数を int 値で評価します。`str()`、`int()`、`float()`関数は、渡された値の文字列、整数、浮動小数点数のいずれかの形式で評価します。
 
-In the next chapter, you'll learn how to tell Python to make intelligent decisions about what code to run, what code to skip, and what code to repeat based on the values it has. This is known as *flow control*, and it allows you to write programs that make intelligent decisions.
+次の章では、どのコードを実行し、どのコードをスキップし、どのコードを繰り返すかを、その値に基づいてインテリジェントに決定するようPythonに指示する方法を学びます。これは*フロー制御*として知られており、インテリジェントな決定を行うプログラムを書くことができます。
 
-### **Practice Questions** 
+### **練習問題** 
 
-[1](#calibre_link-1657). Which of the following are operators, and which are values?
+[1](#calibre_link-1657). 次のうちどれが演算子で、どれが値か？
 
 ```
 *
@@ -556,42 +556,42 @@ In the next chapter, you'll learn how to tell Python to make intelligent decisio
 5
 ```
 
-[2](#calibre_link-1658). Which of the following is a variable, and which is a string?
+[2](#calibre_link-1658). 次のうち、変数はどれで、文字列はどれですか？
 
 ```
 spam
 'spam'
 ```
 
-[3](#calibre_link-1659). Name three data types.
+[3](#calibre_link-1659). 3つのデータ型を挙げなさい。
 
-[4](#calibre_link-1660). What is an expression made up of? What do all expressions do?
+[4](#calibre_link-1660). 式は何からできているのか？すべての式は何をするのか？
 
-[5](#calibre_link-1661). This chapter introduced assignment statements, like `spam = 10`. What is the difference between an expression and a statement?
+[5](#calibre_link-1661). この章では、`spam = 10`のような代入文について紹介しました。式と文の違いは何でしょうか？
 
-[6](#calibre_link-1662). What does the variable `bacon` contain after the following code runs?
+[6](#calibre_link-1662). 次のコードが実行された後、変数 `bacon` には何が入っているか？
 
 ```
 bacon = 20
 bacon + 1
 ```
 
-[7](#calibre_link-1663). What should the following two expressions evaluate to?
+[7](#calibre_link-1663). 次の2つの式は、どのように評価されるべきでしょうか？
 
 ```
 'spam' + 'spamspam'
-'spam' \* 3
+'spam' * 3
 ```
 
-[8](#calibre_link-1664). Why is `eggs` a valid variable name while `100` is invalid?
+[8](#calibre_link-1664). なぜ `eggs` は有効な変数名で、`100` は無効なのですか？
 
-[9](#calibre_link-1665). What three functions can be used to get the integer, floating-point number, or string version of a value?
+[9](#calibre_link-1665). 値の整数版、浮動小数点数版、文字列版を取得するために使用できる3つの関数は何ですか？
 
-[10](#calibre_link-1666).  Why does this expression cause an error? How can you fix it?
+[10](#calibre_link-1666).  この式はなぜエラーになるのですか？どうしたら直せますか？
 
 ```
 'I have eaten ' + 99 + ' burritos.'
 ```
 
-**Extra credit:** Search online for the Python documentation for the `len()` function. It will be on a web page titled "Built-in Functions." Skim the list of other functions Python has, look up what the `round()` function does, and experiment with it in the interactive shell.
+**Extra credit:** オンラインで `len()` 関数の Python ドキュメントを検索してください。それは "Built-in Functions" と題されたウェブページにあります。Python が持つ他の関数のリストに目を通し、 `round()` 関数が何をするのか調べて、対話型シェルで実験してみましょう。
 

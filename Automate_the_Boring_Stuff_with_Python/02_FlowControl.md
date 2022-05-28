@@ -1,26 +1,26 @@
-## **FLOW CONTROL**
+## **フロー制御**
 
 
 ![Image](../images/000137.jpg)
 
 
-So, you know the basics of individual instructions and that a program is just a series of instructions. But programming's real strength isn't just running one instruction after another like a weekend errand list.  Based on how expressions evaluate, a program can decide to skip instructions, repeat them, or choose one of several instructions to run.  In fact, you almost never want your programs to start from the first line of code and simply execute every line, straight to the end. *Flow control statements* can decide which Python instructions to execute under which conditions.
+というわけで、個々の命令の基本はわかったし、プログラムは命令の羅列に過ぎないこともわかったと思います。しかし、プログラミングの本当の強さは、週末の用事リストのように次々と命令を実行することだけではありません。 プログラムは、式の評価に基づいて、命令をスキップしたり、繰り返したり、複数の命令の中から実行する命令を選んだりすることができます。 実際、プログラムが最初の行から始まって、すべての行を最後まで単純に実行することはほとんどないでしょう。*フロー制御文*は、どの条件下でどのPython命令を実行するかを決定することができます。
 
-These flow control statements directly correspond to the symbols in a flowchart, so I'll provide flowchart versions of the code discussed in this chapter. [Figure 2-1](#calibre_link-1533) shows a flowchart for what to do if it's raining. Follow the path made by the arrows from Start to End.
+これらのフロー制御文は、フローチャートの記号に直接対応しているので、この章で取り上げるコードのフローチャート版を提供します。[図2-1](#calibre_link-1533)は、雨が降っているときにどうするかというフローチャートです。StartからEndまで、矢印の作る道をたどってください。
 
 
 ![image](../images/000039.jpg)
 
 
-*Figure 2-1: A flowchart to tell you what to do if it is raining*
+*図2-1: 雨が降っているときの対処法を伝えるフローチャート*。
 
-In a flowchart, there is usually more than one way to go from the start to the end. The same is true for lines of code in a computer program.  Flowcharts represent these branching points with diamonds, while the other steps are represented with rectangles. The starting and ending steps are represented with rounded rectangles.
+フローチャートでは、通常、始まりから終わりまで複数の方法があります。コンピュータ・プログラムのコード行も同様である。 フローチャートでは、これらの分岐点を菱形で表し、その他のステップを長方形で表す。開始ステップと終了ステップは、丸みを帯びた長方形で表現される。
 
-But before you learn about flow control statements, you first need to learn how to represent those *yes* and *no* options, and you need to understand how to write those branching points as Python code. To that end, let's explore Boolean values, comparison operators, and Boolean operators.
+しかし、フロー制御文について学ぶ前に、まずこれらの*yes*と*no*のオプションの表現方法を学び、それらの分岐点をPythonのコードとしてどのように書くかを理解する必要があります。そのために、ブール値、比較演算子、ブール演算子について調べてみましょう。
 
-### **Boolean Values** 
+### **ブール値** 
 
-While the integer, floating-point, and string data types have an unlimited number of possible values, the *Boolean* data type has only two values: `True` and `False`. (Boolean is capitalized because the data type is named after mathematician George Boole.) When entered as Python code, the Boolean values `True` and `False` lack the quotes you place around strings, and they always start with a capital *T* or *F*, with the rest of the word in lowercase. Enter the following into the interactive shell. (Some of these instructions are intentionally incorrect, and they'll cause error messages to appear.)
+整数、浮動小数点、文字列のデータ型は取り得る値の数に制限がないのに対し、*Boolean*データ型は2つの値しか持ちません。`True` と `False` です。(Booleanは数学者George Booleにちなんで大文字で表記されています)。Pythonのコードとして入力する場合、ブール値の `True` と `False` は文字列を囲む引用符がなく、常に大文字の *T* または *F* で始まり、残りの単語は小文字になります。対話型シェルに次のように入力します．(これらの命令のいくつかは意図的に間違っており，エラーメッセージが表示されます)．
 
 ```
 >>> spam = True
@@ -35,24 +35,24 @@ While the integer, floating-point, and string data types have an unlimited numbe
    SyntaxError: can't assign to keyword
 ```
 
-Like any other value, Boolean values are used in expressions and can be stored in variables [➊]. If you don't use the proper case [➋] or you try to use `True` and `False` for variable names [➌], Python will give you an error message.
+他の値と同様に、ブール値も式の中で使用され、変数 [➊] に格納することができます。もし適切な大文字小文字を使わなかったり [➋] 、変数名に `True` や `False` を使おうとすると [➌] Python はあなたにエラーメッセージを出します。
 
-### **Comparison Operators** 
+### **比較演算子** 
 
-*Comparison operators*, also called *relational operators*, compare two values and evaluate down to a single Boolean value. [Table 2-1](#calibre_link-1534) lists the comparison operators.
+*比較演算子*は、*関係演算子*とも呼ばれ、2つの値を比較し、1つのブール値として評価します。[表2-1](#calibre_link-1534)は、比較演算子をリストアップしています。
 
-**Table 2-1:** Comparison Operators
+**表 2-1: ** 比較演算子
 
-  **Operator**      **Meaning**
+ **演算子** **意味**
   ----------------- --------------------------
-  `==`    Equal to
-  `!=`    Not equal to
-  `<`    Less than
-  `>`    Greater than
-  `<=`   Less than or equal to
-  `>=`   Greater than or equal to
+  `==`    等しい
+  `!=`    イコールではない
+  `<`    未満
+  `>`    より大きい
+  `<=`   以下
+  `>=`   以上
 
-These operators evaluate to `True` or `False` depending on the values you give them. Let's try some operators now, starting with `==` and `!=`.
+これらの演算子は与えられた値によって `True` または `False` に評価されます。それでは、 `==` と `!=` から始めて、いくつかの演算子を試してみましょう。
 
 ```
 >>> 42 == 42
@@ -65,7 +65,7 @@ True
 False
 ```
 
-As you might expect, `==` (equal to) evaluates to `True` when the values on both sides are the same, and `!=` (not equal to) evaluates to `True` when the two values are different. The `==` and `!=` operators can actually work with values of any data type.
+ご想像のとおり、 `==` (equal to) は両者の値が同じであれば `True` と評価され、 `!=` (not equal to) は両者の値が異なる場合に `True` と評価されます。演算子 `==` と `!=` は、実際にはどのようなデータ型の値に対しても機能します。
 
 ```
    >>> 'hello' == 'hello'
@@ -84,9 +84,9 @@ As you might expect, `==` (equal to) evaluates to `True` when the values on both
    False
 ```
 
-Note that an integer or floating-point value will always be unequal to a string value. The expression `42 == '42'` [➊] evaluates to `False` because Python considers the integer `42` to be different from the string `'42'`.
+整数や浮動小数点数の値は、常に文字列の値とは等しくないことに注意してください。42 == '42'` [➊] という式は `False` と評価されますが、これは Python が整数の `42` を文字列 `'42'` と異なるものとみなしているからです。
 
-The `<`, `>`, `<=`, and `>=` operators, on the other hand, work properly only with integer and floating-point values.
+一方、 `<`, `>`, `<=`, `>=` 演算子は、整数と浮動小数点数に対してのみ正しく働きます。
 
 ```
    >>> 42 < 100
@@ -104,25 +104,25 @@ The `<`, `>`, `<=`, and `>=` operators, on the other hand, work properly only wi
 ```
 
 
-**THE DIFFERENCE BETWEEN THE == AND = OPERATORS**
+**==と=の違い**
 
-You might have noticed that the `==` operator (equal to) has two equal signs, while the `=` operator (assignment) has just one equal sign. It's easy to confuse these two operators with each other. Just remember these points:
+ `==`演算子(equal to)は等号が2つあるのに対し、`=`演算子(assign)は1つであることにお気づきでしょうか。この2つの演算子を混同してしまうのは簡単なことです。ただ、以下の点を覚えておいてください。
 
--   The `==` operator (equal to) asks whether two values are the same as each other.
--   The `=` operator (assignment) puts the value on the right into the variable on the left.
+- `==`演算子(equal to)は、2つの値が互いに同じかどうかを尋ねます。
+- 演算子 `=` (代入) は、右側の値を左側の変数に代入します。
 
-To help remember which is which, notice that the `==` operator (equal to) consists of two characters, just like the `!=` operator (not equal to) consists of two characters.
+`==`演算子は2文字で、`!=`演算子は2文字で構成されることに注意してください。
 
 
-You'll often use comparison operators to compare a variable's value to some other value, like in the `eggCount <= 42` [➊] and `myAge >= 10` [➋] examples.  (After all, instead of entering `'dog' != 'cat'` in your code, you could have just entered `True`.) You'll see more examples of this later when you learn about flow control statements.
+`eggCount <= 42` [➊] と `myAge >= 10` [➋] の例のように、変数の値を他の値と比較するために比較演算子をよく使うでしょう。 (結局のところ、コード中に `'dog' != 'cat'` と入力する代わりに、 `True` と入力すればよかったのです)。この例は、後でフロー制御文について学習するときに、もっとたくさん見ることになります。
 
-### **Boolean Operators** 
+### **論理演算子** 
 
-The three Boolean operators (`and`, `or`, and `not`) are used to compare Boolean values. Like comparison operators, they evaluate these expressions down to a Boolean value.  Let's explore these operators in detail, starting with the `and` operator.
+3 つの論理演算子 (`and`、`or`、`not`) は、論理値を比較するために使用されます。比較演算子のように、これらの演算子は式を評価し、ブール値に変換します。 これらの演算子について、まずは `and` 演算子から詳しく見ていきましょう。
 
-#### ***Binary Boolean Operators*** 
+#### ***二項論理演算子*** 
 
-The `and` and `or` operators always take two Boolean values (or expressions), so they're considered *binary* operators. The `and` operator evaluates an expression to `True` if *both* Boolean values are `True`; otherwise, it evaluates to `False`. Enter some expressions using `and` into the interactive shell to see it in action.
+演算子 `and` と `or` は常に 2 つのブール値（または式）を取るので、*二項演算子* とみなされます。`and` 演算子は論理値の両方が `True` ならば式を `True` と評価し、そうでないなら `False` と評価します。そうでない場合は `False` と評価されます。 `and` を使ったいくつかの式をインタラクティブシェルに入力して、その動きを見てみましょう。
 
 ```
 >>> True and True
@@ -131,9 +131,9 @@ True
 False
 ```
 
-A *truth table* shows every possible result of a Boolean operator.  [Table 2-2](#calibre_link-1535) is the truth table for the `and` operator.
+*真理値表*は、論理演算子のすべての可能な結果を示しています。 [表2-2](#calibre_link-1535)は、`and`演算子の真理値表です。
 
-**Table 2-2:** The `and` Operator's Truth Table
+**表2-2:** `and`演算子の真理値表
 
   **Expression**                **Evaluates to . . .**
   ----------------------------- ------------------------
@@ -142,7 +142,7 @@ A *truth table* shows every possible result of a Boolean operator.  [Table 2-2](
   `False and True`    `False`
   `False and False`   `False`
 
-On the other hand, the `or` operator evaluates an expression to `True` if *either* of the two Boolean values is `True`. If both are `False`, it evaluates to `False`.
+一方、`or` 演算子は、2つのブール値の*どちらか*が `True` であれば、その式を `True` と評価します。もし両方が `False` ならば、`False` と評価されます。
 
 ```
 >>> False or True
@@ -151,9 +151,9 @@ True
 False
 ```
 
-You can see every possible outcome of the `or` operator in its truth table, shown in [Table 2-3](#calibre_link-1536).
+[表2-3](#calibre_link-1536)に示すように、`or`演算子のすべての可能な結果を真理値表で確認することができます。
 
-**Table 2-3:** The `or` Operator's Truth Table
+**表2-3:** `or`演算子の真理値表
 
   **Expression**               **Evaluates to . . .**
   ---------------------------- ------------------------
@@ -162,9 +162,9 @@ You can see every possible outcome of the `or` operator in its truth table, show
   `False or True`    `True`
   `False or False`   `False`
 
-#### ***The not Operator*** 
+#### ***not演算子*** 
 
-Unlike `and` and `or`, the `not` operator operates on only one Boolean value (or expression). This makes it a *unary* operator. The `not` operator simply evaluates to the opposite Boolean value.
+`AND` や `OR` とは異なり、 `not` 演算子は 1 つのブール値 (または式) に対してのみ作用します。そのため、この演算子は単項演算子です。`not` 演算子は、単純に反対のブール値として評価されます。
 
 ```
    >>> not True
@@ -173,20 +173,20 @@ Unlike `and` and `or`, the `not` operator operates on only one Boolean value (or
    True
 ```
 
-Much like using double negatives in speech and writing, you can nest `not` operators [➊], though there's never not no reason to do this in real programs. [Table 2-4](#calibre_link-1537) shows the truth table for `not`.
+会話や文章で二重否定を使うのと同じように、`not` 演算子 [➊] を入れ子にすることができますが、実際のプログラムでこれを行う理由は決してありません。[表2-4](#calibre_link-1537)は`not`の真理値表です。
 
-**Table 2-4:** The `not` Operator's Truth Table
+**表2-4:** `not` 演算子の真理値表
 
   **Expression**          **Evaluates to . . .**
   ----------------------- ------------------------
   `not True`    `False`
   `not False`   `True`
 
-### **Mixing Boolean and Comparison Operators** 
+### **ブール演算子と比較演算子の混在** 
 
-Since the comparison operators evaluate to Boolean values, you can use them in expressions with the Boolean operators.
+比較演算子はブール値で評価されるので、ブール演算子とともに式の中で使用することができます。
 
-Recall that the `and`, `or`, and `not` operators are called Boolean operators because they always operate on the Boolean values `True` and `False`. While expressions like `4 < 5` aren't Boolean values, they are expressions that evaluate down to Boolean values. Try entering some Boolean expressions that use comparison operators into the interactive shell.
+演算子 `and`, `or`, `not` は常に `True` と `False` というブール値で動作するので、ブール演算子と呼ばれることを思い出してください。`4 < 5` のような式はブール値ではありませんが、ブール値として評価される式です。対話型シェルに比較演算子を使ったブール演算式をいくつか入力してみてください。
 
 ```
 >>> (4 < 5) and (5 < 6)
@@ -197,20 +197,20 @@ False
 True
 ```
 
-The computer will evaluate the left expression first, and then it will evaluate the right expression. When it knows the Boolean value for each, it will then evaluate the whole expression down to one Boolean value. You can think of the computer's evaluation process for `(4 < 5) and (5 < 6)` as the following:
+コンピュータは、まず左の式を評価し、次に右の式を評価します。それぞれのブール値がわかったら、式全体を評価し、一つのブール値にします。`(4 < 5) and (5 < 6)`に対するコンピュータの評価プロセスは、次のように考えることができます。
 
 
 ![image](../images/000095.jpg)
 
 
-You can also use multiple Boolean operators in an expression, along with the comparison operators:
+また、比較演算子とともに、複数のブール演算子を式の中で使用することができます。
 
 ```
->>> 2 + 2 == 4 and not 2 + 2 == 5 and 2 \* 2 == 2 + 2
+>>> 2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2
 True
 ```
 
-The Boolean operators have an order of operations just like the math operators do. After any math and comparison operators evaluate, Python evaluates the `not` operators first, then the `and` operators, and then the `or` operators.
+論理演算子には、数学の演算子と同じように操作の順序があります。演算子や比較演算子が評価された後、Pythonはまず `not` 演算子を評価し、次に `and` 演算子、そして `or` 演算子を評価します。
 
 ### **Elements of Flow Control** 
 
