@@ -2776,15 +2776,15 @@ s** と **?v** は任意のクエリ変数名で、ここでは "subject" と "v
 
 次の章では、生のテキスト入力からRDFデータを生成するツールを書くので、RDFの例についてもう少し深く掘り下げることになります。今のところは、RDFステートメントがトリプルとして表されること、Web URIがモノやプロパティ、時には値を表すこと、URIを手動でたどって（しばしば「デリフェレンス」と呼ばれます）、その参照先を人間が読める形で確認できること、などを理解していただきたいと考えています。
 
-### Understanding the Resource Description Framework (RDF)
+### リソース記述フレームワーク（RDF）を理解する
 
-Text data on the web has some structure in the form of HTML elements like headers, page titles, anchor links, etc. but this structure is too imprecise for general use by software agents. RDF is a method for encoding structured data in a more precise way.
+ウェブ上のテキストデータは、ヘッダ、ページタイトル、アンカーリンクなどのHTML要素の形で何らかの構造を持っているが、この構造はソフトウェアエージェントが一般に使うにはあまりに不正確である。RDFは、構造化されたデータをより正確に符号化するための手法である。
 
-We used the RDF data on my web site in the last chapter to introduce the "plumbing" of using the **rdflib** Python library to access, manipulate, and query RDF data.
+前章で私のWebサイトのRDFデータを使って、**rdflib**というPythonライブラリを使ってRDFデータにアクセス、操作、問い合わせをするための「配管」を紹介しました。
 
-### Resource Namespaces Provided in rdflib
+### rdflibで提供されるリソースの名前空間
 
-The following standard namespaces are predefined in **rdflib**:
+**rdflib**では、以下の標準的な名前空間があらかじめ定義されています。
 
 -   RDF <https://www.w3.org/TR/rdf-syntax-grammar/>
 -   RDFS <https://www.w3.org/TR/rdf-schema/>
@@ -2797,340 +2797,340 @@ The following standard namespaces are predefined in **rdflib**:
 -   DCTERMS <http://purl.org/dc/terms/>
 -   VOID <http://rdfs.org/ns/void#>
 
-Let's look into the Friend of a Friend (FOAF) namespace. Click on the above link for FOAF <http://xmlns.com/foaf/0.1/> and find the definitions for the FOAF Core:
+Friend of a Friend (FOAF) 名前空間について調べてみましょう。上記のFOAF <http://xmlns.com/foaf/0.1/>のリンクをクリックすると、FOAFコアの定義が見つかります。
 
+```
+ 1     Agent
+ 2     Person
+ 3     name
+ 4     title
+ 5     img
+ 6     depiction (depicts)
+ 7     familyName
+ 8     givenName
+ 9     knows
+10     based_near
+11     age
+12     made (maker)
+13     primaryTopic (primaryTopicOf)
+14     Project
+15     Organization
+16     Group
+17     member
+18     Document
+19     Image
+```
 
-     1     Agent
-     2     Person
-     3     name
-     4     title
-     5     img
-     6     depiction (depicts)
-     7     familyName
-     8     givenName
-     9     knows
-    10     based_near
-    11     age
-    12     made (maker)
-    13     primaryTopic (primaryTopicOf)
-    14     Project
-    15     Organization
-    16     Group
-    17     member
-    18     Document
-    19     Image
+とソーシャルウェブのために
 
+```
+ 1 nick
+ 2 mbox
+ 3 homepage
+ 4 weblog
+ 5 openid
+ 6 jabberID
+ 7 mbox_sha1sum
+ 8 interest
+ 9 topic_interest
+10 topic (page)
+11 workplaceHomepage
+12 workInfoHomepage
+13 schoolHomepage
+14 publications
+15 currentProject
+16 pastProject
+17 account
+18 OnlineAccount
+19 accountName
+20 accountServiceHomepage
+21 PersonalProfileDocument
+22 tipjar
+23 sha1
+24 thumbnail
+25 logo
+```
 
-and for the Social Web:
+これで、RDFデータの一般的なスキーマをいくつか見てきました。Webサイトのアノテーションに広く使われている別のスキーマは、ここでの例では必要ありませんが、[schema.org](https://schema.org)です。では、Hy REPLセッションを使って名前空間を調べ、**rdflib**を使ってプログラム的にRDFを作成してみましょう。
 
+```
+ 1 Marks-MacBook:database $ hy
+ 2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
+ 3 => (import [rdflib.namespace [FOAF]])
+ 4 => FOAF
+ 5 Namespace('http://xmlns.com/foaf/0.1/')
+ 6 => FOAF.name
+ 7 rdflib.term.URIRef('http://xmlns.com/foaf/0.1/name')
+ 8 => FOAF.title
+ 9 rdflib.term.URIRef('http://xmlns.com/foaf/0.1/title')
+10 => (import rdflib)
+11 => (setv graph (rdflib.Graph))
+12 => (setv mark (rdflib.BNode))
+13 => (graph.bind "foaf" FOAF)
+14 => (import [rdflib [RDF]])
+15 => (graph.add [mark RDF.type FOAF.Person])
+16 => (graph.add [mark FOAF.nick (rdflib.Literal "Mark" :lang "en")])
+17 => (graph.add [mark FOAF.name (rdflib.Literal "Mark Watson" :lang "en")])
+18 => (for [node graph] (print node))
+19 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://www\
+20 .w3.org/1999/02/22-rdf-syntax-ns#type'), rdflib.term.URIRef('http://xmlns.com/foaf/0\
+21 .1/Person'))
+22 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://xml\
+23 ns.com/foaf/0.1/name'), rdflib.term.Literal('Mark Watson', lang='en'))
+24 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://xml\
+25 ns.com/foaf/0.1/nick'), rdflib.term.Literal('Mark', lang='en'))
+26 => (graph.serialize :format "pretty-xml")
+27 b'<?xml version="1.0" encoding="utf-8"?>
+28 <rdf:RDF
+29     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+30     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+31 >
+32   <foaf:Person rdf:nodeID="N21c7fa7385b545eb8a7e3821b75b9cb5">
+33     <foaf:name xml:lang="en">Mark Watson</foaf:name>
+34     <foaf:nick xml:lang="en">Mark</foaf:nick>
+35   </foaf:Person>
+36 </rdf:RDF>\n'
+37 => (graph.serialize :format "turtle")
+38 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+39 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+40 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+41 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+42 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+43 
+44 [] a foaf:Person ;
+45      foaf:name "Mark Watson"@en ;
+46      foaf:nick "Mark"@en .
+47 
+48 => (graph.serialize :format "nt")
+49 _:N21c7fa7385b545eb8a7e3821b75b9cb5
+50    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+51    <http://xmlns.com/foaf/0.1/Person> .
+52 _:N21c7fa7385b545eb8a7e3821b75b9cb5 <http://xmlns.com/foaf/0.1/name> "Mark Watson"@e\
+53 n .
+54 _:N21c7fa7385b545eb8a7e3821b75b9cb5 <http://xmlns.com/foaf/0.1/nick> "Mark"@en .
+55 => 
+```
 
-     1 nick
-     2 mbox
-     3 homepage
-     4 weblog
-     5 openid
-     6 jabberID
-     7 mbox_sha1sum
-     8 interest
-     9 topic_interest
-    10 topic (page)
-    11 workplaceHomepage
-    12 workInfoHomepage
-    13 schoolHomepage
-    14 publications
-    15 currentProject
-    16 pastProject
-    17 account
-    18 OnlineAccount
-    19 accountName
-    20 accountServiceHomepage
-    21 PersonalProfileDocument
-    22 tipjar
-    23 sha1
-    24 thumbnail
-    25 logo
+### SPARQL クエリ言語を理解する
 
+本書の資料の目的からすると、任意のRDFデータソースと簡単なクエリで**rdflib**を使い始めるには、ここと最後の章にある2つのサンプルSPARQLクエリで十分でしょう。
 
-You now have seen a few common Schemas for RDF data. Another Schema that is widely used for annotating web sites, that we won't need for our examples here, is [schema.org](https://schema.org). Let's now use a Hy REPL session to explore namespaces and programatically create RDF using **rdflib**:
+Apache Foundationには[good introduction to SPARQL](https://jena.apache.org/tutorials/sparql.html)があるので、より詳しい情報を得るにはそちらを参照してください。
 
+### Python **rdflib** ライブラリのラッピング
 
-     1 Marks-MacBook:database $ hy
-     2 hy 0.17.0+108.g919a77e using CPython(default) 3.7.3 on Darwin
-     3 => (import [rdflib.namespace [FOAF]])
-     4 => FOAF
-     5 Namespace('http://xmlns.com/foaf/0.1/')
-     6 => FOAF.name
-     7 rdflib.term.URIRef('http://xmlns.com/foaf/0.1/name')
-     8 => FOAF.title
-     9 rdflib.term.URIRef('http://xmlns.com/foaf/0.1/title')
-    10 => (import rdflib)
-    11 => (setv graph (rdflib.Graph))
-    12 => (setv mark (rdflib.BNode))
-    13 => (graph.bind "foaf" FOAF)
-    14 => (import [rdflib [RDF]])
-    15 => (graph.add [mark RDF.type FOAF.Person])
-    16 => (graph.add [mark FOAF.nick (rdflib.Literal "Mark" :lang "en")])
-    17 => (graph.add [mark FOAF.name (rdflib.Literal "Mark Watson" :lang "en")])
-    18 => (for [node graph] (print node))
-    19 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://www\
-    20 .w3.org/1999/02/22-rdf-syntax-ns#type'), rdflib.term.URIRef('http://xmlns.com/foaf/0\
-    21 .1/Person'))
-    22 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://xml\
-    23 ns.com/foaf/0.1/name'), rdflib.term.Literal('Mark Watson', lang='en'))
-    24 (rdflib.term.BNode('N21c7fa7385b545eb8a7e3821b7cb5'), rdflib.term.URIRef('http://xml\
-    25 ns.com/foaf/0.1/nick'), rdflib.term.Literal('Mark', lang='en'))
-    26 => (graph.serialize :format "pretty-xml")
-    27 b'<?xml version="1.0" encoding="utf-8"?>
-    28 <rdf:RDF
-    29     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    30     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    31 >
-    32   <foaf:Person rdf:nodeID="N21c7fa7385b545eb8a7e3821b75b9cb5">
-    33     <foaf:name xml:lang="en">Mark Watson</foaf:name>
-    34     <foaf:nick xml:lang="en">Mark</foaf:nick>
-    35   </foaf:Person>
-    36 </rdf:RDF>\n'
-    37 => (graph.serialize :format "turtle")
-    38 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-    39 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    40 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    41 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
-    42 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-    43 
-    44 [] a foaf:Person ;
-    45      foaf:name "Mark Watson"@en ;
-    46      foaf:nick "Mark"@en .
-    47 
-    48 => (graph.serialize :format "nt")
-    49 _:N21c7fa7385b545eb8a7e3821b75b9cb5
-    50    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
-    51    <http://xmlns.com/foaf/0.1/Person> .
-    52 _:N21c7fa7385b545eb8a7e3821b75b9cb5 <http://xmlns.com/foaf/0.1/name> "Mark Watson"@e\
-    53 n .
-    54 _:N21c7fa7385b545eb8a7e3821b75b9cb5 <http://xmlns.com/foaf/0.1/nick> "Mark"@en .
-    55 => 
+RDFデータソースを探求し、あなたのプロジェクトにリンクデータ/セマンティックウェブ技術の利用を検討するための十分な動機を提供できたと思います。
 
+インストールは、[source code for **rdflib**](https://github.com/RDFLib/rdflib) を使うか、以下の方法で行います。
 
-### Understanding the SPARQL Query Language
+```
+pip install rdflib
+```
 
-For the purposes of the material in this book, the two sample SPARQL queries here and in the last chapter are sufficient for you to get started using **rdflib** with arbitrary RDF data sources and simple queries.
+プログラミング言語に関係なく、ライブラリに依存する場合、私はソースコードの最新版を手元に置いておきたいと考えています。ライブラリのコードを読むことができるのは、時として代えがたいものです。
 
-The Apache Foundation has a [good introduction to SPARQL](https://jena.apache.org/tutorials/sparql.html) that I refer you to for more information.
+次の章では、自然言語処理を使って生のテキストから構造化情報を抽出し、RDFデータを自動生成します。
 
-### Wrapping the Python **rdflib** Library
+## ナレッジグラフ作成ツール
 
-I hope that I have provided you with enough motivation to explore RDF data sources and consider the use of linked data/semantic web technologies for your projects.
+ナレッジグラフとは、私はよく **KG** と略しますが、スキーマを使って型（オブジェクトとオブジェクト間の関係の両方）とプロパティ値をオブジェクトに結びつけるプロパティを定義したグラフデータベースのことです。 ナレッジグラフという言葉は、一般的な言葉であると同時に、私が2013年に勤務していたGoogleで使われていた特定のナレッジグラフを指すこともあります。ここでは、グラフデータベースに知識を格納する一般的な技術を指すためにKGを使用しています。
 
-You can install using the [source code for **rdflib**](https://github.com/RDFLib/rdflib) or using:
+ここで開発するアプリケーション、Knowledge Graph Creator（私はしばしばKGCreatorと呼びます）は、入力テキストから小さなナレッジグラフを生成するために使用するユーティリティです。
 
+知識工学と知識表現は1980年代に始まった学問分野であり、現在も研究テーマとして、また産業界で利用されている。私は、リンクデータ、セマンティックウェブ、そしてKGを、この初期の研究の延長線上にあると考えています。
 
-    pip install rdflib
+ここでは、RDFをベースにしています。また、産業界で広く使われているが、ここでは取り上げない一般的なタイプのKGがある。Neo4Jで使われているプロパティ・グラフである。プロパティ・グラフは、グラフ・ノードが持つリンクの数に制約がなく、ノード・データおよびノード間のプロパティ・リンクとして一般的なデータ構造を格納することができる一般的なグラフである。プロパティリンクは、グラフのノードと同様に属性を持つことができる。
 
+サブジェクト／プロパティ／値のRDFトリプルで表現されるセマンティックウェブデータは、プロパティグラフよりも制約が大きいが、グラフの中に暗黙的に存在するが明示的に記述されていないデータをうまく利用するための強力な論理推論をサポートしている（つまり、データの推論がより容易になる）。
 
-If I depend on a library, regardless of the programming language, I like to keep an up-to-date copy of the source code ready at hand. There is sometimes no substitute for having library code available to read.
+前章でRDFデータについて少し詳しく説明しました。ここでは、[schema.org](https://schema.org/)のいくつかのスキーマ定義を使って、非構造化テキストをRDFデータに変換するためのツールセットを実装してみます。私は、RDFと一般的なグラフデータベースの両方のアプローチを信じていますが、ここではRDFだけを使うことにします。
 
-In the next chapter we will use natural language processing to extract structured information from raw text and automatically generate RDF data.
+歴史的にナレッジグラフは、[Resource Description Framework (RDF)](https://en.wikipedia.org/wiki/Resource_Description_Framework) や [Web Ontology Language (OWL)](https://en.wikipedia.org/wiki/Web_Ontology_Language) といったセマンティックWeb技術を利用していました。私は2010年にセマンティックウェブ技術に関する2冊の本を書きました。【Common Lisp版】(http://markwatson.com/opencontentdata/book_lisp.pdf)(コードはこちら(https://github.com/mark-watson/lisp_practical_semantic_web))と【Java/Clojure/Scala版】(http://markwatson.com/opencontentdata/book_java.pdf)(コードはこちら(https://github.com/mark-watson/java_practical_semantic_web))は無料でPDFを入手することができます。 この章を読み終えたら、これらの無料の本を読んでみてください。
 
-## Knowledge Graph Creator
+私は、様々なデータソースからナレッジグラフを作成するための個人的な研究プロジェクトを進めています。詳しくは、[my KGCreator web site](http://www.kgcreator.com/)で読むことができます。私の KGCreator ソフトウェアの簡易版は、私の [Haskell Book](https://leanpub.com/haskell-cookbook) と最新の [Common Lisp book](https://leanpub.com/lovinglisp) の両方に実装されています。この例は、Hy言語で実装されていることと、RDFの生成のみをサポートしていることを除けば、私のCommon Lispの実装と同様です。HaskellとCommon Lispの本の例では、Neo4Jグラフ・データベース用のデータも生成しています。
 
-A Knowledge Graph, that I often abbreviate as **KG**, is a graph database using a schema to define types (both objects and relationships between objects) and properties that link property values to objects.  The term "Knowledge Graph" is both a general term and also sometimes refers to the specific Knowledge Graph used at Google which I worked with while working there in 2013. Here, we use KG to reference the general technology of storing knowledge in graph databases.
+KGとは？構造化されたデータを整理してアクセスし、データとメタデータを他の自動化されたシステムと統合するための現代的な方法である。
 
-The application we develop here, the Knowledge Graph Creator (which I often refer to as KGCreator) is a utility that I use to generate small Knowledge Graphs from input text.
+ナレッジ・グラフは、グラフ・データを含む単なるグラフ・データベースとは異なります。一般的には、スキーマ、タクソノミ、オントロジーを用いて、データの種類や構造、関係を定義する。
 
-Knowledge engineering and knowledge representation are disciplines that started in the 1980s and are still both current research topics and used in industry. I view linked data, the semantic web, and KGs as extensions of this earlier work.
+また、KGの主な用途は、組織内の他のシステムをサポートすることであるため、実行可能な側面もある。
 
-We base our work here on RDF. There is a general type of KGs that are also widely used in industry and that we will not cover here: property graphs, as used in Neo4J. Property graphs are general graphs that place no restrictions on the number of links a graph node may have and allow general data structures to be stored as node data and for the property links between nodes. Property links can have attributes, like nodes in the graph.
+### ナレッジグラフの産業利用のすすめ
 
-Semantic web data as represented by subject/property/value RDF triples are more constrained than property graphs but support powerful logic inferencing to better use data that is implicit in a graph but not explicitly stated (i.e., data is more easily inferred).
+誰がKGを必要としているのか？どのように始めればいいのでしょうか？
 
-We covered RDF data in some detail in the last chapter. Here we will implement a toolset for converting unstructured text into RDF data using a few schema definitions from [schema.org](https://schema.org/). I believe in both the RDF and the general graph database approaches but here we will just use RDF.
+あなたの組織の人々が一般的なWeb検索を行う多くの時間を費やしている場合、それはあなたが人間の検索可能な、ソフトウェアアクセス可能な方法であなたの組織の精選された知識を維持する必要があるという信号である可能性があります。可能なアプリケーションは、公共のウェブ検索APIと、組織内で内部的に使用される知識の検索をミックスした内部検索エンジンです。
 
-Historically Knowledge Graphs used semantic web technology like [Resource Description Framework (RDF)](https://en.wikipedia.org/wiki/Resource_Description_Framework) and [Web Ontology Language (OWL)](https://en.wikipedia.org/wiki/Web_Ontology_Language). I wrote two books in 2010 on semantic web technologies and you can get free PDFs for the [Common Lisp version](http://markwatson.com/opencontentdata/book_lisp.pdf) (code is [here](https://github.com/mark-watson/lisp_practical_semantic_web)) and the [Java/Clojure/Scala version](http://markwatson.com/opencontentdata/book_java.pdf) (code is [here](https://github.com/mark-watson/java_practical_semantic_web)).  These free books might interest you after working through the material in this chapter.
+いくつかのユースケースを紹介します。
 
-I have an ongoing personal research project for creating knowledge graphs from various data sources. You can read more at [my KGCreator web site](http://www.kgcreator.com/). I have simplified versions of my KGCreator software implemented in both my [Haskell Book](https://leanpub.com/haskell-cookbook) and in my most recent [Common Lisp book](https://leanpub.com/lovinglisp). The example here is similar to my Common Lisp implementation, except that it is implemented in the Hy language and I only support generating RDF. The examples in my Haskell and Common Lisp books also generate data for the Neo4J graph database.
+- Googleでは、標準のKnowledge Graphをベースに新しいスキーマやデータを追加した新しい社内システムの調査にKnowledge Graphを使用しました。
+- デジタルトランスフォーメーション: すでにあるデータベース内の現在のデータのメタデータを保持するために、KGを使用することから始めてください。メタデータのKGは、仮想のデータレイクを提供することができます。大規模なデータレイクを構築した後、スタッフがデータを見つけられなくなることはよくあることです。一度にすべてを行おうとしないことです。
+- シニアの人間の専門知識を捕らえ、保存する。社内の知識のためにオントロジーを構築することは、データの整理方法を理解するのに役立ち、ビジネスプロセスを議論し、モデル化するための共通の語彙を人々に提供することになります。
+- 多くの多様なデータソースからのデータを使用するKYC（Know Your Customer）アプリケーション。
+- ヘルスケアや金融サービスなどのドメインに関する専門知識を活用して、タクソノミやオントロジーを構築し、利用可能なデータを整理することができます。ほとんどのドメインには、既存の標準的なスキーマ、タクソノミー、オントロジーがあり、それらを特定し、そのまま使用したり、拡張したりすることができます。
 
-What is a KG? It is a modern way to organize and access structured data and integrate data and metadata with other automated systems.
+始めるには
 
-A Knowledge Graph is different from just a graph database containing graph data. The difference is that a KG will in general use Schemas, Taxonomy's and Ontology's that define the allowed types and structure of data and allowed relationships.
+- 1つのユースケースから小さく始める。
+- オブジェクトの種類と関係を特定するスキーマを設計する。
+- プロトタイプを開発する際のベースラインとなるような受け入れテストケースをいくつか書いておく。
+- 初期のプロトタイププロジェクトでは、利害関係者を多く持ちすぎないようにする。利害関係者となりうる人たちの最初の熱意に基づいて、利害関係者を選ぶようにする。
 
-There is also an executable aspect of KGs since their primary use may be to support other systems in an organization.
+まず、一つの問題を特定し、使用する最適なデータソースを決定し、現在の問題を解決するのに十分なオントロジーを定義し、「垂直スライス」アプリケーションのプロトタイプを構築するのが良い方法である。 簡単なプロトタイプから得られた教訓は、KGを拡大する際に何が重要で、何に力を入れるべきかを教えてくれる。小さく始めて、小さな開発・評価ステップを数多く踏むことなく、巨大なシステムを構築しようとしないことです。
 
-### Recommended Industrial Use of Knowledge Graphs
+小規模な組織のためのKGはどうでしょうか？小さな会社は開発リソースが少ないですが、小さく始めて、重要なデータの関係や顧客関係などをモデル化したシステムを導入すれば、過大なリソースは必要ありません。データがどこから来るのか、誰が重要なデータソースの維持に責任を持つのかを把握するだけでも、価値があります。
 
-Who needs a KG? How do you get started?
+個人向けのKGはどうでしょうか？カスタムKGの作成にかかる労力を考えると、個人のユースケースとして考えられるのは、商業的に販売するためのKGの開発です。
 
-If people in your organization are spending much time doing general web search, it might be a signal that you should maintain your organization's curated knowledge in a human searchable and software accessible way. A possible application is an internal search engine that mixes public web search APIs with search for knowledge used internally inside your organization.
+次に開発するアプリケーションは、新しいKGを素早くブートストラップする方法の一つで、自動的に生成されたRDFを入力し、必要に応じて文を削除したり新しい文を追加したりして手動で管理できるようにするものです。
 
-Here are a few use cases:
+### KGCreatorアプリケーションの設計
 
--   At Google we used their Knowledge Graph for researching new internal systems that were built on their standard Knowledge Graph, with new schemas and data added.
--   Digital transformations: start by using a KG to hold metadata for current data in already existing databases. A KG of metadata can provide you with a virtual data lake. It is common to build a large data lake and then have staff not be able to find data. Don't try to do everything at once.
--   Capture and preserve senior human expertise. The act of building an Ontology for in-house knowledge helps to understand how to organize data and provides people with a common vocabulary to discuss and model business processes.
--   KYC (Know Your Customer) applications using data from many diverse data sources.
--   Take advantage of expertise in a domain (e.g., healthcare or financial services) to build a Taxonomy and Ontology to use to organize available data. For most domains, there are standard existing Schemas, Taxonomy's and Ontology's that can be identified and used as-is or extended for your organization.
+ここで開発したアプリケーションの例では、サブディレクトリ**test_data**にある入力テキストファイルを処理します。**test_data**内の拡張子**.txt**の各ファイルに対して、対応するテキストファイルのオリジンURIを含む拡張子**.meta**のファイルが存在する必要があります。 本書のgitリポジトリには、**test_data**にいくつかのファイルがあり、実験したり、自分のデータと置き換えたりすることができます。
 
-To get started:
+```
+$ ls test_data 
+test1.meta test1.txt test2.meta test2.txt test3.meta test3.txt
+```
 
--   Start small with just one use case.
--   Design a Schema that identifies object types and relationships
--   Write some acceptance test cases that you want a prototype to be able to serve as a baseline to develop against.
--   Avoid having too many stakeholders in early prototype projects --- try to choose stakeholders based on potential stakeholders' initial enthusiasm.
-
-A good way to start is to identify a single problem, determine the best data sources to use, define an Ontology that is just sufficient to solve the current problem and build a prototype "vertical slice" application.  Lessons learned with a quick prototype will inform you on what was valuable and what to put effort into when expanding your KG. Start small and don't try to build a huge system without taking many small development and evaluation steps.
-
-What about KGs for small organizations? Small companies have less development resources but starting small and implementing a system that models the key data relationships, customer relationships, etc., does not require excessive resources. Just capturing where data comes from and who is responsible for maintaining important data sources can be valuable.
-
-What about KGs for individuals? Given the effort involved in building custom KGs, one possible individual use case is developing KGs for commercial sale.
-
-The application that we develop next is one way to quickly bootstrap a new KG by populating it with automatically generated RDF than can be manually curated by removing statements and adding new statements as appropriate.
-
-### Design of KGCreator Application
-
-The example application developed here processes input text files in the sub-directory **test_data**. For each file with the extension **.txt** in **test_data**, there should be a matching file with the extension **.meta** that contains the origin URI for the corresponding text file.  The git repository for this book has a few files in **test_data** that you can experiment with or replace with your own data:
-
-
-    $ ls test_data 
-    test1.meta test1.txt test2.meta test2.txt test3.meta test3.txt
-
-
-The \*.txt files contain plain text for analysis and the \*.meta files contain the original web source URI for the corresponding \*.txt files.  Using the spaCy library and Python/Hy's standard libraries for file access, the KGCreator is simple to implement. Here is the overall design of this example:
+また、「 \*.txt 」ファイルには解析用のプレーンテキストが、「 \*.meta 」ファイルには対応するオリジナルのウェブソースURIが格納されています。 ファイルアクセスにspaCyライブラリとPython/Hyの標準ライブラリを使用することで、KGCreatorは簡単に実装することができます。この例の全体設計は次のとおりです。
 
 
 ![Overview of the Knowledge Graph Creator script](/site_images1/hy-lisp-python/kg1.png)
 
 
-We will develop two versions of the Knowledge Graph Creator. The first generates RDF that uses string values for the object part of generated RDF statements. The second implementation attempts to resolve these string values to DBPedia URIs.
+知識グラフ作成ツールは2種類開発する予定です。1つ目は、生成されたRDF文のオブジェクト部分に文字列値を用いたRDFを生成するもの。2つ目の実装は、この文字列値をDBPediaのURIに解決しようとするものです。
 
-Using only the spaCy NLP library that we used earlier and the built in Hy/Python libraries, this first example (uses strings a object values) is implemented in just 58 lines of Hy code that is seen in the following three code listings:
+先に使ったspaCy NLPライブラリとHy/Pythonの内蔵ライブラリだけを使って、この最初の例（オブジェクト値に文字列を使う）は、次の3つのコードリストに見られるように、わずか58行のHyコードで実装されています。
 
+```
+ 1 #!/usr/bin/env hy
+ 2 
+ 3 (import [os [scandir]])
+ 4 (import [os.path [splitext exists]])
+ 5 (import spacy)
+ 6 
+ 7 (setv nlp-model (spacy.load "en"))
+ 8 
+ 9 (defn find-entities-in-text [some-text]
+10   (defn clean [s]
+11     (.strip (.replace s "\n" " ")))
+12   (setv doc (nlp-model some-text))
+13   (map list (lfor entity doc.ents [(clean entity.text) entity.label_])))
+```
 
-     1 #!/usr/bin/env hy
-     2 
-     3 (import [os [scandir]])
-     4 (import [os.path [splitext exists]])
-     5 (import spacy)
-     6 
-     7 (setv nlp-model (spacy.load "en"))
-     8 
-     9 (defn find-entities-in-text [some-text]
-    10   (defn clean [s]
-    11     (.strip (.replace s "\n" " ")))
-    12   (setv doc (nlp-model some-text))
-    13   (map list (lfor entity doc.ents [(clean entity.text) entity.label_])))
+3行目と4行目では、ディレクトリ内のすべてのファイルを見つける、ファイルが存在するかどうかを確認する、テキストをトークンに分割するという、Pythonの標準ユーティリティを3つインポートしています。7行目では、英語のspaCyモデルをロードし、その値を変数**nlp-model**に保存しています。find-entities-in-text関数はspaCy英語モデルを使ってテキスト中の組織や人などの実体を見つけ、改行文字やその他の不要な空白を削除して実体名をクリーニングします（10、11行目の関数**clean**を入れ子にしています）。REPLでテストを実行することができます。
 
+```
+=> (list (find-entities-in-text "John Smith went to Los Angeles to work at IBM"))
+[['John Smith', 'PERSON'], ['Los Angeles', 'GPE'], ['IBM', 'ORG']]
+```
 
-In lines 3 and 4 we import three standard Python utilities we need for finding all files in a directory, checking to see if a file exists, and splitting text into tokens. In line 7 we load the English language spaCy model and save the value of the model in the variable **nlp-model**. The function find-entities-in-text uses the spaCy English language model to find entities like organizations, people, etc., in text and cleans entity names by removing new line characters and other unnecessary white space (nested function **clean** in lines 10 and 11). We can run a test in a REPL:
+関数 **find-entities-in-text** は map オブジェクトを返すので、その結果を **list** でラップして、テスト文中のエンティティを出力してみました。spaCyが使用するエンティティタイプは以前の章で定義しましたが、ここでは以下のリストの21〜26行目で定義されているエンティティタイプだけを使用します。
 
+```
+14 (defn data2Rdf [meta-data entities fout]
+15   (for [[value abbreviation] entities]
+16     (if (in abbreviation e2umap)
+17       (.write fout (+ "<" meta-data ">\t" (get e2umap abbreviation) "\t" "\""
+18                        value "\"" " .\n")))))
+19 
+20 (setv e2umap {
+21   "ORG" "<https://schema.org/Organization>"
+22   "LOC" "<https://schema.org/location>"
+23   "GPE" "<https://schema.org/location>"
+24   "NORP" "<https://schema.org/nationality>"
+25   "PRODUCT" "<https://schema.org/Product>"
+26   "PERSON" "<https://schema.org/Person>"})
+```
 
-    => (list (find-entities-in-text "John Smith went to Los Angeles to work at IBM"))
-    [['John Smith', 'PERSON'], ['Los Angeles', 'GPE'], ['IBM', 'ORG']]
+28〜39行目では、生成されたRDFデータを書き込むための出力ファイルを開き、入力ディレクトリ内のすべてのテキストファイルをループして、入力ディレクトリ内のテキスト＋メタファイルのペアごとに関数 **process-file** を呼び出しています。
 
+```
+28 (defn process-directory [directory-name output-rdf]
+29   (with [frdf (open output-rdf "w")]
+30     (with [entries (scandir directory-name)]
+31       (for [entry entries]
+32         (setv [_ file-extension] (splitext entry.name))
+33         (if (= file-extension ".txt")
+34             (do
+35               (setv check-file-name (+ (cut entry.path 0 -4) ".meta"))
+36               (if (exists check-file-name)
+37                   (process-file entry.path check-file-name frdf)
+38                   (print "Warning: no .meta file for" entry.path
+39                          "in directory" directory-name))))))))
+```
 
-The function **find-entities-in-text** returns a map object so I wrapped the results in a **list** to print out the entities in the test sentence. The entity types used by spaCy were defined in an earlier chapter, here we just use the entity types defined in lines 21-26 in the following listing:
+```
+40 (defn process-file [txt-path meta-path frdf]
+41   
+42   (defn read-data [text-path meta-path]
+43     (with [f (open text-path)] (setv t1 (.read f)))
+44     (with [f (open meta-path)] (setv t2 (.read f)))
+45     [t1 t2])
+46   
+47   (defn modify-entity-names [ename]
+48     (.replace ename "the " ""))
+49   
+50   (setv [txt meta] (read-data txt-path meta-path))
+51   (setv entities (find-entities-in-text txt))
+52   (setv entities ;; only operate on a few entity types
+53         (lfor [e t] entities
+54               :if (in t ["NORP" "ORG" "PRODUCT" "GPE" "PERSON" "LOC"])
+55               [(modify-entity-names e) t]))
+56   (data2Rdf meta entities frdf))
+57 
+58 (process-directory "test_data" "output.rdf")
+```
 
+次章では、生成された出力とその問題点、そしてこれらの問題点を解決する方法について見ていきます。
 
-    14 (defn data2Rdf [meta-data entities fout]
-    15   (for [[value abbreviation] entities]
-    16     (if (in abbreviation e2umap)
-    17       (.write fout (+ "<" meta-data ">\t" (get e2umap abbreviation) "\t" "\""
-    18                        value "\"" " .\n")))))
-    19 
-    20 (setv e2umap {
-    21   "ORG" "<https://schema.org/Organization>"
-    22   "LOC" "<https://schema.org/location>"
-    23   "GPE" "<https://schema.org/location>"
-    24   "NORP" "<https://schema.org/nationality>"
-    25   "PRODUCT" "<https://schema.org/Product>"
-    26   "PERSON" "<https://schema.org/Person>"})
+### RDFでリテラル値を使用する際の問題点
 
+前節のHyスクリプトを使って、input testディレクトリのテキストファイルに対して生成されたRDFの一部を見てみましょう（ほとんどの出力は表示されていません）。各トリプルにおいて、最初の項目であるサブジェクトはデータソースのURI、各ステートメントの2番目の項目は関係（またはプロパティ）を表すURI、3番目の項目はリテラルな文字列値である。
 
-In lines 28-39 we open an output file for writing generated RDF data and loop through all text files in the input directory and call the function **process-file** for each text + meta file pair in the input directory:
-
-
-    28 (defn process-directory [directory-name output-rdf]
-    29   (with [frdf (open output-rdf "w")]
-    30     (with [entries (scandir directory-name)]
-    31       (for [entry entries]
-    32         (setv [_ file-extension] (splitext entry.name))
-    33         (if (= file-extension ".txt")
-    34             (do
-    35               (setv check-file-name (+ (cut entry.path 0 -4) ".meta"))
-    36               (if (exists check-file-name)
-    37                   (process-file entry.path check-file-name frdf)
-    38                   (print "Warning: no .meta file for" entry.path
-    39                          "in directory" directory-name))))))))
-
-
-
-    40 (defn process-file [txt-path meta-path frdf]
-    41   
-    42   (defn read-data [text-path meta-path]
-    43     (with [f (open text-path)] (setv t1 (.read f)))
-    44     (with [f (open meta-path)] (setv t2 (.read f)))
-    45     [t1 t2])
-    46   
-    47   (defn modify-entity-names [ename]
-    48     (.replace ename "the " ""))
-    49   
-    50   (setv [txt meta] (read-data txt-path meta-path))
-    51   (setv entities (find-entities-in-text txt))
-    52   (setv entities ;; only operate on a few entity types
-    53         (lfor [e t] entities
-    54               :if (in t ["NORP" "ORG" "PRODUCT" "GPE" "PERSON" "LOC"])
-    55               [(modify-entity-names e) t]))
-    56   (data2Rdf meta entities frdf))
-    57 
-    58 (process-directory "test_data" "output.rdf")
-
-
-We will look at generated output, problems with it, and how to fix these problems in the next section.
-
-### Problems with using Literal Values in RDF
-
-Using the Hy script in the last section, let's look at some of the generated RDF for the text files in the input test directory (most output is not shown). In each triple the first item, the subject, is the URI of the data source, the second item in each statement is a URI representing a relationship (or property), and the third item is a literal string value:
-
-
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/nationality>    "Portuguese" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "Banco Espirito Santo SA" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Person>       "John Evans" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "Banco Espirito" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "The Wall Street Journal" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "IBM" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/location>   "Canada" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "Australian Broadcasting Corporation" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Person> "Frank Smith" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "Australian Writers Guild" .
-    <https://newsshop.com/may/a1023.html>
-      <https://schema.org/Organization>   "American University" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/Organization>   "The Wall Street Journal" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/location>   "Mexico" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/location>   "Canada" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/Person> "Bill Clinton" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/Organization>   "IBM" .
-    <https://localnews.com/june/z902.html>
-      <https://schema.org/Organization>   "Microsoft" .
-    <https://abcnews.go.com/US/violent-long-lasting-tornadoes-threaten-oklahoma-texas/st\
-    ory?id=63146361>
-      <https://schema.org/Person> "Jane Deerborn" .
-    <https://abcnews.go.com/US/violent-long-lasting-tornadoes-threaten-oklahoma-texas/st\
-    ory?id=63146361>
-      <https://schema.org/location>   "Texas" .
-
+```
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/nationality>    "Portuguese" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "Banco Espirito Santo SA" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Person>       "John Evans" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "Banco Espirito" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "The Wall Street Journal" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "IBM" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/location>   "Canada" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "Australian Broadcasting Corporation" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Person> "Frank Smith" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "Australian Writers Guild" .
+<https://newsshop.com/may/a1023.html>
+  <https://schema.org/Organization>   "American University" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/Organization>   "The Wall Street Journal" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/location>   "Mexico" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/location>   "Canada" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/Person> "Bill Clinton" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/Organization>   "IBM" .
+<https://localnews.com/june/z902.html>
+  <https://schema.org/Organization>   "Microsoft" .
+<https://abcnews.go.com/US/violent-long-lasting-\
+tornadoes-threaten-oklahoma-texas/story?id=63146361>
+  <https://schema.org/Person> "Jane Deerborn" .
+<https://abcnews.go.com/US/violent-long-lasting-\
+tornadoes-threaten-oklahoma-texas/story?id=63146361>
+  <https://schema.org/location>   "Texas" .
+```
 
 Let's visualize the results in a bash shell:
 
