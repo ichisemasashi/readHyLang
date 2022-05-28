@@ -5,117 +5,75 @@
 ![Image](../images/000149.jpg)
 
 
-One more topic you'll need to understand before you can begin writing
-programs in earnest is the list data type and its cousin, the tuple.
-Lists and tuples can contain multiple values, which makes writing
-programs that handle large amounts of data easier. And since lists
-themselves can contain other lists, you can use them to arrange data
-into hierarchical structures.
+One more topic you'll need to understand before you can begin writing programs in earnest is the list data type and its cousin, the tuple.  Lists and tuples can contain multiple values, which makes writing programs that handle large amounts of data easier. And since lists themselves can contain other lists, you can use them to arrange data into hierarchical structures.
 
-In this chapter, I'll discuss the basics of lists. I'll also teach you
-about methods, which are functions that are tied to values of a certain
-data type. Then I'll briefly cover the sequence data types (lists,
-tuples, and strings) and show how they compare with each other. In the
-next chapter, I'll introduce you to the dictionary data type.
+In this chapter, I'll discuss the basics of lists. I'll also teach you about methods, which are functions that are tied to values of a certain data type. Then I'll briefly cover the sequence data types (lists, tuples, and strings) and show how they compare with each other. In the next chapter, I'll introduce you to the dictionary data type.
 
 ### **The List Data Type** !
 
-A *list* is a value that contains multiple values in an ordered
-sequence. The term *list value* refers to the list itself (which is a
-value that can be stored in a variable or passed to a function like any
-other value), not the values inside the list value. A list value looks
-like this: [['cat', 'bat', 'rat', 'elephant']]. Just
-as string values are typed with quote characters to mark where the
-string begins and ends, a list begins with an opening square bracket and
-ends with a closing square bracket, [[]]. Values inside the
-list are also called *items*. Items are separated with commas (that is,
-they are *comma-delimited*). For example, enter the following into the
-interactive shell:
+A *list* is a value that contains multiple values in an ordered sequence. The term *list value* refers to the list itself (which is a value that can be stored in a variable or passed to a function like any other value), not the values inside the list value. A list value looks like this: [['cat', 'bat', 'rat', 'elephant']]. Just as string values are typed with quote characters to mark where the string begins and ends, a list begins with an opening square bracket and ends with a closing square bracket, [[]]. Values inside the list are also called *items*. Items are separated with commas (that is, they are *comma-delimited*). For example, enter the following into the interactive shell:
 
+```
    >>> [[1, 2, 3]]
    [1, 2, 3]
    >>> [['cat', 'bat', 'rat', 'elephant']]
    ['cat', 'bat', 'rat', 'elephant']
    >>> [['hello', 3.1415, True, None, 42]]
    ['hello', 3.1415, True, None, 42]
-[➊] >>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+[➊] >>> [spam = ['cat', 'bat', 'rat', 'elephant']]
    >>> [spam]
    ['cat', 'bat', 'rat', 'elephant']
+```
 
-The [spam] variable [➊] is still assigned only one
-value: the list value. But the list value itself contains other values.
-The value [[]] is an empty list that contains no values,
-similar to [''], the empty string.
+The [spam] variable [➊] is still assigned only one value: the list value. But the list value itself contains other values.  The value [[]] is an empty list that contains no values, similar to [''], the empty string.
 
 #### ***Getting Individual Values in a List with Indexes*** !
 
-Say you have the list [['cat', 'bat', 'rat',
-'elephant']] stored in a variable named [spam].
-The Python code [spam[0]] would evaluate to
-['cat'], and [spam[1]] would evaluate to
-['bat'], and so on. The integer inside the square brackets
-that follows the list is called an *index*. The first value in the list
-is at index [0], the second value is at index [1],
-the third value is at index [2], and so on. [Figure
-4-1](#calibre_link-708) shows a list value assigned to
-[spam], along with what the index expressions would evaluate
-to. Note that because the first index is [0], the last index
-is one less than the size of the list; a list of four items has
-[3] as its last index.
+Say you have the list [['cat', 'bat', 'rat', 'elephant']] stored in a variable named [spam].  The Python code [spam[0]] would evaluate to ['cat'], and [spam[1]] would evaluate to ['bat'], and so on. The integer inside the square brackets that follows the list is called an *index*. The first value in the list is at index [0], the second value is at index [1], the third value is at index [2], and so on. [Figure 4-1](#calibre_link-708) shows a list value assigned to [spam], along with what the index expressions would evaluate to. Note that because the first index is [0], the last index is one less than the size of the list; a list of four items has [3] as its last index.
 
 
 [image](../images/000090.jpg)
 
 
-*Figure 4-1: A list value stored in the variable [spam],
-showing which value each index refers to*
+*Figure 4-1: A list value stored in the variable [spam], showing which value each index refers to*
 
-For example, enter the following expressions into the interactive shell.
-Start by assigning a list to the variable [spam].
+For example, enter the following expressions into the interactive shell.  Start by assigning a list to the variable [spam].
 
-   >>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+   >>> [spam = ['cat', 'bat', 'rat', 'elephant']]
    >>> [spam[0]]
    'cat'
- []{#calibre_link-1008 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}  >>> [spam[1]]
+   >>> [spam[1]]
    'bat'
    >>> [spam[2]]
    'rat'
    >>> [spam[3]]
    'elephant'
-   >>> [['cat', 'bat', 'rat',
-'elephant'][3]]
+   >>> [['cat', 'bat', 'rat', 'elephant'][3]]
    'elephant'
 [➊] >>> ['Hello, ' + spam[0]]
 [➋] 'Hello, cat'
-   >>> ['The ' + spam[1] + ' ate the ' + spam[0] +
-'.']
+   >>> ['The ' + spam[1] + ' ate the ' + spam[0] + '.']
    'The bat ate the cat.'
+```
 
-Notice that the expression ['Hello, ' + spam[0]] [➊]
-evaluates to ['Hello, ' + 'cat'] because
-[spam[0]] evaluates to the string ['cat']. This
-expression in turn evaluates to the string value ['Hello,
-cat'] [➋].
+Notice that the expression ['Hello, ' + spam[0]] [➊] evaluates to ['Hello, ' + 'cat'] because [spam[0]] evaluates to the string ['cat']. This expression in turn evaluates to the string value ['Hello, cat'] [➋].
 
-Python will give you an [IndexError] error message if you use
-an index that exceeds the number of values in your list value.
+Python will give you an [IndexError] error message if you use an index that exceeds the number of values in your list value.
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[10000]]
 Traceback (most recent call last):
   File "<pyshell#9>", line 1, in <module>
     spam[10000]
 IndexError: list index out of range
+```
 
-Indexes can be only integer values, not floats. The following example
-will cause a [TypeError] error:
+Indexes can be only integer values, not floats. The following example will cause a [TypeError] error:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[1]]
 'bat'
 >>> [spam[1.0]]
@@ -126,60 +84,43 @@ TypeError: list indices must be integers or slices, not float
 >>> [spam[int(1.0)]]
 'bat'
 
-Lists can also contain other list values. The values in these lists of
-lists can be accessed using multiple indexes, like so:
+Lists can also contain other list values. The values in these lists of lists can be accessed using multiple indexes, like so:
 
->>> [spam = [['cat', 'bat'], [10, 20, 30, 40,
-50]]]
+```
+>>> [spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]]
 >>> [spam[0]]
 ['cat', 'bat']
 >>> [spam[0][1]]
 'bat'
 >>> [spam[1][4]]
 50
+```
 
-[]{#calibre_link-754 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}The first index dictates which list value to use,
-and the second indicates the value within the list value. For example,
-[spam[0][1]] prints ['bat'], the second value
-in the first list. If you only use one index, the program will print the
-full list value at that index.
+The first index dictates which list value to use, and the second indicates the value within the list value. For example, [spam[0][1]] prints ['bat'], the second value in the first list. If you only use one index, the program will print the full list value at that index.
 
 #### ***Negative Indexes*** !
 
-While indexes start at [0] and go up, you can also use
-negative integers for the index. The integer value [-1] refers
-to the last index in a list, the value [-2] refers to the
-second-to-last index in a list, and so on. Enter the following into the
-interactive shell:
+While indexes start at [0] and go up, you can also use negative integers for the index. The integer value [-1] refers to the last index in a list, the value [-2] refers to the second-to-last index in a list, and so on. Enter the following into the interactive shell:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[-1]]
 'elephant'
 >>> [spam[-3]]
 'bat'
->>> ['The ' + spam[-1] + ' is afraid of the ' + spam[-3] +
-'.']
+>>> ['The ' + spam[-1] + ' is afraid of the ' + spam[-3] + '.']
 'The elephant is afraid of the bat.'
 
 #### ***Getting a List from Another List with Slices*** !
 
-Just as an index can get a single value from a list, a *slice* can get
-several values from a list, in the form of a new list. A slice is typed
-between square brackets, like an index, but it has two integers
-separated by a colon. Notice the difference between indexes and slices.
+Just as an index can get a single value from a list, a *slice* can get several values from a list, in the form of a new list. A slice is typed between square brackets, like an index, but it has two integers separated by a colon. Notice the difference between indexes and slices.
 
 -   [spam[2]] is a list with an index (one integer).
 -   [spam[1:4]] is a list with a slice (two integers).
 
-In a slice, the first integer is the index where the slice starts. The
-second integer is the index where the slice ends. A slice goes up to,
-but will not include, the value at the second index. A slice evaluates
-to a new list value. Enter the following into the interactive shell:
+In a slice, the first integer is the index where the slice starts. The second integer is the index where the slice ends. A slice goes up to, but will not include, the value at the second index. A slice evaluates to a new list value. Enter the following into the interactive shell:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[0:4]]
 ['cat', 'bat', 'rat', 'elephant']
 >>> [spam[1:3]]
@@ -187,46 +128,34 @@ to a new list value. Enter the following into the interactive shell:
 >>> [spam[0:-1]]
 ['cat', 'bat', 'rat']
 
-As a shortcut, you can leave out one or both of the indexes on either
-side of the colon in the slice. Leaving out the first index is the same
-as using [0], or the beginning of the list. Leaving out the
-second index is the same as using the length of the list, which will
-slice to the end of the list. Enter the following into the interactive
-shell:
+As a shortcut, you can leave out one or both of the indexes on either side of the colon in the slice. Leaving out the first index is the same as using [0], or the beginning of the list. Leaving out the second index is the same as using the length of the list, which will slice to the end of the list. Enter the following into the interactive shell:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[:2]]
-[]{#calibre_link-769 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}['cat', 'bat']
+['cat', 'bat']
 >>> [spam[1:]]
 ['bat', 'rat', 'elephant']
 >>> [spam[:]]
 ['cat', 'bat', 'rat', 'elephant']
+```
 
 #### ***Getting a List's Length with the len() Function*** !
 
-The [len()] function will return the number of values that are
-in a list value passed to it, just like it can count the number of
-characters in a string value. Enter the following into the interactive
-shell:
+The [len()] function will return the number of values that are in a list value passed to it, just like it can count the number of characters in a string value. Enter the following into the interactive shell:
 
+```
 >>> [spam = ['cat', 'dog', 'moose']]
 >>> [len(spam)]
 3
+```
 
 #### ***Changing Values in a List with Indexes*** !
 
-Normally, a variable name goes on the left side of an assignment
-statement, like [spam = 42]. However, you can also use an
-index of a list to change the value at that index. For example,
-[spam[1] = 'aardvark'] means "Assign the value at index
-[1] in the list [spam] to the string
-['aardvark']." Enter the following into the interactive
-shell:
+Normally, a variable name goes on the left side of an assignment statement, like [spam = 42]. However, you can also use an index of a list to change the value at that index. For example, [spam[1] = 'aardvark'] means "Assign the value at index [1] in the list [spam] to the string ['aardvark']." Enter the following into the interactive shell:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [spam[1] = 'aardvark']
 >>> [spam]
 ['cat', 'aardvark', 'rat', 'elephant']
@@ -236,67 +165,54 @@ shell:
 >>> [spam[-1] = 12345]
 >>> [spam]
 ['cat', 'aardvark', 'aardvark', 12345]
+```
 
 #### ***List Concatenation and List Replication*** !
 
-Lists can be concatenated and replicated just like strings. The
-[+] operator combines two lists to create a new list value and
-the [\*] operator can be used with a list and an integer value
-to replicate the list. Enter the following into the interactive shell:
+Lists can be concatenated and replicated just like strings. The [+] operator combines two lists to create a new list value and the [\*] operator can be used with a list and an integer value to replicate the list. Enter the following into the interactive shell:
 
+```
 >>> [[1, 2, 3] + ['A', 'B', 'C']]
 [1, 2, 3, 'A', 'B', 'C']
->>> [['X', 'Y', 'Z'] \* 3]
+>>> [['X', 'Y', 'Z'] * 3]
 ['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z']
 >>> [spam = [1, 2, 3]]
 >>> [spam = spam + ['A', 'B', 'C']]
 >>> [spam]
 [1, 2, 3, 'A', 'B', 'C']
+```
 
 #### ***Removing Values from Lists with del Statements*** !
 
-The [del] statement will delete values at an index in a list.
-All of the values in the list after the deleted value will be moved up
-one index. For example, enter the following into the interactive shell:
+The [del] statement will delete values at an index in a list.  All of the values in the list after the deleted value will be moved up one index. For example, enter the following into the interactive shell:
 
->>> [spam = ['cat', 'bat', 'rat',
-'elephant']]
+```
+>>> [spam = ['cat', 'bat', 'rat', 'elephant']]
 >>> [del spam[2]]
 >>> [spam]
 ['cat', 'bat', 'elephant']
 >>> [del spam[2]]
 >>> [spam]
 ['cat', 'bat']
-
-The [del] statement can also be used on a simple variable to
-delete it, as if it were an "unassignment" statement. If you try to use
-the variable after deleting it, you will get a [NameError]
-error because the variable no longer exists. In practice, you almost
-never need to delete simple variables. The [del] statement is
-mostly used to delete values from lists.
+```
+The [del] statement can also be used on a simple variable to delete it, as if it were an "unassignment" statement. If you try to use the variable after deleting it, you will get a [NameError] error because the variable no longer exists. In practice, you almost never need to delete simple variables. The [del] statement is mostly used to delete values from lists.
 
 ### **Working with Lists** !
 
-When you first begin writing programs, it's tempting to create many
-individual variables to store a group of similar values. For example, if
-I wanted to store the names of my cats, I might be tempted to write code
-like this:
+When you first begin writing programs, it's tempting to create many individual variables to store a group of similar values. For example, if I wanted to store the names of my cats, I might be tempted to write code like this:
 
+```
 catName1 = 'Zophie'
 catName2 = 'Pooka'
 catName3 = 'Simon'
 catName4 = 'Lady Macbeth'
 catName5 = 'Fat-tail'
 catName6 = 'Miss Cleo'
+```
 
-It turns out that this is a bad way to write code. (Also, I don't
-actually own this many cats, I swear.) For one thing, if the number of
-cats changes, your program will never be able to store more cats than
-you have variables. These types of programs also have a lot of duplicate
-or nearly identical code in them. Consider how much duplicate code is in
-the following program, which you should enter into the file editor and
-save as *allMyCats1.py*:
+It turns out that this is a bad way to write code. (Also, I don't actually own this many cats, I swear.) For one thing, if the number of cats changes, your program will never be able to store more cats than you have variables. These types of programs also have a lot of duplicate or nearly identical code in them. Consider how much duplicate code is in the following program, which you should enter into the file editor and save as *allMyCats1.py*:
 
+```
 print('Enter the name of cat 1:')
 catName1 = input()
 print('Enter the name of cat 2:')
@@ -308,20 +224,16 @@ catName4 = input()
 print('Enter the name of cat 5:')
 catName5 = input()
 print('Enter the name of cat 6:')
-[]{#calibre_link-1732 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}catName6 = input()
+catName6 = input()
 print('The cat names are:')
 print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' +
 catName4 + ' ' +
 catName5 + ' ' + catName6)
+```
 
-Instead of using multiple, repetitive variables, you can use a single
-variable that contains a list value. For example, here's a new and
-improved version of the *allMyCats1.py* program. This new version uses a
-single list and can store any number of cats that the user types in. In
-a new file editor window, enter the following source code and save it as
-*allMyCats2.py*:
+Instead of using multiple, repetitive variables, you can use a single variable that contains a list value. For example, here's a new and improved version of the *allMyCats1.py* program. This new version uses a single list and can store any number of cats that the user types in. In a new file editor window, enter the following source code and save it as *allMyCats2.py*:
 
+```
 catNames = []
 while True:
     print('Enter the name of cat ' + str(len(catNames) + 1) +
@@ -333,9 +245,11 @@ while True:
 print('The cat names are:')
 for name in catNames:
     print('  ' + name)
+```
 
 When you run this program, the output will look something like this:
 
+```
 Enter the name of cat 1 (Or enter nothing to stop.):
 [Zophie]
 Enter the name of cat 2 (Or enter nothing to stop.):
@@ -357,96 +271,71 @@ The cat names are:
   Lady Macbeth
   Fat-tail
   Miss Cleo
+```
 
-You can view the execution of these programs at
-*[https://autbor.com/allmycats1/](https://autbor.com/allmycats1/)*
-and
-*[https://autbor.com/allmycats2/](https://autbor.com/allmycats2/)*.
-The benefit of using a list is that your data is now in a structure, so
-your program is much more flexible in processing the data than it would
-be with several repetitive variables.
+You can view the execution of these programs at *[https://autbor.com/allmycats1/](https://autbor.com/allmycats1/)* and *[https://autbor.com/allmycats2/](https://autbor.com/allmycats2/)*.  The benefit of using a list is that your data is now in a structure, so your program is much more flexible in processing the data than it would be with several repetitive variables.
 
 #### ***Using for Loops with Lists*** !
 
-In [Chapter 2](#calibre_link-106), you learned about using
-[for] loops to execute a block of code a certain number of
-times. Technically, a [for] loop repeats the code block once
-for each item in a list value. For example, if you ran this code:
+In [Chapter 2](#calibre_link-106), you learned about using [for] loops to execute a block of code a certain number of times. Technically, a [for] loop repeats the code block once for each item in a list value. For example, if you ran this code:
 
+```
 for i in range(4):
     print(i)
+```
 
 the output of this program would be as follows:
 
+```
 0
 1
 2
 3
+```
 
-This is because the return value from [range(4)] is a sequence
-value that Python considers similar to [[0, 1, 2, 3]].
-(Sequences are described in "[Sequence Data
-Types](#calibre_link-175)" on [page
-93](#calibre_link-709).) The following program has the same
-output as the previous one:
+This is because the return value from [range(4)] is a sequence value that Python considers similar to [[0, 1, 2, 3]].  (Sequences are described in "[Sequence Data Types](#calibre_link-175)" on [page 93](#calibre_link-709).) The following program has the same output as the previous one:
 
+```
 for i in [0, 1, 2, 3]:
     print(i)
+```
 
-The previous [for] loop actually loops through its clause with
-the variable [i] set to a successive value in the [[0, 1, 2,
-3]] list in each iteration.
+The previous [for] loop actually loops through its clause with the variable [i] set to a successive value in the [[0, 1, 2, 3]] list in each iteration.
 
-A common Python technique is to use
-[range(len(][someList][))] with a
-[for] loop to iterate over the indexes of a list. For example,
-enter the following into the interactive shell:
+A common Python technique is to use [range(len(][someList][))] with a [for] loop to iterate over the indexes of a list. For example, enter the following into the interactive shell:
 
->>> [supplies = ['pens', 'staplers', 'flamethrowers',
-'binders']]
+```
+>>> [supplies = ['pens', 'staplers', 'flamethrowers', 'binders']]
 >>> [for i in range(len(supplies)):]
-\...     [print('Index ' + str(i) + ' in supplies is: ' +
-supplies[i])]
+...     [print('Index ' + str(i) + ' in supplies is: ' + supplies[i])]
 
 Index 0 in supplies is: pens
 Index 1 in supplies is: staplers
 Index 2 in supplies is: flamethrowers
 Index 3 in supplies is: binders
+```
 
-Using [range(len(supplies))] in the previously shown
-[for] loop is handy because the code in the loop can access
-the index (as the variable [i]) and the value at that index
-(as [supplies[i]]). Best of all,
-[range(len(supplies))] will iterate through all the indexes of
-[supplies], no matter how many items it contains.
+Using [range(len(supplies))] in the previously shown [for] loop is handy because the code in the loop can access the index (as the variable [i]) and the value at that index (as [supplies[i]]). Best of all, [range(len(supplies))] will iterate through all the indexes of [supplies], no matter how many items it contains.
 
 #### ***The in and not in Operators*** !
 
-You can determine whether a value is or isn't in a list with the
-[in] and [not in] operators. Like other operators,
-[in] and [not in] are used in expressions and
-connect two values: a value to look for in a list and the list where it
-may be []{#calibre_link-820 {http:="" www.idpf.org="" 2007=""
-ops}type="pagebreak"}found. These expressions will evaluate to a Boolean
-value. Enter the following into the interactive shell:
+You can determine whether a value is or isn't in a list with the [in] and [not in] operators. Like other operators, [in] and [not in] are used in expressions and connect two values: a value to look for in a list and the list where it may be found. These expressions will evaluate to a Boolean value. Enter the following into the interactive shell:
 
->>> ['howdy' in ['hello', 'hi', 'howdy',
-'heyas']]
+```
+>>> ['howdy' in ['hello', 'hi', 'howdy', 'heyas']]
 True
->>> [spam = ['hello', 'hi', 'howdy',
-'heyas']]
+>>> [spam = ['hello', 'hi', 'howdy', 'heyas']]
 >>> ['cat' in spam]
 False
 >>> ['howdy' not in spam]
 False
 >>> ['cat' not in spam]
 True
+```
 
-For example, the following program lets the user type in a pet name and
-then checks to see whether the name is in a list of pets. Open a new
-file editor window, enter the following code, and save it as
-*myPets.py*:
+For example, the following program lets the user type in a pet name and then checks to see whether the name is in a list of pets. Open a new file editor window, enter the following code, and save it as *myPets.py*:
 
+```
 myPets = ['Zophie', 'Pooka', 'Fat-tail']
 print('Enter a pet name:')
 name = input()
@@ -454,6 +343,7 @@ if name not in myPets:
     print('I do not have a pet named ' + name)
 else:
     print(name + ' is my pet.')
+```
 
 The output may look something like this:
 
